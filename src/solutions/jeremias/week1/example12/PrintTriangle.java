@@ -50,20 +50,5 @@ Methode 4:
  */
 
 public class PrintTriangle {
-    public static void main(String[] args) {
-        printTriangleBottomRight('x', 5);
-    }
-    
-    private static void printTriangleBottomRight(char inputChar, int length) {
-        for (int i = 0; i < length + 1; i++) {
-            for (int j = 0; j < length - i; j++) {
-                System.out.print(" ");
-            }
-            for (int y = 0; y < i; y++) {
-                System.out.print(inputChar);
-            }
-            System.out.println();
-        }
-    }
     
 }
