@@ -1,0 +1,14 @@
+public class BiggerSmaller {
+    public static void main(String[] args) {
+        int zahl1 = 11;
+        if (zahl1 > 10) {
+            System.out.println("größer");
+        } else if (zahl1 < 10) {
+            System.out.println("kleiner");
+        } else {
+            System.out.println("gleich");
+        }
+
+            }
+
+        }
