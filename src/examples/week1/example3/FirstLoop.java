@@ -5,5 +5,12 @@ Schreiben Sie ein Programm, das die ersten 10 natürlichen Zahlen ausgibt, begin
 
 */
 public class FirstLoop {
+    public static void main(String[] args) {
 
+
+        boolean b = true, c = false;
+        int a = 10;
+        System.out.println(a++);
+        System.out.println(!b == c);
+    }
 }
