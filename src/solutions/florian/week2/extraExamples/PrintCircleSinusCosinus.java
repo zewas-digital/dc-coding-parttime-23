@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/solutions/florian/week2/extraExamples/PrintCircleSinusCosinus.java
 package solutions.florian.week2.extraExamples;
+========
+package solutions.matthias.week2.extraExamples;
+>>>>>>>> 3d1eb63b68f850f3a944ecbdcf79f465010b89eb:src/solutions/matthias/week2/extraExamples/PrintCircleSinusCosinus.java
 
 /*
 Erstelle eine Methode welche einen Kreis von variabler Größe ausgibt. Der Radius des Kreises soll als Parameter
