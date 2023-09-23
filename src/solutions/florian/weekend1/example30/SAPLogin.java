@@ -12,7 +12,11 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
 "Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!" ausgegeben werden.
  */
 
+<<<<<<<< HEAD:src/solutions/florian/weekend1/example30/SAPLogin.java
 package solutions.florian.weekend1.example30;
+========
+package solutions.matthias.week2.weekend1.example30;
+>>>>>>>> 3d1eb63b68f850f3a944ecbdcf79f465010b89eb:src/solutions/matthias/week2/weekend1/example30/SAPLogin.java
 
 public class SAPLogin {
     public static void main(String[] args) {

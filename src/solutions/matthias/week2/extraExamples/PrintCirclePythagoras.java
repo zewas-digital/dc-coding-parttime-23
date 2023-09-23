@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:src/solutions/florian/week2/extraExamples/PrintCirclePythagoras.java
-package solutions.florian.week2.extraExamples;
-========
 package solutions.matthias.week2.extraExamples;
->>>>>>>> 3d1eb63b68f850f3a944ecbdcf79f465010b89eb:src/solutions/matthias/week2/extraExamples/PrintCirclePythagoras.java
 
 /*
 Erstelle eine Methode welche einen ausgefüllten Kreis von variabler Größe ausgibt.

@@ -14,7 +14,11 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
  */
 
+<<<<<<<< HEAD:src/solutions/florian/weekend1/example31/ZVR.java
 package solutions.florian.weekend1.example31;
+========
+package solutions.matthias.week2.weekend1.example31;
+>>>>>>>> 3d1eb63b68f850f3a944ecbdcf79f465010b89eb:src/solutions/matthias/week2/weekend1/example31/ZVR.java
 
 public class ZVR {
     public static void main(String[] args) {
