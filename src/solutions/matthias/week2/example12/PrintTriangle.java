@@ -68,9 +68,9 @@ public class PrintTriangle {
 
     }
     public static void main(String[] args) {
-        //printTriangleBottomLeft('x', 4);
-        //printTriangleTopLeft('x', 5);
+        printTriangleBottomLeft('x', 4);
+        printTriangleTopLeft('x', 5);
         printTriangleTopRight('x', 5);
-        //printTriangleBottomRight('x', 5);
+        printTriangleBottomRight('x', 5);
     }
 }

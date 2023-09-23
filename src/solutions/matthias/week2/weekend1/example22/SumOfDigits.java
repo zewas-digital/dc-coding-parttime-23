@@ -4,8 +4,38 @@ Dieses Programm soll die Ziffernsumme für jede Zahl innerhalb bestimmten Interv
 
 package solutions.matthias.week2.weekend1.example22;
 
-public class SumOfDigits {
-    public static void main(String[] args) {
 
+
+
+public class SumOfDigits {
+
+    static void SumofDigits ( int zahl1){
+
+        int summe = 0;
+
+        for (int i = 0; i < zahl1 +1 ; i++) {
+            //
+            int idigit = zahl1  % 10;
+                    ;
+            //
+            summe = summe + idigit;
+
+            //
+            zahl1=zahl1/10;
+
+        }
+        System.out.println("Summe der Digits: "+ summe);
+    }
+    public static void main(String[] args) {
+        //definieren Variabeln
+
+        int zahl1 = 12;
+        int zahl2 = 15;
+        int zahl3 = 85;
+
+        //Programm Start
+        SumofDigits(zahl1);
+        SumofDigits(zahl2);
+        SumofDigits(zahl3);
     }
 }

@@ -50,11 +50,20 @@ public class ArithmeticOperators {
         }
 
         // Vergleichsoperatoren
-        System.out.println("Vergleich =  == " + (zahl1 == zahl2) );
-        System.out.println("Vergleich = " + (zahl1 != zahl2) );
-        System.out.println("Vergleich = " + (zahl1 > zahl2) );
-        System.out.println(zahl1 == zahl2 );
-        System.out.println(zahl1 == zahl2 );
+        System.out.println("Zahl 1: " +zahl1);
+        System.out.println("Zahl 2: " + zahl2);
+        System.out.println("Vergleich =  == " +     (zahl1 == zahl2) );
+        System.out.println("Vergleich =  != " +     (zahl1 != zahl2) );
+        System.out.println("Vergleich =  >  "  +    (zahl1 > zahl2) );
+        System.out.println("Vergleich =  <  "  +    (zahl1 < zahl2) );
+        System.out.println("Vergleich =  >=  "  +   (zahl1 >= zahl2));
+        System.out.println("Vergleich =  <=  "  +   (zahl1 <= zahl2));
+
+        //Boolsche Operatoren
+        System.out.println("Zahl 1: " +zahl1);
+        System.out.println("Zahl 2: " + zahl2);
+        System.out.println("Vergleich =  ! " +     (zahl1 == zahl2) );
+        System.out.println("Vergleich =  != " +     (zahl1 != zahl2) );
 
     }
 }
