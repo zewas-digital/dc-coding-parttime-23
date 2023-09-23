@@ -14,12 +14,14 @@ public class PrimeNumbers {
         int counter1=15;
 
         while (counter > counter1) {
-            for (int j = 2; j < wert2 ; j++) {
-                if (wert1 % j == 0) {wert1 = wert1 + 1;}
+            for (int j = 2; j < wert2; j++) {
+                if (wert1 % j == 0) {
+                    wert1 = wert1 + 1;
+                }
 
                 counter++;
             }
             System.out.println(wert1);
-
+        }
     }
 }
