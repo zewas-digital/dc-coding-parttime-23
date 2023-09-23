@@ -14,12 +14,7 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 **************************
 
  */
-
-<<<<<<<< HEAD:src/solutions/florian/weekend1/example29/Order.java
 package solutions.florian.weekend1.example29;
-========
-package solutions.matthias.week2.weekend1.example29;
->>>>>>>> 3d1eb63b68f850f3a944ecbdcf79f465010b89eb:src/solutions/matthias/week2/weekend1/example29/Order.java
 
 public class Order {
     public static void main(String[] args) {
