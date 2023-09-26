@@ -21,7 +21,7 @@ x     x
 
 public class PrintRhombus {
     public static void main(String[] args) {
-        dreieck('x', 99);
+        dreieck('x', 7);
     }
 
     static void dreieck( char buchstabe, int größe ) {
@@ -35,11 +35,11 @@ public class PrintRhombus {
             System.out.print("-");
         }
         System.out.println();
-
+//__________________________________________________________________________
         int m =größe/2;
         int n =1;
         for (int i = 0; i < größe/2; i++) {
-//__________________________________________________________________________
+
             for (int j = 1; j < m ; j++) {
                 System.out.print("-");
             }
@@ -59,12 +59,12 @@ public class PrintRhombus {
             System.out.println();
             m--;
             n+=2;
-
         }
+//__________________________________________________________________________
         m =1;
         n =größe-4;
         for (int i = 1; i < größe/2; i++) {
-//__________________________________________________________________________
+
             for (int j = 0; j < m ; j++) {
                 System.out.print("-");
             }
@@ -96,5 +96,13 @@ public class PrintRhombus {
         }
         System.out.println();
     }
+   /* static void dreieck2( char buchstabe, int größe ){
 
+        for (int i = 0; i <größe; i++) {
+            for (int j = 0; j < 1; j++) {
+
+            }
+        }
+
+    }*/
 }
