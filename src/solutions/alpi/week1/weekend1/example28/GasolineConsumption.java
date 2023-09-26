@@ -22,6 +22,7 @@ public class GasolineConsumption {
         System.out.print("Benzinverbrauch in Litern: ");
         double verbrauchteLiter = Usersollangeben.nextDouble();
 
+
         // Datentyp double verbrauch 100km definieren und dann Liter geteilt durch gefahrene KM * 100
         double verbrauch100km = (verbrauchteLiter / gefahreneKilometer) * 100;
 
