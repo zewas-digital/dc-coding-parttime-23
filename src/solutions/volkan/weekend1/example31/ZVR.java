@@ -16,10 +16,42 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package solutions.volkan.weekend1.example31;
 
+import java.util.Scanner;
+
 public class ZVR {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        // Tipp zur Validierung von Vereinsname und -sitz
-        System.out.println("Beispiel".length());
+        System.out.println("1. ZVR-Zahl ");
+        System.out.println("2. Vereinsname ");
+        System.out.println("3. Vereinssitz ");
+        int abfrageArt = scanner.nextInt();
+
+        switch (abfrageArt) {
+            case 1:
+                // ZVR-Zahl abfragen
+                System.out.println("Geben Sie die ZVR-Zahl ein: ");
+                int zvrNummer = scanner.nextInt();
+                // ZVR-Zahl prüfen
+                if (zvrNummer < 100000000 || zvrNummer > 999999999) {
+                    System.out.println("Die ZVR-Nummer ist ungültig.");
+                    return;
+                }
+                // Abfrage durchführen
+                System.out.println("Der Verein mit der ZVR-Nummer " + zvrNummer + " wurde gefunden.");
+                break;
+            case 2:
+                // Vereinsnamen und Vereinssitz abfragen
+                System.out.println("Geben Sie den Vereinsnamen ein: ");
+                String vereinName = scanner.next();
+                System.out.println("Geben Sie den Vereinssitz ein: ");
+                String vereinSitz = scanner.next();
+                // Abfrage durchführen
+                System.out.println("Der Verein mit dem Namen " + vereinName + " und dem Sitz in " + vereinSitz + " wurde gefunden.");
+                break;
+            default:
+                System.out.println("Ungültige Abfrageart.");
+        }
+
     }
 }
