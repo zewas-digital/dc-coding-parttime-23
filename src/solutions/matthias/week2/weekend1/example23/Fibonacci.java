@@ -23,25 +23,28 @@ public class Fibonacci {
         System.out.println();// Abstand
     }
     static  void Fibonacci( int iAnzahlfolgeglieder){
-        int Rückgabewert=0;
+
         System.out.println("F(0) =" + "0");
-        System.out.println("F(0) =" + "1");
+        System.out.println("F(1) =" + "1");
         int counter = 2;
-        int Zahl1= 0;
-        int Zahl2 = 1;
-        while (iAnzahlfolgeglieder > counter) {
-            Rückgabewert = Zahl1 + Zahl2;
-            System.out.println(Rückgabewert);
+        int a1= 0;
+        int a2 = 1;
+        int Ergebnisa3=0;
+
+        while (iAnzahlfolgeglieder > counter-1) {
+            Ergebnisa3 = a2 + a1  ;
+            System.out.println("F("+ (counter -2) + ") =" + Ergebnisa3);
+            a1=a2;
+            a2=Ergebnisa3;
             counter++;
 
         }
+
     }
     public static void main(String[] args) {
-        int zahl1= -12;
-        int zahl2= 12;
+        int Eingabe= 12;
 
-        checkEingabe(zahl1);
-        checkEingabe(zahl2);
-
+        checkEingabe(Eingabe);
+        Fibonacci(Eingabe);
     }
 }
