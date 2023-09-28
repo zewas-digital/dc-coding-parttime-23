@@ -16,9 +16,83 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package solutions.matthias.week2.weekend1.example31;
 
+import jdk.jshell.Snippet;
+
+import java.util.Scanner;
+
 public class ZVR {
+
+    // Überprüft die ZVR und gibt eine Status zurück
+    static boolean statusZVR(int minZVRnumber, int maxZVRnumber){
+
+        //Variabeln der Methode
+
+        int intNumber=0;            // lokaler Speicher für ZVR Zahl des Benutzers
+        boolean statusZVR=false;     // Status als Rückgabeparameter für Fehler handling
+
+        //Aufruf von Scanner und Implimentierung von Klasse im Java Projekt
+        Scanner scanner = new Scanner(System.in);
+
+        //Benutzer Hinweis zur Eingabe
+        System.out.println("Tippen Sie das Clientnummer ein: ");
+
+        // Benutzer Abfrage und Speichern in eine Variable
+        intNumber = scanner.nextInt();
+
+        if (intNumber >= maxZVRnumber || intNumber < minZVRnumber) {
+            return statusZVR=true;
+        }
+        if (intNumber == -1) {
+           return statusZVR=false;
+        }
+    }
+
+    static boolean statusVerein(){
+        String Vereinsname;     // lokaler Speicher für Verreinsname des Benutzers
+        String Vereinssitz;     // lokaler Speicher für Vereinssitz des Benutzers
+
+        boolean statusZVR=false;     // Status als Rückgabeparameter für Fehler handling
+
+        //Aufruf von Scanner und Implimentierung von Klasse im Java Projekt
+        Scanner scanner = new Scanner(System.in);
+
+        //Benutzer Hinweis zur Eingabe
+        System.out.println("Geben Sie den Vereinsname ein ");
+
+        // Benutzer Abfrage und Speichern in eine Variable
+        Vereinsname = scanner.next();
+
+        if (intNumber >= maxZVRnumber || intNumber < minZVRnumber) {
+            statusZVR=true;
+        }
+        if (intNumber == -1) {
+            statusZVR=false;
+        }
+
+        return statusZVR;
+    }
+
     public static void main(String[] args) {
-        // Tipp zur Validierung von Vereinsname und -sitz
+        // Gültigkeitsbereich des Clientenbereich
+
+        int iMinClientnumber=100000000;
+        int iMaxClientnumber=999999999;
+        boolean bStatus=false;
+        while (bStatus){
+
+            if (statusZVR(iMinClientnumber, iMaxClientnumber)) {
+                bStatus=false;
+            }
+            if (bStatus == null) {
+
+            }
+
+
+        }
+
+
         System.out.println("Beispiel".length());
+
+
     }
 }
