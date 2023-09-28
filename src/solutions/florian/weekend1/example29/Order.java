@@ -3,7 +3,7 @@ Schreibe ein Programm, dass die Daten einer Bestellung von der Console einließt
 Die Daten sind:
 - Bezeichnung (String)  // Laptop
 - Menge (int)           // 5
-- Einzelreis (float)    // 2,1
+- Einzelpreis (float)    // 2,1
 - Artikelnummer (?)     // 12345678
 
 Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Einzelpreis * Menge.
@@ -18,6 +18,8 @@ package solutions.florian.weekend1.example29;
 
 public class Order {
     public static void main(String[] args) {
+
+
 
     }
 }

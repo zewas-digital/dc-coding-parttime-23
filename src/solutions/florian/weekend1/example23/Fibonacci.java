@@ -13,23 +13,18 @@ package solutions.florian.weekend1.example23;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        int ergebnis = fibonacci(10);
-        System.out.println(ergebnis);
-    }
+        int fn1 = 1, fn2 = 0;
 
-    static int fibonacci (int n){
-        int länge = 20;
-        int f = 0;
-        int f2 = 1;
-        int ergebnis = 0;
+        for (int n = 2; n < 10; n++) {
+            int fn = fn1 + fn2; //fn1: 1  fn2: 2
+            System.out.println(fn);
 
-        for (int i = 0; i < länge ; i++) {
-
-
+            fn2 = fn1;
+            fn1 = fn;
         }
 
-    return ergebnis;
     }
+
 
 
 }

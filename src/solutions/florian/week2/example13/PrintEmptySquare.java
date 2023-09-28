@@ -1,10 +1,33 @@
 package solutions.florian.week2.example13;
 
+/*Diese Methode soll mit zwei verschiedenen Aufrufen getestet werden.
+        Aufruf:
+        printEmptySquare('x', 10);
 
-/*
+        Ausgabe:
+        xxxxxxxxxx
+        x        x
+        x        x
+        x        x
+        x        x
+        x        x
+        x        x
+        x        x
+        x        x
+        xxxxxxxxxx
+
+        Aufruf:
+        printEmptySquare('A', 3);
+
+        Ausgabe:
+        AAA
+        A A
+        AAA
+*/
 
 
- */
+
+
 public class PrintEmptySquare {
     public static void main(String[] args) {
         printEmptySquare('x',10);
