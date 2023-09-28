@@ -3,23 +3,36 @@ In dieser Aufgabe erstellen wir eine Wahrheitstabelle für die logischen Operato
 Wir berechnen alle möglichen Kombinationen von Werten für A und B und zeigen das Ergebnis für jede Kombination in der Tabelle an.
  */
 
-
-
 package solutions.Simon.example20;
 
 public class Truthtable {
-
     public static void main(String[] args) {
-        //
-        System.out.println(true && true);
-        System.out.println(true && false);
-        System.out.println(false && true);
-        System.out.println(false && true);
 
-        System.out.println(false && false);       // False -- beide müssen true sein
-        System.out.println(false || false);      // False -- eines muss true sein
-        System.out.println(false == false);     // True -- beides gleich
-        System.out.println(8.6 == 8.6);        // True -- beide gleich
-        System.out.println("test" == "test"); // True -- beide gleich
+        System.out.println("Vergelich mit && hierbei muss der Wert genau gleich sein");
+        System.out.println(true && true); // true
+        System.out.println(true && false); //false
+        System.out.println(false && true); //false
+        System.out.println(false && false); //false
+
+        System.out.println("Vergleich mit || hierbei muss nur einer der Werte richtig sein");
+        System.out.println(true || true); //true
+        System.out.println(true || false); // true
+        System.out.println(false || true); // true
+
+        System.out.println("Vergleich  mit == hierbei muss der Wert der gleiche sein");
+        System.out.println(true == true); //true
+        System.out.println(true == false); // false
+        System.out.println(false == true); //false
+
+        System.out.println("Vergleich mit != hierbei wird geprüft ob der Wert ungleich dem anderen ist");
+        // " ! " dreht den wert bei true und false z.b. um sprich aus "!true" wird false
+        System.out.println(2 != 3); // ungleich / true
+        System.out.println(true != true); //gleich / true
+        System.out.println(true != false); // ungleich / false
+        System.out.println(false != true); //ungleich / false
+
+
     }
+
+
 }
