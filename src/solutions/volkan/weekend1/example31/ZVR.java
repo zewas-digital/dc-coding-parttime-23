@@ -14,8 +14,8 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
  */
 
-package solutions.alpi.week1.weekend1.example31;
-import java.util.Scanner;
+package solutions.volkan.weekend1.example31;
+
 public class ZVR {
     public static void main(String[] args) {
 
