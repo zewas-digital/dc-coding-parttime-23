@@ -10,12 +10,20 @@ public class LoopControl {
     public static void main(String[] args) {
         int anzahlschleifen = 0;
         int i = 1;
-
         while (i <= 100) {
             i++;
 
-            if (i % 2 == 0)
-            anzahlschleifen ++;
+            if (i % 2 == 0) {
+                System.out.println(i);
+                anzahlschleifen++;
+            } else if (i % 3 == 0) {
+                System.out.println(i);
+                anzahlschleifen++;
+            }
+            if (anzahlschleifen == 20){
+                break;
+            }
+
         }
     }
 }

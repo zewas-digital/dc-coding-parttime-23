@@ -12,5 +12,43 @@ package solutions.saifedine.weekend1.example23;
 public class Fibonacci {
     public static void main(String[] args) {
 
+        int nfibo = 7;
+        int f0 = 0;
+        int f1 = 1;
+        int ergebnis = 0;
+
+        for (int i = 2; i <= nfibo; i++) {
+
+            ergebnis = f0 + f1;
+            //System.out.println("ergebnis " + ergebnis);
+
+            f0 = f1;
+            //System.out.println("f0 " + f0);
+            f1 = ergebnis;
+            System.out.println("ergebnis " + f1);
+
+
+
+
+        }
+
+
     }
-}
+
+        }
+
+    /*
+        for (int i = 0; i < nfibo ; i++) {
+            System.out.println("zeilen: " + i);
+
+            zwsumme1 = bzahl1 + bzahl2;
+            System.out.println("zwsumme1: " + zwsumme1);
+
+            zwsumme2 = zwsumme1 + zwsumme2;
+            System.out.println("zwsumme2: " + zwsumme2);
+
+            }
+        }
+
+    }
+*/

@@ -16,9 +16,36 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package solutions.saifedine.weekend1.example31;
 
+import java.util.Scanner;
+
 public class ZVR {
     public static void main(String[] args) {
         // Tipp zur Validierung von Vereinsname und -sitz
-        System.out.println("Beispiel".length());
+
+        Scanner Eingabe = new Scanner(System.in);
+
+
+        System.out.println("Geben Sie die ZVR Nummer ein: ");
+        long longZVRNummer = Eingabe.nextLong();
+        System.out.println("Geben Sie den ersten Teil des Vereinsname ein - ohne Abstand: ");
+        String stringVereinsname = Eingabe.next();
+        System.out.println("Geben Sie den Vereinssitze ein: ");
+        String stringVereinssitz = Eingabe.next();
+
+        if (longZVRNummer >= 100000000 && longZVRNummer <= 999999999) {
+
+            System.out.println("Hier die Vereinsdaten: ");
+
+        } else if (longZVRNummer == -1) {
+            if (stringVereinsname.length() >= 3 && stringVereinssitz.length() >= 3) {
+
+                System.out.println("Abfrage erfolgreich!");
+
+            }
+        }
+
     }
+
+
+    //System.out.println("Beispiel".length());
 }
