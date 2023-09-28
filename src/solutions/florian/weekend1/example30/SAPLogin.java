@@ -14,8 +14,26 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
 
 package solutions.florian.weekend1.example30;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class SAPLogin {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Client: ");
+        int client = scanner.nextInt();
+        System.out.println("User: ");
+        String user = scanner.next();
+        System.out.println("Passwort eingeben: ");
+        int passwort = scanner.nextInt();
+
+
+        if (client > 0 && client < 999 && user.equals("Admin") && passwort ==1234 ) {
+
+                System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+        }
+
+
 
     }
 }
