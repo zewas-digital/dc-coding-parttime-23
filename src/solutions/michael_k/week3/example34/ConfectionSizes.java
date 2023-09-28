@@ -1,5 +1,7 @@
 package solutions.michael_k.week3.example34;
 
+import java.util.Scanner;
+
 /*
 Kleidergrößen
 
@@ -64,5 +66,98 @@ Bye bye
 public class ConfectionSizes {
     public static void main(String[] args) {
 
+        while (true) {
+            int size = 0;
+            char sex;
+
+            Scanner inputKonsole = new Scanner ( System.in );
+
+            System.out.print ("Geben sie das Geschlecht an (d/h):" );
+            sex = inputKonsole.next().charAt (0);
+            if (sex == 'h' || sex == 'd' ){
+
+                if (sex == 'h') {
+                    System.out.print ( "Geben sie die Größe an (44-70):" );
+                    size = inputKonsole.nextInt ( );
+
+                    if(size >=44 && size <=70 && size%2 == 0 ){
+                        switch (size) {
+                            case 44:
+                            case 46:
+                                System.out.println ( "S" );
+                                break;
+                            case 48:
+                            case 50:
+                                System.out.println ( "M" );
+                                break;
+                            case 52:
+                            case 54:
+                                System.out.println ( "L" );
+                                break;
+                            case 56:
+                            case 58:
+                                System.out.println ( "XL" );
+                                break;
+                            case 60:
+                            case 62:
+                                System.out.println ( "XXL" );
+                                break;
+                            case 64:
+                            case 66:
+                                System.out.println ( "3XL" );
+                                break;
+                            case 68:
+                            case 70:
+                                System.out.println ( "4XL" );
+                                break;
+                        }
+
+                    }else {System.out.println ("Eingabe nicht gültig" );}
+
+
+                }else {
+                    System.out.print ( "Geben sie die Größe an (38-50):" );
+                    size = inputKonsole.nextInt ( );
+
+                    if (size >= 38 && size <= 50 && size % 2 == 0) {
+
+                        switch (size) {
+                            case 32:
+                                System.out.println ( "XXS" );
+                                break;
+                            case 34:
+                                System.out.println ( "XS" );
+                                break;
+                            case 36:
+                                System.out.println ( "S" );
+                                break;
+                            case 38:
+                                System.out.println ( "M" );
+                                break;
+                            case 40:
+                                System.out.println ( "L" );
+                                break;
+                            case 42:
+                                System.out.println ( "XL" );
+                                break;
+                            case 44:
+                                System.out.println ( "XXL" );
+                                break;
+                            case 46:
+                                System.out.println ( "3XL" );
+                                break;
+                            case 48:
+                                System.out.println ( "4XL" );
+                                break;
+                            case 50:
+                                System.out.println ( "5XL" );
+                                break;
+                        }
+
+                    } else {System.out.println ( "Eingabe nicht gültig" );}
+                }
+
+            }else{System.out.println ("Eingabe nicht richtig" );}
+        }
     }
 }
