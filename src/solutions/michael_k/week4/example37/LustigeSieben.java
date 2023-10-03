@@ -66,5 +66,73 @@ Hinweis: um von mehreren Methoden aus auf den Kontostand zugreifen bzw. diesen v
  */
 
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class LustigeSieben {
+static Scanner inputKonsole = new Scanner ( System.in );
+static int kontostand =0;
+static int gewinnVerlust=0;
+    public static void main(String[] args) {
+    int kontostand = 0;
+
+
+
+    }
+
+    static int readBid( ){
+
+        int einsatz = inputKonsole.nextInt ();
+        kontostand = kontostand - einsatz;
+        return einsatz;
+    }
+
+    static int rollDice(){
+        Random zufallszahl = new Random ();
+        int wuerfel = zufallszahl.nextInt (6);
+        return wuerfel;
+    }
+
+    static int readBet(){
+        int wette = inputKonsole.nextInt ();
+        return wette;
+    }
+
+    static int calculateWin(int gewinnzahl, int wette, int einsatz){
+        gewinnVerlust =0;
+        if( gewinnzahl>1  && gewinnzahl<13  &&  wette>1  &&  wette<13  &&  einsatz>0 ){
+
+            if (7 == gewinnzahl && 7 == wette) {
+                gewinnVerlust = einsatz * 3;
+            } else if (wette == gewinnzahl) {
+                gewinnVerlust = einsatz * 2;
+            } else if (gewinnzahl == 3 || gewinnzahl == 5 || gewinnzahl == 8 || gewinnzahl == 10 || gewinnzahl == 12) {
+                if (wette == 3 || wette == 5 || wette == 8 || wette == 10 || wette == 12) {
+                    gewinnVerlust = einsatz;
+                }
+            } else if (gewinnzahl == 2 || gewinnzahl == 4 || gewinnzahl == 6 || gewinnzahl == 9 || gewinnzahl == 11) {
+                if (wette == 2 || wette == 4 || wette == 6 || wette == 9 || wette == 11) {
+                    gewinnVerlust = einsatz;
+                }
+            } else {
+                gewinnVerlust = 0;
+            }
+        }else{gewinnVerlust=-1;}
+
+        return gewinnVerlust;
+    }
+
+    static boolean playAgain(){
+        String abfrage = inputKonsole.next ();
+        boolean weiterEnde=true;
+        if(kontostand >-100 && abfrage == "j"){ weiterEnde = true;
+        }else {weiterEnde=false;}
+
+        return weiterEnde;
+    }
+
+    static void playRound(int dice, int bet, int bid){
+
+    }
+
 }
