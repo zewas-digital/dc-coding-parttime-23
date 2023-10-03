@@ -20,9 +20,21 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
  */
 
 package solutions.judith.weekend1.example32;
+import com.sun.security.jgss.GSSUtil;
 
+import java.util.Scanner;
 public class ATM {
     public static void main(String[] args) {
+Scanner scan = new Scanner(System.in);
+
+        System.out.println("Bitte wählen sie eine Option");
+        System.out.println("1. Einzahlen");
+        System.out.println("2. Auszahlen");
+        System.out.println("3. Kontostand anzeigen ");
+        System.out.println("4. Beenden");
+
+        
+
 
     }
 }

@@ -16,9 +16,36 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package solutions.judith.weekend1.example31;
 
+import java.sql.SQLOutput;
+import java.util.Scanner;
 public class ZVR {
     public static void main(String[] args) {
         // Tipp zur Validierung von Vereinsname und -sitz
-        System.out.println("Beispiel".length());
+        //System.out.println("Beispiel".length());
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("ZVR Nummer ");
+        int zvr = scan.nextInt();
+
+        System.out.println("Vereinsname ");
+        String vereinsname = scan.next();
+
+        System.out.println("Verreinssitz");
+        String vereinssitz = scan.next();
+
+        if (zvr >= 100000000 && zvr <= 999999999) {
+            //System.out.println("Abfrage erfolgreich!");
+        }
+        else if ((vereinsname.length() >= 5) && (vereinssitz.length() >= 5)) {
+            System.out.println("Abfrage erfolgreich!");
+        }
+        else {
+            System.out.println("Kein Verein gefunden.");
+        }
     }
 }
+
+
+
+

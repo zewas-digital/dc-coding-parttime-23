@@ -13,9 +13,26 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
  */
 
 package solutions.judith.weekend1.example30;
-
+import java.util.Scanner;
 public class SAPLogin {
     public static void main(String[] args) {
+Scanner scan = new Scanner(System.in);
+
+        System.out.println("Client ");
+        int client = scan.nextInt();
+
+        System.out.println("User ");
+        String user = scan.next();
+
+        System.out.println("Passwort ");
+        int passwort = scan.nextInt();
+
+        if ((client >= 0 || client <= 999) && user.equals("Admin") && passwort == 1234){
+            System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+        }
+        else {
+            System.out.println("Login fehlgeschlagen");
+        }
 
     }
 }
