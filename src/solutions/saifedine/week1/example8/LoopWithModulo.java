@@ -11,16 +11,25 @@ Erstelle für jede Schleifenart Schleifen mit folgenden Unterschieden:
  */
 
 public class LoopWithModulo {
+
     public static void main(String[] args) {
-        for (int i = 0; i <=10 ; i += 2) {
-            System.out.println(i);
+
+        for (int i = 0; i <= 10; i += 2) {
+
+            if (i % 2 == 0) {
+                System.out.println("For Schleife: " + i);
+            }
         }
 
         int j = 0;
+
         while (j <= 10) {
-            if (j % 2 == 0)
-                System.out.println(j);
-            j++;
+
+            if (j % 2 == 0) {
+                System.out.println("While Schleife: " + j);
+            }
+
+            j += 2;
         }
     }
 }

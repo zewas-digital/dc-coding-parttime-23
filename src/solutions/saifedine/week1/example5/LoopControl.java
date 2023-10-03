@@ -7,23 +7,30 @@ Beende die Schleife, wenn 20 Zahlen ausgegeben wurden dann mit der break; Anweis
  */
 
 public class LoopControl {
+
     public static void main(String[] args) {
+
+        int i = 0;
         int anzahlschleifen = 0;
-        int i = 1;
-        while (i <= 100) {
+
+        while ( i < 100){
             i++;
 
-            if (i % 2 == 0) {
+            if (i % 2 == 0){
                 System.out.println(i);
                 anzahlschleifen++;
-            } else if (i % 3 == 0) {
-                System.out.println(i);
-                anzahlschleifen++;
-            }
-            if (anzahlschleifen == 20){
-                break;
             }
 
+                else if (i % 3 ==0) {
+                    System.out.println(i);
+                    anzahlschleifen++;
+                }
+
+                    if (anzahlschleifen == 20){
+                        break;
+                    }
         }
+
     }
+
 }

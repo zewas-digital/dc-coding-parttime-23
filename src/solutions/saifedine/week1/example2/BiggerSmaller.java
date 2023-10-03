@@ -8,16 +8,20 @@ Die Zahl wird wieder mit Scanner und nextInt() eingelesen.
  */
 
 public class BiggerSmaller {
+
     public static void main(String[] args) {
+
         int zahl = 11;
+
         if (zahl > 10) {
             System.out.println("Größer");
         }
-        else if (zahl < 10) {
-            System.out.println("Kleiner");
-        }
-        else {
-            System.out.println("Gleich");
-        }
+            else if (zahl < 10) {
+                System.out.println("Kleiner");
+            }
+                else {
+                    System.out.println("Gleich");
+                }
     }
 }
+

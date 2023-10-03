@@ -15,12 +15,15 @@ xxxxxxxxxx
  */
 
 public class Methods {
+
     public static void main(String[] args) {
 
         printChars('x', 10);
     }
+
     static void printChars (char value, int size) {
-        for (int i = 0; i <size ; i++) {
+
+        for (int i = 0; i <= size ; i++) {
             System.out.print(value);
         }
     }
