@@ -17,3 +17,5 @@ public class Calculator {
 
     }
 }
+
+// Übung auslassen lt. Jeremias
