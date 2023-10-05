@@ -79,11 +79,14 @@ public class LustigeSieben {
     }
 
     static int rollDice(){
+        //Würfelt mit einem Würfel
         Random rand = new Random();
         return rand.nextInt(1, 7);
     }
-
     static boolean playAgain() {
+        //fragt die Nutzerin, ob weitergespielt werden soll.
+        // Im Fall, dass weitergespielt werden soll, gibt die Methode true zurück, ansonsten false.
+        // Falls der Kontostand der Nutzerin bereits -100 € oder weniger beträgt, wird automatisch false zurückgegeben.
         char choice;
         if (total <= -100) {
             System.out.println("Du darfst nicht mehr spielen, Kontostand " + total);
@@ -95,6 +98,7 @@ public class LustigeSieben {
         return choice != 'N';
     }
     static int readBid(){
+        //liest den Einsatz von der Nutzerin ein und liefert ihn als Ergebnis zurück. Der Einsatz wird dabei innerhalb der Methode vom Kontostand der Nutzerin abgezogen
         int bid;
         System.out.println("Dein Kontostand beträgt: " + total);
         System.out.print("Wie hoch ist Dein Einsatz? ");
@@ -105,7 +109,15 @@ public class LustigeSieben {
         return bid;
     }
     static int readBet(){
-        System.out.print("Auf welche Zahl setzt Du? ");
+        //liest die Zahl, auf die der Benutzer setzt (von 2 bis 12) ein und liefert sie als Ergebnis zurück
+        int bet;
+        System.out.print("Auf welche Zahl setzt Du (zwischen 2 und 12)? ");
+        Scanner scanner = new Scanner(System.in);
+        bet = scanner.nextInt();
+        return bet;
+    }
+    static int calculateWin(int dice, int bet, int bid){
+        //berechnet den Gewinn auf Basis der geratenen Zahl, gewürfelten Zahl und gesetzten Summe. Die Funktion liefert -1 bei falschen Parameterwerten.
         return -1;
     }
 
