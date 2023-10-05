@@ -1,4 +1,4 @@
-package examples.week4.example37;
+package solutions.matthias.week4.example37;
 
 /*
 Lustige Sieben

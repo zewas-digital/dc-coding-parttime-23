@@ -1,4 +1,4 @@
-package examples.week4.example38;
+package solutions.matthias.week4.example38;
 
 /*
 Preisberechnung
@@ -26,5 +26,46 @@ Out.println(x); //x hat jetzt den Wert 123.46
 
 import java.util.Scanner;
 
-public class Preisberechnung {
+public class
+Preisberechnung {
+    static Scanner scanner = new Scanner( System.in );
+    // Methoden //
+    static double calculatePrice(int amount, double price) {
+        return  amount * price;
+    }
+    static double calculatePrice(int amount, double price, int discountInPercent){
+        double Gesamtpreis=amount*price;
+        double Gesamtpreisminusdiscount=Gesamtpreis*((100.0-discountInPercent)/100.0);
+        return Gesamtpreisminusdiscount;
+    }
+    static double calculatePrice(int amount, double price, double totalDiscount) {
+    double Gesamtpreis = (amount * price);
+    double Gesamtpreisinclusivedis= Gesamtpreis-totalDiscount;
+    return Gesamtpreisinclusivedis;
+    }
+
+
+    public static void main( String[] args ){
+        // Apfel 1 Stück Preis 5 Euro
+        double iStückPreisApfel = 5.0;
+        int iStückApfel = 2;
+
+        // Birne 2 Stück Preis 5 Euro 5% Rabatt
+        int iStückBirne = 2;
+        double iStückPreisBirne=5.0;
+        int iProzentRabatBirne= 5;
+
+        // Anannas  3 Stück Preis 5 Euro  -3 Euro Rabatt
+        int iStückAnnanas= 3;
+        double iStückPreisAnannas = 5.0;
+        int iAnnanasRabatt=3;
+
+
+        System.out.println("Apfel Preis: " + calculatePrice(iStückApfel,iStückPreisApfel) );
+        System.out.println("Birnen Preis: " +calculatePrice( iStückBirne, iStückPreisBirne,iProzentRabatBirne ) );
+        System.out.println( "Annanas Preis: " + calculatePrice( iStückAnnanas, iStückPreisAnannas,iAnnanasRabatt ));
+
+    }
+
+
 }

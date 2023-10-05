@@ -23,12 +23,12 @@ import java.util.Scanner;
 public class ZVR {
 
     // Überprüft die ZVR und gibt eine Status zurück
-    static boolean statusZVR(int minZVRnumber, int maxZVRnumber){
+    static boolean statusZVR(int minZVRnumber, int maxZVRnumber) {
 
         //Variabeln der Methode
 
-        int intNumber=0;            // lokaler Speicher für ZVR Zahl des Benutzers
-        boolean statusZVR=false;     // Status als Rückgabeparameter für Fehler handling
+        int intNumber = 0;            // lokaler Speicher für ZVR Zahl des Benutzers
+        boolean statusZVR = false;     // Status als Rückgabeparameter für Fehler handling
 
         //Aufruf von Scanner und Implimentierung von Klasse im Java Projekt
         Scanner scanner = new Scanner(System.in);
@@ -40,18 +40,18 @@ public class ZVR {
         intNumber = scanner.nextInt();
 
         if (intNumber >= maxZVRnumber || intNumber < minZVRnumber) {
-            return statusZVR=true;
+             statusZVR = true;
+        } else if (intNumber == -1) {
+           statusZVR = true;
         }
-        if (intNumber == -1) {
-           return statusZVR=false;
-        }
+        return statusZVR;
     }
 
-    static boolean statusVerein(){
+    static boolean statusVerein() {
         String Vereinsname;     // lokaler Speicher für Verreinsname des Benutzers
         String Vereinssitz;     // lokaler Speicher für Vereinssitz des Benutzers
 
-        boolean statusZVR=false;     // Status als Rückgabeparameter für Fehler handling
+        boolean statusVerein = false;     // Status als Rückgabeparameter für Fehler handling
 
         //Aufruf von Scanner und Implimentierung von Klasse im Java Projekt
         Scanner scanner = new Scanner(System.in);
@@ -61,37 +61,40 @@ public class ZVR {
 
         // Benutzer Abfrage und Speichern in eine Variable
         Vereinsname = scanner.next();
-
-        if (intNumber >= maxZVRnumber || intNumber < minZVRnumber) {
-            statusZVR=true;
+        // Prüfen des Vereinsnamen
+        if (Vereinsname.length()!=0) {
+            statusVerein = true;
+        } else if (Vereinsname.equals("-1")) {
+           statusVerein = true;
         }
-        if (intNumber == -1) {
-            statusZVR=false;
+        System.out.println("Geben Sie den Vereinssitz ein ");
+        Vereinssitz = scanner.next();
+        // Prüfen des Vereinsnamen
+        if (Vereinssitz.length()!=0) {
+           statusVerein = false;
+        } else if (Vereinssitz.equals("1")){
+            statusVerein = false;
         }
-
-        return statusZVR;
+        return statusVerein;
     }
 
     public static void main(String[] args) {
         // Gültigkeitsbereich des Clientenbereich
 
-        int iMinClientnumber=100000000;
-        int iMaxClientnumber=999999999;
-        boolean bStatus=false;
-        while (bStatus){
+        int iMinClientnumber = 100000000;
+        int iMaxClientnumber = 999999999;
+        boolean bStatus = true;
+        while (bStatus) {
 
             if (statusZVR(iMinClientnumber, iMaxClientnumber)) {
-                bStatus=false;
+                System.out.println("Sie müssen entweder den ZVR namen eingeben ");
+                bStatus = false;
+            }else if (statusVerein()) {
+                System.out.println("Kein Verein gefunden.");
+                bStatus = false;
             }
-            if (bStatus == null) {
-
-            }
-
-
+            System.out.println("Abfrage erfolgreich!");
         }
-
-
-        System.out.println("Beispiel".length());
 
 
     }
