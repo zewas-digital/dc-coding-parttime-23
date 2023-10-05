@@ -66,5 +66,56 @@ Hinweis: um von mehreren Methoden aus auf den Kontostand zugreifen bzw. diesen v
  */
 
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class LustigeSieben {
+
+    static Scanner Eingabe = new Scanner(System.in);
+    static int total = 0;
+
+    public static void main(String[] args) {
+
+
+        System.out.println("Lass uns Spielen!");
+        System.out.println("=========================================");
+        System.out.println("=========================================");
+
+        readBid();
+        //readBet();
+        rollDice();
+
+        }
+
+    static void readBid (){
+        System.out.print("Bitte um Ihren Einsatz: ");
+        int einsatz = Eingabe.nextInt();
+
+        System.out.println("Einsatz: " + einsatz + " EUR" + ", Kontostand: " + (total - einsatz) + " EUR");
+
+    }
+
+        /*
+
+        static void readBet(){
+
+        int eingabeZahl = 0;
+
+
+        eingabeZahl = Eingabe.nextInt();
+        System.out.print("Setzen Sie auf eine Zahl zwischen 2 und 12: " + eingabeZahl);
+
+        }*/
+
+
+
+    static void rollDice(){
+
+        Random rand = new Random();
+        int dice = rand.nextInt(2,12);
+
+        System.out.print("Setzen Sie auf eine Zahl zwischen 2 und 12: " + dice);
+
+    }
+
 }

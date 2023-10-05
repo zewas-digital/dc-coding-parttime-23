@@ -74,21 +74,117 @@ public class ConfectionSizes {
         while (true) {
 
             System.out.println("Damen (d) oder Herren (h)?:");
-
             String eingabeString = Eingabe.next();
-
             char gender = eingabeString.charAt(0);
 
-            if (gender == 'd' || gender == 'h') {
+            if (gender == 'h') {
 
-                //getSize();
+                System.out.println("Konfektionsgrößen:");
+                int eingabeInt = Eingabe.nextInt();
+
+                String groesse = "?";
+
+                switch (eingabeInt) {
+                    case 44:
+                    case 46:
+                        groesse = "S";
+                        break;
+
+                    case 48:
+                    case 50:
+                        groesse = "M";
+                        break;
+
+                    case 52:
+                    case 54:
+                        groesse = "L";
+                        break;
+
+                    case 56:
+                    case 58:
+                        groesse = "XL";
+                        break;
+
+                    case 60:
+                    case 62:
+                        groesse = "XXL";
+                        break;
+
+                    case 64:
+                    case 66:
+                        groesse = "3XL";
+                        break;
+
+                    case 68:
+                    case 70:
+                        groesse = "4XL";
+
+                }
+
+                System.out.println("Herren " + eingabeInt + " -> " + groesse);
+
+                System.out.println("Beenden (j/n) ?");
+
+
+
+            } else if (gender == 'd') {
+
+                System.out.println("Konfektionsgrößen:");
+                int eingabeInt = Eingabe.nextInt();
+
+                String groesse = "?";
+
+                switch (eingabeInt) {
+                    case 32:
+                        groesse = "XXS";
+                        break;
+
+                    case 34:
+                        groesse = "XS";
+                        break;
+
+                    case 36:
+                        groesse = "S";
+                        break;
+
+                    case 38:
+                        groesse = "M";
+                        break;
+
+                    case 40:
+                        groesse = "L";
+                        break;
+
+                    case 42:
+                        groesse = "XL";
+                        break;
+
+                    case 44:
+                        groesse = "XXL";
+                        break;
+
+                    case 46:
+                        groesse = "3XL";
+                        break;
+
+                    case 48:
+                        groesse = "4XL";
+                        break;
+
+                    case 50:
+                        groesse = "5XL";
+
+
+                }
+
+                System.out.println("Damen " + eingabeInt + " -> " + groesse);
 
             }
+
+
         }
-
-
     }
 }
 
+//getSize();
 //char gender = string.charAt(0);
-//static String getSize(char gender, int sizeNumber)
