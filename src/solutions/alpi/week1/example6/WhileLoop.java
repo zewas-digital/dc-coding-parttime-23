@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/solutions/alpi/week1/example6/WhileLoop.java
 package solutions.alpi.week1.example6;
+========
+package solutions.eslem.example6;
+>>>>>>>> eslem:src/solutions/eslem/example6/WhileLoop.java
 
 /*
 Schreiben Sie ein Programm, in dem sie die While Schleife verwenden.
@@ -7,6 +11,7 @@ mit der break Anweisung.
 
  */
 public class WhileLoop {
+<<<<<<<< HEAD:src/solutions/alpi/week1/example6/WhileLoop.java
     public static void main(String[] args) {
         int i = 10;
         while (true) {
@@ -21,3 +26,6 @@ public class WhileLoop {
     }
 
 }
+========
+}
+>>>>>>>> eslem:src/solutions/eslem/example6/WhileLoop.java

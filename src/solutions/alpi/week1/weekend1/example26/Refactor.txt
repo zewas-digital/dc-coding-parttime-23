@@ -4,4 +4,7 @@ Jetzt soll das Beispiel so abgeändert werden, dass die Größe des Rechtecks vo
 Wiederhole das Refactoring für einige andere Beispiele.
 */
 
+<<<<<<<< HEAD:src/solutions/alpi/week1/weekend1/example26/Refactor.txt
 
+========
+>>>>>>>> eslem:src/solutions/eslem/example26/Refactor.txt

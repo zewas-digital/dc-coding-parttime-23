@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/solutions/alpi/week1/example8/LoopWithModulo.java
 package solutions.alpi.week1.example8;
+========
+package solutions.eslem.example8;
+>>>>>>>> eslem:src/solutions/eslem/example8/LoopWithModulo.java
 
 /*
 Schreiben Sie ein Programm das in einer Schleife von 0 bis inklusive 10 zählt und nur jede gerade Zahl ausgibt.
@@ -11,6 +15,7 @@ Erstelle für jede Schleifenart Schleifen mit folgenden Unterschieden:
  */
 
 public class LoopWithModulo {
+<<<<<<<< HEAD:src/solutions/alpi/week1/example8/LoopWithModulo.java
     public static void main(String[] args) {
         int i = 0;
         while (i <= 10){
@@ -22,5 +27,7 @@ public class LoopWithModulo {
 
     }
 
+========
+>>>>>>>> eslem:src/solutions/eslem/example8/LoopWithModulo.java
 }
 

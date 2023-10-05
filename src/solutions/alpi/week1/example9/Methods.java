@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/solutions/alpi/week1/example9/Methods.java
 package solutions.alpi.week1.example9;
+========
+package solutions.eslem.example9;
+>>>>>>>> eslem:src/solutions/eslem/example9/Methods.java
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printChars". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.
@@ -15,6 +19,7 @@ xxxxxxxxxx
  */
 
 public class Methods {
+<<<<<<<< HEAD:src/solutions/alpi/week1/example9/Methods.java
     public static void main(String[] args) {
         printChars('x', 100);
 
@@ -33,4 +38,8 @@ public class Methods {
     }
 
 
+========
+
+
+>>>>>>>> eslem:src/solutions/eslem/example9/Methods.java
 }

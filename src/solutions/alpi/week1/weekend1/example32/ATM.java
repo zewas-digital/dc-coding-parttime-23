@@ -19,7 +19,11 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
 
  */
 
+<<<<<<<< HEAD:src/solutions/alpi/week1/weekend1/example32/ATM.java
 package solutions.alpi.week1.weekend1.example32;
+========
+package solutions.eslem.example32;
+>>>>>>>> eslem:src/solutions/eslem/example32/ATM.java
 
 public class ATM {
     public static void main(String[] args) {
