@@ -34,4 +34,5 @@ Ausgabe:
  */
 
 public class PrintCirclePythagoras {
+
 }

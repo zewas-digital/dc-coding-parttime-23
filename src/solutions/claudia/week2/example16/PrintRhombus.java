@@ -12,12 +12,15 @@ Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegeb
 //danach Zeichen bei (height - i) +/- 1
 //letzte Zeile Zeichen bei 0,5 * (height - 1)
 
+import java.sql.SQLOutput;
+
 public class PrintRhombus {
 
     public static void main(String[] args) {
         printRhombus('x', 7);
-        printRhombus('*', 11);
-        printRhombus('*', 4);
+        printRhombusQuadrants('*', 13);
+       // printRhombus('*', 11);
+       // printRhombus('*', 4);
     }
 
     static void printRhombus(char c, int height) {
@@ -41,6 +44,28 @@ public class PrintRhombus {
                 else if((j == -0.5 * (height - 1) + i ) || (j == 1.5 * (height - 1) -i)){
                     System.out.print(c);
                 }
+                else System.out.print('-');
+            }
+            System.out.println();
+        }
+    }
+
+    static void printRhombusQuadrants(char c, int height){
+
+        if (height % 2 == 0){
+            System.out.println("Fehler, Höhe muss ungerade sein!");
+            return;
+        }
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < height; j++) {
+                //erster Quadrant
+                if (j - i == 0.5 * (height - 1)) System.out.print(c);
+                //zweiter Quadrant
+                else if (i + j == 0.5 * (height - 1)) System.out.print(c);
+                //dritter Quadrant
+                else if (i - j == 0.5 * (height - 1)) System.out.print(c);
+                //vierter Quadrant
+                else if (i + j == 1.5 * height - 1.5) System.out.print(c);
                 else System.out.print('-');
             }
             System.out.println();

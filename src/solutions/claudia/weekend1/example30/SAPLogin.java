@@ -13,9 +13,34 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
  */
 
 package solutions.claudia.weekend1.example30;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class SAPLogin {
     public static void main(String[] args) {
+        int client = -1;
+        String user = "";
+        int password = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        while(client < 0 || client > 999){
+            System.out.print("Prepare Login, enter Client: ");
+            client = scanner.nextInt();
+        }
+        System.out.println("Client " + client);
+
+        while(!user.equals("Admin")) {
+            System.out.print("Enter Username: ");
+            user = scanner.next();
+        }
+        System.out.println("User accepted!");
+
+        while(password != 1234){
+            System.out.print("Enter password: ");
+            password = scanner.nextInt();
+        }
+        System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+
 
     }
 }

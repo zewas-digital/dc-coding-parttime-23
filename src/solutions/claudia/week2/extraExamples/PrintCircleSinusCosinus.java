@@ -35,4 +35,20 @@ Ausgabe:
  */
 
 public class PrintCircleSinusCosinus {
+    public static void main(String[] args) {
+        printCircleSinCos(10);
+    }
+
+    static void printCircleSinCos(int radius){
+        for (int i = 0; i < 2 * radius; i++) {
+            for (int j = 0; j < 2 * radius; j++) {
+                if (Math.pow(i, 2) + Math.pow(j, 2) == Math.pow(radius, 2)) System.out.print("*");
+                else System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
 }
