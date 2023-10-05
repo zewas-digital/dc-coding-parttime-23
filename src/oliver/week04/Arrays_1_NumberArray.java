@@ -8,4 +8,5 @@ Erstelle ein zweites int[] und befülle mit Zahlen entsprechend der Größe ...,
  */
 
 public class Arrays_1_NumberArray {
+
 }
