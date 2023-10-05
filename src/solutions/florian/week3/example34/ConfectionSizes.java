@@ -1,5 +1,7 @@
 package solutions.florian.week3.example34;
 
+import java.util.Scanner;
+
 /*
 Kleidergrößen
 
@@ -63,6 +65,64 @@ Bye bye
  */
 public class ConfectionSizes {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (true){
+
+
+        System.out.println("Suchst du Herren- oder Damengrößen: ");
+        String readString = scanner.next();
+            if (!(readString.equals("h") || readString.equals("d"))) {
+                continue;
+
+            }
+            System.out.println( "Bitte gib deine Größe ein: ");
+        int sizeNumber = scanner.nextInt();
+            getSize(readString.charAt(0), sizeNumber);
+            System.out.println("Beenden (j/n)?");
+            String entscheidung = scanner.next();
+            if (entscheidung.charAt(0) != 'n'){
+                break;
+            }
+
 
     }
+        
+    }
+
+    static void getSize(char gender, int sizeNumber) {
+        if (gender == 'd'){
+            String size = switch (sizeNumber) {
+                case 32 -> "XXS";
+                case 34 -> "XS";
+                case 36 -> "S";
+                case 38 -> "M";
+                case 40 -> "L";
+                case 42 -> "XL";
+                case 44 -> "2XL";
+                case 46 -> "3XL";
+                case 48 -> "4XL";
+                case 50 -> "5Xl";
+                default -> "?";
+            };
+            System.out.println("Damen " + sizeNumber + " -> " + size);
+        } else if (gender == 'h') {
+            String size = switch (sizeNumber) {
+                case 44,46 -> "S";
+                case 48,50 -> "M";
+                case 52,54 -> "L";
+                case 56,58-> "XL";
+                case 60,62 -> "2XL";
+                case 64,66 -> "3XL";
+                case 68,70 -> "4XL";
+                default -> "?";
+            };
+            System.out.println("Herren " + sizeNumber + " -> " + size);
+        }
+
+
+    }
+
+
+
 }
+

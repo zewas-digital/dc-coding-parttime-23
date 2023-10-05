@@ -10,21 +10,21 @@ import java.util.Scanner;
 
 public class GasolineConsumption {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Gib die Liter ein: ");
-        double liter = scanner.nextDouble();
-        System.out.println("Gib die gefahrene Strecke ein: " );
-        double strecke = scanner.nextDouble();
+        Scanner Eingabe = new Scanner(System.in);
 
+        System.out.println("Gib die gefahrenen Km ein: ");
+        float floatKm = Eingabe.nextFloat();
 
+        System.out.println("Gib den Benzinverbrauch in Liter ein: ");
+        float floatVerbrauch = Eingabe.nextFloat();
 
+        System.out.println("Eingelesene Werte:");
+        System.out.println(floatKm);
+        System.out.println(floatVerbrauch);
+
+        System.out.println("Benzinverbrauch in l/100km ist: " + (floatVerbrauch/floatKm)*100);
 
 
     }
-
-
-
-
-
 
 }

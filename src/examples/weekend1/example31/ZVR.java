@@ -2,7 +2,7 @@
 Diese Aufgabe orientiert sich an der Onlineoberfläche für Abfragen aus dem zentralen Vereinsregister des BMI.
 Die Website kann hier abgerufen werden: https://citizen.bmi.gv.at/at.gv.bmi.fnsweb-p/zvn/public/Registerauszug
 
-Das besondere ist, dass eine Abfrage auf zwei Art und Weisen möglich ist:
+Das besondere ist, dass eine Abfrage auf zwei Arten und Weisen möglich ist:
 1. Eingabe einer gültigen ZVR Nummer zwischen 100000000 und 999999999.
 2. Eingabe des Vereinsnamens UND des Vereinssitzes.
 
@@ -20,5 +20,10 @@ public class ZVR {
     public static void main(String[] args) {
         // Tipp zur Validierung von Vereinsname und -sitz
         System.out.println("Beispiel".length());
+
+
+
+
+
     }
 }

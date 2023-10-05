@@ -5,5 +5,14 @@ Speichere beide Werte in passenden Datentypen ab und gib den Benzinverbrauch in 
 
 package examples.weekend1.example28;
 
+import java.util.Scanner;
+
 public class GasolineConsumption {
+    public static void main(String[] args) {
+
+
+    }
+
+
+
 }
