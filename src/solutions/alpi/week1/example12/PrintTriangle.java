@@ -49,7 +49,7 @@ Methode 4:
     xxxxx
 
  */
-/*
+
 public class PrintTriangle {
     public static void main(String[] args){
 
@@ -120,4 +120,3 @@ public class PrintTriangle {
     }
 
 }
-*/
