@@ -42,3 +42,4 @@ Die erwartete Funktion ist identisch mit dem normalen Taschenrechner
 
 public class CalculatorExtended {
 }
+// Übung auslassen lt. Jeremias
