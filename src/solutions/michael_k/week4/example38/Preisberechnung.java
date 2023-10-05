@@ -25,4 +25,41 @@ Out.println(x); //x hat jetzt den Wert 123.46
  */
 
 public class Preisberechnung {
+
+    public static void main(String[] args) {
+
+        System.out.printf("%.2f", num);
+
+    }
+
+    static double calculatePrice(int amount, double price){
+        double gesamtpreis;
+
+        if (amount>0 && price>0) {
+            gesamtpreis = amount * price;
+        }else{gesamtpreis= -1;}
+
+        return gesamtpreis;
+    }
+
+    static double calculatePrice(int amount, double price, int discountInPercent){
+        double gesamtpreis;
+
+        if (amount>0 && price>0 && discountInPercent >0 && discountInPercent <101) {
+            gesamtpreis = ( amount * price ) * ( (double) discountInPercent / 100 );
+        }else{gesamtpreis = -1;}
+
+        return gesamtpreis;
+    }
+
+    static double calculatePrice(int amount, double price, double totalDiscount){
+
+        double gesamtpreis = ( amount * price );
+
+        if (amount>0 && price>0 && totalDiscount >0 && totalDiscount < gesamtpreis) {
+            gesamtpreis = gesamtpreis - totalDiscount;
+        }else {gesamtpreis = -1;}
+
+        return gesamtpreis;
+    }
 }
