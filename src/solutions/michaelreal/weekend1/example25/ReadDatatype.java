@@ -6,8 +6,39 @@ Eine Übersicht der primitiven Datentypen findest du hier: https://de.wikibooks.
 
 package solutions.michaelreal.weekend1.example25;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class ReadDatatype {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+
+        System.out.print("Gib einen int wert ein");
+        int intvar = scanner.nextInt();
+
+        System.out.print("Gib einen long wert ein");
+        long longvar = scanner.nextLong();
+
+        System.out.print("Gib einen double wert ein");
+        double doublevar = scanner.nextDouble();
+
+        System.out.print("Gib einen float wert ein");
+        float floatvar = scanner.nextFloat();
+
+        scanner.nextLine();
+
+        System.out.print("Gib einen String wert ein");
+        String stringvar = scanner.next();
+
+        System.out.println("Alle eingegebenen Werte");
+        System.out.println("int: " + intvar);
+        System.out.println("long: " + longvar);
+        System.out.println("double: " + doublevar);
+        System.out.println("float: " + floatvar);
+        System.out.println("String: " + stringvar);
+
+        scanner.close();
+
 
     }
 }

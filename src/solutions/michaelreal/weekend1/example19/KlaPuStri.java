@@ -8,5 +8,6 @@ package solutions.michaelreal.weekend1.example19;
 
 public class KlaPuStri {
     public static void main(String[] args) {
+
     }
 }

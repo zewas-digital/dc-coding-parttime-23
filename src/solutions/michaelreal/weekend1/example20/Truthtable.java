@@ -7,6 +7,25 @@ package solutions.michaelreal.weekend1.example20;
 
 public class Truthtable {
     public static void main(String[] args) {
+        System.out.println("Wahrheitstabelle für logische Operatoren AND, OR und NOT");
+        System.out.println("--------------------------------------------------");
+        System.out.println("|  A  |  B  |  AND  |  OR  |  NOT A  |  NOT B  |");
+        System.out.println("-----------------------------------------------");
 
+        boolean[] values = {true, false};
+
+        for (boolean a : values) {
+            for (boolean b : values) {
+                boolean andResult = a && b;
+                boolean orResult = a || b;
+                boolean notAResult = !a;
+                boolean notBResult = !b;
+                System.out.printf("| %3b | %3b |  %3b  | %3b  |   %3b   |   %3b   |\n", a, b, andResult, orResult, notAResult, notBResult);
+
+
+
+            }
+        }
+        System.out.println("---------------------------------------------------------------------");
     }
 }

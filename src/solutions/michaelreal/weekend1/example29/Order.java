@@ -17,8 +17,36 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 
 package solutions.michaelreal.weekend1.example29;
 
+import java.util.Scanner;
+
 public class Order {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+
+        System.out.print("Gib die Bezeichnung ein: ");
+        String bezeichnung = scanner.next();
+
+        System.out.print("Gib die Menge ein: ");
+        int menge = scanner.nextInt();
+
+        System.out.print("Gib den Einzelpreis ein: ");
+        float einzelpreis = scanner.nextFloat();
+
+        System.out.print("Gib die Artikelnummer ein: ");
+        long artikelnummer = scanner.nextLong();
+
+        double gesamtpreis = einzelpreis * menge;
+
+        System.out.println("*************************");
+        System.out.println("*        " + bezeichnung + "         *");
+        System.out.println("*        " + artikelnummer + "       *");
+        System.out.println("*        " + gesamtpreis + "           *");
+        System.out.println("*************************");
+
+
+
+
+
 
     }
 }

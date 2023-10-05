@@ -14,8 +14,31 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
 
 package solutions.michaelreal.weekend1.example30;
 
+import java.util.Scanner;
+
 public class SAPLogin {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Gib den Client-Wert ein zwischen 0-999 ");
+        int client = scanner.nextInt();
+
+        System.out.print("Gib den Benutzernamen ein: ");
+        String benutzername = scanner.next();
+
+        System.out.println("Gib das Passwort ein: ");
+        String passwort = scanner.next();
+
+        if (client >= 0 && client <= 999) {
+            if (benutzername.equals("Admin") && passwort.equals("1234")) {
+            System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+            } else {
+                System.out.println("Login fehlgeschlagen. Passwort oder Benutzername falsch");
+            }
+        } else {
+            System.out.println("Login fehlgeschlagen.Client-Wert ungültig");
+        }
+
 
     }
 }

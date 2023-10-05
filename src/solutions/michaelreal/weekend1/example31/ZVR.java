@@ -16,9 +16,38 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package solutions.michaelreal.weekend1.example31;
 
+import java.util.Scanner;
+
 public class ZVR {
     public static void main(String[] args) {
         // Tipp zur Validierung von Vereinsname und -sitz
         System.out.println("Beispiel".length());
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Gib die ZVR-Nummer ein (-1 um zu überspringen): ");
+        long zvrNummer = scanner.nextLong();
+
+        if (zvrNummer != -1) {
+            if (zvrNummer >= 100000000 && zvrNummer <= 999999999) {
+                System.out.println("Abfrage erfolgreich");
+            } else {
+                System.out.println("Kein Verein gefunden");
+            }
+        } else {
+            scanner.nextLine();
+            System.out.print("Gib den Vereinsnamen ein: ");
+            String vereinsname = scanner.nextLine();
+
+            System.out.print("Gib den Vereinssitz ein: ");
+            String vereinssitz = scanner.nextLine();
+
+            if (vereinsname.length() > 0 && vereinssitz.length() > 0) {
+                System.out.println("Abfrage erfolgreich");
+            } else {
+                System.out.println("Kein Verein gefunden");
+            }
+
+        }
     }
 }
