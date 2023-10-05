@@ -14,4 +14,5 @@ Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
  */
 
 public class Arrays_3_RandomNumberArray {
+
 }
