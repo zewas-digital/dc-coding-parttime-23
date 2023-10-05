@@ -18,6 +18,7 @@ xxxxxxxxxx
 
 public class MethodsJeremias {
     public static void main(String[] args) {
+
         printChars('x', 10);
     }
 

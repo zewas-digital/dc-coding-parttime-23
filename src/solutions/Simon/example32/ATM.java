@@ -26,6 +26,8 @@ import java.util.Scanner;
 public class ATM {
     public static void main(String[] args) {
 
+        int balance = 0;
+
         while (true) {
 
             System.out.println("Herzlich Willkommen Simon Eiler");
@@ -34,26 +36,25 @@ public class ATM {
             System.out.println("3.Kontostand");
             System.out.println("4.Beenden");
 
-            Scanner scanOption = new Scanner(System.in);
+
             Scanner scanValue = new Scanner(System.in);
 
-            int balance = 0;
-            int option = scanOption.nextInt();
-            int value;
+            int value = scanValue.nextInt();
 
-            if (option == 1) {
+
+            if (value == 1) {
                 System.out.println("Bitte Betrag Eingeben");
                 value = scanValue.nextInt();
                 System.out.println("Ihr aktueller Kontostand ist");
                 System.out.println(balance = balance + value);
-            } else if (option == 2) {
+            } else if (value == 2) {
                 System.out.println("Welchen Betrag wollen sie abheben?");
                 value = scanValue.nextInt();
                 System.out.println("Ihr aktueller Kontostand ist");
                 System.out.println(balance = balance - value);
-            } else if (option == 3) {
+            } else if (value == 3) {
                 System.out.println("Ihr aktueller Kontostand ist" + balance);
-            } else if (option == 4) {
+            } else if (value == 4) {
                 System.out.println("Auf wiedersehen");
             } else {
                 System.out.println("Danke");
