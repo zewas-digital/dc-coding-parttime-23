@@ -1,5 +1,4 @@
-package oliver.week04;
-
+package MichaelReal.week4;
 /*
 Aufgabe: Random Number Array
 Erstelle ein int[] und befülle es mit Zufallszahlen von 0 bis 100.
@@ -12,7 +11,5 @@ Gib es mit Hilfe einer fori-Schleife aus. Das Ziel ist eine identische Ausgabe, 
 Gib den zweiten, fünften und zehnten Wert des Arrays aus.
 Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
  */
-
 public class Arrays_3_RandomNumberArray {
-
 }

@@ -1,4 +1,4 @@
-package oliver.week04;
+package Simonsway.Week4;
 
 /*
 Aufgabe: Random Number Array
@@ -14,5 +14,7 @@ Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
  */
 
 public class Arrays_3_RandomNumberArray {
+    public static void main(String[] args) {
 
+    }
 }
