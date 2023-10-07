@@ -20,9 +20,9 @@ public class Arrays_1_NumberArray {
 
         System.out.println("in welcher Länge soll ein Array erzeugt werden?");
         int[] topDown = createTopDownArray(sc.nextInt());
-        int[] topDown2 = createTopDownArrayWithWhile(sc.nextInt());
-
         System.out.println(Arrays.toString(topDown));
+
+        int[] topDown2 = createTopDownArrayWithWhile(sc.nextInt());
         System.out.println(Arrays.toString(topDown2));
     }
 
