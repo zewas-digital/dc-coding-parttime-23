@@ -24,7 +24,18 @@ public class Arrays_2_CopyArray {
         int[] originalArray = {1, 2, 3, 4, 5};
         int[] copiedArray = makeACopy(originalArray);
 
+        System.out.println("Original Array: ");
+        for (int num : originalArray) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("Kopiertes Array: ");
+        for (int num : copiedArray) {
+            System.out.print(num + " ");
+        }
+
 
     }
 
-    }
+}
