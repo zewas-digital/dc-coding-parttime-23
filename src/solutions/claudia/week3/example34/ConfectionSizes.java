@@ -68,25 +68,27 @@ public class ConfectionSizes {
         char gender = ' ';
         int sizeNumber = -1;
         Scanner scanner = new Scanner(System.in);
+        char stop = 'n';
 
-        /* Achtung, Abbrechen funktioniert noch nicht! */
+        while (stop != 'x') {
+            while ((gender != 'd') && (gender != 'h')) {
+                System.out.print("Damen (d) oder Herren (h)? ");
+                gender = scanner.next().charAt(0);
+            }
+            System.out.print("Welche Konfektionsgröße? (Gib eine Zahl ein!) ");
+            sizeNumber = scanner.nextInt();
 
-        while ((gender != 'd') && (gender != 'h')) {
-            System.out.print("Damen (d) oder Herren (h)? Abbrechen -> x ");
-            gender = scanner.next().charAt(0);
+            String size = getSize(gender, sizeNumber);
+            printSize(gender, sizeNumber, size);
+            gender = ' ';
+            System.out.println("noch mal (n) oder abbrechen (x)?");
+            stop = scanner.next().charAt(0);
         }
-        System.out.print("Welche Konfektionsgröße? (Gib eine Zahl ein!) ");
-        sizeNumber = scanner.nextInt();
-
-        String size = getSize(gender, sizeNumber);
-        printSize(gender, sizeNumber, size);
-
     }
 
 
-
-
-    // Liefert die entsprechende internationale Größe (…/S/M/L/XL/…) für eine bestimmte Damen- oder Herrenkonfektionsgröße. Bei ungültigen Parameterwerten soll “?” das Ergebnis sein.
+    // Liefert die entsprechende internationale Größe (…/S/M/L/XL/…) für eine bestimmte
+    // Damen- oder Herrenkonfektionsgröße. Bei ungültigen Parameterwerten soll “?” das Ergebnis sein.
     static String getSize(char gender, int sizeNumber) {
         //Herren:
         if (gender == 'h') {

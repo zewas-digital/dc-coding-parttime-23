@@ -20,8 +20,6 @@ double x = 123.456
 x = (double) Math.round(x * 100) / 100;
 Out.println(x); //x hat jetzt den Wert 123.46
 
-
-
  */
 
 import java.util.Scanner;
@@ -30,36 +28,29 @@ public class Preisberechnung {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int amount;
-        double price;
-        int discountInPercent;
-        double totalDiscount;
-        //System.out.print("Wieviele Stück? ");
-        //amount = scanner.nextInt();
-        amount = 3;
-        //System.out.print("Einzelpreis? ");
-        //price = scanner.nextDouble();
-        price = 3.1;
-        //System.out.print("Rabatt in Prozent (Achtung INT)? Sonst 0! ");
-        //discountInPercent = scanner.nextDouble();
-        discountInPercent = 10;
+        int amount = 0;
+        double price = 0;
+        int discountInPercent = 0;
+        double totalDiscount = 0;
+        //Werte einlesen
+        System.out.print("Wieviele Stück? ");
+        amount = scanner.nextInt();
+        System.out.print("Einzelpreis? ");
+        price = scanner.nextDouble();
+        System.out.print("Rabatt in Prozent (Achtung INT)? Sonst 0! ");
+        discountInPercent = scanner.nextInt();
         System.out.print("Rabattbetrag? Sonst 0! ");
         totalDiscount = scanner.nextDouble();
 
-        if (amount < 0 || price < 0 || discountInPercent < 0 || discountInPercent > 100 || totalDiscount < 0) {
+        if (amount <= 0 || price <= 0 || discountInPercent < 0 || discountInPercent > 100 || totalDiscount < 0) {
             System.out.println("Keine sinnvollen Eingabewerte!");
         } else {
-            if (discountInPercent != 0){
-                System.out.println("Gesamtpreis mit Rabatt in Prozent beträgt: " + calculatePrice(amount, price, discountInPercent));
-            } else if(totalDiscount != 0){
-                System.out.println("Gesamtpreis mit Gesamtrabatt beträgt: " + calculatePrice(amount, price, totalDiscount));
-            }
-               else
-            System.out.print("Gesamtpreis beträgt: " + calculatePrice(amount, price));
+            if (discountInPercent > 0)
+                System.out.println("rabattierter Preis, Prozent = " + calculatePrice(amount, price, discountInPercent));
+            if (totalDiscount > 0)
+                System.out.println("rabattierter Preis, Betrag = " + calculatePrice(amount, price, totalDiscount));
+            System.out.print("regulärer Gesamtpreis ohne Rabatt beträgt: " + calculatePrice(amount, price));
         }
-
-
-
     }
 
     static double runden(double zahl){
@@ -67,7 +58,8 @@ public class Preisberechnung {
     }
 
     static double calculatePrice(int amount, double price) {
-        //berechnet den Gesamtpreis aus der Anzahl und dem Stückpreis. Runden Sie den Gesamtpreis auf 2 Kommastellen. Bei ungültigen Parameterwerten oder ungültigem Ergebnis soll -1 als Ergebnis geliefert werden.
+        //berechnet den Gesamtpreis aus der Anzahl und dem Stückpreis. Runden Sie den Gesamtpreis auf 2 Kommastellen.
+        // Bei ungültigen Parameterwerten oder ungültigem Ergebnis soll -1 als Ergebnis geliefert werden.
         if (amount > 0 && price > 0) {
             return runden(amount * price);
         } else {
@@ -76,21 +68,37 @@ public class Preisberechnung {
     }
 
     static double calculatePrice(int amount, double price, int discountInPercent) {
-        //berechnet den Gesamtpreis aus der Anzahl und dem Stückpreis und gewährt einen Rabatt in Prozent. Runden Sie den Gesamtpreis auf 2 Kommastellen. Bei ungültigen Parameterwerten oder ungültigem Ergebnis soll -1 als Ergebnis geliefert werden.
-        if (amount > 0 && price > 0 && discountInPercent >= 0 && discountInPercent <= 100) {
-            System.out.println(amount + "  " + price + " " + discountInPercent);
-            return runden((amount * price) * (1 -discountInPercent/100.0));
-        } else {
+        //berechnet den Gesamtpreis aus der Anzahl und dem Stückpreis und gewährt einen Rabatt in Prozent.
+        //Runden Sie den Gesamtpreis auf 2 Kommastellen. Bei ungültigen Parameterwerten oder ungültigem Ergebnis
+        //soll -1 als Ergebnis geliefert werden.
+        if ((amount < 0) || (price < 0) || (discountInPercent < 0)) {
             return -1;
+        } else {
+            double percentage = 1 - discountInPercent/100.0;
+            double discountedPrice = calculatePrice(amount, price) * percentage;
+            if (discountedPrice >= 0)
+                return discountedPrice;
+            else {
+                System.out.println("ungültiger Rabatt wird nicht angewendet!");
+                return calculatePrice(amount, price);
+            }
         }
     }
 
     static double calculatePrice(int amount, double price, double totalDiscount) {
-        //berechnet den Gesamtpreis aus der Anzahl und dem Stückpreis und gewährt einen fixen Rabatt (in €). Runden Sie den Gesamtpreis auf 2 Kommastellen. Bei ungültigen Parameterwerten oder ungültigem Ergebnis soll -1 als Ergebnis geliefert werden.
-        if (amount > 0 && price > 0 && totalDiscount >= 0) {
-            return runden(amount * price - totalDiscount);
-        } else {
+        //berechnet den Gesamtpreis aus der Anzahl und dem Stückpreis und gewährt einen fixen Rabatt (in €).
+        // Runden Sie den Gesamtpreis auf 2 Kommastellen. Bei ungültigen Parameterwerten oder ungültigem Ergebnis
+        // soll -1 als Ergebnis geliefert werden.
+        if (amount < 0 || price < 0 || totalDiscount < 0) {
             return -1;
+        } else {
+            double discountedPrice = calculatePrice(amount, price) - totalDiscount;
+            if (discountedPrice >= 0)
+                return discountedPrice;
+            else {
+                System.out.println("ungültiger Rabatt wird nicht angewendet!");
+                return calculatePrice(amount, price);
+            }
         }
     }
 }
