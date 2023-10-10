@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Arrays_2_CopyArray {
     public static void main(String[] args) {
-        public static int[] makeACopy ( int[] original){
+        //public static int[] makeACopy ( int[] original){
 
             Scanner scanner = new Scanner(System.in);
 
@@ -31,4 +31,3 @@ public class Arrays_2_CopyArray {
 
         }
     }
-}
