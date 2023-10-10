@@ -11,7 +11,7 @@ public static int[] makeACopy(int[] original){
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Arrays_2_CopyArray {
+/*public class Arrays_2_CopyArray {
     public static void main(String[] args) {
         public static int[] makeACopy ( int[] original){
 
@@ -31,4 +31,4 @@ public class Arrays_2_CopyArray {
 
         }
     }
-}
+}*/
