@@ -12,16 +12,17 @@ import java.util.Arrays;
 
 public class Arrays_5_ArrayZaehlen {
     public static void main(String[] args) {
-        int arrayLength = 100;
+        int arrayLength = 10;
         Random rand = new Random();
         int [] randomArray = new int[arrayLength];
 
-        for (int i = 1; i <= arrayLength ; i++) {
+        for (int i = 0; i < arrayLength ; i++) {
             int randomValue = rand.nextInt(1, 100);
             randomArray[i] = randomValue;
         }
         for (int value : randomArray){
-            System.out.println(value + "");
+            System.out.print(value + " ");
         }
     }
+
 }
