@@ -11,12 +11,12 @@ import java.util.Random;
 public class Arrays_4_CrazyRangeArray {
     public static void main(String[] args) {
         Random random = new Random();
-        int numbers = random.nextInt(-50,50);
         int [] array = new int[10];
+
 
         for (int value : array){
             array[value] = random.nextInt(-50,50);
-            System.out.println(array[value]);
+            System.out.print(array[value] + " ");
         }
 
     }

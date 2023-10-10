@@ -17,7 +17,7 @@ public class Arrays_2_CopyArray {
         int[] original = new int[number];
 
         for (int i = 0; i < number; i++) {
-            original [i]= i;
+            original [i]= i +100;
         }
         System.out.println(Arrays.toString(original));
 
@@ -32,7 +32,7 @@ public class Arrays_2_CopyArray {
         for (int i = 0; i < original.length ; i++) {
 
 
-            copy [i] = i;
+            copy [i] = original[i];
         }
         return copy;
     }
