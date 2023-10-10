@@ -1,4 +1,4 @@
-package judith.week04;
+package judith.week4;
 
 /*
 Aufgabe: Number Array
