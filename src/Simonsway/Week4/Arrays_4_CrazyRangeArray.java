@@ -10,20 +10,18 @@ import java.util.Random;
 public class Arrays_4_CrazyRangeArray {
     public static void main(String[] args) {
 
-        int randomResult = randomCounter();
-
-        int [] numbers = new int[randomResult];
-
-    }
-    static int randomCounter() {
+        int arrayLength = 20;
         Random rand = new Random();
-        int anzahlZahlen = 50;
-        int randomValue = 0;
+        int [] randomArray = new int[arrayLength];
 
-        for (int i = 0; i < anzahlZahlen; i++) {
-            randomValue = rand.nextInt(100) - 50;
+        for (int i = 0; i < arrayLength; i++) {
+            int randomValue = rand.nextInt(101) - 50;
+            randomArray[i] = randomValue;
         }
-        return randomValue;
+
+        for (int value : randomArray){
+            System.out.println(value + " ");
+        }
     }
 }
 
