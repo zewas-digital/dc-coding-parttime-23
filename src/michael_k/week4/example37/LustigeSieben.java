@@ -75,9 +75,49 @@ static Scanner inputKonsole = new Scanner ( System.in );
 static int kontostand =0;
 static int gewinnVerlust=0;
     public static void main(String[] args) {
-    int kontostand = 0;
 
+        int einsatz;
+        int dice1;
+        int dice2;
+        int gewinnzahl;
+        int wette;
+        String weiter;
+        boolean abbrechen = true;
 
+        while( kontostand > -1000 && abbrechen ) {
+            System.out.print ( "Bitte um Ihren Einsatz: " );
+            einsatz = readBid ( );
+            System.out.println ( "Einsatz: " + einsatz + " EUR, Kontostand: " + kontostand + " EUR" );
+            dice1 = rollDice ( );
+            dice2 = rollDice ( );
+            gewinnzahl = dice1 + dice2;
+            System.out.print ( "Setzen sie auf eine Zahl zwischen 2 - 12: " );
+            wette = readBet ( );
+            System.out.println ( "Die Würfel sind gefallen: " + dice1 + " + " + dice2 + " = " + gewinnzahl );
+            gewinnVerlust = calculateWin ( gewinnzahl, wette, einsatz );
+            if (gewinnVerlust < 0) {
+                System.out.println ( "Oje sie haben den Einsatz von in Höhe von " + gewinnVerlust + " EUR verloren" );
+            } else {
+                System.out.println ( "Sie haben gewonnen und bekommen " + gewinnVerlust + " EUR" );
+                kontostand = kontostand + gewinnVerlust;
+            }
+            System.out.println ( "Ihr neuer Kontostand lautet: " + kontostand + " EUR" );
+            System.out.print ( "Wollen sie weiterspielen (j/n)?" );
+            for (int i = 0; i <1; ) {
+            weiter = inputKonsole.next ();
+                System.out.println ("------------------------------------------------------" );
+                if( weiter.equals ( "j" )){
+                    abbrechen=true;
+                    i++;
+                }else if( weiter.equals ( "n" )){
+                    abbrechen= false;
+                    i++;
+                }else{
+                    System.out.println ("Eingabe ungültig" );
+                    System.out.print ( "Wollen sie weiterspielen (j/n)?" );
+                }
+            }
+        }
 
     }
 
@@ -90,8 +130,8 @@ static int gewinnVerlust=0;
 
     static int rollDice(){
         Random zufallszahl = new Random ();
-        int wuerfel = zufallszahl.nextInt (6);
-        return wuerfel;
+        int dice = zufallszahl.nextInt (5)+1;
+        return dice;
     }
 
     static int readBet(){
@@ -122,7 +162,7 @@ static int gewinnVerlust=0;
 
         return gewinnVerlust;
     }
-
+/*
     static boolean playAgain(){
         String abfrage = inputKonsole.next ();
         boolean weiterEnde=true;
@@ -131,10 +171,10 @@ static int gewinnVerlust=0;
 
         return weiterEnde;
     }
-/*
+
     static void playRound(int 2xwürfel, int wette, int einsatz){
 
     }
- */
+*/
 
 }
