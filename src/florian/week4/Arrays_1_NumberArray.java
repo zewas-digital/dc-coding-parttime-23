@@ -1,4 +1,4 @@
-package florian.week04;
+package florian.week4;
 
 /*
 Aufgabe: Number Array
@@ -15,7 +15,7 @@ public class Arrays_1_NumberArray {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bitte gib die Länge des Arrays ein: ");
         int  numbers = scanner.nextInt();
-        System.out.println("Bitte gib die Länge des Arrays Rückwärts ein: ");
+        System.out.println("Bitte gib die Länge des zweiten Arrays ein: ");
         int numbers2 = scanner.nextInt();
 
         int [] number = new int [numbers];
@@ -27,7 +27,7 @@ public class Arrays_1_NumberArray {
         System.out.println(Arrays.toString(number));
 
         for (int i = numbers2 ; i >= 1  ; i--) {
-            number2 [0] = i - 1;
+            number2 [numbers2 - i ] = i;
         }
 
 
