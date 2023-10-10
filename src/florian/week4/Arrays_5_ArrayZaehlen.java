@@ -1,4 +1,4 @@
-package florian.week04;
+package florian.week4;
 
 /*
 Aufgabe: Random Number Array Zählen

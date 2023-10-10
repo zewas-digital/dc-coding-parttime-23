@@ -1,4 +1,4 @@
-package florian.week04;
+package florian.week4;
 
 public class Arrays_0_Array {
 }
