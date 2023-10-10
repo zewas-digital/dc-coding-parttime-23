@@ -22,7 +22,7 @@ public class Arrays_2_CopyArray {
 
     public static void main( String[] args ) {
         int[] number = new int[5];
-        number= new int[]{1, 2, 3, 4, 5};
+        number= new int[]{6, 2, 3, 4, 5};
         System.out.println( Arrays.toString( number) );
         System.out.println( Arrays.toString( makeACopy( number )) );
     }
