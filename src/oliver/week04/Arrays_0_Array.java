@@ -1,4 +1,4 @@
-package Simonsway.Week4;
+package oliver.week04;
 
 import java.util.Arrays;
 
@@ -17,5 +17,16 @@ public class Arrays_0_Array {
         System.out.println(Arrays.toString(names));
         System.out.println(names[7]);
         System.out.println("länge von names: "+ names.length);
+
+        // array mit for-each schleife
+        int[] values = {10, 50, 60, 80, 90, 100};
+
+        for (int i = 0; i < values.length; i++) {
+            System.out.println("i: " + i + " = " + values[i] + " ");
+        }
+
+        for (int value : values) {
+            System.out.println(value + " ");
+        }
     }
 }
