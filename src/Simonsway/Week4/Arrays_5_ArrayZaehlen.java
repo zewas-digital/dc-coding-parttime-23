@@ -17,12 +17,18 @@ public class Arrays_5_ArrayZaehlen {
         int [] randomArray = new int[arrayLength];
 
         for (int i = 0; i < arrayLength ; i++) {
-            int randomValue = rand.nextInt(1, 100);
+            int randomValue = rand.nextInt(100) + 1;
             randomArray[i] = randomValue;
         }
+
+        int count = 0;
+
         for (int value : randomArray){
             System.out.print(value + " ");
+            if (value > 30){
+                count++;
+            }
         }
+        System.out.print("Anzahl größer als 30 " + count);
     }
-
 }

@@ -10,17 +10,17 @@ import java.util.Random;
 public class Arrays_4_CrazyRangeArray {
     public static void main(String[] args) {
 
-        int arrayLength = 20;
+        int arrayLength = 10;
         Random rand = new Random();
         int [] randomArray = new int[arrayLength];
 
         for (int i = 0; i < arrayLength; i++) {
-            int randomValue = rand.nextInt(101) - 50;
+            int randomValue = rand.nextInt(-50, 50);
             randomArray[i] = randomValue;
         }
 
         for (int value : randomArray){
-            System.out.println(value + " ");
+            System.out.print(value + " ");
         }
     }
 }
