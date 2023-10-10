@@ -1,4 +1,4 @@
-package solutions.michael_k.week4.example38;
+package michael_k.week4.example38;
 
 /*
 Preisberechnung
@@ -27,9 +27,9 @@ Out.println(x); //x hat jetzt den Wert 123.46
 public class Preisberechnung {
 
     public static void main(String[] args) {
-
+/*
         System.out.printf("%.2f", num);
-
+*/
     }
 
     static double calculatePrice(int amount, double price){

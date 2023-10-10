@@ -8,4 +8,11 @@ Erstelle eine Funktion, die die Werte größer als 30 zählt.
  */
 
 public class Arrays_5_ArrayZaehlen {
+    public static void main(String[] args)
+    {
+        int[] values = { 10, 50, 60, 80, 90 };
+
+        for (int value : values)
+            System.out.print(value + " ");
+    }
 }

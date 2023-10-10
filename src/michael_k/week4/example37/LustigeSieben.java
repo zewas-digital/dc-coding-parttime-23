@@ -1,4 +1,4 @@
-package solutions.michael_k.week4.example37;
+package michael_k.week4.example37;
 
 /*
 Lustige Sieben
@@ -131,9 +131,10 @@ static int gewinnVerlust=0;
 
         return weiterEnde;
     }
-
+/*
     static void playRound(int 2xwürfel, int wette, int einsatz){
 
     }
+ */
 
 }
