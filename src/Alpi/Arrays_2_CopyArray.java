@@ -1,4 +1,4 @@
-package Simonsway.Week4;
+package Alpi;
 
 /*
 Aufgabe: Kopie
@@ -8,9 +8,15 @@ public static int[] makeACopy(int[] original){
 }
  */
 
-public class Arrays_2_CopyArray {
-    public static void main(String[] args) {
 
-    }
+
+
+public class Arrays_2_CopyArray {
+
+
+
+
+
 
 }
+
