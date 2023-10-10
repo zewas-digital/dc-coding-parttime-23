@@ -21,15 +21,37 @@ public class Arrays_3_RandomNumberArray {
     public static void main(String[] args) {
         Random random = new Random();
 
-        int randomNumber = random.nextInt(100);
 
-       System.out.println(randomNumber);
+        int[] numbers = new int[10];
 
-       //foreach
-        //for (int i: randomNumber) {
-          //  System.out.println(i);
+        for (int i = 0; i < 10; i++) {
+            numbers [i] = random.nextInt(0,100);
+            //System.out.print(numbers[i] + " ");
+        }
+        System.out.println(Arrays.toString(numbers));
+
+        for (int var : numbers) {
+            System.out.println(var);
 
         }
+
+        System.out.println("2: " + numbers[1]);
+        System.out.println("5: " + numbers[4]);
+        System.out.println("10: " + numbers[9]);
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 
 
 
@@ -38,4 +60,9 @@ public class Arrays_3_RandomNumberArray {
 
 
 
-//}
+
+
+
+
+
+
