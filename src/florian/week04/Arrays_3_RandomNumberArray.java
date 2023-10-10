@@ -13,5 +13,27 @@ Gib den zweiten, fünften und zehnten Wert des Arrays aus.
 Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
  */
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Arrays_3_RandomNumberArray {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int[] array = new int[10];
+
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(0, 100);
+            System.out.print(array[i] + " ");
+        }
+
+        for (int value : array) {
+            array[value] = random.nextInt(0, 100);
+            System.out.print(array[value] + " ");
+
+        }
+
+
+
+    }
 }
