@@ -35,11 +35,15 @@ public class Arrays_3_RandomNumberArray {
 
         }
 
-        System.out.println("2: " + numbers[1]);
-        System.out.println("5: " + numbers[4]);
-        System.out.println("10: " + numbers[9]);
+        System.out.println(" 2: " + numbers[1]);
+        System.out.println(" 5: " + numbers[4]);
+        System.out.println(" 10: " + numbers[9]);
 
+        for (int i = 0; i <10 ; i += 2) {
+            numbers [i] = random.nextInt(0,100);
+            System.out.println(numbers[i] + " ");
 
+        }
 
 
 

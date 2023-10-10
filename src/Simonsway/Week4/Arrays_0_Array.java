@@ -1,4 +1,4 @@
-package oliver.week04;
+package Simonsway.Week4;
 
 import java.util.Arrays;
 
