@@ -1,4 +1,4 @@
-package solutions.judith.week3.example34;
+package judith.week3.example34;
 
 /*
 Kleidergrößen
