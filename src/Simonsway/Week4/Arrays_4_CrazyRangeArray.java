@@ -17,6 +17,11 @@ public class Arrays_4_CrazyRangeArray {
         for (int i = 0; i < arrayLength; i++) {
             int randomValue = rand.nextInt(-50, 50);
             randomArray[i] = randomValue;
+            /*
+            In dieser Zeile wird der Wert randomValue in das Array randomArray an der Stelle i gespeichert.
+            Das bedeutet, dass die aktuelle Zufallszahl, die zuvor in der Variable randomValue generiert wurde, in das Array randomArray an der Position i eingefügt wird.
+            Dies wird in einer Schleife wiederholt, um das gesamte Array mit Zufallszahlen zu füllen.
+            */
         }
 
         for (int value : randomArray){
