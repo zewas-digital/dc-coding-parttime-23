@@ -1,4 +1,4 @@
-package judith.week4;
+package volkan.week04;
 
 /*
 Aufgabe: Random Number Array Crazy Range
@@ -9,13 +9,15 @@ import java.util.Random;
 
 public class Arrays_4_CrazyRangeArray {
     public static void main(String[] args) {
+        int[] array = new int[10];
+
         Random random = new Random();
-        int [] number = new int[(random.nextInt(-50,50))];
+        for (int i = 0; i < array.length; i++) {
+        array[i] = random.nextInt(-50, 50);
+        }
 
-
-
-        for (int zufallsZahl : number) {
-            System.out.println(zufallsZahl);
+        for (int number : array) {
+            System.out.print(number + "  ");
         }
 
     }
