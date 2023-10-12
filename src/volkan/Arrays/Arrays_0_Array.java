@@ -1,4 +1,4 @@
-package volkan.week04;
+package volkan.Arrays;
 
 public class Arrays_0_Array {
 
