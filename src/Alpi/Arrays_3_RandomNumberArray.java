@@ -1,4 +1,4 @@
-package eslem04;
+package Alpi;
 
 /*
 Aufgabe: Random Number Array
@@ -13,5 +13,19 @@ Gib den zweiten, fünften und zehnten Wert des Arrays aus.
 Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
  */
 
+
+import java.util.Random;
+
 public class Arrays_3_RandomNumberArray {
+    public static void main(String[] args) {
+        int[] numbers = {10,20,40,60,70,80,90,100};
+        Random random = new Random();
+
+        for (int nummer : numbers){
+            System.out.print(nummer + " ");
+        }
+
+
+
+    }
 }

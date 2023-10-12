@@ -1,4 +1,4 @@
-package eslem04;
+package eslem.week04;
 
 /*
 Aufgabe: Number Array

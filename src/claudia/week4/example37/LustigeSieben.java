@@ -1,4 +1,4 @@
-package solutions.claudia.week4.example37;
+package claudia.week4.example37;
 
 /*
 Lustige Sieben
@@ -50,9 +50,6 @@ Ihr neuer Kontostand lautet -990 EUR
 -----------------------------------------
 Ihr Gesamtgewinn/-verlust: -990 EUR
 
-
-
-
 Schreiben Sie mindestens die folgenden Funktionen bzw. Methoden und rufen Sie diese in der main-Methode auf, um einen Beispieldialog wie oben erzeugen zu können:
 
     static int readBid() liest den Einsatz von der Nutzerin ein und liefert ihn als Ergebnis zurück. Der Einsatz wird dabei innerhalb der Methode vom Kontostand der Nutzerin abgezogen
@@ -72,16 +69,25 @@ import java.util.Scanner;
 public class LustigeSieben {
     static int total = 10; //Kontostand; Initialwert = 10
     public static void main(String[] args) {
-        for (int i = 1; i < 10; i++) {
-            readBid();
-        }
+        Scanner scanner = new Scanner(System.in);
+        boolean again = true;
 
+        System.out.println("Lass uns Spielen!");
+        System.out.println("=========================================");
+        System.out.println("=========================================");
+        while (again) {
+            playRound(rollTwoDices(), readBet(), readBid());
+            again = playAgain();
+        }
     }
 
     static int rollDice(){
         //Würfelt mit einem Würfel
         Random rand = new Random();
         return rand.nextInt(1, 7);
+    }
+    static int rollTwoDices(){
+        return rollDice() + rollDice();
     }
     static boolean playAgain() {
         //fragt die Nutzerin, ob weitergespielt werden soll.
@@ -92,20 +98,22 @@ public class LustigeSieben {
             System.out.println("Du darfst nicht mehr spielen, Kontostand " + total);
             return false;
         }
-        System.out.print("Noch mal spielen? J für Ja, N für Nein ");
+        System.out.print("Noch mal spielen? N für Nein, alles andere für Ja: ");
         Scanner scanner = new Scanner(System.in);
         choice = scanner.next().charAt(0);
+        System.out.println("**************************************************");
         return choice != 'N';
     }
     static int readBid(){
-        //liest den Einsatz von der Nutzerin ein und liefert ihn als Ergebnis zurück. Der Einsatz wird dabei innerhalb der Methode vom Kontostand der Nutzerin abgezogen
+        //liest den Einsatz von der Nutzerin ein und liefert ihn als Ergebnis zurück.
+        // Der Einsatz wird dabei innerhalb der Methode vom Kontostand der Nutzerin abgezogen
         int bid;
         System.out.println("Dein Kontostand beträgt: " + total);
         System.out.print("Wie hoch ist Dein Einsatz? ");
         Scanner scanner = new Scanner(System.in);
         bid = scanner.nextInt();
         total = total - bid;
-        System.out.println("Dein Einsatz: " + bid + "    Neuer Kontostand: " + total);
+        System.out.println("Neuer Kontostand: " + total);
         return bid;
     }
     static int readBet(){
@@ -116,11 +124,38 @@ public class LustigeSieben {
         bet = scanner.nextInt();
         return bet;
     }
-    static int calculateWin(int dice, int bet, int bid){
-        //berechnet den Gewinn auf Basis der geratenen Zahl, gewürfelten Zahl und gesetzten Summe. Die Funktion liefert -1 bei falschen Parameterwerten.
-        return -1;
-    }
+    static int calculateWin(int dice, int bet, int bid) {
+        //berechnet den Gewinn auf Basis der geratenen Zahl, gewürfelten Zahl und gesetzten Summe. Die Funktion liefert -1 bei falschen Parameterwerten
+        //TODO (noch kein Abfangen ungültiger Parameterwerte!).
 
+        if (bet == dice && bet == 7) {
+            System.out.println("Bank hat gewürfelt: " + dice);
+            return 3 * bid;
+        } else if (bet == dice) {
+            System.out.println("Bank hat gewürfelt: " + dice);
+            return 2 * bid;
+        } else if ((bet == 2 || bet == 4 || bet == 6 || bet == 9 || bet == 11) && (dice == 2 || dice == 4 || dice == 6 || dice == 9 || dice == 11)) {
+            System.out.println("Bank hat gewürfelt: " + dice);
+            return bid;
+        } else if ((bet == 3 || bet == 5 || bet == 8 || bet == 10 || bet == 12) && (dice == 3 || dice == 5 || dice == 8 || dice == 10 || dice == 12)) {
+            System.out.println("Bank hat gewürfelt: " + dice);
+            return bid;
+        } else {
+            System.out.println("Bank hat gewürfelt: " + dice);
+            return 0;
+        }
+        //return -1;
+    }
+    static void playRound(int dice, int bet, int bid) {
+        //übernimmt unter Verwendung der Methode calculateWin(int, int, int) das Spielen einer Runde auf Basis
+        // der gegebenen Parameter. Dies umfasst neben dem Aufruf der Methode calculateWin(int, int, int) auch
+        // die Änderung des Kontostandes der Nutzerin auf Basis des Spielergebnisses,
+        // sowie die Ausgabe des Spielergebnisses auf der Kommandozeile.
+        int win = calculateWin(dice, bet, bid);
+        total = total + win;
+        System.out.println("Dein Gewinn beträgt: " + win);
+        System.out.println("Neuer Kontostand: " + total);
+    }
 }
 
 
