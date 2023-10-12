@@ -12,4 +12,5 @@ public class Arrays_2_CopyArray {
     public static void main(String[] args) {
 
     }
+
 }

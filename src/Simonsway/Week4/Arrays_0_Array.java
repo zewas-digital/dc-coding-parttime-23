@@ -1,16 +1,16 @@
-package oliver.week04;
+package Simonsway.Week4;
 
 import java.util.Arrays;
 
 public class Arrays_0_Array {
 
     public static void main(String[] args) {
-        int length = 8;
+        int length = 9;
         int[] numbers = new int[length];
         String[] names = new String[length];
 
         numbers[0] = length;
-        numbers[3] = 7;
+        numbers[1] = 4;
         names[7] = "Hugo";
 
         System.out.println(Arrays.toString(numbers));

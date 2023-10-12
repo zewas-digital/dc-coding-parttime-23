@@ -22,7 +22,9 @@ public class Arrays_1_NumberArray {
         int[] topDown = createTopDownArray(sc.nextInt());
         System.out.println(Arrays.toString(topDown));
 
-        int[] topDown2 = createTopDownArrayWithWhile(sc.nextInt());
+        System.out.println("in welcher Länge soll ein zweites Array erzeugt werden?");
+        int length = sc.nextInt();
+        int[] topDown2 = createTopDownArrayWithWhile(length);
         System.out.println(Arrays.toString(topDown2));
     }
 
@@ -31,6 +33,7 @@ public class Arrays_1_NumberArray {
 
         for (int i = length; i > 0; i--) {
             numbers[length - i] = i;
+            System.out.println(Arrays.toString(numbers));
         }
 
         return numbers;
