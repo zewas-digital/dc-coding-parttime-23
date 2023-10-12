@@ -13,7 +13,7 @@ public class Arrays_4_CrazyRangeArray {
         Random random = new Random();
 
         for (int i = 0; i < crazyArray.length; i++) {
-            crazyArray[i] = random.nextInt(51);
+            crazyArray[i] = random.nextInt(101) - 50;
         }
 
 
