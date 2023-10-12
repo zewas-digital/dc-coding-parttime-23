@@ -1,4 +1,4 @@
-package volkan.week04;
+package volkan.Arrays;
 
 /*
 Aufgabe: Random Number Array
@@ -18,9 +18,9 @@ import java.util.Random;
 public class Arrays_3_RandomNumberArray {
     public static void main(String[] args) {
         Random random = new Random();
-
-        int randomNumber = random.nextInt(100);
-
+        int randomNumber = random.nextInt();
         System.out.println(randomNumber);
+
+
     }
 }
