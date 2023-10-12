@@ -64,9 +64,27 @@ import java.util.Scanner;
 public class Primfaktorenzerlegung {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Welche Zahl soll in Primfaktoren zerlegt werden? Bitte eingeben! ");
-        int pfz = scanner.nextInt();
+        //System.out.print("Welche Zahl soll in Primfaktoren zerlegt werden? Bitte eingeben! ");
+        //int pfz = scanner.nextInt();
+        /*String test = "1";
+        test = test + "2";
+        System.out.println(test);*/
+        System.out.println( primeFactors(16));
     }
+
+    public static String primeFactors(int number) {
+        //liefert die Primfaktoren als String. zB 2*2*2*2*3 bei number=48.
+        String factorization = number + " = ";
+
+        while (number % 2 == 0) {
+            number = number / 2;
+            factorization = factorization + "2 * " + number;
+        }
+        return factorization;
+    }
+    //public static void printPrimeFactors(int number): gibt die Primfaktoren auf der Konsole aus, siehe Beispielausgabe. Fehlermeldung bei negativer Nummer.
+
+
 
     static void findPrime(int lower, int upper) {
     //findet alle Primzahlen zwischen lower und upper und schreibt sie in die Konsole
