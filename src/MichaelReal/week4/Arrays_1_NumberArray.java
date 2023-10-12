@@ -23,7 +23,7 @@ public class Arrays_1_NumberArray {
 
         int[] secondArray = new int[dimension];
         for (int i = 0; i < dimension; i++) {
-            secondArray[i] = dimension - 1;
+            secondArray[i] = dimension - i;
         }
 
         System.out.println("Erstes Array: ");
@@ -31,14 +31,16 @@ public class Arrays_1_NumberArray {
             System.out.print(i + " ");
         }
 
+        System.out.println();
+
         System.out.println("Zweites Array: ");
         for (int i : secondArray) {
             System.out.print(i + " ");
         }
 
+        System.out.println();
 
-
-
+        System.out.println("Andere Möglichkeit");
 
         int[] userinfo = new int[5];
         int[] size = new int[5];

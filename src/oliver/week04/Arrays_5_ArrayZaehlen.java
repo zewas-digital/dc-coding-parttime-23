@@ -8,4 +8,8 @@ Erstelle eine Funktion, die die Werte größer als 30 zählt.
  */
 
 public class Arrays_5_ArrayZaehlen {
+    public static void main(String[] args)
+    {
+
+    }
 }
