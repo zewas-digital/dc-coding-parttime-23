@@ -2,7 +2,7 @@
 Erstelle ein Programm, das alle Primzahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
-package solutions.claudia.weekend1.example24;
+package claudia.weekend1.example24;
 
 public class PrimeNumbers {
     public static void main(String[] args) {

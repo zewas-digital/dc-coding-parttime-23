@@ -1,4 +1,4 @@
-package claudia.week4.example39;
+package solutions.eslem.example39;
 
 /*
 Primfaktorenzerlegung
@@ -56,36 +56,16 @@ negative number -96
 1024 = 2*2*2*2*2*2*2*2*2*2
 1025 = 5*5*41
 
+
+
+
+
+
  */
 
 
-import java.util.Scanner;
+
+
 
 public class Primfaktorenzerlegung {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Welche Zahl soll in Primfaktoren zerlegt werden? Bitte eingeben! ");
-        int pfz = scanner.nextInt();
-    }
-
-    static void findPrime(int lower, int upper) {
-    //findet alle Primzahlen zwischen lower und upper und schreibt sie in die Konsole
-        if (lower == 0 || lower == 1) {
-            lower = 2;
-        }
-
-        if (lower == 2) System.out.print(lower + " ");
-
-        for (int i = lower; i <= upper; i++) {
-            double root = Math.sqrt(i) + 1; // bis hierher Faktoren prüfen; +1 ist allerdings häßlich
-            boolean isPrime = true;
-
-            for (int j = 2; j <= root; j++) {
-                if (isPrime && (i % j) == 0) {
-                    isPrime = false;
-                }
-            }
-            if (isPrime) System.out.print(i + " ");
-        }
-    }
 }
