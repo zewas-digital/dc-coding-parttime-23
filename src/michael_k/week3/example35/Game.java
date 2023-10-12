@@ -1,4 +1,4 @@
-package solutions.michael_k.week3.example35;
+package michael_k.week3.example35;
 
 import java.sql.SQLOutput;
 import java.util.Random;
