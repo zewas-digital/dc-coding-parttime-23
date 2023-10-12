@@ -17,8 +17,9 @@ public class Arrays_4_CrazyRangeArray {
         }
 
 
-        for (int nummer : crazyArray); {
-            System.out.print(crazyArray + " ");
+        for (int number : crazyArray) {
+            System.out.print(number + " ");
         }
+        System.out.println();
     }
 }

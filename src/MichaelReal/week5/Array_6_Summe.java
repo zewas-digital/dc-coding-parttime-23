@@ -1,15 +1,14 @@
-package MichaelReal.week4;
+package MichaelReal.week5;
 
 /*
-Aufgabe: Random Number Array Zählen
 Erstelle ein int[] und befülle es mit Zufallszahlen von 1 bis 100.
 
-Erstelle eine Funktion, die die Werte größer als 30 zählt.
+Erstelle eine Funktion, die die Summe der Werte zurückgibt.
  */
 
 import java.util.Random;
 
-public class Arrays_5_ArrayZaehlen {
+public class Array_6_Summe {
     public static void main(String[] args) {
         int[] randomArray = new int[20];
         Random random = new Random();
@@ -24,17 +23,16 @@ public class Arrays_5_ArrayZaehlen {
 
         System.out.println();
 
-        int count = countValuesGreaterThen30(randomArray);
-        System.out.println("Anzahl der Werte grösser als 30: " + count);
+        int sum = calculateSum(randomArray);
+        System.out.println("Die Summe der Werte im Array: " + sum);
+
     }
 
-    public static int countValuesGreaterThen30(int[] array) {
-        int count = 0;
+    public  static  int calculateSum(int[] array) {
+        int sum = 0;
         for (int value : array) {
-            if (value > 30) {
-                count++;
-            }
+            sum += value;
         }
-        return count;
+        return sum;
     }
 }
