@@ -39,16 +39,23 @@ public class Arrays_3_RandomNumberArray {
         System.out.println(numbers[4]);
         System.out.println(numbers[9]);
 
+        System.out.println("////////////////////");
+
         for (int value:numbers) {
             System.out.print(value + " ");
-
         }
+
 
         for (int i = 0; i < length; i= i + 2) {
-            System.out.println(numbers[i]);
+            System.out.println(numbers[i] + " ");
         }
 
 
+        int i = 0;
+        while (i < length){
+            System.out.print(numbers[i] + " ");
+            i = i + 2;
+        }
 
     }
 
