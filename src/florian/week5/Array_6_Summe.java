@@ -12,12 +12,12 @@ public class Array_6_Summe {
     public static void main(String[] args) {
         Random random = new Random();
         int [] array = new int[10];
+        int summe = 0;
 
         for (int i = 0; i < array.length; i++) {
             array [i] = random.nextInt(1,100);
-
-            System.out.println();
+            summe = summe + array[i];
         }
-
+        System.out.println(summe);
     }
 }
