@@ -1,4 +1,4 @@
-package solutions.florian.week4.example39;
+package florian.week4.example39;
 
 /*
 Primfaktorenzerlegung

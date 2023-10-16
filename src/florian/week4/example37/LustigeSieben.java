@@ -1,4 +1,4 @@
-package solutions.florian.week4.example37;
+package florian.week4.example37;
 
 /*
 Lustige Sieben
