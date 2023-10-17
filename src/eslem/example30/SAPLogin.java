@@ -13,24 +13,40 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
  */
 
 package solutions.eslem.example30;
+
 import java.util.Scanner;
 
 public class SAPLogin {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        boolean Zahl= false;
 
-        System.out.println("Client Nummer:");
+
+        System.out.println("Client:");
         int Client = scanner.nextInt();
 
         System.out.println("Username:");
         String User = scanner.next();
 
         System.out.println("Password:");
-        long Passwort = scanner.nextLong();
+        long Password = scanner.nextLong();
 
-
-        System.out.println("Login erfolgreich!");
+        if (Client >= 0 || Client < 999) {
+            System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+        } else {
+            System.out.println("Login fehlgeschlagen!");
+        }
+        if (User.equals("Admin")) {
+            System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+        } else {
+            System.out.println("Login fehlgeschlagen!");
+        }
+        if (Password == 1234) {
+            System.out.println("Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!");
+        } else {
+            System.out.println("Login fehlgeschlagen!");
+        }
+        }
     }
-}
+
+
 
