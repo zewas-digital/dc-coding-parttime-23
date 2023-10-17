@@ -24,8 +24,6 @@ Out.println(x); //x hat jetzt den Wert 123.46
 import java.util.Scanner;
 
 
-
-
 public class Preisberechnung {
 
 
