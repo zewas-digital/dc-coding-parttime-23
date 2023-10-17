@@ -15,7 +15,7 @@ public class Array_8_Bubblesort {
     public static void main(String[] args) {
         Random randomnumber = new Random();
 
-        int[] array = new int [3];
+        int[] array = new int [4];
         int length = array.length;
 
         for (int i = 0; i < length; i++) {
@@ -32,7 +32,7 @@ public class Array_8_Bubblesort {
     }
 
     static int[] maxTomin(int[] array, int length){
-        int[] bubblesort = new int[length];
+        int[] sortedArray = new int[length];
 
     }
 }
