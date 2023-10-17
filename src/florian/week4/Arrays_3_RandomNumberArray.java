@@ -27,13 +27,18 @@ public class Arrays_3_RandomNumberArray {
             System.out.print(array[i] + " ");
         }
 
+        System.out.println();
+
         for (int value : array) {
-            array[value] = random.nextInt(0, 100);
-            System.out.print(array[value] + " ");
-
+            System.out.print(value + " ");
         }
+        System.out.println();
+        System.out.println(array[1] + " " + array[4] + " " + array[9]);
 
-
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(0, 100) + 2 + i++;
+            System.out.print(array[i] + " ");
+        }
 
     }
 }
