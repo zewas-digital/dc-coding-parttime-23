@@ -1,4 +1,4 @@
-package solutions.saifedine.week4.example38;
+package saifedine.week04.example38;
 
 /*
 Preisberechnung

@@ -1,4 +1,4 @@
-package solutions.saifedine.week1.example1;
+package saifedine.week01.example1;
 
 public class HelloWorld {
     public static void main(String[] args) {
