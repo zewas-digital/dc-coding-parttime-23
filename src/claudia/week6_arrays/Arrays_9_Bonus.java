@@ -32,14 +32,6 @@ public class Arrays_9_Bonus {
         System.out.println(Arrays.toString(vector3));
     }
 
-    private static int[] createRandomArray(int size) {
-        Random random = new Random();
-        int[] vector = new int[size];
-        for (int i = 0; i < size; i++) {
-            vector[i] = random.nextInt(1, 101);
-        }
-        return vector;
-    }
 
     public static void insertionSortAscending(int[] vector) {
         int counterLoop = 0;
@@ -111,5 +103,13 @@ public class Arrays_9_Bonus {
         vector[i] = vector[j];
         vector[j] = temp;
     }
-}
 
+    private static int[] createRandomArray(int size) {
+        Random random = new Random();
+        int[] vector = new int[size];
+        for (int i = 0; i < size; i++) {
+            vector[i] = random.nextInt(1, 101);
+        }
+        return vector;
+    }
+}
