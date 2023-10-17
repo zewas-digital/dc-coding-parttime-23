@@ -1,4 +1,4 @@
-package judith.week1.example1;
+package Alpi.week1.example1;
 
 public class HelloWorld {
     public static void main(String[] args) {
