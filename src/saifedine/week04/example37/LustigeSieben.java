@@ -1,4 +1,4 @@
-package solutions.saifedine.week4.example37;
+package saifedine.week04.example37;
 
 /*
 Lustige Sieben

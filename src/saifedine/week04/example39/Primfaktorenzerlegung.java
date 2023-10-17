@@ -1,4 +1,4 @@
-package solutions.saifedine.week4.example39;
+package saifedine.week04.example39;
 
 /*
 Primfaktorenzerlegung
