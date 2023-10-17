@@ -1,4 +1,4 @@
-package oliver.week6;
+package oliver.week6_arrays;
 
 import java.util.Arrays;
 
