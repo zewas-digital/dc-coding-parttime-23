@@ -14,7 +14,7 @@ public class Array_6_Summe {
             // Zufallszahlengenerator erstellen
             Random random = new Random();
 
-            // int[] mit 100 Elementen erstellen
+            // int[] mit 100 Zufallszahlen erstellen
             int[] zahlen = new int[100];
 
             // int[] mit Zufallszahlen füllen
@@ -22,7 +22,7 @@ public class Array_6_Summe {
                 zahlen[i] = random.nextInt(100) + 1;
             }
 
-            // Summe der int[]-Elemente berechnen
+            // Summe der int[]-Zufallszahlen berechnen
             int summe = sum(zahlen);
 
             // Summe ausgeben

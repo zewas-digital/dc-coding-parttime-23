@@ -15,12 +15,12 @@ public class Array_7_MinMaxAvg {
             // Zufallszahlen erstellen mit Random
             Random random = new Random();
 
-            // int[] mit 20 zahlen
-            int[] zahlen = new int[20];
+            // int[] mit 100 zahlen
+            int[] zahlen = new int[100];
 
             // int[] mit Zufallszahlen füllen
             for (int i = 0; i < zahlen.length; i++) {
-                zahlen[i] = random.nextInt(20) + 1;
+                zahlen[i] = random.nextInt(100) + 1;
             }
 
             // Minimum berechnen
