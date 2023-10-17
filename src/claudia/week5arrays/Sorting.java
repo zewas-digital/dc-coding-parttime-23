@@ -20,9 +20,11 @@ public class Sorting {
         //int [] vector1 = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,};
         //int [] vector1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
         //int [] vector = {1, 2, 3, 7, 2, 4, 5, 5, 6, 100, 234};
-        int[] vector = {2,4, 1, 3};
+        //int[] vector = {2, 1, 3, 1};
+        int[] vector = {2, 5, 1, 4};
+        int[] sorted = new int[vector.length];
         //mergeArray(vector, 0, 3, 10);
-        mergeSort(vector,0, 3);
+        mergeSort(vector,0, 3, sorted);
         System.out.println(Arrays.toString(vector));
         /*
         int [] vector2 = Arrays.copyOf(vector1, vector1.length);
@@ -34,8 +36,8 @@ public class Sorting {
         System.out.println(Arrays.toString(vector2));*/
     }
 
-    public static void mergeSort(int[] vector, int lowest, int highest){
-        boolean sorted = false;
+    public static void mergeSort(int[] vector, int lowest, int highest, int[] temp){
+        //boolean sorted = false;
         //while (!sorted){
 
         //while not sorted, divide array into approximate halves,
@@ -45,37 +47,44 @@ public class Sorting {
         //subarray of length 1 is sorted by definition
         //merge sorted arrays recursively
             if (lowest < highest) {
-                int middle = (highest - lowest) / 2;
-                mergeSort(vector, lowest, middle);
-                mergeSort(vector, middle + 1, highest);
-                mergeArray(vector, lowest, middle, highest);
-            } //else sorted = true;
+                int middle = (highest + lowest) / 2;
+
+
+                mergeSort(vector, lowest, middle, temp);
+
+                mergeSort(vector, middle + 1, highest, temp);
+
+                mergeArray(vector, lowest, middle, highest, temp);
+            };
         }
     //}
 
-    public static void mergeArray (int[] vector, int lowest, int middle, int highest){
+    public static void mergeArray (int[] vector, int lowest, int middle, int highest, int[] temp){
         //merge two sorted subarrays into one (sorted) array
         //subarrays must be sorted ascendingly
-        System.out.println("Merge!");
-        int[] sorted = new int[vector.length]; //array to store sorted values temporarily
-        int indexA = 0;
+
+        //int[] sorted = new int[vector.length]; //array to store sorted values temporarily
+        int indexA = lowest;
         int indexB = middle + 1;
         for (int i = 0; i < vector.length; i++) {
             if (indexA <= middle && indexB <= highest && vector[indexA] <= vector[indexB]) {
-                sorted[i] = vector[indexA];
+
+                temp[i] = vector[indexA];
+
                 indexA++;
             } else if (indexA <= middle && indexB <= highest && vector[indexA] > vector[indexB]) {
-                sorted[i] = vector[indexB];
+
+                temp[i] = vector[indexB];
                 indexB++;
-            } else if (indexA > middle) {
-                sorted[i] = vector[indexB];
+            } else if (indexA > middle && indexB <= highest) {//!!!!
+                temp[i] = vector[indexB];
                 indexB++;
-            } else {
-                sorted[i] = vector[indexA];
+            } else if (indexA <= middle && indexB > highest){
+                temp[i] = vector[indexA];
                 indexA++;
             }
         }
-        System.arraycopy(sorted, 0, vector, 0, vector.length);
+        System.arraycopy(temp, 0, vector, 0, vector.length);
     }
 
 
