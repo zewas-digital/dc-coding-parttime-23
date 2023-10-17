@@ -8,28 +8,29 @@ Erstelle eine Funktion, die die Werte größer als 30 zählt.
  */
 
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Arrays_5_ArrayZaehlen {
 
     public static void main(String[] args) {
-       /* Random random = new Random();
-        int randomNumber = random.nextInt( bound: 100); {
-            System.out.println(randomNumber);
-        }*/
 
+        Random randomValue = new Random ();
+        int[] array = new int[10];
+        int length = array.length;
+        int counter = 0 ;
 
-
-        int[] numbers = { 10, 20, 30, 40, 50};
-
-
-        //for (int i = 0; i < numbers.length; i++) {
-        //  System.out.println(numbers[i] + " ");
-
-
-            for (int value : numbers) {
-            System.out.print(value + " ");
-
+        for (int i = 0; i <length; i++) {
+            array[i] = randomValue.nextInt ( 50);
         }
 
+        for (int value: array) {
+            if ( value > 20){ counter++;}
+        }
 
+        System.out.println ( Arrays.toString(array ) );
+        System.out.println ( );
+        System.out.println ("Es befinden sich "+counter+" Zahlen über 30 in dem Array" );
     }
+
 }
