@@ -18,12 +18,7 @@ public class Arrays_9_Bonus {
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        int[] vector1 = new int[50];
-        for (int i = 0; i < vector1.length; i++) {
-            vector1[i] = random.nextInt(1, 101);
-        }
-
+        int[] vector1 = createRandomArray(50);
         int[] vector2 = Arrays.copyOf(vector1, vector1.length);
         int[] vector3 = Arrays.copyOf(vector1, vector1.length);
 
@@ -35,6 +30,15 @@ public class Arrays_9_Bonus {
         System.out.println(Arrays.toString(vector2));
         insertionSortAscending(vector3);
         System.out.println(Arrays.toString(vector3));
+    }
+
+    private static int[] createRandomArray(int size) {
+        Random random = new Random();
+        int[] vector = new int[size];
+        for (int i = 0; i < size; i++) {
+            vector[i] = random.nextInt(1, 101);
+        }
+        return vector;
     }
 
     public static void insertionSortAscending(int[] vector) {
