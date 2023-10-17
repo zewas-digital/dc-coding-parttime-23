@@ -1,4 +1,4 @@
-package claudia.week5arrays;
+package claudia.week5_arrays;
 
 /*
 Erstelle ein int[] und befülle es mit Zufallszahlen von 1 bis 100.
