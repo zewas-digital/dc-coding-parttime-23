@@ -1,4 +1,4 @@
-package oliver.week04;
+package oliver.week4_arrays;
 
 /*
 Aufgabe: Random Number Array Zählen
