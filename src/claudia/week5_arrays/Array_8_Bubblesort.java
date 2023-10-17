@@ -1,4 +1,4 @@
-package claudia.week5arrays;
+package claudia.week5_arrays;
 
 /*
 Erstelle ein int[] und sortiere es mit einem selbsterstellten Bubblesort Algorithmus und gib es dann aus. Der Bubblesort Algorithmus soll in einer eigenen Methode implementiert werden. Der Aufruf und die Ausgabe erfolgt in der main Methode.
