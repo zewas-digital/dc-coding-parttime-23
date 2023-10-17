@@ -1,4 +1,4 @@
-package michael_k.week4.example39;
+package volkan.week4.example39;
 
 /*
 Primfaktorenzerlegung
@@ -64,47 +64,8 @@ negative number -96
  */
 
 
-import java.util.ArrayList;
-import java.util.Scanner;
+
+
 
 public class Primfaktorenzerlegung {
-
-    public static void main(String[] args) {
-
-        ArrayList<Integer> array = new ArrayList<Integer> ();
-        array.add ( 2 );
-
-        int value;
-        Scanner inputKonsole = new Scanner ( System.in );
-
-
-        System.out.print ("Welche Zahl wollen sie prüfen?" );
-        value = inputKonsole.nextInt ( );
-
-
-
-        for (int i = 3; i<=value; i++) {
-
-            boolean result = PrimeNumber(i);
-            if (result == true) {
-                value = value/i;
-                array.add(i);
-
-
-            }
-        }
-        System.out.println (array );
-    }
-
-    static boolean PrimeNumber( int wert){          //In dieser Methode wird ein Wert übergeben die prüft, ob die Zahl eine
-                                                    //Primzahl ist und gibt ein True aus, wenn das der Fall ist.
-        boolean result =false;
-
-        for (int i = 2; i <wert; i++) {
-
-            if (wert % i ==0){ result=false;break;}
-            else {result= true;}
-        }
-        return result;
-    }
 }
