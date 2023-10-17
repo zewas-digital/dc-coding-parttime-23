@@ -59,10 +59,8 @@ Konfektionsgröße: 66
 Herren 66 -> 3XL
 Beenden (j/n)? j
 Bye bye
-
  */
+import java.util.Scanner;
 public class ConfectionSizes {
-    public static void main(String[] args) {
 
-    }
 }

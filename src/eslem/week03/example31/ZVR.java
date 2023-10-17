@@ -16,9 +16,30 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package solutions.eslem.example31;
 
+import java.util.Scanner;
+
 public class ZVR {
     public static void main(String[] args) {
-        // Tipp zur Validierung von Vereinsname und -sitz
-        System.out.println("Beispiel".length());
+        /* Tipp zur Validierung von Vereinsname und -sitz
+        System.out.println("Beispiel".length());*/
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("ZVR-Nummer:");
+        long ZVR = scanner.nextLong();
+
+        System.out.println("Vereinsname:");
+        String Name = scanner.next();
+
+        System.out.println("Vereinssitz:");
+        String Vereinssitz = scanner.next();
+
+        if (ZVR >= 100000000 || ZVR <= 999999999) {
+            System.out.println("Abfrage erfolgreich!");
+        } else if (ZVR == -1) {
+            if (Name.length() >= 3 && Vereinssitz.length() >= 3) {
+                System.out.println("Abfrage erfolgreich!");
+            }
+        }
     }
 }

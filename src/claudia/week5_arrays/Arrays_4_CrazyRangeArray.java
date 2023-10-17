@@ -1,4 +1,4 @@
-package claudia.week5arrays;
+package claudia.week5_arrays;
 
 /*
 Aufgabe: Random Number Array Crazy Range

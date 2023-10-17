@@ -71,8 +71,9 @@ public class Primfaktorenzerlegung {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> array = new ArrayList<Integer> ();
+        ArrayList<Integer> array = new ArrayList<> ( );
         array.add ( 2 );
+        ArrayList<Integer> Faktorwerte = new ArrayList<> ( );
 
         int value;
         Scanner inputKonsole = new Scanner ( System.in );
@@ -81,19 +82,32 @@ public class Primfaktorenzerlegung {
         System.out.print ("Welche Zahl wollen sie prüfen?" );
         value = inputKonsole.nextInt ( );
 
-
-
         for (int i = 3; i<=value; i++) {
 
             boolean result = PrimeNumber(i);
-            if (result == true) {
-                value = value/i;
+            if (result) {
                 array.add(i);
-
-
             }
         }
+
         System.out.println (array );
+
+        do {
+
+            for (int i = 0; true; i++) {
+
+                if (value % array.get ( i ) == 0) {
+                    value = value / array.get ( i );
+                    Faktorwerte.add ( i );
+                    break;
+                }
+
+            }
+
+        } while ( value != 1 );
+
+        Faktorwerte.size();
+
     }
 
     static boolean PrimeNumber( int wert){          //In dieser Methode wird ein Wert übergeben die prüft, ob die Zahl eine
