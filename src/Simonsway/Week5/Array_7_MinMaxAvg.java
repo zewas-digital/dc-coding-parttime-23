@@ -12,6 +12,17 @@ import java.util.Random;
 
 public class Array_7_MinMaxAvg {
     public static void main(String[] args) {
+        // create array
+
+        // call method getMinimum
+        // getMinimum(array1);
+        // getMinimum(array2);
+        // system out
+
+        // call method getMaximum
+
+        // call
+
 
         smallestNumberSearch();
     }
