@@ -1,4 +1,4 @@
-package eslem.example32;
+package eslem.week03.example32;
 /*
 Programmiere einen Bankomaten.
 Der Kunde kann zwischen den Funktionen
@@ -22,7 +22,7 @@ import java.util.Scanner;
 
 public class ATM {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
         float saldo = 0;
         char auswahl = 'x';
 
@@ -33,4 +33,5 @@ public class ATM {
             if (auswahl == 'E') saldo = (saldo);
         }
     }
+}
 
