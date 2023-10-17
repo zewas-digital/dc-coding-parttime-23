@@ -11,25 +11,25 @@ import java.util.Random;
 public class Array_6_Summe {
 
         public static void main(String[] args) {
-            // Zufallszahlengenerator erstellen
+            // Zufallszahlen mit Random erstellen
             Random random = new Random();
 
-            // int[] mit 100 Zufallszahlen erstellen
+            // int[Array] mit 100 Zufallszahlen erstellen
             int[] zahlen = new int[100];
 
-            // int[] mit Zufallszahlen füllen
+            // int[Array] mit Zufallszahlen füllen
             for (int i = 0; i < zahlen.length; i++) {
                 zahlen[i] = random.nextInt(100) + 1;
             }
 
-            // Summe der int[]-Zufallszahlen berechnen
+            // Summe der int[Array]-Zufallszahlen berechnen
             int summe = sum(zahlen);
 
             // Summe ausgeben
             System.out.println("Die Summe der Zufallszahlen beträgt: " + summe);
         }
 
-        // Funktion zur Berechnung der Summe
+        // Methode zur Berechnung der Summe
         public static int sum(int[] zahlen) {
             int summe = 0;
             for (int i = 0; i < zahlen.length; i++) {
