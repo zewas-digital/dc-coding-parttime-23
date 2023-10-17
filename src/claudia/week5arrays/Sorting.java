@@ -21,10 +21,13 @@ public class Sorting {
         //int [] vector1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
         //int [] vector = {1, 2, 3, 7, 2, 4, 5, 5, 6, 100, 234};
         //int[] vector = {2, 1, 3, 1};
-        int[] vector = {2, 5, 1, 4};
+        //int[] vector = {2, 5, 1, 4};
+        int[] vector = {1, 2, 1, 2, 4};
         int[] sorted = new int[vector.length];
+        int[] temp = {-1, -1, -1,-1,-1};
+        mergeArray(vector, 0, 2, 4, temp);
         //mergeArray(vector, 0, 3, 10);
-        mergeSort(vector,0, 3, sorted);
+        //mergeSort(vector,0, 3, sorted);
         System.out.println(Arrays.toString(vector));
         /*
         int [] vector2 = Arrays.copyOf(vector1, vector1.length);
@@ -48,7 +51,6 @@ public class Sorting {
         //merge sorted arrays recursively
             if (lowest < highest) {
                 int middle = (highest + lowest) / 2;
-
 
                 mergeSort(vector, lowest, middle, temp);
 
