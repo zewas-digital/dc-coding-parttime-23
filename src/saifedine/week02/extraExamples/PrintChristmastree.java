@@ -1,4 +1,4 @@
-package solutions.saifedine.week2.extraExamples;
+package saifedine.week02.extraExamples;
 
 /*
  Erstelle eine Methode welche einen Christbaum von variabler Größe ausgibt.
