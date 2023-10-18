@@ -34,6 +34,12 @@ public class Array_7_MinMaxAvg {
 
         int average = durchSchnitt(array);
         System.out.println("Durchschnitt " + average);
+
+        int indexMin = indexMin(array);
+        System.out.println("Index Minimum " + indexMin);
+
+        int indexMax = indexMax(array);
+        System.out.println("Index Maximum " + indexMax);
     }
 
     public static int minimumNumber(int[] array) {
@@ -69,6 +75,37 @@ public class Array_7_MinMaxAvg {
         }
     return average;
     }
+
+    public static int indexMin (int[] array) {      //???????????????????????????????????????
+        int indexMin = 0;
+        int min = array[indexMin];
+
+        for (int i = 1; i < array.length ; i++) {
+            if (array[i] <= min){
+                min = array[i];
+                indexMin = i;
+            }
+
+        }
+        return indexMin;
+    }
+
+
+    public static int indexMax (int[] array) {          //???????????????????????????????????????
+        int indexMax = 0;
+        int max = array[indexMax];
+
+        for (int i = 1; i < array.length ; i++) {
+            if (array[i] > max){
+                max = array[i];
+                indexMax = i;
+            }
+
+        }
+        return indexMax;
+    }
+
+
 }
 
 
