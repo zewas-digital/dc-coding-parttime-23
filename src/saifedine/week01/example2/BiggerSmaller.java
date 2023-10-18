@@ -1,4 +1,4 @@
-package solutions.saifedine.week1.example2;
+package saifedine.week01.example2;
 
 /*
 Schreiben Sie ein Programm, das eine Variable definiert ausgibt, ob die Zahl größer, kleiner oder gleich,
