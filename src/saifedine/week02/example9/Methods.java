@@ -1,4 +1,4 @@
-package solutions.saifedine.week2.example9;
+package saifedine.week02.example9;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printChars". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.
@@ -23,7 +23,7 @@ public class Methods {
 
     static void printChars (char value, int size) {
 
-        for (int i = 0; i <= size ; i++) {
+        for (int i = 0; i < size ; i++) {
             System.out.print(value);
         }
     }

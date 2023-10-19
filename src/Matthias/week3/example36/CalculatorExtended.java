@@ -1,4 +1,4 @@
-package saifedine.week03.example36;
+package solutions.matthias.week3.example36;
 
 /*
 1. Aufgabe:

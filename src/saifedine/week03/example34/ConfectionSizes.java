@@ -1,4 +1,4 @@
-package solutions.saifedine.week3.example34;
+package saifedine.week03.example34;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package solutions.saifedine.week2.example16;
+package saifedine.week02.example16;
 
 /*
 Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegebene Zeichen ausgibt. Die Größe soll dabei die Höhe des Rhombus sein.
@@ -25,6 +25,7 @@ Version von Michael
 
 class PrintRhombus {
     public static void main(String[] args) {
+
         dreieck('x', 99);
     }
 
@@ -43,7 +44,7 @@ class PrintRhombus {
         int m = größe / 2;
         int n = 1;
         for (int i = 0; i < größe / 2; i++) {
-//__________________________________________________________________________
+            //__________________________________________________________________________
             for (int j = 1; j < m; j++) {
                 System.out.print("-");
             }
@@ -68,7 +69,7 @@ class PrintRhombus {
         m = 1;
         n = größe - 4;
         for (int i = 1; i < größe / 2; i++) {
-//__________________________________________________________________________
+            //__________________________________________________________________________
             for (int j = 0; j < m; j++) {
                 System.out.print("-");
             }
@@ -88,8 +89,9 @@ class PrintRhombus {
             System.out.println();
             m++;
             n -= 2;
-//__________________________________________________________________________
+            //__________________________________________________________________________
         }
+
         for (int i = 0; i < größe / 2; i++) {
             System.out.print("-");
         }
@@ -100,7 +102,6 @@ class PrintRhombus {
         }
         System.out.println();
     }
-
 }
 
 
