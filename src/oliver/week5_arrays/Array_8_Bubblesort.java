@@ -9,8 +9,6 @@ Erstelle ein int[] und sortiere es mit einem selbsterstellten Bubblesort Algorit
 Erklärung Bubblesort: https://www.youtube.com/watch?v=qtXb0QnOceY
  */
 
-import oliver.week6_arrays.Methods;
-
 import java.util.Arrays;
 
 public class Array_8_Bubblesort {
