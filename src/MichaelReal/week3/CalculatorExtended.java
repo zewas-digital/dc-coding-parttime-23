@@ -1,4 +1,4 @@
-package MichaelReal.week3.example36;
+package MichaelReal.week3;
 
 /*
 1. Aufgabe:
