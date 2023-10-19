@@ -25,7 +25,8 @@ public class Array_8_Bubblesort {
 
         int[] ascending = bubblesortascending(array);
         System.out.println(Arrays.toString(ascending));
-        int [] descending = bubblesortdescending(array);
+
+        int[] descending = bubblesortdescending(array);
         System.out.println(Arrays.toString(descending));
     }
 
@@ -43,10 +44,11 @@ public class Array_8_Bubblesort {
         }
         return ascending;
     }
-    static int[] bubblesortdescending(int []descending){
+
+    static int[] bubblesortdescending(int[] descending) {
         int sortieren;
 
-        for (int i = 0; i < descending.length - 1; i++) {
+        for (int i = 0; i < descending.length -1; i++) {
             for (int j = 0; j < descending.length - 1; j++) {
                 if (descending[j] < descending[j + 1]) {
                     sortieren = descending[j];

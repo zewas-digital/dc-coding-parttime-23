@@ -1,4 +1,7 @@
-package solutions.florian.week3.example35;
+package florian.week3.example35;
+
+import java.util.Random;
+import java.util.Scanner;
 
 /*
 Erstelle ein Spiel, welche der Spieler fordert heraus eine Zahl zwischen 0 und 9999 zu erraten.
@@ -28,4 +31,20 @@ Das Spiel endet, wenn:
     der Spieler hat nach 20 Versuchen immer noch kein Erfolg
  */
 public class Game {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int value = rand.nextInt(10000);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bitte gib eine Zahl zwischen 0 und 9999 ein: ");
+        int inputuser = scanner.nextInt();
+
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < value; j++) {
+
+            }
+        }
+
+
+
+    }
 }
