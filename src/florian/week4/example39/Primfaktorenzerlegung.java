@@ -1,4 +1,4 @@
-package solutions.florian.week4.example39;
+package florian.week4.example39;
 
 /*
 Primfaktorenzerlegung
@@ -55,12 +55,6 @@ negative number -96
 96 = 2*2*2*2*2*3
 1024 = 2*2*2*2*2*2*2*2*2*2
 1025 = 5*5*41
-
-
-
-
-
-
  */
 
 

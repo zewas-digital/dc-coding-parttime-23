@@ -63,13 +63,63 @@ import java.util.Scanner;
 
 public class Primfaktorenzerlegung {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        //manueller Test:
+        /*Scanner scanner = new Scanner(System.in);
         System.out.print("Welche Zahl soll in Primfaktoren zerlegt werden? Bitte eingeben! ");
-        int pfz = scanner.nextInt();
+        int pfz = scanner.nextInt();*/
+        System.out.println("Automatischer Test: ");
+        automaticTest();
+        System.out.println();
+        System.out.println("Manueller Test: ");
+        printPrimeFactors(-123);
+        printPrimeFactors(1293400291);
+        printPrimeFactors(4096);
     }
 
-    static void findPrime(int lower, int upper) {
-    //findet alle Primzahlen zwischen lower und upper und schreibt sie in die Konsole
+    public static void automaticTest() {
+        for (int i = 0; i <= 100; i++) printPrimeFactors(i);
+        System.out.println();
+        printPrimeFactors(-96);
+        printPrimeFactors(4);
+        printPrimeFactors(96);
+        printPrimeFactors(1024);
+        printPrimeFactors(1025);
+    }
+    public static String primeFactors(int number) {
+        //liefert die Primfaktoren als String. zB 2*2*2*2*3 bei number=48.
+        String factorization = number + " = ";
+        int counter = 0;
+        if (number == 1) return "1 = 1";
+
+        //Überprüfe Teilbarkeit durch alle Zahlen
+        //TODO eigentlich würde es reichen, nur Primzahlen zu prüfen!
+        for (int i = 2; i <= Math.sqrt(number); i += 1) {
+            while (number % i == 0) {
+                if (counter == 0) {
+                    factorization = factorization + i;
+                    counter++;
+                } else {
+                    factorization = factorization + " * " + i;
+                }
+                number = number / i;
+            }
+        }
+
+        if (number != 1 && counter != 1) factorization = factorization + number;
+        if (number != 1 && counter == 1) factorization = factorization + " * " + number;
+        return factorization;
+    }
+    public static void printPrimeFactors(int number) {
+        //gibt die Primfaktoren auf der Konsole aus, siehe Beispielausgabe. Fehlermeldung bei negativer Nummer.
+        if (number <= 0){
+            System.out.println(number + " Für diese Zahl Primfaktorzerlegung nicht definiert!");
+        }
+        else System.out.println(primeFactors(number));
+    }
+
+   /*static void findPrime(int lower, int upper) {
+        //hier nicht in Verwendung!
+        //findet alle Primzahlen zwischen lower und upper und schreibt sie in die Konsole
         if (lower == 0 || lower == 1) {
             lower = 2;
         }
@@ -87,5 +137,5 @@ public class Primfaktorenzerlegung {
             }
             if (isPrime) System.out.print(i + " ");
         }
-    }
+    }*/
 }

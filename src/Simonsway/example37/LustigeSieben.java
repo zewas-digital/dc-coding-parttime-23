@@ -127,7 +127,7 @@ public class LustigeSieben {
         System.out.println("Bitte setzen sie auf eine Zahl zwischen 2 und 12");
         Scanner scan = new Scanner(System.in);
         int betChoice = scan.nextInt();
-        if (betChoice >=2 || betChoice <=12){
+        if (betChoice >=.2 || betChoice <=12){
             System.out.println("Danke für den Einsatz");
         }
         else {
