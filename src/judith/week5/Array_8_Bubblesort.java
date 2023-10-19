@@ -24,6 +24,13 @@ public class Array_8_Bubblesort {
 
     //nach durchlauf kontrollausgabe array
         public static void main(String[] args) {
+            int[] array = {24, 7, 12, 25, 64};
+
+            int smaller;                    //https://falconbyte.net/blog-java-bubblesort.php
+            int bigger;
+
+
+
 
 
 

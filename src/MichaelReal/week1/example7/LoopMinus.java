@@ -1,4 +1,4 @@
-package solutions.michaelreal.week1.example7;
+package MichaelReal.week1.example7;
 
 /*
 Erstellen Sie ein Programm, wo sie beide bereits gelernten Schleifen verwenden. Also eine For Schleife und eine

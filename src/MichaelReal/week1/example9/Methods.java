@@ -1,4 +1,4 @@
-package solutions.michaelreal.week1.example9;
+package MichaelReal.week1.example9;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printChars". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.

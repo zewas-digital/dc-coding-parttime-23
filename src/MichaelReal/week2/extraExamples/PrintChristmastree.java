@@ -1,4 +1,4 @@
-package solutions.michaelreal.week2.extraExamples;
+package MichaelReal.week2.extraExamples;
 
 /*
  Erstelle eine Methode welche einen Christbaum von variabler Größe ausgibt.
