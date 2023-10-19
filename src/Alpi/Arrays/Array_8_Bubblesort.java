@@ -26,6 +26,9 @@ public class Array_8_Bubblesort {
                 zahlen[i] = random.nextInt(100) + 1;
             }
 
+
+
+
             // Bubblesort-Sortierung aufsteigend Methode im Main definieren
             bubblesortAscending(zahlen);
 
@@ -65,7 +68,6 @@ public class Array_8_Bubblesort {
             }
         }
     }
-
 
 
 
