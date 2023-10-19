@@ -15,7 +15,7 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 
  */
 
-package solutions.michaelreal.weekend1.example29;
+package MichaelReal.weekend1.example29;
 
 import java.util.Scanner;
 

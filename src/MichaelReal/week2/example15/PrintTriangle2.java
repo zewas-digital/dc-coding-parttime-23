@@ -1,4 +1,4 @@
-package solutions.michaelreal.week2.example15;
+package MichaelReal.week2.example15;
 
 /*
 Erstelle eine Methode welche ein Dreick von variabler Größe und mit angegebene Zeichen ausgibt.

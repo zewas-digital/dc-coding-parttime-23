@@ -1,4 +1,4 @@
-package solutions.saifedine.week1.example5;
+package saifedine.week01.example5;
 
 /*
 Schreibe ein Programm das im Bereich von 1-100 Zahlen die durch zwei und/oder durch drei teilbar sind ausgeben.

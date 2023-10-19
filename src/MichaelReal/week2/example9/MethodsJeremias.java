@@ -1,4 +1,4 @@
-package solutions.michaelreal.week2.example9;
+package MichaelReal.week2.example9;
 
 
 /*

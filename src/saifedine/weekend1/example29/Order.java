@@ -15,7 +15,7 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 
  */
 
-package solutions.saifedine.weekend1.example29;
+package saifedine.weekend1.example29;
 
 import java.util.Scanner;
 
