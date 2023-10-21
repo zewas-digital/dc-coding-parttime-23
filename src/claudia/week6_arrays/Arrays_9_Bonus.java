@@ -26,47 +26,96 @@ public class Arrays_9_Bonus {
         int[] vector3 = Arrays.copyOf(vector1, vector1.length);
         int[] vector4 = Arrays.copyOf(vector1, vector1.length);
         int[] vector5 = Arrays.copyOf(vector1, vector1.length);
+        int[] vector6 = Arrays.copyOf(vector1, vector1.length);
 
-        //System.out.println("Originalvektor: ");
-        //System.out.println(Arrays.toString(vector1));
         long start = System.nanoTime(); //time in nano-seconds; nano = 10 ^(-9)
         cocktailSortAscending(vector1);
         long finish = System.nanoTime();
         long timeElapsedCocktail = finish - start;
-        //System.out.println("Cocktailsort: ");
-        //System.out.println(Arrays.toString(vector1));
+
         start = System.nanoTime();
         bubbleSortAscending(vector2);
         finish = System.nanoTime();
         long timeElapsedBubble = finish - start;
-        //System.out.println("Bubblesort: ");
-        //System.out.println(Arrays.toString(vector2));
+
         start = System.nanoTime();
         insertionSortAscending(vector3);
         finish = System.nanoTime();
         long timeElapsedInsertion = finish - start;
-        //System.out.println("Insertionsort: ");
-        //System.out.println(Arrays.toString(vector3));
+
         start = System.nanoTime();
         quicksort(vector4);
         finish = System.nanoTime();
         long timeElapsedQuick = finish - start;
-        //System.out.println("Quicksort: ");
-        //System.out.println(Arrays.toString(vector4));
+
         start = System.nanoTime();
         mergeSort(vector5);
         finish = System.nanoTime();
         long timeElapsedMerge = finish - start;
-        //System.out.println("Mergesort: ");
-        //System.out.println(Arrays.toString(vector5));
+
+        start = System.nanoTime();
+        selectionSortAscending(vector6);
+        finish = System.nanoTime();
+        long timeElapsedSelection = finish - start;
+       /*
+        System.out.println("Originalvektor: ");
+        System.out.println(Arrays.toString(vector1));
+        System.out.println("Cocktailsort: ");
+        System.out.println(Arrays.toString(vector1));
+        System.out.println("Bubblesort: ");
+        System.out.println(Arrays.toString(vector2));
+        System.out.println("Insertionsort: ");
+        System.out.println(Arrays.toString(vector3));
+        System.out.println("Quicksort: ");
+        System.out.println(Arrays.toString(vector4));
+        System.out.println("Mergesort: ");
+        System.out.println(Arrays.toString(vector5));
+        System.out.println("Selectionsort: ");
+        System.out.println(Arrays.toString(vector6));*/
+
         System.out.println("Time elapsed in nano seconds: ");
-        System.out.println("Cocktail  \t\t" + timeElapsedCocktail);
+       /* System.out.println("Cocktail  \t\t" + timeElapsedCocktail);
         System.out.println("Bubble    \t\t" + timeElapsedBubble);
         System.out.println("Insertion  \t\t" + timeElapsedInsertion);
         System.out.println("Quick      \t\t" + timeElapsedQuick);
         System.out.println("Merge     \t\t" + timeElapsedMerge);
+        System.out.println("Selection \t\t" + timeElapsedSelection);*/
+        System.out.println(String.format("Bubble   %20d", timeElapsedBubble));
+        System.out.println(String.format("Cocktail %20d", timeElapsedCocktail));
+        System.out.println(String.format("Insertion%20d", timeElapsedInsertion));
+        System.out.println(String.format("Merge    %20d", timeElapsedMerge));
+        System.out.println(String.format("Quick    %20d", timeElapsedQuick));
+        System.out.println(String.format("Selection%20d", timeElapsedSelection));
+
     }
 
+    public static void selectionSortAscending(int[] vector) {
+        int n = vector.length;
+        int half = n/2;
+        for (int j = 0; j <= half; j++) {
+            int min = vector[j];
+            int indexMin = j;
+            int max = vector[j];
+            int indexMax = j;
+            for (int i = j + 1; i < n - j; i++) {
+                if (vector[i] > max) {
+                    max = vector[i];
+                    indexMax = i;
+                }
+                if (vector[i] < min) {
+                    min = vector[i];
+                    indexMin = i;
+                }
+            }
+            if (indexMax != j) {
+                swapElements(vector, j, indexMin);
+                swapElements(vector, n - 1 - j, indexMax);
+            } else { //d.h. indexMax = j
+                swapElements(vector, n - 1 - j, indexMax);
+                swapElements(vector, j, indexMin);
+            }
+        }
+    }
     public static void mergeSort(int[] vector){
         int n = vector.length;
         int[] sorted = new int[n];
@@ -109,7 +158,6 @@ public class Arrays_9_Bonus {
     public static void quicksort(int[] vector) {
         qsort(vector, 0, vector.length - 1);
     }
-
     public static void qsort(int[] vector, int lowest, int highest) {
         if (lowest < highest) {//=> vector.length > 1
             int indexPivot = partition(vector, lowest, highest); //then pivot at position indexPivot
@@ -178,9 +226,11 @@ public class Arrays_9_Bonus {
     }
 
     public static void swapElements(int[] vector, int i, int j) {
-        int temp = vector[i];
-        vector[i] = vector[j];
-        vector[j] = temp;
+        if (i != j) {
+            int temp = vector[i];
+            vector[i] = vector[j];
+            vector[j] = temp;
+        }
     }
 
     public static int[] createRandomArray(int size) {
