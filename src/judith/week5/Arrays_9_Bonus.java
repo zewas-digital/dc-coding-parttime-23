@@ -17,7 +17,7 @@ public class Arrays_9_Bonus {
     public static void main(String[] args) {
 
 
-        int[] elements = {7,24 , 12, 25, 64};
+        int[] elements = {7,24 , 12, 25, 64, 150 , 846 , 453 , 786 ,};
        int[] sortiert = sort(elements);
 
         System.out.println("InsertionSort");
