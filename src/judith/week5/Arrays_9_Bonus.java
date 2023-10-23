@@ -9,31 +9,74 @@ Den Pseudo-Code der Algorithmen findest du unter:
 
 https://panthema.net/2013/sound-of-sorting/SoS-CheatSheet.pdf
  */
-/*
+
 import java.util.Arrays;
 
 public class Arrays_9_Bonus {
+
     public static void main(String[] args) {
-        int[] unsortiert  = {24, 7, 12, 25, 64};
-       // int[] sortiert = insertionSort(unsortiert);
 
+
+        int[] elements = {7,24 , 12, 25, 64};
+        int[] sortiert = sort(elements);
+
+        System.out.println("InsertionSort");
+        System.out.println(Arrays.toString(elements));
+
+
+        int[] sortiertTwo = Gnomesort(elements);
+        System.out.println("Gomesort ");
+        System.out.println(Arrays.toString(sortiertTwo));
     }
-  /*  public static int[] insertionSort (int[] unsortiert ){
+ //insertionSort
+       static int[] sort ( int[] elements){
 
-        for (int i = 0; i < unsortiert.length - 1 ; i++) {       // Anzahl der Durchläufe
-            System.out.println(" Durchlauf i: " + i);
-            int j = i;
-            int sortiert = 0;
-            while (j > 0 & unsortiert[j - 1]){
-                unsortiert[j] = unsortiert[j - 1];
-                System.out.println(Arrays.toString(unsortiert[j]));
+            for (int i = 1; i < elements.length; i++) {
+
+                int elementToSort = elements[i];
+
+                // Move element to the left until it's at the right position
+                int j = i;
+
+                while (j > 0 && elementToSort < elements[j - 1]) {
+                    elements[j] = elements[j - 1];
+                    j--;
+                }
+                elements[j] = elementToSort;
+            }
+           // System.out.println("Aufgabe - Insertion Sort:");
+
+           // System.out.println("Ergebnis: " + Arrays.toString(elements));
+
+            return elements;
+        }
+        //
+
+
+
+    static int[] Gnomesort ( int[] elements){
+        int index = 1; // index = i
+        for (int i = 1; i < elements.length; ){
+            if(elements[i - 1] <= elements[i]){
+                i++;
+            }
+            else {
+                int temp = elements[i];
+                elements[i] = elements[i-1];
+                elements[i - 1] = temp;
+                i --;
+                if (i == 0){
+                    i = 1;
+                }
             }
 
+            //index = i;
+
         }
-        return unsortiert;
 
-         */
-
+        return elements;
+}
+}
 
 
 
