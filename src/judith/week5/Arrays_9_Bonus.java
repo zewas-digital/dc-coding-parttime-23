@@ -18,7 +18,7 @@ public class Arrays_9_Bonus {
 
 
         int[] elements = {7,24 , 12, 25, 64};
-        int[] sortiert = sort(elements);
+       // int[] sortiert = sort(elements);
 
         System.out.println("InsertionSort");
         System.out.println(Arrays.toString(elements));
