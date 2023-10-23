@@ -19,7 +19,7 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
 
  */
 
-package solutions.michaelreal.weekend1.example32;
+package MichaelReal.weekend1.example32;
 
 public class ATM {
     public static void main(String[] args) {

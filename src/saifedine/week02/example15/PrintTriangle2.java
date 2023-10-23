@@ -1,4 +1,4 @@
-package solutions.saifedine.week2.example15;
+package saifedine.week02.example15;
 
 /*
 Erstelle eine Methode welche ein Dreick von variabler Größe und mit angegebene Zeichen ausgibt.
@@ -28,6 +28,7 @@ xxxxxxxxx
 /*
 Version von Michael
  */
+
 public class PrintTriangle2 {
     public static void main(String[] args) {
         dreieck('x', 4);

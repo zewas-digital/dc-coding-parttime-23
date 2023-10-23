@@ -1,4 +1,4 @@
-package solutions.michaelreal.week4.example39;
+package solutions.matthias.week4.example39;
 
 /*
 Primfaktorenzerlegung

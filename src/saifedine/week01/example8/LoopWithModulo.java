@@ -1,4 +1,4 @@
-package solutions.saifedine.week1.example8;
+package saifedine.week01.example8;
 
 /*
 Schreiben Sie ein Programm das in einer Schleife von 0 bis inklusive 10 zählt und nur jede gerade Zahl ausgibt.
@@ -25,11 +25,10 @@ public class LoopWithModulo {
 
         while (j <= 10) {
 
-            if (j % 2 == 0) {
-                System.out.println("While Schleife: " + j);
-            }
-
+            System.out.println("While Schleife: " + j);
             j += 2;
+
         }
     }
 }
+

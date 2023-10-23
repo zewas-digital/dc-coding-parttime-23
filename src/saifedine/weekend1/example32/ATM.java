@@ -19,7 +19,7 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
 
  */
 
-package solutions.saifedine.weekend1.example32;
+package saifedine.weekend1.example32;
 
 import java.util.Scanner;
 

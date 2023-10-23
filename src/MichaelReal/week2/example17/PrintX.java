@@ -1,4 +1,4 @@
-package solutions.michaelreal.week2.example17;
+package MichaelReal.week2.example17;
 
 /*
 Erstelle eine Methode welche ein X von variabler Größe und mit angegebene Zeichen ausgibt.

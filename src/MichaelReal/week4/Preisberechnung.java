@@ -1,4 +1,4 @@
-package solutions.michaelreal.week4.example38;
+package MichaelReal.week4;
 
 /*
 Preisberechnung

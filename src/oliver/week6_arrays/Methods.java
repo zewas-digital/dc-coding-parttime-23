@@ -23,6 +23,7 @@ public class Methods {
         int[] myArray = new int[2];
         myArray[0] = 0;
         myArray[1] = 1;
+        System.out.println(Arrays.toString(myArray));
 
         int[] copiedArray = myArray;
         changeArray(myArray);

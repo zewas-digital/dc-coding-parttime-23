@@ -1,4 +1,4 @@
-package solutions.michaelreal.weekend1.example27;
+package MichaelReal.weekend1.example27;
 
 public class Parsing {
 }

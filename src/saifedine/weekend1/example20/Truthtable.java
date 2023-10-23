@@ -9,7 +9,7 @@ OR      = ||
 NOT     = !
  */
 
-package solutions.saifedine.weekend1.example20;
+package saifedine.weekend1.example20;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
