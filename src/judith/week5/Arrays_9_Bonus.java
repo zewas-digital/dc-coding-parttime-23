@@ -55,7 +55,7 @@ public class Arrays_9_Bonus {
 
 
     static int[] Gnomesort ( int[] elements){
-        int index = 1; // index = i
+       // int index = 1; // index = i
         for (int i = 1; i < elements.length; ){
             if(elements[i - 1] <= elements[i]){
                 i++;
