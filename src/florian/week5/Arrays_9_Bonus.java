@@ -26,13 +26,13 @@ public class Arrays_9_Bonus {
         int[] copy = makeaCopy(array);
 
         int[] insert = insertsort(array);
-        System.out.println(Arrays.toString(insert));
+        System.out.println(Arrays.toString(insert) + "*");
 
         int[] gnome = gnomesort(makeaCopy(copy));
-        System.out.println(Arrays.toString(gnome));
+        System.out.println(Arrays.toString(gnome) + "#");
 
-        int[] quick = quicksort(makeaCopy(copy));
-        System.out.println(Arrays.toString(quick));
+        int[] heap = quicksort(makeaCopy(copy));
+        System.out.println(Arrays.toString(heap));
 
 
     }
@@ -81,22 +81,13 @@ public class Arrays_9_Bonus {
                     i = 1;
                 }
             }
-
         }
         return gnome;
     }
 
-    static int[] quicksort(int[] quick) {
-        int sort;
-        int min = Array_7_MinMaxAvg.minimum(quick);
+    static int[] quicksort(int[] radix) {
 
 
-
-
-
-
-
-        return quick;
+        return radix;
     }
-
 }
