@@ -24,5 +24,67 @@ Out.println(x); //x hat jetzt den Wert 123.46
 
  */
 
+import java.util.Scanner;
+
 public class Preisberechnung {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Wie viel Stück wollen Sie?");
+        int amount = scanner.nextInt();
+        double price = 9.99;
+        System.out.println("Prozentualen Rabatt?");
+        int discountinpercent = scanner.nextInt();
+        System.out.println("Fixer Rabatt?");
+        double totaldiscount = scanner.nextInt();
+
+        double totalsum;
+
+        if (amount < 0 || discountinpercent < 0 || totaldiscount < 0) {
+            System.out.println("falsche Werte!");
+        } else if (discountinpercent > 0) {
+            totalsum = calculatePrice(amount,price,discountinpercent);
+            System.out.println(totalsum);
+        } else if (totaldiscount > 0) {
+            totalsum = calculatePrice(amount,price,totaldiscount);
+            System.out.println(totalsum);
+        } else {
+            totalsum = calculatePrice(amount, price);
+            System.out.println(totalsum);
+        }
+
+    }
+
+    static double calculatePrice(int amount, double price){
+        double totalsum;
+
+        totalsum = amount * price;
+
+        totalsum = (double) Math.round(totalsum * 100) / 100;
+
+        return totalsum;
+    }
+    static double calculatePrice(int amount , double price, int discountinpercent){
+        double totalsum;
+
+        totalsum = amount * price;
+        double discount = totalsum / 100 * discountinpercent;
+        totalsum = totalsum - discount;
+
+
+        totalsum = (double) Math.round(totalsum * 100) / 100;
+
+        return totalsum;
+    }
+    static double calculatePrice(int amount, double price, double totaldiscount){
+        double totalsum;
+
+        totalsum = amount * price;
+
+        totalsum = totalsum - totaldiscount;
+
+        totalsum = (double) Math.round(totalsum * 100) / 100;
+
+        return totalsum;
+    }
+
 }

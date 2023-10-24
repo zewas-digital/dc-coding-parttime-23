@@ -35,7 +35,7 @@ public class Array_7_MinMaxAvg {
         System.out.println(durch);
     }
 
-    static int minimum(int[] array) {
+    public static int minimum(int[] array) {
         int min = array[0];
 
 
