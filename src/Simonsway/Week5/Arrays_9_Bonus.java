@@ -18,36 +18,28 @@ import java.util.Random;
 public class Arrays_9_Bonus {
     public static void main(String[] args) {
 
-        int arraySize = 10;
-        int[] array = new int[arraySize];
-
-        Random random = new Random();
-
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(1, 99);
-        }
-
+        int[] array = array_Methods.createNewRandomArray(10, 1, 99);
 
         int[] output = insertionSort(array);
         System.out.println(Arrays.toString(output));
 
-        int[] test = array_Methods.createNewRandomArray(10, 1, 10);
-
     }
 
-    public static int[] insertionSort(int[] array){
+    public static int[] insertionSort (int[] array){
 
+
+            // [5, 2, 9, 3, 6]
             for (int i = 1; i < array.length; i++) {
-                int elementToSort = array[i];
-                int j = i;
-                while (j > 0 && elementToSort < array[j - 1]) {
-                    array[j] = array[j - 1];
-                    j--;
+                int temp = array[i];
+                int j = i - 1;
+                while (j >= 0 && array[j] > temp) {
+                    array[j + 1] = array[j];
+                    j = j - 1;
                 }
-                array[j] = elementToSort;
+                array[j + 1] = temp;
             }
             return array;
-        }
+    }
 }
 
 
