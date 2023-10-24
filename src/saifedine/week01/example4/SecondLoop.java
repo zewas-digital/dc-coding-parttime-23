@@ -1,4 +1,4 @@
-package solutions.saifedine.week1.example4;
+package saifedine.week01.example4;
 
 /*
 Kopieren Sie die For Schleife des vorherigen Beispiels und geben sie nur jede 2 Zahl aus.

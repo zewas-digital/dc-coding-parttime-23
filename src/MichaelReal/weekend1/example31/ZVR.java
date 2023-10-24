@@ -14,7 +14,7 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
  */
 
-package solutions.michaelreal.weekend1.example31;
+package MichaelReal.weekend1.example31;
 
 import java.util.Scanner;
 

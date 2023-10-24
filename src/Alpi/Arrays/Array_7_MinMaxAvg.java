@@ -15,18 +15,18 @@ public class Array_7_MinMaxAvg {
             // Zufallszahlen erstellen mit Random
             Random random = new Random();
 
-            // int[] mit 100 zahlen
+            // int[Array] mit 100 zahlen
             int[] zahlen = new int[100];
 
-            // int[] mit Zufallszahlen füllen
+            // int[Array] mit Zufallszahlen füllen
             for (int i = 0; i < zahlen.length; i++) {
                 zahlen[i] = random.nextInt(100) + 1;
             }
 
-            // Minimum berechnen
+            // Minimum berechnen Methode INT definieren
             int minimum = minimum(zahlen);
 
-            // Maximum berechnen
+            // Maximum berechnen Methode INT definieren
             int maximum = maximum(zahlen);
 
             // Durchschnitt berechnen
@@ -37,10 +37,10 @@ public class Array_7_MinMaxAvg {
             System.out.println("Maximum: " + maximum);
             System.out.println("Durchschnitt: " + durchschnitt);
 
-            // Index des Minimums berechnen
+            // Index des Minimums berechnen Methode definieren
             int indexMinimum = indexMinimum(zahlen);
 
-            // Index des Maximums berechnen
+            // Index des Maximums berechnen Methode definieren
             int indexMaximum = indexMaximum(zahlen);
 
             // Index des Minimums und des Maximums ausgeben
@@ -49,7 +49,7 @@ public class Array_7_MinMaxAvg {
         }
 
     // Funktion zur Berechnung des Minimums
-    public static int minimum(int[] zahlen) {
+    public static int minimum (int[] zahlen) {
         int minimum = zahlen[0];
         for (int i = 1; i < zahlen.length; i++) {
             if (zahlen[i] < minimum) {

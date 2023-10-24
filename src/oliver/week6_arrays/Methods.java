@@ -1,8 +1,11 @@
 package oliver.week6_arrays;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Methods {
+    public static Random rand = new Random();
+
     public static void main(String[] args) {
         printHello();
         printHello();
@@ -20,6 +23,7 @@ public class Methods {
         int[] myArray = new int[2];
         myArray[0] = 0;
         myArray[1] = 1;
+        System.out.println(Arrays.toString(myArray));
 
         int[] copiedArray = myArray;
         changeArray(myArray);
@@ -50,5 +54,15 @@ public class Methods {
         System.out.println("Ergebnis: "+ sum);
 
         return sum;
+    }
+
+    public static int[] createRandomArray(int size) {
+        int[] result = new int[size];
+
+        for (int i = 0; i < result.length; i++) {
+            result[i] = rand.nextInt(101);
+        }
+
+        return result;
     }
 }

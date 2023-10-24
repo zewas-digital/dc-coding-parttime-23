@@ -1,4 +1,4 @@
-package solutions.saifedine.week2.example11;
+package saifedine.week02.example11;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printRect". Diese Methode besitzt drei Übergabeparameter und kein Rückgabeparameter.

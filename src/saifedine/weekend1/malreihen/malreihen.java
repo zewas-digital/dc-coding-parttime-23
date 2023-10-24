@@ -1,4 +1,4 @@
-package solutions.saifedine.weekend1.malreihen;
+package saifedine.weekend1.malreihen;
 
 public class malreihen {
 

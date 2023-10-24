@@ -2,7 +2,7 @@
 Erstelle ein Programm, dass als Primzahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
-package solutions.michaelreal.weekend1.example24;
+package MichaelReal.weekend1.example24;
 
 import java.util.Arrays;
 import java.util.Scanner;
