@@ -25,15 +25,17 @@ public class Arrays_0_Array {
 
         bubblesortabsteigend (zahlen);
 
-        System.out.println("Sortiert absteogend: " + Arrays.toString(zahlen));
+        System.out.println("Sortiert absteigend: " + Arrays.toString(zahlen));
     }
 
 
     public static void bubblesortaufsteigend(int[] zahlen) {
         for (int i = 0; i < zahlen.length - 1; i++) {
+            System.out.println("Durchlauf i:" + i);
 
 
             for (int j = 0; j < zahlen.length - 1 ; j++) {
+
 
 
                 if (zahlen[j] > zahlen [j + 1]){
@@ -53,11 +55,16 @@ public class Arrays_0_Array {
 
     public static void bubblesortabsteigend (int[] zahlen) {
         for (int i = 0; i < zahlen.length -1 ; i++) {
+
+
             for (int j = 0; j < zahlen.length - 1 ; j++) {
+
                 if (zahlen [j] < zahlen [j +1]){
                     int temp = zahlen[j];
                     zahlen[j] = zahlen[j+1];
                     zahlen [j+1] = temp;
+
+
                 }
 
             }

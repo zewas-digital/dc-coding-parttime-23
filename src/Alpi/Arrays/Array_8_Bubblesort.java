@@ -13,7 +13,7 @@ Erklärung Bubblesort: https://www.youtube.com/watch?v=qtXb0QnOceY
 import java.util.Arrays;
 import java.util.Random;
 
-public class Array_8_Bubblesort {
+public class  Array_8_Bubblesort {
     public static void main(String[] args) {
             // Zufallszahlen erstellen mit Random
             Random random = new Random();
@@ -25,6 +25,9 @@ public class Array_8_Bubblesort {
             for (int i = 0; i < zahlen.length; i++) {
                 zahlen[i] = random.nextInt(100) + 1;
             }
+
+
+
 
             // Bubblesort-Sortierung aufsteigend Methode im Main definieren
             bubblesortAscending(zahlen);
@@ -65,7 +68,6 @@ public class Array_8_Bubblesort {
             }
         }
     }
-
 
 
 

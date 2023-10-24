@@ -8,7 +8,7 @@ Erstelle ein int[] und sortiere es mit einem selbsterstellten Bubblesort Algorit
 
 Erklärung Bubblesort: https://www.youtube.com/watch?v=qtXb0QnOceY
  */
-import java.util.Arrays;
+/*import java.util.Arrays;
 import java.util.Random;
 
 public class Array_8_Bubblesort {
@@ -36,3 +36,6 @@ public class Array_8_Bubblesort {
 
     }
 }
+
+
+ */
