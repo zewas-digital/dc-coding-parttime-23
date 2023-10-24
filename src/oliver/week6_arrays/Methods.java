@@ -1,4 +1,4 @@
-package oliver.week5_arrays;
+package oliver.week6_arrays;
 
 import java.util.Arrays;
 import java.util.Random;

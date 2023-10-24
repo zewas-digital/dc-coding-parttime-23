@@ -1,6 +1,6 @@
 package MichaelReal.week6;
 
-public class Arrays_9_Bonus_gnomeSort {
+public class Arrays_GnomeSort {
         public static void main(String[] args) {
             int[] arr = Methods.createRandomArray(10);
 
