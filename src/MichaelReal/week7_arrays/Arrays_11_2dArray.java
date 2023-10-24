@@ -9,5 +9,4 @@ Gib die Summe pro Zeile oder pro Spalte aus.
  */
 
 public class Arrays_11_2dArray {
-
 }
