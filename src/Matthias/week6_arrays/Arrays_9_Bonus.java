@@ -1,4 +1,4 @@
-package oliver.week6_arrays;
+package Matthias.week6_arrays;
 
 /*
 Bonusaufgabe: 15 verschiedene Sortieralgorithmen

@@ -1,4 +1,4 @@
-package michael_k.week4.example39;
+package MichaelReal.week4;
 
 /*
 Primfaktorenzerlegung
@@ -64,75 +64,8 @@ negative number -96
  */
 
 
-import java.util.ArrayList;
-import java.util.Scanner;
+
+
 
 public class Primfaktorenzerlegung {
-
-    public static void main(String[] args) {
-
-        ArrayList<Integer> array = new ArrayList<> ( );
-        array.add ( 2 );
-        ArrayList<Integer> Faktorwerte = new ArrayList<> ( );
-
-        Scanner inputKonsole = new Scanner ( System.in );
-
-        while ( true ) {
-
-            Faktorwerte.clear ();
-
-            System.out.print ( "Welche Zahl wollen sie prüfen?" );
-            int value = inputKonsole.nextInt ( );
-            String Ausgabe = String.valueOf ( value + " = " );
-
-            for (int i = 3; i <= value; i++) {                //____________________________
-
-                boolean result = PrimeNumber ( i );            // Hier werden die Primzahlen von 3 aufwärts in eine Arraylist
-                if (result) {                               // eingefügt. Die 2 wird im vorhinein in die erste Zelle gesetzt.
-                    array.add ( i );
-                }
-            }                                               //___________________________
-
-            do {
-
-                for (int i = 0; true; i++) {
-
-                    if (value % array.get ( i ) == 0) {
-                        value = value / array.get ( i );
-                        Faktorwerte.add ( array.get ( i ) );
-                        break;
-                    }
-
-                }
-
-            } while ( value != 1 );
-
-            Ausgabe = AusgabeGenerierung ( Ausgabe, Faktorwerte );
-
-            System.out.println ( Ausgabe );
-
-        }
-    }
-
-    static String AusgabeGenerierung (String Ausgabe, ArrayList Faktorwerte){
-        int length = Faktorwerte.size();
-
-        for (int i = 0; i < length-1; i++) {
-            Ausgabe = Ausgabe +Faktorwerte.get ( i )+ " * ";
-        }
-        Ausgabe = Ausgabe + Faktorwerte.get (length-1);
-
-        return Ausgabe;
-    }
-
-    static boolean PrimeNumber( int wert){
-        boolean result =false;
-
-        for (int i = 2; i <wert; i++) {
-
-            if (wert % i ==0){ result=false;break;}
-            else {result= true;}
-        }
-        return result;
-    }
 }

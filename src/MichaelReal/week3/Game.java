@@ -1,4 +1,4 @@
-package MichaelReal.week3.example35;
+package MichaelReal.week3;
 
 import java.util.Random;
 import java.util.Scanner;
