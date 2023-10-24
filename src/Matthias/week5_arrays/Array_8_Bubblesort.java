@@ -34,7 +34,6 @@ public class Array_8_Bubblesort {
                 // wenn größer dann austauschen
                 if (arr[j] > arr[j + 1]) {
                     // tauschen
-
                 }
                 System.out.println(Arrays.toString(arr));
                 // nach durchlauf kontrollausgabe array
