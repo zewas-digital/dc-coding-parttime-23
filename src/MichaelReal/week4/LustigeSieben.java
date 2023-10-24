@@ -1,4 +1,4 @@
-package MichaelReal.week4.example37;
+package MichaelReal.week4;
 
 /*
 Lustige Sieben

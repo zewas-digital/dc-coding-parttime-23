@@ -1,4 +1,4 @@
-package MichaelReal.week3.example34;
+package MichaelReal.week3;
 
 /*
 Kleidergrößen
