@@ -4,7 +4,7 @@ Speichere beide Werte in passenden Datentypen ab und gib den Benzinverbrauch in 
  */
 
 
-package solutions.saifedine.weekend1.example28;
+package saifedine.weekend1.example28;
 
 import java.util.Scanner;
 

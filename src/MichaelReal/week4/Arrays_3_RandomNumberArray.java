@@ -30,7 +30,7 @@ public class Arrays_3_RandomNumberArray {
 
         System.out.println();
 
-        System.out.println("Array mit fori-Schleife");
+        System.out.println("Array mit fori-Schleife:");
         System.out.print("[");
         for (int i = 0; i < randomArray.length; i++) {
             System.out.print(randomArray[i]);
@@ -40,6 +40,13 @@ public class Arrays_3_RandomNumberArray {
         }
         System.out.println("]");
 
+        System.out.println("Zweiter Wert: " +randomArray[1]);
+        System.out.println("Fünfter Wert: " +randomArray[4]);
+        System.out.println("Zehnter Wert: " +randomArray[9]);
 
+        System.out.println("Jeden zweiten Wert:");
+        for (int i = 0; i < randomArray.length; i += 2) {
+            System.out.print(randomArray[i] + " ");
+        }
     }
 }

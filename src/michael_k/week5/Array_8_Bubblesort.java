@@ -18,7 +18,6 @@ public class Array_8_Bubblesort {
     public static void main(String[] args) {
 
         int[] array = new int[5];
-        //int[] arraysort = new int[];
         Random randomnumber = new Random();
         int length = array.length;
 
