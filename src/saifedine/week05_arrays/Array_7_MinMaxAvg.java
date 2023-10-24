@@ -18,10 +18,11 @@ public class Array_7_MinMaxAvg {
         int[] numbers = getZufallsZahlen();
         int minimum = calculateMinimum(numbers);
         int maximum = calculateMaximum(numbers);
-        int average = calculateAverage(numbers);
+        double average = calculateAverage(numbers);
+
 
     }
-    static int[] getZufallsZahlen(){
+    public static int[] getZufallsZahlen(){
 
         int arrayLength = 10;
 
@@ -42,6 +43,7 @@ public class Array_7_MinMaxAvg {
 
         int arrayLength = 10;
         int minimum = numbers[0];
+        int min = 0;
 
         for (int i = 1; i < arrayLength; i++) {
 
@@ -50,10 +52,13 @@ public class Array_7_MinMaxAvg {
             if (numbers[i] < minimum){
 
                  minimum = numbers[i];
+
+                 min = i;
             }
 
         }
         System.out.println("Minimum " + minimum);
+        System.out.println("Index min: " + min);
         return minimum;
     }
 
@@ -61,6 +66,7 @@ public class Array_7_MinMaxAvg {
 
         int arrayLength = 10;
         int maximum = numbers[0];
+        int max = 0;
 
         for (int i = 1; i < arrayLength; i++) {
 
@@ -69,18 +75,21 @@ public class Array_7_MinMaxAvg {
             if (numbers[i] > maximum){
 
                 maximum = numbers[i];
+
+                max = i;
             }
 
         }
         System.out.println("Maximum: " + maximum);
+        System.out.println("Index max: " + max);
         return maximum;
     }
 
-    static int calculateAverage(int [] numbers){
+    static double calculateAverage(int [] numbers){
 
         int arrayLength = 10;
-        int sum = 0;
-        int avarage = 0;
+        double sum = 0;
+        double avarage = 0;
 
         for (int i = 0; i < arrayLength; i++) {
 
@@ -91,9 +100,8 @@ public class Array_7_MinMaxAvg {
 
         System.out.println("Avarage: " + avarage);
         return avarage;
+
     }
-
-
 
 
 }
