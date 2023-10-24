@@ -26,10 +26,10 @@ public class Arrays_9_Bonus {
         int[] copy = makeaCopy(array);
 
         int[] insert = insertsort(array);
-        System.out.println(Arrays.toString(insert) + "*");
+        System.out.println(Arrays.toString(insert) + " insertsort");
 
         int[] gnome = gnomesort(makeaCopy(copy));
-        System.out.println(Arrays.toString(gnome) + "#");
+        System.out.println(Arrays.toString(gnome) + " gnomesort");
 
         int[] heap = quicksort(makeaCopy(copy));
         System.out.println(Arrays.toString(heap));
@@ -86,6 +86,8 @@ public class Arrays_9_Bonus {
     }
 
     static int[] quicksort(int[] radix) {
+
+
 
 
         return radix;
