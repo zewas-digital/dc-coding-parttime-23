@@ -22,17 +22,17 @@ public class Array_8_Bubblesort {
             int value = randomnumber.nextInt(10);
             array[i] = value;
         }
-        int[] maxTomin = maxTomin (array);
-        int[] mintomax = mintomax (array);
+        //int[] maxTomin = maxTomin (array);
+        //int[] mintomax = mintomax (array);
 
 
         System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(maxTomin));
-        System.out.println(Arrays.toString(mintomax));
+        //System.out.println(Arrays.toString(maxTomin));
+        //System.out.println(Arrays.toString(mintomax));
     }
 
-    static int[] maxTomin(int[] array, int length){
-        int[] sortedArray = new int[length];
+    //static int[] maxTomin(int[] array, int length){
+        //int[] sortedArray = new int[length];
 
     }
-}
+//}

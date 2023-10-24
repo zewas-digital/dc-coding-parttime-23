@@ -7,16 +7,17 @@ Implementiere 3 unterschiedliche Algorithmen deiner Wahl auf folgendem Video:
 https://www.youtube.com/watch?v=kPRA0W1kECg
 Den Pseudo-Code der Algorithmen findest du unter:
 
-https://panthema.net/2013/sound-of-sorting/SoS-CheatSheet.pdf
+https://panthema.net/2013/sound-of-sorting/SoS-CheatSheet.pdf = Pseudo Code
  */
 
 import saifedine.week05_arrays.Array_7_MinMaxAvg;
 
 import java.util.Arrays;
 
-public class Arrays_9_Bonus {
+public class Arrays_9_Bonus_insertionSort_Aufgabe01 {
 
-    //insertionSort
+    //insertionSort = Bubblesort umgekehrt, d.h. von rechts nach links....
+    //https://www.happycoders.eu/de/algorithmen/insertion-sort/
     public static void main(String[] args) {
 
         int[] elements = Array_7_MinMaxAvg.getZufallsZahlen();
