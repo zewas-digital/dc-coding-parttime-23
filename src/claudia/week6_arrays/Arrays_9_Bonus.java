@@ -78,7 +78,9 @@ public class Arrays_9_Bonus {
         System.out.println("Mergesort: ");
         System.out.println(Arrays.toString(vector5));
         System.out.println("Selectionsort: ");
-        System.out.println(Arrays.toString(vector6));*/
+        System.out.println(Arrays.toString(vector6));
+        System.out.println("Radixsort: ");
+        System.out.println(Arrays.toString(vector7));*/
 
         System.out.println("Time elapsed in nano seconds: ");
        /* System.out.println("Cocktail  \t\t" + timeElapsedCocktail);
@@ -94,8 +96,6 @@ public class Arrays_9_Bonus {
         System.out.printf("Quick    %20d%n", timeElapsedQuick);
         System.out.printf("Radix    %20d%n", timeElapsedRadix);
         System.out.printf("Selection%20d%n", timeElapsedSelection);
-
-
     }
 
     public static void radixSort(int[] vector) {
@@ -122,7 +122,6 @@ public class Arrays_9_Bonus {
             System.arraycopy(sorted, 0, vector, 0, vector.length);
         }
     }
-
     public static void selectionSortAscending(int[] vector) {
         int n = vector.length;
         int half = n/2;
@@ -200,7 +199,6 @@ public class Arrays_9_Bonus {
         }
 
     }
-
     public static int partition(int[] vector, int lowest, int highest) {
         int pivot = vector[highest]; //TODO improve choice of pivot
         int i = lowest;
@@ -213,7 +211,6 @@ public class Arrays_9_Bonus {
         swapElements(vector, i, highest);//pivot is moved into its final position
         return i;
     }
-
     public static void insertionSortAscending(int[] vector) {
         for (int i = 1; i < vector.length; i++) {
             int valueToBeInserted = vector[i];
@@ -225,7 +222,6 @@ public class Arrays_9_Bonus {
             vector[j] = valueToBeInserted;
         }
     }
-
     public static void cocktailSortAscending(int[] vector) {
         boolean swapped = true;
         while (swapped) {
@@ -248,7 +244,6 @@ public class Arrays_9_Bonus {
             }
         }
     }
-
     public static void bubbleSortAscending(int[] vector) {
         for (int j = 0; j < vector.length - 1; j++) {
             for (int i = 0; i < vector.length - j - 1; i++) {
@@ -258,7 +253,6 @@ public class Arrays_9_Bonus {
             }
         }
     }
-
     public static void swapElements(int[] vector, int i, int j) {
         if (i != j) {
             int temp = vector[i];
@@ -266,7 +260,6 @@ public class Arrays_9_Bonus {
             vector[j] = temp;
         }
     }
-
     public static int[] createRandomArray(int size) {
         Random random = new Random();
         int[] vector = new int[size];
