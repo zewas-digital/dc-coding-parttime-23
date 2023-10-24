@@ -21,13 +21,16 @@ public class Arrays_11_2dArray {
         System.out.println("Gib die Länge des Arrays ein: ");
         int length = userinput.nextInt();
         int numbers = random.nextInt(0,100);
-        int [][] array = new int[length][length];
+        int [][] array = new int[4][5];
+
+        System.out.println(Arrays.toString(array));
 
         for (int i = 0; i < array.length ; i++) {
             array[i][i] = random.nextInt(0,100);
+
         }
 
-        System.out.println(Arrays.toString(array));
+
 
 
 
