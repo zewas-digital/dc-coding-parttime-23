@@ -27,6 +27,8 @@ public class Arrays_9_Bonus {
         int[] vector4 = Arrays.copyOf(vector1, vector1.length);
         int[] vector5 = Arrays.copyOf(vector1, vector1.length);
         int[] vector6 = Arrays.copyOf(vector1, vector1.length);
+        int[] vector7 = Arrays.copyOf(vector1, vector1.length);
+
 
         long start = System.nanoTime(); //time in nano-seconds; nano = 10 ^(-9)
         cocktailSortAscending(vector1);
@@ -57,6 +59,11 @@ public class Arrays_9_Bonus {
         selectionSortAscending(vector6);
         finish = System.nanoTime();
         long timeElapsedSelection = finish - start;
+
+        start = System.nanoTime();
+        radixSort(vector7);
+        finish = System.nanoTime();
+        long timeElapsedRadix = finish - start;
        /*
         System.out.println("Originalvektor: ");
         System.out.println(Arrays.toString(vector1));
@@ -85,8 +92,35 @@ public class Arrays_9_Bonus {
         System.out.println(String.format("Insertion%20d", timeElapsedInsertion));
         System.out.println(String.format("Merge    %20d", timeElapsedMerge));
         System.out.printf("Quick    %20d%n", timeElapsedQuick);
+        System.out.printf("Radix    %20d%n", timeElapsedRadix);
         System.out.printf("Selection%20d%n", timeElapsedSelection);
 
+
+    }
+
+    public static void radixSort(int[] vector) {
+
+        int n = vector.length;
+        int[] sorted = new int[n];
+
+        for (int i = 1; i <= 3; i++) {
+            int[] buckets = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            for (int elem : vector) {
+                buckets[(int) ((elem % (Math.pow(10,i))) / Math.pow(10, i - 1))] ++;
+            }
+
+            for (int j = 1; j < 10; j++) {
+                buckets[j] = buckets[j] + buckets[j - 1];
+            }
+
+            for (int j = n - 1; j >= 0; j--) {
+                int digit = (int) ((vector[j] % Math.pow(10, i)) / Math.pow(10,i - 1));
+
+                sorted[buckets[digit] - 1] = vector[j];
+                buckets[digit]--;
+            }
+            System.arraycopy(sorted, 0, vector, 0, vector.length);
+        }
     }
 
     public static void selectionSortAscending(int[] vector) {
