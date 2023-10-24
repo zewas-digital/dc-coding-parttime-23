@@ -4,7 +4,7 @@ Schreibe ein Programm, mit dem du die verschiedenen Datentypen (int, long, doubl
 Eine Übersicht der primitiven Datentypen findest du hier: https://de.wikibooks.org/wiki/Java_Standard:_Primitive_Datentypen
 */
 
-package solutions.michaelreal.weekend1.example25;
+package MichaelReal.weekend1.example25;
 
 import java.util.Arrays;
 import java.util.Scanner;

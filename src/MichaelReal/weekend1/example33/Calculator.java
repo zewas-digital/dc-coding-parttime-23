@@ -10,7 +10,7 @@ Der Nutzer kann eine der fünf Operationen auswählen und zwei Zahlen zur Berech
 Gib' den Rechenweg und das Ergebnis auf der Console aus. Zum Beispiel: 5 ^ 2 = 25
  */
 
-package solutions.michaelreal.weekend1.example33;
+package MichaelReal.weekend1.example33;
 
 public class Calculator {
     public static void main(String[] args) {

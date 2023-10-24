@@ -7,7 +7,7 @@ Erläuterung:
     Achten Sie darauf, den Basisfall zu berücksichtigen: F(0) = 0 und F(1) = 1.
  */
 
-package solutions.michaelreal.weekend1.example23;
+package MichaelReal.weekend1.example23;
 
 public class Fibonacci {
     public static void main(String[] args) {
