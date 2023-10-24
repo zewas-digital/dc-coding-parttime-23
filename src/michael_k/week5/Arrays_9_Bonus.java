@@ -22,14 +22,52 @@ public class Arrays_9_Bonus {
         int[] array = genarateRandomArray ( 8 );
 
         System.out.println ( Arrays.toString ( array ) );
-        //System.out.println ( Arrays.toString ( bubbleSortminmax ( array, array.length ) ));
-        //System.out.println (  Arrays.toString ( gnomesort ( array, array.length ) ));
+        System.out.println ( Arrays.toString ( bubbleSortminmax ( array, array.length ) ));
+        System.out.println (  Arrays.toString ( gnomesort ( array, array.length ) ));
         System.out.println ( radixsort ( array, array.length ));
-
+        System.out.println ( Arrays.toString ( insertsort ( array, array.length ) ) );
+        System.out.println ( Arrays.toString ( selectionsort ( array, array.length ) ) );
 
     }
+    static int [] selectionsort (int[] array, int length){
 
+    int[] sortArray = new int[length];
 
+    for (int i = 0; i < length; i++) {
+        sortArray[i] = array[i];
+    }
+    int x;
+    int y;
+    for (int i = 0; i < length; i++) {
+        x= sortArray[minIndex ( sortArray, i )];
+        y= sortArray[i];
+
+        sortArray[minIndex ( sortArray, i )]= y;
+        sortArray[i] = x;
+    }
+
+    return sortArray;
+}
+    static int[] insertsort( int[]array, int length){
+
+        int[] sortArray = new int[length];
+
+        for (int i = 0; i < length; i++) {
+            sortArray[i] = array[i];
+        }
+        for (int i = 0; i < length; i++) {
+            int x = sortArray[i];
+            int j=i;
+
+            while ( j>0 && sortArray[j-1] > x ){
+                sortArray[j] = sortArray[j-1];
+                j =j-1;
+            }
+            sortArray[j] = x;
+        }
+
+        return sortArray;
+    }
     static ArrayList<Integer> radixsort(int[] array, int length){
 
         ArrayList<Integer> sortArray = new ArrayList<>();
@@ -175,5 +213,20 @@ public class Arrays_9_Bonus {
         ziffer = value % 10;
 
         return ziffer;
+    }
+    static int minIndex(int[] array, int abStelleX){
+
+        int length = array.length;
+        int min = array[abStelleX];
+        int minIndex = abStelleX;
+
+        for (int i = abStelleX; i <length; i++) {
+
+            if (array[i] < min) {
+                min = array[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 }
