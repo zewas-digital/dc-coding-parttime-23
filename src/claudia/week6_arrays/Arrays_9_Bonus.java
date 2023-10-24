@@ -84,8 +84,8 @@ public class Arrays_9_Bonus {
         System.out.println(String.format("Cocktail %20d", timeElapsedCocktail));
         System.out.println(String.format("Insertion%20d", timeElapsedInsertion));
         System.out.println(String.format("Merge    %20d", timeElapsedMerge));
-        System.out.println(String.format("Quick    %20d", timeElapsedQuick));
-        System.out.println(String.format("Selection%20d", timeElapsedSelection));
+        System.out.printf("Quick    %20d%n", timeElapsedQuick);
+        System.out.printf("Selection%20d%n", timeElapsedSelection);
 
     }
 
