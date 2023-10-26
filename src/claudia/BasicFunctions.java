@@ -6,6 +6,16 @@ import java.util.Random;
 public class BasicFunctions {
 
     public static void main(String[] args) {
+        String[][] test = new String[3][5];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 5; j++) {
+                test[i][j] =" ";
+            }
+        }
+        test[1][1] = String.valueOf(1);
+        for (int i = 0; i < 3; i++) {
+            System.out.println(Arrays.toString(test[i]));
+        }
 
     }
 
