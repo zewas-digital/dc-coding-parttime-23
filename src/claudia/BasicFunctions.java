@@ -61,4 +61,14 @@ public class BasicFunctions {
             System.out.println();
         }
     }
+    public static void print2DArrayOfStrings(String[][] matrix) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
 }
