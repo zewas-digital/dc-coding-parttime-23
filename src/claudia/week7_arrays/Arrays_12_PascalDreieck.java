@@ -11,7 +11,6 @@ Beispiel-Bild in Slack
 import claudia.BasicFunctions;
 import java.util.Scanner;
 
-
 public class Arrays_12_PascalDreieck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -49,14 +48,16 @@ public class Arrays_12_PascalDreieck {
         //Pascal'sches Dreieck in rechteckiger Form
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < rows; j++) {
-                if (j == 0 || j == i){
+                if (j == 0 || j == i) {
                     pascal[i][j] = 1;
-                }
-                else if (i > 0){
-                    pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
+                } else if (i > 0) {
+                    pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
                 }
             }
         }
         BasicFunctions.print2DArray(pascal);
+
     }
+
+
 }
