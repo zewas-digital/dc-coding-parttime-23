@@ -10,7 +10,7 @@ public static int[] makeACopy(int[] original){
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
 public class Arrays_2_CopyArray {
     public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
@@ -32,3 +32,5 @@ public class Arrays_2_CopyArray {
             System.out.println(Arrays.toString(number2));
     }
 }
+
+ */
