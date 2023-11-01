@@ -22,25 +22,23 @@ public class Arrays_11_2dArray {
         // Summer pro Zeile
         // Summer pro Spalte
 
-        Scanner Eingabe = new Scanner(System.in);
-        Random Zufall = new Random();
 
-
+        Scanner EingabeX = new Scanner(System.in);
         System.out.println("Geben Sie die Länge der xDimension: ");
-        int xDimension = Eingabe.nextInt();
+        int xDimension = EingabeX.nextInt();
 
+        Scanner EingabeY = new Scanner(System.in);
         System.out.println("Geben Sie die Länge der yDimension: ");
-        int yDimension = Eingabe.nextInt();
+        int yDimension = EingabeY.nextInt();
 
-        int [][] numbers = new int[xDimension][yDimension];
+        int[][] numbers = new int[xDimension][yDimension];
 
         for (int i = 0; i < xDimension; i++) {
             for (int j = 0; j < yDimension; j++) {
-
+                Random Zufall = new Random();
                 numbers[i][j] = Zufall.nextInt(0, 100);
             }
         }
         System.out.println(Arrays.toString(numbers));
     }
-
 }
