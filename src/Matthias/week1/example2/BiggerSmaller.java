@@ -1,4 +1,4 @@
-package solutions.matthias.week1.example2;
+package Matthias.week1.example2;
 
 /*
 Schreiben Sie ein Programm, das eine Variable definiert ausgibt, ob die Zahl größer, kleiner oder gleich,
@@ -7,13 +7,19 @@ als die Zahl 10 ist. Verwende dazu Verzweigungen von if, if else und else.
 Die Zahl wird wieder mit Scanner und nextInt() eingelesen.
  */
 
+import java.util.Scanner;
+
 public class BiggerSmaller {
+
+    static Scanner scanner = new Scanner( System.in );
+
     public static void main(String[] args) {
 
         /*Veriablen definiert*/
         int iVergleichszahl = 10;
 
-        int iEingabezahl =9;
+        System.out.println("Geben Sie eine Zahl ein:");
+        int iEingabezahl=scanner.nextInt();
 
         /*Programmstart*/
         if (iEingabezahl > iVergleichszahl ) {

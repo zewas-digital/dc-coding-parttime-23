@@ -3,19 +3,10 @@ package claudia;
 import java.util.Arrays;
 import java.util.Random;
 
-public class BasicFunctions {
+public class BasicFunctions <T> {
 
     public static void main(String[] args) {
-        String[][] test = new String[3][5];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                test[i][j] =" ";
-            }
-        }
-        test[1][1] = String.valueOf(1);
-        for (int i = 0; i < 3; i++) {
-            System.out.println(Arrays.toString(test[i]));
-        }
+
 
     }
 
@@ -62,6 +53,16 @@ public class BasicFunctions {
         }
     }
     public static void print2DArrayOfStrings(String[][] matrix) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+    public static void print2DArrayOfChars(char[][] matrix) {
         int rows = matrix.length;
         int columns = matrix[0].length;
         for (int i = 0; i < rows; i++) {

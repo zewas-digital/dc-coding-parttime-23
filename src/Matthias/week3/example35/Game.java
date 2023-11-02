@@ -1,4 +1,4 @@
-package solutions.matthias.week3.example35;
+package Matthias.week3.example35;
 
 /*
 Erstelle ein Spiel, welche der Spieler fordert heraus eine Zahl zwischen 0 und 9999 zu erraten.

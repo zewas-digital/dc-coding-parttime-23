@@ -1,4 +1,4 @@
-package solutions.matthias.week2.example12;
+package Matthias.week2.example12;
 /*
 Erstellen Sie vier Methoden welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
 Die Methode hat 2 Übergabeparameter und keinen Rückgabeparameter. Für jede Methode soll es eine andere Ausrichtung geben.

@@ -1,4 +1,4 @@
-package solutions.matthias.week2.example13;
+package Matthias.week2.example13;
 
 
 public class PrintEmptySquare {
