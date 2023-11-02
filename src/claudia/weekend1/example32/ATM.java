@@ -19,7 +19,7 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
 
  */
 
-package solutions.claudia.weekend1.example32;
+package claudia.weekend1.example32;
 import java.util.Scanner;
 
 public class ATM {
