@@ -1,4 +1,4 @@
-package solutions.matthias.week3.example36;
+package Matthias.week3.example36;
 
 /*
 1. Aufgabe:

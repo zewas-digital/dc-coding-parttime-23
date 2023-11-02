@@ -14,7 +14,7 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
  */
 
-package solutions.matthias.week2.weekend1.example31;
+package Matthias.week2.weekend1.example31;
 
 public class ZVR {
     public static void main(String[] args) {
