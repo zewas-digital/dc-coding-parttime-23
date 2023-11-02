@@ -6,6 +6,8 @@ Frage den Anwender nach der gewünschten Größe und erstelle ein Pascal-Dreieck
 
 Regel: Jede Zahl in der Matrix ist gleich die Summe der Nachbarzahlen nach Links und nach Oben.
 Beispiel-Bild in Slack
+
+Beachte Diagonalen!
  */
 
 import claudia.BasicFunctions;
@@ -44,7 +46,7 @@ public class Arrays_12_PascalDreieck {
             }
         }
         BasicFunctions.print2DArrayOfStrings(pascalString);
-
+        System.out.println();
         //Pascal'sches Dreieck in rechteckiger Form
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < rows; j++) {
@@ -53,6 +55,17 @@ public class Arrays_12_PascalDreieck {
                 } else if (i > 0) {
                     pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
                 }
+            }
+        }
+        BasicFunctions.print2DArray(pascal);
+        System.out.println();
+        //andere Variante (so wie eigentlich gewünscht)
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < rows; j++) {
+                if (i == 0 || j == 0){
+                    pascal[i][j] = 1;
+                }
+                else pascal[i][j] = pascal[i][j-1] + pascal[i-1][j];
             }
         }
         BasicFunctions.print2DArray(pascal);
