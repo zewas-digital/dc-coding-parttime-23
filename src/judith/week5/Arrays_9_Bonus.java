@@ -27,7 +27,13 @@ public class Arrays_9_Bonus {
         int[] sortiertTwo = Gnomesort(elements);
         System.out.println("Gomesort ");
         System.out.println(Arrays.toString(sortiertTwo));
+
+        //int[] radix = radixLSD(elements);
+        //System.out.println("Radix LSD ");
+       // System.out.println(Arrays.toString(radix));
+
     }
+
  //insertionSort
        static int[] sort ( int[] elements){
 
@@ -41,12 +47,13 @@ public class Arrays_9_Bonus {
                 while (j > 0 && elementToSort < elements[j - 1]) {
                     elements[j] = elements[j - 1];
                     j--;
+
                 }
                 elements[j] = elementToSort;
             }
            // System.out.println("Aufgabe - Insertion Sort:");
 
-           // System.out.println("Ergebnis: " + Arrays.toString(elements));
+            //System.out.println("Ergebnis: " + Arrays.toString(elements));
 
             return elements;
         }
@@ -76,6 +83,11 @@ public class Arrays_9_Bonus {
 
         return elements;
 }
+
+//static int[] radixLSD (int[] elements){
+
+
+//}
 }
 
 

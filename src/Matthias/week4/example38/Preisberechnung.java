@@ -1,4 +1,4 @@
-package solutions.matthias.week4.example38;
+package Matthias.week4.example38;
 
 /*
 Preisberechnung
