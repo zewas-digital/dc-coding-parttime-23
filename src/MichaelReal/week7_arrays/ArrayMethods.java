@@ -12,8 +12,8 @@ public class ArrayMethods {
         print2dArray(randNumbers);
     }
 
-    public static int[][] createRandom2dArray(int xLength, int yLength) {
-        int[][] numbers = new int[xLength][yLength];
+    public static int[][] createRandom2dArray(int zeilen, int spalten) {
+        int[][] numbers = new int[zeilen][spalten];
 
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < numbers[i].length; j++) {
