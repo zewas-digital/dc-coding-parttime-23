@@ -11,7 +11,7 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
