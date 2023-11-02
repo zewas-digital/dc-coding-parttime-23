@@ -1,4 +1,4 @@
-package solutions.matthias.week2.extraExamples;
+package Matthias.week2.extraExamples;
 
 /*
 Erstelle eine Methode welche einen Kreis von variabler Größe ausgibt. Der Radius des Kreises soll als Parameter

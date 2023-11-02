@@ -1,4 +1,4 @@
-package solutions.matthias.week2.extraExamples;
+package Matthias.week2.extraExamples;
 
 /*
  Erstelle eine Methode welche einen Christbaum von variabler Größe ausgibt.

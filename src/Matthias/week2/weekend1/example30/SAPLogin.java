@@ -12,7 +12,7 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
 "Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!" ausgegeben werden.
  */
 
-package solutions.matthias.week2.weekend1.example30;
+package Matthias.week2.weekend1.example30;
 
 import java.util.Scanner;
 

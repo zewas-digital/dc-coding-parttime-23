@@ -1,4 +1,4 @@
-package solutions.matthias.week1.example6;
+package Matthias.week1.example6;
 
 /*
 Schreiben Sie ein Programm, in dem sie die While Schleife verwenden.

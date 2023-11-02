@@ -9,7 +9,7 @@ Erläuterung:
     Achten Sie darauf, den Basisfall zu berücksichtigen: F(0) = 0 und F(1) = 1.
  */
 
-package solutions.matthias.week2.weekend1.example23;
+package Matthias.week2.weekend1.example23;
 
 public class Fibonacci {
 

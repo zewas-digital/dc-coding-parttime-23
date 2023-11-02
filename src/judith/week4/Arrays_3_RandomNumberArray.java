@@ -31,7 +31,7 @@ public class Arrays_3_RandomNumberArray {
         System.out.println(Arrays.toString(numbers));
 
         for (int var : numbers) {
-            System.out.println(var);
+            System.out.println(var + " var");
 
         }
 
@@ -41,7 +41,7 @@ public class Arrays_3_RandomNumberArray {
 
         for (int i = 0; i <10 ; i += 2) {
             numbers [i] = random.nextInt(0,100);
-            System.out.println(numbers[i] + " ");
+            System.out.println(numbers[i] + " i ");
 
         }
 
