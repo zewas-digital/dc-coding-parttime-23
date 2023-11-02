@@ -24,28 +24,58 @@ public class Arrays_11_2dArray {
         // um ein 2D-Array auszugeben, braucht es zusätzlich
 
         Scanner Eingabe = new Scanner(System.in);
+        Random Zufall = new Random();
 
-        System.out.println("Geben Sie die Länge der xDimension: ");
-        int xDimension = Eingabe.nextInt();
 
-        System.out.println("Geben Sie die Länge der yDimension: ");
-        int yDimension = Eingabe.nextInt();
+        System.out.println("Geben Sie die Länge der Spalten: ");
+        int Spalten = Eingabe.nextInt();
 
-        int[][] numbers = new int[xDimension][yDimension];
+        System.out.println("Geben Sie die Länge der Zeilen: ");
+        int Zeilen = Eingabe.nextInt();
 
-        for (int i = 0; i < xDimension; i++) {
-            for (int j = 0; j < yDimension; j++) {
-                Random Zufall = new Random();
+        int[][] numbers = new int[Zeilen][Spalten];
+
+        for (int i = 0; i < Zeilen; i++) {
+            for (int j = 0; j < Spalten; j++) {
                 numbers[i][j] = Zufall.nextInt(0, 100);
             }
         }
 
-        for (int i = 0; i < xDimension; i++) {
-            for (int j = 0; j < yDimension; j++) {
-                System.out.println(numbers[i][j]);
-            }
-
+        //Version 1 lt. Oliver
+        System.out.println("2D-Array");
+        for (int i = 0; i < Zeilen; i++) {
+            System.out.println(Arrays.toString(numbers[i]));
         }
-        System.out.println(Arrays.toString(numbers));
+
+        /*
+        //Version 2 lt Jeremias
+        for (int i = 0; i < Zeilen; i++) {
+            for (int j = 0; j < Spalten; j++) {
+                System.out.print(numbers[i][j] + ", ");
+            }
+            System.out.println();
+        }
+        */
+
+        System.out.println("Summe Spalten: ");
+
+        for (int j = 0; j < Spalten; j++) {
+            int summeSpalten = 0;
+            for (int i = 0; i < Zeilen; i++) {
+                summeSpalten = summeSpalten + numbers[i][j];
+            }
+            System.out.print(summeSpalten + " ");
+        }
+
+        System.out.println();
+        System.out.println("Summe Zeilen: ");
+
+        for (int i = 0; i < Zeilen; i++) {
+            int summeZeilen = 0;
+            for (int j = 0; j < Spalten; j++) {
+                summeZeilen = summeZeilen + numbers[i][j];
+            }
+            System.out.print(summeZeilen + " ");
+        }
     }
 }
