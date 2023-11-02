@@ -21,7 +21,6 @@ public class Arrays_11_2dArray {
         // Abfrage Dimensionen vom Anwender --> Scanner
         // Summer pro Zeile
         // Summer pro Spalte
-        // um ein 2D-Array auszugeben, braucht es zusätzlich
 
         Scanner Eingabe = new Scanner(System.in);
         Random Zufall = new Random();
