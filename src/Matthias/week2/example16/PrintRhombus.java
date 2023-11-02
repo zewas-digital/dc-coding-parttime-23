@@ -1,4 +1,4 @@
-package solutions.matthias.week2.example16;
+package Matthias.week2.example16;
 
 /*
 Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegebene Zeichen ausgibt. Die Größe soll dabei die Höhe des Rhombus sein.
@@ -8,8 +8,7 @@ Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegeb
 public class PrintRhombus {
 
     public static void main(String[] args){
-        printRhombus('1', 7
-        );
+        printRhombus('1', 7);
     }
     static void printRhombus(char buchstabe, int iZahl) {
         System.out.println("Start");

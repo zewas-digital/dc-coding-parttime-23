@@ -1,4 +1,4 @@
-package solutions.matthias.week2.example14;
+package Matthias.week2.example14;
 
 /*
 Erstelle eine Methode welche eine Diagonale von variabler Größe und mit angegebene Zeichen ausgibt,

@@ -56,8 +56,5 @@ public class Arrays_12_PascalDreieck {
             }
         }
         BasicFunctions.print2DArray(pascal);
-
     }
-
-
 }
