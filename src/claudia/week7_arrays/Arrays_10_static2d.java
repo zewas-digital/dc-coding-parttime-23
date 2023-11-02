@@ -18,14 +18,11 @@ public class Arrays_10_static2d {
         numbers[1][3] = 22;
         numbers[1][4] = 43;
 
-        numbers[2][0] = 6;
-        numbers[2][1] = 7;
-        numbers[2][2] = 12;
-        numbers[2][3] = 47;
-        numbers[2][4] = 3;
+        numbers[0] = new int[] {1, 2, 3, 4, 5};
 
         // numbers[2] = eindimensionales Array
         System.out.println(Arrays.toString(numbers[2]));
+
 
         int[] reference = numbers[2];
         reference[3] = 99;
