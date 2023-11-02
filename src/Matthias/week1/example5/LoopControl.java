@@ -1,4 +1,4 @@
-package solutions.matthias.week1.example5;
+package Matthias.week1.example5;
 
 /*
 Schreibe ein Programm das im Bereich von 1-100 Zahlen die durch zwei und durch drei teilbar sind ausgeben.

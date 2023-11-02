@@ -1,4 +1,4 @@
-package solutions.matthias.week2.weekend1.example26;
+package Matthias.week2.weekend1.example26;
 
 import java.util.Scanner;
 

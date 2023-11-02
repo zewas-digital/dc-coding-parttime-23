@@ -2,7 +2,7 @@
 Erstelle ein Programm, das den Durschnittswert für alle Zahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
-package solutions.matthias.week2.weekend1.example21;
+package Matthias.week2.weekend1.example21;
 
 import java.util.stream.IntStream;
 import java.util.*;
