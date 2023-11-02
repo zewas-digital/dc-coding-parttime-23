@@ -20,14 +20,18 @@ public class Arrays_11_2dArray {
         Scanner userinput = new Scanner(System.in);
         System.out.println("Gib die Länge des Arrays ein: ");
         int length = userinput.nextInt();
-        int numbers = random.nextInt(0,100);
         int [][] array = new int[length][length];
 
-        for (int i = 0; i < array.length ; i++) {
-            array[i][i] = random.nextInt(0,100);
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                array [i][j] = random.nextInt(0,101);
+            }
         }
 
-        System.out.println(Arrays.toString(array));
+        for (int i = 0; i < length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
+
 
 
 
