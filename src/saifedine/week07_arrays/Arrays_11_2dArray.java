@@ -21,15 +21,15 @@ public class Arrays_11_2dArray {
         // Abfrage Dimensionen vom Anwender --> Scanner
         // Summer pro Zeile
         // Summer pro Spalte
+        // um ein 2D-Array auszugeben, braucht es zusätzlich
 
+        Scanner Eingabe = new Scanner(System.in);
 
-        Scanner EingabeX = new Scanner(System.in);
         System.out.println("Geben Sie die Länge der xDimension: ");
-        int xDimension = EingabeX.nextInt();
+        int xDimension = Eingabe.nextInt();
 
-        Scanner EingabeY = new Scanner(System.in);
         System.out.println("Geben Sie die Länge der yDimension: ");
-        int yDimension = EingabeY.nextInt();
+        int yDimension = Eingabe.nextInt();
 
         int[][] numbers = new int[xDimension][yDimension];
 
@@ -38,6 +38,13 @@ public class Arrays_11_2dArray {
                 Random Zufall = new Random();
                 numbers[i][j] = Zufall.nextInt(0, 100);
             }
+        }
+
+        for (int i = 0; i < xDimension; i++) {
+            for (int j = 0; j < yDimension; j++) {
+                System.out.println(numbers[i][j]);
+            }
+
         }
         System.out.println(Arrays.toString(numbers));
     }
