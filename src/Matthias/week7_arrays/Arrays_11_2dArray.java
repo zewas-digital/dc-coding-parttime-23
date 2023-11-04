@@ -18,6 +18,7 @@ public class Arrays_11_2dArray {
     public static Random rand = new Random( );
     public static Scanner scanner = new Scanner( System.in );
 
+
     // Start Main
     public static void main( String[] args ) {
        //Deklaration der Variabeln
@@ -35,8 +36,8 @@ public class Arrays_11_2dArray {
     public static int[][] createRandomArray(int i, int j) {
         int[][] result = new int[i][j];
         for (int a = 0; a < result.length; i++) {
-            for (int b = 0; ; j++) {
-                result[i][j] = rand.nextInt( 101 );
+            for (int b = 0;b < result.length ; j++) {
+                result[a][b] = rand.nextInt( 101 );
             }
         }
 
