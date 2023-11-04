@@ -5,7 +5,6 @@ static double calculatePrice(int amount, double price) berechnet den Gesamtpreis
 Runden Sie den Gesamtpreis auf 2 Kommastellen.
 Bei ungültigen Parameterwerten oder ungültigem Ergebnis soll -1 als Ergebnis geliefert werden.
 
-
  */
 
 public class Methods_1_calculatePrice {
