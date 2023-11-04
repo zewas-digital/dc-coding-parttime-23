@@ -1,4 +1,4 @@
 package saifedine.array;
 
-public class Arrays {
+public class Arrays_BS {
 }
