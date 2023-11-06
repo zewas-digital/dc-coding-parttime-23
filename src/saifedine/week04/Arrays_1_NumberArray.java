@@ -24,16 +24,14 @@ public class Arrays_1_NumberArray {
 
         for (int i = 0; i < eingabe; i++) {
 
-            numbers[i] = i+1;
+            numbers[i] = i + 1;
         }
         System.out.println(Arrays.toString(numbers));
 
         for (int i = eingabe; i >= 1; i--) {
 
             numbers[eingabe-i] = i;
-
         }
         System.out.println(Arrays.toString(numbers));
     }
-
 }
