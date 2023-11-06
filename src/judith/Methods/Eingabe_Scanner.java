@@ -1,6 +1,6 @@
 package judith.Methods;
 
-import java.util.Scanner;
+
 
 public class Eingabe_Scanner {
 
