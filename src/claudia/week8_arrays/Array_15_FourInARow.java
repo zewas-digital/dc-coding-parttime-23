@@ -30,9 +30,6 @@ public class Array_15_FourInARow {
         System.out.println("Spieler " + player + " hat gewonnen!");
     }
 
-    /**
-     * Prints playing field on console
-     */
      private static void gamescore() {
 
         System.out.println("Spielstand: ");
