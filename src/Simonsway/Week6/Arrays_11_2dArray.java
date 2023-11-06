@@ -24,15 +24,15 @@ public class Arrays_11_2dArray {
 
         int[] columnSum = new int[array.length];
 
-        for (int j = 0; j < array.length; j++) { // Array befüllen
-            for (int i = 0; i < array.length; i++) {
-                columnSum[j] += array[i][j]; // Die Werte in der aktuellen Spalte addieren
+        for (int column = 0; column < array.length; column++) { // Array befüllen solange wie array.length
+            for (int line = 0; line < array.length; line++) {
+                columnSum[column] += array[line][column]; // Die Werte in der aktuellen Spalte addieren
             }
         }
 
-        System.out.println("Spaltensummen:"); // Array ausgeben
-        for (int j = 0; j < columnSum.length; j++) {
-            System.out.println("Spalte " + j + ": " + columnSum[j]);
+        System.out.println("Column Sum:"); // Array ausgeben
+        for (int column = 0; column < columnSum.length; column++) {
+            System.out.println("Spalte " + column + ": " + columnSum[column]);
         }
     }
 }
