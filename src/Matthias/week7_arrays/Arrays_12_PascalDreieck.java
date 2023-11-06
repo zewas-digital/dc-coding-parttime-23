@@ -28,7 +28,13 @@ public class Arrays_12_PascalDreieck {
         int i = scanner.nextInt( );
         System.out.println( "Eingabe von i für das Befüllen des zwei dimensionalen Arrays:" );
         int j = scanner.nextInt( );
-        int[][] array = createBinomialArray( i, j );
+        System.out.println( "Eingabe von k für das Befüllen des zwei dimensionalen Arrays:" );
+        int k = scanner.nextInt( );
+        System.out.println( "Eingabe von n für das Befüllen des zwei dimensionalen Arrays:" );
+        int n = scanner.nextInt( );
+
+        int[][] array = createBinomialArray( i, j,n,k );
+        print2dArray( array );
         System.out.println( binomialCoefficient( 5, 2 ) ); // 10
         System.out.println( binomialCoefficient( 10, 5 ) ); // 252
 
