@@ -21,8 +21,57 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
 
 package Matthias.week2.weekend1.example32;
 
+import java.util.Scanner;
+
 public class ATM {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int Kontostand=200;
+        int EingezahltesGeld=0;
+        int AbgehobenesGeld=0;
+        int Menüabfrage =0;
+        boolean stateprogramm=true;
+        System.out.println("Willkomen am Bankautomat");
+        while (stateprogramm) {
+
+            System.out.println("Folgende Funktionen bieten wir an: ");
+            System.out.println("1. Einzahlen");
+            System.out.println("2. Auszahlen");
+            System.out.println("3. Kontostand anzeigen");
+            System.out.println("4. Beenden");
+            System.out.println("Tippen Sie 1-4 ein um dem Menü Punkt auszuwählen ");
+
+
+            Menüabfrage = scanner.nextInt();
+            //Einzahlen
+            if (Menüabfrage == 1) {
+                System.out.println("1. Einzahlen: Geben Sie die Einzahlsumme ein");
+                EingezahltesGeld = scanner.nextInt();
+                System.out.println("Neuer Kontostand: " + (Kontostand+EingezahltesGeld));
+            }
+
+            //Auszahlen
+            if (Menüabfrage == 2) {
+                System.out.println("2. Auszahlen");
+                AbgehobenesGeld= scanner.nextInt();
+                System.out.println("Ihr Kontostand ist: " + (Kontostand-AbgehobenesGeld));
+
+            }
+
+            //Kontostand
+            if (Menüabfrage == 3) {
+                System.out.println("3. Kontostand anzeigen");
+                System.out.println("Ihr Kontostand ist: " + Kontostand);
+            }
+
+            //Beenden
+            if (Menüabfrage == 4) {
+                System.out.println("4. Beenden");
+                stateprogramm=false;
+            }
+
+        }
 
     }
 }

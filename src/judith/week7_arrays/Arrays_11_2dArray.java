@@ -10,30 +10,47 @@ Gib die Summe pro Zeile oder pro Spalte aus.
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Arrays_11_2dArray {
 
     public static void main(String[] args) {
 
         Random random = new Random();
+        Scanner scan = new Scanner(System.in);
 
-        int[][] numbers = new int [3][5];
 
-        for (int i = 0; i < 3; i++) {
+        System.out.print("Wieviele Zeilen soll dein 2d Array haben? ");
+        int heigth = scan.nextInt();
 
-            for (int j = 0; j < 5 ; j++) {
+        System.out.println("Wieviele Spalten soll dein 2d Array haben?");
+        int width = scan.nextInt();
+
+        int[][] numbers = new int [heigth][width];
+       int sum = 0;
+
+        for (int i = 0; i < heigth; i++) {
+
+            for (int j = 0; j < width ; j++) {
                 numbers [i][j] = random.nextInt(1,100);
-                System.out.println("i ");
-                System.out.println(Arrays.toString(numbers[i]));
-                System.out.println("j ");
-                //hier kann nicht  System.out.println(Arrays.toString(numbers[j]));ausgegeben werden da
-                // es sich bei j jetzt um einen Wert und ein Array handelt
-                System.out.println((numbers[i][j]));
+
+            }
+
+            System.out.println(Arrays.toString(numbers[i]));
+
+
+
+        }
+
+        for (int i = 0; i < heigth ; i++) {
+            for (int j = 0; j < width ; j++) {
+                sum = sum + numbers[i][j];
+                System.out.println("Summer der Zeile " + i + " " + "Summe "  + sum);
+
 
             }
 
         }
-       // System.out.println(Arrays.toString(numbers[]); ???????????????????????????
 
 
     }
