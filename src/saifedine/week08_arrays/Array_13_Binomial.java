@@ -13,8 +13,7 @@ Frage den Anwender, welche Formular er braucht, und gib die konkrete Formel in d
  */
 
 //gehört zu PascalDreieck
-
-import java.util.Scanner;
+// wird ausgelassen
 
 public class Array_13_Binomial {
 
