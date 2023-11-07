@@ -24,9 +24,8 @@ public class Array_14_TicTacToe {
         // 4. Gewinner ermitteln
 
         char[][] board = {{' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}};
-
+                          {' ', ' ', ' '},
+                          {' ', ' ', ' '}};
 
         printBoard(board);
 
@@ -86,19 +85,6 @@ public class Array_14_TicTacToe {
         return true; // If the system doesnt find a blank spot we return true as the game is finished then
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private static void computerTurn(char[][] board) {
-        Random random = new Random();
-        int computerTurn;
-        while (true){
-            computerTurn = random.nextInt(9) + 1;
-            if (isTurnValid(board, computerTurn)){ // computerTurn checks in the method position valid true or false
-                break;
-            }
-        }
-        System.out.println("Computer turn " + computerTurn);
-        placeTurn(board, Integer.toString(computerTurn), 'O');
-    }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static boolean isTurnValid (char[][] board, int position){
         switch (position){
             case 1:
@@ -123,6 +109,20 @@ public class Array_14_TicTacToe {
                 return false;
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private static void computerTurn(char[][] board) {
+        Random random = new Random();
+        int computerTurn;
+        while (true){
+            computerTurn = random.nextInt(9) + 1;
+            if (isTurnValid(board, computerTurn)){ // computerTurn checks in the method position valid true or false
+                break;
+            }
+        }
+        System.out.println("Computer turn " + computerTurn);
+        placeTurn(board, Integer.toString(computerTurn), 'O');
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void playerTurn(char[][] board) {
 
