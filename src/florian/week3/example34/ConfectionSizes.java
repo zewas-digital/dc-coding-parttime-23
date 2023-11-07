@@ -1,4 +1,4 @@
-package solutions.florian.week3.example34;
+package florian.week3.example34;
 
 import java.util.Scanner;
 
