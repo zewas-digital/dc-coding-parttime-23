@@ -18,6 +18,7 @@ public class Array_15_FourInARow {
         int [][] array = new int[6][11];
         int player=1;
         boolean win = false;
+        boolean draw= false;
 
         while(true) {
 
@@ -25,10 +26,17 @@ public class Array_15_FourInARow {
             printTable ( array );
             set ( array, player );
             win = checkWin ( array );
+            draw =checkDraw (array, win  );
 
             if(win == true){
                 printTable ( array );
                 System.out.println ("Spieler "+player+" hat gewonnen" );
+                break;
+            }
+
+            if(draw == true){
+                printTable ( array );
+                System.out.println ("unentschieden" );
                 break;
             }
 
@@ -161,5 +169,25 @@ public class Array_15_FourInARow {
 
         return win;
     }
+    static boolean checkDraw(int [][] array, boolean win){
+        boolean draw = false;
+        int counter=0;
 
+        if(win == false) {
+
+            for (int i = 0; i <6; i++) {
+                for (int j = 2; j <9; j++) {
+                    if(array[i][j] != 0) {
+                        counter++;
+                    }
+                }
+            }
+            if(counter == 42){
+                draw = true;
+            }
+        }else{ draw = false;}
+
+
+        return draw;
+    }
 }
