@@ -1,4 +1,4 @@
-package MichaelReal.week7_arrays;
+package Matthias.week8_arrays;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -12,9 +12,8 @@ public class ArrayMethods {
         print2dArray(randNumbers);
     }
 
-    public static int[][] createRandom2dArray(int zeilen, int spalten) {
-        int[][] numbers = new int[zeilen][spalten];
-
+    public static int[][] createRandom2dArray( int xLength, int yLength ) {
+        int[][] numbers = new int[xLength][yLength];
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < numbers[i].length; j++) {
                 numbers[i][j] = rand.nextInt(100);
