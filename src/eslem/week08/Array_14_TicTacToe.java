@@ -18,7 +18,7 @@ public class Array_14_TicTacToe {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
-        char [][] board = new char [3][3];
+        char[][] board = new char[3][3];
 
         char spieler1 = 'x';
         char spieler2 = 'o';
@@ -28,18 +28,34 @@ public class Array_14_TicTacToe {
             for (int j = 0; j <= 3; j++) {
             }
         }
-    }
+        String[][] gameBoard = {
+                {" " + "|" + " " + "|" + " " + " "},
+                {"-" + "+" + "-" + "+" + "-"},
+                {" " + "|" + " " + "|" + " " + " "},
+                {"-" + "+" + "-" + "+" + "-"},
+                {" " + "|" + " " + "|" + " " + " "},
+        };
 
+        for (int zeile = 0; zeile < gameBoard.length; zeile++) {
+            //  System.out.print(zeile );
+            for (int spalte = 0; spalte < gameBoard[zeile].length; spalte++) {
+                System.out.print(gameBoard[zeile][spalte]);
+                System.out.println();
+            }
+
+        }
+    }
+}
     private static boolean game(char [][] board, char symbol){
         //Zeilen
-            if ((board [0][0] == symbol && board [0][1] == symbol && board [0][2] == symbol) ||
+        if ((board [0][0] == symbol && board [0][1] == symbol && board [0][2] == symbol) ||
                 (board [1][0] == symbol && board [1][1] == symbol && board [1][2] == symbol) ||
                 (board [2][0] == symbol && board [2][1] == symbol && board [2][2] == symbol) ||
-        //Spalten
+                //Spalten
                 (board [0][0] == symbol && board [1][0] == symbol && board [2][0] == symbol) ||
                 (board [0][1] == symbol && board [1][1] == symbol && board [2][1] == symbol) ||
                 (board [2][0] == symbol && board [2][1] == symbol && board [2][2] == symbol) ||
-        //Diagonale
+                //Diagonale
                 (board [0][0] == symbol && board [1][1] == symbol && board [2][2] == symbol)||
                 (board [0][2] == symbol && board [1][1] == symbol && board [2][0] == symbol)) {
             return true;
@@ -48,6 +64,7 @@ public class Array_14_TicTacToe {
     }
     private static boolean game2(char [][] board, char symbol){
         if (game(board,'x')) {
+
         }
     }
 }
