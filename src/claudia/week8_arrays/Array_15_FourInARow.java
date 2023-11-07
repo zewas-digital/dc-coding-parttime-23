@@ -9,6 +9,8 @@ Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne d
  */
 
 import claudia.BasicFunctions;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Array_15_FourInARow {
@@ -48,7 +50,7 @@ public class Array_15_FourInARow {
      *
      * @return the chosen column
      */
-    static int playersInput(){
+    static int playersInput() {
         int column = 0;
         Scanner sc = new Scanner(System.in);
         while (column < 1 || column > 7) {

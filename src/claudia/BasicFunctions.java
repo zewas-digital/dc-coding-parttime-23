@@ -3,11 +3,9 @@ package claudia;
 import java.util.Arrays;
 import java.util.Random;
 
-public class BasicFunctions <T> {
+public class BasicFunctions {
 
     public static void main(String[] args) {
-
-
     }
 
     public static int[] createRandom1DArray(int size) {
