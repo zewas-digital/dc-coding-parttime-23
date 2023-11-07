@@ -21,17 +21,24 @@ public class Array_14_TicTacToe {
         int [][] array = new int[3][3];
         int player=1;
         boolean win = false;
-
+        boolean draw= false;
         while(true) {
 
 
             printTable ( array );
             set ( array, player );
             win = checkWin ( array );
+            draw =checkDraw (array, win  );
 
             if(win == true){
                 printTable ( array );
                 System.out.println ("Spieler "+player+" hat gewonnen" );
+                break;
+            }
+
+            if(draw == true){
+                printTable ( array );
+                System.out.println ("unentschieden" );
                 break;
             }
 
@@ -115,5 +122,25 @@ static boolean checkWin(int [][] array){
 
     return win;
 }
+static boolean checkDraw(int [][] array, boolean win){
+        boolean draw = false;
+        int counter=0;
 
+        if(win == false) {
+
+            for (int i = 0; i <3; i++) {
+                for (int j = 0; j <3; j++) {
+                    if(array[i][j] != 0) {
+                        counter++;
+                    }
+                }
+            }
+            if(counter == 9){
+                draw = true;
+            }
+        }else{ draw = false;}
+
+
+        return draw;
+    }
 }
