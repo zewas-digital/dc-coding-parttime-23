@@ -8,13 +8,13 @@ Gewinner ist der Spieler, der es als erster schafft, vier oder mehr seiner Spiel
 Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne dass ein Spieler eine Viererlinie gebildet hat.
  */
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Array_15_FourInARow {
 
     public static void main(String[] args) {
-        int [][] array = new int[6][7];
+        int [][] array = new int[6][11];
         int player=1;
         boolean win = false;
 
@@ -40,7 +40,10 @@ public class Array_15_FourInARow {
     static void printTable (int [][] array) {
 
         for (int i = 0; i < 6; i++) {
-            System.out.println ( Arrays.toString ( array[i] ) );
+            for (int j = 2; j < 9; j++) {
+                System.out.print ( array[i][j]+"  " );
+            }
+            System.out.println ();
         }
     }
     static void set(int [][] array, int player){
@@ -53,18 +56,23 @@ public class Array_15_FourInARow {
             System.out.print ( "Spalte: " );
             column = inputkonsole.nextInt ( );
             System.out.println ( );
-            if(array[0][column-1] == 0) {
-                for (int i = 5; i > -1; i--) {
-                    if (array[i][column - 1] == 0) {
-                        array[i][column - 1] = player;
-                        break;
-                    }
+            if (column >0 && column < 8){
 
+                if(array[0][column+1] == 0) {
+                    for (int i = 5; i > -1; i--) {
+                        if (array[i][column + 1] == 0) {
+                            array[i][column + 1] = player;
+                            break;
+                        }
+
+                    }
+                    break;
+                }else{
+                    System.out.println ("Diese Spalte ist schon voll" );
+                    System.out.println ( );
                 }
-                break;
             }else{
-                System.out.println ("Diese Spalte ist schon voll" );
-                System.out.println ( );
+                System.out.println ( "Eingabe ungültig" );
             }
         }
     }
@@ -73,7 +81,7 @@ public class Array_15_FourInARow {
         // Kontrolle ob vier gleiche in einer Reihe sind
         for (int i = 0; i <6; i++) {
             int counter=0;
-            for (int j = 0; j <6; j++) {
+            for (int j = 2; j <10; j++) {
                 if (array[i][j] == array[i][j+1] && array[i][j] != 0){
                     counter++;
                     if(counter == 3){break;}
@@ -85,7 +93,7 @@ public class Array_15_FourInARow {
             }
         }
         // Kontrolle ob vier gleiche in einer Spalte sind
-        for (int i = 0; i <7; i++) {
+        for (int i = 2; i <10; i++) {
             int counter=0;
             for (int j = 0; j <5; j++) {
                 if (array[j][i] == array[j+1][i] && array[j][i] != 0){
@@ -98,10 +106,53 @@ public class Array_15_FourInARow {
                 break;
             }
         }
+        // Kontrolle ob vier gleiche in einer Diagonale sind
+        // von oben links nach unten rechts
+        for (int i = 0; i < 6; i++) {
+            int counter=0;
+            int k = 0;
 
+            for (int j = i; j < i+5; j++) {
+                if (array[0 + k][j] == array[1 + k][j + 1] && array[0 + k][j] != 0) {
+                    counter++;
+                    if (counter == 3) {
+                        break;
+                    }
+                } else {
+                    counter = 0;
+                }
+                k++;
+            }
+            if(counter == 3){
+                win = true;
+                break;
+            }
+        }
 
+        // Kontrolle ob vier gleiche in einer Diagonale sind
+        // von oben rechts nach unten links
+        for (int i = 0; i < 6; i++) {
+            int counter=0;
+            int k = 0;
 
+            for (int j = i; j < i +5; j++) {
+                if (array[5 - k][j] == array[4 - k][j + 1] && array[5 - k][j] != 0) {
+                    counter++;
+                    if (counter == 3) {
+                        break;
+                    }
+                } else {
+                    counter = 0;
+                }
+                k++;
+            }
+            if(counter == 3){
+                win = true;
+                break;
+            }
+        }
 
         return win;
     }
+
 }
