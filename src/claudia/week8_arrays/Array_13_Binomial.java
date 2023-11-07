@@ -46,15 +46,14 @@ public class Array_13_Binomial {
         else {
             System.out.print("(a + b) ^ " + exponent + " = ");
 
-//TODO Ausgabe ist zwar korrekt, aber noch nicht sehr schön
-
             for (int i = exponent; i >= 0; i--) {
                 if (binomi[size - 1 - i] != 1) System.out.print(binomi[size - 1 - i] + " * ");
-                System.out.print("a ");
-                if (i != 1) System.out.print("^ " + i);
-                if (exponent - i != 0) System.out.print(" * b ^ " + (exponent - i));
+                if (i != 0) System.out.print("a");
+                if (i != 0 && i != 1) System.out.print(" ^ " + i);
+                if (i != 0 && exponent - i != 0) System.out.print(" * ");
+                if (exponent - i != 0) System.out.print("b");
+                if (exponent - i != 0 && exponent - i != 1) System.out.print(" ^ " + (exponent - i));
                 if (i > 0) System.out.print(" + ");
-
             }
         }
     }
