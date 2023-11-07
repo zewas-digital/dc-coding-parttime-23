@@ -18,13 +18,36 @@ public class Array_14_TicTacToe {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
-        int[][] numbers = new int [3][3];
-        boolean spieler1 = true;
-        boolean spieler2 = false;
+        char [][] board = new char [3][3];
 
-        char[][] tabelle = {{' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}};
+        char spieler1 = 'x';
+        char spieler2 = 'o';
 
+
+        for (int i = 0; i <= 3; i++) {
+            for (int j = 0; j <= 3; j++) {
+            }
+        }
+    }
+
+    private static boolean game(char [][] board, char symbol){
+        //Zeilen
+            if ((board [0][0] == symbol && board [0][1] == symbol && board [0][2] == symbol) ||
+                (board [1][0] == symbol && board [1][1] == symbol && board [1][2] == symbol) ||
+                (board [2][0] == symbol && board [2][1] == symbol && board [2][2] == symbol) ||
+        //Spalten
+                (board [0][0] == symbol && board [1][0] == symbol && board [2][0] == symbol) ||
+                (board [0][1] == symbol && board [1][1] == symbol && board [2][1] == symbol) ||
+                (board [2][0] == symbol && board [2][1] == symbol && board [2][2] == symbol) ||
+        //Diagonale
+                (board [0][0] == symbol && board [1][1] == symbol && board [2][2] == symbol)||
+                (board [0][2] == symbol && board [1][1] == symbol && board [2][0] == symbol)) {
+            return true;
+        }
+        return false;
+    }
+    private static boolean game2(char [][] board, char symbol){
+        if (game(board,'x')) {
+        }
     }
 }
