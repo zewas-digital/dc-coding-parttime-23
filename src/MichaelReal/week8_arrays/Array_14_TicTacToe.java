@@ -14,7 +14,120 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
 import java.util.Scanner;
 
 public class Array_14_TicTacToe {
-        private static int[][] board = new int[3][3];
+
+    char[][] spielfeld = new char[3][3];
+
+    public void TicTacToe() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                spielfeld[i][j] = ' ';
+            }
+        }
+    }
+
+    public void zeigeSpielfeld(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(spielfeld[i][j]);
+                if (j < 2) {
+                    System.out.print(" | ");
+                }
+            }
+            System.out.println();
+            if (i < 2) {
+                System.out.println("---------");
+            }
+        }
+    }
+    public void spielerZug(char spieler) {
+        Scanner scanner = new Scanner(System.in);
+        int zeile, spalte;
+        System.out.println("Spieler " + spieler + ", geben Sie die Zeile und Spalte ein (1-3):");
+        do {
+            System.out.print("Zeile: ");
+            zeile = scanner.nextInt() - 1;
+            System.out.print("Spalte: ");
+            spalte = scanner.nextInt() - 1;
+        } while (zeile < 0 || zeile > 2 || spalte < 0 || spalte > 2 || spielfeld[zeile][spalte] != ' ');
+
+        spielfeld[zeile][spalte] = spieler;
+    }
+
+    public boolean istSpielBeendet(char spieler) {
+        // Überprüfen, ob der Spieler in einer Zeile, Spalte oder Diagonale gewonnen hat
+        for (int i = 0; i < 3; i++) {
+            // Überprüfen der Zeilen
+            if (spielfeld[i][0] == spieler && spielfeld[i][1] == spieler && spielfeld[i][2] == spieler) {
+                return true;
+            }
+            // Überprüfen der Spalten
+            if (spielfeld[0][i] == spieler && spielfeld[1][i] == spieler && spielfeld[2][i] == spieler) {
+                return true;
+            }
+        }
+        // Überprüfen der Diagonalen
+        if (spielfeld[0][0] == spieler && spielfeld[1][1] == spieler && spielfeld[2][2] == spieler) {
+            return true;
+        }
+        if (spielfeld[0][2] == spieler && spielfeld[1][1] == spieler && spielfeld[2][0] == spieler) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean istUnentschieden() {
+        // Überprüfen, ob das Spielfeld voll ist, ohne dass ein Spieler gewonnen hat
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (spielfeld[i][j] == ' ') {
+                    return false; // Es gibt mindestens ein leeres Feld
+                }
+            }
+        }
+        return true; // Alle Felder sind belegt, Spiel endet unentschieden
+    }
+
+    public static void main(String[] args) {
+        Array_14_TicTacToe spiel = new TicTacToe();
+        char aktuellerSpieler = 'X';
+
+        spiel.zeigeSpielfeld();
+
+        while (true) {
+            spiel.spielerZug(aktuellerSpieler);
+            spiel.zeigeSpielfeld();
+
+            if (spiel.istSpielBeendet(aktuellerSpieler)) {
+                System.out.println("Spieler " + aktuellerSpieler + " gewinnt!");
+                break;
+            } else if (spiel.istUnentschieden()) {
+                System.out.println("Unentschieden!");
+                break;
+            }
+
+            aktuellerSpieler = (aktuellerSpieler == 'X') ? 'O' : 'X';
+        }
+    }
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*    private static int[][] board = new int[3][3];
         private static int currentPlayer = 1;
 
         public static void main(String[] args) {
