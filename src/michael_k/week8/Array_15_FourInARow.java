@@ -9,6 +9,7 @@ Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne d
  */
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Array_15_FourInARow {
@@ -47,14 +48,20 @@ public class Array_15_FourInARow {
         }
     }
     static void set(int [][] array, int player){
-        int column;
-        Scanner inputkonsole = new Scanner ( System.in );
+        int column = 0;
 
         while(true) {
             System.out.println ( "Spieler " + player + " ist an der Reihe" );
             System.out.println ( "In welche spalte möchtest du deinen Stein setzen?" );
             System.out.print ( "Spalte: " );
-            column = inputkonsole.nextInt ( );
+
+            Scanner inputkonsole = new Scanner ( System.in );
+            try {
+                column = inputkonsole.nextInt ( );
+            } catch (InputMismatchException exception) {
+
+            }
+
             System.out.println ( );
             if (column >0 && column < 8){
 
