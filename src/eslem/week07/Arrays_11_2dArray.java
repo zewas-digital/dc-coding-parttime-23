@@ -15,9 +15,9 @@ public class Arrays_11_2dArray {
             Scanner sc = new Scanner(System.in);
             Random random = new Random();
 
-            System.out.print("Erstelle 2-D Array; wieviele Zeilen? ");
+            System.out.print("Erstelle 2-D Array; wie viele Zeilen möchtest du? ");
             int rows = sc.nextInt();
-            System.out.print("Wieviele Spalten? ");
+            System.out.print("Wie viele Spalten möchtest du? ");
             int columns = sc.nextInt();
 
             int[][] matrix = new int[rows][columns];
@@ -26,7 +26,7 @@ public class Arrays_11_2dArray {
                     matrix[i][j] = random.nextInt(0, 101);
                 }
             }
-            System.out.println("Gesamtes Array: ");
+            System.out.println("insgesamtes Array: ");
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < columns; j++) {
                     System.out.print(matrix[i][j] + "\t");
@@ -34,7 +34,7 @@ public class Arrays_11_2dArray {
                 System.out.println();
             }
 
-            System.out.println("Summe zeilenweise: ");
+            System.out.println("die Summe zeilenweise: ");
             for (int i = 0; i < rows; i++) {
                 int sum = 0;
                 System.out.print("Zeile " + i + ": ");
@@ -44,7 +44,7 @@ public class Arrays_11_2dArray {
                 System.out.println("Summe: " + sum);
             }
 
-            System.out.println("Summe spaltenweise: ");
+            System.out.println(" die Summe spaltenweise: ");
             for (int j = 0; j < columns; j++) {
                 int sum = 0;
                 System.out.print("Spalte " + j + ": ");
