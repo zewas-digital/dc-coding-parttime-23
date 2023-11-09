@@ -12,7 +12,8 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
 
-import java.util.Arrays;
+import oliver.week9_arrays.ScannerHelper;
+
 import java.util.Scanner;
 
 public class Array_14_TicTacToe {
@@ -20,16 +21,52 @@ public class Array_14_TicTacToe {
         Scanner userinput = new Scanner(System.in);
 
         int[][] field = new int[3][3];
-        int leer = 0;
-        int player1 = userinput.nextInt();
+        int moves = 9;
         int currentplayer = 1;
+        int result = -1;
 
 
         // Spielfeld erstellen (Fertig)
-        // Spieler einfügen & Interaktion mit Spielfeld ermöglichen
-        // Siegbedingung erstellen (Fertig?)
+        // Interaktion mit Spielfeld ermöglichen (Fertig)
+        // Siegbedingung erstellen (Fertig)
+        // Erneute Abfrage bei Falscher Eingabe ()
+
+       gamefield(field); // Spielfeld (Fertig)
 
 
+        // Interaktion mit Spielfeld ermöglichen
+        while (moves > 0 ) {
+           /* System.out.println("Spieler: " + currentplayer + " Gib eine Zahl von 1 bis 9 ein: ");
+            int playerinput = userinput.nextInt();*/
+
+            switch (userinput(field,currentplayer,result)) {
+                case 1 -> field[0][0] = currentplayer;
+                case 2 -> field[0][1] = currentplayer;
+                case 3 -> field[0][2] = currentplayer;
+                case 4 -> field[1][0] = currentplayer;
+                case 5 -> field[1][1] = currentplayer;
+                case 6 -> field[1][2] = currentplayer;
+                case 7 -> field[2][0] = currentplayer;
+                case 8 -> field[2][1] = currentplayer;
+                case 9 -> field[2][2] = currentplayer;
+            }
+            gamefield(field);
+            if (checkwinner(field,currentplayer)){
+                break;
+            }
+            if (currentplayer == 1)  {
+                currentplayer = 2;
+            }else {
+                currentplayer = 1;
+            }
+            moves--;
+
+        } if (moves == 0){
+            System.out.println("Unentschieden");
+        }
+    }
+
+    public static int[][] gamefield(int [][] field){
         // Spielfeld
 
         for (int i = 0; i < field.length; i++) {
@@ -42,63 +79,57 @@ public class Array_14_TicTacToe {
             }
             System.out.println();
         }
+        return field;
+    }
 
-        // Spieler einfügen & Interaktion mit Spielfeld ermöglichen
-        while (currentplayer > 0) {
-            if (currentplayer == 1)  {
-                currentplayer = 2;
-            }else {
-                currentplayer = 1;
-            }
+    public static boolean checkwinner (int [][] field, int currentplayer) {
+        // Siegbedingung (Fertig)
 
-            switch (player1) {
-                case 1 -> field[0][0] = player1;
-                case 2 -> field[0][1] = player1;
-                case 3 -> field[0][2] = player1;
-                case 4 -> field[1][0] = player1;
-                case 5 -> field[1][1] = player1;
-                case 6 -> field[1][2] = player1;
-                case 7 -> field[2][0] = player1;
-                case 8 -> field[2][1] = player1;
-                case 9 -> field[2][2] = player1;
-            }
-        }
-
-
-        // Siegbedingung (Fertig?)
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field.length; j++) {
                 if ((field[0][0] == 1 && field[0][1] == 1 && field[0][2] == 1) || (field[0][0] == 2 && field[0][1] == 2 && field[0][2] == 2)){                    // Waagerecht Oben
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[1][0] == 1 && field [1][1] == 1 && field [1][2] == 1) || (field[1][0] == 2 && field [1][1] == 2 && field [1][2] == 2)){         // Waagerecht Mitte
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[2][0] == 1 && field[2][1] == 1 && field[2][2] == 1) || (field[2][0] == 2 && field[2][1] == 2 && field[2][2] == 2)){             // Waagerecht Unten
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[0][0] == 1 && field [1][1] == 1 && field [2][2] == 1) || (field[0][0] == 2 && field [1][1] == 2 && field [2][2] == 2)){         // Diagonal Obere Rechteecke zur Unteren Linkenecke
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[0][2] == 1 && field [1][1] == 1 && field [2][0] == 1) || (field[0][2] == 2 && field [1][1] == 2 && field [2][0] == 2)){         // Diagonal Obere Linkeecke zur Unteren Rechtenecke
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[0][0] == 1 && field [1][0] == 1 && field [2][0] == 1) || (field[0][0] == 2 && field [1][0] == 2 && field [2][0] == 2)){         // Senkrecht Links Oben
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[0][1] == 1 && field [1][1] == 1 && field [2][1] == 1) || (field[0][1] == 2 && field [1][1] == 2 && field [2][1] == 2)){         // Senkrecht Mitte Oben
-                    System.out.println("Sieger ist: " + player1);
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 } else if ((field[0][2] == 1 && field [1][2] == 1 && field [2][2] == 1) || (field[0][2] == 2 && field [1][2] == 2 && field [2][2] == 2)) {        // Senkrecht Rechts Oben
-                    System.out.println("Sieger ist: " + player1);
-                    break;
-                }else {System.out.println("Unentschieden");
-                    break;
+                    System.out.println("Sieger ist: " + currentplayer);
+                    return true;
                 }
             }
         }
+        return false;
+    }
+    public static int userinput (int [][] field,int currentplayer,int result){
 
+        while (result < 1 || result > 9) {
+            result = ScannerHelper.readNumber("Spieler " + currentplayer + ", wohin möchtest du dein Stein setzen?");
 
+            if (result < 1 || result > 9) {
+                System.out.println("Kein gültiges Feld, bitte wähle etwas anderes.");
+                result = -1;
+            } else if (field[(result - 1) / 3][(result - 1) % 3] != 0) {
+                System.out.println("Das Feld ist schon belegt, bitte wähle etwas anderes.");
+                result = -1;
+            }
+        }
+        return result;
 
     }
 }

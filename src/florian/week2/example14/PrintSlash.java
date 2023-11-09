@@ -1,4 +1,4 @@
-package solutions.florian.week2.example14;
+package florian.week2.example14;
 
 /*
 Erstelle eine Methode welche eine Diagonale von variabler Größe und mit angegebene Zeichen ausgibt,
@@ -21,7 +21,7 @@ public class PrintSlash {
 
     static void printSlash(char value, int size, boolean backslash) {
         for (int i = size; i > 0; i--) {
-            for (int l = 0; l < size - i; l++) {
+            for (int j = 0; j < size - i; j++) {
                 System.out.print(value);
             }
         }
