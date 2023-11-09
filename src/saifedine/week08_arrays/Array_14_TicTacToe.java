@@ -32,7 +32,9 @@ public class Array_14_TicTacToe {
         int y = 3;
         int[][] numbers = new int[x][y];
         int Spieler = 0;
+        boolean fieldOk = false;
 
+        // Arrays befüllen
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 numbers[i][j] = 0;
@@ -41,53 +43,75 @@ public class Array_14_TicTacToe {
 
         while (true) {
 
-            printArray(y, numbers);
+            printArray(Spieler, x, y, numbers);
 
-            int spielerZug = inputSpieler(numbers);
+           Spieler = inputSpieler(numbers);
 
-            placeTurn(spielerZug, numbers);
+           fieldOk = checkField(numbers, Spieler);
+
+           if (fieldOk){
+
+               placeTurn(Spieler,numbers);
+           }
 
         }
 
     }
 
-    private static void printArray(int y, int[][] numbers) {
+    // Array ausgeben
+    private static void printArray(int Spieler, int x, int y, int[][] numbers) {
         System.out.println("Spielfeld");
-        for (int j = 0; j < y; j++) {
-            System.out.println(Arrays.toString(numbers[j]));
+
+        if (Spieler == 0){
+            for (int i = 0; i < x; i++) {
+                System.out.println(Arrays.toString(numbers[i]));
+            }
+        }
+        else if (Spieler > 0) {
+            for (int i = 0; i < x; i++) {
+                for (int j = 0; j < y; j++) {
+                }
+            }
         }
     }
+
+
 
     private static int inputSpieler(int [][] numbers) {
+
+        // Scanner-Eingabe
         System.out.println("Wähle ein Feld von 1 - 9:");
         Scanner Eingabe = new Scanner(System.in);
         int Spieler = Eingabe.nextInt();
+
+        // Überprüfung Eingabe zw. 1-9
         if (Spieler > 0 && Spieler < 10) {
             System.out.println("Ihre Eingabe: " + Spieler);
         }
+        // Falsche Eingabe --> 0 für die while
         else{
             System.out.println("Falsche Eingabe, wähle bitte eine Zahl von 1 - 9:");
             return 0;
         }
-
-        if (numbers[0][0] == 0) {
-            placeTurn(Spieler, numbers);
-        }
-        else {
-            System.out.println("Feld ist bereits besetzt");
-        }
         return Spieler;
+    }
+
+    private static boolean checkField(int[][] numbers, int Spieler) {
+        if (numbers[0][0] == 0) {
+           // placeTurn(Spieler, numbers);
+            return true;
+        }
+
+        System.out.println("Feld ist bereits besetzt");
+        return false;
     }
 
     private static void placeTurn(int Spieler, int[][] numbers) {
         switch (Spieler) {
-                case 1:
-                        numbers[0][0] = Spieler;
-                        break;
+            case 1:
+                numbers[0][0] = Spieler;
+                break;
         }
     }
-
-
-
 
 }
