@@ -14,7 +14,7 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
  */
 
-package solutions.eslem.example31;
+package eslem.week03.example31;
 
 import java.util.Scanner;
 

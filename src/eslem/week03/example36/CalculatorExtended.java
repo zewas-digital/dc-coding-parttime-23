@@ -1,4 +1,4 @@
-package solutions.eslem.example36;
+package eslem.week03.example36;
 
 /*
 1. Aufgabe:

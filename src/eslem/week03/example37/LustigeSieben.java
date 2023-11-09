@@ -1,4 +1,4 @@
-package solutions.eslem.example37;
+package eslem.week03.example37;
 
 /*
 Lustige Sieben

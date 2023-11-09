@@ -8,8 +8,6 @@ public static int[] makeACopy(int[] original){
 }
  */
 
-import java.util.Arrays;
-import java.util.Scanner;
 /*
 public class Arrays_2_CopyArray {
     public static void main(String[] args) {
