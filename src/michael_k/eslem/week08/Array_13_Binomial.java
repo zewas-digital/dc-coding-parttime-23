@@ -1,4 +1,4 @@
-package saifedine.week08_arrays;
+package michael_k.eslem.week08;
 /*
 Wenn wir die Zahlen Diagonal lesen, bekommen wir die Koeffizienten von (a+b)^n
 
@@ -12,9 +12,5 @@ Frage den Anwender, welche Formular er braucht, und gib die konkrete Formel in d
 
  */
 
-//gehört zu PascalDreieck
-// wird ausgelassen
-
 public class Array_13_Binomial {
-
 }
