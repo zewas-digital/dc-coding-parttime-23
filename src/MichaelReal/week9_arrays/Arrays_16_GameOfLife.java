@@ -16,11 +16,12 @@ In der Aufgabe soll Conways Spiel des Lebens implementiert werden.
 public class Arrays_16_GameOfLife {
         public static void main(String[] args) {
             //int[][] initialField = generateRandomField(6, 6); // Ändern Sie die Größe des Spielfelds nach Bedarf
-            int[][] initialField = GLEITER;
+            //int[][] initialField = GLEITER;
+            int[][] initialField = SEGLER;
             int[][] nextGeneration = new int[initialField.length][initialField[0].length];
 
             // Simulieren Sie beispielsweise 100 Generationen
-            for (int generation = 0; generation < 100; generation++) {
+            for (int generation = 0; generation < 30; generation++) {
                 nextGeneration = calculateNextGeneration(initialField);
                 printField(nextGeneration);
                 initialField = nextGeneration;
@@ -115,5 +116,18 @@ public class Arrays_16_GameOfLife {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    };
+
+    public static final int[][] SEGLER = {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
     }
