@@ -15,16 +15,14 @@ In der Aufgabe soll Conways Spiel des Lebens implementiert werden.
 
 public class Arrays_16_GameOfLife {
         public static void main(String[] args) {
-            //int[][] initialField = generateRandomField(6, 6); // Ändern Sie die Größe des Spielfelds nach Bedarf
+            int[][] initialField = generateRandomField(10, 10); // Ändern Sie die Größe des Spielfelds nach Bedarf
             //int[][] initialField = GLEITER;
-            int[][] initialField = SEGLER;
-            int[][] nextGeneration = new int[initialField.length][initialField[0].length];
+            //int[][] initialField = SEGLER;
 
-            // Simulieren Sie beispielsweise 100 Generationen
+            // Simuliere eine Anzahl an Generationen
             for (int generation = 0; generation < 30; generation++) {
-                nextGeneration = calculateNextGeneration(initialField);
-                printField(nextGeneration);
-                initialField = nextGeneration;
+                initialField = calculateNextGeneration(initialField);
+                printField(initialField);
             }
         }
 
@@ -59,7 +57,7 @@ public class Arrays_16_GameOfLife {
         }
 
         public static int countLiveNeighbors(int[][] field, int row, int col) {
-            // Zählen Sie die lebenden Nachbarn einer Zelle
+            // Zähle die lebenden Nachbarn einer Zelle
             int count = 0;
             int rows = field.length;
             int cols = field[0].length;
