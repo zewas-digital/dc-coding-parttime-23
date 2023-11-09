@@ -1,4 +1,4 @@
-package solutions.claudia.week4.example38;
+package claudia.week4.example38;
 
 /*
 Preisberechnung
