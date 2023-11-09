@@ -38,18 +38,30 @@ public class Array_15_FourInARow {
             printBoard(board);
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private static boolean checkWinner(char[][] board, char symbol) {
 
-    private static boolean whoHasWon(char[][] board, char symbol){
-
-
-
-
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
+                if (symbol != ' ' && col + 3 < board[row].length &&
+                        board[row][col] == symbol &&
+                        board[row][col + 1] == symbol &&
+                        board[row][col + 2] == symbol &&
+                        board[row][col + 3] == symbol) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
-
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static boolean isGameFinished(char[][] board){
+
+        if (checkWinner(board, 'X')){
+            printBoard(board);
+            System.out.println("PlayerWins");
+            return true;
+        }
 
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
@@ -90,7 +102,6 @@ public class Array_15_FourInARow {
             }
         }
         placeTurn(board, userInput, 'X');
-
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void placeTurn(char[][] board, String position, char symbol) {
