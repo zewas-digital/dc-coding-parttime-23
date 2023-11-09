@@ -1,4 +1,4 @@
-package solutions.eslem.example21;
+package eslem.week03.example21;
 
 public class multiplikation {
     public static void main(String[] args) {

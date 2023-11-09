@@ -2,9 +2,7 @@
 Erstelle ein Programm, dass als Primzahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
-package solutions.eslem.example24;
-
-import javax.imageio.stream.ImageInputStream;
+package eslem.week03.example24;
 
 public class PrimeNumbers {
     public static void primzahl(int n) {

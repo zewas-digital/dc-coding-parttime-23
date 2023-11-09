@@ -10,13 +10,16 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
+<<<<<<< HEAD:src/eslem/week08/Array_14_TicTacToe.java
 
-import java.util.Random;
-import java.util.Scanner;
 public class Array_14_TicTacToe {
 
         public static void main (String[]args){
 
+=======
+/*public class Array_14_TicTacToe {
+    public static void main(String[] args) {
+>>>>>>> origin/master:src/michael_k/eslem/week08/Array_14_TicTacToe.java
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
@@ -46,5 +49,5 @@ public class Array_14_TicTacToe {
                 System.out.println();
             }
         }
-    }
-}
+
+*/

@@ -1,4 +1,4 @@
-package solutions.eslem.example34;
+package eslem.week03.example34;
 
 /*
 Kleidergrößen
@@ -60,7 +60,7 @@ Herren 66 -> 3XL
 Beenden (j/n)? j
 Bye bye
  */
-import java.util.Scanner;
+
 public class ConfectionSizes {
 
 }

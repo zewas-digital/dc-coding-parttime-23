@@ -1,4 +1,4 @@
-package solutions.eslem.example1;
+package eslem.week01.example1;
 
 public class HelloWorld {
     public static void main(String[] args) {

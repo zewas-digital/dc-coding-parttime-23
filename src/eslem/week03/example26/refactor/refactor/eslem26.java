@@ -5,7 +5,7 @@ Wiederhole das Refactoring für einige andere Beispiele.
 */
 
 
-package solutions.eslem.example26.refactor.refactor;
+package eslem.week03.example26.refactor.refactor;
 
 import java.util.Scanner;
 

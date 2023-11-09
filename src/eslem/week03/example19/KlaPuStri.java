@@ -4,7 +4,7 @@ Hier ist das Übungsblatt: https://docplayer.org/12412235-Ab-1-punkt-strich-klam
 Vergleiche die Ergebnisse mit anderen Kursteilnehmenden.
  */
 
-package solutions.eslem.example19;
+package eslem.week03.example19;
 
 public class KlaPuStri {
     public static void main(String[] args) {

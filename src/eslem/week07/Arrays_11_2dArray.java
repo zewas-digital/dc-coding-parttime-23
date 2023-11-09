@@ -7,7 +7,6 @@ Erstelle ein Zwei-Dimension-Array int[][] und befülle es mit Zufallszahlen von 
 Frage dazu die Längen der Dimensionen vom Anwender ab.
 Gib die Summe pro Zeile oder pro Spalte aus.
  */
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 public class Arrays_11_2dArray {

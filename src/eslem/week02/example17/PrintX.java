@@ -1,4 +1,4 @@
-package solutions.eslem.example17;
+package eslem.week02.example17;
 
 /*
 Erstelle eine Methode welche ein X von variabler Größe und mit angegebene Zeichen ausgibt.

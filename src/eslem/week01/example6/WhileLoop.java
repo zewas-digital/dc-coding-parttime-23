@@ -1,4 +1,4 @@
-package solutions.eslem.example6;
+package eslem.week01.example6;
 
 /*
 Schreiben Sie ein Programm, in dem sie die While Schleife verwenden.

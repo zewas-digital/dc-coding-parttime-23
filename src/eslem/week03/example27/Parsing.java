@@ -1,4 +1,4 @@
-package solutions.eslem.example27;
+package eslem.week03.example27;
 
 public class Parsing {
 }

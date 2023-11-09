@@ -15,7 +15,7 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 
  */
 
-package solutions.eslem.example29;
+package eslem.week03.example29;
 
 import java.util.Scanner;
 public class Order {
