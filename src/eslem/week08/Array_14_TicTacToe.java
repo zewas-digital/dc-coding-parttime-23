@@ -13,7 +13,7 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-public class Array_14_TicTacToe {
+/*public class Array_14_TicTacToe {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
@@ -66,5 +66,5 @@ public class Array_14_TicTacToe {
         if (game(board,'x')) {
 
         }
-    }
-}
+
+*/
