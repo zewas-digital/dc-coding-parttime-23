@@ -9,7 +9,6 @@ Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne d
  */
 
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Array_15_FourInARow {
@@ -18,7 +17,6 @@ public class Array_15_FourInARow {
         int [][] array = new int[6][11];
         int player=1;
         boolean win = false;
-        boolean draw= false;
 
         while(true) {
 
@@ -26,17 +24,10 @@ public class Array_15_FourInARow {
             printTable ( array );
             set ( array, player );
             win = checkWin ( array );
-            draw =checkDraw (array, win  );
 
             if(win == true){
                 printTable ( array );
                 System.out.println ("Spieler "+player+" hat gewonnen" );
-                break;
-            }
-
-            if(draw == true){
-                printTable ( array );
-                System.out.println ("unentschieden" );
                 break;
             }
 
@@ -56,20 +47,14 @@ public class Array_15_FourInARow {
         }
     }
     static void set(int [][] array, int player){
-        int column = 0;
+        int column;
+        Scanner inputkonsole = new Scanner ( System.in );
 
         while(true) {
             System.out.println ( "Spieler " + player + " ist an der Reihe" );
             System.out.println ( "In welche spalte möchtest du deinen Stein setzen?" );
             System.out.print ( "Spalte: " );
-
-            Scanner inputkonsole = new Scanner ( System.in );
-            try {
-                column = inputkonsole.nextInt ( );
-            } catch (InputMismatchException exception) {
-
-            }
-
+            column = inputkonsole.nextInt ( );
             System.out.println ( );
             if (column >0 && column < 8){
 
@@ -169,25 +154,5 @@ public class Array_15_FourInARow {
 
         return win;
     }
-    static boolean checkDraw(int [][] array, boolean win){
-        boolean draw = false;
-        int counter=0;
 
-        if(win == false) {
-
-            for (int i = 0; i <6; i++) {
-                for (int j = 2; j <9; j++) {
-                    if(array[i][j] != 0) {
-                        counter++;
-                    }
-                }
-            }
-            if(counter == 42){
-                draw = true;
-            }
-        }else{ draw = false;}
-
-
-        return draw;
-    }
 }
