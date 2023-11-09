@@ -1,4 +1,4 @@
-package eslem.week09;
+package eslem.week9_arrays;
 
 public class GameOfLife {
     public static final int[][] GLEITER = {
