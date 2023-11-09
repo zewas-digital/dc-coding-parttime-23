@@ -85,7 +85,6 @@ public class Array_14_TicTacToe {
             // Vertikale Prüfung
             for (int i = 0; i < field.length; i++) {
                 if (field[0][i] == field[1][i] && field[1][i] == field[2][i] && field[0][i] != 0) {
-
                     return true;
                 }
             }
