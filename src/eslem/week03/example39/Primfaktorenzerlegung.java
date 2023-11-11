@@ -1,4 +1,4 @@
-package solutions.eslem.example39;
+package eslem.week03.example39;
 
 /*
 Primfaktorenzerlegung

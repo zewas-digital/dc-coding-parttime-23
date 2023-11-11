@@ -1,4 +1,4 @@
-package solutions.eslem.example8;
+package eslem.week01.example8;
 
 /*
 Schreiben Sie ein Programm das in einer Schleife von 0 bis inklusive 10 zählt und nur jede gerade Zahl ausgibt.

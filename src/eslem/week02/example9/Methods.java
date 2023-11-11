@@ -1,4 +1,4 @@
-package solutions.eslem.example9;
+package eslem.week02.example9;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printChars". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.

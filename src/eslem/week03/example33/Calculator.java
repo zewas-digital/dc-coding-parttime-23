@@ -10,7 +10,7 @@ Der Nutzer kann eine der fünf Operationen auswählen und zwei Zahlen zur Berech
 Gib' den Rechenweg und das Ergebnis auf der Console aus. Zum Beispiel: 5 ^ 2 = 25
  */
 
-package solutions.eslem.example33;
+package eslem.week03.example33;
 import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) {

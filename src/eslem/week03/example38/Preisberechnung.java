@@ -1,4 +1,4 @@
-package solutions.eslem.example38;
+package eslem.week03.example38;
 
 /*
 Preisberechnung

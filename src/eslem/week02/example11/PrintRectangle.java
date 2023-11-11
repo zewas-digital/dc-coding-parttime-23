@@ -1,4 +1,4 @@
-package solutions.eslem.example11;
+package eslem.week02.example11;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printRect". Diese Methode besitzt drei Übergabeparameter und kein Rückgabeparameter.
