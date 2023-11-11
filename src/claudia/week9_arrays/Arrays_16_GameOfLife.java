@@ -22,13 +22,14 @@ import java.util.Scanner;
 public class Arrays_16_GameOfLife {
     //public static int[][] playingfield = GameOfLife.SEGLER;
     //public static int[][] playingfield = GameOfLife.GLEITER;
-    public static int[][] playingfield = createRandom2DArray(30, 30);
+    //public static int[][] playingfield = GameOfLife.PULSATOR;
+    public static int[][] playingfield = createRandom2DArray(20, 30);
+
 
     public static void main(String[] args) {
         System.out.println("Game of Life, Torusgeometrie");
         BasicFunctions.print2DArrayOfChars(playingfieldToChar());
         for (int i = 0; i < 10000; i++) {
-            System.out.println("A");
             nextStep();
             BasicFunctions.print2DArrayOfChars(playingfieldToChar());
             try {
@@ -38,8 +39,6 @@ public class Arrays_16_GameOfLife {
             }
         }
     }
-
-
 
     public static void nextStep(){
         for (int i = 0; i < numberOfRows; i++) {
@@ -66,17 +65,24 @@ public class Arrays_16_GameOfLife {
         }
         return sum;
     }
-
-
     public static int numberOfRows = playingfield.length;
     public static int numberOfColumns = playingfield[0]. length;
     static int[][] next = new int[numberOfRows][numberOfColumns];
     static char[][] playingfieldToChar() {
-        char[][] charMatrix = new char[numberOfRows][numberOfColumns];
-        for (int i = 0; i < numberOfRows; i++) {
-            for (int j = 0; j < numberOfColumns; j++) {
-                if (playingfield[i][j] == 0) charMatrix[i][j] = ' ';
-                if (playingfield[i][j] == 1) charMatrix[i][j] = 'X';
+        int charRows = numberOfRows + 2;
+        int charCols = numberOfColumns + 2;
+        char[][] charMatrix = new char[charRows][charCols];
+        for (int i = 0; i < charRows; i++) {
+            for (int j = 0; j < charCols; j++) {
+                charMatrix[i][j] = ' ';
+                //first and last row:
+                if (i == 0 || i == charRows - 1) charMatrix[i][j] = '_';
+                //first and last column:
+                else if (j == 0 || j == charCols - 1) charMatrix[i][j] = '|';
+                //i > 0, j > 0:
+                //i < charCols - 1, j < charCols - 1
+                else if (playingfield[i - 1][j - 1] == 0) charMatrix[i][j] = ' ';
+                else charMatrix[i][j] = 'X';
             }
         }
         return charMatrix;
