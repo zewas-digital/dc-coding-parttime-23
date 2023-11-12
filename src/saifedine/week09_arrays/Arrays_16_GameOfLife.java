@@ -1,4 +1,4 @@
-package saifedine;
+package saifedine.week09_arrays;
 
 /*
 Bonus-Aufgabe: Conways Game of life
