@@ -3,7 +3,7 @@ In dieser Aufgabe erstellen wir eine Wahrheitstabelle für die logischen Operato
 Wir berechnen alle möglichen Kombinationen von Werten für A und B und zeigen das Ergebnis für jede Kombination in der Tabelle an.
  */
 
-package solutions.eslem.example20;
+package eslem.week03.example20;
 
 public class Truthtable {
     public static void main(String[] args) {

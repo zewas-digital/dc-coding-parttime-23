@@ -1,4 +1,4 @@
-package solutions.eslem.example16;
+package eslem.week02.example16;
 
 /*
 Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegebene Zeichen ausgibt. Die Größe soll dabei die Höhe des Rhombus sein.

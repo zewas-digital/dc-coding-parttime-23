@@ -1,4 +1,4 @@
-package solutions.eslem.example14;
+package eslem.week02.example14;
 
 /*
 Erstelle eine Methode welche eine Diagonale von variabler Größe und mit angegebene Zeichen ausgibt,
