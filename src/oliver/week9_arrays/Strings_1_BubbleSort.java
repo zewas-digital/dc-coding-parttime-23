@@ -16,5 +16,7 @@ Tip.: Strings können mit der Instanz Methode compareTo der String Klasse vergli
  */
 
 public class Strings_1_BubbleSort {
-    String[] names = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula" };
+    String[] names = new String[]{
+            "Max", "Anna", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+    };
 }
