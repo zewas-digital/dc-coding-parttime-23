@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class Array_14_TicTacToe {
 
-    // 2D-Array mit länge 2
+    // 2D-Array mit länge 3
     // Inhalt der Felder ist leer (0)
     // Felder nummerieren (Zuordnung Array)
     // Switch
