@@ -31,10 +31,26 @@ public class Array_14_TicTacToe {
         System.out.println("[7   8   9]");
         //Spielfelder aufspannen
         int[][] Spielfeld = new int[3][3];
-        while (true ){
-
+        while (true){
+            System.out.println( "TicTacToe:" );
+            Arraybefuellen( Spielfeld, 1,9 );
+            System.out.println( "Spieler   X  , wohin möchtest du dein Stein setzen?" );
+        }
+        //Methode befüllen zwei Dimensionaler Array mit N Zahlen
+       
+    }
+    static public void Arraybefuellen(int[][] array, int min, int max) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = NZahlen( min, max );
+            }
         }
     }
-
-
+    static int NZahlen(int min,int max){
+        int zaehler=0;
+        for (int i = min; i <max ; i++) {
+            zaehler=i;
+        }
+        return zaehler;
+    }
 }
