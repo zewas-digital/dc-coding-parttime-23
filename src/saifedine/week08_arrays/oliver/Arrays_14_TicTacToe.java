@@ -14,15 +14,22 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
 import oliver.week9_arrays.ScannerHelper;
 
 public class Arrays_14_TicTacToe {
+
+    // Klassenvariable --> Buch/Claudia/Michael - symbol = Klassenvariable, {"     ", "  X  ", "  O  "} wird dem 1D-String array zugewiesen
+    // vor dem Main
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
 
+    // void, es wird nichts zurückgegeben
     public static void main(String[] args) {
+
+        // Variablen
         int[][] fields = new int[3][3];
         int currentPlayer = 1;
         int movesLeft = 9;
         boolean won = false;
 
         // Spielfeld ausgeben
+        // Methode(Übergabeparameter - 2 Typen: CallByReference & CallByValue)
         printField(fields);
 
         // Spiele, solange Züge übrig sind oder ein Gewinner feststeht
@@ -66,7 +73,9 @@ public class Arrays_14_TicTacToe {
             if (i > 0) {
                 System.out.println("-----|-----|-----");
             }
+            // Warum wird es 9 mal ausgegeben, statt 2 mal wie oben
             System.out.println("     |     |     ");
+            // warum fields[i].length und nicht fields.length
             for (int j = 0; j < fields[i].length; j++) {
                 if (j > 0) {
                     System.out.print("|");
