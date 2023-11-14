@@ -25,8 +25,6 @@ public class Array_14_TicTacToe {
         System.out.println("[4   5   6]");
         System.out.println("[7   8   9]");
 
-        //TODO Anzahl Züge gleich mitzählen, anstatt erst am Ende!
-
         while (checkWin() == -1){
             System.out.println("Spieler " + player + " ist dran!");
             if (takeInput(inputDialog())) switchPlayer();
@@ -42,6 +40,7 @@ public class Array_14_TicTacToe {
         if (player == 1) player = 2;
         else player = 1;
     }
+
     static int checkWin() {
         //checks if game is already won and returns number of winner; returns 0 when it's a draw and -1 when not yet finished
         if (checkRows() != 0) return checkRows();
@@ -60,6 +59,7 @@ public class Array_14_TicTacToe {
             return 0;
         } else return -1;
     }
+
     static int[][] tictactoe = new int[3][3];
     static int player = 1;
     static int checkDiags() {
@@ -94,6 +94,7 @@ public class Array_14_TicTacToe {
         }
         return 0;
     }
+
     static int inputDialog() {
         //asks user for input of int position, returns position if in range, else 0
         //int[][] temp = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -116,6 +117,7 @@ public class Array_14_TicTacToe {
         }
         return position;
     }
+
     static boolean takeInput(int position){
         //takes given int position between 1 and 9 and writes int player into corresponding place in matrix
         //1 2 3
@@ -207,6 +209,7 @@ public class Array_14_TicTacToe {
                 return false;
         }
     }
+
     static char[][] matrixToChar() {
         char[][] charMatrix = new char[3][3];
         for (int i = 0; i < 3; i++) {

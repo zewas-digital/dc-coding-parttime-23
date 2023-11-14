@@ -1,14 +1,11 @@
 package claudia;
 
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.Random;
-import java.util.Scanner;
 
 public class BasicFunctions {
 
     public static void main(String[] args) {
-        System.out.println(readInt("Gib etwas ein!"));
     }
 
     public static int[] createRandom1DArray(int size) {
@@ -72,23 +69,5 @@ public class BasicFunctions {
             }
             System.out.println();
         }
-    }
-
-    /**
-     * Reads in integer, catches InputMismatchException
-     *
-     * @param message the String which is displayed before the input
-     * @return the given input or -1, if wrong type is given
-     */
-    public static int readInt(String message){
-        System.out.println(message);
-        Scanner sc = new Scanner(System.in);
-        int input = -1;
-        try{
-            input = sc.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Fehler, Eingabe keine ganze Zahl!"); //auch möglich: z.B. switch (e.toString()) um auf verschiedene Fehler verschieden zu reagieren
-        }
-        return input;
     }
 }

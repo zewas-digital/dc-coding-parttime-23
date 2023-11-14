@@ -1,4 +1,4 @@
-package oliver.week9_arrays;
+package oliver.week10_strings;
 
 /*
 Aufgabe: Bubblesort mit Strings
@@ -17,6 +17,6 @@ Tip.: Strings können mit der Instanz Methode compareTo der String Klasse vergli
 
 public class Strings_1_BubbleSort {
     String[] names = new String[]{
-            "Max", "Anna", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+            "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
     };
 }

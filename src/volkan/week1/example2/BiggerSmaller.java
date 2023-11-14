@@ -7,21 +7,22 @@ als die Zahl 10 ist. Verwende dazu Verzweigungen von if, if else und else.
 Die Zahl wird wieder mit Scanner und nextInt() eingelesen.
  */
 
+import java.util.Scanner;
+
 public class BiggerSmaller {
 
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
         int zahl = 11;
 
-        if (zahl > 10) {
+        System.out.print("Gib ein Zahl ein: ");
+        if (zahl < scanner.nextInt()) {
             System.out.println("Größer");
         }
-            else if (zahl < 10) {
+            else if (zahl > scanner.nextInt()) {
                 System.out.println("Kleiner");
             }
-                else {
-                    System.out.println("Gleich");
-                }
+
     }
 }
 

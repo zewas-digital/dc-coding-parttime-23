@@ -61,12 +61,11 @@ public class Array_8_Bubblesort {
     static void bubbleSort1(int[] arr) {
         // 1. Bubblephase Prüfen der Arrays 9,4 - 4,9
         for (int i = 1; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - i; j++) {
+            for (int j = 1; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                 }
             }
-            System.out.println(i + "+"+ Arrays.toString(arr));
         }
     }
 
