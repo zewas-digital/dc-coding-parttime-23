@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 public class ScannerHelper {
     public static int readNumber(String message, Boolean printError) {
@@ -28,3 +30,4 @@ public class ScannerHelper {
         return 0;
     }
 }
+
