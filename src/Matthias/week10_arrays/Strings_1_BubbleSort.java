@@ -1,4 +1,4 @@
-package oliver.week9_arrays;
+package Matthias.week10_arrays;
 
 /*
 Aufgabe: Bubblesort mit Strings
@@ -19,9 +19,4 @@ public class Strings_1_BubbleSort {
     String[] names = new String[]{
             "Max", "Anna", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
     };
-
-    public static void main(String[] args) {
-
-
-    }
 }
