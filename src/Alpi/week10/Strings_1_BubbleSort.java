@@ -16,7 +16,41 @@ Tip.: Strings können mit der Instanz Methode compareTo der String Klasse vergli
  */
 
 public class Strings_1_BubbleSort {
-    String[] names = new String[]{
-            "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-    };
+
+    public static void main(String[] args) {
+        String[] names = new String[]{
+                "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+
+
+        };
+        bubblesort(names);
+
+        for (String name : names){
+            System.out.println(name);
+        }
+
+
+    }
+
+    public static void bubblesort(String[] names) {
+        int i = 0;
+        while (i < names.length -1){
+            for (int j = 0; j < names.length - 1 ; j++) {
+                if (names[j].compareTo(names[j +1]) >0){
+
+                    String temp = names [j];
+                    names[j] = names[j+1];
+                    names[j+1] = temp;
+
+                }
+
+            }
+            i++;
+        }
+
+    }
+
+
+
+
 }
