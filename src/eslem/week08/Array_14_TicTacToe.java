@@ -10,108 +10,64 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
-import Alpi.week9.ScannerHelper;
-import java.util.Scanner;
+import java.util.Arrays;
 import java.util.Random;
-
-
+import java.util.Scanner;
+/*
 public class Array_14_TicTacToe {
-        public static String[] symbol = new String[]{" ", " x ", " o "};
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
 
-        public static void main(String[] args) {
-                Scanner sc = new Scanner(System.in);
-                Random random = new Random();
+        char[][] board = new char[3][3];
 
-                int[][] feld = new int[3][3];
-                int spieler = 1;
-                int züge = 9;           // 9>0
-                boolean win = false;
+        char spieler1 = 'x';
+        char spieler2 = 'o';
 
-                printFeld(feld);
 
-                                while (züge > 0 && !win) {
-                                        int nextFeld = getUserInput(feld, spieler) - 1;
-
-                                        feld[nextFeld / 3][nextFeld % 3] = spieler;
-
-                                        printFeld(feld);
-
-                                        win = checkWinner(feld, spieler);
-
-                                        if (win) {
-                                                System.out.println("Gratulation!" + symbol[spieler] + "Sie haben Gewonnen!");
-                                                break;
-                                        }
-
-                                        spieler = 3 - spieler;
-                                        --züge;
-
-                                        if (!win) {
-                                                System.out.println("Unentschieden!");
-                                        }
-                                }
-                        }
-
-                public static void printFeld(int[][] feld){
-                        System.out.println();
-                        System.out.println("Tic-Tac-Toe");
-                        for (int i = 0; i < feld.length; i++) {
-                                if(i > 0){
-                                        System.out.println("-------");
-                                }
-                                System.out.println();
-                                for (int j = 0; j < feld[i].length; j++) {
-                                        if(j > 0) {
-                                                System.out.print("|");
-                                        }
-                                        if(feld[i][j] > 0){
-                                                System.out.print(symbol[feld[i][j]]);
-                                        } else {
-                                                System.out.printf("%1d",(3*i+j+1));
-                                        }
-                                }
-                                System.out.println();
-                        }
-                }
-
-                public static int getUserInput (int[][] feld, int spieler){
-                        int ergebnis = -1;
-                        while (ergebnis < 1 || ergebnis > 9) {
-                                ergebnis = ScannerHelper.readNumber("Spieler" + symbol[spieler] + "Wohin möchtest du deine Stein setzen?");
-                                if (ergebnis < 1 || ergebnis > 9) {
-                                        System.out.println("Nicht gültig, wähle etwas anderes!");
-                                        ergebnis = -1;
-                                } else if (feld[(ergebnis - 1) / 3][(ergebnis - 1) % 3] != 0) {
-                                        System.out.println("Feld ist schon besetzt, wähle etwas anderes!");
-                                        ergebnis = -1;
-                                }
-                        }
-                        return ergebnis;
-                }
-
-                public static boolean checkWinner(int[][] feld, int spieler){
-                        for (int i = 0; i < feld.length; i++) {
-                                if(checkRows(feld, i , spieler) || checkCols(feld, i , spieler)){
-                                        return true;
-                                }
-                        }
-                        return false;
-                }
-                public static boolean checkRows(int[][] feld, int row, int spieler){
-                        for (int i = 0; i < feld[row].length; i++) {
-                                if(feld[row][i] != spieler){
-                                        return false;
-                                }
-                        }
-                        return true;
-                }
-
-        public static boolean checkCols(int[][] feld, int col, int spieler){
-                for (int i = 0; i < feld.length; i++) {
-                        if(feld[i][col] != spieler){
-                                return false;
-                        }
-                }
-                return true;
+        for (int i = 0; i <= 3; i++) {
+            for (int j = 0; j <= 3; j++) {
+            }
         }
+        String[][] gameBoard = {
+                {" " + "|" + " " + "|" + " " + " "},
+                {"-" + "+" + "-" + "+" + "-"},
+                {" " + "|" + " " + "|" + " " + " "},
+                {"-" + "+" + "-" + "+" + "-"},
+                {" " + "|" + " " + "|" + " " + " "},
+        };
+
+        for (int zeile = 0; zeile < gameBoard.length; zeile++) {
+            //  System.out.print(zeile );
+            for (int spalte = 0; spalte < gameBoard[zeile].length; spalte++) {
+                System.out.print(gameBoard[zeile][spalte]);
+                System.out.println();
+            }
+
+        }
+    }
 }
+    private static boolean game(char [][] board, char symbol){
+        //Zeilen
+        if ((board [0][0] == symbol && board [0][1] == symbol && board [0][2] == symbol) ||
+                (board [1][0] == symbol && board [1][1] == symbol && board [1][2] == symbol) ||
+                (board [2][0] == symbol && board [2][1] == symbol && board [2][2] == symbol) ||
+                //Spalten
+                (board [0][0] == symbol && board [1][0] == symbol && board [2][0] == symbol) ||
+                (board [0][1] == symbol && board [1][1] == symbol && board [2][1] == symbol) ||
+                (board [2][0] == symbol && board [2][1] == symbol && board [2][2] == symbol) ||
+                //Diagonale
+                (board [0][0] == symbol && board [1][1] == symbol && board [2][2] == symbol)||
+                (board [0][2] == symbol && board [1][1] == symbol && board [2][0] == symbol)) {
+            return true;
+        }
+        return false;
+    }
+    private static boolean game2(char [][] board, char symbol){
+        if (game(board,'x')) {
+
+        }
+    }
+}
+
+ */

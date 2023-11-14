@@ -1,6 +1,3 @@
-package eslem.week09;
-
-import java.util.Scanner;
 
 public class ScannerHelper {
     public static int readNumber(String message, Boolean printError) {
