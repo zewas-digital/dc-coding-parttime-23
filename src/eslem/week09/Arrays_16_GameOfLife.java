@@ -1,4 +1,4 @@
-package eslem.week9_arrays;
+package eslem.week09;
 
 /*
 Bonus-Aufgabe: Conways Game of life
