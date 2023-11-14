@@ -25,7 +25,6 @@ public class Arrays_16_GameOfLife {
                 printField(currentGeneration);
                 currentGeneration = calculateNextGeneration(currentGeneration);
                 Thread.sleep(850); // Fügen eine Verzögerung hinzu, um die Animation zu verlangsamen
-                clearConsole();
             }
         }
 
@@ -85,7 +84,7 @@ public class Arrays_16_GameOfLife {
             for (int[] row : field) {
                 for (int cell : row) {
                     if (cell == 1) {
-                        System.out.print("■ "); // Lebende Zelle
+                        System.out.print("🍑 "); // Lebende Zelle
                     } else {
                         System.out.print("  "); // Tote Zelle
                     }
@@ -93,19 +92,6 @@ public class Arrays_16_GameOfLife {
                 System.out.println();
             }
             System.out.println();
-        }
-
-        public static void clearConsole() {
-            try {
-                final String os = System.getProperty("os.name");
-                if (os.contains("Windows")) {
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                } else {
-                    Runtime.getRuntime().exec("clear");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
 
         public static int[][] generateRandomField(int rows, int cols) {
