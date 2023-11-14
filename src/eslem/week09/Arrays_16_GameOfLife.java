@@ -1,4 +1,4 @@
-package michael_k.week9;
+package eslem.week09;
 
 /*
 Bonus-Aufgabe: Conways Game of life
@@ -15,11 +15,5 @@ https://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens
  */
 
 public class Arrays_16_GameOfLife {
-
-    public static void main(String[] args) {
-
-        int[][] spielfeld = new int[50][100];
-
-    }
 
 }
