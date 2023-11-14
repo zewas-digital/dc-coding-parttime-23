@@ -27,22 +27,7 @@ public class Array_14_TicTacToe {
                 int züge = 9;           // 9>0
                 boolean win = false;
 
-
-                //Spielfeld
-                String[][] gameBoard = {
-                        {"1" + "|" + "2" + "|" + "3"},
-                        {"-" + "-" + "-" + "-" + "-"},
-                        {"4" + "|" + "5" + "|" + "6"},
-                        {"-" + "-" + "-" + "-" + "-"},
-                        {"7" + "|" + "8" + "|" + "9"},};
-
-
-                         for (int zeile = 0; zeile < gameBoard.length; zeile++) {
-                                 for (int spalte = 0; spalte < gameBoard[zeile].length; spalte++) {
-                                         System.out.print(gameBoard[zeile][spalte]);
-                                         System.out.println();
-                                 }
-                         }
+                printFeld(feld);
 
                                 while (züge > 0 && !win) {
                                         int nextFeld = getUserInput(feld, spieler) - 1;
@@ -72,21 +57,20 @@ public class Array_14_TicTacToe {
                         System.out.println("Tic-Tac-Toe");
                         for (int i = 0; i < feld.length; i++) {
                                 if(i > 0){
-                                        System.out.println("--|--|--");
+                                        System.out.println("-------");
                                 }
-                                System.out.println("  |  |  ");
+                                System.out.println();
                                 for (int j = 0; j < feld[i].length; j++) {
                                         if(j > 0) {
-                                                System.out.println("|");
+                                                System.out.print("|");
                                         }
                                         if(feld[i][j] > 0){
-                                                System.out.println(symbol[feld[i][j]]);
+                                                System.out.print(symbol[feld[i][j]]);
                                         } else {
-                                                System.out.println((3*i+j+1));
+                                                System.out.printf("%1d",(3*i+j+1));
                                         }
                                 }
                                 System.out.println();
-                                System.out.println("  |  |  ");
                         }
                 }
 
