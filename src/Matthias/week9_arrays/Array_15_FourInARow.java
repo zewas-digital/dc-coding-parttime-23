@@ -1,4 +1,4 @@
-package Matthias.week8_arrays;
+package Matthias.week9_arrays;
 /*
 Das Spiel wird auf einem senkrecht stehenden hohlen Spielbrett gespielt, in das die Spieler abwechselnd ihre Spielsteine fallen lassen.
 Das Spielbrett besteht aus sieben Spalten (senkrecht) und sechs Reihen (waagerecht).
