@@ -20,8 +20,9 @@ double x = 123.456
 x = (double) Math.round(x * 100) / 100;
 Out.println(x); //x hat jetzt den Wert 123.46
 
+
+
  */
 
 public class Preisberechnung {
-
-    }
+}
