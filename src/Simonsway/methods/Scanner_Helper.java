@@ -2,7 +2,7 @@ package Simonsway.methods;
 
 import java.util.Scanner;
 
-public class scanner_Helper {
+public class Scanner_Helper {
 
     public static int scannerHelperInt (String message){
 
@@ -15,6 +15,7 @@ public class scanner_Helper {
         }
         catch (Exception exception){
             System.out.println(message);
+            scanner.nextLine();
         }
         return input;
     }
