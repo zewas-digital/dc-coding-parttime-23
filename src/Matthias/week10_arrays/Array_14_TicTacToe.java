@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Array_14_TicTacToe {
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
     public static void main( String[] args ) {
-/*
+
         /****Programm Ablaufplan****/
         // Darstellung des Feldes
         // 1. Benutzer Eingabe
@@ -36,7 +36,7 @@ public class Array_14_TicTacToe {
         System.out.println("[1   2   3]");
         System.out.println("[4   5   6]");
         System.out.println("[7   8   9]");
-/*
+
         //Spielfelder aufspannen
         int[][] Spielfeld = new int[3][3];
         while (true){
@@ -48,9 +48,6 @@ public class Array_14_TicTacToe {
 
             printArray(Spielfeld);
 
-            if (  == null ) {
-
-            }
         }
 
 
@@ -73,4 +70,4 @@ public class Array_14_TicTacToe {
     }
 }
 
-*/
+
