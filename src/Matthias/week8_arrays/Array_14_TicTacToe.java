@@ -21,5 +21,5 @@ public class Array_14_TicTacToe {
         System.out.println("[4   5   6]");
         System.out.println("[7   8   9]");
     }
-    //
+
 }
