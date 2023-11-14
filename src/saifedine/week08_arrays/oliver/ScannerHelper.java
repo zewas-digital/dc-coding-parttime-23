@@ -1,6 +1,5 @@
-package oliver.week9_arrays;
+package saifedine.week08_arrays.oliver;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ScannerHelper {
