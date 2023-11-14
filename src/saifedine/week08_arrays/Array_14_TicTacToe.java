@@ -20,7 +20,7 @@ public class Array_14_TicTacToe {
     // Inhalt der Felder ist leer (0)
     // Felder nummerieren (Zuordnung Array)
     // Switch
-    // Eingabe Spieler
+    // Eingabe Spieler --> Ziffer zu Spieler
     // überprüfung der Eingabe (1 - 9)
     // überprüfung ob Feld bereits befüllt
     // Überprüfung 3 Zeichen in einer Reihe, Spalte oder Diagonal
@@ -32,7 +32,7 @@ public class Array_14_TicTacToe {
         int x = 3;
         int y = 3;
         int[][] numbers = new int[x][y];
-        int Spieler = 0;
+        int Spieler = 1;
         int field = 0;
         boolean fieldOk = false;
 
@@ -47,19 +47,23 @@ public class Array_14_TicTacToe {
 
         while (true) {
 
+           // Array ausgeben
            printArray(numbers);
 
            field = inputSpieler(numbers);
 
-           fieldOk = checkField(numbers, field);
+           fieldOk = checkField(x, y, numbers, field);
 
            if (fieldOk){
 
                placeTurn(field,numbers);
+
+               // Spielerwechsel
+               Spieler = 3 - Spieler;
            }
 
-        }
 
+        }
     }
 
     // Array ausgeben
@@ -88,6 +92,7 @@ public class Array_14_TicTacToe {
             return 0;
         }
         return field;
+
     }
 
 
@@ -107,12 +112,22 @@ public class Array_14_TicTacToe {
         }
     }
 
-    private static boolean checkField(int[][] numbers, int field) {
+    private static boolean checkField(int x, int y, int[][] numbers, int field) {
+
         if (field != 0) {
+            // if (numbers[0][0] == 0){
+            // if (x >= 0 && x < 3 && y >= 0 && y < 3
+            //&& numbers[x][y] == 0) {
+
             placeTurn(field, numbers);
+
             return true;
         }
+            /*
+        //
         System.out.println("Feld ist bereits besetzt");
+        return false;
+             */
         return false;
     }
 
