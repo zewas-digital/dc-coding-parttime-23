@@ -12,7 +12,7 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
 
-import oliver.week9_arrays.ScannerHelper;
+
 
 import java.util.Scanner;
 
@@ -23,7 +23,7 @@ public class Array_14_TicTacToe {
         int[][] field = new int[3][3];
         int moves = 9;
         int currentplayer = 1;
-        int result = -1;
+
 
 
         // Spielfeld erstellen (Fertig)
@@ -36,10 +36,10 @@ public class Array_14_TicTacToe {
 
         // Interaktion mit Spielfeld ermöglichen
         while (moves > 0) {
-           /* System.out.println("Spieler: " + currentplayer + " Gib eine Zahl von 1 bis 9 ein: ");
-            int playerinput = userinput.nextInt();*/
+           System.out.println("Spieler: " + currentplayer + " Gib eine Zahl von 1 bis 9 ein: ");
+            int playerinput = userinput.nextInt();
 
-            switch (userinput(field, currentplayer, result)) {
+            switch (playerinput) {
                 case 1 -> field[0][0] = currentplayer;
                 case 2 -> field[0][1] = currentplayer;
                 case 3 -> field[0][2] = currentplayer;
@@ -118,20 +118,4 @@ public class Array_14_TicTacToe {
         return false;
     }
 
-    public static int userinput(int[][] field, int currentplayer, int result) {
-
-        while (result < 1 || result > 9) {
-            result = ScannerHelper.readNumber("Spieler " + currentplayer + ", wohin möchtest du dein Stein setzen?");
-
-            if (result < 1 || result > 9) {
-                System.out.println("Kein gültiges Feld, bitte wähle etwas anderes.");
-                result = -1;
-            } else if (field[(result - 1) / 3][(result - 1) % 3] != 0) {
-                System.out.println("Das Feld ist schon belegt, bitte wähle etwas anderes.");
-                result = -1;
-            }
-        }
-        return result;
-
-    }
 }
