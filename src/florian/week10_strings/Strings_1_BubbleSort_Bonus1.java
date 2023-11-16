@@ -15,36 +15,36 @@ Dieser boolean entscheidet, ob das String[] aufsteigend, oder absteigend sortier
 import java.util.Arrays;
 
 public class Strings_1_BubbleSort_Bonus1 {
-  public static void main(String[] args) {
-      String[] names = new String[]{
-              "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-      };
+    public static void main(String[] args) {
+        String[] names = new String[]{
+                "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+        };
 
-      boolean variable= false;
+        boolean variable = false;
 
-      String[] ascending = bubblesort(names,variable);
-      System.out.println(Arrays.toString(ascending));
+        String[] ascending = bubblesort(names, variable);
+        System.out.println(Arrays.toString(ascending));
 
-  }
+    }
 
 
-      static String[] bubblesort (String[] names, boolean variable){
-          String sort = null;
+    static String[] bubblesort(String[] names, boolean variable) {
+        String sort = null;
 
-          for (int i = 0; i < names.length; i++) {
-              for (int j = i + 1; j < names.length; j++) {
-                  if (variable == names[i].length() > names[j].length()){
-                      sort = names[i];
-                      names[i] = names[j];
-                      names[j] = sort;}
-                  else if (! variable == names[i].length() < names[j].length()) {
-                      sort = names [i];
-                      names[i] = names [j];
-                      names[j] = sort;
+        for (int i = 0; i < names.length; i++) {
+            for (int j = i + 1; j < names.length; j++) {
+                if (variable == names[i].length() > names[j].length()) {
+                    sort = names[i];
+                    names[i] = names[j];
+                    names[j] = sort;
+                } else if (!variable == names[i].length() < names[j].length()) {
+                    sort = names[i];
+                    names[i] = names[j];
+                    names[j] = sort;
 
-                  }
-              }
-          }
-            return names;
-      }
+                }
+            }
+        }
+        return names;
+    }
 }

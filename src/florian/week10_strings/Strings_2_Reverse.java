@@ -1,5 +1,6 @@
 package florian.week10_strings;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -17,24 +18,28 @@ ollaH
  */
 public class Strings_2_Reverse {
     public static void main(String[] args) {
-        Scanner userinput = new  Scanner (System.in);
+        Scanner userinput = new Scanner(System.in);
         System.out.println("Willkommen zum Reverseprogramm");
         System.out.println("Bitte gib ein Wort ein: ");
         String text = userinput.next();
-        char [] characterArray = text.toCharArray();
+        char[] characterArray = text.toCharArray();
+        new String(characterArray);
+        char sortieren;
 
-        for (char c: characterArray) {
-            System.out.println(c);
-            for (int i = 0; i < characterArray.length; i++) {
-                for (int j = 0; j < characterArray.length; j++) {
 
-                }
+        for (int i = 0; i < characterArray.length - 1; i++) {
+            for (int j = 0; j < characterArray.length - 1 - i; j++) {
+                sortieren = characterArray[j];
+                characterArray[j] = characterArray[j + 1];
+                characterArray[j + 1] = sortieren;
+                System.out.println(i + Arrays.toString(characterArray));
             }
+
         }
 
-
-
-
     }
-
 }
+
+
+
+
