@@ -13,7 +13,7 @@ import MichaelReal.week6.Methods;
 
 public class Array_8_Bubblesort {
         public static void main(String[] args) {
-            int[] arr = Methods.createRandomArray(10);
+            int[] arr = Methods.createRandomArray(5);
             int[] arro = Methods.createRandomArray(5);
 
             System.out.println("Unsortiertes Array:");

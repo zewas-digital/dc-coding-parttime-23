@@ -1,4 +1,4 @@
-package Alpi.week10;
+package MichaelReal.week10_strings;
 
 /*
 Aufgabe: Bubblesort mit Strings
@@ -15,42 +15,43 @@ Sortiere die Namen lexikographisch absteigend (Descending)
 Tip.: Strings können mit der Instanz Methode compareTo der String Klasse verglichen werden: "a".compareTo("b")
  */
 
+import MichaelReal.week5.Array_8_Bubblesort;
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Objects;
+/*
 public class Strings_1_BubbleSort {
 
     public static void main(String[] args) {
+
         String[] names = new String[]{
                 "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-
-
         };
-        bubblesort(names);
 
-        for (String name : names){
-            System.out.println(name);
-        }
-
-
-    }
-
-    public static void bubblesort(String[] names) {
-        int i = 0;
-        while (i < names.length -1){
-            for (int j = 0; j < names.length - 1 ; j++) {
-                if (names[j].compareTo(names[j +1]) >0){
-
-                    String temp = names [j];
-                    names[j] = names[j+1];
-                    names[j+1] = temp;
-
+        public static void bubbleSortByLengthAscending(String[] array) {
+            int n = array.length;
+            for (int i = 0; i < n - 1; i++) {
+                for (int j = 0; j < n - i - 1; j++) {
+                    if (array[j].length() > array[j + 1].length()) {
+                        String temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
                 }
-
             }
-            i++;
+
+            System.out.println("Sortiert nach Länge Aufsteigend");
         }
 
+
+
+
+        public static void printArray(String[] array) {
+            for (String name : array) {
+                System.out.print(name + " ");
+            }
+            System.out.println();
+        }
     }
-
-
-
-
-}
+}*/
