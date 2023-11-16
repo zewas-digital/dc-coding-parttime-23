@@ -25,24 +25,24 @@ public class Strings_1_BubbleSort {
         };
 
         String [] ascending = lenghtAscending(names);
-        System.out.println(Arrays.toString(ascending));             // Länge Aufsteigend
+        System.out.println(Arrays.toString(ascending));              // Länge Aufsteigend
         System.out.println();
 
         String [] lengthdescending = lenghtDescending(names);
-        System.out.println(Arrays.toString(lengthdescending));      // Länge Absteigend
+        System.out.println(Arrays.toString(lengthdescending));       // Länge Absteigend
         System.out.println();
 
-        String [] alphabetAscending = alphabetAscending(names);     // Alphabetisch Aufsteigend
+        String [] alphabetAscending = alphabetAscending(names);      // Alphabetisch Aufsteigend
         System.out.println(Arrays.toString(alphabetAscending));
         System.out.println();
 
-        String [] alphabetDescending = alphabetDescending(names);   // Alphabetisch Absteigend
+        String [] alphabetDescending = alphabetDescending(names);    // Alphabetisch Absteigend
         System.out.println(Arrays.toString(alphabetDescending));
         System.out.println();
 
     }
 
-    static String[] lenghtAscending(String[] names) {
+    static String[] lenghtAscending(String[] names) {                // Länge Aufsteigend
         String sortieren = null;
 
         for (int i = 0; i < names.length; i++) {
@@ -58,7 +58,7 @@ public class Strings_1_BubbleSort {
         return names;
     }
 
-    static String[] lenghtDescending (String[] names) {
+    static String[] lenghtDescending (String[] names) {              // Länge Absteigend
         String sortieren = null;
 
         for (int i = 0; i < names.length; i++) {
@@ -73,7 +73,7 @@ public class Strings_1_BubbleSort {
         return names;
     }
 
-    static String[] alphabetAscending(String[] names) {         // Alphabetisch Absteigend
+    static String[] alphabetAscending(String[] names) {              // Alphabetisch Absteigend
         String sortieren = null;
 
         for (int i = 0; i < names.length; i++) {
@@ -94,7 +94,7 @@ public class Strings_1_BubbleSort {
 
 
 
-    static String[] alphabetDescending(String[] names) {         // Alphabetisch Absteigend
+    static String[] alphabetDescending(String[] names) {             // Alphabetisch Absteigend
         String sortieren = null;
 
         for (int i = 0; i < names.length; i++) {
