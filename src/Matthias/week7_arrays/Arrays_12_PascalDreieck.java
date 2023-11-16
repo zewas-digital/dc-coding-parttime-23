@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class Arrays_12_PascalDreieck {
 //Methoden Aufruf:
-
+    //TODO Feritg Programmieren
     //rand aus der Klasse Random
     public static Random rand = new Random( );
     //scanner aus der Klasse Random
@@ -53,7 +53,7 @@ public class Arrays_12_PascalDreieck {
         }
     }
 
-    //Dyamisch Array erzeugen muss man noch umschreiben mit dem Oberen Hinweis
+    //Dyamisch Array erzeugen muss man noch umschreiben mit dem oberen Hinweis
     public static int[][] createBinomialArray( int xLength, int yLength ,int n, int k) {
         int[][] newArray = new int[xLength][yLength];
         for (int i = 0; i < newArray.length; i++) {
