@@ -24,6 +24,12 @@ public class Strings_2_Reverse {
         System.out.print("Welches Wort soll umgedreht werden? Bitte Eingabe! ");
         String word = sc.next();
 
+        String drow = reverseWord(word);
+        System.out.println("Hier ist Dein Ergebnis: " + drow);
+    }
+
+    private static String reverseWord(String word) {
+        //convert String to Array of chars
         char[] letters = word.toCharArray();
         int size = letters.length;
 
@@ -31,9 +37,9 @@ public class Strings_2_Reverse {
         for (int i = 0; i < size; i++) {
             srettel[i] = letters[size -1 - i];
         }
-
+        //convert Array of chars to String
         String drow = new String(srettel);
-        System.out.println("Hier ist Dein Ergebnis: " + drow);
+        return drow;
     }
 
 }

@@ -27,6 +27,7 @@ public class Strings_3_Randomize {
     }
 
     static String shuffleWord(String word){
+        //conversion from string to array of chars
         char[] letters = word.toCharArray();
         int size = letters.length;
         char[] shuffle = new char[size];
@@ -38,6 +39,7 @@ public class Strings_3_Randomize {
             shuffle[i] = letters[j];
             letters[j] = ' ';
         }
+        //conversion from array of chars to string
         return new String(shuffle);
     }
 }
