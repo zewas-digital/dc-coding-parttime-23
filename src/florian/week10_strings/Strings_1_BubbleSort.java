@@ -16,7 +16,7 @@ Tip.: Strings können mit der Instanz Methode compareTo der String Klasse vergli
  */
 
 import java.util.Arrays;
-import java.util.Objects;
+
 
 public class Strings_1_BubbleSort {
     public static void main(String[] args) {
@@ -24,19 +24,19 @@ public class Strings_1_BubbleSort {
                 "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
         };
 
-        String [] ascending = lenghtAscending(names);
+        String[] ascending = lenghtAscending(names);
         System.out.println(Arrays.toString(ascending));              // Länge Aufsteigend
         System.out.println();
 
-        String [] lengthdescending = lenghtDescending(names);
+        String[] lengthdescending = lenghtDescending(names);
         System.out.println(Arrays.toString(lengthdescending));       // Länge Absteigend
         System.out.println();
 
-        String [] alphabetAscending = alphabetAscending(names);      // Alphabetisch Aufsteigend
+        String[] alphabetAscending = alphabetAscending(names);      // Alphabetisch Aufsteigend
         System.out.println(Arrays.toString(alphabetAscending));
         System.out.println();
 
-        String [] alphabetDescending = alphabetDescending(names);    // Alphabetisch Absteigend
+        String[] alphabetDescending = alphabetDescending(names);    // Alphabetisch Absteigend
         System.out.println(Arrays.toString(alphabetDescending));
         System.out.println();
 
@@ -47,23 +47,22 @@ public class Strings_1_BubbleSort {
 
         for (int i = 0; i < names.length; i++) {
             for (int j = i + 1; j < names.length; j++) {
-                if (names[i] .length() > names[j].length()) {
+                if (names[i].length() > names[j].length()) {
                     sortieren = names[i];
                     names[i] = names[j];
                     names[j] = sortieren;
-
                 }
             }
         }
         return names;
     }
 
-    static String[] lenghtDescending (String[] names) {              // Länge Absteigend
+    static String[] lenghtDescending(String[] names) {              // Länge Absteigend
         String sortieren = null;
 
         for (int i = 0; i < names.length; i++) {
             for (int j = i + 1; j < names.length; j++) {
-                if (names[i] .length() < names[j].length()) {
+                if (names[i].length() < names[j].length()) {
                     sortieren = names[i];
                     names[i] = names[j];
                     names[j] = sortieren;
@@ -88,10 +87,6 @@ public class Strings_1_BubbleSort {
         return names;
 
     }
-
-
-
-
 
 
     static String[] alphabetDescending(String[] names) {             // Alphabetisch Absteigend

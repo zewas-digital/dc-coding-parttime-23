@@ -26,9 +26,10 @@ public class Strings_2_Reverse {
 
         String drow = reverseWord(word);
         System.out.println("Hier ist Dein Ergebnis: " + drow);
+        System.out.println("Noch mal anders: " + reverseWordDirectly(word));
     }
 
-    private static String reverseWord(String word) {
+    static String reverseWord(String word) {
         //convert String to Array of chars
         char[] letters = word.toCharArray();
         int size = letters.length;
@@ -41,5 +42,14 @@ public class Strings_2_Reverse {
         String drow = new String(srettel);
         return drow;
     }
+
+    static String reverseWordDirectly(String word){
+        String drow = "";
+        for (int i = 0; i < word.length(); i++) {
+            drow = word.charAt(i) + drow;
+        }
+        return drow;
+    }
+
 
 }
