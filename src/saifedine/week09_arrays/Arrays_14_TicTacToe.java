@@ -1,4 +1,4 @@
-package Alpi.week9;
+package saifedine.week09_arrays;
 /*
 Programmiere das Spiel TicTacToe.
 
@@ -11,9 +11,7 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
-import oliver.week9_arrays.ScannerHelper;
-
-public class Arrays_14_TicTacToeoli {
+public class Arrays_14_TicTacToe {
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
 
     public static void main(String[] args) {

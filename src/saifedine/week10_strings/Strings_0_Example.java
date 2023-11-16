@@ -1,4 +1,4 @@
-package oliver.week10_strings;
+package saifedine.week10_strings;
 
 public class Strings_0_Example {
     public static void main(String[] args) {
