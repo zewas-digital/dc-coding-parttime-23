@@ -1,4 +1,4 @@
-package Alpi.week10;
+package saifedine.week10_strings;
 
 /*
 Aufgabe: Bubblesort mit Strings Extended
@@ -13,6 +13,7 @@ Dieser boolean entscheidet, ob das String[] aufsteigend, oder absteigend sortier
  */
 
 public class Strings_1_BubbleSort_Bonus1 {
-
-
+    String[] names = new String[]{
+            "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+    };
 }

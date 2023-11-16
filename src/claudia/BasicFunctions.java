@@ -27,8 +27,22 @@ public class BasicFunctions {
             vector[j] = temp;
         }
     }
+    public static void swapElements(String[] list, int i, int j) {
+        if (i != j) {
+            String temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
+        }
+    }
 
     public static void print1DArray(int[] vector){
+        System.out.println(Arrays.toString(vector));
+    }
+
+    public static void print1DArray(String[] vector){
+        System.out.println(Arrays.toString(vector));
+    }
+    public static void print1DArray(char[] vector){
         System.out.println(Arrays.toString(vector));
     }
 
@@ -90,5 +104,15 @@ public class BasicFunctions {
             System.out.println("Fehler, Eingabe keine ganze Zahl!"); //auch möglich: z.B. switch (e.toString()) um auf verschiedene Fehler verschieden zu reagieren
         }
         return input;
+    }
+    public static char readChar(String message){
+        System.out.println(message);
+        Scanner sc = new Scanner(System.in);
+        String input = "";
+        try{
+            input = sc.next();
+        } catch (InputMismatchException e) {
+        }
+        return input.charAt(0);
     }
 }

@@ -1,4 +1,4 @@
-package solutions.florian.week2.example17;
+package florian.week2.example17;
 
 /*
 Erstelle eine Methode welche ein X von variabler Größe und mit angegebene Zeichen ausgibt.
@@ -18,4 +18,5 @@ x   x
  */
 
 public class PrintX {
+
 }
