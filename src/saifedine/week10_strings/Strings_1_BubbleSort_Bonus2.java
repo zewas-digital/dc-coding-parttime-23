@@ -24,4 +24,5 @@ public class Strings_1_BubbleSort_Bonus2 {
     String[] names = new String[]{
             "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
     };
+
 }
