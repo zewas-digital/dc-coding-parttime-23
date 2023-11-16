@@ -1,4 +1,6 @@
-package oliver.week10_strings;
+package MichaelReal.week10_strings;
+
+import oliver.week10_strings.StringMethods;
 
 public class Strings_0_Example {
     public static void main(String[] args) {
@@ -40,15 +42,11 @@ public class Strings_0_Example {
         print(word1 +" comparedTo "+ word2 +" = "+ word1ComparedTo2);
         print(word2 +" comparedTo "+ word1 +" = "+ word2ComparedTo1);
 
-        char[] characterArray = word1.toCharArray();
-        for (char c : characterArray) {
-            System.out.println(c);
-        }
     }
 
     static void print(String text) {
         System.out.println(text);
-        StringMethods.printLine(text.length());
+        oliver.week10_strings.StringMethods.printLine(text.length());
     }
     static void print(String text, boolean printLine) {
         System.out.println(text);
