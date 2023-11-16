@@ -5,7 +5,7 @@ package oliver.week10_strings;
 https://www.w3schools.com/java/java_ref_string.asp
  */
 
-import data.Texts;
+//import data.Texts;
 
 public class Strings_0_Example2 {
 
