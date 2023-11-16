@@ -20,8 +20,6 @@ public class Strings_1_BubbleSort {
     public static void main(String[] args) {
         String[] names = new String[]{
                 "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-
-
         };
         bubblesort(names);
 
