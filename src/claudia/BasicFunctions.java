@@ -42,6 +42,9 @@ public class BasicFunctions {
     public static void print1DArray(String[] vector){
         System.out.println(Arrays.toString(vector));
     }
+    public static void print1DArray(char[] vector){
+        System.out.println(Arrays.toString(vector));
+    }
 
     public static int[][] createRandom2DArray(int rows, int columns) {
         Random random = new Random();

@@ -1,11 +1,11 @@
-package oliver.week10_strings;
+package claudia.week10_strings;
 
 /*
 Übersicht der String-Methoden:
 https://www.w3schools.com/java/java_ref_string.asp
  */
 
-//import data.Texts;
+import claudia.week10_strings.StringMethods;
 
 public class Strings_0_Example2 {
 
