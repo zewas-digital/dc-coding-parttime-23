@@ -12,5 +12,30 @@ Willkommen zum Zufallsshuffle Programm
 lolHa
  */
 
+import java.util.Scanner;
+
 public class Strings_3_Randomize {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Willkommen zum Zufallsshuffle Programm!");
+
+        System.out.println("Geben Sie ein Wort ein:");
+        String Userinput = scanner.next();
+
+        char[] charArray = Userinput.toCharArray();
+        new String(charArray);
+        char temp;
+
+        for (int i = 0; i < charArray.length; i++) {
+            for (int j = 0; j < charArray.length; j++) {
+                temp = charArray[i];
+                charArray[i] = charArray[j];
+                charArray[j] = temp;
+            }
+        }
+        System.out.println(charArray);
+    }
 }
+
+
