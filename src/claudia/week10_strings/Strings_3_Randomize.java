@@ -26,7 +26,6 @@ public class Strings_3_Randomize {
         System.out.println("Hier ist Dein Ergebnis: " + shuffleWord(word));
     }
 
-
     static String shuffleWord(String word){
         char[] letters = word.toCharArray();
         int size = letters.length;
