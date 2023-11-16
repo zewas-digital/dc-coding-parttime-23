@@ -1,4 +1,4 @@
-package florian.week10_strings;
+package eslem.week10;
 
 /*
 Aufgabe: Bubblesort mit Strings Extended
@@ -16,35 +16,30 @@ import java.util.Arrays;
 
 public class Strings_1_BubbleSort_Bonus1 {
     public static void main(String[] args) {
-        String[] names = new String[]{
-                "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-        };
+        String[] names = new String[]{ "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"};
 
-        boolean variable = false;
+        boolean var = false;
+        String[] ascending = bubblesort(names, var);
 
-        String[] ascending = bubblesort(names, variable);
         System.out.println(Arrays.toString(ascending));
-
     }
 
-
-    static String[] bubblesort(String[] names, boolean variable) {
-        String sort = null;
+    static String[] bubblesort(String[] names, boolean var){
+        String counter = null;
 
         for (int i = 0; i < names.length; i++) {
             for (int j = i + 1; j < names.length; j++) {
-                if (variable == names[i].length() > names[j].length()) {
-                    sort = names[i];
+                if (var == names[i].length() > names[j].length()){
+                    counter = names[i];
                     names[i] = names[j];
-                    names[j] = sort;
-                } else if (!variable == names[i].length() < names[j].length()) {
-                    sort = names[i];
-                    names[i] = names[j];
-                    names[j] = sort;
-
+                    names[j] = counter;}
+                    else if (!var == names[i].length() < names[j].length()){
+                        counter = names[i];
+                        names[i] = names[j];
+                        names[j] = counter;
+                    }
                 }
             }
-        }
         return names;
     }
 }
