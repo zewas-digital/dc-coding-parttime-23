@@ -42,6 +42,10 @@ public class Strings_0_Example {
         print(word1 +" comparedTo "+ word2 +" = "+ word1ComparedTo2);
         print(word2 +" comparedTo "+ word1 +" = "+ word2ComparedTo1);
 
+        char[] characterArray = word1.toCharArray();
+        for (char c : characterArray) {
+            System.out.println(c);
+        }
     }
 
     static void print(String text) {
