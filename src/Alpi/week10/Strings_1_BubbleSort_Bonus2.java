@@ -21,7 +21,49 @@ Wenn der Index zu groß ist, mach eine entsprechende Ausgabe und sortiere nicht.
  */
 
 public class Strings_1_BubbleSort_Bonus2 {
-    String[] names = new String[]{
-            "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-    };
+
+    public static void main(String[] args) {
+
+        String[] names = new String[]{
+                "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+        };
+
+
+    }
+
+    public static void bubbleSort(String[] names, int index) {
+        if (index < 0 || index >= names[0].length()) {
+            System.out.println("Der Index ist ungültig.");
+            return;
+        }
+
+        int i = 0;
+        while (i < names.length - 1) {
+            for (int j = 0; j < names.length - i - 1; j++) {
+                if (names[j].charAt(index) > names[j + 1].charAt(index)) {
+                    String temp = names[j];
+                    names[j] = names[j + 1];
+                    names[j + 1] = temp;
+                }
+            }
+            i++;
+        }
+    }
+
+
+    public class Strings_2_BubbleSort {
+
+        public static void main(String[] args) {
+            String[] names = new String[]{
+                    "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
+            };
+
+            bubbleSort(names, 2); // Sortiere nach dem dritten Buchstaben
+
+            for (String name : names) {
+                System.out.println(name);
+            }
+        }
+    }
+
 }
