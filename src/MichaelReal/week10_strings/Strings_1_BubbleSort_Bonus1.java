@@ -43,7 +43,7 @@ public class Strings_1_BubbleSort_Bonus1 {
         }
 
         String order = ascending ? "aufsteigend" : "absteigend";
-        System.out.println("Sortiert " + order + ":");
+        System.out.println("\nSortiert " + order + ":");
         Strings_1_BubbleSort.printArray(array);
     }
 }
