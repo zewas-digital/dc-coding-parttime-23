@@ -23,7 +23,11 @@ public class Strings_3_Randomize {
         Scanner sc = new Scanner(System.in);
         System.out.print("Welches Wort soll geshuffelt werden? Bitte Eingabe! ");
         String word = sc.next();
+        System.out.println("Hier ist Dein Ergebnis: " + shuffleWord(word));
+    }
 
+
+    static String shuffleWord(String word){
         char[] letters = word.toCharArray();
         int size = letters.length;
         char[] shuffle = new char[size];
@@ -35,7 +39,6 @@ public class Strings_3_Randomize {
             shuffle[i] = letters[j];
             letters[j] = ' ';
         }
-        String shuffledWord = new String(shuffle);
-        System.out.println("Hier ist Dein Ergebnis: " + shuffledWord);
+        return new String(shuffle);
     }
 }
