@@ -1,20 +1,22 @@
-package oliver.week10_strings;
+package Matthias.week10_arrays;
 
-/*
-Aufgabe: Randomize
-Es soll ein Wort über die Kommandozeile eingelesen werden,
-dieses die Buchstaben des Wortes sollen zufällig vertauscht werden und anschließend ausgegeben werden. Verwende hierfür text.toCharArray() für das Aufsplitten, erstelle ein neues char[], befülle es zufällig mit den Buchstaben des Wortes, füge es mittels new String(charArray) zusammen und gib es aus.
-
-Ausgabe
-
-Willkommen zum Zufallsshuffle Programm
->>>Hallo
-lolHa
- */
-
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Strings_3_Randomize {
+/*
+Aufgabe: Reverse
+Es soll ein Wort über die Kommandozeile eingelesen werden,
+dieses Wort soll umgedreht und anschließend ausgegeben werden.
+
+Verwende hierfür text.toCharArray() für das Aufsplitten und new String(charArray) zum Zusammenfügen.
+
+Ausgabe
+Willkommen zum Reverseprogramm
+>>>Hallo
+ollaH
+
+ */
+public class Strings_2_Reverse {
 
     public static Scanner scanner = new Scanner( System.in );
     public static void main( String[] args ) {
@@ -27,9 +29,9 @@ public class Strings_3_Randomize {
     //Methode 1:
     static public void printcharArray (char[] array){
         for (char swap:array)
-        {
-            System.out.print(swap);
-        }
+             {
+                 System.out.print(swap);
+             }
     }
     //Methode 2:
     static public void printreversecharArray(char[] array){

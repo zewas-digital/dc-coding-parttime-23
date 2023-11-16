@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Array_14_TicTacToe {
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
     public static void main( String[] args ) {
-
+//TODO Feritg Programmieren
         /****Programm Ablaufplan****/
         // Darstellung des Feldes
         // 1. Benutzer Eingabe
@@ -43,9 +43,7 @@ public class Array_14_TicTacToe {
             System.out.println( "TicTacToe:" );
             //Arraybefuellen( Spielfeld, 1,9 );
             System.out.println( "Spieler   X  , wohin möchtest du dein Stein setzen?" );
-
             Arraybefuellen(Spielfeld);
-
             printArray(Spielfeld);
 
         }

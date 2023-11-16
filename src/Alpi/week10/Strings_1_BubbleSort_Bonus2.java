@@ -28,7 +28,11 @@ public class Strings_1_BubbleSort_Bonus2 {
                 "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
         };
 
+        bubbleSort(names, 2);
 
+        for (String name : names) {
+            System.out.println(name);
+        }
     }
 
     public static void bubbleSort(String[] names, int index) {
@@ -47,22 +51,6 @@ public class Strings_1_BubbleSort_Bonus2 {
                 }
             }
             i++;
-        }
-    }
-
-
-    public class Strings_2_BubbleSort {
-
-        public static void main(String[] args) {
-            String[] names = new String[]{
-                    "Max", "Anna", "Paula", "Peter", "Julia", "Moritz", "Sarah", "Lukas", "Lisa", "Paul"
-            };
-
-            bubbleSort(names, 2); // Sortiere nach dem dritten Buchstaben
-
-            for (String name : names) {
-                System.out.println(name);
-            }
         }
     }
 

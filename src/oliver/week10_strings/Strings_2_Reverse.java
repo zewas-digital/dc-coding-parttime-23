@@ -1,5 +1,7 @@
 package oliver.week10_strings;
 
+import java.util.Scanner;
+
 /*
 Aufgabe: Reverse
 Es soll ein Wort über die Kommandozeile eingelesen werden,
