@@ -12,30 +12,55 @@ Willkommen zum Zufallsshuffle Programm
 lolHa
  */
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Strings_3_Randomize {
 
-    public static Scanner scanner = new Scanner( System.in );
-    public static void main( String[] args ) {
-        System.out.println( " Willkommen zum Reverseprogramm " );
-        String Wort = scanner.nextLine();
-        char[] charArray= Wort.toCharArray();
-        printcharArray(  charArray);
-        printreversecharArray(charArray);
-    }
-    //Methode 1:
-    static public void printcharArray (char[] array){
-        for (char swap:array)
-        {
-            System.out.print(swap);
+    public static void main(String[] args) {
+        Scanner inputKonsole = new Scanner ( System.in );
+        boolean stop= true;
+
+        while(stop) {
+            String input = inputKonsole.next ( );
+            if(input.equals ( "stop" )){
+                break;
+            }
+            randomChange ( input );
         }
     }
-    //Methode 2:
-    static public void printreversecharArray(char[] array){
-        System.out.println(  );
-        for (int i = array.length-1;  i >= 0; i--) {
-            System.out.print(array[i] + " ");
+
+    static void randomChange(String input){
+
+        Random randomnumber = new Random ();
+
+        char[] array = input.toCharArray();
+        char[] arrayRandomChanged = new char[array.length];
+        String output;
+        int r;
+        boolean serchFreeIndex = true;
+
+        for (int i = 0; i < array.length; i++) {
+            r = randomnumber.nextInt ( array.length);
+            serchFreeIndex = true;
+
+            while(serchFreeIndex) {
+                if (arrayRandomChanged[r] == 0) {
+                    arrayRandomChanged[r] = array[i];
+                    serchFreeIndex = false;
+                } else {
+                    if (r == array.length - 1) {
+                        r = 0;
+                    } else {
+                        r++;
+                    }
+                }
+            }
         }
+
+        output = new String(arrayRandomChanged);
+
+        System.out.println ( output );
     }
+
 }
