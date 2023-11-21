@@ -1,4 +1,4 @@
-package oliver.week10_strings;
+package saifedine.week10_strings;
 
 /*
 Aufgabe: Buchstaben zählen
