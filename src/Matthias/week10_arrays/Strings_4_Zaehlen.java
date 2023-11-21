@@ -1,4 +1,4 @@
-package oliver.week10_strings;
+package Matthias.week10_arrays;
 
 /*
 Aufgabe: Buchstaben zählen
