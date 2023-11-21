@@ -31,6 +31,10 @@ public class Strings_1_BubbleSort {
         sortDescending(names);
         System.out.println("Lenght Ascending");
         sortLengthAscending(names);
+        System.out.println("Lenght Descending");
+        sortLengthDescending(names);
+        System.out.println("Lexiko Lenght Descending");
+        lexikoSortLengthAscending(names);
 
     }
 
@@ -49,9 +53,9 @@ public class Strings_1_BubbleSort {
 
         String exchange;
 
-        for (int i = 0; i < names.length -1 ; i++) {
-            for (int j = 0; j < names.length -1; j++) {
-                if (names[j].length() > names[i +1].length()) {
+        for (int i = 0; i < names.length; i++) {
+            for (int j = 0; j < names.length; j++) {
+                if (names[j].length() > names[i].length()) {
                     exchange = names[i];
                     names[i] = names[j];
                     names[j] = exchange;
@@ -61,20 +65,38 @@ public class Strings_1_BubbleSort {
         System.out.println(Arrays.toString(names));
     }
 
-    private static void sortAscendingBubble(String[] names) {
-        String temp;
-        System.out.println("Sorted Bubble Sort Ascending");
+    private static void sortLengthDescending(String[] names){
+
+        String exchange;
+
         for (int i = 0; i < names.length; i++) {
-            for (int j = i; j < names.length; j++) {
-                if (names[j].compareTo(names[i]) < 0){
-                    temp = names[i];
+            for (int j = 0; j < names.length; j++) {
+                if (names[j].length() < names[i].length()) {
+                    exchange = names[i];
                     names[i] = names[j];
-                    names[j] = temp;
+                    names[j] = exchange;
                 }
             }
-            System.out.println(names[i]);
         }
+        System.out.println(Arrays.toString(names));
     }
+
+    private static void lexikoSortLengthAscending(String[] names){
+
+        String exchange;
+
+        for (int i = 0; i < names.length; i++) {
+            for (int j = 0; j < names.length - 1; j++) {
+                if (names[j].compareTo(names[j + 1]) > 0) {
+                    exchange = names[i];
+                    names[i] = names[j + 1];
+                    names[j + 1] = exchange;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(names));
+    }
+
 }
 
 

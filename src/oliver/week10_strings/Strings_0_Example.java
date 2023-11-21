@@ -35,8 +35,8 @@ public class Strings_0_Example {
         print(prefix +" "+ text +" == \"Hallo\" = "+ stringIs2);
 
         // lexikografischer Vergleich
-        String word1 = "Apfel";
-        String word2 = "Birne";
+        String word1 = "Paul";
+        String word2 = "Paula";
         int word1ComparedTo2 = word1.compareTo(word2);
         int word2ComparedTo1 = word2.compareTo(word1);
         print(word1 +" comparedTo "+ word2 +" = "+ word1ComparedTo2);
