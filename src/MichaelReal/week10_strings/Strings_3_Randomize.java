@@ -12,5 +12,38 @@ Willkommen zum Zufallsshuffle Programm
 lolHa
  */
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Strings_3_Randomize {
-}
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Willkommen zum Zufallsshuffle Programm");
+
+            // Wort von der Kommandozeile einlesen
+            String inputWord = scanner.nextLine();
+
+            // Buchstaben des Wortes in ein char-Array aufsplitten
+            char[] charArray = inputWord.toCharArray();
+
+            // char-Array zufällig vertauschen
+            shuffleArray(charArray);
+
+            // Zufällig vertauschtes Wort ausgeben
+            String shuffledWord = new String(charArray);
+            System.out.println(shuffledWord);
+        }
+
+        // Methode zum Zufällig Vertauschen eines char-Arrays
+        private static void shuffleArray(char[] array) {
+            Random random = new Random();
+            for (int i = array.length - 1; i > 0; i--) {
+                int index = random.nextInt(i + 1);
+                // Vertauschen
+                char temp = array[i];
+                array[i] = array[index];
+                array[index] = temp;
+            }
+        }
+    }

@@ -1,4 +1,4 @@
-package oliver.week10_strings;
+package Alpi.week10;
 
 /*
 Aufgabe: Buchstaben zählen
