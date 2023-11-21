@@ -11,12 +11,13 @@ Willkommen zum Zufallsshuffle Programm
 >>>Hallo
 lolHa
  */
-
+import java.util.Random;
 import java.util.Scanner;
 
 public class Strings_3_Randomize {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
         System.out.println("Willkommen zum Zufallsshuffle Programm!");
 
@@ -26,6 +27,7 @@ public class Strings_3_Randomize {
         char[] charArray = Userinput.toCharArray();
         new String(charArray);
         char temp;
+
 
         for (int i = 0; i < charArray.length; i++) {
             for (int j = 0; j < charArray.length; j++) {

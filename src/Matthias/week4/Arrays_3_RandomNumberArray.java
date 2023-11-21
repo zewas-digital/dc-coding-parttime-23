@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Arrays_3_RandomNumberArray {
 
-    //Methode 1
+    //Methode 1:
     public static int[] makeACopy0( int[] original, int iArraylenth ) {
         int[] copy = new int[original.length];
         Random random = new Random();
@@ -29,14 +29,14 @@ public class Arrays_3_RandomNumberArray {
         return copy;
     }
 
-    //Methode 2
+    //Methode 2:
     public static void makeACopy1( int[] original, int iArraylenth ) {
         int[] copy = makeACopy0( original, iArraylenth );
         for (int number: copy) {
            System.out.print(number + ","+ " ");
         }
     }
-    //Methode 3
+    //Methode 3:
     public static int[] makeACopy3( int[] original, int iArraylenth ) {
         int[] copy = new int[original.length];
         Random random = new Random();
