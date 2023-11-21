@@ -12,92 +12,101 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
 import oliver.week9_arrays.ScannerHelper;
+public class Arrays_14_TicTacToe_Bard_Kommentare {
 
-public class Arrays_14_TicTacToe {
+    // Array mit den Symbolen für die Spieler X und O
+    public static String[] symbol = new String[]{"   ", " X ", " O "};
 
-    // Klassenvariable --> Buch/Claudia/Michael - symbol = Klassenvariable, {"     ", "  X  ", "  O  "} wird dem 1D-String array zugewiesen
-    // vor dem Main
-    public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
-
-    // void, es wird nichts zurückgegeben
+    // Main-Methode, die das Spiel ausführt
     public static void main(String[] args) {
-
-        // Variablen
+        // Spielfeld initialisieren
         int[][] fields = new int[3][3];
+
+        // Spielstartspieler festlegen
         int currentPlayer = 1;
+
+        // Anzahl der verbleibenden Züge
         int movesLeft = 9;
-        boolean won = false;
 
         // Spielfeld ausgeben
-        // Methode(Übergabeparameter - 2 Typen: CallByReference & CallByValue)
         printField(fields);
 
-        // Spiele, solange Züge übrig sind oder ein Gewinner feststeht
-        while (movesLeft > 0 && !won) {
+        // Spielzug-Schleife
+        while (movesLeft > 0 && !checkWinCondition(fields, currentPlayer)) {
+            // Spieler X oder O
+            String player = symbol[currentPlayer];
 
-            // gültige Benutzer-Eingabe
+            // Benutzereingabe für den nächsten Spielzug erhalten
             int nextField = getUserInput(fields, currentPlayer) - 1;
 
-            System.out.println(nextField +".."+ (nextField / 3) +".."+ (nextField % 3));
-
-            // Feld befüllen
+            // Spielstein auf dem ausgewählten Feld setzen
             fields[nextField / 3][nextField % 3] = currentPlayer;
 
             // Spielfeld ausgeben
             printField(fields);
 
-            // Gewinner überprüfen
-            won = checkWinCondition(fields, currentPlayer);
+            // Überprüfen, ob der Spieler gewonnen hat
+            boolean won = checkWinCondition(fields, currentPlayer);
 
-            // Gibt es einen Gewinner?
+            // Spielende
             if (won) {
-                System.out.println("Gratuliere " + symbol[currentPlayer] + "! Du hast gewonnen!");
+                System.out.println("Gratuliere " + player + "! Du hast gewonnen!");
                 break;
             }
 
-            // Spieler wechseln
+            // Nächster Spieler
             currentPlayer = 3 - currentPlayer;
-            // Anzahl Züge reduzieren
-            --movesLeft;
+
+            // Verbleibende Züge verringern
+            movesLeft--;
         }
-        // Wenn unentschieden...
-        if (!won) {
+
+        // Unentschieden
+        if (!checkWinCondition(fields, currentPlayer)) {
             System.out.println("Es ist unentschieden. Gutes Spiel!");
         }
     }
 
+    // Spielfeld ausgeben
     public static void printField(int[][] fields) {
         System.out.println();
         System.out.println("TicTacToe:");
+
         for (int i = 0; i < fields.length; i++) {
+            // Trennlinie zwischen den Zeilen
             if (i > 0) {
                 System.out.println("-----|-----|-----");
             }
 
-            // Warum wird es 9 mal ausgegeben,
+            // Leere Zeile
             System.out.println("     |     |     ");
 
-            // warum fields[i].length und nicht fields[j].length
+            // Spielsteine oder Feldnummern ausgeben
             for (int j = 0; j < fields[i].length; j++) {
+                // Trennlinie zwischen den Spalten
                 if (j > 0) {
                     System.out.print("|");
                 }
-                // falls die Eingabe größer 0, dann befülle mit Symbol
+
+                // Spielstein oder Feldnummer
                 if (fields[i][j] > 0) {
                     System.out.print(symbol[fields[i][j]]);
-                // was macht das?
                 } else {
                     System.out.printf("  %1d  ", (3 * i + j + 1));
                 }
             }
+
+            // Leere Zeile
             System.out.println();
             System.out.println("     |     |     ");
         }
     }
 
+    // Spielzug-Eingabe des Benutzers erhalten
     public static int getUserInput(int[][] fields, int player) {
         int result = -1;
 
+        // Benutzereingabe anfordern, bis ein gültiges Feld ausgewählt wird
         while (result < 1 || result > 9) {
             result = ScannerHelper.readNumber("Spieler " + symbol[player] + ", wohin möchtest du dein Stein setzen?");
 
@@ -109,57 +118,77 @@ public class Arrays_14_TicTacToe {
                 result = -1;
             }
         }
+
         return result;
     }
-
+    // Überprüfen, ob der Spieler die Gewinnbedingung erfüllt hat
     public static boolean checkWinCondition(int[][] fields, int player) {
-        // Prüfe Diagonalen
+        // Prüfen der Diagonalen
         if (checkDiag(fields, player) || checkDiag2(fields, player)) {
             return true;
         }
-        // Prüfe Zeilen und Spalten
+
+        // Prüfen der Zeilen und Spalten
         for (int i = 0; i < fields.length; i++) {
             if (checkRows(fields, i, player) || checkCols(fields, i, player)) {
                 return true;
             }
         }
+
+        // Keine Gewinnbedingung erfüllt
         return false;
     }
 
-
+    // Prüfen, ob Spieler alle Felder in einer Zeile besetzt hat
     public static boolean checkRows(int[][] fields, int row, int player) {
+        // Durchlaufen der Felder in der Zeile
         for (int i = 0; i < fields[row].length; i++) {
+            // Feld gehört nicht dem Spieler
             if (fields[row][i] != player) {
                 return false;
             }
         }
+
+        // Alle Felder in der Zeile gehören dem Spieler
         return true;
     }
 
+    // Prüfen, ob Spieler alle Felder in einer Spalte besetzt hat
     public static boolean checkCols(int[][] fields, int col, int player) {
+        // Durchlaufen der Felder in der Spalte
         for (int i = 0; i < fields.length; i++) {
             if (fields[i][col] != player) {
                 return false;
             }
         }
+
+        // Alle Felder in der Spalte gehören dem Spieler
         return true;
     }
 
+    // Prüfen, ob Spieler alle Felder in der Diagonale besetzt hat
     public static boolean checkDiag(int[][] fields, int player) {
+        // Durchlaufen der Diagonale
         for (int i = 0; i < fields.length; i++) {
             if (fields[i][i] != player) {
                 return false;
             }
         }
+
+        // Alle Felder in der Diagonale gehören dem Spieler
         return true;
     }
 
+    // Prüfen, ob Spieler alle Felder in der Gegendiagonale besetzt hat
     public static boolean checkDiag2(int[][] fields, int player) {
+        // Durchlaufen der Gegendiagonale
         for (int i = 0; i < fields.length; i++) {
-            if (fields[i][fields[i].length - i - 1] != player) {
+            if (fields[i][fields.length - i - 1] != player) {
                 return false;
             }
         }
+
+        // Alle Felder in der Gegendiagonale gehören dem Spieler
         return true;
     }
 }
