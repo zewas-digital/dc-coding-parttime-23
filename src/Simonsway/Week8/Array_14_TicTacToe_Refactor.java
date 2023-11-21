@@ -11,11 +11,11 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
-import java.util.Random;
-
 import Simonsway.methods.Scanner_Helper;
 
-public class Array_14_TicTacToe {
+import java.util.Random;
+
+public class Array_14_TicTacToe_Refactor {
     public static void main(String[] args) {
 
         // 1. Zwei verschiedene User Eingaben
@@ -89,7 +89,11 @@ public class Array_14_TicTacToe {
 
         switch (position){
             case 1:
-                return (board[0][0] == ' ');
+                if (board[0][0] == ' '){
+                    return true;
+                } else {
+                    System.out.println("Is already taken please choose another one.");
+                }
             case 2:
                 return (board[0][1] == ' ');
             case 3:
@@ -119,7 +123,7 @@ public class Array_14_TicTacToe {
 
         while (true){
             computerTurn = random.nextInt(9) + 1;
-            if (isTurnValid(board, computerTurn)){ // computerTurn checks in the method position valid true or false
+            if (isTurnValid(board, computerTurn)){
                 break;
             }
         }
@@ -136,11 +140,9 @@ public class Array_14_TicTacToe {
             userInput = Scanner_Helper.scannerHelperInt("Wrong input please number between 1-9");
             if (isTurnValid(board, userInput)){
                 break;
-            } else {
-                System.out.println(userInput + " Is already taken");
             }
         }
-
+        System.out.println("Player Turn " + userInput);
         placeTurn(board, userInput, 'X');
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
