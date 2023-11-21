@@ -1,4 +1,4 @@
-package Matthias.week10_arrays;
+package Matthias.week10_strings;
 
 /*
 Aufgabe: Randomize
@@ -12,11 +12,9 @@ Willkommen zum Zufallsshuffle Programm
 lolHa
  */
 
-import Matthias.week7_arrays.Arrays_11_2dArray;
-
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Arrays;
+
 public class Strings_3_Randomize {
     public static Scanner scanner = new Scanner( System.in );
     public static Random rand = new Random( );
@@ -60,7 +58,7 @@ public class Strings_3_Randomize {
         for (int i = 0; i < array.length; i++) {
             System.out.print( array[randindexArray[i]] );
         }
-        //TODO Wie bekomme ich es hin das ich nur Einmal ausgebe?
+        //TODO Olivers verison übernehmen mit Int Array versuchen selbst Abzubilden
     }
 }
     // Algorithmus

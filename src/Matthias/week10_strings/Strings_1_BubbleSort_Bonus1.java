@@ -1,4 +1,4 @@
-package Matthias.week10_arrays;
+package Matthias.week10_strings;
 
 /*
 Aufgabe: Bubblesort mit Strings Extended
