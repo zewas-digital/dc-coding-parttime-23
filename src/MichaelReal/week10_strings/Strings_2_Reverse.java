@@ -29,7 +29,7 @@ public class Strings_2_Reverse {
             String reversedWord = reverseWord(inputWord);
 
             // Ausgabe des umgedrehten Wortes
-            System.out.println("Umgdrehetes Wort: " + reversedWord);
+            System.out.println("Umgedrehtes Wort: " + reversedWord);
 
         }
 
