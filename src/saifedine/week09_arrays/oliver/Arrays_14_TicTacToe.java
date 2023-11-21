@@ -1,4 +1,4 @@
-package saifedine.week08_arrays.oliver;
+package saifedine.week09_arrays.oliver;
 /*
 Programmiere das Spiel TicTacToe.
 
@@ -14,22 +14,15 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
 import oliver.week9_arrays.ScannerHelper;
 
 public class Arrays_14_TicTacToe {
-
-    // Klassenvariable --> Buch/Claudia/Michael - symbol = Klassenvariable, {"     ", "  X  ", "  O  "} wird dem 1D-String array zugewiesen
-    // vor dem Main
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
 
-    // void, es wird nichts zurückgegeben
     public static void main(String[] args) {
-
-        // Variablen
         int[][] fields = new int[3][3];
         int currentPlayer = 1;
         int movesLeft = 9;
         boolean won = false;
 
         // Spielfeld ausgeben
-        // Methode(Übergabeparameter - 2 Typen: CallByReference & CallByValue)
         printField(fields);
 
         // Spiele, solange Züge übrig sind oder ein Gewinner feststeht
@@ -73,19 +66,13 @@ public class Arrays_14_TicTacToe {
             if (i > 0) {
                 System.out.println("-----|-----|-----");
             }
-
-            // Warum wird es 9 mal ausgegeben,
             System.out.println("     |     |     ");
-
-            // warum fields[i].length und nicht fields[j].length
             for (int j = 0; j < fields[i].length; j++) {
                 if (j > 0) {
                     System.out.print("|");
                 }
-                // falls die Eingabe größer 0, dann befülle mit Symbol
                 if (fields[i][j] > 0) {
                     System.out.print(symbol[fields[i][j]]);
-                // was macht das?
                 } else {
                     System.out.printf("  %1d  ", (3 * i + j + 1));
                 }

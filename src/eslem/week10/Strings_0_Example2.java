@@ -1,4 +1,4 @@
-package saifedine.week10_strings;
+package eslem.week10;
 
 /*
 Übersicht der String-Methoden:
@@ -12,18 +12,6 @@ import java.util.Arrays;
 public class Strings_0_Example2 {
 
     public static void main(String[] args) {
-
-        String hello = "hello";
-        System.out.println(hello.indexOf('e'));
-        System.out.println(hello.indexOf('l'));
-        System.out.println(hello.indexOf('M'));
-
-        String replacedString = hello.replace('h', 'H');
-        System.out.println("> "+ hello);
-        System.out.println("= "+ hello.replace('h', 'H'));
-        // hello.replaceFirst()
-        // hello.replaceAll()
-
         print(" ");
 
         // String von Chars-Array
