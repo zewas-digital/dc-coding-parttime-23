@@ -10,15 +10,14 @@ Den Pseudo-Code der Algorithmen findest du unter:
 https://panthema.net/2013/sound-of-sorting/SoS-CheatSheet.pdf
  */
 
-import Simonsway.methods.array_Methods;
+import Simonsway.methods.Array_Methods;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Arrays_9_Bonus {
     public static void main(String[] args) {
 
-        int[] array = array_Methods.createNewRandomArray(10, 1, 99);
+        int[] array = Array_Methods.createNewRandomArray(10, 1, 99);
 
         int[] output = insertionSort(array);
         System.out.println(Arrays.toString(output));
