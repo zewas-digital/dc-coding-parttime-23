@@ -28,7 +28,9 @@ public class Strings_4_Zaehlen {
             // Durch den Text iterieren und die Zeichen zählen
             for (char zeichen : text.toCharArray()) {
                 // Zähler für das entsprechende Zeichen erhöhen
-                zeichenZaehler[zeichen]++;
+               if (zeichen < 128) {
+                   zeichenZaehler[zeichen]++;
+               }
             }
 
             // Die Ergebnisse ausgeben
