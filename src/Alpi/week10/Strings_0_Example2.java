@@ -1,9 +1,11 @@
-package oliver.week10_strings;
+package Alpi.week10;
 
 /*
 Übersicht der String-Methoden:
 https://www.w3schools.com/java/java_ref_string.asp
  */
+
+import oliver.week10_strings.StringMethods;
 
 import java.util.Arrays;
 

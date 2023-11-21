@@ -36,7 +36,7 @@ public class Strings_2_Reverse {
 
         char[] srettel = new char[size];
         for (int i = 0; i < size; i++) {
-            srettel[i] = letters[size -1 - i];
+            srettel[i] = letters[size - 1 - i];
         }
         //convert Array of chars to String
         String drow = new String(srettel);
