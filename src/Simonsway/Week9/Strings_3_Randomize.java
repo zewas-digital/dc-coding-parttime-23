@@ -1,4 +1,4 @@
-package eslem.week10;
+package Simonsway.Week9;
 
 /*
 Aufgabe: Randomize
@@ -11,33 +11,31 @@ Willkommen zum Zufallsshuffle Programm
 >>>Hallo
 lolHa
  */
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Strings_3_Randomize {
     public static void main(String[] args) {
+
+        System.out.println("Bitte ihr eingabe");
+
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        System.out.println("Willkommen zum Zufallsshuffle Programm!");
+        String input;
+        input = scanner.next();
 
-        System.out.println("Geben Sie ein Wort ein:");
-        String Userinput = scanner.next();
+        char[] characters = input.toCharArray();
 
-        char[] charArray = Userinput.toCharArray();
-        new String(charArray);
-        char temp;
+        for (int i = characters.length - 1; i > 0; i--) {
+            int index = random.nextInt(i + 1);
 
-
-        for (int i = 0; i < charArray.length; i++) {
-            for (int j = 0; j < charArray.length; j++) {
-                temp = charArray[i];
-                charArray[i] = charArray[j];
-                charArray[j] = temp;
-            }
+            char temp = characters[index];
+            characters[index] = characters[i];
+            characters[i] = temp;
         }
-        System.out.println(charArray);
+
+        System.out.println(new String(characters));
     }
 }
-
-
