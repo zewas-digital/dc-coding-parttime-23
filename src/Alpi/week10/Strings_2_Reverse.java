@@ -24,14 +24,17 @@ public class Strings_2_Reverse {
         String text = new Scanner(System.in).nextLine();
 
         // Umdrehen
-        char[] chars = text.toCharArray();
-        for (int i = 0; i < chars.length / 2; i++) {
-            char temp = chars[i];
-            chars[i] = chars[chars.length - 1 - i];
-            chars[chars.length - 1 - i] = temp;
+        char[] array = text.toCharArray();
+        for (int i = 0; i < array.length / 2; i++) {
+            char temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
         }
 
         // Ausgabe
-        System.out.println("Das umgedrehte Wort lautet: " + new String(chars));
+
+        System.out.println("Das umgedrehte Wort lautet: " + new String(array));
+
+
     }
 }
