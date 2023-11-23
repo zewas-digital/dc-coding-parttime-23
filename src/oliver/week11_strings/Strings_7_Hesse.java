@@ -24,7 +24,7 @@ public class Strings_7_Hesse {
         System.out.println(sampleText.indexOf("ersten", 4));
         System.out.println(sampleText.indexOf("ersten", 4+1));
 
-        // ansatz 1 .. an welchen stellen
+        // an welchen stellen findet sich der Suchbegriff
         int firstIndex = text.indexOf("Hesse");
         int secondIndex = text.indexOf("Hesse", firstIndex +1);
 
