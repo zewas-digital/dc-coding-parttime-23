@@ -21,15 +21,16 @@ public class Strings_5_Tabelle {
 
         String leftAlignFormat = "| %-15s | %-15s | %-5d | %-15s | %-15.2f |%n";
 
-        System.out.format("+-----------------+-----------------+-------+-----------------+-----------------+%n");
+        System.out.format("+-----------------+-----------------+-------+-----------------+------------------+%n");
         System.out.format("| Vorname         | Nachname        | Alter | Stadt           | Entf. v. Hauptst.|%n");
-        System.out.format("+-----------------+-----------------+-------+-----------------+-----------------+%n");
+        System.out.format("+-----------------+-----------------+-------+-----------------+------------------+%n");
 
         for (int i = 0; i < firstName.length; i++) {
             System.out.format(leftAlignFormat, firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }
 
         System.out.format("+-----------------+-----------------+-------+-----------------+-----------------+%n");
+
     }
 
 }
