@@ -10,5 +10,9 @@ Den Pseudo-Code der Algorithmen findest du unter:
 https://panthema.net/2013/sound-of-sorting/SoS-CheatSheet.pdf
  */
 
+import java.util.Random;
+import java.util.function.Function;
+
 public class Arrays_9_Bonus {
+
 }

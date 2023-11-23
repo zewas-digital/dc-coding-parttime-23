@@ -11,9 +11,9 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
+
+import Simonsway.methods.Scanner_Helper;
 
 public class Array_14_TicTacToe {
     public static void main(String[] args) {
@@ -86,6 +86,7 @@ public class Array_14_TicTacToe {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static boolean isTurnValid (char[][] board, int position){
+
         switch (position){
             case 1:
                 return (board[0][0] == ' ');
@@ -111,8 +112,11 @@ public class Array_14_TicTacToe {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void computerTurn(char[][] board) {
+
         Random random = new Random();
+
         int computerTurn;
+
         while (true){
             computerTurn = random.nextInt(9) + 1;
             if (isTurnValid(board, computerTurn)){ // computerTurn checks in the method position valid true or false
@@ -120,56 +124,54 @@ public class Array_14_TicTacToe {
             }
         }
         System.out.println("Computer turn " + computerTurn);
-        placeTurn(board, Integer.toString(computerTurn), 'O');
+        placeTurn(board, computerTurn, 'O');
     }
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void playerTurn(char[][] board) {
 
-        String userInput;
-
-        Scanner scanner = new Scanner(System.in);
+        int userInput;
 
         while (true){
             System.out.println("Place your bit between (1-9)");
-            userInput = scanner.nextLine();
-            if (isTurnValid(board, Integer.parseInt(userInput))){
+            userInput = Scanner_Helper.scannerHelperInt("Wrong input please number between 1-9");
+            if (isTurnValid(board, userInput)){
                 break;
             } else {
                 System.out.println(userInput + " Is already taken");
             }
         }
-        placeTurn(board, userInput, 'X');
 
+        placeTurn(board, userInput, 'X');
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private static void placeTurn(char[][] board, String position, char symbol) {
+    private static void placeTurn(char[][] board, int position, char symbol) {
+
         switch (position){
-            case "1":
+            case 1:
                 board[0][0] = symbol;
             break;
-            case "2":
+            case 2:
                 board[0][1] = symbol;
                 break;
-            case "3":
+            case 3:
                 board[0][2] = symbol;
                 break;
-            case "4":
+            case 4:
                 board[1][0] = symbol;
                 break;
-            case "5":
+            case 5:
                 board[1][1] = symbol;
                 break;
-            case "6":
+            case 6:
                 board[1][2] = symbol;
                 break;
-            case "7":
+            case 7:
                 board[2][0] = symbol;
                 break;
-            case "8":
+            case 8:
                 board[2][1] = symbol;
                 break;
-            case "9":
+            case 9:
                 board[2][2] = symbol;
                 break;
             default:
@@ -178,6 +180,7 @@ public class Array_14_TicTacToe {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void printBoard(char[][] board) {
+
         System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
         System.out.println("-+-+-");
         System.out.println(board[1][0] + "|" + board[1][1] + "|" + board[1][2]);

@@ -1,4 +1,4 @@
-package oliver.week10_strings;
+package claudia.week11_strings;
 
 /*
 Aufgabe: Buchstaben zählen
@@ -19,7 +19,7 @@ C: 1
 
 import java.util.Arrays;
 
-public class Strings_4_Zaehlen {
+public class Strings_4_Zaehlen_gemeinsame_Loesung {
     public static void main(String[] args) {
         String text = data.Texts.getSimpleText();
         // text in character-Array umwandeln

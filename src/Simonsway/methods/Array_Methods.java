@@ -1,10 +1,9 @@
 package Simonsway.methods;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class array_Methods {
+public class Array_Methods {
     public static void main(String[] args) {
 
 
