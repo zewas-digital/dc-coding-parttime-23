@@ -49,8 +49,6 @@ public class Strings_2_Reverse {
             }
         }
         System.out.println("Reverse: " + Arrays.toString(charArray));
-
-
     }
 
 }
