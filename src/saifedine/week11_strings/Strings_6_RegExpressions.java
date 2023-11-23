@@ -14,7 +14,7 @@ Aufruf          System.out.println("rambina.alfons@drlue.at".matches(regex));   
 
 Aufruf          System.out.println("rambina1.1alfons@drlue.at".matches(regex));          Ausgabe          true
 
-Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          false --> true
 
 Aufruf          System.out.println("@drlue.at".matches(regex));          Ausgabe          false
 
@@ -64,7 +64,15 @@ public class Strings_6_RegExpressions {
         System.out.println("-".repeat(32));
 
         // Aufgabe -------------------
-        String regex = "[richtiger Regex hier]";
-        System.out.println("rambina.alfons@drlue.at".matches(regex));
+        String regex = "^[a-z0-9.]+@[a-z.]+\\.[a-z]{2}$";
+        System.out.println("alfons@drlue.at".matches(regex));               // true
+        System.out.println("rambina.alfons@drlue.at".matches(regex));       // true
+        System.out.println("rambina1.1alfons@drlue.at".matches(regex));     // true
+        System.out.println("1rambina1.alfons@drlue.at".matches(regex));     // false
+        System.out.println("@drlue.at".matches(regex));                     // false
+        System.out.println("drlue.at".matches(regex));                      // false
+        System.out.println("asdf@drlue".matches(regex));                    // false
+
+        // von Matthias: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
     }
 }
