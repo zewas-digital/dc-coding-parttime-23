@@ -19,7 +19,7 @@ public class Strings_5_Tabelle {
 
     public static void main(String[] args) {
 
-        String[][] tabelle = new String[6][6];
+        String[][] tabelle = new String[firstName.length+1][6];
 
         //for (int i = 0; i <100; i++) {
         //    System.out.print ( "_");

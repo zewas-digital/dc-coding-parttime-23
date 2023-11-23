@@ -1,4 +1,4 @@
-package oliver.week11_strings;
+package saifedine.week11_strings.oliver;
 
 /*
 Aufgabe: Daten tabellarisch darstellen
@@ -16,9 +16,13 @@ public class Strings_5_Tabelle {
     static int minLength = 18;
 
     public static void main(String[] args) {
+
+        // Kopfzeile befüllen
         String[] headline = {"Vorname", "Nachname", "Alter", "Ort", "km bis Wien"};
 
+        // Kopfzeile ausdrucken
         printRow(headline);
+
         printDivider(headline.length);
 
         for (int i = 0; i < headline.length; i++) {
@@ -32,19 +36,9 @@ public class Strings_5_Tabelle {
 
             printRow(row);
         }
-        printDivider(headline.length);
-
-        // alternative
-        for (int i = 0; i < headline.length; i++) {
-            printCell(firstName[i]);
-            printCell(lastName[i]);
-            printRightJustifiedCell(Integer.toString(age[i]));
-            printCell(place[i]);
-            printRightJustifiedCell(distanceFromCapital[i]);
-            System.out.println();
-        }
     }
 
+    // Ausdruck Zeilen mit Foreach und Übergabe an printCell-Methode
     public static void printRow(String[] row) {
         for (String content : row) {
             printCell(content);
@@ -53,29 +47,27 @@ public class Strings_5_Tabelle {
     }
 
     private static void printCell(String content) {
-        printCell(content, "| ");
+        printCell(content, "|");
     }
 
     private static void printCell(String content, String divider) {
         int contentLength = content.length();
-        // Fülle den Zelleninhalt mit Leerzeichen als Platzhaltern auf
-        System.out.print(content + " ".repeat(minLength - contentLength) + divider);
+
+        System.out.print(" " + content + " ".repeat(minLength - contentLength) + divider);
     }
 
-    private static void printRightJustifiedCell(String content) {
-        // Schreibe einen Formatierten rechtsbündigen String mit einer gegebenen Anzahl Zeichen
-        // Beispiele unter https://www.baeldung.com/java-printstream-printf
-        System.out.printf("%" + (minLength-1) + "s | ", content);
-    }
-    private static void printRightJustifiedCell(float number) {
-        // Schreibe eine formatierte Zahl mit definierter Anzahl Zeichen und Dezimalstellen
-        System.out.printf("%" + (minLength-1) + ".2f | ", number);
-    }
 
+    // Ausdruck der Rahmenlinie unter Kopfzeile
+    // cell entspricht headline.length = 5
+    //
     public static void printDivider(int cells) {
         for (int i = 0; i < cells; i++) {
-            printCell("-".repeat(minLength), "+-");
+            printCell("-".repeat(minLength), "+");
         }
         System.out.println();
     }
+
+
+
+
 }
