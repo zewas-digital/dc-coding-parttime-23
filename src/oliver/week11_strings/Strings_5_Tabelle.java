@@ -35,8 +35,8 @@ public class Strings_5_Tabelle {
     }
 
     public static void printRow(String[] row) {
-        for (String s : row) {
-            printCell(s);
+        for (String content : row) {
+            printCell(content);
         }
         System.out.println();
     }
