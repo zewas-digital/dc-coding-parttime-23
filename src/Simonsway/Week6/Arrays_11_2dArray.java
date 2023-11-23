@@ -8,16 +8,14 @@ Frage dazu die Längen der Dimensionen vom Anwender ab.
 Gib die Summe pro Zeile oder pro Spalte aus.
  */
 
-import Simonsway.methods.array_Methods;
-
-import java.util.Arrays;
+import Simonsway.methods.Array_Methods;
 
 
 public class Arrays_11_2dArray {
 
     public static void main(String[] args) {
 
-        int[][] array = array_Methods.createTwoDimensionRandomArrayWithUserInput(10, 99);
+        int[][] array = Array_Methods.createTwoDimensionRandomArrayWithUserInput(10, 99);
 
         // int lines = 5; könnte das auch unten verwenden anstatt array
         // int columns = 5;

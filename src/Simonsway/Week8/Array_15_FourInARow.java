@@ -8,6 +8,7 @@ Gewinner ist der Spieler, der es als erster schafft, vier oder mehr seiner Spiel
 Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne dass ein Spieler eine Viererlinie gebildet hat.
  */
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,10 +23,6 @@ public class Array_15_FourInARow {
                           {' ', ' ', ' ', ' ', ' ', ' ', ' '},
                           {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 
-        // Wenn ich jetzt bei Colum 4 eine Münze platziere, dann muss diese in der Row nach unten gehen solange nicht beseetzt!
-
-
-
         printBoard(board);
 
         while (true) {
@@ -38,18 +35,64 @@ public class Array_15_FourInARow {
             printBoard(board);
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private static boolean checkWinner(char[][] board, char symbol) {
 
-    private static boolean whoHasWon(char[][] board, char symbol){
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
+                // Check horizontal
+                if (symbol != ' ' && col + 3 < board[row].length &&
+                        board[row][col] == symbol && board[row][col + 1] == symbol &&
+                        board[row][col + 2] == symbol && board[row][col + 3] == symbol) {
+                    return true;
+                }
+                // Check vertical
+                if (symbol != ' ' && row + 3 < board.length &&
+                        board[row][col] == symbol && board[row + 1][col] == symbol &&
+                        board[row + 2][col] == symbol && board[row + 3][col] == symbol) {
+                    return true;
+                }
+            }
+        }
+        for (int row = 0; row < board.length - 3; row++) {
+            for (int col = 0; col < board[row].length - 3; col++) {
+                if (symbol != ' ' && board[row][col] == symbol &&
+                        board[row + 1][col + 1] == symbol &&
+                        board[row + 2][col + 2] == symbol &&
+                        board[row + 3][col + 3] == symbol) {
+                    return true;
+                }
+            }
+        }
 
-
-
+        for (int row = 0; row < board.length - 3; row++) {
+            for (int col = 3; col < board[row].length; col++) {
+                if (symbol != ' ' && board[row][col] == symbol &&
+                        board[row + 1][col - 1] == symbol &&
+                        board[row + 2][col - 2] == symbol &&
+                        board[row + 3][col - 3] == symbol) {
+                    return true;
+                }
+            }
+        }
 
         return false;
+
     }
-
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static boolean isGameFinished(char[][] board){
+
+        if (checkWinner(board, 'X')){
+            printBoard(board);
+            System.out.println("PlayerWins");
+            return true;
+        }
+
+        if (checkWinner(board, 'O')){
+            printBoard(board);
+            System.out.println("PlayerWins");
+            return true;
+        }
 
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
@@ -90,7 +133,6 @@ public class Array_15_FourInARow {
             }
         }
         placeTurn(board, userInput, 'X');
-
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void placeTurn(char[][] board, String position, char symbol) {
@@ -127,13 +169,17 @@ public class Array_15_FourInARow {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static void printBoard(char[][] board) {
-        System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2] + "|" + board[0][3] + "|" + board[0][4] + "|" + board[0][5] + "|" + board[0][6]);
-        System.out.println(board[1][0] + "|" + board[1][1] + "|" + board[1][2] + "|" + board[1][3] + "|" + board[1][4] + "|" + board[1][5] + "|" + board[1][6]);
-        System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2] + "|" + board[2][3] + "|" + board[2][4] + "|" + board[2][5] + "|" + board[2][6]);
-        System.out.println(board[3][0] + "|" + board[3][1] + "|" + board[3][2] + "|" + board[3][3] + "|" + board[3][4] + "|" + board[3][5] + "|" + board[3][6]);
-        System.out.println(board[4][0] + "|" + board[4][1] + "|" + board[4][2] + "|" + board[4][3] + "|" + board[4][4] + "|" + board[4][5] + "|" + board[4][6]);
-        System.out.println(board[5][0] + "|" + board[5][1] + "|" + board[5][2] + "|" + board[5][3] + "|" + board[5][4] + "|" + board[5][5] + "|" + board[5][6]);
-        System.out.println(board[6][0] + "|" + board[6][1] + "|" + board[6][2] + "|" + board[6][3] + "|" + board[6][4] + "|" + board[6][5] + "|" + board[6][6]);
+
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
+                System.out.print(board[row][col]);
+                if (col < board[row].length - 1)
+                    System.out.print("|");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
     }
 
 }

@@ -12,5 +12,25 @@ Willkommen zum Zufallsshuffle Programm
 lolHa
  */
 
+import java.util.Scanner;
+
 public class Strings_3_Randomize {
+    public static Scanner scanner = new Scanner( System.in );
+    public static void main( String[] args ) {
+        System.out.println( " Willkommen zum Reverseprogramm " );
+        String Wort = scanner.nextLine();
+        char[] charArray= Wort.toCharArray();
+        printcharArray(  charArray);
+        printreversecharArray(charArray);
+    }
+
+    private static void printcharArray(char[] charArray) {
+    }
+
+    static public void printreversecharArray(char[] array){
+        System.out.println(  );
+        for (int i = array.length-1;  i >= 0; i--) {
+            System.out.print(array[i] + " ");
+        }
+    }
 }
