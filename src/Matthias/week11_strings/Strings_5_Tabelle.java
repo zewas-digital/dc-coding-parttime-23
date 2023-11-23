@@ -43,25 +43,35 @@ public class Strings_5_Tabelle {
         // Aufruf der float to String-> Methode 2
         Array2=floatToString( distanceFromCapital );
         // floatToString( distanceFromCapital);
-
+        System.out.println( "Weg 1: " );
         for (int i = 0; i < arraylenth; i++) {
-            System.out.println(
-                    "Zeile"+":"+" "
-                    + Array1[i]+" "
-                    + place[i]+" "
-                    + Array2[i]+" "
-                    + place[i]+" "
+            System.out.println( "Zeile" +":"+" "
+                    + firstName[i]  +   " "
+                    + lastName[i]   +   " "
+                    + Array1[i]     +   " "
+                    + place[i]      +   " "
+                    + Array2[i]     +   " "
                     +distanceFromCapital[i]);
+        }
+        System.out.println( "Weg 2: " );
+            System.out.printf( "Zeile"+":"+" "
+                    + Arrays.toString( firstName ) + " "
+                    + Arrays.toString( lastName)  + " "
+                    + Arrays.toString( Array1 ) + " "
+                    + Arrays.toString( place )  + " "
+                    + Arrays.toString( distanceFromCapital ));
 
+            System.out.println( "Weg 3: " );
+        for (int i = 0; i < arraylenth; i++) {
+            System.out.printf( "Zeile"+":"+" "
+                    + printrow( firstName  ) + " "
+                    + printrow( lastName)  + " "
+                    + printrow( Array1 ) + " "
+                    + printrow( place )  + " "
+                    + printrow(Array2)
+            );
         }
 
-
-            System.out.printf( "Zeile"+":"+" "
-                    + Arrays.toString( Array1 ) + " "
-                    + Arrays.toString( place ) + " "
-                    + Arrays.toString( Array2 ) + " "
-                    + Arrays.toString( place ) + " "
-                    + Arrays.toString( distanceFromCapital ));
 
 
 
@@ -84,5 +94,11 @@ public class Strings_5_Tabelle {
         }
         return Array;
     }
+    public static String printrow( String[] Array){
+        for (String Wort:Array) {
+            return Wort;
+        }
 
+        return null;
+    }
 }
