@@ -63,6 +63,14 @@ public class Strings_6_RegExpressions {
         );
         System.out.println("-".repeat(32));
 
+        // Beispiel 4 -------------------
+        String sample4 = "1xBeispiel!4";
+        System.out.println(
+                "Das Wort \"1xBeispiel!4\" besteht aus mindestens einem Klein- und Groß-Buchstaben, einem Rufzeichen und einer Zahl: " +
+                        sample4.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*!).+$")
+        );
+        System.out.println("-".repeat(32));
+
         // Aufgabe -------------------
         String regex = "[richtiger Regex hier]";
         System.out.println("rambina.alfons@drlue.at".matches(regex));
