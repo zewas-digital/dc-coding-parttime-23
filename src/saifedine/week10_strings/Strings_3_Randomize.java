@@ -10,7 +10,32 @@ Ausgabe
 Willkommen zum Zufallsshuffle Programm
 >>>Hallo
 lolHa
+
+Gemeinsam mit Oliver die Version von Matthias bearbeitet!
  */
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Strings_3_Randomize {
+
+    public static void main(String[] args) {
+
+        //String text = "Hallo";
+
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Geben Sie ein Wort ein: ");
+        String text = userInput.next();
+
+
+        // String zu Array konvertiert
+        char[] charArray = text.toCharArray();
+        System.out.println("Array-Ausgabe: " + Arrays.toString(charArray));
+
+        // Array zu String konvertiert
+        text = new String(charArray);
+        System.out.println("String-Ausgabe: " + text);
+
+
+    }
 }

@@ -38,7 +38,7 @@ public class Arrays_14_TicTacToe {
             // gültige Benutzer-Eingabe
             int nextField = getUserInput(fields, currentPlayer) - 1;
 
-            //System.out.println(nextField +".."+ (nextField / 3) +".."+ (nextField % 3));
+            System.out.println(nextField +".."+ (nextField / 3) +".."+ (nextField % 3));
 
             // Feld befüllen
             fields[nextField / 3][nextField % 3] = currentPlayer;
@@ -73,15 +73,19 @@ public class Arrays_14_TicTacToe {
             if (i > 0) {
                 System.out.println("-----|-----|-----");
             }
-            // Warum wird es 9 mal ausgegeben, statt 2 mal wie oben
+
+            // Warum wird es 9 mal ausgegeben,
             System.out.println("     |     |     ");
-            // warum fields[i].length und nicht fields.length
+
+            // warum fields[i].length und nicht fields[j].length
             for (int j = 0; j < fields[i].length; j++) {
                 if (j > 0) {
                     System.out.print("|");
                 }
+                // falls die Eingabe größer 0, dann befülle mit Symbol
                 if (fields[i][j] > 0) {
                     System.out.print(symbol[fields[i][j]]);
+                // was macht das?
                 } else {
                     System.out.printf("  %1d  ", (3 * i + j + 1));
                 }
