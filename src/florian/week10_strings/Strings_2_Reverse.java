@@ -32,11 +32,10 @@ public class Strings_2_Reverse {
                 sortieren = characterArray[j];
                 characterArray[j] = characterArray[j + 1];
                 characterArray[j + 1] = sortieren;
-                System.out.println(i + Arrays.toString(characterArray));
+                System.out.println("Schleife: " + i + " " + Arrays.toString(characterArray));
             }
-
         }
-
+        System.out.println("Reverse: " + Arrays.toString(characterArray));
     }
 }
 
