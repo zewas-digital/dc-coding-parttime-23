@@ -40,7 +40,7 @@ public class Strings_5_Tabelle {
             printCell(lastName[i]);
             printRightJustifiedCell(Integer.toString(age[i]));
             printCell(place[i]);
-            printRightJustifiedCell(Float.toString(distanceFromCapital[i]));
+            printRightJustifiedCell(distanceFromCapital[i]);
             System.out.println();
         }
     }
@@ -58,12 +58,18 @@ public class Strings_5_Tabelle {
 
     private static void printCell(String content, String divider) {
         int contentLength = content.length();
-
+        // Fülle den Zelleninhalt mit Leerzeichen als Platzhaltern auf
         System.out.print(content + " ".repeat(minLength - contentLength) + divider);
     }
 
     private static void printRightJustifiedCell(String content) {
+        // Schreibe einen Formatierten rechtsbündigen String mit einer gegebenen Anzahl Zeichen
+        // Beispiele unter https://www.baeldung.com/java-printstream-printf
         System.out.printf("%" + (minLength-1) + "s | ", content);
+    }
+    private static void printRightJustifiedCell(float number) {
+        // Schreibe eine formatierte Zahl mit definierter Anzahl Zeichen und Dezimalstellen
+        System.out.printf("%" + (minLength-1) + ".2f | ", number);
     }
 
     public static void printDivider(int cells) {
