@@ -23,14 +23,14 @@ public class Strings_4_Zaehlen {
             String text = data.Texts.getSimpleText();
 
             // Ein Array mit 128 Elementen für alle ASCII-Zeichen
-            int[] zeichenZaehler = new int[128];
+            int[] zeichenZaehler = new int[10000];
 
             // Durch den Text iterieren und die Zeichen zählen
             for (char zeichen : text.toCharArray()) {
                 // Zähler für das entsprechende Zeichen erhöhen
-               if (zeichen < 128) {
+               //if (zeichen < 10000) {
                    zeichenZaehler[zeichen]++;
-               }
+              // }
             }
 
             // Die Ergebnisse ausgeben
