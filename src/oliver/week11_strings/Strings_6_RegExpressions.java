@@ -14,7 +14,7 @@ Aufruf          System.out.println("rambina.alfons@drlue.at".matches(regex));   
 
 Aufruf          System.out.println("rambina1.1alfons@drlue.at".matches(regex));          Ausgabe          true
 
-Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          true
 
 Aufruf          System.out.println("@drlue.at".matches(regex));          Ausgabe          false
 
