@@ -32,28 +32,49 @@ public class Strings_5_Tabelle {
 
             printRow(row);
         }
+        printDivider(headline.length);
+
+        // alternative
+        for (int i = 0; i < headline.length; i++) {
+            printCell(firstName[i]);
+            printCell(lastName[i]);
+            printRightJustifiedCell(Integer.toString(age[i]));
+            printCell(place[i]);
+            printRightJustifiedCell(distanceFromCapital[i]);
+            System.out.println();
+        }
     }
 
     public static void printRow(String[] row) {
-        for (String s : row) {
-            printCell(s);
+        for (String content : row) {
+            printCell(content);
         }
         System.out.println();
     }
 
     private static void printCell(String content) {
-        printCell(content, "|");
+        printCell(content, "| ");
     }
 
     private static void printCell(String content, String divider) {
         int contentLength = content.length();
+        // Fülle den Zelleninhalt mit Leerzeichen als Platzhaltern auf
+        System.out.print(content + " ".repeat(minLength - contentLength) + divider);
+    }
 
-        System.out.print(" " + content + " ".repeat(minLength - contentLength) + divider);
+    private static void printRightJustifiedCell(String content) {
+        // Schreibe einen Formatierten rechtsbündigen String mit einer gegebenen Anzahl Zeichen
+        // Beispiele unter https://www.baeldung.com/java-printstream-printf
+        System.out.printf("%" + (minLength-1) + "s | ", content);
+    }
+    private static void printRightJustifiedCell(float number) {
+        // Schreibe eine formatierte Zahl mit definierter Anzahl Zeichen und Dezimalstellen
+        System.out.printf("%" + (minLength-1) + ".2f | ", number);
     }
 
     public static void printDivider(int cells) {
         for (int i = 0; i < cells; i++) {
-            printCell("-".repeat(minLength), "+");
+            printCell("-".repeat(minLength), "+-");
         }
         System.out.println();
     }

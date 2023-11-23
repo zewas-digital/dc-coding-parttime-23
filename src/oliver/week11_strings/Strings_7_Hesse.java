@@ -16,9 +16,18 @@ Verwende die replace() Funktion.
 import data.Texts;
 
 public class Strings_7_Hesse {
-    String text = Texts.HESSE;
+    static String text = Texts.HESSE;
 
     public static void main(String[] args) {
+        String sampleText = "Die ersten ersten beiden Vorkommnisse sind.";
+        System.out.println(sampleText.indexOf("ersten"));
+        System.out.println(sampleText.indexOf("ersten", 4));
+        System.out.println(sampleText.indexOf("ersten", 4+1));
 
+        // ansatz 1 .. an welchen stellen
+        int firstIndex = text.indexOf("Hesse");
+        int secondIndex = text.indexOf("Hesse", firstIndex +1);
+
+        System.out.println("Die ersten beiden Vorkommnisse sind: "+ firstIndex +" und "+ secondIndex);
     }
 }
