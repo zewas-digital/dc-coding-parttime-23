@@ -1,4 +1,4 @@
-package Matthias.week10_arrays;
+package Matthias.week10_strings;
 /*
 Programmiere das Spiel TicTacToe.
 
@@ -12,7 +12,6 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Array_14_TicTacToe {
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};

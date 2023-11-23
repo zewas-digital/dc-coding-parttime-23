@@ -1,4 +1,4 @@
-package Matthias.week10_arrays;
+package Matthias.week10_strings;
 
 /*
 Aufgabe: Bubblesort mit Strings
@@ -14,8 +14,6 @@ Sortiere die Namen lexikographisch absteigend (Descending)
 
 Tip.: Strings können mit der Instanz Methode compareTo der String Klasse verglichen werden: "a".compareTo("b")
  */
-
-import Matthias.week5_arrays.Array_8_Bubblesort;
 
 import java.util.Arrays;
 
