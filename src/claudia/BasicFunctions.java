@@ -8,7 +8,18 @@ import java.util.Scanner;
 public class BasicFunctions {
 
     public static void main(String[] args) {
-        System.out.println(readInt("Gib etwas ein!"));
+        System.out.print("5 Leerzeichen:");
+        printBlanks(5);
+        System.out.println("!");
+        System.out.print("10 Leerzeichen:");
+        printBlanks(10);
+        System.out.println("!");
+    }
+
+    public static void printBlanks(int n){
+        for (int i = 0; i < n; i++) {
+            System.out.print(" ");
+        }
     }
 
     public static int[] createRandom1DArray(int size) {

@@ -1,4 +1,4 @@
-package oliver.week10_strings;
+package volkan.week10_strings;
 
 import java.util.Scanner;
 
@@ -35,4 +35,3 @@ public class Strings_2_Reverse {
         System.out.println("Das umgedrehte Wort lautet: " + new String(chars));
     }
 }
-

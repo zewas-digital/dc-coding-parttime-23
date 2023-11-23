@@ -24,22 +24,76 @@ public class Arrays_16_GameOfLife {
     //public static int[][] playingfield = GameOfLife.GLEITER;
     //public static int[][] playingfield = GameOfLife.PULSATOR;
     public static int[][] playingfield = createRandom2DArray(20, 30);
+    public static boolean torus = true;
 
 
     public static void main(String[] args) {
-        System.out.println("Game of Life, Torusgeometrie");
-        BasicFunctions.print2DArrayOfChars(playingfieldToChar());
-        for (int i = 0; i < 10000; i++) {
-            nextStep();
+        if (torus) {
+            //TORUSGEOMETRIE!
+
             BasicFunctions.print2DArrayOfChars(playingfieldToChar());
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            for (int i = 0; i < 10000; i++) {
+                nextStep();
+                BasicFunctions.print2DArrayOfChars(playingfieldToChar());
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        else {
+            //KEINE TORUSGEOMETRIE
+            //Setze Ränder auf 1 d.h. "lebendig", ganzen Rest auf 0, d.h. "tot"
+            /*for (int i = 0; i < numberOfRows; i++) {
+                for (int j = 0; j < numberOfColumns; j++) {
+                    if (i == 0 || i == numberOfRows - 1 || j == 0 || j == numberOfColumns - 1){
+                        playingfield[i][j] = 1;
+                    }
+                    else playingfield[i][j] = 0;
+                }
+
+            }*/
+            //Setze Ränder auf 0, d.h. "tot", Rest zufällig
+            for (int i = 0; i < numberOfRows; i++) {
+                for (int j = 0; j < numberOfColumns; j++) {
+                    if (i == 0 || i == numberOfRows - 1 || j == 0 || j == numberOfColumns - 1) {
+                        playingfield[i][j] = 0;
+                    }
+                }
+
+            }
+
+            BasicFunctions.print2DArrayOfChars(playingfieldToChar());
+            for (int i = 0; i < 10000; i++) {
+                nextStepNotToric();
+                BasicFunctions.print2DArrayOfChars(playingfieldToChar());
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
 
+    public static void nextStepNotToric(){
+        //lasse Ränder unberücksichtigt auf 1
+        for (int i = 1; i < numberOfRows - 1; i++) {
+            for (int j = 1; j < numberOfColumns - 1; j++) {
+                next[i][j] = sumOfNeighbours(i, j);
+            }
+        }
+        for (int i = 1; i < numberOfRows - 1; i++) {
+            for (int j = 1; j < numberOfColumns - 1; j++) {
+                if (next[i][j] == 2 && playingfield[i][j] == 1) playingfield[i][j] = 1;
+                else if (next[i][j] == 3) playingfield[i][j] = 1;
+                else playingfield[i][j] = 0;
+
+            }
+
+        }
+    }
     public static void nextStep(){
         for (int i = 0; i < numberOfRows; i++) {
             for (int j = 0; j < numberOfColumns; j++) {
