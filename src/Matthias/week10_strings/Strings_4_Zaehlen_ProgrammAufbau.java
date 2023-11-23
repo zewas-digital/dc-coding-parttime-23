@@ -1,4 +1,4 @@
-package Matthias.week10_arrays;
+package Matthias.week10_strings;
 
 /*
 Aufgabe: Buchstaben zählen
@@ -17,7 +17,7 @@ C: 1
 ...
  */
 
-public class Strings_4_Zaehlen {
+public class Strings_4_Zaehlen_ProgrammAufbau {
     public static void main(String[] args) {
         // text
         // sout: countOfChar('M')
