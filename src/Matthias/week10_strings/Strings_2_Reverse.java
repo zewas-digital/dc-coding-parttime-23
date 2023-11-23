@@ -1,6 +1,5 @@
-package Matthias.week10_arrays;
+package Matthias.week10_strings;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
