@@ -32,6 +32,17 @@ public class Strings_5_Tabelle {
 
             printRow(row);
         }
+        printDivider(headline.length);
+
+        // alternative
+        for (int i = 0; i < headline.length; i++) {
+            printCell(firstName[i]);
+            printCell(lastName[i]);
+            printRightJustifiedCell(Integer.toString(age[i]));
+            printCell(place[i]);
+            printRightJustifiedCell(Float.toString(distanceFromCapital[i]));
+            System.out.println();
+        }
     }
 
     public static void printRow(String[] row) {
@@ -42,18 +53,22 @@ public class Strings_5_Tabelle {
     }
 
     private static void printCell(String content) {
-        printCell(content, "|");
+        printCell(content, "| ");
     }
 
     private static void printCell(String content, String divider) {
         int contentLength = content.length();
 
-        System.out.print(" " + content + " ".repeat(minLength - contentLength) + divider);
+        System.out.print(content + " ".repeat(minLength - contentLength) + divider);
+    }
+
+    private static void printRightJustifiedCell(String content) {
+        System.out.printf("%" + (minLength-1) + "s | ", content);
     }
 
     public static void printDivider(int cells) {
         for (int i = 0; i < cells; i++) {
-            printCell("-".repeat(minLength), "+");
+            printCell("-".repeat(minLength), "+-");
         }
         System.out.println();
     }
