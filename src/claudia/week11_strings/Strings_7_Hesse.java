@@ -21,19 +21,27 @@ public class Strings_7_Hesse {
 
     public static void main(String[] args) {
         //How many occurrences of "Hesse"?
+        String test = "*".repeat(10);
+        System.out.println(test);
         int counter = 0;
         int index = 0;
         System.out.println("\n\nDas Wort \"Hesse\" erscheint an folgenden Stellen: ");
 
         while (index >= 0) {
             index = text.indexOf("Hesse", index + 1);
-            counter++;
-            if (index >= 0) System.out.print(index + ", ");
+
+            if (index >= 0) {
+                System.out.print(index + ", ");
+                counter++;
+            }
         }
         System.out.println("insgesamt " + counter + " mal.");
 
+
         //Number of occurrences per line?
         //replace "Hesse" by "HESSE" and print on console
+        System.out.println("Ersetze \"Hesse\" durch \"HESSE\":");
+        System.out.println(text.replaceAll("Hesse", "HESSE"));
 
 
     }
