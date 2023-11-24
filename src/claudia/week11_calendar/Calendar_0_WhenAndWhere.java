@@ -19,7 +19,6 @@ public class Calendar_0_WhenAndWhere {
     public static void main(String[] args) {
 
         Calendar c = Calendar.getInstance();
-        //System.out.println(c.toString());
 
         System.out.println("\nHeutiges Datum: " + convertNumberToDoubleDigit(c.get(Calendar.DAY_OF_MONTH)) + "." + convertNumberToDoubleDigit(c.get(Calendar.MONTH) + 1) + "." + c.get(Calendar.YEAR));
         System.out.println("Aktuelle Uhrzeit: " + convertNumberToDoubleDigit(c.get(Calendar.HOUR_OF_DAY)) + ":" + convertNumberToDoubleDigit(c.get(Calendar.MINUTE)) + ":" + convertNumberToDoubleDigit(c.get(Calendar.SECOND)) + " h");
@@ -28,6 +27,7 @@ public class Calendar_0_WhenAndWhere {
 
 
         for (int i = 0; i < 10; i++) {
+            c = Calendar.getInstance();
             System.out.println("Zeit mit Millisekunden: " + convertNumberToDoubleDigit(c.get(Calendar.HOUR_OF_DAY)) + ":" + convertNumberToDoubleDigit(c.get(Calendar.MINUTE)) + ":" + convertNumberToDoubleDigit(c.get(Calendar.SECOND)) + ":" + convertNumberTripleDigit(c.get(Calendar.MILLISECOND)) + " h" ) ;
             try {
                 Thread.sleep(100);
