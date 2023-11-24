@@ -7,6 +7,49 @@ public class Calendar_intro {
 
     public static void main(String[] args) {
 
+        /*
+
+        24.11.2023
+        11.24.
+        11-24
+
+         */
+
+        Date today = new Date();
+
+        System.out.println(today);
+        System.out.println(today.getTime());
+        long seconds = today.getTime() / 1000;
+        long minutes = seconds / 60;
+        long hours = minutes / 60;
+        long days = hours / 24;
+        long months = days / 30;
+        long years = months / 12;
+
+        System.out.println(years);
+
+        Calendar c = Calendar.getInstance();
+
+        System.out.println(c);
+
+        System.out.println(c.getTime());
+        System.out.println(c.getTimeInMillis());
+
+
+        System.out.println(c.get(Calendar.MONTH));
+
+
+
+
+
+
+
+
+
+
+
+        /*
+
         // Date Documentation: https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
         Date d = new Date();
         System.out.println(d);
@@ -20,8 +63,9 @@ public class Calendar_intro {
         System.out.println(c.get(Calendar.MILLISECOND));
         c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), 1);
         System.out.println(c.getTime());
+        System.out.println(c.getTimeInMillis());
         System.out.println((c.get(Calendar.DAY_OF_WEEK)));
-
+*/
 
     }
 }
