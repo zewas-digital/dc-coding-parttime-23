@@ -7,9 +7,7 @@ Erstelle ein Programm, das den Anwender nach seinem Geburtstag fragt und mit Hil
  */
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Calendar_1_MyBirthday {
