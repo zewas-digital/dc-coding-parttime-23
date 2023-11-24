@@ -7,7 +7,7 @@ Erstelle einen schönen tabellarischen Ausgabe aus den folgenden Arrays:
 Denke daran, dass eine Tabelle eine Kopfzeile und Trennzeichen haben kann.
  */
 
-public class Strings_5_Tabelle {
+public class Strings_5_Tabelle_v1 {
     static String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
     static String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
     static int[] age = {40, 78, 5, 18, 81};
