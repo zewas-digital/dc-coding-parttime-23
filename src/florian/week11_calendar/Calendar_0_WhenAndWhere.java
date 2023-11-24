@@ -23,11 +23,11 @@ public class Calendar_0_WhenAndWhere {
         System.out.println("The Current Date is: " + c.getTime());
         System.out.println("Year: " + c.get(Calendar.YEAR));
 
-        System.out.println("The current Date is: " + c.get(DATE));
+        System.out.println("The Current Date is: " + dateFormat.format(c.getTime()));
 
         System.out.println("The Current Time is: " + c.get(HOUR_OF_DAY) + ":" + c.get(MINUTE) + ":" + c.get(SECOND));
 
-        System.out.println(dateFormat.format(c.getTime()) + " " + c.get(HOUR_OF_DAY) + ":" + c.get(MINUTE) + ":" + c.get(SECOND));
+        System.out.println("The Current Date and Time: " + dateFormat.format(c.getTime()) + " " + c.get(HOUR_OF_DAY) + ":" + c.get(MINUTE) + ":" + c.get(SECOND));
 
 
     }
