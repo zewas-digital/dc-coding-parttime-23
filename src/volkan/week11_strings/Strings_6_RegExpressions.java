@@ -1,4 +1,4 @@
-package volkan;
+package volkan.week11_strings;
 
 /*
 Aufgabe: Email Regex aka. Regbert
