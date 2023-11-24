@@ -24,20 +24,32 @@ public class Strings_5_Tabelle {
 
     public static void main(String[] args) {
 
+                /*
         // Ausgabe Kopfzeile
         System.out.println("firstname, " + "lastName, " + "age, " + "place, " + "distanceFromCapital");
 
         // Ermittlung der Array length
         //System.out.println(firstName.length);
 
-/*
         for (String s : firstName) {
             System.out.println(s);
         }
- */
+
         for (int i = 0; i < firstName.length; i++) {
             System.out.println(firstName[i] + " | " + lastName[i] + " | " + age[i] + " | " + place[i] + " | " + distanceFromCapital[i]);
         }
+    }
+    */
+
+        int minLength = 18;
+
+        String[] headline = {"Vorname", "Nachname", "Alter", "Ort", "km bis Wien"};
+
+        for (String s : headline) {
+            System.out.print(s);
+        }
+
 
     }
+
 }
