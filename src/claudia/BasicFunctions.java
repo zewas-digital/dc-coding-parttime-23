@@ -112,7 +112,7 @@ public class BasicFunctions {
      * @return the given input or -1, if wrong type is given
      */
     public static int readInt(String message){
-        System.out.println(message);
+        System.out.print(message);
         Scanner sc = new Scanner(System.in);
         int input = -1;
         try{
