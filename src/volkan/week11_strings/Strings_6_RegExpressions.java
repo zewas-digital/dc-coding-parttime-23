@@ -1,4 +1,4 @@
-package michael_k.week11;
+package volkan.week11_strings;
 
 /*
 Aufgabe: Email Regex aka. Regbert
@@ -27,7 +27,7 @@ Aufruf          System.out.println("asdf@microsoft.c".matches(regex));          
 public class Strings_6_RegExpressions {
 
     public static void main(String[] args) {
-        //Beispiel 1 -------------------
+        // Beispiel 1 -------------------
         String sample = "Beispiel";
         System.out.println(
                 "Das Wort \"Beispiel\" besteht aus Groß- und/oder Kleinbuchstaben: " +
@@ -64,29 +64,7 @@ public class Strings_6_RegExpressions {
         System.out.println("-".repeat(32));
 
         // Aufgabe -------------------
-        // String regex = "[richtiger Regex hier]";
-        //System.out.println("rambina.alfons@drlue.at".matches(regex));
-
-        String eMail = "michael.koenig1192@gmail.com";
-
-        eMail.matches ( "^[a-zA-Z0-9.]+@[a-zA-Z].[a-z0-9-]+");
-        eMail.matches ( "^[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]@[a-zA-Z]");
-
-        System.out.println (eMail.matches ( "^[a-zA-Z0-9.]+@[a-z0-9-]+.[a-z]+"));
-        System.out.println (eMail.matches ( "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-][a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{1,254}+@[a-z0-9-]{1,63}+.[a-z]+"));
-        System.out.println ( );
-
-        System.out.println ("alfons@drlue.at".matches("^[a-z]+@[a-z]+.[a-z]+"));
-        System.out.println ("rambina.alfons@drlue.at".matches("^[a-z.]+@[a-z]+.[a-z]+") );
-        System.out.println ("rambina1.1alfons@drlue.at".matches("^[a-z0-9.]+@[a-z0-9]+.[a-z]+") );
-        System.out.println ("1rambina1.alfons@drlue.at".matches("^[a-z0-9.]+@[a-z]+.[a-z]+") );
-        System.out.println ("@drlue.at".matches("^@[a-z]+.[a-z]+"));
-        System.out.println ("drlue.at".matches("^[a-z]+.[a-z]+"));
-        System.out.println ("asdf@drlue".matches("^[a-z]+@[a-z]+") );
-        System.out.println ("asdf@microsoft.c".matches("^[a-z]+@[a-z]+.[a-z]") );
-
+        String regex = "[richtiger Regex hier]";
+        System.out.println("rambina.alfons@drlue.at".matches(regex));
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-package volkan;
+package Simonsway.Week11;
 
 /*
 Aufgabe: Email Regex aka. Regbert
@@ -8,21 +8,21 @@ String regex = "[richtiger Regex hier]";
 
 Beispiele:
 
-Aufruf          System.out.println("alfons@drlue.at".matches(regex));          Ausgabe          true
+Aufruf          System.out.println("alfons@drlue.at".matches(regex));                  Ausgabe          true
 
 Aufruf          System.out.println("rambina.alfons@drlue.at".matches(regex));          Ausgabe          true
 
-Aufruf          System.out.println("rambina1.1alfons@drlue.at".matches(regex));          Ausgabe          true
+Aufruf          System.out.println("rambina1.1alfons@drlue.at".matches(regex));        Ausgabe          true
 
-Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));        Ausgabe          true
 
-Aufruf          System.out.println("@drlue.at".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("@drlue.at".matches(regex));                        Ausgabe          false
 
-Aufruf          System.out.println("drlue.at".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("drlue.at".matches(regex));                         Ausgabe          false
 
-Aufruf          System.out.println("asdf@drlue".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("asdf@drlue".matches(regex));                       Ausgabe          false
 
-Aufruf          System.out.println("asdf@microsoft.c".matches(regex));          Ausgabe          false
+Aufruf          System.out.println("asdf@microsoft.c".matches(regex));                 Ausgabe          false
  */
 public class Strings_6_RegExpressions {
 
@@ -63,8 +63,19 @@ public class Strings_6_RegExpressions {
         );
         System.out.println("-".repeat(32));
 
+
         // Aufgabe -------------------
-        String regex = "[richtiger Regex hier]";
+
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2}$";
+        // Alles in eckigen klammern kann muss aber nicht, alles ausserhalb muss, zweimal backslash \\. bedeuted muss ein punkt enthalten zwei am schluss sagt mindestens zwei Zeichen
+
+        System.out.println("alfons@drlue.at".matches(regex));
         System.out.println("rambina.alfons@drlue.at".matches(regex));
+        System.out.println("rambina1.1alfons@drlue.at".matches(regex));
+        System.out.println("1rambina1.alfons@drlue.at".matches(regex));
+        System.out.println("@drlue.at".matches(regex));
+        System.out.println("drlue.at".matches(regex));
+        System.out.println("asdf@drlue".matches(regex));
+        System.out.println("asdf@microsoft.c".matches(regex));
     }
 }

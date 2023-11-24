@@ -1,4 +1,4 @@
-package marcelsimma.week11_calendar;
+package florian.week11_calendar;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -35,9 +35,8 @@ public class Calendar_intro {
         System.out.println(c.getTime());
         System.out.println(c.getTimeInMillis());
 
-        c.setTimeInMillis(-1239911110);
 
-        System.out.println(c.getTime());
+        System.out.println(c.get(Calendar.MONTH));
 
 
 
