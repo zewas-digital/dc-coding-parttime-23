@@ -4,7 +4,7 @@ package Matthias.week11_weekend_calender;
 
 Aufgabe: When and Where
 Erstelle ein Programm, das das aktuelle Datum und Uhrzeit ausgibt.
-Verwende 3 verschiedene ToString() und erstelle eine 3 Zeilige Ausgabe:
+OPTIONAL von Marcel Kommuniziert! Verwende 3 verschiedene ToString() und erstelle eine 3 Zeilige Ausgabe:
 
     . Zeile --> Nur das Datum
     . Zeile --> Nur die Uhrzeit
