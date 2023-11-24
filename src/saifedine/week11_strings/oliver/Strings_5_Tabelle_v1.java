@@ -1,15 +1,13 @@
-package florian.week11_strings;
+package saifedine.week11_strings.oliver;
 
 /*
 Aufgabe: Daten tabellarisch darstellen
-Erstelle eine schöne tabellarische Ausgabe aus den folgenden Arrays:
+Erstelle einen schönen tabellarischen Ausgabe aus den folgenden Arrays:
 
 Denke daran, dass eine Tabelle eine Kopfzeile und Trennzeichen haben kann.
  */
 
-import java.util.Arrays;
-
-public class Strings_5_Tabelle {
+public class Strings_5_Tabelle_v1 {
     static String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
     static String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
     static int[] age = {40, 78, 5, 18, 81};
@@ -18,9 +16,13 @@ public class Strings_5_Tabelle {
     static int minLength = 18;
 
     public static void main(String[] args) {
+
+        // Kopfzeile befüllen
         String[] headline = {"Vorname", "Nachname", "Alter", "Ort", "km bis Wien"};
 
+        // Kopfzeile ausdrucken
         printRow(headline);
+
         printDivider(headline.length);
 
         for (int i = 0; i < headline.length; i++) {
@@ -36,6 +38,7 @@ public class Strings_5_Tabelle {
         }
     }
 
+    // Ausdruck Zeilen mit Foreach und Übergabe an printCell-Methode
     public static void printRow(String[] row) {
         for (String content : row) {
             printCell(content);
@@ -53,10 +56,18 @@ public class Strings_5_Tabelle {
         System.out.print(" " + content + " ".repeat(minLength - contentLength) + divider);
     }
 
+
+    // Ausdruck der Rahmenlinie unter Kopfzeile
+    // cell entspricht headline.length = 5
+    //
     public static void printDivider(int cells) {
         for (int i = 0; i < cells; i++) {
             printCell("-".repeat(minLength), "+");
         }
         System.out.println();
     }
+
+
+
+
 }

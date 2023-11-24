@@ -19,20 +19,20 @@ public class Strings_5_Tabelle {
 
         float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
-        String leftAlignFormat = "| %-15s | %-15s | %-5d | %-15s | %-15.2f |%n";
 
+        String leftAlignFormat = "| %-15s | %-15s | %-5d | %-15s | %-15.2f |%n";
 
         String heading1 = "NAME";
         String heading2 = "SURNAME";
         String heading3 = "AGE";
         String heading4 = "CITY";
-        String heading5 = "CAPITAL      ";
+        String heading5 = "CAPITAL";
 
         System.out.println("|-------------------------------------------------------------------------------|");
-
-        System.out.printf("| %-15s | %-15s | %-5s | %-15s | %-15.2s |%n", heading1, heading2, heading3, heading4,heading5);
-
+        System.out.printf("| %-15s | %-15s | %-5s | %-15s | %-15s |%n",heading1, heading2, heading3, heading4,heading5);
         System.out.println("|-------------------------------------------------------------------------------|");
+
+
         for (int i = 0; i < firstName.length; i++) {
             System.out.printf(leftAlignFormat, firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }

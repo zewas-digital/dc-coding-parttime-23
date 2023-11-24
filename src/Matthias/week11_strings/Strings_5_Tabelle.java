@@ -10,14 +10,11 @@ Denke daran, dass eine Tabelle eine Kopfzeile und Trennzeichen haben kann.
 import java.util.Arrays;
 
 public class Strings_5_Tabelle {
-    String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
-    String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
-    int[] age = {40, 78, 5, 18, 81};
-    String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
-    float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
+
+    static int minLength = 18;
 
     public static void main( String[] args ) {
-
+        String[] headline = {"Vorname", "Nachname", "Alter", "Ort", "km bis Wien"};
         String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
         String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
         int[] age = {40, 78, 5, 18, 81};
@@ -33,26 +30,26 @@ public class Strings_5_Tabelle {
         int arraylenth=firstName.length;
         // Programm Start: Benutzer Ausgabe
         System.out.println( "Programm Start" );
-
-        System.out.println( "Tabelle:" );
-        System.out.println( "Spalte"+":"+ "Firstname" +" Lastname " + " Age "+" Place "+" Distance ");
-        String[] Array1 = new String[age.length];
-        String[] Array2 = new String[distanceFromCapital.length];
+        printrow( headline );;
+        printDivider(headline.length);
         // Aufruf der int to String-> Methode 1
-        Array1=intToString( age );
+        String[] Array1=intToString( age );
         // Aufruf der float to String-> Methode 2
-        Array2=floatToString( distanceFromCapital );
+        String[] Array2=floatToString( distanceFromCapital );
         // floatToString( distanceFromCapital);
-        System.out.println( "Weg 1: " );
         for (int i = 0; i < arraylenth; i++) {
-            System.out.println( "Zeile" +":"+" "
-                    + firstName[i]  +   " "
-                    + lastName[i]   +   " "
-                    + Array1[i]     +   " "
-                    + place[i]      +   " "
-                    + Array2[i]     +   " "
-                    +distanceFromCapital[i]);
+            String[] row = {
+                    firstName[i],
+                    lastName[i],
+                    Array1[i],
+                    place[i],
+                    Array2[i],
+
+
+            };
+            printrow( row );
         }
+
         System.out.println( "Weg 2: " );
             System.out.printf( "Zeile"+":"+" "
                     + Arrays.toString( firstName ) + " "
@@ -62,18 +59,11 @@ public class Strings_5_Tabelle {
                     + Arrays.toString( distanceFromCapital ));
 
             System.out.println( "Weg 3: " );
-        for (int i = 0; i < arraylenth; i++) {
-            System.out.printf( "Zeile"+":"+" "
-                    + printrow( firstName  ) + " "
-                    + printrow( lastName)  + " "
-                    + printrow( Array1 ) + " "
-                    + printrow( place )  + " "
-                    + printrow(Array2)
-            );
-        }
-
-
-
+                    printrow( firstName  );
+                    printrow( lastName) ;
+                    printrow( Array1 ) ;
+                    printrow( place ) ;
+                    printrow(Array2);
 
 
     }
@@ -94,11 +84,24 @@ public class Strings_5_Tabelle {
         }
         return Array;
     }
-    public static String printrow( String[] Array){
+    public static void printrow( String[] Array){
         for (String Wort:Array) {
-            return Wort;
+            printCell( Wort );
         }
+        System.out.println();
+    }
+    private static void printCell(String content) {
+        printCell(content, "|");
+    }
+    private static void printCell(String content, String divider) {
+        int contentLength = content.length();
 
-        return null;
+        System.out.print(" " + content + " ".repeat(minLength - contentLength) + divider);
+    }
+    public static void printDivider(int cells) {
+        for (int i = 0; i < cells; i++) {
+            printCell("-".repeat(minLength), "+");
+        }
+        System.out.println();
     }
 }

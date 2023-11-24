@@ -1,4 +1,4 @@
-package oliver.week11_strings;
+package saifedine.week11_strings.oliver;
 
 /*
 Aufgabe: Suche nach "Hesse"
@@ -24,7 +24,7 @@ public class Strings_7_Hesse {
         System.out.println(sampleText.indexOf("ersten", 4));
         System.out.println(sampleText.indexOf("ersten", 4+1));
 
-        // an welchen stellen findet sich der Suchbegriff
+        // ansatz 1 .. an welchen stellen
         int firstIndex = text.indexOf("Hesse");
         int secondIndex = text.indexOf("Hesse", firstIndex +1);
 

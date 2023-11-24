@@ -1,4 +1,4 @@
-package oliver.week11_strings;
+package volkan;
 
 /*
 Aufgabe: Email Regex aka. Regbert
@@ -14,7 +14,7 @@ Aufruf          System.out.println("rambina.alfons@drlue.at".matches(regex));   
 
 Aufruf          System.out.println("rambina1.1alfons@drlue.at".matches(regex));          Ausgabe          true
 
-Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          true
+Aufruf          System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          false
 
 Aufruf          System.out.println("@drlue.at".matches(regex));          Ausgabe          false
 
@@ -60,14 +60,6 @@ public class Strings_6_RegExpressions {
         System.out.println(
                 "Das Wort \"Beispiel!3\" besteht aus 2-3 Buchstaben, einem Rufzeichen und einer Zahl: " +
                         sample3.matches("^[a-z]{2,3}[A-Z]{2,3}![0-9]$")
-        );
-        System.out.println("-".repeat(32));
-
-        // Beispiel 4 -------------------
-        String sample4 = "1xBeispiel!4";
-        System.out.println(
-                "Das Wort \"1xBeispiel!4\" besteht aus mindestens einem Klein- und Groß-Buchstaben, einem Rufzeichen und einer Zahl: " +
-                        sample4.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*!).+$")
         );
         System.out.println("-".repeat(32));
 
