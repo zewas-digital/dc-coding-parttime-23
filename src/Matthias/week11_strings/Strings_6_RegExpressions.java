@@ -1,0 +1,107 @@
+package Matthias.week11_strings;
+
+/*
+Aufgabe: Email Regex aka. Regbert
+Erstelle einen regulären Ausdruck (Regular Expression) für Email Adressen.
+
+String regex = "[richtiger Regex hier]";
+
+Beispiele:
+
+Aufruf1          System.out.println("alfons@drlue.at".matches(regex));          Ausgabe          true
+
+Aufruf2          System.out.println("rambina.alfons@drlue.at".matches(regex));          Ausgabe          true
+
+Aufruf3          System.out.println("rambina1.1alfons@drlue.at".matches(regex));          Ausgabe          true
+
+Aufruf4         System.out.println("1rambina1.alfons@drlue.at".matches(regex));          Ausgabe          false //true verausichtlich
+
+Aufruf 5          System.out.println("@drlue.at".matches(regex));          Ausgabe          false
+
+Aufruf 6         System.out.println("drlue.at".matches(regex));          Ausgabe          false
+
+Aufruf          System.out.println("asdf@drlue".matches(regex));          Ausgabe          false
+
+Aufruf          System.out.println("asdf@microsoft.c".matches(regex));          Ausgabe          false
+ */
+public class Strings_6_RegExpressions {
+
+    public static void main(String[] args) {
+        /*
+        // Beispiel 1 -------------------
+        String sample = "Beispiel";
+        System.out.println(
+                "Das Wort \"Beispiel\" besteht aus Groß- und/oder Kleinbuchstaben: " +
+                        sample.matches("^[a-zA-Z]+")
+        );
+        System.out.println(
+                "Das Wort \"Beispiel\" besteht aus Groß- und/oder Kleinbuchstaben und/oder Zahlen: " +
+                        sample.matches("^[a-zA-Z0-9]+")
+        );
+        System.out.println(
+                "Das Wort \"Beispiel\" besteht aus Kleinbuchstaben und/oder Zahlen und/oder einem Punkt: " +
+                        sample.matches("^[a-z0-9.]+")
+        );
+        System.out.println("-".repeat(32));
+
+        // Beispiel 2 -------------------
+        String sample2 = "Beispiel2";
+        System.out.println(
+                "Das Wort \"Beispiel2\" besteht aus mindestens einem Buchstaben und einer folgenden Zahl: " +
+                        sample2.matches("^[a-zA-Z]+[0-9]+")
+        );
+        System.out.println("-".repeat(32));
+
+        // Beispiel 3 -------------------
+        String sample3 = "Beispiel!3";
+        System.out.println(
+                "Das Wort \"Beispiel!3\" besteht aus Buchstaben, einem Rufzeichen und einer Zahl: " +
+                        sample3.matches("^[a-zA-Z]+![0-9]$")
+        );
+        System.out.println(
+                "Das Wort \"Beispiel!3\" besteht aus 2-3 Buchstaben, einem Rufzeichen und einer Zahl: " +
+                        sample3.matches("^[a-z]{2,3}[A-Z]{2,3}![0-9]$")
+        );
+        System.out.println("-".repeat(32));
+        */
+        // Aufgabe1 -------------------
+        System.out.print( "Ausgabe1:" );
+        String regex1 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("alfons@drlue.at".matches(regex1));
+
+        // Aufgabe2 -------------------
+        System.out.print( "Ausgabe2:" );
+        String regex2 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("rambina.alfons@drlue.at".matches(regex2));
+
+        // Aufgabe3 -------------------
+        System.out.print( "Ausgabe3:" );
+        String regex3 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("rambina1.1alfons@drlue.at".matches(regex3));
+
+        // Aufgabe4 -------------------
+        System.out.print( "Ausgabe4:" );
+        String regex4 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("1rambina1.alfons@drlue.at".matches(regex4));
+
+        // Aufgabe5 -------------------
+        System.out.print( "Ausgabe5:" );
+        String regex5 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("@drlue.at".matches(regex5));
+
+        // Aufgabe6 -------------------
+        System.out.print( "Ausgabe6:" );
+        String regex6 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("drlue.at".matches(regex6));
+
+        // Aufgabe7 -------------------
+        System.out.print( "Ausgabe7:" );
+        String regex7 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("asdf@drlue".matches(regex7));;
+
+        // Aufgabe8 -------------------
+        System.out.print( "Ausgabe8:" );
+        String regex8 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        System.out.println("asdf@microsoft.c".matches(regex7));;
+    }
+}
