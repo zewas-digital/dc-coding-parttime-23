@@ -1,4 +1,4 @@
-package oliver.week11_strings;
+package MichaelReal.week11_strings;
 
 /*
 Aufgabe: Email Regex aka. Regbert
@@ -63,16 +63,20 @@ public class Strings_6_RegExpressions {
         );
         System.out.println("-".repeat(32));
 
-        // Beispiel 4 -------------------
-        String sample4 = "1xBeispiel!4";
-        System.out.println(
-                "Das Wort \"1xBeispiel!4\" besteht aus mindestens einem Klein- und Groß-Buchstaben, einem Rufzeichen und einer Zahl: " +
-                        sample4.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*!).+$")
-        );
-        System.out.println("-".repeat(32));
-
         // Aufgabe -------------------
-        String regex = "[richtiger Regex hier]";
-        System.out.println("rambina.alfons@drlue.at".matches(regex));
+        //String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+       // String regex1 = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{3,}$";
+
+        String regex = "^[\\p{ASCII}&&[\\p{Alnum}._%+-]]+@[\\p{ASCII}&&[\\p{Alnum}.-]]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]+)?$";
+
+
+        System.out.println("alfons@drlue.at".matches(regex));                // true
+        System.out.println("rambina.alfons@drlue.at".matches(regex));       // true
+        System.out.println("rambina1.1alfons@drlue.at".matches(regex));     // true
+        System.out.println("1rambina1.alfons@drlue.at".matches(regex));     // true
+        System.out.println("@drlue.at".matches(regex));                      // false
+        System.out.println("drlue.at".matches(regex));                       // false
+        System.out.println("asdf@drlue".matches(regex));                     // false
+        System.out.println("asdf@microsoft.c".matches(regex));               // false
     }
 }
