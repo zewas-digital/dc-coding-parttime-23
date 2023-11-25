@@ -35,9 +35,23 @@ public class Calendar_intro {
         System.out.println(c.getTime());
         System.out.println(c.getTimeInMillis());
 
-        c.setTimeInMillis(-1239911110);
+        System.out.println("--------------");
+
+        c.set(1900,0,1,0,0,0);
+        c.set(Calendar.YEAR, 2);
+
 
         System.out.println(c.getTime());
+        System.out.println(c.getTimeInMillis());
+
+
+        System.out.println("--------------");
+
+
+        c.setTimeInMillis(0);
+        System.out.println(c.getTime());
+        System.out.println(c.getTimeInMillis());
+
 
 
 
