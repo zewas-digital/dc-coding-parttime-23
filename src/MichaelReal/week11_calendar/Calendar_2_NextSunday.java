@@ -23,7 +23,12 @@ public class Calendar_2_NextSunday {
         setToNextSunday(c);
 
 
-        System.out.println("------------------------------------\n" +"Datum des nächsten Sonntags:\n " + "------------------------------------\n" + c.getTime() + " 😎\n" + "------------------------------------");
+        System.out.println(
+                "------------------------------------\n"
+                +"Datum des nächsten Sonntags:\n "
+                + "------------------------------------\n"
+                + c.getTime() + " 😎\n"
+                + "------------------------------------");
         System.out.println("👈(ﾟヮﾟ👈)👈(⌒▽⌒)👉(👉ﾟヮﾟ)👉");
     }
 
