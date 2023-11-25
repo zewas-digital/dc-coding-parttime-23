@@ -33,65 +33,65 @@ public class Calendar_4_NumOfWorkingDays {
 
         Scanner inputKonsole = new Scanner ( System.in );
         Calendar cal = Calendar.getInstance ();
-        int tageImMonat;
 
-    while(true) {
+        while(true) {
 
-        // Ermitteln der Benutzereingaben
-        System.out.print ( "Jahr:" );
-        int year = inputKonsole.nextInt ( );
+            // input von der Konsole
+            String input = userInput ();
+            String[] inputArray = input.split ( "\\." );
 
-        System.out.print ( "Monat:" );
-        int month = inputKonsole.nextInt ( ) - 1;
+            int month = Integer.parseInt ( inputArray[0] ) - 1;
+            int year = Integer.parseInt ( inputArray[1] );
+            
+            // Überschreiben des Kalenders mit den Buntzerdaten
+            cal.set ( year, month, 1 );
 
-        // Überschreiben des Kalenders mit den Buntzerdaten
-        cal.set ( year, month, 1 );
+            // ermitteln wie viel Tage der Monat hat
+            int tageImMonat = cal.getActualMaximum ( Calendar.DAY_OF_MONTH );
 
-        //Erster Wochentag und Jahrestag des ausgewähleten Monats ermitteln
-        int ersterWochentagImMonat = cal.get ( Calendar.DAY_OF_WEEK );
-        int ersterJahrestagImMonat = cal.get ( Calendar.DAY_OF_YEAR );
+            //Erster Wochentag und Jahrestag des ausgewähleten Monats ermitteln
+            int ersterWochentagImMonat = cal.get ( Calendar.DAY_OF_WEEK );
+            int ersterJahrestagImMonat = cal.get ( Calendar.DAY_OF_YEAR );
 
-        //Kalender überschreiben mit dem ersten im Folgemonat
-        cal.set ( year, month + 1, 1 );
+            //Kalender überschreiben mit dem ersten im Folgemonat
+            cal.set ( year, month + 1, 1 );
 
-        // erster Jahrestag im Folgemoant ermitteln
-        int ersterJahrestagImFolgemonat = cal.get ( Calendar.DAY_OF_YEAR );
+            //Werktage zählen
+            int counter = 0;
 
-        // Kalender überschreiben mit dem letzten Tag im Jahr (31.12.XXXX)
-        cal.set ( year, 11, 31 );
+            for (int i = 1; i <= tageImMonat; i++) {
+                cal.set ( year, month, i );
+                if (cal.get ( Calendar.DAY_OF_WEEK ) > 1 && cal.get ( Calendar.DAY_OF_WEEK ) < 7) {
+                        counter++;
+                }
+            }
 
-        // letzter Jahrestag ermitteln im Jahr (wegen Schaltjahr unterschiedlich
-        int letzterJahrestag = cal.get ( Calendar.DAY_OF_YEAR );
+            //System.out.println (sundays);
+            System.out.println ( );
+            System.out.println ( counter );
+            System.out.println ( );
 
-        // ermitteln wie viel Tage der Monat hat
-        if (ersterJahrestagImMonat < ersterJahrestagImFolgemonat) {
-            tageImMonat = ersterJahrestagImFolgemonat - ersterJahrestagImMonat;
-        } else {
-            tageImMonat = letzterJahrestag - ersterJahrestagImMonat + ersterJahrestagImFolgemonat;
         }
 
-        //Werktage zählen
-        int counter = 0;
-        for (int i = 1; i <=tageImMonat; i++) {
-            cal.set ( year, month , i );
-            if (cal.get ( Calendar.DAY_OF_WEEK ) > 1 && cal.get ( Calendar.DAY_OF_WEEK ) < 7) {
-                counter++;
+
+    }
+    static String userInput( ) {
+
+        Scanner inputKonsole = new Scanner ( System.in );
+        boolean inputCorrect = false;
+        String input = null;
+
+        while ( !inputCorrect ) {
+
+            System.out.print ( "Geben sie das Jahr und den Monat im folgendem Format ein. [mm.jjjj]" );
+            input = inputKonsole.next ( );
+
+            if (!input.matches ( "^[0-9]{2,2}.[0-9]{4,4}" )) {
+                System.out.println ( "Falsches Datumsformat" );
+            } else {
+                inputCorrect = true;
             }
         }
-
-
-        //System.out.println (sundays);
-        System.out.println ( );
-        System.out.println ( counter );
-        System.out.println ( "Tage im Monat: "+tageImMonat );
-        System.out.println ( "erster Wochentag: " + ersterWochentagImMonat );
-        System.out.println ( "erster Jahrestag im Monat: " + ersterJahrestagImMonat );
-        System.out.println ( "erster Jahrestag im Folgemonat: " + ersterJahrestagImFolgemonat );
-        System.out.println ( "letzter jahrestag: " + letzterJahrestag );
-        System.out.println ( );
+        return input;
     }
-
-
-    }
-
 }
