@@ -1,4 +1,4 @@
-package Alpi.week9;
+package judith.week9_arrays;
 
 import java.util.Scanner;
 
@@ -9,11 +9,8 @@ public class ScannerHelper {
 
         while(true) {
             try {
-
                 return sc.nextInt();
-            }
-
-            catch (Exception exception) {
+            } catch (Exception exception) {
                 System.out.println("Das ist keine gültige Zahl. Exception:"+ exception.toString());
                 sc.nextLine();
             }
