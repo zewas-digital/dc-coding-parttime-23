@@ -28,7 +28,7 @@ public class Calendar_2_NextSunday {
     }
 
     // Methode, um das Datum auf den nächsten Sonntag zu setzen
-    private static void setToNextSunday(Calendar calendar) {
+    public static void setToNextSunday(Calendar calendar) {
         int currentDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         int daysUntilNextSunday = Calendar.SUNDAY - currentDayOfWeek + 7;
         calendar.add(Calendar.DAY_OF_MONTH, daysUntilNextSunday);
