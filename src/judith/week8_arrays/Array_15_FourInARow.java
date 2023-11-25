@@ -9,4 +9,26 @@ Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne d
  */
 
 public class Array_15_FourInARow {
+
+    public static void main(String[] args) {
+
+        int[][] gameBoard = new int [7][6];
+
+        Board(gameBoard);
+
+    }
+
+    private static void Board(int[][] gameBoard) {
+        for (int zeile = 0; zeile < gameBoard.length; zeile++) {
+           System.out.println( );
+            for (int spalte = 0; spalte < gameBoard[zeile].length; spalte++) {
+                //System.out.print(("|" + " " + "|") + ("--" + " " + "--"));
+                System.out.print(gameBoard[zeile][spalte]);
+           //System.out.println();
+            }
+
+        }
+    }
+
+
 }

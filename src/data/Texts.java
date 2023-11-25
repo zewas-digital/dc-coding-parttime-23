@@ -49,7 +49,7 @@ public class Texts {
             "\n" +
             "            1946 zog sich Hesse zurück, da sein Gesundheitszustand immer schlechter wurde. \"Das Glasperlenspiel\" und \"Krieg und Frieden\" waren Anlass dafür, dass er am 14. November desselben Jahres mit dem Nobelpreis für Literatur ausgezeichnet wurde. Für sein Lebenswerk wurde er ein Jahr später zum Ehrendoktor sowie Ehrenbürger von Calw, seiner Geburtsstadt, ernannt. 1955 folgte der Friedenspreis des Deutschen Buchhandels.\n" +
             "\n" +
-            "            Am 9. August 1962 starb Hermann Hesse an einem Gehirnschlag in seinem Haus in der Schweiz. Heute gehört Hermann Hesse zu denbekanntesten deutschsprachigenr Schriftstellern. Seine Werke wurden in 55 Sprachen übersetzt.\n" +
+            "            Am 9. August 1962 starb Hermann Hesse an einem Gehirnschlag in seinem Haus in der Schweiz. Heute gehört Hermann Hesse zu den bekanntesten deutschsprachigen Schriftstellern. Seine Werke wurden in 55 Sprachen übersetzt.\n" +
             "            Zitate von Hermann Hesse\n" +
             "\n" +
             "            \"Man muß das Unmögliche versuchen, um das Mögliche zu erreichen.\"\n" +
