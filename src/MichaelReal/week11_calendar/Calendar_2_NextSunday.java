@@ -16,13 +16,13 @@ import java.util.GregorianCalendar;
 
 public class Calendar_2_NextSunday {
     public static void main(String[] args) {
-        // Neue GregorianCalendar-Instanz erstellen
+
         Calendar c = new GregorianCalendar();
 
         // Das Datum auf den nächsten Sonntag setzen
         setToNextSunday(c);
 
-        // Das Datum ausgeben
+
         System.out.println("------------------------------------\n" +"Datum des nächsten Sonntags:\n " + "------------------------------------\n" + c.getTime() + " 😎\n" + "------------------------------------");
         System.out.println("👈(ﾟヮﾟ👈)👈(⌒▽⌒)👉(👉ﾟヮﾟ)👉");
     }
