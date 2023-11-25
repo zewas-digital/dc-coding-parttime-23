@@ -1,4 +1,4 @@
-package volkan.week11_strings;
+package Alpi.week11_calendar;
 
 /*
 
@@ -20,13 +20,11 @@ public class Calendar_2_NextSunday {
         }
 
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-        int month = calendar.get(Calendar.MONTH) +1 ;
+        int month = calendar.get(Calendar.MONTH) +2 ;
         int year = calendar.get(Calendar.YEAR);
 
 
         System.out.println("Nächster Sonntag ist: " + day + " . " + month + " . " + year);
-
-
 
     }
 }

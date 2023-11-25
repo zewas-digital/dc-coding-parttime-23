@@ -17,7 +17,9 @@ public class Calendar_1_MyBirthday {
     public static void main(String[] args) {
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEE, dd. LLLL yyyy");
+        SimpleDateFormat dateFormat1 = new SimpleDateFormat("EEEEE, dd. LLLL yyyy");
+        SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEEEE");
+
 
         int year = BasicFunctions.readInt("\nGib Dein Geburtsjahr ein! ");
         int month = BasicFunctions.readInt("Monat? ");
@@ -34,7 +36,9 @@ public class Calendar_1_MyBirthday {
         calendar.set(year, month - 1, day);
 
         //System.out.println(dateFormat.format(calendar.getTime()));
-        System.out.println("Dein Geburtstag war an einem " + (dateFormat.format(calendar.getTime()).split(","))[0] + "!");
+        System.out.println("Dein Geburtstag war an einem " + (dateFormat1.format(calendar.getTime()).split(","))[0] + "!");
+        System.out.println("Dein Geburtstag war an einem " + (dateFormat2.format(calendar.getTime()))+ "!");
+
     }
 
 }
