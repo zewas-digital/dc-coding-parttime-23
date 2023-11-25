@@ -1,7 +1,5 @@
 package claudia.week11_strings;
 
-
-
 public class Strings_8_ReplaceAll {
     static String text = "Heute wird ein guter Tag! Heute wird ein noch besserer Tag! Heute wird ein spitzen guter Tag!";
 
@@ -43,8 +41,19 @@ public class Strings_8_ReplaceAll {
         + Alle Zahlen von 1 bis 3 und 6 bis 9 und gib ihn aus
         */
 
-        /*String numbers = "749813247132984712039487123049871204398712039487";
-        System.out.println("numbers ohne 2-4: "+ numbers.replaceAll("[2-4]", ""));*/
+        System.out.println("\nAufgabe 3 - String aus Zahlen, Original: ");
+        String numbers = "749813247132984712039487123049871204398712039487";
+        System.out.println(numbers);
+        System.out.println("\nAufgabe 3: Lösche alle Zahlen von 0 bis 9 (Haha!):");
+        System.out.print("Ergebnis: ");
+        System.out.println(numbers.replaceAll("[0-9]",""));
+        System.out.println("\nAufgabe 3: Lösche alle Zahlen von 1 bis 9:");
+        System.out.println(numbers.replaceAll("[1-9]",""));
+        System.out.println("\nAufgabe 3: Lösche alle Zahlen von 2 bis 4:");
+        System.out.println(numbers.replaceAll("[2-4]",""));
+        System.out.println("\nAufgabe 3: Lösche alle Zahlen von 1 bis 3 und 6 bis 9:");
+        System.out.println(numbers.replaceAll("[1-3[6-9]]",""));
+
     }
 
 }
