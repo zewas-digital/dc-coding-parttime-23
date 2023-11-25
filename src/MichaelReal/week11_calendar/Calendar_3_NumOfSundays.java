@@ -24,7 +24,7 @@ public class Calendar_3_NumOfSundays {
         int month = scanner.nextInt();
 
         int numberOfSundays = countSundays(year, month);
-        System.out.println("🍀Anzahl der Sonntage im🍀" + month + "/" + year + "🍀: " + numberOfSundays);
+        System.out.println("🍀Anzahl der Sonntage am🍀" + month + "/" + year + "🍀: " + numberOfSundays);
     }
 
     public static int countSundays(int year, int month) {
