@@ -16,9 +16,25 @@ Verwende die replace() Funktion.
 import data.Texts;
 
 public class Strings_7_Hesse {
-    String text = Texts.HESSE;
+   static String text = Texts.HESSE;
 
     public static void main(String[] args) {
+
+        int firstindex = text.indexOf ("Hesse");
+        int secondindex = text.indexOf("Hesse" , firstindex +1);
+
+        System.out.println("Die ersten beiden Vorkomnisse sind:" + firstindex + " und " + secondindex);
+
+
+       String[] parts = text.split("Hesse");
+       System.out.println("Anzahl Parts:" + parts.length);
+
+
+
+
+
+
+
 
     }
 }
