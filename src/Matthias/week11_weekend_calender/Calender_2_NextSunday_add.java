@@ -1,18 +1,10 @@
 package Matthias.week11_weekend_calender;
 
-/*
-
-Aufgabe: NextSunday
-
-Erstelle eine neue GregorianCalendar Instanz und gib das Datum des nächsten Sonntags aus.
-
- */
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class Calendar_2_NextSunday {
+public class Calender_2_NextSunday_add {
     public static Scanner scanner = new Scanner( System.in );
 
     //Klassen des Kalenders
@@ -42,20 +34,22 @@ public class Calendar_2_NextSunday {
         int TagInt = Integer.parseInt(Tag);
         int MonatInt = Integer.parseInt(Monat);
         int JahrInt= Integer.parseInt(Jahr);
+
         //Ausgabe Geburtsdatum
+
         System.out.println("Geburtsdatum");
         System.out.println("Tag:" + TagInt + "Woche:" + MonatInt+ "Jahr:" +JahrInt);
 
+        //-----------------Getten
 
-        //------------Getten
         int tmp = ((1+7)-c.get(Calendar.DAY_OF_WEEK));
 
-        // Variante 1: ohne Add
-        c.set(Calendar.DAY_OF_MONTH, (TagInt+tmp));
-        c.set(Calendar.MONTH, (MonatInt-1));
-        c.set(Calendar.YEAR, JahrInt);
+        //Variante 2: mit add
 
-        //Ausgabe: für den Bentutzer-> Dokumentation: https://stackoverflow.com/questions/55070978/how-does-calender-setcalender-month-work
+        c.add(Calendar.DAY_OF_MONTH, tmp);
+
+        //Ausgabe Bentuzer: Hinweis -> add settet automatisch -> Dokumentation: https://stackoverflow.com/questions/55070978/how-does-calender-setcalender-month-work
+
         System.out.println(dateFormat.format( c.getTime() ));
 
 
