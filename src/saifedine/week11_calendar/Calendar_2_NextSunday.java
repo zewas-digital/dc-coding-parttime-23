@@ -28,10 +28,35 @@ import java.util.Calendar;
 public class Calendar_2_NextSunday {
     public static void main(String[] args) {
 
+        // Calender initialisieren
         Calendar c = Calendar.getInstance();
-        System.out.println(c.get(Calendar.DAY_OF_WEEK));
 
+        // 1. index vom Wochentag? --> 7
+        System.out.println("Der Index vom aktuellen Wochentag ist: " + c.get(Calendar.DAY_OF_WEEK));
 
+        System.out.println("-------------------------------------");
 
+        // 2. Differenz aus Wochentag & Sonntag --> 1
+        System.out.println("Die Differenz zum Sonntag ist: " + ((1 + 7) - Calendar.DAY_OF_WEEK));
+        int diff = (1 + 7) - Calendar.DAY_OF_WEEK;
+
+        System.out.println("-------------------------------------");
+
+        // Option 1:
+        // 3. heutiges Datum + Differenz = neues Datum
+        // setze (heutiges Datum + Differenz)
+        c.set(c.get(Calendar.YEAR),(c.get(Calendar.MONTH) + 1),(c.get(Calendar.DATE) + diff));
+        // neues Datum ausgeben
+        System.out.println("Das gewünschte Datum ist: " + c.get(Calendar.YEAR) + " " + c.get(Calendar.MONTH) + " " + c.get(Calendar.DATE));
+
+        System.out.println("-------------------------------------");
+
+        // Option 2:
+        // 3. heutiges Datum + Differenz = neues Datum
+        // addiere (heutiges Datum + Differenz)
+        c.add(Calendar.DATE, diff);
+        // neues Datum ausgeben
+        System.out.println("Das gewünschte Datum ist: " + c.get(Calendar.YEAR) + " " + c.get(Calendar.MONTH) + " " + c.get(Calendar.DATE));
+        //System.out.println(c.getTime());
     }
 }
