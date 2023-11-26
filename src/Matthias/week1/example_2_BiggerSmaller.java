@@ -1,4 +1,4 @@
-package Matthias.week1.example2;
+package Matthias.week1;
 
 /*
 Schreiben Sie ein Programm, das eine Variable definiert ausgibt, ob die Zahl größer, kleiner oder gleich,
@@ -9,7 +9,7 @@ Die Zahl wird wieder mit Scanner und nextInt() eingelesen.
 
 import java.util.Scanner;
 
-public class BiggerSmaller {
+public class example_2_BiggerSmaller {
 
     static Scanner scanner = new Scanner( System.in );
 

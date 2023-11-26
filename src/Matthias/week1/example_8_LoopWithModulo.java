@@ -1,4 +1,4 @@
-package Matthias.week1.example8;
+package Matthias.week1;
 
 /*
 Schreiben Sie ein Programm das in einer Schleife von 0 bis inklusive 10 zählt und nur jede gerade Zahl ausgibt.
@@ -10,7 +10,7 @@ Erstelle für jede Schleifenart Schleifen mit folgenden Unterschieden:
 
  */
 
-public class LoopWithModulo {
+public class example_8_LoopWithModulo {
     public static void main(String[] args) {
         int i = 0;
         while (i <= 10) {

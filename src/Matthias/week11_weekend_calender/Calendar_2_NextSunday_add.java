@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class Calender_2_NextSunday_add {
+public class Calendar_2_NextSunday_add {
     public static Scanner scanner = new Scanner( System.in );
 
     //Klassen des Kalenders

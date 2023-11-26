@@ -1,4 +1,4 @@
-package Matthias.week1.example5;
+package Matthias.week1;
 
 /*
 Schreibe ein Programm das im Bereich von 1-100 Zahlen die durch zwei und durch drei teilbar sind ausgeben.
@@ -6,7 +6,7 @@ Beende die Schleife, wenn 20 Zahlen ausgegeben wurden dann mit der break; Anweis
 
  */
 
-public class LoopControl {
+public class example_5_LoopControl {
     public static void main(String[] args) {
         int iSchleifenEnde= 20;
         int zeahler=0;
