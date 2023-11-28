@@ -1,4 +1,4 @@
-/*
+
 package marcelsimma.week11_calendar;
 
 import java.util.Calendar;
@@ -36,7 +36,7 @@ public class Calendar_1_MyBirthday_Calendar {
             String wochentag = weekDays[dayOfWeek - 1];
 
             System.out.println("Der Wochentag des Geburtsdatums " + inputDate + " ist: " + wochentag);
-        }
+
     }
 }
-*/
+
