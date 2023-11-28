@@ -26,6 +26,7 @@ Die Ausgabe sollte wie folgt sein:
 
  */
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Calendar_5_Calendar {
@@ -41,7 +42,6 @@ public class Calendar_5_Calendar {
 
         int weekday = c.get(Calendar.DAY_OF_WEEK);
         int lastDayOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
-
 
 
         int currentDay = 1;
@@ -68,7 +68,7 @@ public class Calendar_5_Calendar {
                     ) {
                         System.out.printf(" %02d*", currentDay);
                     } else {
-                        System.out.printf(" %02d ", currentDay);
+                        System.out.printf(" %02d", currentDay);
                     }
                     currentDay++;
                 } else {

@@ -37,8 +37,37 @@ Ausgabe
 
  */
 
+
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Calendar_6_RegionalCalendar {
     public static void main(String[] args) {
+        Locale localeAT = new Locale("de","AT");
+        Locale localeTH = new Locale("th","TH");
 
+        // Kalender mit dem betrachteten Monat und Jahr
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2023);
+        calendar.set(Calendar.MONTH, 10);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+
+        // Kalender mit dem heutigen Tag
+        Calendar today = Calendar.getInstance();
+
+        int weekday = calendar.get(Calendar.DAY_OF_WEEK);
+        int lastDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int currentDay = 1;
+        int startIndex = 0;
+
+        if (weekday == 1) {
+            startIndex = 6;
+        } else {
+            startIndex = weekday - 2;
+        }
+
+        for (int i = 0; i < startIndex; i++) {
+            System.out.print("    ");
+        }
     }
 }
