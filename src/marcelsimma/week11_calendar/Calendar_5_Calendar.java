@@ -43,9 +43,11 @@ public class Calendar_5_Calendar {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.MONTH, 10);
         c.set(Calendar.DAY_OF_MONTH, 1);
+        // 01.11.2023
 
         // Kalender mit dem heutigen Tag
         Calendar today = Calendar.getInstance();
+        // heute: 28.11.2023
 
         int weekday = c.get(Calendar.DAY_OF_WEEK);
         int lastDayOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -57,18 +59,21 @@ public class Calendar_5_Calendar {
 
         int startIndex = 0;
 
-        if (weekday == 1) {
+        if (weekday == 1) { // Sonntag
             startIndex = 6;
         } else {
             startIndex = weekday - 2;
         }
 
+        // Leere Platzhalter für Tage des Vormonats
         for (int i = 0; i < startIndex; i++) {
             System.out.print("    ");
         }
 
-        for (int y = 0; currentDay <= lastDayOfMonth; y++) {
-            for (int x = startIndex; x < 7; x++) {
+        for (int y = 0; currentDay <= lastDayOfMonth; y++) { // Schleife für jeden Tag des Monats
+            //System.out.println("Äußere Schleife: currentDay: "+ currentDay);
+            for (int x = startIndex; x < 7; x++) { // Schleife für die Kalenderwochen
+                //System.out.println("Innere Schleife: currentDay: "+ currentDay);
                 if (currentDay <= lastDayOfMonth) {
                     if (c.get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
                             c.get(Calendar.MONTH) == today.get(Calendar.MONTH) &&
@@ -84,6 +89,7 @@ public class Calendar_5_Calendar {
                 }
             }
             startIndex = 0;
+            // Zeilenumbruch nach Kalenderwoche
             System.out.println();
         }
 
