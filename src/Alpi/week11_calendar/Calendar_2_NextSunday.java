@@ -10,21 +10,27 @@ Erstelle eine neue GregorianCalendar Instanz und gib das Datum des nächsten Son
 
 import java.util.Calendar;
 
+
 public class Calendar_2_NextSunday {
     public static void main(String[] args) {
 
+        //Kalender erstellen
         Calendar calendar = Calendar.getInstance();
 
-        while (calendar.get(Calendar.DAY_OF_WEEK)  != Calendar.SUNDAY){
-            calendar.add(Calendar.DATE, 1);
-        }
 
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
-        int month = calendar.get(Calendar.MONTH) +2 ;
+
+        // Tag des nächsten Sonntags ermitteln
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        int dayOfWeekOffset = 8 - dayOfWeek;
+
+        // Kalender auf den nächsten Sonntag setzen
+        calendar.add(Calendar.DATE, dayOfWeekOffset);
+
+        // Datum des nächsten Sonntags ausgeben
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH) + 1;
         int year = calendar.get(Calendar.YEAR);
 
-
-        System.out.println("Nächster Sonntag ist: " + day + " . " + month + " . " + year);
-
+        System.out.println("Nächster Sonntag ist: " + day + "." + month + "." + year);
     }
 }
