@@ -1,5 +1,4 @@
-package marcelsimma.week11_calendar;
-
+package Alpi.week11_calendar;
 /*
 Aufgabe: RegionalCalendar (Bonus)
 
@@ -48,7 +47,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Calendar_6_RegionalCalendar {
+public class Calendar_6_RegionalCalendar2 {
     public static void main(String[] args) {
 
         Calendar today = Calendar.getInstance();
