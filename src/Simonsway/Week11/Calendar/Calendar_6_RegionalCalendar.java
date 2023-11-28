@@ -37,5 +37,77 @@ Ausgabe
 
  */
 
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Calendar_6_RegionalCalendar {
+
+    public static void main(String[] args) {
+
+        Locale thailand = new Locale("th_TH_#Thai");
+        Locale germany = new Locale("de_DE");
+        Locale austria = new Locale("de_AT");
+
+        System.out.println("Thai");
+        worldCalender(thailand, 2565, 4);
+        System.out.println("Germany");
+        worldCalender(germany, 2022, 4);
+        System.out.println("Austria");
+        worldCalender(austria, 2022, 4);
+
+    }
+
+    public static void worldCalender (Locale country, int year, int month){
+
+        Calendar c = Calendar.getInstance(country);
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, 1);
+
+        Calendar today = Calendar.getInstance(country);
+
+        int weekday = c.get(Calendar.DAY_OF_WEEK);
+        int lastDayOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        System.out.println("---------------------------");
+        System.out.println(" MO " + " DI " + " MI " + " DO " + " FR " + " SA " + " SO ");
+
+        int currentDay = 1;
+
+        int startIndex = 0;
+
+        if (weekday == 1) {
+            startIndex = 6;
+        } else {
+            startIndex = weekday - 2;
+        }
+
+        for (int i = 0; i < startIndex; i++) {
+            System.out.print("    ");
+        }
+
+        for (int y = 0; currentDay <= lastDayOfMonth; y++) {
+            for (int x = startIndex; x < 7; x++) {
+                if (currentDay <= lastDayOfMonth) {
+                    if (c.get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
+                            c.get(Calendar.MONTH) == today.get(Calendar.MONTH) &&
+                            currentDay == today.get(Calendar.DAY_OF_MONTH)
+                    ) {
+                        System.out.printf(" %02d*", currentDay);
+                    } else {
+                        System.out.printf(" %02d ", currentDay);
+                    }
+                    currentDay++;
+                } else {
+                    break;
+                }
+            }
+            startIndex = 0;
+            System.out.println();
+        }
+
+    }
+
 }
+
