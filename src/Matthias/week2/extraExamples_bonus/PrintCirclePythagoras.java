@@ -1,4 +1,4 @@
-package Matthias.week2.extraExamples;
+package Matthias.week2.extraExamples_bonus;
 
 /*
 Erstelle eine Methode welche einen ausgefüllten Kreis von variabler Größe ausgibt.

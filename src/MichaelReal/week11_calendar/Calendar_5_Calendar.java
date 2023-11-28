@@ -26,5 +26,61 @@ Die Ausgabe sollte wie folgt sein:
 
  */
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
 public class Calendar_5_Calendar {
-}
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Bitte geben Sie das Jahr ein: ");
+            int year = scanner.nextInt();
+
+            System.out.print("Bitte geben Sie den Monat ein (1-12): ");
+            int month = scanner.nextInt();
+
+            int today = getCurrentDay();
+
+            printCalendar(year, month, today);
+        }
+
+        static void printCalendar(int year, int month, int today) {
+            Calendar calendar = new GregorianCalendar(year, month - 1, 1);
+            int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+            int offset = (calendar.get(Calendar.DAY_OF_WEEK) - Calendar.MONDAY + 7) % 7;
+
+            System.out.println(year + " " + getMonthName(month));
+            System.out.println("| Mo | Di | Mi | Do | Fr | Sa | So |");
+
+            for (int i = 0; i < offset; i++) {
+                System.out.print("|    ");
+            }
+
+            for (int day = 1; day <= daysInMonth; day++) {
+                if (day == today) {
+                    System.out.printf("|%3d*", day);
+                } else {
+                    System.out.printf("|%4d", day);
+                }
+
+                if ((offset + day) % 7 == 0 || day == daysInMonth) {
+                    System.out.println("|");
+                }
+            }
+        }
+
+        static int getCurrentDay() {
+            Calendar today = Calendar.getInstance();
+            return today.get(Calendar.DAY_OF_MONTH);
+        }
+
+        static String getMonthName(int month) {
+            String[] monthNames = {
+                    "", "January", "February", "March", "April", "May", "June", "July",
+                    "August", "September", "October", "November", "December"
+            };
+            return monthNames[month];
+        }
+    }
+
