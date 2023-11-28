@@ -50,8 +50,6 @@ public class Calendar_5_Calendar {
             int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
             int offset = (calendar.get(Calendar.DAY_OF_WEEK) - Calendar.MONDAY + 7) % 7;
 
-            System.out.println(offset);
-
             System.out.println(year + " " + getMonthName(month));
             System.out.println("| Mo | Di | Mi | Do | Fr | Sa | So |");
 
