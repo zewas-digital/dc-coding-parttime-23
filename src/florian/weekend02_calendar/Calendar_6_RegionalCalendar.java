@@ -1,4 +1,4 @@
-package florian.week11_calendar;
+package florian.weekend02_calendar;
 
 /*
 Aufgabe: RegionalCalendar (Bonus)
@@ -38,4 +38,7 @@ Ausgabe
  */
 
 public class Calendar_6_RegionalCalendar {
+    public static void main(String[] args) {
+
+    }
 }

@@ -1,4 +1,4 @@
-package florian.week11_calendar;
+package florian.weekend02_calendar;
 
 import java.util.Calendar;
 import java.util.Date;
