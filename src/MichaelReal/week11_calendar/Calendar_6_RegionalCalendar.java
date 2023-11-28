@@ -67,6 +67,7 @@ public class Calendar_6_RegionalCalendar {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM");
             System.out.println(formatter.format(date) + " - " + location);
 
+
             // Kopfzeile des Kalenders
             System.out.println("| Mo | Di | Mi | Do | Fr | Sa | So |");
 
