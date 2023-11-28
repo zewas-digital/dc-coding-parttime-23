@@ -1,7 +1,7 @@
-package Matthias.week2.example13;
+package Matthias.week2;
 
 
-public class PrintEmptySquare {
+public class example_13_PrintEmptySquare {
 
     static void printEmptySquare(char buchstabe, int seitenlänge){
         for (int i = 0; i < seitenlänge  ; i++) {

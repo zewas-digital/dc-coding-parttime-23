@@ -1,4 +1,4 @@
-package Matthias.week2.example11;
+package Matthias.week2;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printRect". Diese Methode besitzt drei Übergabeparameter und kein Rückgabeparameter.
@@ -14,7 +14,7 @@ xxxxxxxxxx
 xxxxxxxxxx
  */
 
-public class PrintRectangle {
+public class example_11_PrintRectangle {
     //Definition der Methode
     static void printRect(char cZeichen, int ibreite, int ilaenge){ // static = Eigenschaft der Methode; void Rückgabewert, welcher erwartet wird; alles in der Methode sind die Übergabeparameter
 

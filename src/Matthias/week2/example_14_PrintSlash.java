@@ -1,4 +1,4 @@
-package Matthias.week2.example14;
+package Matthias.week2;
 
 /*
 Erstelle eine Methode welche eine Diagonale von variabler Größe und mit angegebene Zeichen ausgibt,
@@ -14,7 +14,7 @@ x
 
 
  */
-public class PrintSlash {
+public class example_14_PrintSlash {
 
     static void printSlash(char buchstabe, int iZahl, boolean status){
 

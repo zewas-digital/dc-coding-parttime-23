@@ -1,4 +1,4 @@
-package Matthias.week2.example17;
+package Matthias.week2;
 
 /*
 Erstelle eine Methode welche ein X von variabler Größe und mit angegebene Zeichen ausgibt.
@@ -17,7 +17,7 @@ x   x
 x   x
  */
 
-public class PrintX {
+public class example_16_PrintX {
     public static void main( String[] args ) {
         printX( 'c', 5);
     }

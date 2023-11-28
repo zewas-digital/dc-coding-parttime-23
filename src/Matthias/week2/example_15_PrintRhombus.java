@@ -1,11 +1,11 @@
-package Matthias.week2.example16;
+package Matthias.week2;
 
 /*
 Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegebene Zeichen ausgibt. Die Größe soll dabei die Höhe des Rhombus sein.
 
  */
 
-public class PrintRhombus {
+public class example_15_PrintRhombus {
 
     public static void main(String[] args){
         printRhombus('1', 7);

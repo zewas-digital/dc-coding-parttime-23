@@ -1,4 +1,4 @@
-package Matthias.week2.example9;
+package Matthias.week2;
 
 /*
 Erstellen Sie eine Methode mit dem Namen "printChars". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.
@@ -14,7 +14,7 @@ xxxxxxxxxx
 
  */
 
-public class Methods {
+public class example_9_Methods {
 
     //Definition der Methode
     static void printChars(char cZeichen, int iAnzahl){
