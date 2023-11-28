@@ -24,7 +24,37 @@ Ausgabe:
 20
      */
 
-public class Calendar_4_NumOfWorkingDays {
+import java.util.Calendar;
+
+    public class Calendar_4_NumOfWorkingDays {
+        public static void main( String[] args ) {
+
+            Calendar c = Calendar.getInstance( ); // 25.11.2023
+
+            c.set( Calendar.YEAR, 2021 ); // 25.11.2024
+
+            c.set( Calendar.MONTH, 1 ); // 25.01.2024
+
+            c.set( Calendar.DAY_OF_MONTH, 1 ); // 1.01.2024
+
+            System.out.println( c.getTime( ) );
+
+            int numberOfDaysInMonth = c.getActualMaximum( Calendar.DAY_OF_MONTH );
+
+            int numberOfWorkingDays = 0;
+
+            for (int i = 1; i <= numberOfDaysInMonth; i++) {
+                if ( c.get( Calendar.DAY_OF_WEEK ) != Calendar.SUNDAY && c.get( Calendar.DAY_OF_WEEK ) != Calendar.SATURDAY ) {
+                    numberOfWorkingDays++;
+                    System.out.println( c.getTime( ) );
+
+                }
+
+                c.add( Calendar.DAY_OF_MONTH, 1 );
+            }
+
+            System.out.println( numberOfWorkingDays );
 
 
-}
+        }
+    }
