@@ -26,7 +26,6 @@ Die Ausgabe sollte wie folgt sein:
 
  */
 
-
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -62,13 +61,11 @@ public class Calendar_5_Calendar {
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
         fillArray ( calendar, ersterTagImMonat, tageImMonat, year, month );
 
         replace ( calendar );
         
         printCalendar ( calendar );
-        
     }
     static String userInput( ) {
 
@@ -96,37 +93,32 @@ public class Calendar_5_Calendar {
         int aktualMonth = cal.get ( Calendar.MONTH );
         int aktualDay = cal.get ( Calendar.DAY_OF_MONTH);
 
-
         int erstesZuBefüllendeArray = ersterTagImMonat-2;
         if (erstesZuBefüllendeArray <0){erstesZuBefüllendeArray=6;}
 
-        int xy=1;
+        int day=1;
         for (int i = 1; i <7; i++) {
             for (int j = erstesZuBefüllendeArray; j <7; j++) {
 
+                if(aktualYear == year && aktualMonth == month && aktualDay == day){
 
-                if(aktualYear == year && aktualMonth == month && aktualDay == xy){
-
-                    calendar[i][j] = String.valueOf ( "  " + formatting0 ( xy ) + "* " );
-                    xy++;
-                    if (xy == tageImMonat + 1) {
+                    calendar[i][j] = String.valueOf ( "  " + String.format("%02d", day) + "* " );
+                    day++;
+                    if (day == tageImMonat + 1) {
                         break;
                     }
                 }else {
 
-                    calendar[i][j] = String.valueOf ( "  " + formatting0 ( xy ) + "  " );
-                    xy++;
-                    if (xy == tageImMonat + 1) {
+                    calendar[i][j] = String.valueOf ( "  " + String.format("%02d", day) + "  " );
+                    day++;
+                    if (day == tageImMonat + 1) {
                         break;
                     }
                 }
-
-
             }
-            if(xy == tageImMonat+1){break;}
+            if(day == tageImMonat+1){break;}
             erstesZuBefüllendeArray=0;
         }
-
         return calendar;
     }
     static String[][] replace( String[][] calender){
@@ -138,18 +130,9 @@ public class Calendar_5_Calendar {
                 }
             }
         }
-
         return calender;
     }
-    static String formatting0(int var){
-        String str = String.valueOf ( var);
-        if ( var<10) {
-            str = "0" + var;
-        }
-        return str;
-    }
     static void printCalendar( String[][] calendar){
-
 
         for (int i = 0; i < calendar.length; i++) {
             System.out.print ( "|" );
@@ -160,5 +143,4 @@ public class Calendar_5_Calendar {
             System.out.println ( );
         }
     }
-
 }
