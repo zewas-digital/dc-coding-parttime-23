@@ -34,7 +34,11 @@ public class Calendar_5_Calendar {
 
         Calendar calendar = Calendar.getInstance();
         Calendar today = Calendar.getInstance(); //Kalenderobjekt mit aktuellem Datum "heute"
-        //SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEE, dd. LLLL yyyy");
+
+        //Hier Testdaten, falls nicht "heute" gewünscht
+        //calendar.set(2023, 0,3);
+        //today.set(2023,0,5);
+
         SimpleDateFormat yearAndMonth = new SimpleDateFormat("yyyy LLLL");
         SimpleDateFormat weekday = new SimpleDateFormat("EE");
 
@@ -42,9 +46,6 @@ public class Calendar_5_Calendar {
 
         calendar.set(Calendar.DAY_OF_WEEK, 2); //2 = Montag, für die Überschriftszeile
 
-        System.out.println("Anfang des Programms: Monat zum Zählen: " + calendar.get(Calendar.MONTH) + " Monat heute: " + today.get(Calendar.MONTH));
-
-        //int year = Integer.parseInt(inputString[2]);
         //Drucke Überschriftszeile: ////////////////////////////////////////////////////////////////
         for (int i = 0; i < 7; i++) {
             //System.out.print("|" + weekday.format(calendar.getTime()) + " ");
@@ -57,14 +58,18 @@ public class Calendar_5_Calendar {
         calendar.set(Calendar.MONTH, today.get(Calendar.MONTH)); //Zählkalender wieder zurücksetzen
         calendar.set(Calendar.DAY_OF_MONTH, 1); //Datum auf ersten des Monats gesetzt
 
-        while(calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH)) {
+        while (calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH)) {
             //Drucke eine Zeile:
             for (int i = 2; i < 9; i++) {
-                if ((calendar.get(Calendar.DAY_OF_WEEK) == i || calendar.get(Calendar.DAY_OF_WEEK) == i % 7) && (calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH) )) { //???TODO: i % 7??
+                if ((calendar.get(Calendar.DAY_OF_WEEK) == i || calendar.get(Calendar.DAY_OF_WEEK) == i % 7) && (calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH))) { //???TODO: i % 7??
 
-                    System.out.printf("| %2s ", calendar.get(Calendar.DAY_OF_MONTH));
-                    calendar.add(Calendar.DAY_OF_MONTH, 1);
-
+                    if (calendar.get(Calendar.DAY_OF_MONTH) == today.get(Calendar.DAY_OF_MONTH)) {
+                        System.out.printf("| %2s*", calendar.get(Calendar.DAY_OF_MONTH));
+                        calendar.add(Calendar.DAY_OF_MONTH, 1);
+                    } else {
+                        System.out.printf("| %2s ", calendar.get(Calendar.DAY_OF_MONTH));
+                        calendar.add(Calendar.DAY_OF_MONTH, 1);
+                    }
 
                 } else System.out.print("|    ");
             }
