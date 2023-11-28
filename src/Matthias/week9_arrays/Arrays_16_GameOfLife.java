@@ -1,4 +1,4 @@
-package Matthias.week10_strings;
+package Matthias.week9_arrays;
 
 /*
 Bonus-Aufgabe: Conways Game of life

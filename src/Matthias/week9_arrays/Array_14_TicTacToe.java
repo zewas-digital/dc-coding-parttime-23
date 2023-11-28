@@ -1,4 +1,4 @@
-package Matthias.week10_strings;
+package Matthias.week9_arrays;
 /*
 Programmiere das Spiel TicTacToe.
 

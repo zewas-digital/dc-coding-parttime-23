@@ -1,4 +1,4 @@
-package Matthias.week2.example10;
+package Matthias.week2;
 /*
 Erstellen Sie eine Methode mit dem Namen "printSquare". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.
 Die zwei Übergabeparameter sind ein char und ein Integer.
@@ -20,7 +20,7 @@ xxxxxxxxxx
 xxxxxxxxxx
  */
 
-public class PrintSquare {
+public class example_10_PrintSquare {
     //Definition der Methode
     static void printsquare(char cZeichen, int iAnzahl){ // static = Eigenschaft der Methode; void Rückgabewert, welcher erwartet wird; alles in der Methode sind die Übergabeparameter
         //System.out.println("Zeile:");
