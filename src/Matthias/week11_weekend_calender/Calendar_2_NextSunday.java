@@ -47,35 +47,17 @@ public class Calendar_2_NextSunday {
         System.out.println("Tag:" + TagInt + "Woche:" + MonatInt+ "Jahr:" +JahrInt);
 
 
-        //Setten
-        c.set(Calendar.DAY_OF_MONTH,TagInt);
-        c.set(Calendar.MONTH, MonatInt-1);
-        c.set(Calendar.YEAR, JahrInt);
-
-        //Ausgabe: für den Bentutzer-> Dokumentation: https://stackoverflow.com/questions/55070978/how-does-calender-setcalender-month-work
-        System.out.println(dateFormat.format( c.getTime() ));
-
+        //------------Getten
         int tmp = ((1+7)-c.get(Calendar.DAY_OF_WEEK));
+
         // Variante 1: ohne Add
         c.set(Calendar.DAY_OF_MONTH, (TagInt+tmp));
         c.set(Calendar.MONTH, (MonatInt-1));
         c.set(Calendar.YEAR, JahrInt);
 
+        //Ausgabe: für den Bentutzer-> Dokumentation: https://stackoverflow.com/questions/55070978/how-does-calender-setcalender-month-work
         System.out.println(dateFormat.format( c.getTime() ));
 
-        //Variante 2: mit add
-
-        //Setten
-        c.set(Calendar.DAY_OF_MONTH,TagInt);
-        c.set(Calendar.MONTH, MonatInt-1);
-        c.set(Calendar.YEAR, JahrInt);
-        //Getten
-        c.set(Calendar.YEAR, JahrInt);
-        c.set(Calendar.MONTH, (MonatInt-1));
-        c.add(Calendar.DAY_OF_MONTH, tmp);
-
-        System.out.println(dateFormat.format( c.getTime() ));
-        //c.get(Calendar.getInstance( ).getFirstDayOfWeek( ) ), TagInt+8);
 
     }
 }
