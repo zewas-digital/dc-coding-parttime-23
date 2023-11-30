@@ -3,12 +3,16 @@ package Matthias.week11_weekend_calender;
 /*
 Aufgabe: RegionalCalendar (Bonus)
 
-Die Leute in Thailand sind traurig, weil die Ausgabe deines Kalenderprogramms aus der vorhergehenden Aufgabe nicht korrekt ist, da ihre Woche am Sonntag beginnt. Ändere dein Programm so ab, dass es Kalenderunabhängig den richtigen Wochenstart verwendet. Verwende dafür CultureInnfo.DateTimeFormat.Calendar und CultureInnfo.DateTimeFormat.FirstDayOfWeek. Teste dein Programm mit verschiedenen CultureInfo in der Start() Methode.
+Die Leute in Thailand sind traurig, weil die Ausgabe deines Kalenderprogramms aus der 
+vorhergehenden Aufgabe nicht korrekt ist, da ihre Woche am Sonntag beginnt. 
+Ändere dein Programm so ab, dass es Kalenderunabhängig den richtigen Wochenstart verwendet. 
+Verwende dafür CultureInnfo.DateTimeFormat.Calendar und CultureInnfo.DateTimeFormat.FirstDayOfWeek.
+Teste dein Programm mit verschiedenen CultureInfo in der Start() Methode.
 
 Aufruf
 
 CultureInfo austrian = new CultureInfo("de-AT");
-DayOfWeek dow = austrian.DateTimeFormat.FirstDayOfWeek;
+DayOfWeek dow = austrian.DateTimeFormat.FirstDayOfWeek; -> Localen gestalten ausführen -> Methodik
 
 //Locale wird auf Thailand gesetzt, hier wird der Buddistische Kalender verwendet
 PrintCalendar("th-TH", 2565, 4);
@@ -37,6 +41,7 @@ Ausgabe
 
  */
 
+import java.time.DayOfWeek;
 import java.util.Calendar;
 
 public class Calendar_6_RegionalCalendar {
@@ -53,7 +58,6 @@ public class Calendar_6_RegionalCalendar {
 
     int weekday = c.get(Calendar.DAY_OF_WEEK);
     int lastDayOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
-
         System.out.println(lastDayOfMonth);
 
     int currentDay = 1;
