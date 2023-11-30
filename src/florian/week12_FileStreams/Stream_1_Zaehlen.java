@@ -16,18 +16,14 @@ und führe das Zählen über eine Methode aus.
 
 import data.Texts;
 
-import java.awt.geom.Arc2D;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class week12_Stream_1_Zaehlen {
-    public static void main(String[] args) {
-        getSimpleText();
-    }
+public class Stream_1_Zaehlen {
+    public static void main(String[] args){getSimpleText();}
 
     public static void getSimpleText() {
         BufferedReader reader = null;
@@ -40,6 +36,7 @@ public class week12_Stream_1_Zaehlen {
                     )
             );
             int wordCounter = wordReader(reader);
+            System.out.println(wordCounter);
 
             String input;
             int lineNumber = 1;
@@ -82,7 +79,7 @@ public class week12_Stream_1_Zaehlen {
 
                 String [] arraywords = input.split(" ");
 
-
+                counter += arraywords.length;
 
 
                 System.out.println(Arrays.toString(arraywords));
