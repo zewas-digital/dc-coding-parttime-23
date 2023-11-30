@@ -15,7 +15,6 @@ und führe das Zählen über eine Methode aus.
  */
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
@@ -26,17 +25,26 @@ public class week12_Stream_1_Zaehlen {
 
         String text = getSimpleText();
 
+        printTextWithParagraphs(text);
 
         int wordCount = countWords(text);
-        System.out.println("Anzahl der Wörter: " + wordCount);
+        System.out.println("Anzahl der Wörter: " + wordCount + " 👌");
 
         char letterToCount = promptForLetter();
         int letterCount = countLetter(text, letterToCount);
-        System.out.println("Anzahl des Buchstabens '" + letterToCount + "': " + letterCount);
+        System.out.println("Anzahl des Buchstabens '" + letterToCount + "': " + letterCount + " 😖");
 
         String wordToCount = promptForWord();
         int wordOccurrences = countWord(text, wordToCount);
-        System.out.println("Anzahl des Wortes '" + wordToCount + "': " + wordOccurrences);
+        System.out.println("Anzahl des Wortes '" + wordToCount + "': " + wordOccurrences + " 😮");
+    }
+
+    private static void printTextWithParagraphs(String text) {
+        // Teile den Text an jedem Punkt und füge einen Absatz hinzu
+        String[] sentences = text.split("\\.");
+        for (String sentence : sentences) {
+            System.out.println(sentence.trim() + ". 🤓\n");
+        }
     }
 
     private static String getSimpleText() {
