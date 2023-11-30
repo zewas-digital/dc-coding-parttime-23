@@ -13,31 +13,31 @@ welcher als Parameter mitgegeben wird.
 und führe das Zählen über eine Methode aus.
 
  */
-import data.Texts;
 
+import data.Texts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLOutput;
 import java.util.Objects;
 import java.util.Scanner;
 public class week12_Stream_1_Zaehlen {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Anzahl der Wörter im Text: " + countWords());
 
-        System.out.println("\n2. Anzahl der Buchtaben: ");
-        System.out.println("Anzahl der a im Text: " + countLetters('a'));
-        System.out.println("Anzahl der e im Text: " + countLetters('e'));
-        System.out.println("Anzahl der i im Text: " + countLetters('i'));
-        System.out.println("Anzahl der o im Text: " + countLetters('o'));
-        System.out.println("Anzahl der A im Text: " + countLetters('A'));
-        System.out.println("Anzahl der S im Text: " + countLetters('S'));
-        System.out.println("Anzahl der E im Text: " + countLetters('E'));
-        System.out.println("Anzahl der M im Text: " + countLetters('M'));
+        System.out.println("1.Anzahl der Wörter im Text: " + countWords());
 
-        System.out.println("\n3. Ein Wort soll gezählt werden ");
-        System.out.print("\nGeben Sie das Wort ein, welches gezählt werden soll: ");
+        System.out.println("\n2.Anzahl der Buchtaben: ");
+        System.out.println("Anzahl der M im Text: " + countEveryLetters('M'));
+        System.out.println("Anzahl der a im Text: " + countEveryLetters('a'));
+        System.out.println("Anzahl der E im Text: " + countEveryLetters('E'));
+        System.out.println("Anzahl der i im Text: " + countEveryLetters('i'));
+        System.out.println("Anzahl der r im Text: " + countEveryLetters('r'));
+        System.out.println("Anzahl der U im Text: " + countEveryLetters('U'));
+
+        System.out.println("Anzahl der Leerzeichen im Text: " + countEveryLetters(' '));
+
+        System.out.println("\n3.Ein Wort soll gezählt werden ");
+        System.out.print("Geben Sie das Wort ein, welches gezählt werden soll: ");
         String OneWord = scanner.next();
         System.out.println(OneWord + " kommt " + countOneWord(OneWord) + " mal im Text vor! ");
     }
@@ -49,13 +49,14 @@ public class week12_Stream_1_Zaehlen {
             reader = new BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
-                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
+                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")       //Open File
                             )
                     )
             );
 
             String input;
-            while ((input = reader.readLine()) != null) {
+
+            while ((input = reader.readLine()) != null) {               //read File
                 counter = counter + input.split(" ").length - 1;
             }
         } catch (IOException exc) {
@@ -63,7 +64,7 @@ public class week12_Stream_1_Zaehlen {
         } finally {
             if (reader != null) {
                 try {
-                    reader.close();
+                    reader.close();     //Close File
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -72,19 +73,20 @@ public class week12_Stream_1_Zaehlen {
         return counter;
     }
 
-    static int countLetters(char letter) {
+    static int countEveryLetters(char letter) {
         BufferedReader reader = null;
         int counter = 0;
         try {
             reader = new BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
-                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
+                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")      //Open File
                             )
                     )
             );
             String input;
-            while ((input = reader.readLine()) != null) {
+
+            while ((input = reader.readLine()) != null) {       //Read File
                 counter = counter + input.split(String.valueOf(letter)).length - 1;
             }
         } catch (IOException exc) {
@@ -92,7 +94,7 @@ public class week12_Stream_1_Zaehlen {
         } finally {
             if (reader != null) {
                 try {
-                    reader.close();
+                    reader.close();     //Close File
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -108,12 +110,13 @@ public class week12_Stream_1_Zaehlen {
             reader = new BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
-                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
+                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")      //Open File
                             )
                     )
             );
             String input;
-            while ((input = reader.readLine()) != null) {
+
+            while ((input = reader.readLine()) != null) {       //Read File
                 counter = counter + input.split(String.valueOf(OneWord)).length - 1;
             }
         } catch (IOException exc) {
@@ -121,7 +124,7 @@ public class week12_Stream_1_Zaehlen {
         } finally {
             if (reader != null) {
                 try {
-                    reader.close();
+                    reader.close();     //Close File
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
