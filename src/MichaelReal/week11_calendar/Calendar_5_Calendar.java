@@ -50,7 +50,7 @@ public class Calendar_5_Calendar {
             int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
             int offset = (calendar.get(Calendar.DAY_OF_WEEK) - Calendar.MONDAY + 7) % 7;
 
-            System.out.println(year + " " + getMonthName(month));
+            System.out.println(year + " " + getMonthName(month) + " 🤓");
             System.out.println("| Mo | Di | Mi | Do | Fr | Sa | So |");
 
             for (int i = 0; i < offset; i++) {
@@ -58,8 +58,8 @@ public class Calendar_5_Calendar {
             }
 
             for (int day = 1; day <= daysInMonth; day++) {
-                if (day == today) {
-                    System.out.printf("|%3d*", day);
+                if (day == today && isCurrentMonth(year, month)) {
+                    System.out.printf("|%3d💕", day);
                 } else {
                     System.out.printf("|%4d", day);
                 }
@@ -69,6 +69,14 @@ public class Calendar_5_Calendar {
                 }
             }
         }
+
+    static boolean isCurrentMonth(int year, int month) {
+        Calendar currentCalendar = Calendar.getInstance();
+        int currentYear = currentCalendar.get(Calendar.YEAR);
+        int currentMonth = currentCalendar.get(Calendar.MONTH) + 1; // Monate sind 0-basiert
+
+        return (year == currentYear && month == currentMonth);
+    }
 
         static int getCurrentDay() {
             Calendar today = Calendar.getInstance();
