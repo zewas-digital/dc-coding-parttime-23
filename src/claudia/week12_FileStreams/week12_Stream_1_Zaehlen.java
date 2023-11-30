@@ -32,12 +32,15 @@ public class week12_Stream_1_Zaehlen {
         System.out.println("Anzahl Buchstabe \"ł\": " + countLetter('ł'));
         System.out.println("Anzahl Zeichen \"*\": " + countLetter('*'));
 
+        System.out.println("\nWörter korrekt zählen mit equals statt Split-Trick: ");
+        System.out.println("Anzahl Wort \"Marie\": " + countWord("Marie"));
+        System.out.println("Anzahl Wort \"und\": " + countWord("und"));
+
         int choice = 1;
         while (choice != 0) {
             choice = BasicFunctions.readInt("\nWähle Aufgabe! \n1 = Anzahl Wörter, 2 = Anzahl bestimmter Buchstabe, 3 = Anzahl bestimmtes Wort - oder 0 = ABBRECHEN: ");
             countingEverything(choice);
         }
-
     }
 
     public static int countingEverything(int choice) {
@@ -71,14 +74,14 @@ public class week12_Stream_1_Zaehlen {
                         System.out.println("Anzahl des Buchstaben " + letter + " im Text: " + counter);
                         break;
                     case 3:
-                        System.out.println("\nAufgabe 3, ein Wort zählen.");
-                        System.out.print("Welches Wort soll gezählt werden? Bitte eingeben! ");
+                        System.out.println("\nAufgabe 3, eine Zeichenkette zählen.");
+                        System.out.print("Welches Zeichenkette soll gezählt werden? Bitte eingeben! ");
                         Scanner sc = new Scanner(System.in);
                         String word = sc.next();
                         while ((input = reader.readLine()) != null) {
                             counter = counter + input.split(String.valueOf(word)).length - 1;
                         } //Anzahl word = Anzahl der Lücken = Anzanl der Abschnitte - 1
-                        System.out.println("Anzahl des Worts \"" + word + "\" im Text: " + counter);
+                        System.out.println("Anzahl der Zeichenkette \"" + word + "\" im Text: " + counter);
                         break;
                     default:
                         break;
@@ -115,7 +118,11 @@ public class week12_Stream_1_Zaehlen {
             String input;
 
             while ((input = reader.readLine()) != null) {
-                counter = counter + input.split(String.valueOf(word)).length - 1; //Anzahl word = Anzahl der Lücken = Anzanl der Abschnitte - 1
+                String[] wordsInLine = input.split(" ");
+                for (String elem : wordsInLine
+                ) {
+                    if (elem.equals(word)) counter++;
+                }
             }
 
         } catch (IOException exc) {
@@ -134,6 +141,8 @@ public class week12_Stream_1_Zaehlen {
     public static int countLetter(char letter) {
         BufferedReader reader = null;
         int counter = 0;
+        int input;
+        int letterAscii = (int) letter;
         try {
             reader = new BufferedReader(
                     new InputStreamReader(
@@ -142,11 +151,6 @@ public class week12_Stream_1_Zaehlen {
                             )
                     )
             );
-
-            int input;
-
-            //char buchstabe = text.charAt(i);
-            int letterAscii = (int) letter;
 
             while ((input = reader.read()) != -1) {
                 if (input == letterAscii) counter++;

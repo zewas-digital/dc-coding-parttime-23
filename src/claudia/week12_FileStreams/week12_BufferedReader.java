@@ -19,7 +19,7 @@ public class week12_BufferedReader {
             reader = new BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
-                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
+                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.tx")
                             )
                     )
             );
@@ -33,10 +33,16 @@ public class week12_BufferedReader {
 
         } catch (IOException exc) {
             throw new RuntimeException(exc);
-        } finally {
+        }
+        catch(NullPointerException e){
+            System.out.println("\nKann das File nicht finden!");
+        }
+
+        finally {
             if (reader != null) {
                 try {
                     reader.close();
+                    System.out.println("\nFile geschlossen!");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
