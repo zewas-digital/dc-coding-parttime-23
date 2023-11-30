@@ -1,4 +1,4 @@
-package eslem.week12;
+package Simonsway.Week12;
 
 import data.Texts;
 
@@ -22,12 +22,13 @@ public class week12_BufferedReader {
                                     Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
                             )
                     )
-             );
+            );
 
             String input;
             int lineNumber = 1;
             while ((input = reader.readLine()) != null) {
                 System.out.println("Zeile " + lineNumber + ": " + input);
+
 
                 lineNumber++;
             }
