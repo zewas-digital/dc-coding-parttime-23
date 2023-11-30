@@ -16,7 +16,6 @@ und führe das Zählen über eine Methode aus.
 
 import claudia.BasicFunctions;
 import data.Texts;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
