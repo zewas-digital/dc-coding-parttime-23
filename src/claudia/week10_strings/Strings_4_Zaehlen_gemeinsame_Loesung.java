@@ -1,4 +1,4 @@
-package claudia.week11_strings;
+package claudia.week10_strings;
 
 /*
 Aufgabe: Buchstaben zählen

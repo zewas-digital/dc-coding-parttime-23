@@ -1,4 +1,4 @@
-package Simonsway.Week11.Calendar;
+package eslem.weekend2;
 
 /*
 
@@ -27,56 +27,53 @@ Die Ausgabe sollte wie folgt sein:
  */
 
 import java.util.Calendar;
-
+import java.util.Scanner;
 public class Calendar_5_Calendar {
-
     public static void main(String[] args) {
-        // Kalender mit dem betrachteten Monat und Jahr
+
         Calendar c = Calendar.getInstance();
+
         c.set(Calendar.MONTH, 10);
         c.set(Calendar.DAY_OF_MONTH, 1);
 
-        // Kalender mit dem heutigen Tag
         Calendar today = Calendar.getInstance();
 
-        int weekday = c.get(Calendar.DAY_OF_WEEK);
         int lastDayOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int weekday = c.get(Calendar.DAY_OF_WEEK);
 
+        System.out.println(lastDayOfMonth);
 
-        int currentDay = 1;
-
-        int startIndex = 0;
+        int start = 0;
+        int current = 1;
 
         if (weekday == 1) {
-            startIndex = 6;
+            start = 6;
         } else {
-            startIndex = weekday - 2;
+            start = weekday - 2;
         }
-
-        for (int i = 0; i < startIndex; i++) {
-            System.out.print("    ");
+        for (int i = 0; i < start; i++) {
+            System.out.println("    ");
         }
-
-        for (int y = 0; currentDay <= lastDayOfMonth; y++) {
-            for (int x = startIndex; x < 7; x++) {
-                if (currentDay <= lastDayOfMonth) {
+        for (int y = 0; current <= lastDayOfMonth; y++) { // Schleife für jeden Tag des Monats
+            //System.out.println("Äußere Schleife: currentDay: "+ currentDay);
+            for (int x = start; x < 7; x++) { // Schleife für die Kalenderwochen
+                //System.out.println("Innere Schleife: currentDay: "+ currentDay);
+                if (current <= lastDayOfMonth) {
                     if (c.get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
                             c.get(Calendar.MONTH) == today.get(Calendar.MONTH) &&
-                            currentDay == today.get(Calendar.DAY_OF_MONTH)
+                            current == today.get(Calendar.DAY_OF_MONTH)
                     ) {
-                        System.out.printf(" %02d*", currentDay);
+                        System.out.printf(" %02d*", current);
                     } else {
-                        System.out.printf(" %02d ", currentDay);
+                        System.out.printf(" %02d ", current);
                     }
-                    currentDay++;
+                    current++;
                 } else {
                     break;
                 }
             }
-            startIndex = 0;
+            start = 0;
             System.out.println();
         }
-
     }
 }
-

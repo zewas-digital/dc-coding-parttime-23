@@ -60,7 +60,7 @@ public class Calendar_1_MyBirthday {
         System.out.println("Geben Sie Ihren Geburtstag ein (Format: DD.MM.YYYY):");
         String input = scanner.nextLine();
 
-        // Benutzereingabe in ein LocalDate zu konvertieren
+        // Benutzereingabe in ein LocalDate konvertieren
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu").withResolverStyle(ResolverStyle.STRICT);
             LocalDate birthday = LocalDate.parse(input, formatter);
