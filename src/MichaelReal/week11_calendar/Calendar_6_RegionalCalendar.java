@@ -55,10 +55,10 @@ public class Calendar_6_RegionalCalendar {
             int yearLocal = scanner.nextInt();
 
             // Lokaler Kalender ausgeben
-            printCalendar(monthLocal, yearLocal, "Local");
+            printCalendar(monthLocal, yearLocal, "Local 🤓");
 
             // Kalender für Thailand ausgeben (2565 ist das Jahr 2022 + 543 Jahre)
-            printCalendar(monthLocal, yearLocal + 543, "Thailand");
+            printCalendar(monthLocal, yearLocal + 543, "Thailand 🦄");
         }
 
         private static void printCalendar(int month, int year, String location) {
@@ -66,6 +66,7 @@ public class Calendar_6_RegionalCalendar {
             LocalDate today = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM");
             System.out.println(formatter.format(date) + " - " + location);
+
 
             // Kopfzeile des Kalenders
             System.out.println("| Mo | Di | Mi | Do | Fr | Sa | So |");
@@ -77,12 +78,12 @@ public class Calendar_6_RegionalCalendar {
 
             // Tage des Monats ausgeben
             while (date.getMonthValue() == month) {
-                // Markiere den aktuellen Tag mit einem '*'
+                // Markiere den aktuellen Tag mit einem '💕'
                 if (date.equals(today)) {
                     if (date.getDayOfMonth() < 10) {
-                        System.out.print("|  " + date.getDayOfMonth() + "*");
+                        System.out.print("|  " + date.getDayOfMonth() + "💕");
                     } else {
-                        System.out.print("| " + date.getDayOfMonth() + "*");
+                        System.out.print("| " + date.getDayOfMonth() + "💕");
                     }
                 } else {
                     if (date.getDayOfMonth() < 10) {
