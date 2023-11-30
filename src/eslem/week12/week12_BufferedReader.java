@@ -22,7 +22,7 @@ public class week12_BufferedReader {
                                     Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
                             )
                     )
-            );
+             );
 
             String input;
             int lineNumber = 1;
