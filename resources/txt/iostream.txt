@@ -1,0 +1,2 @@
+Text im ressource-file
+Zeile 2
