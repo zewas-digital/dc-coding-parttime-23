@@ -1,0 +1,13 @@
+EIGENER TEXT!
+
+2023-11-30 21:41:56ERROR: Großes Problem!
+2023-11-30 21:41:56WARNING: Achtung!
+2023-11-30 21:41:56INFO: Alles in Ordnung.
+2023-11-30 21:45:12 ERROR: Großes Problem!
+2023-11-30 21:45:12 WARNING: Achtung!
+2023-11-30 21:45:12 INFO: Alles in Ordnung.
+2023-11-30 21:45:12 ERROR: java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
+2023-11-30 21:46:29 ERROR: Test - großes Problem!
+2023-11-30 21:46:29 WARNING: Test - Achtung!
+2023-11-30 21:46:29 INFO: Test - alles in Ordnung.
+2023-11-30 21:46:29 ERROR: echtes Problem java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
