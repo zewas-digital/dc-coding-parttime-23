@@ -21,7 +21,7 @@ public class Calendar_2_NextSunday {
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEE, dd. LLLL yyyy");
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Berechne den nächsten Sonntag; gib Dein Datum in folgendem Format ein: dd.mm.yyyy ");
+        System.out.print("\nBerechne den nächsten Sonntag; gib Dein Datum in folgendem Format ein: dd.mm.yyyy ");
         String[] date = sc.next().split("\\.");
         calendar.set(Integer.parseInt(date[2]), Integer.parseInt(date[1]) - 1, Integer.parseInt(date[0]));
 
