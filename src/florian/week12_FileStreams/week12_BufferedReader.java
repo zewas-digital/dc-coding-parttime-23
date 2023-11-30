@@ -5,7 +5,10 @@ import data.Texts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Objects;
+
+import static java.lang.Integer.parseInt;
 
 public class week12_BufferedReader {
 
@@ -24,10 +27,11 @@ public class week12_BufferedReader {
                     )
             );
 
+
             String input;
             int lineNumber = 1;
             while ((input = reader.readLine()) != null) {
-                System.out.println("Zeile " + lineNumber + ": " + input);
+               // System.out.println("Zeile " + lineNumber + ": " + input);
 
                 lineNumber++;
             }
@@ -43,12 +47,6 @@ public class week12_BufferedReader {
                 }
             }
         }
-    }
-
-    static String wordReader (String reader){
-
-
-        return reader;
     }
 
 }

@@ -16,14 +16,20 @@ und führe das Zählen über eine Methode aus.
 
 import data.Texts;
 
+import java.awt.geom.Arc2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class week12_Stream_1_Zaehlen {
     public static void main(String[] args) {
+        getSimpleText();
+    }
+
+    public static void getSimpleText() {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(
@@ -33,14 +39,61 @@ public class week12_Stream_1_Zaehlen {
                             )
                     )
             );
+            int wordCounter = wordReader(reader);
+
+            String input;
+            int lineNumber = 1;
+            while ((input = reader.readLine()) != null) {
+                 System.out.println("Zeile " + lineNumber + ": " + input);
+
+                lineNumber++;
+
+            }
+
+
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 
 
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+    static int wordReader (BufferedReader reader){
+        int counter = 0;
+
+
+        try{
+            String input;
+
+            int lineNumber = 1;
+            while ((input = reader.readLine()) != null) {
+               // System.out.println("Zeile " + lineNumber + ": " + input);
+                lineNumber++;
+
+
+                String [] arraywords = input.split(" ");
+
+
+
+
+                System.out.println(Arrays.toString(arraywords));
+            }
+
+        }catch (IOException exc) {
+            System.out.println("Fehler");
         }
 
 
+        return counter;
     }
+
 }
