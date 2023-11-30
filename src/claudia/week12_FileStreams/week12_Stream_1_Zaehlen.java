@@ -27,11 +27,18 @@ public class week12_Stream_1_Zaehlen {
 
     public static void main(String[] args) {
 
+        System.out.println("\nBuchstaben zählen mit read(), d.h. einzelne char's einlesen: ");
+        System.out.println("Anzahl Buchstabe \"a\": " + countLetter('a'));
+        System.out.println("Anzahl Buchstabe \"A\": " + countLetter('A'));
+        System.out.println("Anzahl Buchstabe \"ł\": " + countLetter('ł'));
+        System.out.println("Anzahl Zeichen \"*\": " + countLetter('*'));
+
         int choice = 1;
         while (choice != 0) {
             choice = BasicFunctions.readInt("\nWähle Aufgabe! \n1 = Anzahl Wörter, 2 = Anzahl bestimmter Buchstabe, 3 = Anzahl bestimmtes Wort - oder 0 = ABBRECHEN: ");
             countingEverything(choice);
         }
+
     }
 
     public static int countingEverything(int choice) {
@@ -93,7 +100,7 @@ public class week12_Stream_1_Zaehlen {
     }
 
 
-    //////////Einzelne Methoden - nicht mehr in Verwendung!/////////////////////////
+    //////////Einzelne Methoden /////////////////////////
     public static int countWord(String word) {
         BufferedReader reader = null;
         int counter = 0;
@@ -137,10 +144,13 @@ public class week12_Stream_1_Zaehlen {
                     )
             );
 
-            String input;
+            int input;
 
-            while ((input = reader.readLine()) != null) {
-                counter = counter + input.split(String.valueOf(letter)).length - 1; //Anzahl letter = Anzahl der Lücken = Anzanl der Abschnitte - 1
+            //char buchstabe = text.charAt(i);
+            int letterAscii = (int) letter;
+
+            while ((input = reader.read()) != -1) {
+                if (input == letterAscii) counter++;
             }
 
         } catch (IOException exc) {
