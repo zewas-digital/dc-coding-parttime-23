@@ -27,9 +27,8 @@ public class week12_Stream_1_Zaehlen {
 
 
         String text = getSimpleText();
-        System.out.println(text);
         int countWords = text.split("\\s").length;
-        //System.out.println(countWords.);
+        System.out.println(countWords);
 
     }
 
