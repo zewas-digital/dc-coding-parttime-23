@@ -118,7 +118,7 @@ public class BasicFunctions {
         try{
             input = sc.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("Fehler, Eingabe keine ganze Zahl!"); //auch möglich: z.B. switch (e.toString()) um auf verschiedene Fehler verschieden zu reagieren
+            System.out.println("Fehler, Eingabe keine ganze Zahl!"); //auch möglich: z.B. switch (e.toString()), um auf verschiedene Fehler verschieden zu reagieren
         }
         return input;
     }
