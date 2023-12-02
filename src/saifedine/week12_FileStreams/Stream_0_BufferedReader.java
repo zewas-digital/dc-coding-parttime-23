@@ -1,22 +1,21 @@
-package oliver.week12_FileStreams;
+package saifedine.week12_FileStreams;
 
 import data.Texts;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
-public class week12_BufferedReader {
+public class Stream_0_BufferedReader {
 
     public static void main(String[] args) {
         getSimpleText();
     }
 
     public static void getSimpleText() {
-        BufferedReader reader = null;
+        java.io.BufferedReader reader = null;
         try {
-            reader = new BufferedReader(
+            reader = new java.io.BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
                                     Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
