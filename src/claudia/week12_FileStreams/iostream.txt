@@ -11,3 +11,4 @@ EIGENER TEXT!
 2023-11-30 21:46:29 WARNING: Test - Achtung!
 2023-11-30 21:46:29 INFO: Test - alles in Ordnung.
 2023-11-30 21:46:29 ERROR: echtes Problem java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
+noch eine Zeile! 2023-12-02 16:05:48
