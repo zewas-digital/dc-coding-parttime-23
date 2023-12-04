@@ -26,6 +26,8 @@ public class Stream_2_FileLog {
     static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
+
+        /*
         // Schreibe Log bei Exception
         int[] numbers = new int[10];
         try {
@@ -33,20 +35,56 @@ public class Stream_2_FileLog {
         }catch (Exception ec){
             // TODO schreibe log-eintrag mit der geworfenen Exception
         }
+         */
 
+        //userEingabe();
+
+        log(3,userEingabe());
+
+
+
+        /*
         try {
             printFileInputStream();
+
+            writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+
+            //writeToFile(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + log(3,message));
         }
         catch (Exception exception){
-
-
 
             writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         }
 
-
-
+         */
     }
+
+    private static String userEingabe() {
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Bitte geben Sie etwas ein: ");
+        //System.out.println(stringValue);
+        return userInput.next();
+    }
+
+    public static void log(int severity, String message) {
+
+        switch (severity){
+            case 1:
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + "ERROR: " + "Konnte nicht ausgeführt werden";
+                break;
+
+            case 2:
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + "WARNING: " + "Kein passende Aufgabe gefunden";
+                break;
+
+            case 3:
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + userEingabe();
+                break;
+        }
+        System.out.println(message);
+    }
+
+
 
     static void printFileInputStream() {
         System.out.println("+--- read file " + relativeFileLink + " with FileInputStream " + "–".repeat(20));
@@ -80,20 +118,5 @@ public class Stream_2_FileLog {
         } finally {
             System.out.println("+--- wrote file successfully");
         }
-    }
-
-
-    public static void log(int severity, String message) {
-
-        /*
-        severity=1  --> ERROR
-        severity=2  --> WARNING
-        severity=3  --> INFO
-         */
-
-        switch (severity){
-            case 1:
-        }
-
     }
 }
