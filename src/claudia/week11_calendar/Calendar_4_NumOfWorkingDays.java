@@ -60,8 +60,4 @@ public class Calendar_4_NumOfWorkingDays {
         }
         return counter;
     }
-
-
-
-
 }

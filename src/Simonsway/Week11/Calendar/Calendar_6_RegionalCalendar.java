@@ -46,13 +46,22 @@ public class Calendar_6_RegionalCalendar {
     public static void main(String[] args) {
 
         Locale thailand = new Locale("th_TH_#Thai");
+
+        Calendar calendar = Calendar.getInstance(thailand);
+        System.out.println(calendar.getFirstDayOfWeek());
+
+
         Locale germany = new Locale("de_DE");
         Locale austria = new Locale("de_AT");
 
         System.out.println("Thai");
         worldCalender(thailand, 2565, 4);
+        System.out.println();
+
         System.out.println("Germany");
         worldCalender(germany, 2022, 4);
+
+        System.out.println();
         System.out.println("Austria");
         worldCalender(austria, 2022, 4);
 
@@ -68,20 +77,27 @@ public class Calendar_6_RegionalCalendar {
         Calendar today = Calendar.getInstance(country);
 
         int weekday = c.get(Calendar.DAY_OF_WEEK);
+        int startIndex = 0;
         int lastDayOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 
+        System.out.println(country);
+
+        Locale thailand = new Locale("th_TH_#Thai");
+
+
+       if (country.equals(thailand) && weekday == 0){
+           System.out.println(" SU " + " MO " + " TH " + " WE " + " TH " + " FR " + " SA ");
+           startIndex = 4;
+        }
+       else {
+           System.out.println(" MO " + " DI " + " MI " + " DO " + " FR " + " SA " + " SO ");
+           startIndex = weekday - 2;
+       }
+
         System.out.println("---------------------------");
-        System.out.println(" MO " + " DI " + " MI " + " DO " + " FR " + " SA " + " SO ");
 
         int currentDay = 1;
 
-        int startIndex = 0;
-
-        if (weekday == 1) {
-            startIndex = 6;
-        } else {
-            startIndex = weekday - 2;
-        }
 
         for (int i = 0; i < startIndex; i++) {
             System.out.print("    ");
