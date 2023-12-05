@@ -1,4 +1,4 @@
-package claudia.week12_FileStreams;
+package saifedine.week12_FileStreams;
 
 import data.Texts;
 
@@ -19,7 +19,7 @@ public class week12_BufferedReader {
             reader = new BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
-                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.tx")
+                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
                             )
                     )
             );
@@ -28,21 +28,16 @@ public class week12_BufferedReader {
             int lineNumber = 1;
             while ((input = reader.readLine()) != null) {
                 System.out.println("Zeile " + lineNumber + ": " + input);
+
                 lineNumber++;
             }
 
         } catch (IOException exc) {
             throw new RuntimeException(exc);
-        }
-        catch(NullPointerException e){
-            System.out.println("\nKann das File nicht finden!");
-        }
-
-        finally {
+        } finally {
             if (reader != null) {
                 try {
                     reader.close();
-                    System.out.println("\nFile geschlossen!");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
