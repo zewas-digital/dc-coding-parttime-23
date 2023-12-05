@@ -8,6 +8,8 @@ Alle Unterverzeichnisse und Dateien in allen Verzeichnissen
 Dateien nach Größe absteigend
  */
 
+import claudia.BasicFunctions;
+
 import java.io.File;
 import java.util.Objects;
 
@@ -21,22 +23,20 @@ public class Stream_4_FileStructure {
         File [] content = f.listFiles();
         printContent(content, 1);
 
-
-
     }
 
     public static void printContent(File[] content, int counter){
+
         for (File elem : content){
-            if (!elem.isDirectory()) System.out.println("\t".repeat(counter) + elem.getName());
-            else {
-                System.out.println("\t".repeat(counter) + elem.getName());
+           System.out.println("\t".repeat(counter) + elem.getName());
+
+            if (elem.isDirectory()) {
                 File [] vector = elem.listFiles();
                 bubbleSortDescending(vector);
                 printContent(vector, counter + 1);
             }
         }
     }
-
 
     public static void bubbleSortDescending(File[] vector) {
         for (int j = 0; j < vector.length - 1; j++) {
@@ -54,5 +54,4 @@ public class Stream_4_FileStructure {
             vector[j] = temp;
         }
     }
-
 }
