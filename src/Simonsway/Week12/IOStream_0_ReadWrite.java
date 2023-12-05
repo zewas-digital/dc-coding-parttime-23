@@ -1,4 +1,4 @@
-package oliver.week12_FileStreams;
+package Simonsway.Week12;
 
 import data.Texts;
 
@@ -54,7 +54,7 @@ public class IOStream_0_ReadWrite {
         } catch (SecurityException e) {
             System.out.println("Kein Zugriff auf die Datei.");
         } catch (FileNotFoundException fnf) {
-            System.out.println("Datei wurde nicht gefunden."+ fnf.toString());
+            System.out.println("Datei wurde nicht gefunden.");
         }
     }
 
@@ -66,11 +66,8 @@ public class IOStream_0_ReadWrite {
 
             ps.println(content);
             ps.close();
-            fos.close();
         } catch (FileNotFoundException fnfe) {
             System.out.println("Datei wurde nicht gefunden.");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } finally {
             System.out.println("+--- wrote file successfully");
         }
