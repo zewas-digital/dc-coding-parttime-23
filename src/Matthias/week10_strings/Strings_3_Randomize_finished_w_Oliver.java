@@ -1,4 +1,4 @@
-package Matthias.week11_strings;
+package Matthias.week10_strings;
 
 /*
 Aufgabe: Randomize
