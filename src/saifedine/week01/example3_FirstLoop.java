@@ -1,10 +1,10 @@
-package saifedine.week01.example3;
+package saifedine.week01;
 /*
 Schreiben Sie ein Programm, das die ersten 10 natürlichen Zahlen ausgibt, beginnend bei 1. Verwende dazu ein For-Loop.
 
 
 */
-public class FirstLoop {
+public class example3_FirstLoop {
 
     public static void main(String[] args) {
 

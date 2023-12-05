@@ -1,0 +1,16 @@
+2023-11-30 21:38:31 ERROR: Index 12 out of bounds for length 10
+2023-11-30 21:40:23 ERROR: Index 12 out of bounds for length 10
+2023-12-05 17:36:25 INFO: Guten Morgen!
+2023-12-05 17:36:25 WARNING: Keine passende Aufgabe gefunden
+2023-12-05 17:46:38 INFO: Guten Morgen! 🤓
+2023-12-05 17:46:38 WARNING: Keine passende Aufgabe gefunden 😖
+2023-12-05 17:46:38 ERROR: Versuche es später noch einmal. 😎
+2023-12-05 17:46:38 UNKNOWN: Keiner weiss was als nächstes passiert: 🦄
+2023-12-05 18:06:43 INFO: Guten Morgen! 🤓
+2023-12-05 18:06:43 WARNING: Keine passende Aufgabe gefunden 😖
+2023-12-05 18:06:43 ERROR: Versuche es später noch einmal. 😎
+2023-12-05 18:06:43 UNKNOWN: Keiner weiss was als nächstes passiert: 🦄
+2023-12-05 18:09:11 INFO: Guten Morgen! 🤓
+2023-12-05 18:09:11 WARNING: Keine passende Aufgabe gefunden 😖
+2023-12-05 18:09:11 ERROR: Versuche es später noch einmal. 😎
+2023-12-05 18:09:11 UNKNOWN: Keiner weiss was als nächstes passiert: 🦄
