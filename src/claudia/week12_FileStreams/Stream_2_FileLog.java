@@ -1,5 +1,7 @@
 package claudia.week12_FileStreams;
 
+import claudia.BasicFunctions;
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,23 +26,29 @@ public class Stream_2_FileLog {
 
     static String relativeFileLink = "./src/claudia/week12_FileStreams/iostream.txt";
     public static void main(String[] args) {
-        System.out.println("Datei am Anfang: ");
-        printFileInputStream();
+        //System.out.println("Datei am Anfang: ");
+        //printFileInputStream();
 
-       log(1, "Test - großes Problem!");
-       log(2, "Test - Achtung!");
-       log(3, "Test - alles in Ordnung.");
+        //Schreibe Test-Fehlermeldungen mit log ins File:
+        log(1, "Test - großes Problem!");
+        log(2, "Test - Achtung!");
+        log(3, "Test - alles in Ordnung.");
 
-        // Schreibe Log bei Exception
+        // Schreibe Log bei "echter" Exception
         int[] numbers = new int[10];
+
         try {
             numbers[12] = 12;
-        }catch (Exception e){
-            log(1, "echtes Problem " + e.toString());
+        }catch (ArrayIndexOutOfBoundsException e){
+            log(1, "echtes Problem: " + e.toString());
         }
 
-        System.out.println("Datei am Ende: ");
+        //BasicFunctions.print1DArray(numbers);
+
+        //System.out.println("Datei am Ende: ");
+        System.out.println("\n" + "* - ".repeat(10));
         printFileInputStream();
+        System.out.println("* - ".repeat(10));
     }
     public static void log(int severity, String message) {
 
@@ -62,7 +70,7 @@ public class Stream_2_FileLog {
         } catch (FileNotFoundException fnfe) {
             System.out.println("Datei wurde nicht gefunden.");
         } finally {
-            System.out.println("+--- wrote file successfully");
+            //System.out.println("+--- wrote file successfully");
         }
     }
 
