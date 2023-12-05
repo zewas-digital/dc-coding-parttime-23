@@ -14,7 +14,6 @@ und führe das Zählen über eine Methode aus.
 
  */
 
-import Simonsway.methods.Reader;
 import data.Texts;
 
 import java.io.BufferedReader;

@@ -13,7 +13,7 @@ Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
 
 import java.util.Random;
 
-import Simonsway.methods.Scanner_Helper;
+import Simonsway.Methods.Scanner_Helper;
 
 public class Array_14_TicTacToe {
     public static void main(String[] args) {

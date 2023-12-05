@@ -1,4 +1,4 @@
-package Simonsway.methods;
+package Simonsway.Methods;
 
 import java.util.Random;
 import java.util.Scanner;
