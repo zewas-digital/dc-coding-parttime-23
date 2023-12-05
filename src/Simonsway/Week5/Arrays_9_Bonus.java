@@ -10,7 +10,7 @@ Den Pseudo-Code der Algorithmen findest du unter:
 https://panthema.net/2013/sound-of-sorting/SoS-CheatSheet.pdf
  */
 
-import Simonsway.methods.Array_Methods;
+import Simonsway.Methods.Array_Methods;
 
 import java.util.Arrays;
 
