@@ -1,4 +1,4 @@
-package Simonsway.example38;
+package Simonsway.Week3.example38;
 
 /*
 Preisberechnung

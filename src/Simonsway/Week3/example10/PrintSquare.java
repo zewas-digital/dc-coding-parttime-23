@@ -1,4 +1,4 @@
-package Simonsway.example10;
+package Simonsway.Week3.example10;
 /*
 Erstellen Sie eine Methode mit dem Namen "printSquare". Diese Methode besitzt zwei Übergabeparameter und kein Rückgabeparameter.
 Die zwei Übergabeparameter sind ein char und ein Integer.

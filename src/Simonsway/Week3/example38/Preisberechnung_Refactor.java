@@ -1,4 +1,4 @@
-package Simonsway.example38;
+package Simonsway.Week3.example38;
 
 // hier die sauber vesion wo jede Methode eien eigenen Namen hat, wenn das nicht der fall ist und immer wieder die gleiche Methode aufgerufen wird gibt es nur mit den Parament in der ersten Klammer die Unterscheidungen
 
