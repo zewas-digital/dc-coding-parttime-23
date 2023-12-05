@@ -1,0 +1,8 @@
+2023-12-05 17:42:31 INFO: Guten Morgen! 🤓
+2023-12-05 17:42:31 WARNING: Keine passende Aufgabe gefunden 😖
+2023-12-05 17:42:31 ERROR: Versuche es später noch einmal. 😎
+2023-12-05 17:42:31 UNKNOWN: Keiner weiss was als nächstes passiert: 🦄
+2023-12-05 17:43:19 INFO: Guten Morgen! 🤓
+2023-12-05 17:43:19 WARNING: Keine passende Aufgabe gefunden 😖
+2023-12-05 17:43:19 ERROR: Versuche es später noch einmal. 😎
+2023-12-05 17:43:19 UNKNOWN: Keiner weiss was als nächstes passiert: 🦄

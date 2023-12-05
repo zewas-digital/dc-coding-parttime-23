@@ -1,4 +1,4 @@
-package saifedine.week12_FileStreams;
+package MichaelReal.week12_FileStreams;
 
 import data.Texts;
 
@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 public class IOStream_0_ReadWrite {
     static String ressourceFileLink = "txt/iostream.txt";
-    static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
+    static String relativeFileLink = "./src/MichaelReal/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
         printFileWithInputStream();
         printFileInputStream();
 
-        writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        writeToFile("Michis 🤓 Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         printFileInputStream();
 
         System.out.println("+--- end");
