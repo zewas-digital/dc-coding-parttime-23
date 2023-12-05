@@ -41,8 +41,6 @@ public class Stream_2_FileLog {
 
         String message = log(3,stringValue);
 
-        System.out.println("nach log-Methode: " + message);
-
         writeToFile(message);
 
         printFileInputStream();
@@ -101,7 +99,7 @@ public class Stream_2_FileLog {
     }
 
     static void writeToFile(String content) {
-        File f = new File(ressourceFileLink);
+        File f = new File(relativeFileLink);
         try {
             FileOutputStream fos = new FileOutputStream(f, true);
             PrintStream ps = new PrintStream(fos);
