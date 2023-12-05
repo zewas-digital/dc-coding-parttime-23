@@ -22,7 +22,7 @@ Ergebnis:
    ...
 */
 public class Stream_2_FileLog {
-    private static final String LOG_FILE_PATH = "./src/MichaelReal/week12_FileStreams/logfile.txt";
+ /*   private static final String LOG_FILE_PATH = "./src/MichaelReal/week12_FileStreams/logfile.txt";
 
     public static void log(int severity, String message) {
         try {
@@ -61,24 +61,26 @@ public class Stream_2_FileLog {
         Stream_2_FileLog.log(0, "Keiner weiss was als nächstes passiert: 🦄");
 
     }
-}
+}*/
 
 
 
-/*   public static void main(String[] args) {
+   public static void main(String[] args) {
         // Schreibe Log bei Exception
-        int[] numbers = new int[5];
+        int[] numbers = new int[10];
         try {
             numbers[12] = 12;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            // Hier könnten Maßnahmen ergriffen oder eine Log-Nachricht erstellt werden, um die Exception zu protokollieren.
-            e.printStackTrace(); // Gibt die Fehlermeldung und den Stacktrace aus.
+        } catch (Exception ec) {
+            log(3, "Guten Morgen! 🤓");
+            log(2, "Keine passende Aufgabe gefunden 😖");
+            log(1,"Versuche es später noch einmal. 😎");
+            log(0, "Keiner weiss was als nächstes passiert: 🦄");
         }
     }
 
     public static void log(int severity, String message) {
         try {
-            FileWriter fileWriter = new FileWriter("logfile.txt", true);
+            FileWriter fileWriter = new FileWriter("./src/MichaelReal/week12_FileStreams/logfile.txt", true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
@@ -105,4 +107,4 @@ public class Stream_2_FileLog {
                 return "UNKNOWN";
         }
     }
-}*/
+}
