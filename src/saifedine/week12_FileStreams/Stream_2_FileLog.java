@@ -26,6 +26,8 @@ public class Stream_2_FileLog {
     static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
+
+        /*
         // Schreibe Log bei Exception
         int[] numbers = new int[10];
         try {
@@ -33,18 +35,45 @@ public class Stream_2_FileLog {
         }catch (Exception ec){
             // TODO schreibe log-eintrag mit der geworfenen Exception
         }
+         */
 
-        try {
-            printFileInputStream();
+        String stringValue = userEingabe();
+
+        String message = log(3,stringValue);
+
+        writeToFile(message);
+
+        printFileInputStream();
+
+
+    }
+
+    private static String userEingabe() {
+        System.out.println("Bitte geben Sie etwas ein: ");
+        Scanner userInput = new Scanner(System.in).useDelimiter("\n");
+        //System.out.println(userInput);
+        return userInput.next();
+    }
+
+    public static String log(int severity, String stringValue) {
+
+        String message = " ";
+
+        switch (severity){
+            case 1:
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + "ERROR: " + "Konnte nicht ausgeführt werden";
+                break;
+
+            case 2:
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + "WARNING: " + "Kein passende Aufgabe gefunden";
+                break;
+
+            case 3:
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + stringValue;
+                break;
         }
-        catch (Exception exception){
-
-
-
-            writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        }
-
-
+        //System.out.println(message);
+        return message;
 
     }
 
@@ -60,12 +89,14 @@ public class Stream_2_FileLog {
             }
             sc.close();
         } catch (SecurityException e) {
-            System.out.println("Kein Zugriff auf die Datei.");
+            //System.out.println("Kein Zugriff auf die Datei.");
+            log(2, String.valueOf(e));
         } catch (FileNotFoundException fnf) {
-            System.out.println("Datei wurde nicht gefunden.");
+            //System.out.println("Datei wurde nicht gefunden.");
+            log(1, String.valueOf(fnf));
+
         }
     }
-
 
     static void writeToFile(String content) {
         File f = new File(relativeFileLink);
@@ -82,18 +113,4 @@ public class Stream_2_FileLog {
         }
     }
 
-
-    public static void log(int severity, String message) {
-
-        /*
-        severity=1  --> ERROR
-        severity=2  --> WARNING
-        severity=3  --> INFO
-         */
-
-        switch (severity){
-            case 1:
-        }
-
-    }
 }
