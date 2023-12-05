@@ -1,5 +1,10 @@
 package oliver.week12_FileStreams;
 
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+
 /*
 Aufgabe: Erstelle eine Klasse für Log-Einträge
 Der Logger schreibt fortlaufend in eine Datei. Es wird nicht überschrieben.
@@ -16,16 +21,63 @@ Ergebnis:
    ...
 */
 public class Stream_2_FileLog {
+    static String logFileLink = "./src/oliver/week12_FileStreams/log-errors.txt";
+    static String[] severityTexts = {"", "ERROR", "WARNING", "INFO"};
+
     public static void main(String[] args) {
-        // Schreibe Log bei Exception
+        // Schreibe Fehler bei Exception
         int[] numbers = new int[10];
         try {
             numbers[12] = 12;
-        }catch (Exception ec){
-            // TODO schreibe log-eintrag mit der geworfenen Exception
+        } catch (Exception e) {
+            log(1, e.getMessage(), e);
+        }
+
+        // Schreibe Warnung bei nicht vorhandener Datei
+        try {
+            FileInputStream fis = new FileInputStream("./src/filedoesnotexist.txt");
+        } catch (FileNotFoundException e) {
+            log(2, "Datei wurde nicht gefunden: "+ e.getMessage(), e);
+        }
+
+        // Schreibe Info über Abschluss des Scripts
+        log(3, "Stream_2_FileLog.main wurde erfolgreich ausgeführt.");
+    }
+
+    public static void log(int severity, String message) {
+        File f = new File(logFileLink);
+        String prefix =
+                "+----- "+ severityTexts[severity] +
+                " " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) +
+                "–".repeat(12);
+
+        try {
+            FileOutputStream fos = new FileOutputStream(f, true);
+            PrintStream ps = new PrintStream(fos);
+
+            ps.println(prefix);
+            ps.println(message);
+            ps.close();
+
+        } catch (Exception e) {
+            System.out.println("Fehler beim Schreiben in die Datei: " + e.getMessage());
         }
     }
-    public static void log(int severity, String message) {
 
+    public static void log(int severity, String message, Exception e) {
+        log(severity, message +"\n"+ Arrays.toString(e.getStackTrace()));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
