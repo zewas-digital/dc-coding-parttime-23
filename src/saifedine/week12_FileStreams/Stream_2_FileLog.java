@@ -91,9 +91,11 @@ public class Stream_2_FileLog {
         } catch (SecurityException e) {
             //System.out.println("Kein Zugriff auf die Datei.");
             log(2, String.valueOf(e));
+            e.printStackTrace();
         } catch (FileNotFoundException fnf) {
             //System.out.println("Datei wurde nicht gefunden.");
             log(1, String.valueOf(fnf));
+            fnf.printStackTrace();
 
         }
     }

@@ -4,7 +4,3 @@ neuer Text 2023-12-04 21:03:58
 neuer Text 2023-12-04 21:06:12
 neuer Text 2023-12-05 12:15:22
 2023-12-05 12:36:21 INFO: slögäs öölölölölö
-neuer Text 2023-12-05 17:44:47
-2023-12-05 17:58:01 INFO: LKADSFASDFJ ÖLKLJJL
-2023-12-05 18:01:41 INFO: ajlöksdf öal ölkjöööö
-2023-12-05 18:43:41 INFO: lkösdfjg lk

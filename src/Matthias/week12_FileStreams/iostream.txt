@@ -1,0 +1,36 @@
+neuer Text 2023-11-30 21:10:37
+neuer Text 2023-11-30 21:41:57
+neuer Text 2023-11-30 21:43:27
+2023-12-05 17:22:02Error
+2023-12-05 17:22:02Error
+2023-12-05 17:22:02Error
+2023-12-05 17:22:02Warning
+2023-12-05 17:22:02Warning
+2023-12-05 17:22:02Info
+2023-12-05 17:28:18ErrorError
+2023-12-05 17:28:18WarningError
+2023-12-05 17:28:18InfoError
+2023-12-05 17:28:18WarningKeine Passende Aufgabe gefunden
+2023-12-05 17:28:18InfoKeine Passende Aufgabe gefunden
+2023-12-05 17:28:18InfoGuten Morgen
+2023-12-05 17:29:31Error: Fehler
+2023-12-05 17:29:31Warning: Fehler
+2023-12-05 17:29:31Info: Fehler
+2023-12-05 17:29:31Warning: Keine Passende Aufgabe gefunden
+2023-12-05 17:29:31Info: Keine Passende Aufgabe gefunden
+2023-12-05 17:29:31Info: Guten Morgen
+2023-12-05 17:29:47Error: Fehler
+2023-12-05 17:29:47Warning: Fehler
+2023-12-05 17:29:47Info: Fehler
+2023-12-05 17:29:47Warning: Keine passende Aufgabe gefunden
+2023-12-05 17:29:47Info: Keine passende Aufgabe gefunden
+2023-12-05 17:29:47Info: Guten Morgen
+2023-12-05 17:30:07 Error: Fehler
+2023-12-05 17:30:07 Warning: Fehler
+2023-12-05 17:30:07 Info: Fehler
+2023-12-05 17:30:07 Warning: Keine passende Aufgabe gefunden
+2023-12-05 17:30:07 Info: Keine passende Aufgabe gefunden
+2023-12-05 17:30:07 Info: Guten Morgen
+2023-12-05 17:34:42 Error: Fehler
+2023-12-05 17:34:42 Warning: Keine passende Aufgabe gefunden
+2023-12-05 17:34:42 Info: Guten Morgen
