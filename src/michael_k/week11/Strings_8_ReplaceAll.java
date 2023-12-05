@@ -32,11 +32,17 @@ Lösche im String
  */
 
 public class Strings_8_ReplaceAll {
-    String text = "Heute wird ein guter Tag! Heute wird ein noch besserer Tag! Heute wird ein spitzen guter Tag!";
+    static String text = "Heute wird ein guter Tag! Heute wird ein noch besserer Tag! Heute wird ein spitzen guter Tag!";
 
     public static void main(String[] args) {
         String numbers = "749813247132984712039487123049871204398712039487";
         System.out.println("numbers ohne 2-4: "+ numbers.replaceAll("[2-4]", ""));
+
+        System.out.println (text );
+        String text1 =text.replaceAll("wird", "war");
+        text1 = text.replaceAll("ist"+"gib", "aus");
+
+        System.out.println (text1);
     }
 
 }
