@@ -1,4 +1,4 @@
-package saifedine.week01.example7;
+package saifedine.week01;
 
 /*
 Erstellen Sie ein Programm, wo sie beide bereits gelernten Schleifen verwenden. Also eine For Schleife und eine
@@ -7,7 +7,7 @@ ohne break.
 
  */
 
-public class LoopMinus {
+public class example7_LoopMinus {
 
     public static void main(String[] args) {
 

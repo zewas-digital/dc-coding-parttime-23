@@ -1,11 +1,11 @@
-package saifedine.week01.example4;
+package saifedine.week01;
 
 /*
 Kopieren Sie die For Schleife des vorherigen Beispiels und geben sie nur jede 2 Zahl aus.
 
 
  */
-public class SecondLoop {
+public class example4_SecondLoop {
 
     public static void main(String[] args) {
 

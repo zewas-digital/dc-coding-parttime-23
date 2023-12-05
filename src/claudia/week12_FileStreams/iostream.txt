@@ -1,0 +1,24 @@
+2023-12-05 17:28:47 ERROR: Test - großes Problem!
+2023-12-05 17:28:47 WARNING: Test - Achtung!
+2023-12-05 17:28:47 INFO: Test - alles in Ordnung.
+2023-12-05 17:28:47 ERROR: echtes Problem java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10
+2023-12-05 17:29:41 ERROR: Test - großes Problem!
+2023-12-05 17:29:41 WARNING: Test - Achtung!
+2023-12-05 17:29:41 INFO: Test - alles in Ordnung.
+2023-12-05 17:29:41 ERROR: echtes Problem: java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
+2023-12-05 17:36:22 ERROR: Test - großes Problem!
+2023-12-05 17:36:22 WARNING: Test - Achtung!
+2023-12-05 17:36:22 INFO: Test - alles in Ordnung.
+2023-12-05 17:36:22 ERROR: echtes Problem: java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
+2023-12-05 17:37:59 ERROR: Test - großes Problem!
+2023-12-05 17:37:59 WARNING: Test - Achtung!
+2023-12-05 17:37:59 INFO: Test - alles in Ordnung.
+2023-12-05 17:37:59 ERROR: echtes Problem: java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
+2023-12-05 17:38:03 ERROR: Test - großes Problem!
+2023-12-05 17:38:03 WARNING: Test - Achtung!
+2023-12-05 17:38:03 INFO: Test - alles in Ordnung.
+2023-12-05 17:38:03 ERROR: echtes Problem: java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10
+2023-12-05 17:39:10 ERROR: Test - großes Problem!
+2023-12-05 17:39:10 WARNING: Test - Achtung!
+2023-12-05 17:39:10 INFO: Test - alles in Ordnung.
+2023-12-05 17:39:10 ERROR: echtes Problem: java.lang.ArrayIndexOutOfBoundsException: Index 12 out of bounds for length 10

@@ -1,4 +1,18 @@
-package claudia.week12_FileStreams;
+package saifedine.week12_FileStreams.simon;
+
+/*
+Aufgabe: Wörter und Buchstaben zählen
+Lies das File mit Hilfe des BufferedReader.
+
+1/ Erstelle eine Methode, welche die Anzahl der Wörter ausgibt. Die Anzahl muss nicht exakt sein.
+
+2/ Erstelle eine Methode, welche nur einen bestimmten Buchstaben des Texts zählt,
+welcher als Parameter mitgegeben wird.
+
+3/ Bonus: Frage den Anwender, welches Wort gezählt werden soll
+und führe das Zählen über eine Methode aus.
+
+ */
 
 import data.Texts;
 
@@ -7,19 +21,25 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
-public class week12_BufferedReader {
-
+public class week12_Stream_1_Zaehlen {
     public static void main(String[] args) {
-        getSimpleText();
+
+
+        String text = getSimpleText();
+        int countWords = text.split("\\s").length;
+        System.out.println(countWords);
+
     }
 
-    public static void getSimpleText() {
+    public static String getSimpleText() {
+
+
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(
                     new InputStreamReader(
                             Objects.requireNonNull(
-                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.tx")
+                                    Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")
                             )
                     )
             );
@@ -28,21 +48,24 @@ public class week12_BufferedReader {
             int lineNumber = 1;
             while ((input = reader.readLine()) != null) {
                 System.out.println("Zeile " + lineNumber + ": " + input);
+
+                int countWords = input.split("\\s").length;
+                System.out.println(countWords);
+
+
                 lineNumber++;
+
             }
+            return input;
+
+
 
         } catch (IOException exc) {
             throw new RuntimeException(exc);
-        }
-        catch(NullPointerException e){
-            System.out.println("\nKann das File nicht finden!");
-        }
-
-        finally {
+        } finally {
             if (reader != null) {
                 try {
                     reader.close();
-                    System.out.println("\nFile geschlossen!");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
