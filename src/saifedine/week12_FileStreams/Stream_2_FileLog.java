@@ -22,7 +22,7 @@ Ergebnis:
 */
 public class Stream_2_FileLog {
 
-    static String ressourceFileLink = "txt/iostream.txt";
+    static String ressourceFileLink = "txt/Log_Input.txt";
     static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
@@ -37,36 +37,27 @@ public class Stream_2_FileLog {
         }
          */
 
-        //userEingabe();
+        String stringValue = userEingabe();
 
-        log(3,userEingabe());
+        String message = log(3,stringValue);
+
+        writeToFile(message);
+
+        printFileInputStream();
 
 
-
-        /*
-        try {
-            printFileInputStream();
-
-            writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-
-            //writeToFile(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + log(3,message));
-        }
-        catch (Exception exception){
-
-            writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        }
-
-         */
     }
 
     private static String userEingabe() {
-        Scanner userInput = new Scanner(System.in);
         System.out.println("Bitte geben Sie etwas ein: ");
-        //System.out.println(stringValue);
+        Scanner userInput = new Scanner(System.in).useDelimiter("\n");
+        //System.out.println(userInput);
         return userInput.next();
     }
 
-    public static void log(int severity, String message) {
+    public static String log(int severity, String stringValue) {
+
+        String message = " ";
 
         switch (severity){
             case 1:
@@ -78,10 +69,12 @@ public class Stream_2_FileLog {
                 break;
 
             case 3:
-                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + userEingabe();
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + stringValue;
                 break;
         }
         System.out.println(message);
+        return message;
+
     }
 
 
@@ -98,15 +91,18 @@ public class Stream_2_FileLog {
             }
             sc.close();
         } catch (SecurityException e) {
-            System.out.println("Kein Zugriff auf die Datei.");
+            //System.out.println("Kein Zugriff auf die Datei.");
+            log(2, String.valueOf(e));
         } catch (FileNotFoundException fnf) {
-            System.out.println("Datei wurde nicht gefunden.");
+            //System.out.println("Datei wurde nicht gefunden.");
+            log(1, String.valueOf(fnf));
+
         }
     }
 
 
     static void writeToFile(String content) {
-        File f = new File(relativeFileLink);
+        File f = new File(ressourceFileLink);
         try {
             FileOutputStream fos = new FileOutputStream(f, true);
             PrintStream ps = new PrintStream(fos);
