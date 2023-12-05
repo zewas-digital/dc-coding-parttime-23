@@ -44,8 +44,8 @@ public class Stream_3_FileStructure {
 
                     // Iteriere durch die Dateien und schreibe ihre Namen in die Ausgabedatei
                     for (File datei : files) {
-                        String verzeichnisName = datei.getParentFile().getName();
-                        String format = String.format("%s %s", timeStamp, verzeichnisName);
+                        String verzeichnisName = datei.getParentFile().getCanonicalPath();
+                        String format = String.format("%s 😊 \n %s", timeStamp, verzeichnisName);
                         printWriter.println(format + " 🤓");
                     }
 
