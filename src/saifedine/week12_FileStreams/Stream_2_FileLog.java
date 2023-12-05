@@ -22,7 +22,7 @@ Ergebnis:
 */
 public class Stream_2_FileLog {
 
-    static String ressourceFileLink = "txt/Log_Input.txt";
+    static String ressourceFileLink = "txt/iostream.txt";
     static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
@@ -40,6 +40,8 @@ public class Stream_2_FileLog {
         String stringValue = userEingabe();
 
         String message = log(3,stringValue);
+
+        System.out.println("nach log-Methode: " + message);
 
         writeToFile(message);
 
@@ -72,12 +74,10 @@ public class Stream_2_FileLog {
                 message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + stringValue;
                 break;
         }
-        System.out.println(message);
+        //System.out.println(message);
         return message;
 
     }
-
-
 
     static void printFileInputStream() {
         System.out.println("+--- read file " + relativeFileLink + " with FileInputStream " + "–".repeat(20));
@@ -100,7 +100,6 @@ public class Stream_2_FileLog {
         }
     }
 
-
     static void writeToFile(String content) {
         File f = new File(ressourceFileLink);
         try {
@@ -115,4 +114,5 @@ public class Stream_2_FileLog {
             System.out.println("+--- wrote file successfully");
         }
     }
+
 }

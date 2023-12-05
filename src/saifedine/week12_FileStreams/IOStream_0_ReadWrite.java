@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class IOStream_0_ReadWrite {
     static String ressourceFileLink = "txt/iostream.txt";
-    static String relativeFileLink = "./src/oliver/week12_FileStreams/iostream.txt";
+    static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
         printFileWithInputStream();
