@@ -25,7 +25,7 @@ public class Stream_3_FileStructure {
         // prüft ob file ein Verzeichnis (.isDirectory()) ist und zeigt an welche Überordner (.getParents()) es gibt
         System.out.println(file.getName() + " " + file.isDirectory() + " " + file.getParent());
 
-        // Prüft ob directory eine Datei (.isfile())oder ein Verzeichnis ist und gibt die Überordner des angegeben Pfades an
+        // Prüft ob directory eine Datei (.isfile()) oder ein Verzeichnis ist und gibt die Überordner des angegeben Pfades an
         File directory = new File("src/florian/week13_File");
         System.out.println(directory.getName() +" "+ directory.isFile() +" "+ directory.isDirectory() +" "+ directory.getParent());
 

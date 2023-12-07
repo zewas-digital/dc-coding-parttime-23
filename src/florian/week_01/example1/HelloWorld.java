@@ -1,4 +1,4 @@
-package solutions.florian.week1.example1;
+package florian.week_01.example1;
 
 public class HelloWorld {
     public static void main(String[] args) {
