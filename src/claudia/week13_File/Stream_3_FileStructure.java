@@ -22,7 +22,7 @@ public class Stream_3_FileStructure {
     static String relativeFileLink = "./src/claudia/week13_File/test-file.txt";
     public static void main(String[] args) {
 
-        File f = new File(relativeFileLink);
+        File f = new File(relativeFileLink); //erzeugt Objekt der Klasse File, eigentlich nur einen Pfad, noch nicht die tatsächliche Datei
         File p = f.getParentFile();
 
         /*
@@ -43,9 +43,9 @@ public class Stream_3_FileStructure {
         System.out.println(p); //File
 
         System.out.print("Inhalt des Verzeichnisses mit .list: ");
-        System.out.println(Arrays.toString(p.list()));
+        System.out.println(Arrays.toString(p.list())); //Array of Strings
         System.out.print("Inhalt des Verzeichnisses mit .listFiles: ");
-        System.out.println(Arrays.toString(p.listFiles()));
+        System.out.println(Arrays.toString(p.listFiles())); //Array of Files
 
         System.out.println("\nParent vom Parent: " + p.getParent());
         System.out.println("Inhalt: " + Arrays.toString(p.getParentFile().list()));
