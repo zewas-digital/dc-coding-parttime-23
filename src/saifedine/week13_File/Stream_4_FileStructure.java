@@ -9,7 +9,6 @@ Dateien nach Größe absteigend
  */
 
 import java.io.File;
-import java.util.Arrays;
 
 public class Stream_4_FileStructure {
 
@@ -23,41 +22,32 @@ public class Stream_4_FileStructure {
         // methode --> get children mit namensverzeichnis
         // sortierung an bitegröße
 
+        // Ausgabe Ordner in Form von String array
+        // Ausgeben des ersten Orders in eine Varialbe --> in die Methode übergeben und ausführen
+        // if & else wegen problem mit file, kann nicht weiter runter absteigen
 
-        /*
-        String
-
-        getChildren();
-
-
-
-        /*
-            String[] directoryResult = new String[]{Arrays.toString(dir.listFiles())};
-            //System.out.println(Arrays.toString(directoryResult));
-            System.out.println("Anzahl der Ordner: " + directoryResult.length);
-
-         */
-
+        getChildren(relativeDirectory,0);
 
     }
 
-    private static void getChildren(String children, int level) {
+    private static void getChildren(String children,int level) {
 
-        children = " ";
-        level = 0;
+        File dir = new File(children);
 
-        File dir = new File("./src/saifedine/" + children + "\"");
+        boolean isdir = dir.isDirectory();
 
-        System.out.println("Ausgabe files: " + Arrays.toString(dir.listFiles())); // String array
-        //System.out.println(dir.getName());
+        //System.out.println(children + " " + dir.getName() + " " + isdir);
 
-        //return children;
+        if(isdir){
+            String[] content = dir.list();
+            level ++;
+
+            for (String output : content) {
+
+                System.out.println(" ".repeat(level) + "Content: " + output);
+
+                getChildren(dir.getPath() + "/" + output,level);
+            }
+        }
     }
-
-                /*
-            String[] folder = new String[]{Arrays.toString(dir.listFiles())};
-            File subfolder = new File(folder);
-            */
-            //Arrays.sort(entries);
-
 }
