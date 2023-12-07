@@ -12,7 +12,6 @@ Gib nun mit Hilfe des String[][] die Daten schön formatiert aus.
 
 import claudia.BasicFunctions;
 import data.Texts;
-
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Objects;
@@ -21,25 +20,38 @@ import java.util.Scanner;
 public class Stream_5_CSVReader {
     static String resourceFileLink = "csv/sales_100.csv";
 
-
     public static void main(String[] args) {
 
         String[][] data = vectorToMatrix(csvToVector(resourceFileLink));
         int rows = data.length;
         int columns = data[0].length;
+        int [] widthOfColumn = new int[columns];
+        int totalWidth = -2; //because +2 is added for each column, which is unnecessary for last one
+
+        //Find max width for each column:
+        for (int j = 0; j < columns; j++) {
+            for (int i = 0; i < rows; i++) {
+                if (data[i][j].length() > widthOfColumn[j]) widthOfColumn[j] = data[i][j].length();
+            }
+        }
+
+        //Calculate total width of table
+        for (int j = 0; j < columns; j++) {
+            totalWidth = totalWidth + widthOfColumn[j] + 2;
+        }
 
         System.out.println("\nInhalt des Files " + resourceFileLink + ":");
-        System.out.println("* - ".repeat(72) + "*");
+        System.out.println("*".repeat(totalWidth));
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                String entry = data[i][j].length() > 18 ? data[i][j].substring(0,17) : data[i][j];
-                System.out.printf("%-20s ", entry);
+                if (data[i][j].charAt(0) >= 48 && data[i][j].charAt(0) <= 57) //Ascii-Values of numbers between 48 (for 0) and 57 (for 9)
+                    System.out.printf("%" + widthOfColumn[j] + "s  ", data[i][j]);
+                else System.out.printf("%-" + widthOfColumn[j] + "s  ", data[i][j]);
             }
             System.out.println();
         }
-
-        System.out.println("* - ".repeat(72) + "*");
+        System.out.println("*".repeat(totalWidth));
     }
 
     static String[][] vectorToMatrix(String[] vector){
@@ -73,5 +85,4 @@ public class Stream_5_CSVReader {
         }
         return lines;
     }
-
 }
