@@ -14,6 +14,34 @@ und führe das Zählen über eine Methode aus.
 
  */
 
-public class week12_Stream_1_Zaehlen {
+import data.Texts;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+/*public class week12_Stream_1_Zaehlen {
+
+    public static int zaehleWoerter(String dateiname) throws IOException {
+        // Datei öffnen
+        BufferedReader reader = new BufferedReader(new FileReader(dateiname));
+
+        // Wörter zählen
+        int anzahl = 0;
+        String zeile;
+        while ((zeile = reader.readLine()) != null) {
+            anzahl += zeile.split(" ").length;
+        }
+
+        // Datei schließen
+        reader.close();
+
+        return anzahl;
+    }
+
+    public static void main(String[] args) throws IOException {
+        // Anzahl der Wörter ausgeben
+        System.out.println("Anzahl der Wörter: " + zaehleWoerter("txt/simpleText.txt"));
+    }
 }
+*/
