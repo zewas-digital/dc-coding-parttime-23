@@ -1,7 +1,8 @@
-package saifedine.week12_FileStreams;
+package Alpi.week12_FileStreams;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -22,11 +23,10 @@ Ergebnis:
 */
 public class Stream_2_FileLog {
 
-    static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
+    static String ressourceFileLink = "txt/iostream.txt";
+    static String relativeFileLink = "./src/alpi/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
-
-        /*
         // Schreibe Log bei Exception
         int[] numbers = new int[10];
         try {
@@ -34,48 +34,26 @@ public class Stream_2_FileLog {
         }catch (Exception ec){
             // TODO schreibe log-eintrag mit der geworfenen Exception
         }
-         */
 
-        String stringValue = userEingabe();
-
-        log(3,stringValue);
-
-        printFileInputStream();
-    }
-
-    private static String userEingabe() {
-        System.out.println("Bitte geben Sie etwas ein: ");
-        Scanner userInput = new Scanner(System.in).useDelimiter("\n");
-        //System.out.println(userInput);
-        return userInput.next();
-    }
-
-    public static void log(int severity, String stringValue) {
-
-        String message = " ";
-
-        switch (severity){
-            case 1:
-                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " ERROR: " + "Konnte nicht ausgeführt werden";
-                break;
-
-            case 2:
-                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " WARNING: " + "Kein passende Aufgabe gefunden";
-                break;
-
-            case 3:
-                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + stringValue;
-                break;
+        try {
+            printFileInputStream();
         }
-        writeToFile(message);
+        catch (Exception exception){
+
+
+
+            writeToFile("neuer Text " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        }
+
+
+
     }
 
     static void printFileInputStream() {
         System.out.println("+--- read file " + relativeFileLink + " with FileInputStream " + "–".repeat(20));
 
         try {
-            //FileInputStream fis = new FileInputStream(relativeFileLink);
-            FileInputStream fis = new FileInputStream("wrong_file");
+            FileInputStream fis = new FileInputStream(relativeFileLink);
             Scanner sc = new Scanner(fis);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
@@ -83,15 +61,12 @@ public class Stream_2_FileLog {
             }
             sc.close();
         } catch (SecurityException e) {
-            //System.out.println("Kein Zugriff auf die Datei.");
-            log(2, String.valueOf(e));
-            e.printStackTrace();
+            System.out.println("Kein Zugriff auf die Datei.");
         } catch (FileNotFoundException fnf) {
-            //System.out.println("Datei wurde nicht gefunden.");
-            log(1, String.valueOf(fnf));
-            fnf.printStackTrace();
+            System.out.println("Datei wurde nicht gefunden.");
         }
     }
+
 
     static void writeToFile(String content) {
         File f = new File(relativeFileLink);
@@ -107,4 +82,20 @@ public class Stream_2_FileLog {
             System.out.println("+--- wrote file successfully");
         }
     }
+
+
+    public static void log(int severity, String message) {
+
+        /*
+        severity=1  --> ERROR
+        severity=2  --> WARNING
+        severity=3  --> INFO
+         */
+
+        switch (severity){
+            case 1:
+        }
+
+    }
 }
+
