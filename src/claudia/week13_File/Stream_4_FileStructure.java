@@ -21,8 +21,12 @@ public class Stream_4_FileStructure {
         System.out.println("\nInhalt des Verzeichnisses: \n" + f.getName());
 
         File [] content = f.listFiles();
-        printContent(content, 1);
-
+        try {
+            printContent(content, 1);
+        } catch (NullPointerException e){
+            System.out.print("File nicht gefunden! ");
+            e.printStackTrace();
+        }
     }
 
     public static void printContent(File[] content, int counter){
