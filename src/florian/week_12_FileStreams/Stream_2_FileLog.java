@@ -1,6 +1,6 @@
 package florian.week_12_FileStreams;
 
-import javax.print.attribute.standard.PrinterStateReason;
+
 
 /*
 Aufgabe: Erstelle eine Klasse für Log-Einträge

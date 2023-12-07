@@ -9,9 +9,6 @@ Dateien nach Größe absteigend
  */
 
 import java.io.File;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Objects;
 
 
 public class Stream_4_FileStructure {
