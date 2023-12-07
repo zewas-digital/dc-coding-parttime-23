@@ -15,5 +15,4 @@ und führe das Zählen über eine Methode aus.
  */
 
 public class week12_Stream_1_Zaehlen {
-
 }

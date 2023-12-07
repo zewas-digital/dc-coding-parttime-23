@@ -8,3 +8,7 @@ neuer Text 2023-12-05 17:44:47
 2023-12-05 17:58:01 INFO: LKADSFASDFJ ÖLKLJJL
 2023-12-05 18:01:41 INFO: ajlöksdf öal ölkjöööö
 2023-12-05 18:43:41 INFO: lkösdfjg lk
+2023-12-05 19:59:12 INFO: aasldkfj öasldkf   ölkasdjfl
+2023-12-05 19:59:12ERROR: Konnte nicht ausgeführt werden
+2023-12-05 20:01:21 INFO: sdfgsdfg
+2023-12-05 20:01:21 ERROR: Konnte nicht ausgeführt werden
