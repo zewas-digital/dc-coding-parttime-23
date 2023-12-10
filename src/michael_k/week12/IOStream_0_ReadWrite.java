@@ -9,8 +9,8 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class IOStream_0_ReadWrite {
-    static String ressourceFileLink = "txt/iostream.txt";
-    static String relativeFileLink = "./src/oliver/week12_FileStreams/iostream.txt";
+    static String ressourceFileLink = "txt/iostreamee.txt";
+    static String relativeFileLink = "./src/michael_k/week12/iostream.txt";
 
     public static void main(String[] args) {
         printFileWithInputStream();
