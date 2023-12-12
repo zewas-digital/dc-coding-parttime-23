@@ -18,6 +18,14 @@ public class Stream_6_CSVWriter {
     static float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
     public static void main(String[] args) {
+        // initial: anzahl datensätze bestimmen
+        // --> eindimensionales Array
 
+        // 1. Daten zusammen führen
+        // in einen String verketten mit Trennzeichen ;
+        // --> in eindim. Array speichern
+
+        // 2. in Datei schreiben
+        // --> csv Datei
     }
 }

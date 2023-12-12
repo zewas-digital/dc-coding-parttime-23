@@ -11,5 +11,16 @@ Gib nun mit Hilfe des String[][], die Daten schön formatiert aus.
  */
 
 public class Stream_5_CSVReader {
+    public static void main(String[] args) {
+        // initial: dimensionen bestimmen
+        // --> anzahl zeilen und spalten
 
+        // 1. zeilen aus csv-datei lesen
+        // --> eindimensionales Array
+
+        // 2. datensätze im Array splitten
+        // --> zweidimensionales Array
+
+        // 3. formatierte Ausgabe erzeugen
+    }
 }
