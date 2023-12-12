@@ -55,7 +55,7 @@ public class Stream_1_Zaehlen {
         return count;
     }
 
-    static BufferedReader openStream(String fileLink) throws RuntimeException {
+    public static BufferedReader openStream(String fileLink) throws RuntimeException {
         try {
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
