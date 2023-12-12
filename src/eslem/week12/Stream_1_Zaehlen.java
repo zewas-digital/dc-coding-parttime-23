@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 import java.util.Scanner;
-public class week12_Stream_1_Zaehlen {
+public class Stream_1_Zaehlen {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
