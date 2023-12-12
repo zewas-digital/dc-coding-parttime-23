@@ -54,6 +54,31 @@ public class Stream_5_CSVReader {
 
         return new int[]{xCount, yCount};
     }
+
+    static int[] getColumnSizes(String[][] inputArray, int columns) {
+        int[] columnSizes = new int[columns];
+
+        for (String[] line: inputArray) {
+
+            // option 1: längenvergleich mit foreach
+            int j = 0;
+            for (String column: line) {
+                if (column.length() > columnSizes[j]) {
+                    columnSizes[j] = column.length();
+                }
+                j++;
+            }
+            // option 2: längenvergleich mit for i
+            for (int i = 0; i < columns; i++) {
+                String column = line[i];
+                if (column.length() > columnSizes[i]) {
+                    columnSizes[i] = column.length();
+                }
+            }
+        }
+
+        return columnSizes;
+    }
 }
 
 
