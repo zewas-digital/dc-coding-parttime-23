@@ -60,9 +60,24 @@ public class Stream_5_CSVReader_Bonus {
                 e.printStackTrace();
                 return;
             }
-
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Geben Sie den Index der Spalte ein, nach der sortiert werden soll (0-basiert):");
+            System.out.println("Geben Sie den Index der Spalte ein, nach der sortiert werden soll (0-13):\n" +
+                    "0=Region\n" +
+                    "1=Country\n" +
+                    "2=Item Type\n" +
+                    "3=Sales Channel\n" +
+                    "4=Order Priority\n" +
+                    "5=Order Date\n" +
+                    "6=Order ID\n" +
+                    "7=Ship Date\n" +
+                    "8=Units Sold\n" +
+                    "9=Unit Price\n" +
+                    "10=Unit Cost\n" +
+                    "11=Total Revenue\n" +
+                    "12=Total Cost\n" +
+                    "13=Total Profit");
+            //Region,Country,Item Type,Sales Channel,Order Priority,Order Date,Order ID,Ship Date,Units Sold,Unit Price,Unit Cost,Total Revenue,Total Cost,Total Profit
+
             int sortierSpalte = scanner.nextInt();
             if (sortierSpalte >= spalten) {
                 System.out.println("Ungültiger Spaltenindex.");
@@ -71,10 +86,12 @@ public class Stream_5_CSVReader_Bonus {
 
             Arrays.sort(daten, Comparator.comparing(row -> row[sortierSpalte]));
 
+            System.out.println("Sortierung nach Spalte: " + sortierSpalte);
+
             for (String[] zeile : daten) {
                 for (int i = 0; i < zeile.length; i++) {
                     String formatiert = formatiereZelleninhalt(zeile[i]);
-                    System.out.printf("%-" + maxBreiten[i] + "s ", formatiert);
+                    System.out.printf("🤓%-" + maxBreiten[i] + "s ", formatiert);
                 }
                 System.out.println();
             }
@@ -89,7 +106,7 @@ public class Stream_5_CSVReader_Bonus {
                     Double.parseDouble(zelleninhalt);
                     return String.format("%.2f", Double.parseDouble(zelleninhalt));
                 } catch (NumberFormatException nfe2) {
-                    return zelleninhalt;  // Text oder andere Daten
+                    return zelleninhalt;
                 }
             }
         }
