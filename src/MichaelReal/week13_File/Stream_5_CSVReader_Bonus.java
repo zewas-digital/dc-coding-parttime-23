@@ -80,7 +80,7 @@ public class Stream_5_CSVReader_Bonus {
 
             int sortierSpalte = scanner.nextInt();
             if (sortierSpalte >= spalten) {
-                System.out.println("Ungültiger Spaltenindex.");
+                System.out.println("Ungültiger Spaltenindex.😖😖😖😖😖😖😖😖😖😖😖😖😖😖TRY AGAIN!!!!!!!!!");
                 return;
             }
 
