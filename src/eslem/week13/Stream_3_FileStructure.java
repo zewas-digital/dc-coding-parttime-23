@@ -13,18 +13,18 @@ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html
 
 import java.io.File;
 public class Stream_3_FileStructure {
-    static String relativeFileLink = ("/.src/eslem/week13/files");
+    static String relativeFileLink = ("/.src/eslem/week13");
     public static void main(String[] args) {
 
         File f = new File(relativeFileLink);
         System.out.println(f.getName() +" "+ f.isFile() +" "+ f.isDirectory() +" "+ f.getParent());
-        //Ordner oder Datei
 
         File parent = f.getParentFile();
         System.out.println(parent.getName() +" "+ parent.isFile() +" "+ parent.isDirectory() +" "+ parent.getParent());
 
-        File dir = new File("./src/eslem/week13/files");
+        File dir = new File("./src/eslem/week13");
         System.out.println(dir.getName() +" "+ dir.isFile() +" "+ dir.isDirectory() +" "+ dir.getParent());
-}
+
+    }
     }
 
