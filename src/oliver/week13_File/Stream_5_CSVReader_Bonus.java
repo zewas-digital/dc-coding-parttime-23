@@ -25,7 +25,7 @@ public class Stream_5_CSVReader_Bonus {
         String testText = doubleText;
 
         try {
-            Integer.parseInt(text);
+            Integer.parseInt(testText);
             System.out.println("Der String "+ testText +" ist ein Integer.");
 
         } catch (NumberFormatException nfe) {
@@ -38,3 +38,12 @@ public class Stream_5_CSVReader_Bonus {
         }
     }
 }
+
+
+
+
+
+
+
+
+
