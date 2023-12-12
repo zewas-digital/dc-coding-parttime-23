@@ -12,22 +12,24 @@ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html
  */
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Stream_3_FileStructure {
     public static void main(String[] args) {
 
         File folder = new File("./src/Simonsway/Week13/files");
-        File[] listOfFiles = folder.listFiles();
 
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()){
-                System.out.println("File... " + listOfFiles[i].getName());
-            } else if (listOfFiles[i].isDirectory()) {
-                System.out.println("Directory... " + listOfFiles[i].getName());
+        File[] list = folder.listFiles();
 
+        for (int i = 0; i < list.length; i++) {
+            if (list[i].isFile()){
+                System.out.println("File... " + list[i].getName());
+            } else if (list[i].isDirectory()) {
+                System.out.println("Directory... " + list[i].getName());
             }
-
         }
 
     }
+
 }
