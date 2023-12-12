@@ -1,4 +1,4 @@
-package oliver.week13_File;
+package Simonsway.Week13;
 
 /*
 Aufgabe: Write CSV-File
@@ -10,8 +10,8 @@ Verwende als Separator (Trennzeichen) ;
 Schreibe auch eine Titelzeile
  */
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Stream_6_CSVWriter {
     static String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
@@ -21,6 +21,7 @@ public class Stream_6_CSVWriter {
     static float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
     public static void main(String[] args) {
+
 
         FileWriter writer = null;
         try {
