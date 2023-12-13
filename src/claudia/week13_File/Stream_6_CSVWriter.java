@@ -30,12 +30,38 @@ public class Stream_6_CSVWriter {
     static String[] header1 = {"Vorname", "Nachname", "Alter", "Wohnort", "Entfernung"};
     static String[] header2 = {"","","","","zur Hauptstadt"};
     static String path = "./src/claudia/week13_File/personen.csv";
+    static String path2 = "./src/claudia/week13_File/personen2.csv";
 
     public static void main(String[] args) {
 
         File file = new File(path);
+        File file2 = new File(path2);
         int numberOfEntries = 5; //Anzahl der Datensätze
         int numberOfColumns = header1.length;
+
+        ////////////////einfache Lösung/////////////////////////////////////////
+        //Überschrift erste Zeile
+        for (int j = 0; j < numberOfColumns; j++) {
+            writeToFileWithoutNewLine(file2, header1[j]);
+            if (j != numberOfColumns-1) writeToFileWithoutNewLine(file2, ";");
+        }
+        writeToFileWithoutNewLine(file2, "\n");
+        //Überschrift zweite Zeile
+        for (int j = 0; j < numberOfColumns; j++) {
+            writeToFileWithoutNewLine(file2, header2[j]);
+            if (j != numberOfColumns-1) writeToFileWithoutNewLine(file2, ";");
+        }
+        writeToFileWithoutNewLine(file2, "\n");
+        //Einträge
+        for (int i = 0; i < numberOfEntries; i++) {
+            writeToFileWithoutNewLine(file2, firstName[i] + ";");
+            writeToFileWithoutNewLine(file2, lastName[i] + ";");
+            writeToFileWithoutNewLine(file2, age[i] + ";");//kein explizites Umwandeln in String!
+            writeToFileWithoutNewLine(file2, place[i] + ";");
+            writeToFileWithoutNewLine(file2, distanceFromCapital[i] + "\n");
+        }
+
+        ////////////////einfache Lösung zuende/////////////////////////////////
 
         //change Arrays of int and float to String-Arrays:
         //TODO: Notwendig? z.B. wandelt sich . in , bei Floats
@@ -85,8 +111,18 @@ public class Stream_6_CSVWriter {
         }
     }
 
-    static void writeToFile(File file, String content) {
 
+    static void writeToFileWithoutNewLine(File file, String content) {
+        try {
+            FileOutputStream fos = new FileOutputStream(file, true);
+            PrintStream ps = new PrintStream(fos);
+            ps.print(content);
+            ps.close();
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Datei wurde nicht gefunden.");
+        }
+    }
+    static void writeToFile(File file, String content) {
         try {
             FileOutputStream fos = new FileOutputStream(file, true);
             PrintStream ps = new PrintStream(fos);
