@@ -12,8 +12,6 @@ Gib nun mit Hilfe des String[][], die Daten schön formatiert aus.
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Stream_5_CSVReader {
@@ -32,12 +30,17 @@ public class Stream_5_CSVReader {
 
         // 3. formatierte Ausgabe erzeugen
 
-        printFileInputStream();
+        String[][] inputArray = createInputArray();
 
-        //System.out.println("inputArrayIndex: " + Arrays.toString(printFileInputStream()));
+        // fillInputArray (Schritt 1. & 2.)
+        // printInputArray
+
+
+
+
     }
 
-    static int[][] printFileInputStream() {
+    static String[][] createInputArray() {
 
         int lineNumber = 0;
         int countColumns = 0;
@@ -65,11 +68,37 @@ public class Stream_5_CSVReader {
             System.out.println("Datei wurde nicht gefunden.");
         }
 
-        //System.out.println(countColumns);
-        //System.out.println(lineNumber);
+        System.out.println("Anzahl Spalten: " + countColumns);
+        System.out.println("Anzahl Zeilen: " + lineNumber);
 
-        int[][] inputArrayIndex = new int[countColumns][lineNumber];
-        System.out.println(Arrays.toString(inputArrayIndex));
-        return inputArrayIndex;
+        String[][] inputArray = new String[lineNumber][countColumns];
+        return inputArray;
+    }
+
+    static void fillInputArray(String[][] inputArray){
+
+        try {
+            FileInputStream fis = new FileInputStream(relativeFileLink);
+            Scanner sc = new Scanner(fis);
+
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                //System.out.println("| " + lineNumber + " " + line);
+
+                //lineNumber++;
+
+                //countColumns = line.split(",").length;
+            }
+            //System.out.println(lineNumber);
+            //System.out.println(countColumns);
+
+
+            sc.close();
+        } catch (SecurityException e) {
+            System.out.println("Kein Zugriff auf die Datei.");
+        } catch (FileNotFoundException fnf) {
+            System.out.println("Datei wurde nicht gefunden.");
+        }
+
     }
 }
