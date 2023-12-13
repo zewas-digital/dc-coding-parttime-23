@@ -1,4 +1,4 @@
-package oliver.week13_File;
+package saifedine.week13_File;
 
 /*
 Aufgabe: Read and Display
@@ -25,7 +25,7 @@ public class Stream_5_CSVReader_Bonus {
         String testText = doubleText;
 
         try {
-            Integer.parseInt(testText);
+            Integer.parseInt(text);
             System.out.println("Der String "+ testText +" ist ein Integer.");
 
         } catch (NumberFormatException nfe) {
@@ -38,12 +38,3 @@ public class Stream_5_CSVReader_Bonus {
         }
     }
 }
-
-
-
-
-
-
-
-
-

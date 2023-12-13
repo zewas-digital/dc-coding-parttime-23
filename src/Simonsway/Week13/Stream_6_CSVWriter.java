@@ -1,4 +1,4 @@
-package oliver.week13_File;
+package Simonsway.Week13;
 
 /*
 Aufgabe: Write CSV-File
@@ -10,8 +10,8 @@ Verwende als Separator (Trennzeichen) ;
 Schreibe auch eine Titelzeile
  */
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Stream_6_CSVWriter {
     static String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
@@ -22,6 +22,7 @@ public class Stream_6_CSVWriter {
 
     public static void main(String[] args) {
 
+
         FileWriter writer = null;
         try {
             writer = new FileWriter("src/Simonsway/Week13/files/temp.csv");
@@ -30,14 +31,10 @@ public class Stream_6_CSVWriter {
 
             for (int i = 0; i < firstName.length; i++) {
                 writer.append(firstName[i]).append(",")
-                        .append(lastName[i])
-                        .append(",")
-                        .append(String.valueOf(age[i]))
-                        .append(",")
-                        .append(place[i])
-                        .append(",")
+                        .append(lastName[i]).append(",")
+                        .append(String.valueOf(age[i])).append(",")
+                        .append(place[i]).append(",")
                         .append(String.format("%.2f", distanceFromCapital[i]));
-
                 writer.append("\n");
             }
 
