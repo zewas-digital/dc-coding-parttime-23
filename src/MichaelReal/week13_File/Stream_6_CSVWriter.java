@@ -27,7 +27,7 @@ public class Stream_6_CSVWriter {
     public static void main(String[] args) {
 
                 StringBuilder sb = new StringBuilder();
-                sb.append("Vorname;Nachname;ALter;Ort;Entfärnung\n");
+                sb.append("Vorname;Nachname;Alter;Ort;Entfernung\n");
                 for (int i = 0; i < firstName.length; i++) {
                     sb.append(firstName[i]).append(';')
                             .append(lastName[i]).append(';')
