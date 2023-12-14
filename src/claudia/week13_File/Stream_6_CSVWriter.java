@@ -33,6 +33,7 @@ public class Stream_6_CSVWriter {
         File file2 = new File(path);
         int numberOfEntries = 5; //Anzahl der Datensätze
 
+        //Überschrift
         writeToFile(file2, String.join(";", header));
 
         //Einträge
