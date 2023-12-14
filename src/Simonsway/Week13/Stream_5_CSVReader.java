@@ -55,12 +55,11 @@ public class Stream_5_CSVReader {
 
             System.out.println("-".repeat(columnWidth * row.length)); // Trennzeichen zwischen den Zeilen
 
-
             for (String cell : row) {                                       // Durchlaufen aller Spalten in der Zeile
                 System.out.printf("| %-" + columnWidth + "s", cell);        // Formatierung und Ausgabe jeder Zelle
             }
-            System.out.println("|"); // Zeilenende
 
+            System.out.println("|"); // Zeilenende
             System.out.println("-".repeat(columnWidth * row.length)); // Trennzeichen am Ende der Zeile
         }
 
