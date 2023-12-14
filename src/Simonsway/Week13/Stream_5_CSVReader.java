@@ -12,10 +12,8 @@ Gib nun mit Hilfe des String[][], die Daten schön formatiert aus.
 
 import data.Texts;
 
+import javax.swing.*;
 import java.io.*;
-import java.util.Arrays;
-import java.util.Objects;
-
 
 public class Stream_5_CSVReader {
     public static void main(String[] args) {
@@ -28,35 +26,42 @@ public class Stream_5_CSVReader {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                rows++;
+                rows++;                                     // Hier werden solange rows increment bis oben null erreich ist somit kenn wir Anzahl Zeilen
                 if (cols == 0) {
-                    cols = line.split(",").length;
+                    cols = line.split(",").length;   // Mit split teilen wir den String bei jedem Komma / Wort mit lenght bekommen wir die spalten Anzahl
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        String[][] data = new String[rows][cols];
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        String[][] table = new String[rows][cols]; // Neues Arrray mit der größe errechnet durch die obere Schleife mit rows und cols
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             int rowIndex = 0;
-            while ((line = br.readLine()) != null) {
-                data[rowIndex++] = line.split(",");
+            while ((line = reader.readLine()) != null) {
+                table[rowIndex++] = line.split(","); // In das Array table mit dem rowIndex 0 increment jede Zeile wird geschrieben
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (String[] row : data) {
-            System.out.println("-".repeat(300));
-            System.out.printf("| %-40s | %-40s| %-18s| %-15s| %-15s| %-15s| %-15s| %-15s| %-15s| %-15s| %-15s| %-15s| %-15s| %-15s| \n",
-                    row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13]);
 
-            System.out.println("-".repeat(300));
+        int columnWidth = 35; // Kann je nach Bedarf angepasst werden
 
+        for (String[] row : table) {
 
+            System.out.println("-".repeat(columnWidth * row.length)); // Trennzeichen zwischen den Zeilen
+
+            for (String cell : row) {                                       // Durchlaufen aller Spalten in der Zeile
+                System.out.printf("| %-" + columnWidth + "s", cell);        // Formatierung und Ausgabe jeder Zelle
+            }
+
+            System.out.println("|"); // Zeilenende
+            System.out.println("-".repeat(columnWidth * row.length)); // Trennzeichen am Ende der Zeile
         }
+
     }
 }

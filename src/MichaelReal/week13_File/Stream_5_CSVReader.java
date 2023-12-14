@@ -34,6 +34,7 @@ public class Stream_5_CSVReader {
             e.printStackTrace();
         }
 
+
         String[][] data = new String[rows][columns];
 
         // Zweiter Durchlauf, um das Array zu füllen
