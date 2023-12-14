@@ -55,7 +55,7 @@ public class Stream_5_CSVReader {
     }
 
 
-    static String[][] vectorToMatrix(String[] vector){
+    public static String[][] vectorToMatrix(String[] vector){
         int numberOfEntries = vector[0].split(",").length;
         int numberOfLines = vector.length;
         String[][] data = new String[numberOfLines][numberOfEntries];
@@ -65,7 +65,7 @@ public class Stream_5_CSVReader {
         }
         return data;
     }
-    static String[] csvToVector(String link) {
+    public static String[] csvToVector(String link) {
         int numberOfLines = 0;
         String[] lines = new String[numberOfLines];
 
