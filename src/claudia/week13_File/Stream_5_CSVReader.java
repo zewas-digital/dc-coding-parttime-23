@@ -22,7 +22,7 @@ public class Stream_5_CSVReader {
 
     public static void main(String[] args) {
 
-       String[][] data = vectorToMatrix(csvToVector(resourceFileLink));
+        String[][] data = vectorToMatrix(csvToVector(resourceFileLink));
         int rows = data.length;
         int columns = data[0].length;
         int [] widthOfColumn = new int[columns];
@@ -52,81 +52,8 @@ public class Stream_5_CSVReader {
             System.out.println();
         }
         System.out.println("*".repeat(totalWidth));
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //Sortieren einer Spalte nach Alphabet - erste Zeile auslassen!
-
-       String[][] dataToSort = new String[rows-1][columns];
-
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < columns; j++) {
-                dataToSort[i][j] = data[i + 1][j];
-            }
-        }
-
-        bubbleSortRegardingAlphabet(dataToSort, 0);
-        System.out.println("Daten sortiert nach erster Spalte: ");
-        System.out.println("*".repeat(totalWidth));
-        //Überschriftszeile
-        for (int j = 0; j < columns; j++) {
-            System.out.printf("%-" + widthOfColumn[j] + "s  ", data[0][j]);
-        }
-        System.out.println();
-
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (dataToSort[i][j].charAt(0) >= 48 && dataToSort[i][j].charAt(0) <= 57) //Ascii-Values of numbers between 48 (for 0) and 57 (for 9)
-                    System.out.printf("%" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
-                else System.out.printf("%-" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("*".repeat(totalWidth));
-
-       ////////
-        bubbleSortRegardingAlphabet(dataToSort, 2);
-        System.out.println("Daten sortiert nach dritter Spalte: ");
-        System.out.println("*".repeat(totalWidth));
-        //Überschriftszeile
-        for (int j = 0; j < columns; j++) {
-            System.out.printf("%-" + widthOfColumn[j] + "s  ", data[0][j]);
-        }
-        System.out.println();
-
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (dataToSort[i][j].charAt(0) >= 48 && dataToSort[i][j].charAt(0) <= 57) //Ascii-Values of numbers between 48 (for 0) and 57 (for 9)
-                    System.out.printf("%" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
-                else System.out.printf("%-" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("*".repeat(totalWidth));
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
     }
 
-    public static void bubbleSortRegardingAlphabet(String[][] data, int col) {
-        int rows = data.length;
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < rows - i - 1; j++) {
-                if (data[j][col].compareTo(data[j + 1][col]) > 0) {
-                    swapElements(data, j, j + 1);
-                }
-            }
-        }
-    }
-
-    public static void swapElements(String[][] data, int i1, int i2) {
-        if (i1 != i2) {
-            String[] temp = data[i1];
-            data[i1] = data[i2];
-            data[i2] = temp;
-        }
-    }
 
     static String[][] vectorToMatrix(String[] vector){
         int numberOfEntries = vector[0].split(",").length;
