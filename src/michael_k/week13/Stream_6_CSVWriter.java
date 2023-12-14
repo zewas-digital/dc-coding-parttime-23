@@ -10,6 +10,11 @@ Verwende als Separator (Trennzeichen) ;
 Schreibe auch eine Titelzeile
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 public class Stream_6_CSVWriter {
     static String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
     static String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
@@ -18,14 +23,26 @@ public class Stream_6_CSVWriter {
     static float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
     public static void main(String[] args) {
-        // initial: anzahl datensätze bestimmen
-        // --> eindimensionales Array
 
-        // 1. Daten zusammen führen
-        // in einen String verketten mit Trennzeichen ;
-        // --> in eindim. Array speichern
+        int datasets = firstName.length;
+        String dataset = "";
+        File f = new File("./src/michael_k/week13/CSV_write");
 
-        // 2. in Datei schreiben
-        // --> csv Datei
+        try {
+            FileOutputStream fos = new FileOutputStream(f, true);
+            PrintStream ps = new PrintStream(fos);
+
+            for (int i = 0; i < datasets; i++) {
+                dataset = firstName[i]+","+lastName[i]+","+age[i]+","+place[i]+","+distanceFromCapital[i];
+                ps.println(dataset);
+            }
+
+            ps.close();
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Datei wurde nicht gefunden.");
+        } finally {
+            System.out.println("+--- wrote file successfully");
+        }
+
     }
 }
