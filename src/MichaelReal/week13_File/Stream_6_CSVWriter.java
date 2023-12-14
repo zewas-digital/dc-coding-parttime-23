@@ -41,7 +41,7 @@ public class Stream_6_CSVWriter {
             static void writeToFile(String content) {
                 File f = new File(relativeFileLink);
                 try {
-                    FileOutputStream fos = new FileOutputStream(f, false); // Set to false to overwrite file
+                    FileOutputStream fos = new FileOutputStream(f, false); // ändern zu true um NICHT zu überschreiben
                     PrintStream ps = new PrintStream(fos);
                     ps.print(content);
                     ps.close();
