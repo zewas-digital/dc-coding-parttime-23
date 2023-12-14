@@ -23,19 +23,88 @@ import java.util.Objects;
 
 public class Stream_1_Zaehlen {
     public static void main(String[] args) {
-        // 2: Zeichen zählen
-        System.out.println("Anzahl Zeichen M: "+ countCharacter('M'));
-        System.out.println("Anzahl Zeichen a: "+ countCharacter('a'));
 
-        System.out.println("Anzahl Leerzeichen: "+ (countCharacter(' ')+1));
+        String filePath = "txt/simpleText.txt";
+        String specificWord = "zu";
+        char specificChar = '1';
+
+        System.out.println ( countWords ( filePath ));
+        System.out.println (countSpecificWord ( filePath, specificWord ) );
+        System.out.println (countChar ( filePath ) );
+        System.out.println (countSpecificChar ( filePath, specificChar ) );
+
     }
+    static int countWords (String text){
 
-    static int countCharacter(char character) {
+        int count = 0;
+        String line;
+
+        BufferedReader reader = openStream(text);
+
+        try {
+
+            while ( (line = reader.readLine ( )) != null) {
+
+                String[] splitLine = line.split ( " " );
+                count = count + splitLine.length;
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException ( e );
+        }
+
+        return count;
+    }
+    static int countSpecificWord (String text, String specificWord){
+
+        int count = 0;
+        String line;
+
+        BufferedReader reader = openStream(text);
+
+        try {
+
+            while ( (line = reader.readLine ( )) != null) {
+
+                String[] splitLine = line.split ( " " );
+
+                for ( String word : splitLine ) {
+                    if(word.equals ( specificWord )){
+                        count++;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException ( e );
+        }
+        return count;
+    }
+    static int countChar (String text){
+
+        int count = 0;
+        String line;
+
+        BufferedReader reader = openStream(text);
+
+        try {
+
+            while ( (line = reader.readLine ( )) != null) {
+
+                count = count + line.length ();
+
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException ( e );
+        }
+        return count;
+    }
+    static int countSpecificChar(String text, char character) {
         int count = 0;
         int charInt = (int)character;
 
         try {
-            BufferedReader reader = openStream("txt/simpleText.txt");
+            BufferedReader reader = openStream(text);
 
             // Einzelnes Zeichen lesen
             int readCharInt;
@@ -48,13 +117,10 @@ public class Stream_1_Zaehlen {
             reader.close();
         } catch (IOException e) {
             System.out.println("IOExeption");
-        } finally {
-            System.out.println("Lesevorgang abgeschlossen.");
         }
 
         return count;
     }
-
     static BufferedReader openStream(String fileLink) throws RuntimeException {
         try {
             BufferedReader reader = new BufferedReader(
