@@ -10,13 +10,10 @@ Verwende als Separator (Trennzeichen) ;
 Schreibe auch eine Titelzeile
  */
 
-import claudia.BasicFunctions;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
 
 public class Stream_6_CSVWriter {
     //Columns
@@ -26,102 +23,25 @@ public class Stream_6_CSVWriter {
     static String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
     static float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
-    //additional rows for header:
-    static String[] header1 = {"Vorname", "Nachname", "Alter", "Wohnort", "Entfernung"};
-    static String[] header2 = {"","","","","zur Hauptstadt"};
+    //additional row for header:
+    static String[] header = {"Vorname", "Nachname", "Alter", "Wohnort", "Entfernung zur Hauptstadt"};
+
     static String path = "./src/claudia/week13_File/personen.csv";
-    static String path2 = "./src/claudia/week13_File/personen2.csv";
 
     public static void main(String[] args) {
 
-        File file = new File(path);
-        File file2 = new File(path2);
+        File file2 = new File(path);
         int numberOfEntries = 5; //Anzahl der Datensätze
-        int numberOfColumns = header1.length;
 
-        ////////////////einfache Lösung/////////////////////////////////////////
-        //Überschrift erste Zeile
-        for (int j = 0; j < numberOfColumns; j++) {
-            writeToFileWithoutNewLine(file2, header1[j]);
-            if (j != numberOfColumns-1) writeToFileWithoutNewLine(file2, ";");
-        }
-        writeToFileWithoutNewLine(file2, "\n");
-        //Überschrift zweite Zeile
-        for (int j = 0; j < numberOfColumns; j++) {
-            writeToFileWithoutNewLine(file2, header2[j]);
-            if (j != numberOfColumns-1) writeToFileWithoutNewLine(file2, ";");
-        }
-        writeToFileWithoutNewLine(file2, "\n");
+        writeToFile(file2, String.join(";", header));
+
         //Einträge
         for (int i = 0; i < numberOfEntries; i++) {
-            writeToFileWithoutNewLine(file2, firstName[i] + ";");
-            writeToFileWithoutNewLine(file2, lastName[i] + ";");
-            writeToFileWithoutNewLine(file2, age[i] + ";");//kein explizites Umwandeln in String!
-            writeToFileWithoutNewLine(file2, place[i] + ";");
-            writeToFileWithoutNewLine(file2, distanceFromCapital[i] + "\n");
-        }
-
-        ////////////////einfache Lösung zuende/////////////////////////////////
-
-        //change Arrays of int and float to String-Arrays:
-        //TODO: Notwendig? z.B. wandelt sich . in , bei Floats
-        String[] distanceFromCapitalString = new String[distanceFromCapital.length];
-        String[] ageString = new String[age.length];
-
-        for (int i = 0; i < distanceFromCapital.length; i++) {
-            distanceFromCapitalString[i] = String.format("%.3f", distanceFromCapital[i]);
-            //TODO Formatierung? Informationsverlust?
-            ageString[i] = String.format("%d", age[i]);
-        }
-
-        String[][] entriesTransposed = new String[numberOfColumns][numberOfEntries];
-        entriesTransposed[0] = firstName;
-        entriesTransposed[1] = lastName;
-        entriesTransposed[2] = ageString;
-        entriesTransposed[3] = place;
-        entriesTransposed[4] = distanceFromCapitalString;
-
-        String[][] entries = transposeMatrix(entriesTransposed);
-
-        //Write header1 into file
-        String entry = "";
-        for (int j = 0; j < numberOfColumns; j++) {
-            if (j < numberOfColumns - 1) entry = entry.concat(header1[j] + ";");
-            else entry = entry.concat(header1[j]);
-        }
-        writeToFile(file, entry);
-
-        //Write header2 into file
-        entry = "";
-        for (int j = 0; j < numberOfColumns; j++) {
-            if (j < numberOfColumns - 1) entry = entry.concat(header2[j] + ";");
-            else entry = entry.concat(header2[j]);
-        }
-        writeToFile(file, entry);
-
-        //Write all entries into file
-        for (int i = 0; i < numberOfEntries; i++) {
-
-            entry = "";
-            for (int j = 0; j < numberOfColumns; j++) {
-                if (j < numberOfColumns - 1) entry = entry.concat(entries[i][j] + ";");
-                else entry = entry.concat(entries[i][j]);
-            }
-            writeToFile(file, entry);
+            String entry = firstName[i] + ";" + lastName[i] + ";" + age[i] + ";" + place[i] + ";" + distanceFromCapital[i];
+            writeToFile(file2, entry);
         }
     }
 
-
-    static void writeToFileWithoutNewLine(File file, String content) {
-        try {
-            FileOutputStream fos = new FileOutputStream(file, true);
-            PrintStream ps = new PrintStream(fos);
-            ps.print(content);
-            ps.close();
-        } catch (FileNotFoundException fnfe) {
-            System.out.println("Datei wurde nicht gefunden.");
-        }
-    }
     static void writeToFile(File file, String content) {
         try {
             FileOutputStream fos = new FileOutputStream(file, true);
@@ -130,22 +50,8 @@ public class Stream_6_CSVWriter {
             ps.close();
         } catch (FileNotFoundException fnfe) {
             System.out.println("Datei wurde nicht gefunden.");
-        } finally {
-            System.out.println("+--- wrote file successfully");
         }
     }
 
-    static String[][] transposeMatrix (String[][] matrix){
-        int originalRows = matrix.length;
-        int originalCols = matrix[0].length;
-        String[][] transposedMatrix = new String[originalCols][originalRows];
-
-        for (int i = 0; i < originalCols; i++) {
-            for (int j = 0; j < originalRows; j++) {
-                transposedMatrix[i][j ] = matrix[j][i];
-                }
-            }
-        return transposedMatrix;
-    }
 }
 
