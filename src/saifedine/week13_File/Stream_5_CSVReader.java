@@ -12,6 +12,7 @@ Gib nun mit Hilfe des String[][], die Daten schön formatiert aus.
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Stream_5_CSVReader {
@@ -35,6 +36,7 @@ public class Stream_5_CSVReader {
         // fillInputArray (Schritt 1. & 2.)
         // printInputArray
 
+        fillInputArray(inputArray);
 
 
 
@@ -56,10 +58,10 @@ public class Stream_5_CSVReader {
                 lineNumber++;
 
                 countColumns = line.split(",").length;
+
             }
             //System.out.println(lineNumber);
             //System.out.println(countColumns);
-
 
             sc.close();
         } catch (SecurityException e) {
@@ -77,20 +79,21 @@ public class Stream_5_CSVReader {
 
     static void fillInputArray(String[][] inputArray){
 
+        String[][] dataArray = inputArray;
+        int lineNumber = 0;
+
         try {
             FileInputStream fis = new FileInputStream(relativeFileLink);
             Scanner sc = new Scanner(fis);
 
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                //System.out.println("| " + lineNumber + " " + line);
 
-                //lineNumber++;
-
-                //countColumns = line.split(",").length;
+                dataArray[lineNumber] = line.split(",");
+                lineNumber++;
             }
             //System.out.println(lineNumber);
-            //System.out.println(countColumns);
+
 
 
             sc.close();
@@ -100,5 +103,8 @@ public class Stream_5_CSVReader {
             System.out.println("Datei wurde nicht gefunden.");
         }
 
+        for (String[] zeile : dataArray) {
+            System.out.println("| " + String.join(" | ", zeile));
+        }
     }
 }
