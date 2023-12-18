@@ -1,4 +1,4 @@
-package saifedine.week01;
+package saifedine.week01.example8;
 
 /*
 Schreiben Sie ein Programm das in einer Schleife von 0 bis inklusive 10 zählt und nur jede gerade Zahl ausgibt.
@@ -10,7 +10,7 @@ Erstelle für jede Schleifenart Schleifen mit folgenden Unterschieden:
 
  */
 
-public class example8_LoopWithModulo {
+public class LoopWithModulo {
 
     public static void main(String[] args) {
 
