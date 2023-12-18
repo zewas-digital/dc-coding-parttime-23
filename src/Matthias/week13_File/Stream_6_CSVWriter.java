@@ -23,7 +23,7 @@ public class Stream_6_CSVWriter {
     public static void main(String[] args) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter("src/Simonsway/Week13/files/temp.csv");
+            writer = new FileWriter("src/Matthias/week13_File");
 
             writer.append("First Name,Last Name,Age,Place,Distance From Capital\n");
 
