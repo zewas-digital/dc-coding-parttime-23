@@ -25,7 +25,8 @@ public class Stream_5_CSVReader {
         int[] spaltenanzahl=countZeilenUSpalten( ressourceFileLink );
         String[][] daten = new String[lineNumber[0]][spaltenanzahl[1]];
         getspalten( daten );
-        printfomated( daten );
+        int[] columnsmaxsizes=getColumnSizes( daten,spaltenanzahl[1] );
+        printarray(daten, spaltenanzahl[1], columnsmaxsizes );;
 
         // Daten formatiert ausgeben
 
@@ -98,9 +99,29 @@ public class Stream_5_CSVReader {
         }
     }
 
-    public static void printfomated(String[][] daten){
-        for (String[] zeile : daten) {
-            System.out.println( "| " + String.join( " | ", zeile ) );
+    public static int[] getColumnSizes(String[][] daten, int maxcountofcolomsofdata){
+        int [] columnSizes= new int [maxcountofcolomsofdata];
+        for (String[] line: daten) {
+            // option 2: längenvergleich mit for i
+            for (int i = 0; i < maxcountofcolomsofdata; i++) {
+                String column = line[i];
+                if ( column.length( ) > columnSizes[i] ) {
+                    columnSizes[i] = column.length( );
+                }
+            }
         }
+        return columnSizes;
+    }
+
+    public static void printarray(String[][] daten, int columns,int[] columnsmaxsizes) {
+        for (String[] line : daten) {
+            // option 2: längenvergleich mit for i
+            for (int i = 0; i < columns; i++) {
+                int wordlenthmax= columnsmaxsizes[i]-line[i].length();
+                System.out.print( line[i]+ " ".repeat( wordlenthmax+4 ));
+            }
+            System.out.println(  );
+        }
+
     }
 }
