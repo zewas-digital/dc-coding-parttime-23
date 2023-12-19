@@ -24,6 +24,7 @@ public class IO_Test_Claudia {
                 while (sc.hasNextInt()) {
                     //TODO: falls was anderes als INT vorkommt, bleibt Algorithmus davor stecken
                     //d.h. number2 ist immer das letzte INT vor der Unterbrechung
+                    //sc.skip?
                     number1 = number2;
                     number2 = sc.nextInt();
                 }
