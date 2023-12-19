@@ -1,18 +1,14 @@
-package oliver.week14_objects;
+package michael_k.week14;
 
 public class Person extends Object {
-    // Attribute
     public String name = "unbekannt";
-    public int age;
-    public String alter;
 
     // Konstruktor wird beim Erzeugen der neuen Instanz mit new Person() aufgerufen
     public Person () {
 
     }
-    public Person (String name, int age) {
+    public Person (String name) {
         this.name = name;
-        this.age = age;
-        this.alter = age +" Jahre";
     }
+
 }
