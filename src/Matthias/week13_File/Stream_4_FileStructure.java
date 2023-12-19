@@ -49,7 +49,7 @@ public class Stream_4_FileStructure {
             }
         }
     }
-    static String[] sortChildren(File[] children, String[] arr1){
+    static String[] sortChildren(File[] children, String[] arr1, int[] arr2){
         int[] child= new int[children.length];
         for (int i = 0; i <children.length ; i++) {
                 child[i]= child.length;
@@ -59,24 +59,25 @@ public class Stream_4_FileStructure {
         return arr1;
     }
 
-    public static void bubbleSort1( int[] arr, String[] arr1 ) {
+    public static void bubbleSort1( int[] arr1, String[] arr2 ) {
         // 1. Bubblephase Prüfen der Arrays 9,4 - 4,9
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    swap(arr1, arr, j, j + 1);
+        for (int i = 1; i < arr1.length; i++) {
+            for (int j = 0; j < arr1.length - i; j++) {
+                if (arr1[j] > arr1[j + 1]) {
+                    swap(arr2, arr1, j, j + 1);
                 }
             }
         }
     }
 
-    static void swap(String arr1[], int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-
+    static void swap(String arr1[], int[] arr2, int i, int j) {
         String temp1 = arr1[i];
         arr1[i] = arr1[j];
         arr1[j] = temp1;
+
+        int temp2 = arr2[i];
+        arr2[i] = arr2[j];
+        arr2[j] = temp2;
+
     }
 }
