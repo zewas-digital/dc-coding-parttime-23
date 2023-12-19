@@ -22,6 +22,7 @@ public class Stream_6_CSVWriter {
     static float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
     static String relativeFileLink = "./src/saifedine/week13_File/Content.csv";
+
     public static void main(String[] args) {
 
         // initial: dimensionen bestimmen
@@ -39,6 +40,8 @@ public class Stream_6_CSVWriter {
 
         String[] row = getStrings();
 
+        System.out.println("Ausgabe: " + Arrays.toString(row));
+
         writeToFile(headline, row);
 
 
@@ -47,8 +50,8 @@ public class Stream_6_CSVWriter {
     private static String[] getStrings() {
         String[] row = new String[firstName.length];
         for (int i = 0; i < firstName.length; i++) {
-            row = new String[]
-                    {firstName[i] + ";" + lastName[i] + ";" + Integer.toString(age[i]) + ";" + place[i] + ";" + Float.toString(distanceFromCapital[i])};
+            row[i] = firstName[i] + ";" + lastName[i] + ";" + Integer.toString(age[i]) + ";" + place[i] + ";" + Float.toString(distanceFromCapital[i]);
+            System.out.println(row[i]);
             System.out.println(Arrays.toString(row));
         }
         return row;
@@ -63,7 +66,9 @@ public class Stream_6_CSVWriter {
 
             ps.println(Arrays.toString(headline));
 
-            ps.println(Arrays.toString(row));
+            for (String line: row) {
+                ps.println(line);
+            }
 
             ps.close();
 
