@@ -52,7 +52,6 @@ public class Stream_6_CSVWriter {
         for (int i = 0; i < firstName.length; i++) {
             row[i] = firstName[i] + ";" + lastName[i] + ";" + Integer.toString(age[i]) + ";" + place[i] + ";" + Float.toString(distanceFromCapital[i]);
             System.out.println(row[i]);
-            System.out.println(Arrays.toString(row));
         }
         return row;
     }
