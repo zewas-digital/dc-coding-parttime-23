@@ -1,5 +1,13 @@
 package michael_k.week12;
 
+import data.Texts;
+
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+import java.util.Scanner;
+
 /*
 Aufgabe: Erstelle eine Klasse für Log-Einträge
 Der Logger schreibt fortlaufend in eine Datei. Es wird nicht überschrieben.
@@ -22,10 +30,52 @@ public class Stream_2_FileLog {
         try {
             numbers[12] = 12;
         }catch (Exception ec){
-            // TODO schreibe log-eintrag mit der geworfenen Exception
+            System.out.println (ec );
+            ec.printStackTrace();
+            log(1, "Array Index exestiert nicht");
+        }
+
+        try {
+            InputStream inputStream = Objects.requireNonNull(
+                    Texts.class.getClassLoader().getResourceAsStream(".txt/test.txt")
+            );
+            Scanner sc = new Scanner(inputStream);
+
+            sc.hasNextLine();
+            String line = sc.nextLine();
+            System.out.println(line);
+
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+            log(2, "Datei nicht gefunden");
         }
     }
     public static void log(int severity, String message) {
+        String errorcode = null;
 
+        switch (severity){
+            case 1:
+                errorcode ="Error   :";
+                break;
+            case 2:
+                errorcode ="Warning :";
+                break;
+            case 3:
+                errorcode ="Info    :";
+        }
+
+        File f = new File("./src/michael_k/week12/logfile.txt");
+        try {
+            FileOutputStream fos = new FileOutputStream(f, true);
+            PrintStream ps = new PrintStream(fos);
+
+            ps.println( errorcode + new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss").format(new Date ())+" / "+message );
+            ps.close();
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Datei wurde nicht gefunden.");
+        } finally {
+            System.out.println("+--- wrote file successfully");
+        }
     }
 }

@@ -22,7 +22,6 @@ Ergebnis:
 */
 public class Stream_2_FileLog {
 
-    static String ressourceFileLink = "txt/iostream.txt";
     static String relativeFileLink = "./src/saifedine/week12_FileStreams/iostream.txt";
 
     public static void main(String[] args) {
@@ -39,13 +38,9 @@ public class Stream_2_FileLog {
 
         String stringValue = userEingabe();
 
-        String message = log(3,stringValue);
-
-        writeToFile(message);
+        log(3,stringValue);
 
         printFileInputStream();
-
-
     }
 
     private static String userEingabe() {
@@ -55,33 +50,32 @@ public class Stream_2_FileLog {
         return userInput.next();
     }
 
-    public static String log(int severity, String stringValue) {
+    public static void log(int severity, String stringValue) {
 
         String message = " ";
 
         switch (severity){
             case 1:
-                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + "ERROR: " + "Konnte nicht ausgeführt werden";
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " ERROR: " + "Konnte nicht ausgeführt werden";
                 break;
 
             case 2:
-                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + "WARNING: " + "Kein passende Aufgabe gefunden";
+                message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " WARNING: " + "Kein passende Aufgabe gefunden";
                 break;
 
             case 3:
                 message = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) + " INFO: " + stringValue;
                 break;
         }
-        //System.out.println(message);
-        return message;
-
+        writeToFile(message);
     }
 
     static void printFileInputStream() {
         System.out.println("+--- read file " + relativeFileLink + " with FileInputStream " + "–".repeat(20));
 
         try {
-            FileInputStream fis = new FileInputStream(relativeFileLink);
+            //FileInputStream fis = new FileInputStream(relativeFileLink);
+            FileInputStream fis = new FileInputStream("wrong_file");
             Scanner sc = new Scanner(fis);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
@@ -96,7 +90,6 @@ public class Stream_2_FileLog {
             //System.out.println("Datei wurde nicht gefunden.");
             log(1, String.valueOf(fnf));
             fnf.printStackTrace();
-
         }
     }
 
@@ -114,5 +107,4 @@ public class Stream_2_FileLog {
             System.out.println("+--- wrote file successfully");
         }
     }
-
 }

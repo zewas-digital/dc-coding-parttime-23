@@ -12,6 +12,7 @@ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html
  */
 
 import java.io.File;
+import java.util.Arrays;
 
 public class Stream_3_FileStructure {
 
@@ -19,9 +20,19 @@ public class Stream_3_FileStructure {
 
     public static void main(String[] args) {
 
-        File f = new File("./src/saifedine/week13_File/findFile");
-        System.out.println(f);
+        File f = new File(relativeDirectory);
+        System.out.println(f.getName() +" "+ f.isFile() +" "+ f.isDirectory() +" "+ f.getParent());
 
+        File parent = f.getParentFile();
+        System.out.println(parent.getName() +" "+ parent.isFile() +" "+ parent.isDirectory() +" "+ parent.getParent());
 
+        File dir = new File("./src/saifedine/week13_File");
+        System.out.println(dir.getName() +" "+ dir.isFile() +" "+ dir.isDirectory() +" "+ dir.getParent());
+
+        System.out.println("Version1: " + Arrays.toString(dir.listFiles()));
+
+        for (String directories: dir.list()) {
+            System.out.println("Version2: " + directories);
+        }
     }
 }
