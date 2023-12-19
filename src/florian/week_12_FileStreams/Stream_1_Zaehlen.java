@@ -64,7 +64,7 @@ public class Stream_1_Zaehlen {
 
 
 
-    static int wordReader (BufferedReader reader){
+    public static int wordReader(BufferedReader reader){
         int counter = 0;
 
 
@@ -82,7 +82,7 @@ public class Stream_1_Zaehlen {
                 counter += arraywords.length;
 
 
-                System.out.println(Arrays.toString(arraywords));
+                //System.out.println(Arrays.toString(arraywords));
             }
 
         }catch (IOException exc) {
