@@ -22,11 +22,11 @@ public class Objekt_1_Auto {
     public static void main(String[] args) {
 
         Auto auto1 = new Auto();
-        Auto auto2 = new Auto("Fiat", "Punto", 1980, 15000000);
-        Auto auto3 = new Auto("Skoda", "Octavia", 2000, 1450);
+        Auto auto2 = new Auto("Fiat", "Punto", 1980, 15000000, 35);
+        Auto auto3 = new Auto("Skoda", "Octavia", 2000, 1450, 60 );
         //Auto auto4 = new Auto("erstesAuto", "ersteMarke", 1850, 23454);
 
-        auto2.setKm(auto2.getKm() + 10);
+        auto2.setKmStand(auto2.getKmStand() + 10);
 
         System.out.println("\nDrei neue Autos erzeugt: ");
         System.out.println(auto1.toString() + "\n");
