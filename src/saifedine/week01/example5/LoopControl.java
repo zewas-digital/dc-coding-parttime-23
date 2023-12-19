@@ -1,4 +1,4 @@
-package saifedine.week01;
+package saifedine.week01.example5;
 
 /*
 Schreibe ein Programm das im Bereich von 1-100 Zahlen die durch zwei und/oder durch drei teilbar sind ausgeben.
@@ -6,7 +6,7 @@ Beende die Schleife, wenn 20 Zahlen ausgegeben wurden dann mit der break; Anweis
 
  */
 
-public class example5_LoopControl {
+public class LoopControl {
 
     public static void main(String[] args) {
 
