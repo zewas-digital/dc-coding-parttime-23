@@ -1,4 +1,4 @@
-package saifedine.week14_objects;
+package florian.week_14_objects;
 
 public class Object_0_Person {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Object_0_Person {
         String text = "tst";
         char[] charray = {'t','e','s','t'};
 
-        String text1 = new String(charray);
+        String text1 = new String();
         System.out.println(text1);
 
         Person Peter = new Person("Peter", 22);
