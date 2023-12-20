@@ -17,18 +17,16 @@ Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht 
 
 public class Objekt_2_Autofahren {
     public static void main(String[] args) {
-        Auto auto = new Auto("VW", "Golf", 1990, 15000, 60);
-        auto.tankinhalt = 30;
+
+        Auto auto = new Auto("VW", "Golf", 1990, 15000, 60, 30, 7.3);
 
         System.out.println("\nNeues Auto erzeugt: " + auto.toString());
-        System.out.println("Aktueller Tankinhalt: " + auto.getFormatierterTankinhalt());
+        System.out.println("Aktueller Tankinhalt: " + auto.getTankAktuellFormatiert());
         System.out.println("Aktueller Kilometerstand = " + auto.getKmStandFormatiert());
 
-        auto.volltanken();
+        auto.fahren(700);
 
-        auto.fahren(222);
-        auto.fahren(33);
-        auto.fahren(100);
+        auto.fahren(1000);
 
         auto.volltanken();
 
