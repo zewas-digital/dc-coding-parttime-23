@@ -23,8 +23,8 @@ public class Objekt_1_Auto {
     public static void main(String[] args) {
 
         Auto Auto1 = new Auto();
-        Auto Auto2 = new Auto("Audi", "A4", 2015, 143000,75,33);
-        Auto Auto3 = new Auto("Hyundai", "i20", 2016, 83622,35,23);
+        Auto Auto2 = new Auto("Audi", "A4", 2015, 143000,75,33,5.7);
+        Auto Auto3 = new Auto("Hyundai", "i20", 2016, 83622,35,23,4.8);
 
 //Ausgabe durch Auto1, wird die Methode toString in Auto.java aufgerufen und angezeigt
         System.out.println(Auto1 + "Die Auto-Daten sind: " + "\n");

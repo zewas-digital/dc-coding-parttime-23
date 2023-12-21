@@ -19,22 +19,21 @@ public class Objekt_2_Autofahren {
 
     public static void main(String[] args) {
 
-        Auto AudiA4 = new Auto("Audi", "A4", 2015, 143000,75,33);
-        Auto HyundaiI20 = new Auto("Hyundai", "i20", 2016, 83622,35,23);
+        Auto AudiA4 = new Auto("Audi", "A4", 2015, 143000,75,33,5.7);
+        Auto HyundaiI20 = new Auto("Hyundai", "i20", 2016, 83622,35,23,5);
 
         System.out.println(AudiA4);
         System.out.println("KmStand vorher: " + AudiA4.kilometerstandFormatiert);
         System.out.println("Tankinhalt vorher: " + AudiA4.tankinhalt);
+        System.out.println("Der Verbrauch des Autos beträgt " + AudiA4.verbrauch  + " pro 100 km");
 
         AudiA4.fahren(17);
-        System.out.println("gefahrene Km: " + AudiA4.gefahreneKm);                                                      // wird nicht ausgegeben, warum?
-        System.out.println("Die gefahrene Km sind: " + AudiA4.getGefahreneKm());                                        // wird nicht ausgegeben, warum?
+        System.out.println("gefahrene Km: " + AudiA4.gefahreneKm);                                                      // wurde nicht ausgegeben, warum?
         System.out.println("KmStand nachher: " + AudiA4.getKilometerstand());
         System.out.println("KmStand nachher: " + AudiA4.kilometerstandFormatiert);
 
         AudiA4.vollTanken();
-        System.out.println("Das Auto wurde mit " + AudiA4.getankteMenge);                                               // wird nicht ausgegeben, warum?
-        System.out.println("Das Auto wurde mit " + AudiA4.getGetankteMenge() + " L getankt.");                          // wird nicht ausgegeben, warum?
+        System.out.println("Das Auto wurde mit " + AudiA4.getankteMenge + " L getankt.");                               // wurde nicht ausgegeben, warum?
         System.out.println("Tankinhalt nachher: " + AudiA4.getTankinhalt());
 
         System.out.println("-----------------------------------------------------------------------------------------");
@@ -44,10 +43,12 @@ public class Objekt_2_Autofahren {
         System.out.println("Tankinhalt vorher: " + HyundaiI20.tankinhalt);
 
         HyundaiI20.fahren(78);
+        System.out.println("gefahrene Km: " + HyundaiI20.gefahreneKm);
         System.out.println("KmStand nachher: " + HyundaiI20.getKilometerstand());
         System.out.println("KmStand nachher: " + HyundaiI20.kilometerstandFormatiert);
 
         HyundaiI20.vollTanken();
+        System.out.println("Das Auto wurde mit " + HyundaiI20.getankteMenge + " L getankt.");
         System.out.println("Tankinhalt nachher: " + HyundaiI20.getTankinhalt());
 
     }
