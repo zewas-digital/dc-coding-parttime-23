@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package Matthias.week15_objects;
 
 /*
 Aufgabe: Auto fahren
@@ -16,19 +16,14 @@ Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht 
  */
 
 public class Objekt_2_Autofahren {
-    public static void main(String[] args) {
-
-        Auto auto = new Auto("VW", "Golf", 1990, 15000, 60, 30, 7.3);
-
-        System.out.println("\nNeues Auto erzeugt: " + auto.toString());
-        System.out.println("Aktueller Tankinhalt: " + auto.getTankAktuellFormatiert());
-        System.out.println("Aktueller Kilometerstand = " + auto.getKmStandFormatiert());
-
-        auto.fahren(700);
-
-        auto.fahren(1000);
-
-        auto.volltanken();
+    public static void main( String[] args ) {
+        Auto Auto1= new Auto( "Audi","A5",2007,6000,50 );
+        System.out.println(Auto1);
+        Auto1.fahren( 50 );
+        System.out.println( Auto1 );
+        System.out.println( "Get:"+Auto1.getKillometerstand());
+        Auto1.volltanken();
+        System.out.println( Auto1 );
 
     }
 }
