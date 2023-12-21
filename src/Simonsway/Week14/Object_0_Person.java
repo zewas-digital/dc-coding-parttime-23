@@ -1,4 +1,4 @@
-package Matthias.week14_objects;
+package Simonsway.Week14;
 
 public class Object_0_Person {
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class Object_0_Person {
 
         System.out.println(
                 "Neues Objekt für eine Person erstellt: "+ Roger
-                        +"\nDer Name der Person ist "+ Roger.name +" "+ Roger.age
+                +"\nDer Name der Person ist "+ Roger.name +" "+ Roger.age
         );
 
         System.out.println(
@@ -33,3 +33,12 @@ public class Object_0_Person {
         );
     }
 }
+
+
+
+
+
+
+
+
+

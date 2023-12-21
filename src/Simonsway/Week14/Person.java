@@ -1,4 +1,4 @@
-package Matthias.week14_objects;
+package Simonsway.Week14;
 
 public class Person extends Object {
     // Attribute
