@@ -1,4 +1,4 @@
-package Matthias.week15_objects;
+package Simonsway.Week15;
 
 /*
 Aufgabe: Auto fahren
@@ -16,15 +16,4 @@ Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht 
  */
 
 public class Objekt_2_Autofahren {
-    public static void main( String[] args ) {
-        Auto Auto1= new Auto( "Audi","A5",2007,6000,50,6 );
-        System.out.println(Auto1);
-        Auto1.fahren( 100 );// nicht
-        System.out.println( Auto1 );
-        System.out.println( "Get:"+Auto1.getKillometerstand());
-        Auto1.volltanken();
-        System.out.println( Auto1 );
-        Auto1.fahren( 100 );
-        System.out.println( Auto1 );
-    }
 }
