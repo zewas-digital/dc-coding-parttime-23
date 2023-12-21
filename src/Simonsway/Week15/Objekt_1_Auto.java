@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package Simonsway.Week15;
 
 /*
 Aufgabe: Auto
@@ -21,13 +21,14 @@ public class Objekt_1_Auto {
 
     public static void main(String[] args) {
 
-        Auto auto1 = new Auto();
-        Auto auto2 = new Auto("Fiat", "Punto", 1980, 15000000, 35, 10, 7.2);
-        Auto auto3 = new Auto("Skoda", "Octavia", 2000, 1450, 60, 30, 6.3 );
 
-        System.out.println("\nDrei neue Autos erzeugt: ");
-        System.out.println(auto1.toString() + "\n");
-        System.out.println(auto2.toString() + "\n");
-        System.out.println(auto3.toString() + "\n");
+
+        Auto Audi = new Auto("Audi","A3",2003, 200000, 50, 30, 0.06, 450, 600);
+        System.out.println(Audi.toString());
+
+        Auto Ford = new Auto("Ford","Mustang",1998, 130000, 70, 45, 0.04, 10, 100);
+        System.out.println(Ford.toString());
+
     }
+
 }
