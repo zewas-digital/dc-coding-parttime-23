@@ -19,10 +19,10 @@ km-Stand
 
 public class Objekt_1_Auto {
     public static void main(String[] args) {
-        Auto Porsche = new Auto("Porsche", "Cayenne", 2018, 20000);
-        Auto Volkswagen = new Auto("VW","Golf 7", 2015,12560);
+        Auto Porsche = new Auto("Porsche", "Cayenne", 2018, 20000,70);
+        Auto Volkswagen = new Auto("VW","Golf 7", 2015,12560,50);
 
-        System.out.println(Porsche.toString() + "\n");
+        System.out.println(Porsche + "\n");
 
         System.out.println(Volkswagen.toString());
     }
