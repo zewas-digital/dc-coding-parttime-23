@@ -1,8 +1,8 @@
 /**
  *
-Klasse Auto_2
+Klasse Auto
 
-Die Klasse Auto_2 definiert ein Objekt, das die Eigenschaften eines Autos beschreibt. Die Klasse erbt von der Klasse Object und erweitert sie um folgende Eigenschaften und Methoden:
+Die Klasse Auto definiert ein Objekt, das die Eigenschaften eines Autos beschreibt. Die Klasse erbt von der Klasse Object und erweitert sie um folgende Eigenschaften und Methoden:
 
 marke: Die Marke des Autos									// String marke;
 modell: Das Modell des Autos								// String modell;
@@ -35,7 +35,7 @@ public class Auto extends Object {
      *
      * Konstruktor
      *
-     * Der Konstruktor der Klasse Auto_2 nimmt folgende Parameter entgegen:
+     * Der Konstruktor der Klasse Auto nimmt folgende Parameter entgegen:
      *
      * @param marke
      * @param modell
@@ -53,14 +53,14 @@ public class Auto extends Object {
             throw new IllegalArgumentException("Das Baujahr soll in mit vier Ziffern angegeben werden.");
         }
 
-        // Anschließend wird überprüft, ob das angegebene Tankvolumen größer als das maximale Tankvolumen der Klasse Auto_2 ist. Das maximale Tankvolumen beträgt 80 Liter.
+        // Anschließend wird überprüft, ob das angegebene Tankvolumen größer als das maximale Tankvolumen der Klasse Auto ist. Das maximale Tankvolumen beträgt 80 Liter.
         // Wenn das angegebene Tankvolumen größer als 80 ist, wird ebenfalls eine IllegalArgumentException geworfen.
 
         if (tankvolumen > this.tankvolumen) {
             throw new IllegalArgumentException("Ein größeres Tankvolumen als "+ this.tankvolumen +" ist nicht möglich.");
         }
 
-        // Anschließend werden die übergebenen Parameter den entsprechenden Eigenschaften des Auto_2-Objekts zugewiesen.
+        // Anschließend werden die übergebenen Parameter den entsprechenden Eigenschaften des Auto-Objekts zugewiesen.
         // Außerdem wird der Kilometerstand in einem formatierten String gespeichert.
         this.marke = marke;
         this.modell = modell;
@@ -69,14 +69,14 @@ public class Auto extends Object {
         this.kilometerstandFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(kilometerstand) +" km";          // Außerdem wird der Kilometerstand in einem formatierten String gespeichert.
         this.tankvolumen = tankvolumen;
 
-        System.out.println("Auto_2 erzeugt mit Kilometerstand "+ kilometerstandFormatiert);
+        System.out.println("Auto erzeugt mit Kilometerstand "+ kilometerstandFormatiert);
     }
 
     /**
      *
      * Getter und Setter
      *
-     * Die Klasse Auto_2 definiert folgende Getter und Setter:
+     * Die Klasse Auto definiert folgende Getter und Setter:
      *
      * @return
      */
@@ -114,13 +114,13 @@ public class Auto extends Object {
      *
      * Methode toString()
      *
-     * Die Methode toString() gibt eine textuelle Darstellung des Auto_2-Objekts zurück. Die Methode überschreibt die Methode toString() der Klasse Object.
+     * Die Methode toString() gibt eine textuelle Darstellung des Auto-Objekts zurück. Die Methode überschreibt die Methode toString() der Klasse Object.
      *
      * @return
      */
     @Override
     public String toString() {
-        return "Auto_2 { " + super.toString() +                                                                           // super entspricht der erweiterten Object-Klasse (Siehe Screenshot vom 19.02.23)
+        return "Auto { " + super.toString() +                                                                           // super entspricht der erweiterten Object-Klasse (Siehe Screenshot vom 19.02.23)
                 "\n marke = " + marke +
                 ",\n modell = " + modell +
                 ",\n baujahr = " + baujahr +
