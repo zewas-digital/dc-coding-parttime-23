@@ -14,16 +14,17 @@ public class Auto extends Object {
 
 
     private int tankvolumen = 80;
-    public int tankinhalt;
-    public int getankteMenge;
+    public double tankinhalt;
+    public double getankteMenge;
 
     public double verbrauch;
 
 //        Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
 //        return fahrOutput;
 
-    //public int gefahreneKm = (int) Double fahrOutput[0];
-    //public double tankinhaltverbrauch = fahrOutput[1];
+
+    public int gefahreneKm;
+    public double tankinhaltverbrauch;
 
 
 
@@ -82,25 +83,26 @@ public class Auto extends Object {
         this.kmStand = kmStand + gefahreneKm;
         this.kilometerstandFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(kmStand) + " km";
         System.out.println("Das Auto ist " + gefahreneKm + " km gefahren.");
-        //this.gefahreneKm = gefahreneKm;
+        this.gefahreneKm = gefahreneKm;
 
-        //tankinhaltverbrauch = (int) (this.tankinhalt - (this.gefahreneKm * this.getVerbrauchProKm()));
-        //this.tankinhaltverbrauch = tankinhaltverbrauch;
+        this.tankinhaltverbrauch = this.gefahreneKm * this.getVerbrauchProKm();
 
-        //Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
-        //return fahrOutput;
-        return null;
+        this.tankinhalt = tankinhalt - this.tankinhaltverbrauch;
+
+        Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
+
+        return fahrOutput;
     }
 
     // Objekt_2_Autofahren
     // vollTanke(): Füllt den Tankinhalt bis Tankvolumen auf (Eingenschaft: private int tankvolumen = 80; & public int tankinhalt; & public int getankteMenge;)
-    public int vollTanken() {
-        getankteMenge = 0;
-        while (this.tankinhalt < this.tankvolumen){
-            tankinhalt++;
-            getankteMenge++;
-        }
+    public double vollTanken() {
+
+        getankteMenge = this.tankvolumen - this.tankinhalt;
+
+        this.tankinhalt = this.tankvolumen;
         System.out.println("Es sind " + getankteMenge + " l getankt worden" );
+
         return this.getankteMenge;
     }
 
