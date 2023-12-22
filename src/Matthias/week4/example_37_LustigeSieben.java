@@ -1,4 +1,4 @@
-package Matthias.week4.example37;
+package Matthias.week4;
 
 /*
 Lustige Sieben
@@ -66,5 +66,5 @@ Hinweis: um von mehreren Methoden aus auf den Kontostand zugreifen bzw. diesen v
  */
 
 
-public class LustigeSieben {
+public class example_37_LustigeSieben {
 }

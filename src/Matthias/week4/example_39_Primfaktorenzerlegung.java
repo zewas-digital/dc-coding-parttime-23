@@ -1,4 +1,4 @@
-package solutions.matthias.week4.example39;
+package Matthias.week4;
 
 /*
 Primfaktorenzerlegung
@@ -67,5 +67,5 @@ negative number -96
 
 
 
-public class Primfaktorenzerlegung {
+public class example_39_Primfaktorenzerlegung {
 }

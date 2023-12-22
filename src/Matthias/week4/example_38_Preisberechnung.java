@@ -1,4 +1,4 @@
-package Matthias.week4.example38;
+package Matthias.week4;
 
 /*
 Preisberechnung
@@ -27,7 +27,7 @@ Out.println(x); //x hat jetzt den Wert 123.46
 import java.util.Scanner;
 
 public class
-Preisberechnung {
+example_38_Preisberechnung {
     static Scanner scanner = new Scanner( System.in );
     // Methoden //
     static double calculatePrice(int amount, double price) {
