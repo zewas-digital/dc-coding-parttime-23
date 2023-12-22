@@ -11,18 +11,27 @@ public class Auto extends Object {
     public int baujahr;
     private int kmStand;
     String kilometerstandFormatiert;
-    public int gefahreneKm;
+
 
     private int tankvolumen = 80;
-    public int tankinhalt;
-    public int getankteMenge;
+    public double tankinhalt;
+    public double getankteMenge;
+
+    public double verbrauch;
+
+//        Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
+//        return fahrOutput;
+
+
+    public int gefahreneKm;
+    public double tankinhaltverbrauch;
 
 
 
     public Auto() {
     }
 
-    public Auto(String marke, String modell, int baujahr, int kmStand, int tankvolumen, int tankinhalt) {
+    public Auto(String marke, String modell, int baujahr, int kmStand, int tankvolumen, int tankinhalt, double verbrauch) {
 
         if (baujahr < 1885) {
             throw new IllegalArgumentException("Das Baujahr ist ungültig, bitte geben Sie es mit vier Ziffern ein");
@@ -41,6 +50,7 @@ public class Auto extends Object {
         // Objekt_2_Autofahren
         this.tankvolumen = tankvolumen;
         this.tankinhalt = tankinhalt;
+        this.verbrauch = verbrauch;
     }
 
     @Override
@@ -63,61 +73,44 @@ public class Auto extends Object {
         return this.kmStand;
     }
 
+    public double getVerbrauchProKm(){
+        return verbrauch / 100;
+    }
+
     // Objekt_2_Autofahren
     // fahren(): Setzt den neuen Kilometerstand des Autos (Eigenschaft: private int kmStand; & String kilometerstandFormatiert;)
-    public int fahren(int gefahreneKm) {
+    public Double[] fahren(int gefahreneKm) {
         this.kmStand = kmStand + gefahreneKm;
         this.kilometerstandFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(kmStand) + " km";
         System.out.println("Das Auto ist " + gefahreneKm + " km gefahren.");
-        return gefahreneKm;
-    }
+        this.gefahreneKm = gefahreneKm;
 
-    public int getGefahreneKm(){
-        return this.gefahreneKm;}
+        this.tankinhaltverbrauch = this.gefahreneKm * this.getVerbrauchProKm();
+
+        this.tankinhalt = tankinhalt - this.tankinhaltverbrauch;
+
+        Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
+
+        return fahrOutput;
+    }
 
     // Objekt_2_Autofahren
     // vollTanke(): Füllt den Tankinhalt bis Tankvolumen auf (Eingenschaft: private int tankvolumen = 80; & public int tankinhalt; & public int getankteMenge;)
-    public int vollTanken() {
-        int getankteMenge = 0;
-        while (this.tankinhalt < this.tankvolumen){
-            tankinhalt++;
-            getankteMenge++;
-        }
+    public double vollTanken() {
+
+        getankteMenge = this.tankvolumen - this.tankinhalt;
+
+        this.tankinhalt = this.tankvolumen;
         System.out.println("Es sind " + getankteMenge + " l getankt worden" );
+
         return this.getankteMenge;
     }
 
-    public int getGetankteMenge(){
-        return this.getankteMenge;}
-
     // Objekt_2_Autofahren
     // getTankinhalt(): Gibt den Tankinhalt des Autos zurück (Eigenschaft: public int tankinhalt; & public int getankteMenge;
-    public int getTankinhalt(){
-        return this.tankinhalt = tankinhalt + this.getankteMenge;
+    public double getTankinhalt(){
+        return this.tankinhalt;
     }
-
-/*
-    public Auto(String marke, String modell, int baujahr, int kmStand, int tankvolumen, int tankinhalt, int gefahreneKm, int getankteMenge) {
-
-        if (tankvolumen > this.tankvolumen) {
-            throw new IllegalArgumentException("Ein größeres Tankvolumen als " + this.tankvolumen + " ist nicht möglich.");
-        }
-
-        // Objekt_1_Auto
-        this.marke = marke;
-        this.modell = modell;
-        this.baujahr = baujahr;
-        this.kmStand = kmStand;
-        this.kilometerstandFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(kmStand) + " km";
-        // Objekt_2_Autofahren
-        this.tankvolumen = tankvolumen;
-        this.tankinhalt = tankinhalt;
-        this.gefahreneKm = gefahreneKm;
-        this.getankteMenge = getankteMenge;
-    }
- */
-
-
 }
 
 
