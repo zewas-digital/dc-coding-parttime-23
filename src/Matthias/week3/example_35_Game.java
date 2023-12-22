@@ -1,4 +1,4 @@
-package Matthias.week3.example35;
+package Matthias.week3;
 
 /*
 Erstelle ein Spiel, welche der Spieler fordert heraus eine Zahl zwischen 0 und 9999 zu erraten.
@@ -27,5 +27,5 @@ Das Spiel endet, wenn:
     der Spieler die richtige Zahl erraten hat
     der Spieler hat nach 20 Versuchen immer noch kein Erfolg
  */
-public class Game {
+public class example_35_Game {
 }

@@ -1,4 +1,4 @@
-package Matthias.week3.example36;
+package Matthias.week3;
 
 /*
 1. Aufgabe:
@@ -40,5 +40,5 @@ MR Memory Read
 Die erwartete Funktion ist identisch mit dem normalen Taschenrechner
  */
 
-public class CalculatorExtended {
+public class example_36_CalculatorExtended {
 }

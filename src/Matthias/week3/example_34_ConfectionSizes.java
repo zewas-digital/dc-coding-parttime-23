@@ -1,4 +1,4 @@
-package Matthias.week3.example34;
+package Matthias.week3;
 
 import java.util.Scanner;
 
@@ -63,7 +63,7 @@ Beenden (j/n)? j
 Bye bye
 
  */
-public class ConfectionSizes {
+public class example_34_ConfectionSizes {
     //Aufruf einer Klasse
     static Scanner scanner = new Scanner( System.in );
 
