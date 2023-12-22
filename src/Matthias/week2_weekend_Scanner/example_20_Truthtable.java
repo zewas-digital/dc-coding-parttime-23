@@ -7,7 +7,7 @@ package Matthias.week2_weekend_Scanner;
 
 public class example_20_Truthtable {
 
-    static void odder(boolean Kobination1, boolean Kobination2){
+    static void oder( boolean Kobination1, boolean Kobination2){
         System.out.println(" a " +" | " + " b " + " = " + " c ");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3 ; j++) {
@@ -27,6 +27,6 @@ public class example_20_Truthtable {
         boolean zahl1=true;
         boolean zahl2=true;
 
-        odder(zahl1, zahl2);
+        oder(zahl1, zahl2);
     }
 }

@@ -24,8 +24,6 @@ public class example_13_PrintEmptySquare {
             }
             System.out.println();
 
-
-
         }
     }
 
