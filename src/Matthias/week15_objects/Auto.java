@@ -11,6 +11,8 @@ public class Auto extends Object {
     public int baujahr = 0;
     public int km_Stand = 0;
 
+    public int fahrzeug_stand=0;
+
     public int tankinhalt = 0;
     public int verbrauch_l_pro_km = 0; //100 km pro 6 l
     private int tankvolumen = 80;
@@ -28,17 +30,28 @@ public class Auto extends Object {
 
     }
 
-    public void fahren( int drove_km ) {
-        if ( this.tankinhalt >0 ){
-            this.tankinhalt = tankinhalt - ((drove_km/100) *verbrauch_l_pro_km); // Berechnung Tankinahlt
-            this.km_Stand =km_Stand + drove_km;
-            if ( this.tankinhalt <= 5) {
+    public int fahren( int zuFahrendeKilometer ) {
+        // solang ebis
+        // 1 zuFahrende Kolometer gefahren sind
+        // 2 tankinhalt nicht leer
+/*
+        double verbrauchlprokm=(this.verbrauch_l_pro_km/100); // Berechung Verbrauch l pro km
+        double AbsolutTankVolumenInL=this.tankinhalt+(verbrauchlprokm*zuFahrendeKilometer); // Absolutverbrauch in l
+        int differenzdesTankVolumenInL=AbsolutTankVolumenInL-
+
+        while ( zuFahrendeKilometer > 0 && this.tankinhalt>0){
+            zuFahrendeKilometer--;
+            if ( this.tankinhalt == 5) {
                 System.out.println( "Achtung: Es sind nur noch " + this.tankinhalt + " l im Tank!" );
             }
-        }else {
-            System.out.println( drove_km-tankvolumen );
-            System.out.println( "Kann nicht mehr gefahren werden" );
         }
+        System.out.println( "Kann nicht mehr gefahren werden" );
+
+        int gefahren=  // Berechung der gefahrenen km die gefahren werden
+
+        return gefahren;
+        */
+        return zuFahrendeKilometer;
     }
     public int getKillometerstand() {
         return this.km_Stand;
