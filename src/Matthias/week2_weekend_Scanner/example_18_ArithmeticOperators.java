@@ -6,9 +6,9 @@ Gib den Rechenweg sowie das Ergebnis auf der Console aus.
 Hier ist die Übersicht aller Operatoren: https://de.wikibooks.org/wiki/Java_Standard:_Operatoren
  */
 
-package Matthias.week2_weekend_Scanner.example18;
+package Matthias.week2_weekend_Scanner;
 
-public class ArithmeticOperators {
+public class example_18_ArithmeticOperators {
     public static void main(String[] args) {
         //Deklaration der Variabeln
         int zahl1=3, zahl2=5;

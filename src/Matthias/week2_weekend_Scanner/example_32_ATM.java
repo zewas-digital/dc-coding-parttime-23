@@ -19,11 +19,11 @@ Das Programm wird erst beendet, wann die Kundschaft die Funktion "Beenden" aufru
 
  */
 
-package Matthias.week2_weekend_Scanner.example32;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.Scanner;
 
-public class ATM {
+public class example_32_ATM {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

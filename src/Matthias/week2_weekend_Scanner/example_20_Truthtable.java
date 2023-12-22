@@ -3,9 +3,9 @@ In dieser Aufgabe erstellen wir eine Wahrheitstabelle für die logischen Operato
 Wir berechnen alle möglichen Kombinationen von Werten für A und B und zeigen das Ergebnis für jede Kombination in der Tabelle an.
  */
 
-package Matthias.week2_weekend_Scanner.example20;
+package Matthias.week2_weekend_Scanner;
 
-public class Truthtable {
+public class example_20_Truthtable {
 
     static void odder(boolean Kobination1, boolean Kobination2){
         System.out.println(" a " +" | " + " b " + " = " + " c ");

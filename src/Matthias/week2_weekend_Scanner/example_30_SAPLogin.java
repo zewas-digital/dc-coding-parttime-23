@@ -12,11 +12,11 @@ Wenn alle drei Werte vorhanden sind und den oben definierten Kriterien entsprech
 "Login erfolgreich! Viel Spaß mit der heutigen [S]ammlung [A]n [P]roblemen!" ausgegeben werden.
  */
 
-package Matthias.week2_weekend_Scanner.example30;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.Scanner;
 
-public class SAPLogin {
+public class example_30_SAPLogin {
     static String getUser(String adminname){
         String nameSting;
         Scanner scanner = new Scanner(System.in);

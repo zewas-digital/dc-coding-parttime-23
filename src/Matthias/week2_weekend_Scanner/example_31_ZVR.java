@@ -14,11 +14,11 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
  */
 
-package Matthias.week2_weekend_Scanner.example31;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.Scanner;
 
-public class ZVR {
+public class example_31_ZVR {
         // Überprüft die ZVR und gibt eine Status zurück
         static boolean statusZVR(int minZVRnumber, int maxZVRnumber) {
 

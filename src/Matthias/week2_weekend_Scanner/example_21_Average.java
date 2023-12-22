@@ -2,12 +2,12 @@
 Erstelle ein Programm, das den Durschnittswert für alle Zahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
-package Matthias.week2_weekend_Scanner.example21;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.stream.IntStream;
 import java.util.*;
 
-public class Average {
+public class example_21_Average {
 
     static void avarage(int zahl1, int zahl2){
         double summe = 0;

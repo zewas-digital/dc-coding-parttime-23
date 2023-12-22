@@ -1,8 +1,8 @@
-package Matthias.week2_weekend_Scanner.example26;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.Scanner;
 
-public class Refector {
+public class example_26_Refector {
     //Methode 1: Druck ein Rechteck
     static void printEmptySquare(char buchstabe, int seitenlänge) {
         for (int i = 0; i < seitenlänge; i++) {

@@ -9,9 +9,9 @@ Erläuterung:
     Achten Sie darauf, den Basisfall zu berücksichtigen: F(0) = 0 und F(1) = 1.
  */
 
-package Matthias.week2_weekend_Scanner.example23;
+package Matthias.week2_weekend_Scanner;
 
-public class Fibonacci {
+public class example_23_Fibonacci {
 
     static  void checkEingabe ( int number1){
         if (number1 > 0) {

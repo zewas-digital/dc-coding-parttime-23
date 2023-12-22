@@ -15,11 +15,11 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 
  */
 
-package Matthias.week2_weekend_Scanner.example29;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.Scanner;
 
-public class Order {
+public class example_29_Order {
     static int getAnzahl(){
         int intNumber;
         Scanner scanner = new Scanner(System.in);

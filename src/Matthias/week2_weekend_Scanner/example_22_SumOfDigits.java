@@ -2,9 +2,9 @@
 Dieses Programm soll die Ziffernsumme für jede Zahl innerhalb bestimmten Intervalls bilden und jeweils auf der Console ausgeben.
  */
 
-package Matthias.week2_weekend_Scanner.example22;
+package Matthias.week2_weekend_Scanner;
 
-public class SumOfDigits {
+public class example_22_SumOfDigits {
 
     static void SumofDigits ( int zahl1){
 

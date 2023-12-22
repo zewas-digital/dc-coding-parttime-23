@@ -2,9 +2,9 @@
 Erstelle ein Programm, dass als Primzahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
-package Matthias.week2_weekend_Scanner.example24;
+package Matthias.week2_weekend_Scanner;
 
-public class PrimeNumbers {
+public class example_24_PrimeNumbers {
     public static void main(String[] args) {
         int i = 1; //
         boolean Prim = true; // Prim = true wenn i eine Primzahl ist

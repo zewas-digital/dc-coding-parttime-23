@@ -4,11 +4,11 @@ Schreibe ein Programm, mit dem du die verschiedenen Datentypen (int, long, doubl
 Eine Übersicht der primitiven Datentypen findest du hier: https://de.wikibooks.org/wiki/Java_Standard:_Primitive_Datentypen
 */
 
-package Matthias.week2_weekend_Scanner.example25;
+package Matthias.week2_weekend_Scanner;
 
 import java.util.Scanner;
 
-public class ReadDatatype {
+public class example_25_ReadDatatype {
 
     // Methoden deklareation
 
