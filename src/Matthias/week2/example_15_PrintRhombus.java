@@ -19,18 +19,16 @@ x     x
 public class example_15_PrintRhombus {
 
     public static void main(String[] args){
-        printRhombus('a', 7);// Aufruf zur Überprüfung, ob die Benutzer überprüfung überhaupt funktioniert
-        printRhombus('a', 8);
-
+        printRhombus('a', 8);// Aufruf zur Überprüfung, ob die Benutzer überprüfung überhaupt funktioniert
+        printRhombus('a', 7);
     }
     static void printRhombus(char buchstabe, int höhedesrohmbus) {
 
         //Überprüfung ob die Eingabe des Benutzers überhaubt gültig für einen Rohmbus ist, ein Rohmbus
-        if (höhedesrohmbus % 2==1){
-            System.out.println("Fehler, Höhe muss Gerade sein!");
+        if (höhedesrohmbus % 2==0){
+            System.out.println("Fehler, Höhe muss ungerade sein!");
             return; // geht aus der Bendiung aus
         }
-
         System.out.println("Start");
         for (int i = 0; i < höhedesrohmbus; i++) {
             // Drucken der Höhe des Rohmbus
