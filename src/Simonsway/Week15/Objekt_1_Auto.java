@@ -1,4 +1,4 @@
-package florian.week_15_objects;
+package Simonsway.Week15;
 
 /*
 Aufgabe: Auto
@@ -18,12 +18,17 @@ km-Stand
  */
 
 public class Objekt_1_Auto {
+
     public static void main(String[] args) {
-        Auto Porsche = new Auto("Porsche", "Cayenne", 2018, 20000,70);
-        Auto Volkswagen = new Auto("VW","Golf 7", 2015,12560,50);
 
-        System.out.println(Porsche + "\n");
 
-        System.out.println(Volkswagen.toString());
+
+        Auto Audi = new Auto("Audi","A3",2003, 200000, 50, 30, 0.06, 450, 600);
+        System.out.println(Audi.toString());
+
+        Auto Ford = new Auto("Ford","Mustang",1998, 130000, 70, 45, 0.04, 10, 100);
+        System.out.println(Ford.toString());
+
     }
+
 }

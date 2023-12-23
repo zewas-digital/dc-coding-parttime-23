@@ -1,4 +1,4 @@
-package oliver.week15_objects;
+package florian.week_15_objects;
 
 /*
 Aufgabe: Auto fahren
@@ -17,26 +17,19 @@ Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht 
 
 public class Objekt_2_Autofahren {
     public static void main(String[] args) {
-        Auto FordBronco = new Auto("Ford", "Bronco", 2023, 10000, 70);
-        FordBronco.tankinhalt = 70; // vollgetankt
-        FordBronco.fahreBerechnet(650);
+        Auto Porsche = new Auto("Porsche", "Cayenne", 2018, 20000,80);
 
-        //FordBronco.fahren(1000);
-        //FordBronco.fahren(400);
-        //FordBronco.fahren(400);
-        System.out.println("Neuer Kilometerstand: "+ FordBronco.getKilometerstandFormatiert());
+        Porsche.fahren(50);
+        Porsche.fahren(50);
+
+        System.out.println("Neuer Kilometerstand nach fahrt: " + Porsche.kmStand);
+
+
+        System.out.println("Getankte Menge " + Porsche.volltanken(50) + " Liter" + ", Aktuelles Tankvolumen: " + Porsche.tankvolumen);
+
+       // Porsche.verbrauchproKm(1);
+
+        System.out.println();
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
