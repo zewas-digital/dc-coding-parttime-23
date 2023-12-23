@@ -25,7 +25,7 @@ public class Objekt_1_Auto {
         while (FordBronco.tankinhalt < FordBronco.getTankvolumen()) {
             FordBronco.tankinhalt++;
         }
-        // umbau 80 Liter
+        // Umbau 80 Liter
         FordBronco = new Auto("Ford", "Bronco", 2023, 10000, 80);
 
         System.out.println("tankinhalt: "+ FordBronco.getFormatierterTankinhalt());
@@ -43,6 +43,11 @@ public class Objekt_1_Auto {
         kilometer++;
         FiatPanda.setKilometerstand(kilometer); // --> 5002
         System.out.println("km Stand FP: (int)"+ FiatPanda.getKilometerstand() +" formatiert: "+ FiatPanda.kilometerstandFormatiert);
+
+        // Klasse aus anderem Package:
+        // das Schlüsselwort "protected" schützt Attribute und Methoden vor dem globalen Zugriff ausserhalb des Pakets (Package)
+        // auf oliver.week15_extend.Auto.wheels kann deshalt nicht zugegriffen werden
+        System.out.println(oliver.week15_extend.Auto.calcLiterPerKilometer(3));
     }
 }
 

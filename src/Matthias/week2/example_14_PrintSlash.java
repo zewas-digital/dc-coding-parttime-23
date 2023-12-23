@@ -38,9 +38,7 @@ public class example_14_PrintSlash {
             System.out.println("Links oben");
             for (int i = 0; i < iZahl  ; i++) {
                 System.out.print("Zeile: " + i +" ");
-
                 for (int j = 0; j < iZahl ; j++) {
-
                     if (j + 1 ==iZahl-i) {
                         System.out.print(buchstabe);
                     }else {
