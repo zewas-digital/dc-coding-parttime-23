@@ -16,7 +16,7 @@ x     x
    x
  */
 
-public class example_15_PrintRhombus {
+public class example_16_PrintRhombus {
 
     public static void main(String[] args){
         printRhombus('a', 8);// Aufruf zur Überprüfung, ob die Benutzer überprüfung überhaupt funktioniert

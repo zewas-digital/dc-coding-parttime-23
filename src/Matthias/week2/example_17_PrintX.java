@@ -17,7 +17,7 @@ x   x
 x   x
  */
 
-public class example_16_PrintX {
+public class example_17_PrintX {
     public static void main( String[] args ) {
         printX( 'c', 5 );
     }
