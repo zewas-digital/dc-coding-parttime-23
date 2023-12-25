@@ -1,14 +1,16 @@
 package Matthias.week14_Selbsttest;
 
 public class Selbsttest {
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
         // Schleifen *******************
         // Aufgabe 1 -------------------
         /* Zähle in einer for-Schleife rückwärts von 10 bis inklusive 0 und gib jede Zahl aus.
          * Ausgabe:
             10 9 8 7 6 5 4 3 2 1 0
          */
-
+        System.out.print( "\nAufgabe 1:" );
+        downCounter( 10 );
+        upCounter( 10 );
         // Aufgabe 2 -------------------
         /* Zähle in einer for-Schleife von -30 bis inklusive 30 und gib jede Zahl aus die ohne Rest durch 3 teilbar ist.
          * Ausgabe:
@@ -20,27 +22,15 @@ public class Selbsttest {
             27
             30
          */
-
+        System.out.print( "\nAufgabe 2:\n" );
+        printFromTo( -30, 30 );
         // Aufgabe 3 -------------------
         /* Zähle mit Hilfe einer while-Schleife und einer separaten Zählvariable von 0 bis inklusive 10 und
          * gib die Zahlen aus. Wenn die Zahl größer als 5 ist mach 2 Zeilenumbrüche.
          * Ausgabe
-0
-1
-2
-3
-4
-5
-6
-
-7
-
-8
-
-9
-
-10
          */
+        System.out.print( "\nAufgabe 3:\n" );
+        printWithWhile( 10 );
 
         // Methoden ********************
         // Aufgabe 4 -------------------
@@ -52,28 +42,31 @@ public class Selbsttest {
          * damit du deine Methoden wieder verwenden kannst.
          *
          * Aufruf:
-string symbol = "X";
-int amount = 10;
-PrintLineStipple(symbol, amount);
+
          * Ausgabe:
-X X X X X X X X X X
          */
+        System.out.print( "\nAufgabe 4:\n" );
+        String symbol = "X";
+        int amount = 10;
+        PrintLineStipple( symbol, amount );
 
         // Aufgabe 5 -------------------
         /* Erstelle eine Methode welche einen string und einen int Parmeter erhält.
          * Der angegebene string soll so oft wie beim int angegeben in einer eigenen Zeile wiederholt werden.
          * Trenne die Zeilen zusätzlich durch ein Linebreak.
          * Aufruf:
-string symbol = "X";
-int amount = 3;
-PrintRowStipple(symbol, amount);
-         * Ausgabe:
-X
+        string symbol = "X";
+        int amount = 3;
+        PrintRowStipple(symbol, amount);
+                 * Ausgabe:
+        X
 
-X
+        X
 
-X
+        X
          */
+        System.out.print( "\nAufgabe 5:\n" );
+        PrintRowStipple(symbol, 3);
 
         // Aufgabe 6 -------------------
         /* Erstelle eine Methode welche einen string und einen int Parameter erhält.
@@ -92,7 +85,8 @@ X
 
 X
          */
-
+        System.out.print( "\nAufgabe 6:\n" );
+        PrintStippleL( symbol,3 );
         // Input ***********************
         // Aufgabe 7 -------------------
         /* Lies einen string vom Benutzer ein und einen int.
@@ -192,7 +186,101 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
         // Aufgabe 13 ------------------
         /* Gib mit Hilfe der Calendar Api den Wochentag des aktuellen Tages inklusive Datum aus.
          * Ausgabe:
-DI 19.10.2021
+        DI 19.10.2021
          */
     }
+
+    // Methode 1: downCounter
+    public static void downCounter( int zahl ) {
+        System.out.println( "Schleife Zählt von:" + zahl + "abwärts mit dem Wert: -1" );
+        for (int i = zahl; i >= 0; i--) {
+            System.out.print( zahl-- + "," );
+        }
+        System.out.println( );// Abstandhalter
+
+        System.out.println( "Variante 2: " );
+
+        int countToVar = zahl;// Input Var speichern -> logische herangehensweise einfacher
+        for (int i = 0; i < countToVar + 1; i++) {
+            System.out.print( zahl - i + " " );
+        }
+    }
+
+    // Methode 2: upCounter
+    public static void upCounter( int zahl ) {
+        //Variante 1:
+        System.out.println( "Schleife Zählt von 0 bis: " + zahl + "aufwärts zählt mit dem Wert: +1" );
+        for (int i = 0; i <= zahl; i++) {
+            System.out.print( i + " " );
+        }
+        System.out.println( );//Abstandhalter
+
+        System.out.println( "Variante 2: " );
+
+        System.out.println( "Schleife Zählt von 0 bis: " + zahl + "aufwärts zählt mit dem Wert: +1" );
+        //Variante 2:
+        int countToVar = zahl;// Input Var speichern -> logische herangehensweise einfacher
+
+        for (int i = countToVar; i >= 0; i--) {
+            System.out.print( zahl - i + " " );
+        }
+        System.out.println( );//Abstandhalter
+    }
+
+    // Methode 2: upCounter
+    public static void printFromTo( int begin, int end ) {
+        int StoreInputVar = begin;
+        for (int i = begin; i <= end; i++) {
+            System.out.print( StoreInputVar++ + "," );
+        }
+
+        System.out.println( "\n Variante 2: " );
+
+        for (int i = begin; i <= end; i++) {
+            if ( i % 3 == 0 ) {
+                System.out.print( i + "," );
+            }
+
+        }
+    }
+
+    //Methode 3: upCounter with while
+    public static void printWithWhile( int zahl ) {
+        int localStorageValue = 0;
+        while ( localStorageValue <= zahl ) {
+            if ( localStorageValue > 5 ) {
+                System.out.print( "\n \n" + localStorageValue++ );
+            } else {
+                System.out.print( localStorageValue++ + "," );
+            }
+
+        }
+    }
+
+    //Methode 4: Druckt einen Buchstaben in einer Line, so oft wie die Anzahl(amount), welche vorgegeben ist
+    public static void PrintLineStipple( String symbol, int amount ) {
+        {
+            for (int j = 0; j < amount; j++) {
+                System.out.print( "J:" + (j +1)+ " " + "__" + symbol );
+            }
+        }
+    }
+
+    //Methode 5: Druckt einen Buchstaben in einer row, so oft wie die Anzahl(amount), welche vorgegeben ist
+    public static void PrintRowStipple (String symbol, int amount ) {
+        {
+            for (int i = 0; i < amount; i++) {
+                    System.out.println( "Zeilen"+i+ ":"+ "i:"+(i +1 )+" "+ symbol +"\n");
+
+            }
+        }
+    }
+
+    //Methode 6: Methode 4 & 5 Zusammengefast
+    public static void PrintStippleL(String symbol, int amount){
+        PrintLineStipple( symbol,amount );
+        System.out.println(  );
+        PrintRowStipple( symbol,amount );
+    }
 }
+
