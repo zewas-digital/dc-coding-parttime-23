@@ -159,7 +159,7 @@ Maximum: 23
         System.out.print( "\nAufgabe 8:\n" );
         PrintMyResult( "Minimum", GetMin( arr ) );
         PrintMyResult( "Maximum", GetMax( arr ) );
-        PrintMyResult( "Maximum", getAvg( arr ) );
+        PrintMyResult( "Avarage", getAvg( arr ) );
 
         // Aufgabe 10 ------------------
         /* Erstelle eine Methode welche einen int als Parameter nimmt.
@@ -364,37 +364,44 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
         return StoreageNumber0 + "," + StoreageNumberofLastElement;
     }
 
-    //Methode 11:
+    //Methode 11: Print Methods for Mathods 12, 13,14
     public static void PrintMyResult(String Wort, int iZahl) {
         System.out.println( Wort + iZahl );
     }
     public static void PrintMyResult(String Wort, double dZahl) {
         System.out.println( Wort + dZahl );
     }
-    //Methode 12:
-    public static int GetMin(int Array[]){
+
+    //Methode 12: Search MinValue in an Int Array
+    public static int GetMin( int[] Array ){
      int StorageMinValue=0;
-        for (int i = 0; i < Array.length; i++) {
-            if ( Array[i]< Array[i+1]) {
-               StorageMinValue=Array[i];
+        for (int intZahlInhaltArray : Array) {
+            if ( intZahlInhaltArray < StorageMinValue ) {
+                StorageMinValue = intZahlInhaltArray;
             }
         }
         return StorageMinValue;
     }
 
-    //Methode 13:
-    public static int GetMax(int Array[]){
-        int StorageMinValue=0;
-        for (int i = 0; i < Array.length; i++) {
-            if ( Array[i]> Array[i+1]) {
-                StorageMinValue=Array[i];
+    //Methode 13: Search an MaxValue in an Int Array
+    public static int GetMax( int[] Array ){
+        int StorageMaxValue=0;
+        for (int intZahlInhaltArray : Array) {
+            if ( intZahlInhaltArray > StorageMaxValue ) {
+                StorageMaxValue = intZahlInhaltArray;
             }
         }
-        return StorageMinValue;
+        return StorageMaxValue;
     }
 
-    public static double getAvg(int Array[]){
-       return 1.0;
+    //Methode 14: Calculate AvarageValue from an Int Array
+    public static double getAvg( int[] Array ){
+        int StorageMaxValue=0;
+        for (int intZahlInhaltArray : Array) {
+          StorageMaxValue=StorageMaxValue+intZahlInhaltArray;
+
+        }
+       return ((double) StorageMaxValue /Array.length);
     }
 
 }
