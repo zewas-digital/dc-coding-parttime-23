@@ -40,6 +40,7 @@ public class PrintTriangle2 {
 
     public static void printTriangle(char zeichen, int size){
 
+        // oberer Teil "Spitzer-Teil"
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < 2 * size - 1; j++) {
                 if ((j == size - 1 - i) || (j == size - 1 + i)){
@@ -51,6 +52,8 @@ public class PrintTriangle2 {
             }
             System.out.println();
         }
+
+        // unterer Deckel
         for (int i = 0; i < 2 * size - 1; i++) {
             System.out.print(zeichen);
         }
