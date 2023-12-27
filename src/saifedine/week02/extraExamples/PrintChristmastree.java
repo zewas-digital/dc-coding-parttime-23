@@ -25,4 +25,19 @@ O O O O O O O O O
 
 public class PrintChristmastree {
 
+    public static void main(String[] args) {
+
+        char zeichen = 'x';
+        int size = 9;
+        int mitte = (size-1) / 2;
+
+        String value = String.valueOf(zeichen);
+
+        for (int i = 0; i < size; i++) {
+            System.out.print(value.repeat(i));
+            System.out.println();
+        }
+
+
+    }
 }
