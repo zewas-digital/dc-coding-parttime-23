@@ -1,14 +1,27 @@
 package Matthias.week14_Selbsttest;
 
+import java.io.Console;
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
 public class Selbsttest {
-    public static void main(String[] args) {
+
+    public static Random rand = new Random( );
+
+    public static Scanner scanner = new Scanner( System.in );
+
+    public static void main( String[] args ) {
         // Schleifen *******************
         // Aufgabe 1 -------------------
         /* Zähle in einer for-Schleife rückwärts von 10 bis inklusive 0 und gib jede Zahl aus.
          * Ausgabe:
             10 9 8 7 6 5 4 3 2 1 0
          */
-
+        System.out.print( "\nAufgabe 1:" );
+        downCounter( 10 );
+        upCounter( 10 );
         // Aufgabe 2 -------------------
         /* Zähle in einer for-Schleife von -30 bis inklusive 30 und gib jede Zahl aus die ohne Rest durch 3 teilbar ist.
          * Ausgabe:
@@ -20,27 +33,15 @@ public class Selbsttest {
             27
             30
          */
-
+        System.out.print( "\nAufgabe 2:\n" );
+        printFromTo( -30, 30 );
         // Aufgabe 3 -------------------
         /* Zähle mit Hilfe einer while-Schleife und einer separaten Zählvariable von 0 bis inklusive 10 und
          * gib die Zahlen aus. Wenn die Zahl größer als 5 ist mach 2 Zeilenumbrüche.
          * Ausgabe
-0
-1
-2
-3
-4
-5
-6
-
-7
-
-8
-
-9
-
-10
          */
+        System.out.print( "\nAufgabe 3:\n" );
+        printWithWhile( 10 );
 
         // Methoden ********************
         // Aufgabe 4 -------------------
@@ -52,28 +53,31 @@ public class Selbsttest {
          * damit du deine Methoden wieder verwenden kannst.
          *
          * Aufruf:
-string symbol = "X";
-int amount = 10;
-PrintLineStipple(symbol, amount);
+
          * Ausgabe:
-X X X X X X X X X X
          */
+        System.out.print( "\nAufgabe 4:\n" );
+        String symbol = "X";
+        int amount = 10;
+        PrintLineStipple( symbol, amount );
 
         // Aufgabe 5 -------------------
         /* Erstelle eine Methode welche einen string und einen int Parmeter erhält.
          * Der angegebene string soll so oft wie beim int angegeben in einer eigenen Zeile wiederholt werden.
          * Trenne die Zeilen zusätzlich durch ein Linebreak.
          * Aufruf:
-string symbol = "X";
-int amount = 3;
-PrintRowStipple(symbol, amount);
-         * Ausgabe:
-X
+        string symbol = "X";
+        int amount = 3;
+        PrintRowStipple(symbol, amount);
+                 * Ausgabe:
+        X
 
-X
+        X
 
-X
+        X
          */
+        System.out.print( "\nAufgabe 5:\n" );
+        PrintRowStipple( symbol, 3 );
 
         // Aufgabe 6 -------------------
         /* Erstelle eine Methode welche einen string und einen int Parameter erhält.
@@ -92,7 +96,8 @@ X
 
 X
          */
-
+        System.out.print( "\nAufgabe 6:\n" );
+        PrintStippleL( symbol, 3 );
         // Input ***********************
         // Aufgabe 7 -------------------
         /* Lies einen string vom Benutzer ein und einen int.
@@ -109,6 +114,13 @@ Heute wird ein guter Tag
 Heute wird ein guter Tag
 Heute wird ein guter Tag
          */
+        System.out.print( "\nAufgabe 7:\n" );
+        //ReadString liest den String und Überprüft ihn und gibt in zurück, wenn er den check Krieterien enspricht
+        String ValidedString = ReadString( );
+        //ReadNumber liest den int und Überprüft ihn und gibt in zurück, wenn er den check Krieterien enspricht
+        int ValidedInt = ReadNumber( );
+        //Druck Methode
+        print( ValidedInt, ValidedString );
 
         // Arrays **********************
         int[] arr = new int[]{0, 1, 23, 5, 12, 4, 4, 2, 5, 2, 10};
@@ -125,6 +137,13 @@ PrintFirstAndLast(arr);
 First: 0, Last: 10
          *
          */
+        System.out.print( "\nAufgabe 8:\n" );
+        String RückgabeArr = PrintFirstAndLast( arr );
+        System.out.println( "Rückgabe Arr: " + RückgabeArr );
+        String RückgabeArr2 = PrintFirstAndLast( arr2 );
+        System.out.println( "Rückgabe Arr2: " + RückgabeArr2 );
+        String RückgabeArr3 = PrintFirstAndLast( arr3 );
+        System.out.println( "Rückgabe Arr3: " + RückgabeArr3 );
 
         // Aufgabe 9 -------------------
         /* Ertelle jeweils eine Methode für Minimum (min), Maximum (max), und Durchschnitt (avg),
@@ -140,6 +159,10 @@ PrintMyResult("Maximum",GetMax(arr));
          * Beispiel Ausgabe
 Maximum: 23
          */
+        System.out.print( "\nAufgabe 9:\n" );
+        PrintMyResult( "Minimum", GetMin( arr ) );
+        PrintMyResult( "Maximum", GetMax( arr ) );
+        PrintMyResult( "Avarage", getAvg( arr ) );
 
         // Aufgabe 10 ------------------
         /* Erstelle eine Methode welche einen int als Parameter nimmt.
@@ -153,6 +176,8 @@ int[] arr = fillArr(10);
          * Ausgabe:
 0 1 2 3 4 5 6 7 8 9 10
          */
+        System.out.print( "\nAufgabe 10:\n" );
+        printArrayInDiffrentWays( writeIntNumberInArray( 10 ));
 
         // String **********************
         String text = "Heute der 19.10.2021 wird ein sehr guter Tag. Zwar gibt es sowas wie einen Test, den 14 Leute schreiben, aber das ist doch egal!";
@@ -167,7 +192,8 @@ int[] arr = fillArr(10);
          * Ausgabe:
 HeYYe deY ab.a0.a0aa YYYd eYY YeYY YYYeY TXY. ZYXY YYXY eY YYYXY YYe eYYeY TeYY, deY aa LeYYe YXYYeYXeY, XXeY dXY YYY dYXY eYXY!
          */
-
+        System.out.print( "\nAufgabe 11:\n" );
+        System.out.println( replaceCharInString( text ) );
         // Aufgabe 12 ------------------
         /* Erstelle einen regulären Ausdruck der folgendem Sachverhalt entspricht und
          * prüfe diesen in der Start Methode.
@@ -175,7 +201,7 @@ HeYYe deY ab.a0.a0aa YYYd eYY YeYY YYYeY TXY. ZYXY YYXY eY YYYXY YYe eYYeY TeYY,
 1. Drei oder mehr Kleinbuchstaben
 2. Eine Zahl größer als 0
 3. Zwei Zahlen
-4. Ein oder mehr Großbuchstaben
+4. Ein oder mehr Großbuchstaben\
          *
 Aufruf          Console.WriteLine(Regex.IsMatch("abc100A", regex));          Ausgabe          true
 
@@ -187,12 +213,279 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test101ABCDE", regex));        
 
 Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          Ausgabe          true
          */
+        System.out.print( "\nAufgabe 12:\n" );
+        String Regex="^[a-z]{3,}[A-Z]{1,}[1-9]$";
+        String[] ExpressionsToProff=new String[]{"abc100A","Abc100A","luke010A","test101ABCDE","test1ABCDE"};
+        for (String Expression : ExpressionsToProff) {
+            printRegexMatching( Regex, Expression );
+        }
+        System.out.println( "abc100A".matches("^[a-z]{3,}[1-9]?[0-9]{2}[A-Z]+$" ) );
 
         // Kalender ********************
         // Aufgabe 13 ------------------
         /* Gib mit Hilfe der Calendar Api den Wochentag des aktuellen Tages inklusive Datum aus.
          * Ausgabe:
-DI 19.10.2021
+        DI 19.10.2021
          */
     }
+
+
+    // Methode 1: downCounter
+    public static void downCounter( int zahl ) {
+        System.out.println( "Schleife Zählt von:" + zahl + "abwärts mit dem Wert: -1" );
+        for (int i = zahl; i >= 0; i--) {
+            System.out.print( zahl-- + "," );
+        }
+        System.out.println( );// Abstandhalter
+
+        System.out.println( "Variante 2: " );
+
+        int countToVar = zahl;// Input Var speichern -> logische herangehensweise einfacher
+        for (int i = 0; i < countToVar + 1; i++) {
+            System.out.print( zahl - i + " " );
+        }
+    }
+
+    // Methode 2: upCounter
+    public static void upCounter( int zahl ) {
+        //Variante 1:
+        System.out.println( "Schleife Zählt von 0 bis: " + zahl + "aufwärts zählt mit dem Wert: +1" );
+        for (int i = 0; i <= zahl; i++) {
+            System.out.print( i + " " );
+        }
+        System.out.println( );//Abstandhalter
+
+        System.out.println( "Variante 2: " );
+
+        System.out.println( "Schleife Zählt von 0 bis: " + zahl + "aufwärts zählt mit dem Wert: +1" );
+        //Variante 2:
+        int countToVar = zahl;// Input Var speichern -> logische herangehensweise einfacher
+
+        for (int i = countToVar; i >= 0; i--) {
+            System.out.print( zahl - i + " " );
+        }
+        System.out.println( );//Abstandhalter
+    }
+
+    // Methode 2: upCounter
+    public static void printFromTo( int begin, int end ) {
+        int StoreInputVar = begin;
+        for (int i = begin; i <= end; i++) {
+            System.out.print( StoreInputVar++ + "," );
+        }
+
+        System.out.println( "\n Variante 2: " );
+
+        for (int i = begin; i <= end; i++) {
+            if ( i % 3 == 0 ) {
+                System.out.print( i + "," );
+            }
+
+        }
+    }
+
+    //Methode 3: upCounter with while
+    public static void printWithWhile( int zahl ) {
+        int localStorageValue = 0;
+        while ( localStorageValue <= zahl ) {
+            if ( localStorageValue > 5 ) {
+                System.out.print( "\n \n" + localStorageValue++ );
+            } else {
+                System.out.print( localStorageValue++ + "," );
+            }
+
+        }
+    }
+
+    //Methode 4: Druckt einen Buchstaben in einer Line, so oft wie die Anzahl(amount), welche vorgegeben ist
+    public static void PrintLineStipple( String symbol, int amount ) {
+        {
+            for (int j = 0; j < amount; j++) {
+                System.out.print( "J:" + (j + 1) + " " + "__" + symbol );
+            }
+        }
+    }
+
+    //Methode 5: Druckt einen Buchstaben in einer row, so oft wie die Anzahl(amount), welche vorgegeben ist
+    public static void PrintRowStipple( String symbol, int amount ) {
+        {
+            for (int i = 0; i < amount; i++) {
+                System.out.println( "Zeilen" + i + ":" + "i:" + (i + 1) + " " + symbol + "\n" );
+
+            }
+        }
+    }
+
+    //Methode 6: Methode 4 & 5 Zusammengefast
+    public static void PrintStippleL( String symbol, int amount ) {
+        PrintLineStipple( symbol, amount );
+        System.out.println( );
+        PrintRowStipple( symbol, amount );
+    }
+
+    //Methode 7: Liest einen String ein und Überprüft ihn auf seine Gültigkeit
+    public static String ReadString() {
+        System.out.print( "Bitte geben Sie einen Text ein: " );
+        //Hinweis: https://codegym.cc/de/groups/posts/de.666.java-uberprufen-sie-ob-string-null-leer-oder-leer-ist
+        while ( true ) {
+            String InputStreamString = scanner.next( );
+            if ( InputStreamString != null ) {
+                System.out.println( "Eingabe Erfolgreich geprüft!" );
+                return InputStreamString;
+            } else {
+                System.out.println( "Eingabe Falsch!" );
+            }
+        }
+    }
+
+    //Methode 8: Liest einen String ein und Überprüft ihn auf seine Gültigkeit
+    public static int ReadNumber() {
+        System.out.println( "Wie oft soll der Text ausgegeben werden: " );
+        while ( true ) {
+            try {
+                // Gibt den eingelesenen Int zurück und
+                return scanner.nextInt( );
+            } catch (Exception InputMismatchException) {
+                // Code, der ausgeführt wird, wenn eine Ausnahme geworfen wird
+                System.out.println( "Die Eingabe war kein Int! Geben Sie eine Ganzezahl ein!" );
+                // Erklärung siehe: https://www.java-forum.org/thema/bedeutung-von-xxx-nextline.175453/
+                //Löscht Line Space vom InputStream und setzt den Zeiger in eine neue Zeile
+                scanner.nextLine( );
+            }
+        }
+    }
+
+    //Methode 9: Print Methode zum Drucken von Methode 7 und 8
+    public static void print( int numberOfPrintsOfInputString, String Input ) {
+        for (int i = 0; i < numberOfPrintsOfInputString; i++) {
+            System.out.println( "Print Nr.:" + (i + 1) + ":" + Input );
+        }
+    }
+
+    //Methode 10: Gibt den letzen und ersten Eintrag im Array zrück
+    public static String PrintFirstAndLast( int[] arr ) {
+        String StoreageNumber0 = null;
+        String StoreageNumberofLastElement = null;
+        for (int i = 0; i < arr.length; i++) {
+            if ( i == 0 ) {
+                StoreageNumber0 = Integer.toString( arr[i] );
+            }
+            if ( i == arr.length - 1 ) {
+                StoreageNumberofLastElement = Integer.toString( arr[i] );
+            }
+        }
+        return StoreageNumber0 + "," + StoreageNumberofLastElement;
+    }
+
+    //Methode 11: Print Methods for Mathods 12, 13,14
+    public static void PrintMyResult(String Wort, int iZahl) {
+        System.out.println( Wort + iZahl );
+    }
+    public static void PrintMyResult(String Wort, double dZahl) {
+        System.out.println( Wort + dZahl );
+    }
+
+    //Methode 12: Search MinValue in an Int Array
+    public static int GetMin( int[] Array ){
+     int StorageMinValue=0;
+        for (int intZahlInhaltArray : Array) {
+            if ( intZahlInhaltArray < StorageMinValue ) {
+                StorageMinValue = intZahlInhaltArray;
+            }
+        }
+        return StorageMinValue;
+    }
+
+    //Methode 13: Search an MaxValue in an Int Array
+    public static int GetMax( int[] Array ){
+        int StorageMaxValue=0;
+        for (int intZahlInhaltArray : Array) {
+            if ( intZahlInhaltArray > StorageMaxValue ) {
+                StorageMaxValue = intZahlInhaltArray;
+            }
+        }
+        return StorageMaxValue;
+    }
+
+    //Methode 14: Calculate AvarageValue from an Int Array
+    public static double getAvg( int[] Array ){
+        int StorageMaxValue=0;
+        for (int intZahlInhaltArray : Array) {
+          StorageMaxValue=StorageMaxValue+intZahlInhaltArray;
+
+        }
+       return ((double) StorageMaxValue /Array.length);
+    }
+
+    //Methode 15: Zahl in einen Array schreiben
+    public static int[] writeIntNumberInArray(int zahl){
+        //Hilfe: https://www.programmierenlernenhq.de/java-grundlagen-arrays-in-java-zugriff-deklaration-und-initialisierung-von-arrays/
+        int[] Array = new int[zahl+1]; //Inizalisierung Array +1 weil null mitgezählt wird!
+        //Befüllung Array
+        for (int i = 0; i <Array.length; i++) {
+            Array[i]=i;
+        }
+        return Array;
+    }
+
+    //Methode 16: Zahl in einen Array schreiben
+    public static void printArrayInDiffrentWays(int[] InputArray){
+        //Print Möglichkeit 1: als String:
+        System.out.println( Arrays.toString( InputArray ) );
+
+        System.out.println(  );// Abstand
+
+        //Print Möglichkeit 2: mit For i Schleife, gibt jeden Array-Inhalt einzeln aus und durckt ihn in eine Zeile:
+        for (int i = 0; i < InputArray.length; i++) {
+            System.out.print( InputArray[i]+"," );
+        }
+
+        System.out.println(  );// Abstand
+
+        //Print Möglichkeit 3: mit For ech Schleife, gibt jeden Array-Inhalt einzeln aus und durckt ihn in eine Zeile:
+        for (int ArrayInhalt : InputArray) {
+            System.out.print( ArrayInhalt + "," );
+        }
+
+        System.out.println(  );// Abstand
+
+        //Print Möglichkeit 3: mit For ech Schleife, gibt jeden Array-Inhalt einzeln aus und durckt ihn in eine Zeile:
+        for (int ArrayInhalt : InputArray) {
+            System.out.print( ArrayInhalt + "," );
+        }
+
+        System.out.println(  );// Abstand
+
+        String[] StringArray= new String[InputArray.length];
+
+        //Print Möglichkeit 4: mit Join
+
+        //Hilfe: https://javabeginners.de/String/int_zu_String.php
+        for (int i = 0; i < InputArray.length; i++) {
+          StringArray[i]=Integer.toString( InputArray[i]);
+        }
+        System.out.println(String.join( ",",StringArray));
+
+
+        //Print Möglichkeit 5: Console.WriteLine
+    }
+
+    //Methode 17: Ersetzt die Buchstaben in einem String
+    public static String replaceCharInString(String Text){
+        //Hilfe: https://www.rexegg.com/regex-quickstart.html
+        String  NewText=Text
+                .replaceAll( "[a-c]", "X")
+                .replaceAll( "[f-z]", "Y")
+                .replaceAll( "[1-5]","a" )
+                .replaceAll( "[4-9]","b" );
+        return NewText;
+    }
+
+    //Methode 18: Druckt Regex Matches
+    public static void printRegexMatching(String Regex, String Expression){
+        System.out.println( "Verwendete Regex: " + Regex );
+        System.out.println("Überprüfung des Ausdruckes: "+Expression+"; Ergbniss der Validierung true/false: "+Expression.matches( Regex ));
+    }
+
 }
+
