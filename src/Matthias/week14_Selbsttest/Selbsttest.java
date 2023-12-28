@@ -1,5 +1,8 @@
 package Matthias.week14_Selbsttest;
 
+import java.io.Console;
+import java.sql.Array;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -156,7 +159,7 @@ PrintMyResult("Maximum",GetMax(arr));
          * Beispiel Ausgabe
 Maximum: 23
          */
-        System.out.print( "\nAufgabe 8:\n" );
+        System.out.print( "\nAufgabe 9:\n" );
         PrintMyResult( "Minimum", GetMin( arr ) );
         PrintMyResult( "Maximum", GetMax( arr ) );
         PrintMyResult( "Avarage", getAvg( arr ) );
@@ -173,6 +176,8 @@ int[] arr = fillArr(10);
          * Ausgabe:
 0 1 2 3 4 5 6 7 8 9 10
          */
+        System.out.print( "\nAufgabe 10:\n" );
+        printArrayInDiffrentWays( writeIntNumberInArray( 10 ));
 
         // String **********************
         String text = "Heute der 19.10.2021 wird ein sehr guter Tag. Zwar gibt es sowas wie einen Test, den 14 Leute schreiben, aber das ist doch egal!";
@@ -187,7 +192,8 @@ int[] arr = fillArr(10);
          * Ausgabe:
 HeYYe deY ab.a0.a0aa YYYd eYY YeYY YYYeY TXY. ZYXY YYXY eY YYYXY YYe eYYeY TeYY, deY aa LeYYe YXYYeYXeY, XXeY dXY YYY dYXY eYXY!
          */
-
+        System.out.print( "\nAufgabe 11:\n" );
+        System.out.println( replaceCharInString( text ) );
         // Aufgabe 12 ------------------
         /* Erstelle einen regulären Ausdruck der folgendem Sachverhalt entspricht und
          * prüfe diesen in der Start Methode.
@@ -195,7 +201,7 @@ HeYYe deY ab.a0.a0aa YYYd eYY YeYY YYYeY TXY. ZYXY YYXY eY YYYXY YYe eYYeY TeYY,
 1. Drei oder mehr Kleinbuchstaben
 2. Eine Zahl größer als 0
 3. Zwei Zahlen
-4. Ein oder mehr Großbuchstaben
+4. Ein oder mehr Großbuchstaben\
          *
 Aufruf          Console.WriteLine(Regex.IsMatch("abc100A", regex));          Ausgabe          true
 
@@ -207,6 +213,13 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test101ABCDE", regex));        
 
 Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          Ausgabe          true
          */
+        System.out.print( "\nAufgabe 12:\n" );
+        String Regex="^[a-z]{3,}[A-Z]{1,}[1-9]$";
+        String[] ExpressionsToProff=new String[]{"abc100A","Abc100A","luke010A","test101ABCDE","test1ABCDE"};
+        for (String Expression : ExpressionsToProff) {
+            printRegexMatching( Regex, Expression );
+        }
+        System.out.println( "abc100A".matches("^[a-z]{3,}[1-9]?[0-9]{2}[A-Z]+$" ) );
 
         // Kalender ********************
         // Aufgabe 13 ------------------
@@ -402,6 +415,76 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
 
         }
        return ((double) StorageMaxValue /Array.length);
+    }
+
+    //Methode 15: Zahl in einen Array schreiben
+    public static int[] writeIntNumberInArray(int zahl){
+        //Hilfe: https://www.programmierenlernenhq.de/java-grundlagen-arrays-in-java-zugriff-deklaration-und-initialisierung-von-arrays/
+        int[] Array = new int[zahl+1]; //Inizalisierung Array +1 weil null mitgezählt wird!
+        //Befüllung Array
+        for (int i = 0; i <Array.length; i++) {
+            Array[i]=i;
+        }
+        return Array;
+    }
+
+    //Methode 16: Zahl in einen Array schreiben
+    public static void printArrayInDiffrentWays(int[] InputArray){
+        //Print Möglichkeit 1: als String:
+        System.out.println( Arrays.toString( InputArray ) );
+
+        System.out.println(  );// Abstand
+
+        //Print Möglichkeit 2: mit For i Schleife, gibt jeden Array-Inhalt einzeln aus und durckt ihn in eine Zeile:
+        for (int i = 0; i < InputArray.length; i++) {
+            System.out.print( InputArray[i]+"," );
+        }
+
+        System.out.println(  );// Abstand
+
+        //Print Möglichkeit 3: mit For ech Schleife, gibt jeden Array-Inhalt einzeln aus und durckt ihn in eine Zeile:
+        for (int ArrayInhalt : InputArray) {
+            System.out.print( ArrayInhalt + "," );
+        }
+
+        System.out.println(  );// Abstand
+
+        //Print Möglichkeit 3: mit For ech Schleife, gibt jeden Array-Inhalt einzeln aus und durckt ihn in eine Zeile:
+        for (int ArrayInhalt : InputArray) {
+            System.out.print( ArrayInhalt + "," );
+        }
+
+        System.out.println(  );// Abstand
+
+        String[] StringArray= new String[InputArray.length];
+
+        //Print Möglichkeit 4: mit Join
+
+        //Hilfe: https://javabeginners.de/String/int_zu_String.php
+        for (int i = 0; i < InputArray.length; i++) {
+          StringArray[i]=Integer.toString( InputArray[i]);
+        }
+        System.out.println(String.join( ",",StringArray));
+
+
+        //Print Möglichkeit 5: Console.WriteLine
+    }
+
+    //Methode 17: Ersetzt die Buchstaben in einem String
+    public static String replaceCharInString(String Text){
+        //Hilfe: https://www.rexegg.com/regex-quickstart.html
+        String  NewText=Text
+                .replaceAll( "[a-c]", "X")
+                .replaceAll( "[f-z]", "Y")
+                .replaceAll( "[1-5]","a" )
+                .replaceAll( "[4-9]","b" );
+        return NewText;
+    }
+
+    //Methode 18: Druckt Regex Matches
+    public static void printRegexMatching(String Regex, String Expression){
+        System.out.println( "Verwendete Regex: " + Regex );
+        System.out.println("Überprüfung des Ausdruckes: "+Expression+"; Ergbniss der Validierung true/false: "+Expression.matches( Regex ));
     }
 
 }
