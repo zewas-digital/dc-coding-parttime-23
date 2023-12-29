@@ -11,7 +11,6 @@ public class example_20_Truthtable {
         System.out.println(" a " +" | " + " b " + " = " + " c ");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3 ; j++) {
-
                 if (Kobination1 || Kobination2) {
                     System.out.print("  "+ 1 + "  ");
                 }else {
@@ -25,7 +24,7 @@ public class example_20_Truthtable {
 
     public static void main(String[] args) {
         boolean zahl1=true;
-        boolean zahl2=true;
+        boolean zahl2=false;
 
         oder(zahl1, zahl2);
     }
