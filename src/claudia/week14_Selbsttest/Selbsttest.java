@@ -1,7 +1,14 @@
 package claudia.week14_Selbsttest;
 
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Selbsttest {
     public static void main(String[] args) {
+
         // Schleifen *******************
         // Aufgabe 1 -------------------
         /* Zähle in einer for-Schleife rückwärts von 10 bis inklusive 0 und gib jede Zahl aus.
@@ -144,6 +151,18 @@ Heute wird ein guter Tag
         System.out.println("\n" + "* - ".repeat(20) + "*");
         System.out.println("Aufgabe 7: ");
 
+        String text2 = aufgabe7_readString("Bitte gib Deinen Text ein: ");
+
+        int anzahl = 0;
+        while (anzahl <= 0) {
+            anzahl = aufgabe7_readInt("Wie oft soll der Text geschrieben werden? Ganze, positive Zahl! ");
+        }
+
+        for (int j = 0; j < anzahl; j++) {
+            System.out.println(text2);
+        }
+
+
         System.out.println("\n" + "* - ".repeat(20) + "*");
         // Arrays **********************
         int[] arr = new int[]{0, 1, 23, 5, 12, 4, 4, 2, 5, 2, 10};
@@ -163,9 +182,13 @@ First: 0, Last: 10
         System.out.println("\n" + "* - ".repeat(20) + "*");
         System.out.println("Aufgabe 8: ");
 
+        aufgabe8(arr);
+        aufgabe8(arr2);
+        aufgabe8(arr3);
+
         System.out.println("\n" + "* - ".repeat(20) + "*");
         // Aufgabe 9 -------------------
-        /* Ertelle jeweils eine Methode für Minimum (min), Maximum (max), und Durchschnitt (avg),
+        /* Erstelle jeweils eine Methode für Minimum (min), Maximum (max), und Durchschnitt (avg),
          * welche den jeweiligen Wert für ein int[] berechnet und zurückgeben kann.
          * + Teste alle Methoden in der Start Methode mit allen gegebenen int[] der Klasse.
          * + Erstelle eine Print Methode die einen string und einen int bekommt.
@@ -180,6 +203,21 @@ Maximum: 23
          */
         System.out.println("\n" + "* - ".repeat(20) + "*");
         System.out.println("Aufgabe 9: ");
+        System.out.println("Printmethode etwas anders definiert als vorgegeben "+
+                "\n-> nicht sinnvoll, ein Int zu übergeben, wenn Durchschnitt berechnet wird!");
+
+        System.out.println("Minimum 1: " + aufgabe9_min(arr));
+        System.out.println("Minimum 2: " + aufgabe9_min(arr2));
+        System.out.println("Minimum 3: " + aufgabe9_min(arr3));
+        System.out.println("Maximum 1: " + aufgabe9_max(arr));
+        System.out.println("Maximum 2: " + aufgabe9_max(arr2));
+        System.out.println("Maximum 3: " + aufgabe9_max(arr3));
+        System.out.println("Durchschnitt 1: " + aufgabe9_avg(arr));
+        System.out.println("Durchschnitt 2: " + aufgabe9_avg(arr2));
+        System.out.println("Durchschnitt 3: " + aufgabe9_avg(arr3));
+        aufgabe9_printMyResult("Minimum", aufgabe9_min(arr));
+        aufgabe9_printMyResult("Maximum", aufgabe9_max(arr2));
+        aufgabe9_printMyResult("Durchschnitt", aufgabe9_avg(arr3));
 
         System.out.println("\n" + "* - ".repeat(20) + "*");
         // Aufgabe 10 ------------------
@@ -197,9 +235,20 @@ int[] arr = fillArr(10);
         System.out.println("\n" + "* - ".repeat(20) + "*");
         System.out.println("Aufgabe 10: ");
 
+        int[] vec = aufgabe10(10);
+
+        for (int j = 0; j < vec.length; j++) {
+            System.out.print(vec[j] + " ");
+        }
+        System.out.println();
+        for (int elem : vec) {
+            System.out.print(elem + " ");
+        }
+        System.out.println();
+        System.out.println(Arrays.toString(vec));
+
         System.out.println("\n" + "* - ".repeat(20) + "*");
-        // String **********************
-        String text = "Heute der 19.10.2021 wird ein sehr guter Tag. Zwar gibt es sowas wie einen Test, den 14 Leute schreiben, aber das ist doch egal!";
+
 
         // Aufgabe 11 ------------------
         /* Ersetze mit Hilfe von regulären Ausdrücken folgendes aus dem in der Klasse gegebenen string. Folgende Aufzählung ist als Ganzes zu betrachten.
@@ -213,6 +262,13 @@ HeYYe deY ab.a0.a0aa YYYd eYY YeYY YYYeY TXY. ZYXY YYXY eY YYYXY YYe eYYeY TeYY,
          */
         System.out.println("\n" + "* - ".repeat(20) + "*");
         System.out.println("Aufgabe 11: ");
+
+        String text = "Heute der 19.10.2021 wird ein sehr guter Tag. Zwar gibt es sowas wie einen Test, den 14 Leute schreiben, aber das ist doch egal!";
+        text = text.replaceAll("[a-c]","X");
+        text = text.replaceAll("[f-z]","Y");
+        text = text.replaceAll("[1-5]","a");
+        text = text.replaceAll("[4-9]","b");
+        System.out.println(text);
 
         System.out.println("\n" + "* - ".repeat(20) + "*");
         // Aufgabe 12 ------------------
@@ -234,7 +290,25 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test101ABCDE", regex));        
 
 Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          Ausgabe          true
          */
+        System.out.println("\n" + "* - ".repeat(20) + "*");
+        System.out.println("Aufgabe 12: ");
 
+        System.out.println("Aufgabenstellung wie folgt interpretiert:" +
+                "\nPrüfe, ob der gegebene Ausdruck diesem Schema entspricht:" +
+                "\nzuerst kommen drei oder mehr Kleinbuchstaben" +
+                "\ndann eine Ziffer zwischen 1 und 9" +
+                "\ndann zwei beliebige Ziffern" +
+                "\ndanach mindestens ein Großbuchstabe");
+
+        String regex = "^[a-z]{3,}[1-9][0-9]{2}[A-Z]+";
+
+        System.out.println("abc100A".matches(regex));
+        System.out.println("Abc100A".matches(regex));
+        System.out.println("luke010A".matches(regex));
+        System.out.println("test101ABCDE".matches(regex));
+        System.out.println("test1ABCDE".matches(regex));
+
+        System.out.println("\n" + "* - ".repeat(20) + "*");
         // Kalender ********************
         // Aufgabe 13 ------------------
         /* Gib mit Hilfe der Calendar Api den Wochentag des aktuellen Tages inklusive Datum aus.
@@ -242,7 +316,11 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
 DI 19.10.2021
          */
         System.out.println("\n" + "* - ".repeat(20) + "*");
-        System.out.println("Aufgabe 12: ");
+        System.out.println("Aufgabe 13: ");
+
+        Calendar today = Calendar.getInstance(); //Kalenderobjekt mit aktuellem Datum "heute"
+        SimpleDateFormat todayFormatted = new SimpleDateFormat("E, dd.MM.yyyy");
+        System.out.println(todayFormatted.format(today.getTime()));
 
         System.out.println("\n" + "* - ".repeat(20) + "*");
     }
@@ -260,5 +338,58 @@ DI 19.10.2021
     static void aufgabe6 (String symbol, int amount){
         aufgabe4_5(symbol, amount, 4);
         aufgabe4_5(symbol, amount, 5);
+    }
+    public static void aufgabe8(int[] vector){
+        System.out.println("First: " + vector[0] + ", Last: " + vector[vector.length - 1]);
+    }
+    public static int[] aufgabe10(int n){
+        int[] temp = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            temp[i] = i;
+        }
+        return temp;
+    }
+    public static String aufgabe7_readString(String message) {
+        System.out.println(message);
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+    public static int aufgabe7_readInt(String message) {
+        System.out.print(message);
+        Scanner sc = new Scanner(System.in);
+        int number = 0;
+        try {
+            number = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Das war keine ganze Zahl!");
+        }
+        return number;
+    }
+    public static int aufgabe9_min(int[] vector) {
+        int min = vector[0];
+        for (int elem : vector) {
+            if (elem < min) min = elem;
+        }
+        return min;
+    }
+    public static int aufgabe9_max(int[] vector) {
+        int max = vector[0];
+        for (int elem : vector) {
+            if (elem > max) max = elem;
+        }
+        return max;
+    }
+    public static double aufgabe9_avg(int[] vector) {
+        int sum = 0;
+        double avg = 0;
+        for (int elem : vector) {
+            sum = sum + elem;
+        }
+        avg = (double) sum / vector.length;
+        return avg;
+    }
+    public static void aufgabe9_printMyResult(String which, double n){
+        System.out.printf("%-20s : %10.2f%n", which, n);
+
     }
 }
