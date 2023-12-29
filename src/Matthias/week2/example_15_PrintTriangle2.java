@@ -35,43 +35,21 @@ public class example_15_PrintTriangle2 {
     }
 
     static void dreieck( char buchstabe, int größe ) {
-//__________________________________________________________________________
-        for (int i = 1; i <größe; i++) {
-            System.out.print("-");
+        for (int i = 0; i < größe-1; i++) { //-1 weil die letzte Zeile eigenständigt gedruckt wird -> vereinfacht den Druck vorgang
+            //System.out.print( "Höhe: "+i ); // i enspricht der Höhe des Dreiecks
+            for (int j = 0; j < (größe*2)-1; j++) {
+                if ((j == größe - 1 - i)|| (j == größe - 1 + i)) {      //Berechungsformel für die Bestimmung der j Koordinaten an dehnen gedruckt werden soll!
+                    System.out.print( buchstabe );
+                }else {
+                    System.out.print( "-" );
+                }
+            }
+            System.out.println( );
         }
-        System.out.print(buchstabe);
-
-        for (int i = 1; i <größe; i++) {
-            System.out.print("-");
+        //Druckt die Unterseite des Dreiecks
+        for (int i = 0; i < 2 * größe- 1; i++) {
+            System.out.print(buchstabe);
         }
         System.out.println();
-
-        int m =größe;
-        int n =1;
-        for (int i = 0; i < größe-2; i++) {
-//__________________________________________________________________________
-            for (int j = 1; j < m - 1; j++) {
-                System.out.print("-");
-            }
-            //__________________________________________________________________________
-            System.out.print(buchstabe);
-            //__________________________________________________________________________
-            for (int k = 0; k < n; k ++) {
-                System.out.print("-");
-            }
-            //__________________________________________________________________________
-            System.out.print(buchstabe);
-            //__________________________________________________________________________
-            for (int l = 1; l < m - 1; l++) {
-                System.out.print("-");
-            }
-//__________________________________________________________________________
-            System.out.println();
-            m--;
-            n+=2;
-        }
-        for (int i = 0; i < größe*2-1; i++) {
-            System.out.print(buchstabe);
-        }
     }
 }
