@@ -1,5 +1,10 @@
 package Matthias.week2_weekend_Scanner;
 
+/*
+Bisher haben wir beispielsweise die Größe eines Rechtecks direkt im Code definiert.
+        Jetzt soll das Beispiel so abgeändert werden, dass die Größe des Rechtecks von der Console eingelesen wird.
+        Wiederhole das Refactoring für einige andere Beispiele.
+*/
 import java.util.Scanner;
 
 public class example_26_Refector {

@@ -49,28 +49,33 @@ public void volltanken(){
         System.out.println("Aktueller km-Stand " + getKmStandFormatiert());
         System.out.println("Aktueller Tankinhalt " + getTankAktuellFormatiert());
 
-        if (tankAktuell < 5) {
-            System.out.println("\nAchtung - Tank fast leer!\n");
-        }
-        double mengeNotwendig = strecke / 100 * verbrauch;
-        System.out.println("Menge notwendig: " + mengeNotwendig);
-        double streckeMoeglich;
-        if (mengeNotwendig <= tankAktuell){
-            streckeMoeglich = mengeNotwendig / verbrauch * 100;
+        if (tankAktuell > 0) {
+
+            if (tankAktuell < 5) {
+                System.out.println("\nAchtung - Tank fast leer!\n");
+            }
+            double mengeNotwendig = strecke / 100 * verbrauch;
+            System.out.println("Menge notwendig: " + mengeNotwendig);
+            double streckeMoeglich;
+            if (mengeNotwendig <= tankAktuell) {
+                streckeMoeglich = mengeNotwendig / verbrauch * 100;
+            } else {
+                mengeNotwendig = tankAktuell;
+                streckeMoeglich = mengeNotwendig / verbrauch * 100;
+                System.out.println("\nDer Sprit reicht nicht!");
+                System.out.println("Es werden nur " + streckeMoeglich + " km gefahren.");
+                System.out.println("Die übrigen " + (strecke - streckeMoeglich) + " km musst Du laufen.\n");
+            }
+
+            this.kmStand += streckeMoeglich;
+
+            System.out.println("Neuer km-Stand " + getKmStandFormatiert());
+            System.out.println("Sprit verbraucht: " + mengeNotwendig + " Liter.");
+            this.tankAktuell -= mengeNotwendig;
+            System.out.println("Neuer Tankinhalt " + getTankAktuellFormatiert());
         } else {
-            mengeNotwendig = tankAktuell;
-            streckeMoeglich = mengeNotwendig / verbrauch * 100;
-            System.out.println("\nDer Sprit reicht nicht!");
-            System.out.println("Es werden nur " + streckeMoeglich + " km gefahren.");
-            System.out.println("Die übrigen " + (strecke - streckeMoeglich) + " km musst Du laufen.\n");
+            System.out.println("Der Tank ist leer, keine Fahrt möglich!");
         }
-
-        this.kmStand += streckeMoeglich;
-
-        System.out.println("Neuer km-Stand " + getKmStandFormatiert());
-        System.out.println("Sprit verbraucht: " + mengeNotwendig + " Liter.");
-        this.tankAktuell -= mengeNotwendig;
-        System.out.println("Neuer Tankinhalt " + getTankAktuellFormatiert());
     }
 
     public double getVerbrauch() {

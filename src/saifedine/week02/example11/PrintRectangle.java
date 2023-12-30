@@ -14,18 +14,27 @@ xxxxxxxxxx
 xxxxxxxxxx
  */
 
+// for, for
+// Methode: printRect('x', 10, 3);
+
 public class PrintRectangle {
+
     public static void main(String[] args) {
 
-    printRect('x', 10, 3);
+        char zeichen = 'x';
+        int breite = 10;
+        int hoehe = 3;
+
+        printRect('x', 10, 3);
     }
-    static void printRect (char value, int breite, int höhe){
-        for (int i = 0; i < höhe; i++) {
+
+    public static void printRect(char zeichen,int breite,int hoehe){
+
+        for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
-                System.out.print(value);
+                System.out.print(zeichen);
             }
             System.out.println();
         }
     }
-
 }

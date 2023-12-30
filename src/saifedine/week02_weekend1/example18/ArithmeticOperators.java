@@ -11,14 +11,6 @@ package saifedine.week02_weekend1.example18;
 public class ArithmeticOperators {
     public static void main(String[] args) {
 
-        // int zahl1 = 3;
-        // int zahl2 = 5;
-
-
-
-        /*
-
-
         int zahl1 = 6, zahl2 = 3;
 
         System.out.println(zahl1 + " + " + zahl2 + " = " + (zahl1 + zahl2));
@@ -28,52 +20,36 @@ public class ArithmeticOperators {
         System.out.println(zahl1 + " % " + zahl2 + " = " + zahl1 % zahl2);
         System.out.println(zahl1 + " ^ " + zahl2 + " = " + Math.pow(zahl1,zahl2));
 
-        zahl1 = 3;
+        System.out.println();
 
-        System.out.println(zahl1);
-        System.out.println(zahl1++);
-        System.out.println(zahl1);
+        zahl2 = 3;
 
-        /*
-        3
-        3
-        4
-        */
+        System.out.println("zahl2: " + zahl2);                      // 3
+        System.out.println("zahl2: " + zahl2++);                    // 3
+        System.out.println("zahl2: " + zahl2);                      // 4
 
-        /*
-        int zahl1 = 3;
+        System.out.println();
 
-        System.out.println(zahl1);
-        System.out.println(++zahl1);
-        System.out.println(zahl1);
+        int zahl3 = 3;
 
-        /*
-        3
-        4
-        4
-         */
+        System.out.println("zahl3: " + zahl3);                      // 3
+        System.out.println("zahl3: " + ++zahl3);                    // 4
+        System.out.println("zahl3: " + zahl3);                      // 4
 
+        System.out.println();
 
+        int zahl4 = 4;
 
-       int zahl1 = 4;
+        System.out.println("zahl4: " + zahl4);                      // 4
+        System.out.println("zahl4: " + zahl4--);                    // 4
+        System.out.println("zahl4: " + zahl4);                      // 3
 
-        System.out.println(zahl1);
-        System.out.println(zahl1--);
-        System.out.println(zahl1);
+        System.out.println();
 
-        /*
+        int zahl5 = 4;
 
-        */
-
-
-        zahl1 = 4;
-
-        System.out.println(zahl1);
-        System.out.println(--zahl1);
-        System.out.println(zahl1);
-
-        /*
-
-         */
+        System.out.println("zahl5: " + zahl5);                      // 4
+        System.out.println("zahl5: " + --zahl5);                    // 3
+        System.out.println("zahl5: " + zahl5);                      // 3
     }
 }
