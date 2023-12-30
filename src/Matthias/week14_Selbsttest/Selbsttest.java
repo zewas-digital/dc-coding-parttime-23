@@ -3,6 +3,7 @@ package Matthias.week14_Selbsttest;
 import java.io.Console;
 import java.sql.Array;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -214,12 +215,12 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test101ABCDE", regex));        
 Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          Ausgabe          true
          */
         System.out.print( "\nAufgabe 12:\n" );
-        String Regex="^[a-z]{3,}[A-Z]{1,}[1-9]$";
+        String Regex="^[a-z]{3,}[1-9][0-9]{2}[A-Z]+$";
         String[] ExpressionsToProff=new String[]{"abc100A","Abc100A","luke010A","test101ABCDE","test1ABCDE"};
         for (String Expression : ExpressionsToProff) {
             printRegexMatching( Regex, Expression );
         }
-        System.out.println( "abc100A".matches("^[a-z]{3,}[1-9]?[0-9]{2}[A-Z]+$" ) );
+        System.out.println( "abc100A".matches("^[a-z]{3,}[1-9][0-9]{2}[A-Z]+$" ) );
 
         // Kalender ********************
         // Aufgabe 13 ------------------
@@ -227,6 +228,8 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
          * Ausgabe:
         DI 19.10.2021
          */
+        Calendar c = Calendar.getInstance();
+        System.out.println( "Datum: "+c.get(Calendar.DAY_OF_MONTH)+"."+(c.get(Calendar.MONTH )+1) +"."+ c.get(Calendar.YEAR));
     }
 
 
