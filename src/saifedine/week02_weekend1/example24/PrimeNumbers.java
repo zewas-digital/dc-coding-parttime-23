@@ -2,81 +2,40 @@
 Erstelle ein Programm, dass als Primzahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
  */
 
+// https://studyflix.de/mathematik/primzahlen-3161
+
 package saifedine.week02_weekend1.example24;
 
 public class PrimeNumbers {
+
     public static void main(String[] args) {
-        for (int i = 2; i <= 100  ; i++) {
-            isPrime(i);
-        }
 
-    }
-    static void isPrime(int x){
-        boolean prime = true;
+        int num = 10;
 
-        for (int i = 2; i < x/2; i++) {
-            if (x % i ==0){
-                prime = false;
+        for (int i = 2; i <= num; i++) {
 
+            boolean isPrim = primzahl(i);
+
+            if (isPrim == true){
+                System.out.println(i);
             }
         }
-        if (prime == true){
-            System.out.println(x);
-        }
-
     }
 
+    static boolean primzahl(int num){
 
-}
+        boolean isPrim = true;
 
+        for (int j = 2; j < num; j++) {
 
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-public class LoopWithModulo {
-    public static void main(String[] args) {
-        for (int i = 0; i <=10 ; i += 2) {
-            System.out.println(i);
-        }
-
-        int j = 0;
-        while (j <= 10) {
-            if (j % 2 == 0)
-                System.out.println(j);
-            j++;
-        }
-    }
-}
-
-public class LoopControl {
-    public static void main(String[] args) {
-        int anzahlschleifen = 0;
-        int i = 1;
-        while (i <= 100) {
-            i++;
-
-            if (i % 2 == 0) {
-                System.out.println(i);
-                anzahlschleifen++;
-            } else if (i % 3 == 0) {
-                System.out.println(i);
-                anzahlschleifen++;
-            }
-            if (anzahlschleifen == 20){
+            if (num % j == 0) {
+                isPrim = false;
                 break;
             }
-
+            else {
+                isPrim = true;
+            }
         }
+        return isPrim;
     }
 }
- */
