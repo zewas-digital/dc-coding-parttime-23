@@ -11,7 +11,7 @@ Erstelle ein Programm, dass als Primzahlen innerhalb eines bestimmten Intervalls
     public static void main(String[] args) {
 
         int prim = 100; //bis zu dieser Zahl alle Primzahlen ausgeben. C.
-        //noch besser wäre wahrscheinlich eine Frage an den Nutzer, wie groß die Zahl sein soll. ;o) C.
+        //noch besser wäre eine Frage an den Nutzer, wie groß die Zahl sein soll. ;o) C.
 
         for (int i = 2; i <= prim; i++) { //Teste alle Zahlen von 2 bis zur oberen Grenze prim, ob sie Primzahlen sind. C.
             if (primzahl(i) == true) { //Nur wenn i eine Primzahl ist, ausgeben. Ansonsten nichts machen. C.
