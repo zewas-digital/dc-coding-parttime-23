@@ -50,7 +50,6 @@ public class example_30_SAPLogin {
         }
         return intNumber;
     }
-
     public static void main(String[] args) {
         //Variabeln definieren
         int minCliennumber=0;
