@@ -12,7 +12,6 @@ Gib die Daten im nachfolgenden Format aus. Der Gesamtpreis berechnet sich aus Ei
 *        12345678        *
 *          10.5          *
 **************************
-
  */
 
 package saifedine.week02_weekend1.example29;
@@ -20,28 +19,30 @@ package saifedine.week02_weekend1.example29;
 import java.util.Scanner;
 
 public class Order {
+
     public static void main(String[] args) {
 
-        float Einzelpreis = 2.1f;
-
-        Scanner Eingabe = new Scanner(System.in);
-
-        System.out.println("Geben Sie die Bezeichnung: ");
-        String stringBezeichnung = Eingabe.next();
-
-        System.out.println("Geben Sie die Artikelnummer: ");
-        long longArtikelnummer = Eingabe.nextLong();
+        Scanner eingabe = new Scanner(System.in);
+        System.out.println("Geben Sie die Bezeichnung ein: ");
+        String bezeichnung = eingabe.next();
 
         System.out.println("Geben Sie die Menge ein: ");
-        int intMenge = Eingabe.nextInt();
+        int menge = eingabe.nextInt();
 
+        System.out.println("Geben Sie den Einzelpreis ein: ");
+        float einzelpreis = eingabe.nextFloat();
 
+        System.out.println("Geben Sie die Artikelnummer ein: ");
+        int artikelnummer = eingabe.nextInt();
+
+        float gesamtPreis = einzelpreis * menge;
+
+        System.out.println("Ihre Bestellung ist:");
+        System.out.println();
         System.out.println("**************************");
-        System.out.println("*         " + stringBezeichnung + "         *");
-        System.out.println("*        " + longArtikelnummer + "        *");
-        System.out.println("*          " + Einzelpreis*intMenge + "          *");
+        System.out.println("*         " + bezeichnung + "         *");
+        System.out.println("*        " + artikelnummer + "        *");
+        System.out.println("*          " + gesamtPreis + "          *");
         System.out.println("**************************");
-
-
     }
 }

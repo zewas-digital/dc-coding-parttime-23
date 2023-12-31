@@ -3,28 +3,27 @@ Erstelle ein Programm, dass die gefahrenen Kilometer sowie den Benzinverbrauch i
 Speichere beide Werte in passenden Datentypen ab und gib den Benzinverbrauch in l/100km in der Console aus.
  */
 
-
 package saifedine.week02_weekend1.example28;
 
 import java.util.Scanner;
 
 public class GasolineConsumption {
+
     public static void main(String[] args) {
 
-        Scanner Eingabe = new Scanner(System.in);
-
+        Scanner eingabe = new Scanner(System.in);
         System.out.println("Gib die gefahrenen Km ein: ");
-        float floatKm = Eingabe.nextFloat();
+        float km = eingabe.nextFloat();
+        System.out.println("Gib den Verbrauch in Liter ein: ");
+        float liter = eingabe.nextFloat();
 
-        System.out.println("Gib den Benzinverbrauch in Liter ein: ");
-        float floatVerbrauch = Eingabe.nextFloat();
-
+        System.out.println();
         System.out.println("Eingelesene Werte:");
-        System.out.println(floatKm);
-        System.out.println(floatVerbrauch);
+        System.out.println("gefahrenen Km: " + km);
+        System.out.println("Verbrauch in Liter: " + liter);
+        System.out.println();
 
-        System.out.println("Benzinverbrauch in l/100km ist: " + (floatVerbrauch/floatKm)*100);
-
+        float verbrauch = (liter / km) * 100;
+        System.out.println("Der Verbrauch in l/100km ist: " + verbrauch);
     }
-
 }
