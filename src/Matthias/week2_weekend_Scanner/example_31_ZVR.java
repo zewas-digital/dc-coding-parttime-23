@@ -16,84 +16,92 @@ Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgege
 
 package Matthias.week2_weekend_Scanner;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class example_31_ZVR {
-        // Überprüft die ZVR und gibt eine Status zurück
-        static boolean statusZVR(int minZVRnumber, int maxZVRnumber) {
-
-            //Variabeln der Methode
-
-            int intNumber = 0;            // lokaler Speicher für ZVR Zahl des Benutzers
-            boolean statusZVR = false;     // Status als Rückgabeparameter für Fehler handling
-
-            //Aufruf von Scanner und Implimentierung von Klasse im Java Projekt
-            Scanner scanner = new Scanner(System.in);
-
-            //Benutzer Hinweis zur Eingabe
-            System.out.println("Tippen Sie das Clientnummer ein: ");
-
-            // Benutzer Abfrage und Speichern in eine Variable
-            intNumber = scanner.nextInt();
-
-            if (intNumber >= maxZVRnumber || intNumber < minZVRnumber) {
-                statusZVR = true;
-            } else if (intNumber == -1) {
-                statusZVR = true;
-            }
-            return statusZVR;
-        }
-
-        static boolean statusVerein() {
-            String Vereinsname;     // lokaler Speicher für Verreinsname des Benutzers
-            String Vereinssitz;     // lokaler Speicher für Vereinssitz des Benutzers
-
-            boolean statusVerein = false;     // Status als Rückgabeparameter für Fehler handling
-
-            //Aufruf von Scanner und Implimentierung von Klasse im Java Projekt
-            Scanner scanner = new Scanner(System.in);
-
-            //Benutzer Hinweis zur Eingabe
-            System.out.println("Geben Sie den Vereinsname ein ");
-
-            // Benutzer Abfrage und Speichern in eine Variable
-            Vereinsname = scanner.next();
-            // Prüfen des Vereinsnamen
-            if (Vereinsname.length()!=0) {
-                statusVerein = true;
-            } else if (Vereinsname.equals("-1")) {
-                statusVerein = true;
-            }
-            System.out.println("Geben Sie den Vereinssitz ein ");
-            Vereinssitz = scanner.next();
-            // Prüfen des Vereinsnamen
-            if (Vereinssitz.length()!=0) {
-                statusVerein = false;
-            } else if (Vereinssitz.equals("1")){
-                statusVerein = false;
-            }
-            return statusVerein;
-        }
 
         public static void main(String[] args) {
             // Gültigkeitsbereich des Clientenbereich
 
             int iMinClientnumber = 100000000;
             int iMaxClientnumber = 999999999;
-            boolean bStatus = true;
-            while (bStatus) {
+            int UserClientnumber=0;
+            //Speicher für String Verreinsname und Verreinsitz
+            String Vereinsname, Vereinssitz;
+            //Array zum Speichern der Verreinsname und Verreinssitz -> zwei Wörter
+            String[] StorageVN_VS=new String[2];
 
-                if (statusZVR(iMinClientnumber, iMaxClientnumber)) {
-                    System.out.println("Sie müssen entweder den ZVR namen eingeben ");
-                    bStatus = false;
-                }else if (statusVerein()) {
-                    System.out.println("Kein Verein gefunden.");
-                    bStatus = false;
-                }
-                System.out.println("Abfrage erfolgreich!");
+            //Allgemein 1:: Einlesen der Bentuzerdaten//
+
+            //1.Schritt: Clientnummer Einlesen und prüfen, durch den vorgegbenen Clientbereich
+            UserClientnumber=getClientnumber( iMinClientnumber, iMaxClientnumber);
+
+            //2.Schritt: Vereinsname und Verreinsitz einlesen und in einen String Array Speichern, damit beide Namen übergeben werden können
+            StorageVN_VS=getVereinsnameANDVereinssitz();
+
+            //3.Schritt: Übergabe der Strings ins Hauptprogramm
+            Vereinsname=StorageVN_VS[0];
+            Vereinssitz=StorageVN_VS[1];
+            if ( (Vereinsname.equals( "-1" )&&Vereinssitz.equals( "-1" ))||UserClientnumber==-1  ) {
+                System.out.println("Kein Verrein gefunden"  );
+            }else {
+                //4. Schritt: Drucken der eingelesenen Benutzerinputs
+                System.out.println( "Clientennummer:"+ UserClientnumber );
+                System.out.println( "Vereinsname: " + Vereinsname +"\nVereinssitz: " + Vereinssitz );
+                System.out.println( "Abfrage war erfolgreich!" );
+            }
             }
 
+        //Methode1: Einlesen des Clientennummer, vorgabe durch einen Range an Clientenminimalanzahl
+         public static int getClientnumber (int iMinClientRange , int iMaxClienRange)throws InputMismatchException {
+            Scanner scanner=new Scanner( System.in );
+            while ( true ){
+                try {
+                    System.out.print( "Geben Sie die Clientnummer ein: " );
+                    int UserClientNumber=scanner.nextInt();
+                    if (UserClientNumber==-1 || ((UserClientNumber>=iMinClientRange) && (UserClientNumber<iMaxClienRange+1))) {
+                        return UserClientNumber;
+                    }
+                }catch (Exception InputMismatchException){
+                    // Code, der ausgeführt wird, wenn eine Ausnahme geworfen wird
+                    System.out.println( "Die Eingabe ist kein Ganzzahlinger Wert" );
+                    // Erklärung siehe: https://www.java-forum.org/thema/bedeutung-von-xxx-nextline.175453/
+                    //Löscht Line Space vom InputStream und setzt den Zeiger in eine neue Zeile
+                    scanner.nextLine( );
+                }
+            }
+         }
 
+        //Methode 2: Verreinsname und Verreinsitz wird eingelesen -> überprüft-> in einen String Array gespeichert
+        public static  String[] getVereinsnameANDVereinssitz() {
+            Scanner scanner=new Scanner( System.in );
+            String[] StorageVN_VS=new String[2];
+         while ( true ) {
+             try {
+                 System.out.println( "Geben Sie den Vereinsname ein: " );
+                 StorageVN_VS[0]=readString();
+                 System.out.println( "Geben Sie den Vereinsitz ein: " );
+                 StorageVN_VS[1]=readString();
+                 if (StorageVN_VS[1].isEmpty()) {
+                    System.out.println("Input cannot be empty");
+                 }
+                 return StorageVN_VS;
+             } catch (Exception NoSuchElementException) {
+                 System.out.println("An error occurred: " + NoSuchElementException.getMessage());
+             }
+         }
         }
+
+        //Methode 3: String einlsen und überprüfen, ob er leer ist
+        public static String readString() throws Exception {
+                Scanner scanner=new Scanner( System.in );
+                String input = scanner.nextLine();
+                if (input.isEmpty()) {
+                    throw new Exception("Input cannot be empty");
+                }
+                return input;
+            }
+
 }
 

@@ -42,7 +42,6 @@ public class example_32_ATM {
             System.out.println("4. Beenden");
             System.out.println("Tippen Sie 1-4 ein um dem Menü Punkt auszuwählen ");
 
-
             Menüabfrage = scanner.nextInt();
             //Einzahlen
             if (Menüabfrage == 1) {
