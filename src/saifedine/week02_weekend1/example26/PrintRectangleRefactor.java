@@ -1,31 +1,69 @@
-package saifedine.week02_weekend1.example26;
-
 /*
 Bisher haben wir beispielsweise die Größe eines Rechtecks direkt im Code definiert.
 Jetzt soll das Beispiel so abgeändert werden, dass die Größe des Rechtecks von der Console eingelesen wird.
 Wiederhole das Refactoring für einige andere Beispiele.
 */
 
+package saifedine.week02_weekend1.example26;
+
 import java.util.Scanner;
 
 public class PrintRectangleRefactor {
+
     public static void main(String[] args) {
 
-        Scanner Eingabe = new Scanner(System.in);
-        char value = 'x';
+        Scanner eingabe = new Scanner(System.in);
+        System.out.println("Bitte geben Sie die Breite des Rechtecks an: ");
+        int breite = eingabe.nextInt();
+        System.out.println("Die Breite ist: " + breite);
+        System.out.println();
+        System.out.println("Bitte geben Sie die Höhe des Rechtecks an: ");
+        int hoehe = eingabe.nextInt();
+        System.out.println("Die Höhe ist: " + hoehe);
 
-        System.out.println("Gib die Breite ein: ");
-        int intBreite = Eingabe.nextInt();
-        System.out.println("Gib die Höhe ein: ");
-        int intHoehe = Eingabe.nextInt();
+        printRectangle(breite, hoehe);
+        System.out.println();
 
-        for (int i = 0; i < intHoehe; i++) {
-            for (int j = 0; j < intBreite; j++) {
-                System.out.print(value);
-            }
-            System.out.println();
+        printEmptyRectangle(breite, hoehe);
+        System.out.println();
     }
 
+    public static void printRectangle (int breite, int hoehe){
+
+        char zeichen = 'x';
+
+        for (int i = 0; i < hoehe; i++) {
+            System.out.println();
+            for (int j = 0; j < breite; j++) {
+                System.out.print(zeichen);
+            }
+        }
+        System.out.println();
+    }
+
+    private static void printEmptyRectangle(int breite, int hoehe) {
+
+        char zeichen = 'x';
+
+        for (int i = 0; i < breite; i++) {
+            System.out.print(zeichen);
+        }
+        System.out.println();
+        for (int j = 0; j < hoehe - 2; j++) {
+            for (int i = 0; i < breite; i++) {
+                if (i == 0){
+                    System.out.print(zeichen);
+                }
+                else if (i > 0 && i < breite - 1) {
+                    System.out.print(" ");
+                }
+                else {
+                    System.out.println(zeichen);
+                }
+            }
+        }
+        for (int i = 0; i < breite; i++) {
+            System.out.print(zeichen);
         }
     }
-
+}

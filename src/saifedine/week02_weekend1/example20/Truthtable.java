@@ -37,8 +37,32 @@ public class Truthtable {
         System.out.println("NOT: " + true);
         else
             System.out.println("NOT: " + false);
+        /*
+        TRUE
+         */
 
-        System.out.println(a && b); // false
-        System.out.println(b && a);
+        System.out.println();
+
+        System.out.println("   &&   | TRUE  | FALSE ");
+        System.out.println("________________________");
+        System.out.println(" TRUE   | " + (true && true) + " | " + (true && false));
+        System.out.println("________________________");
+        System.out.println("FALSE   | " + (false && true) + " | " + (false && false));
+
+        System.out.println();
+
+        System.out.println("   ||   | TRUE  | FALSE ");
+        System.out.println("________________________");
+        System.out.println(" TRUE   | " + (true || true) + " | " + (true || false));
+        System.out.println("________________________");
+        System.out.println("FALSE   | " + (false || true) + " | " + (false || false));
+
+        System.out.println();
+
+        System.out.println("   !   ");
+        System.out.println("________________________");
+        System.out.println(" TRUE   | " + !true);
+        System.out.println("________________________");
+        System.out.println("FALSE   | " + !false);
     }
 }

@@ -22,15 +22,20 @@ public class Calendar_3_NumOfSundays {
 
         calendar.set(year, month - 1, 1);
         //System.out.println(dateFormat.format(calendar.getTime()));
-        int counter = 0;
 
-        while(calendar.get(Calendar.MONTH) == month - 1) {
-            if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) counter++;
+        //Find first Sunday:
+        while(calendar.get(Calendar.DAY_OF_WEEK) !=  Calendar.SUNDAY) {
             calendar.add(Calendar.DAY_OF_WEEK, 1);
+        }
+        int counter = 1;
+        System.out.println("Erster Sonntag im Monat: " + dateFormat.format(calendar.getTime()));
+
+            while(calendar.get(Calendar.MONTH) == month - 1) {
+                calendar.add(Calendar.DAY_OF_WEEK, 7);
+                if (calendar.get(Calendar.MONTH) == month - 1) counter++;
         }
 
         System.out.println("Soviele Sonntage im gewählten Monat: " + counter);
-
 
     }
 

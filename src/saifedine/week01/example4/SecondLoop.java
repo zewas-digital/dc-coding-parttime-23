@@ -9,7 +9,7 @@ public class SecondLoop {
 
     public static void main(String[] args) {
 
-        for (int i = 1; i <= 10; i += 2) {
+        for (int i = 1; i <= 10; i += 2) {                  // i += 2, (+) addiert 2 und (=) weist den neuen Wert zu
             System.out.println(i);
         }
     }

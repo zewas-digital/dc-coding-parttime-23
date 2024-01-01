@@ -34,15 +34,19 @@ public class Stream_5_CSVReader {
 
         String[] rows = csvData.split("\n");
         String[][] spalten = new String[rows.length][];
+
+
+
+
         for (int i = 0; i < rows.length; i++) {
-            spalten[i] = rows[i].split(" ; ");
+            spalten[i] = rows[i].split(",");
         }
 
         for (int i = 0; i < spalten.length; i++) {
 
 
             for (int j = 0; j < spalten[i].length; j++) {
-                System.out.printf("%15s", spalten[i][j]);
+                System.out.printf("%20s", spalten[i][j]);
             }
             System.out.println();
         }
