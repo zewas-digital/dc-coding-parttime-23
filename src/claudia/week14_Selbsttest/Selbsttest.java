@@ -350,9 +350,13 @@ DI 19.10.2021
         return temp;
     }
     public static String aufgabe7_readString(String message) {
-        System.out.println(message);
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        String text = "";
+        while (text.isEmpty()) {
+            System.out.println(message);
+            text = sc.nextLine();
+        }
+        return text;
     }
     public static int aufgabe7_readInt(String message) {
         System.out.print(message);
