@@ -104,16 +104,16 @@ public class example_34_ConfectionSizes {
                     groesse = "XXL";
                     break;
                 case 64:
-                    groesse = "XXL";
+                    groesse = "3XL";
                     break;
                 case 66:
-                    groesse = "XXL";
+                    groesse = "3XL";
                     break;
                 case 68:
-                    groesse = "XXL";
+                    groesse = "4XL";
                     break;
                 case 70:
-                    System.out.print( "XXXXL" );
+                    System.out.print( "4XL" );
                     break;
                 default:
                     System.out.println( "Falsche Herren Größe!" );

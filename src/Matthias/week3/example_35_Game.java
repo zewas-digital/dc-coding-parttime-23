@@ -37,11 +37,11 @@ public class example_35_Game {
         /*/Variabeln
         //Programm Ablauf
         //1. UserStory-> Programm Beschreibung
-        userInfo();
+
         //2. Erzeugen der RandomZahl und Rückgabe ins Programm
-        int RandomNumber=createRandomNumber(iMinValue,iMaxValue);
+
         //3. Eingabe der Zahl durch den UserInput
-        int numDigits = String.valueOf(RandomNumber).length();
+
         //4. Prüfung der Zahlen
 
         //5. Ausgabe der Auswertung
