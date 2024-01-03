@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class Auto {
+
     public String marke = "";
 
     public String model = "";
