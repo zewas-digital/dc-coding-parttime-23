@@ -1,4 +1,4 @@
-package Simonsway.Week15;
+package Simonsway.Week15.AutoRefactor;
 
 /*
 Aufgabe: Auto
@@ -21,14 +21,11 @@ public class Objekt_1_Auto {
 
     public static void main(String[] args) {
 
-        Auto Audi = new Auto("Audi","A3",2003, 200000, 50, 30, 0.06, 450, 100);
-        System.out.println(Audi.toString());
-
-        Auto Ford = new Auto("Ford","Mustang",1998, 130000, 70, 45, 0.04, 10, 100);
-        System.out.println(Ford.toString());
-
-
-
+        Auto Audi = new Auto("Audi", "A3", 2001, 5000, 70, 0.06);
+        Audi.tankFuelstand = 25;
+        Audi.fahzeugDetails();
+        Audi.volltanken();
+        Audi.fahren(7000);
+        System.out.println("Neuer Kilomter Stand " + Audi.kmStand);
     }
-
 }

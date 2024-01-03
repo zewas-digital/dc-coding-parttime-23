@@ -18,10 +18,10 @@ example_33_Calculator {
 
             // Erstellen der lokalen Variabeln
             int settedMenuNumber=0;
-            int zahl1=0,  zahl2=0;
+            double zahl1=0,  zahl2=0;
 
             // Erzeugen eines Arrays mit dem Inhalt von Zahl 1 und 2
-            int[]Array_Numer1_2= new int[]{zahl1,zahl2};
+            double[]Array_Numer1_2= new double[]{zahl1,zahl2};
 
             //Schritt 1: Drucken der Bentuzeranleitung
             printUnserInfo( );
@@ -84,10 +84,11 @@ example_33_Calculator {
     }
 
     //Methode 3: Die Methode holt soviel Zahlenwerte vom User, wie an NumberOfNumbersWantToGet benötigt werden und speichert diese Zahlen in einem Array
-    public static int[] getValuesOfCalculation(int NumberOfNumbersWantToGet ) {
-        int[]Array_Numer1_2= new int[NumberOfNumbersWantToGet];
+    public static double[] getValuesOfCalculation(int NumberOfNumbersWantToGet ) {
+        double[]Array_Numer1_2= new double[NumberOfNumbersWantToGet];
         for (int i = 0; i < Array_Numer1_2.length; i++) {
-            System.out.println( "Geben Sie Zahl ein: " );
+            int zahl=i;
+            System.out.println( "Geben Sie Zahl "+(zahl+1)+" ein: " );
             Array_Numer1_2[i]=example_25_ReadDatatype.getInt();
         }
         return Array_Numer1_2;

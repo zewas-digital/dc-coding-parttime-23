@@ -17,19 +17,23 @@ Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht 
 
 public class Objekt_2_Autofahren {
     public static void main(String[] args) {
-        Auto Porsche = new Auto("Porsche", "Cayenne", 2018, 20000,80);
+        Auto Porsche = new Auto("Porsche", "Cayenne", 2018, 20000,80,0,0.5);
+
+        System.out.println(Porsche + "\n");
+
+        Porsche.fahren(60);
+        Porsche.fahren(70);
+
+        System.out.println("Neuer Kilometerstand: " + Porsche.kmStand);
+
+
+        System.out.println("Aktuelles Tankvolumen: " + Porsche.tankvolumen + ", Getankte Menge: " + Porsche.volltanken() + " Liter");
+
+        System.out.println(Porsche);
 
         Porsche.fahren(50);
-        Porsche.fahren(50);
 
-        System.out.println("Neuer Kilometerstand nach fahrt: " + Porsche.kmStand);
-
-
-        System.out.println("Getankte Menge " + Porsche.volltanken(50) + " Liter" + ", Aktuelles Tankvolumen: " + Porsche.tankvolumen);
-
-       // Porsche.verbrauchproKm(1);
-
-        System.out.println();
+        System.out.println(Porsche.verbrauchproKm());
 
     }
 }
