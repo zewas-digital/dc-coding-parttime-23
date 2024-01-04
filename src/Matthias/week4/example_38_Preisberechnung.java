@@ -38,7 +38,7 @@ example_38_Preisberechnung {
         double Gesamtpreisminusdiscount=Gesamtpreis*((100.0-discountInPercent)/100.0);
         return Gesamtpreisminusdiscount;
     }
-    static double calculatePrice(int amount, double price, double totalDiscount) {
+    static double calculatePrice2(int amount, double price, double totalDiscount) {
     double Gesamtpreis = (amount * price);
     double Gesamtpreisinclusivedis= Gesamtpreis-totalDiscount;
     return Gesamtpreisinclusivedis;
@@ -63,7 +63,7 @@ example_38_Preisberechnung {
 
         System.out.println("Apfel Preis: " + calculatePrice(iStückApfel,iStückPreisApfel) );
         System.out.println("Birnen Preis: " +calculatePrice( iStückBirne, iStückPreisBirne,iProzentRabatBirne ) );
-        System.out.println( "Annanas Preis: " + calculatePrice( iStückAnnanas, iStückPreisAnannas,iAnnanasRabatt ));
+        System.out.println( "Annanas Preis: " + calculatePrice2( iStückAnnanas, iStückPreisAnannas,iAnnanasRabatt ));
 
     }
 

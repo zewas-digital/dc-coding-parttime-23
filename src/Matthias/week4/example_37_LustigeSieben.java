@@ -105,7 +105,7 @@ public class example_37_LustigeSieben {
         Scanner Scanner = new Scanner( System.in );
         // User Abgfrage: Einsatz
         System.out.print("Bitte um Ihren Einsatz: " );
-        int UserDeposit= Scanner.nextInt();
+        int UserDeposit= Scanner.nextInt(); //negativer Einsatz wird nicht Überprüft!
         // User Ausgabe des Einsatzes und des aktuellen Kontostandes unter abzug des Einsatzes
         total=total-UserDeposit;
         System.out.println("Einsatz: "+ UserDeposit +", Kontostand: " +total);
@@ -170,7 +170,7 @@ public class example_37_LustigeSieben {
         Scanner scanner= new Scanner(System.in);
         System.out.println("Wollen Sie weiterspielen (j/n):" );
         char jORn=scanner.next().charAt( 0 );
-        if ( total>-100) {
+        if ( total<=-100) {
             System.out.println("Sie können unter: "+total+" nicht Weiterspielen aufwiedersehen!" );
             return false;
         }else if ( jORn =='j') {
