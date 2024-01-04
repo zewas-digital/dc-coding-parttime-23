@@ -24,5 +24,5 @@ xxxxxxxxx
 
 */
 
-public class PrintTriangle2 {
-}
+//public class PrintTriangle2 {
+//}
