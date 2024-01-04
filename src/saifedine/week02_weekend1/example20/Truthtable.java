@@ -45,24 +45,24 @@ public class Truthtable {
 
         System.out.println("   &&   | TRUE  | FALSE ");
         System.out.println("________________________");
-        System.out.println(" TRUE   | " + (true && true) + " | " + (true && false));
+        System.out.println(" TRUE   | " + (true && true) + " | " + (true && false));                                    // TRUE   | true | false
         System.out.println("________________________");
-        System.out.println("FALSE   | " + (false && true) + " | " + (false && false));
+        System.out.println("FALSE   | " + (false && true) + " | " + (false && false));                                  // FALSE  | false | false
 
         System.out.println();
 
         System.out.println("   ||   | TRUE  | FALSE ");
         System.out.println("________________________");
-        System.out.println(" TRUE   | " + (true || true) + " | " + (true || false));
+        System.out.println(" TRUE   | " + (true || true) + " | " + (true || false));                                    // TRUE   | true | true
         System.out.println("________________________");
-        System.out.println("FALSE   | " + (false || true) + " | " + (false || false));
+        System.out.println("FALSE   | " + (false || true) + " | " + (false || false));                                  // FALSE  | true | false
 
         System.out.println();
 
         System.out.println("   !   ");
         System.out.println("________________________");
-        System.out.println(" TRUE   | " + !true);
+        System.out.println(" TRUE   | " + !true);                                                                       // TRUE   | false
         System.out.println("________________________");
-        System.out.println("FALSE   | " + !false);
+        System.out.println("FALSE   | " + !false);                                                                      // FALSE   | true
     }
 }
