@@ -69,14 +69,13 @@ public class Game_ohne_Erklärung {
                     if (guessDigit == valueString.charAt(i)) {
                         correctDigits++;
                     }
-                    else {
+                    else if (valueString.contains(String.valueOf(guessString.charAt(i)))) {
                         incorrectPosition++;
                     }
                 }
             }
 
-            System.out.println(correctDigits + " Ziffer(n) ist/sind korrekt, " +
-                    "weitere " + incorrectPosition + " Ziffer(n) ist/sind vorhanden.");
+            System.out.println(correctDigits + " Ziffer(n) ist/sind korrekt, " + "weitere " + incorrectPosition + " Ziffer(n) ist/sind vorhanden.");
             attempts++;
         }
 

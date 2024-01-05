@@ -34,20 +34,7 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
 
-        /* Erklärung Bausteine:
-
-            // ein Bustabe aus einem String lesen:
-            String string = "äöljk";
-            System.out.println("String. " + string);        // string = äöljk
-            char c = string.charAt(2);
-            System.out.println("Buchstabe: " + c);          // c = l
-
-            // einen char in ein String umwandeln
-            c = 'l';
-            String s = String.valueOf(c);
-            System.out.println("String: " + s);             // s = l
-         */
-
+        // Hinweis: diverse Erklärungen finden sich unter V04_Zeichenkette im Udemy Kurs "Java-leicht-gemacht"!!!
 
 // Erzeugt eine Instanz der Random-Klasse, die zur Generierung von Zufallszahlen verwendet wird
         Random rand = new Random();
@@ -100,15 +87,14 @@ public class Game {
 // Überprüft, ob die Ziffer an der richtigen Position ist und erhöht die entsprechenden Zähler
                     if (guessDigit == valueString.charAt(i)) {
                         correctDigits++;
-                    } else {
+                    } else if (valueString.contains(String.valueOf(guessString.charAt(i)))) {
                         incorrectPosition++;
                     }
                 }
             }
 
 // Gibt die Anzahl der korrekten Ziffern und die Anzahl der Ziffern an der falschen Position aus
-            System.out.println(correctDigits + " Ziffer(n) ist/sind korrekt, " +
-                    "weitere " + incorrectPosition + " Ziffer(n) ist/sind vorhanden.");
+            System.out.println(correctDigits + " Ziffer(n) ist/sind korrekt, " + "weitere " + incorrectPosition + " Ziffer(n) ist/sind vorhanden.");
 
 // Erhöht die Anzahl der Versuche
             attempts++;
