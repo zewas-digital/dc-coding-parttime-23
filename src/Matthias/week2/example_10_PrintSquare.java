@@ -41,10 +41,7 @@ public class example_10_PrintSquare {
         char cVersuchszeichen ='a';
         int iAnzahlWiederholung=10;
         //Programm Start
-
         printsquare(cVersuchszeichen,iAnzahlWiederholung);
-
-
         //Ende des Programmes
     }
 }

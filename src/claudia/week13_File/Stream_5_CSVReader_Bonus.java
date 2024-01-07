@@ -40,12 +40,104 @@ public class Stream_5_CSVReader_Bonus {
         for (int j = 0; j < columns; j++) {
             totalWidth = totalWidth + widthOfColumn[j] + 2;
         }
-
+/*
         System.out.println("\nInhalt des Files " + resourceFileLink + ":");
         System.out.println("*".repeat(totalWidth));
 
         //Format left- or right-aligned, depending on if entry is word or number
         for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                try {
+                    Integer.parseInt(data[i][j]);
+                    System.out.printf("%" + widthOfColumn[j] + "s  ", data[i][j]);
+                } catch (NumberFormatException nfe) {
+                    try {
+                        Double.parseDouble(data[i][j]);
+                        System.out.printf("%" + widthOfColumn[j] + "s  ", data[i][j]);
+                    } catch (NumberFormatException nfe2) {
+                        System.out.printf("%-" + widthOfColumn[j] + "s  ", data[i][j]);
+                    }
+                }
+            }
+            System.out.println();
+        }
+        System.out.println("*".repeat(totalWidth));
+*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Sort by column - leave out first line (header!)
+        //TODO Sortieren nach den Datumsangaben funktioniert so nicht!
+
+
+        String[][] dataToSort = new String[rows - 1][columns];
+        for (int i = 0; i < rows - 1; i++) {
+            for (int j = 0; j < columns; j++) {
+                dataToSort[i][j] = data[i + 1][j];
+            }
+        }
+
+        int input = -1;
+        while (input < 0 || input > 14) {
+            System.out.println("Nach welcher Spalte soll sortiert werden?");
+            input = BasicFunctions.readInt("1- Region, 2 - Country, 3 - Item Type, 4 - Sales Channel, 5 - Order Priority, 6 - Order Date, 7 - Order ID, 8 - Ship Date, 9 - Units Sold, 10 - Unit Price, 11 - Unit Cost, 12 - Total Revenue, 13 - Total Cost, 14 - Total Profit: ");
+        }
+
+
+        try {
+            Integer.parseInt(dataToSort[0][input - 1]);
+            bubbleSortRegardingNumber(dataToSort, input - 1);
+        } catch (NumberFormatException nfe) {
+            try {
+                Double.parseDouble(dataToSort[0][input - 1]);
+                bubbleSortRegardingNumber(dataToSort, input - 1);
+            } catch (NumberFormatException nfe2) {
+                bubbleSortRegardingAlphabet(dataToSort, input - 1);
+            }
+        }
+
+
+            System.out.println("Daten sortiert nach" + input + "-ter Spalte: ");
+            System.out.println("*".repeat(totalWidth));
+            //Überschriftszeile
+            for (int j = 0; j < columns; j++) {
+                System.out.printf("%-" + widthOfColumn[j] + "s  ", data[0][j]);
+            }
+            System.out.println();
+
+            for (int i = 0; i < rows - 1; i++) {
+                for (int j = 0; j < columns; j++) {
+                    if (dataToSort[i][j].charAt(0) >= 48 && dataToSort[i][j].charAt(0) <= 57) //Ascii-Values of numbers between 48 (for 0) and 57 (for 9)
+                        System.out.printf("%" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
+                    else System.out.printf("%-" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
+                }
+                System.out.println();
+            }
+            System.out.println("*".repeat(totalWidth));
+
+        }
+
+    public static void bubbleSortRegardingAlphabet(String[][] data, int col) {
+        int rows = data.length;
+        for (int i = 0; i < rows - 1; i++) {
+            for (int j = 0; j < rows - i - 1; j++) {
+                if (data[j][col].compareTo(data[j + 1][col]) > 0) {
+                    swapElements(data, j, j + 1);
+                }
+            }
+        }
+    }
+    public static void bubbleSortRegardingNumber(String[][] data, int col) {
+        int rows = data.length;
+        for (int i = 0; i < rows - 1; i++) {
+            for (int j = 0; j < rows - i - 1; j++) {
+                if (Double.parseDouble(data[j][col]) > Double.parseDouble(data[j + 1][col])) {
+                    swapElements(data, j, j + 1);
+                }
+            }
+        }
+    }
+
+    /*
+    for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 try {
                     Integer.parseInt(data[i][j]);
@@ -61,56 +153,7 @@ public class Stream_5_CSVReader_Bonus {
            }
             System.out.println();
         }
-        System.out.println("*".repeat(totalWidth));
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //Sort by column - leave out first line (header!)
-        //TODO Sortieren nach den Datumsangaben oder Zahlen funktioniert so nicht!
-
-        String[][] dataToSort = new String[rows - 1][columns];
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < columns; j++) {
-                dataToSort[i][j] = data[i + 1][j];
-            }
-        }
-
-        int input = -1;
-        while (input < 0 || input > 14) {
-            System.out.println("Nach welcher Spalte soll sortiert werden?");
-            input = BasicFunctions.readInt("1- Region, 2 - Country, 3 - Item Type, 4 - Sales Channel, 5 - Order Priority, 6 - Order Date, 7 - Order ID, 8 - Ship Date, 9 - Units Sold, 10 - Unit Price, 11 - Unit Cost, 12 - Total Revenue, 13 - Total Cost, 14 - Total Profit: ");
-        }
-
-        bubbleSortRegardingAlphabet(dataToSort, input-1);
-        System.out.println("Daten sortiert nach" + input +"-ter Spalte: ");
-        System.out.println("*".repeat(totalWidth));
-        //Überschriftszeile
-        for (int j = 0; j < columns; j++) {
-            System.out.printf("%-" + widthOfColumn[j] + "s  ", data[0][j]);
-        }
-        System.out.println();
-
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (dataToSort[i][j].charAt(0) >= 48 && dataToSort[i][j].charAt(0) <= 57) //Ascii-Values of numbers between 48 (for 0) and 57 (for 9)
-                    System.out.printf("%" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
-                else System.out.printf("%-" + widthOfColumn[j] + "s  ", dataToSort[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("*".repeat(totalWidth));
-
-    }
-
-    public static void bubbleSortRegardingAlphabet(String[][] data, int col) {
-        int rows = data.length;
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < rows - i - 1; j++) {
-                if (data[j][col].compareTo(data[j + 1][col]) > 0) {
-                    swapElements(data, j, j + 1);
-                }
-            }
-        }
-    }
+     */
 
     public static void swapElements(String[][] data, int i1, int i2) {
         if (i1 != i2) {

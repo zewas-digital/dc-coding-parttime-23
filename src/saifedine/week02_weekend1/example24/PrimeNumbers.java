@@ -1,82 +1,47 @@
 /*
 Erstelle ein Programm, dass als Primzahlen innerhalb eines bestimmten Intervalls auf der Console ausgibt.
- */
+*/
 
+// https://studyflix.de/mathematik/primzahlen-3161
+
+// Import der Klasse "PrimeNumbers" im Package "saifedine.week02_weekend1.example24"
 package saifedine.week02_weekend1.example24;
 
+// Deklaration der Klasse "PrimeNumbers"
 public class PrimeNumbers {
+
+    // Hauptmethode, die das Programm startet
     public static void main(String[] args) {
-        for (int i = 2; i <= 100  ; i++) {
-            isPrime(i);
-        }
 
-    }
-    static void isPrime(int x){
-        boolean prime = true;
+        int num = 100;                                                                                                   // Initialisierung der Variablen "num" mit dem Wert 10
 
-        for (int i = 2; i < x/2; i++) {
-            if (x % i ==0){
-                prime = false;
+        // Schleife, die alle Zahlen von 2 bis "num" überprüft
+        for (int i = 2; i <= num; i++) {
 
-            }
-        }
-        if (prime == true){
-            System.out.println(x);
-        }
-
-    }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-public class LoopWithModulo {
-    public static void main(String[] args) {
-        for (int i = 0; i <=10 ; i += 2) {
-            System.out.println(i);
-        }
-
-        int j = 0;
-        while (j <= 10) {
-            if (j % 2 == 0)
-                System.out.println(j);
-            j++;
-        }
-    }
-}
-
-public class LoopControl {
-    public static void main(String[] args) {
-        int anzahlschleifen = 0;
-        int i = 1;
-        while (i <= 100) {
-            i++;
-
-            if (i % 2 == 0) {
+            // Wenn "i" eine Primzahl ist, wird sie auf der Konsole ausgegeben
+            if (primzahl(i) == true){
                 System.out.println(i);
-                anzahlschleifen++;
-            } else if (i % 3 == 0) {
-                System.out.println(i);
-                anzahlschleifen++;
             }
-            if (anzahlschleifen == 20){
-                break;
-            }
-
         }
     }
+
+    // Methode zur Überprüfung, ob eine Zahl eine Primzahl ist
+    static boolean primzahl(int num){
+
+        boolean isPrim = true;                                                                                          // Initialisierung der Variablen "isPrim" als "true"
+
+        // Schleife, die alle Zahlen von 2 bis "num" überprüft
+        for (int j = 2; j < num; j++) {
+
+            // Wenn "num" durch "j" teilbar ist, ist es keine Primzahl
+            if (num % j == 0) {
+                isPrim = false;                                                                                         // Setzt "isPrim" auf "false"
+                break;                                                                                                  // Beendet die Schleife
+            }
+            else {
+                isPrim = true;                                                                                          // Setzt "isPrim" auf "true"
+            }
+        }
+        return isPrim;                                                                                                  // Gibt den Wert von "isPrim" zurück
+    }
 }
- */
