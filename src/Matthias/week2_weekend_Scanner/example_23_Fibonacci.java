@@ -13,6 +13,14 @@ package Matthias.week2_weekend_Scanner;
 
 public class example_23_Fibonacci {
 
+
+    public static void main(String[] args) {
+        int Eingabe= 12;
+
+        checkEingabe(Eingabe);
+        Fibonacci(Eingabe);
+    }
+    // Methode 1: Überprüfung der Eingabe
     static  void checkEingabe ( int number1){
         if (number1 > 0) {
             System.out.println(number1 + " is a positive number.");
@@ -22,6 +30,7 @@ public class example_23_Fibonacci {
         }
         System.out.println();// Abstand
     }
+    // Methode 2: Berechnung der Fibonacci Folge
     static  void Fibonacci( int iAnzahlfolgeglieder){
 
         System.out.println("F(0) =" + "0");
@@ -40,11 +49,5 @@ public class example_23_Fibonacci {
 
         }
 
-    }
-    public static void main(String[] args) {
-        int Eingabe= 12;
-
-        checkEingabe(Eingabe);
-        Fibonacci(Eingabe);
     }
 }

@@ -62,12 +62,17 @@ public class example_35_Game {
                     int correctDigitsAndPosition = 0; // Zähler für korrekte Ziffern an der richtigen Position initialisieren
                     int correctDigitsOnly = 0; //Zähler für korrekte Ziffern an falscher Position initialisieren
 
-                    for (int i = 0; i < 4; i++) {
-                        if (computerNumberString.charAt(i) == userNumberString.charAt(i)) { // Jede Ziffer der beiden Zahlen vergleichen
-                            correctDigitsAndPosition++; // Wenn die Ziffern an der gleichen Position übereinstimmen, den entsprechenden Zähler erhöhen
-                        } else if (computerNumberString.contains(String.valueOf(userNumberString.charAt(i)))) {
-                            correctDigitsOnly++;
-                        }
+                    for (int i = 0; i < userNumberString.length(); i++) {
+
+
+                            if ( computerNumberString.charAt( i ) == userNumberString.charAt( i ) ) { // Jede Ziffer der beiden Zahlen vergleichen
+                                correctDigitsAndPosition++; // Wenn die Ziffern an der gleichen Position übereinstimmen, den entsprechenden Zähler erhöhen
+                            }
+                            if (  !(computerNumberString.charAt( i ) == userNumberString.charAt( i ))) {
+                                if ( computerNumberString.contains( String.valueOf( userNumberString.charAt( i ) ) ) ) {
+                                    correctDigitsOnly++;
+                                }
+                            }
                     }
                     /*
                     Diese Schleife durchläuft die vier Ziffern der beiden Zahlen. Für jede Ziffer wird geprüft, ob sie an der gleichen Position übereinstimmen.
@@ -94,7 +99,7 @@ public class example_35_Game {
     }
     public static int createRandomNumber(int iMinValue, int iMaxValue){
         Random RZahl=new Random(  );
-        int iRandomNumber=RZahl.nextInt( iMinValue,iMaxValue);
+        int iRandomNumber=RZahl.nextInt( iMinValue,iMaxValue+1);
         return iRandomNumber;
     }
 }

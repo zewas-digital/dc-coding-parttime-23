@@ -8,6 +8,17 @@ Bisher haben wir beispielsweise die Größe eines Rechtecks direkt im Code defin
 import java.util.Scanner;
 
 public class example_26_Refector {
+
+    public static void main(String[] args) {
+
+        //Variablen vom Benutzer Abfragen
+        int intNumber1 = getInt();
+        int intNumber2 = getInt();
+
+        //Drucken der Rechtecke:
+        printEmptySquare('x', intNumber1);
+        printEmptySquare('A', intNumber2);
+    }
     //Methode 1: Druck ein Rechteck
     static void printEmptySquare(char buchstabe, int seitenlänge) {
         for (int i = 0; i < seitenlänge; i++) {
@@ -39,17 +50,6 @@ public class example_26_Refector {
         System.out.println("Tippen Sie eine ganze Zahl ein:");
         intNumber = scanner.nextInt();
         return intNumber;
-    }
-
-    public static void main(String[] args) {
-
-        //Variablen vom Benutzer Abfragen
-        int intNumber1 = getInt();
-        int intNumber2 = getInt();
-
-        //Drucken der Rechtecke:
-        printEmptySquare('x', intNumber1);
-        printEmptySquare('A', intNumber2);
     }
  }
 
