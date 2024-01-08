@@ -50,56 +50,125 @@ Methode 4:
  */
 
 public class PrintTriangle {
+
     public static void main(String[] args) {
 
+        char zeichen = 'x';
+        int size = 5;
 
-        printTriangleBottomLeft('x', 4);
-        printTriangleTopLeft('x',5);
-        printTriangleTopRight('x', 5);
-        printTriangleBottomRight('x', 5);
+        printTriangleBottomLeft1('x', 4);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleBottomLeft2('x', 4);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleTopLeft1('x', 5);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleTopLeft2('x', 5);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleTopRight1('x', 5);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleTopRight2('x', 5);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleBottomRight1('x', 5);
+        System.out.println(":::::::::::::::::::::::::::::::");
+        printTriangleBottomRight2('x', 5);
+
     }
 
-    static void printTriangleBottomLeft(char value, int size) {
+    public static void printTriangleBottomLeft1(char zeichen, int size){
+
+        String value = String.valueOf(zeichen);
+
+        for (int i = 1; i <= size; i++) {
+            System.out.print(value.repeat(i));
+            for (int j = 0; j < size; j++) {
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printTriangleBottomLeft2(char zeichen, int size){
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(zeichen);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printTriangleTopLeft1(char zeichen, int size){
+
+        String value = String.valueOf(zeichen);
+
+        for (int i = size; i > 0 ; i--) {
+            System.out.print(value.repeat(i));
+            for (int j = 0; j < size; j++) {
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printTriangleTopLeft2(char zeichen, int size){
+
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < i + 1; j++) {
+            for (int j = 0; j < size - i; j++) {
+                System.out.print(zeichen);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printTriangleTopRight1(char zeichen, int size){
+
+        String value = String.valueOf(zeichen);
+
+        for (int i = 0; i < size; i++) {
+            System.out.print(" ".repeat(i));
+            for (int j = 0; j < size - i; j++) {
                 System.out.print(value);
             }
             System.out.println();
         }
     }
 
-    static void printTriangleTopLeft (char value, int size){
-        for (int i = 0; i < size; i++) {
-            for (int j = size; j > i ; j--) {
+    public static void printTriangleTopRight2(char zeichen, int size){
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (j < i) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print(zeichen);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printTriangleBottomRight1(char zeichen, int size){
+
+        String value = String.valueOf(zeichen);
+
+        for (int i = size; i > 0; i--) {
+            System.out.print(" ".repeat(i - 1));
+            for (int j = 0; j <= size - i; j++) {
                 System.out.print(value);
             }
             System.out.println();
         }
     }
 
-    static void printTriangleTopRight(char value, int size){
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j <= i - 1; j++) {
-                System.out.print(' ');
-            }
-            for (int k = size; k > i ; k--) {
-                System.out.print(value);
-            }
-            System.out.println();
-        }
-    }
+    public static void printTriangleBottomRight2(char zeichen, int size){
 
-    static void printTriangleBottomRight (char value, int size){
-        for (int i = 0; i < size; i++) {
-            for (int k = 0; k < size -i - 1; k++) {
-                System.out.print(' ');
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j <= 5; j++) {
+                if (j < 5 - i){
+                    System.out.print(" ");
+                } else {
+                    System.out.print(zeichen);
+                }
             }
-            for (int j = size; j >= size -i; j--) {
-                System.out.print(value);
-            }
-
             System.out.println();
         }
     }
 }
-

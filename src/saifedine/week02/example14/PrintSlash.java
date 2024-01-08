@@ -26,23 +26,35 @@ y
 
 public class PrintSlash {
 
-
     public static void main(String[] args) {
 
-        printSlash('x', 3);
+        printSlash('x', 3, true);
+        printSlash('y', 4, false);
+
     }
 
-    static void printSlash (char value, int size){
+    public static void printSlash(char zeichen, int size, boolean backslash){
 
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size - 1; j++) {
-
-            }
             for (int j = 0; j < size; j++) {
-                System.out.print(value);
+                if (backslash) {
+                // oberer Teil --> Ausgabe mit 'x'
+                    if (j == i) {
+                        System.out.print(zeichen);
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                // unterer Teil --> Ausgabe mit 'y'
+                else {
+                    if (j == (size - 1 - i)) {
+                        System.out.print(zeichen);
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
             }
-            System.out.println('-');
-
+            System.out.println();
         }
     }
 }

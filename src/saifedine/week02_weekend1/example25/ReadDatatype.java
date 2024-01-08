@@ -20,7 +20,7 @@ public class ReadDatatype {
         System.out.println("Gib bitte eine - Java int: Ganze Zahlen in Java - ein: ");
         int intValue = Eingabe.nextInt();
 
-        System.out.println("Gib bitte eine - Java Long: Sehr große Ganzzahlen - ein: ");
+        System.out.println("Gib bitte eine - Java Long: Große Ganzzahlen - ein: ");
         long longValue = Eingabe.nextLong();
 
         System.out.println("Gib bitte eine - Kommazahlen II: Java double - ein: ");
@@ -38,6 +38,5 @@ public class ReadDatatype {
         System.out.println("double: " + doubleValue);
         System.out.println("float: " + floatValue);
         System.out.println("String: " + stringValue);
-
     }
 }

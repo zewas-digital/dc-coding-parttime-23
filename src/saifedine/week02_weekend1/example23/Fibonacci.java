@@ -7,48 +7,39 @@ Erläuterung:
     Achten Sie darauf, den Basisfall zu berücksichtigen: F(0) = 0 und F(1) = 1.
  */
 
+// siehe: https://studyflix.de/mathematik/fibonacci-folge-5511
+
 package saifedine.week02_weekend1.example23;
 
 public class Fibonacci {
     public static void main(String[] args) {
 
-        int nfibo = 7;
+        System.out.println("Fibonaccizahlen: ");
+        for (int i = 0; i < 7; i++) {
+            System.out.println("Ergebnis: " + fibonacci(i));
+        }
+    }
+
+    static int fibonacci(int n){
+
+        if (n == 0 || n == 1) return n;
+        int nfibo = n;
         int f0 = 0;
         int f1 = 1;
         int ergebnis = 0;
 
+        // i = 2, da f0 und f1 vordefiniert sind und nicht mehr berücksichtigt werden müssen.
         for (int i = 2; i <= nfibo; i++) {
 
             ergebnis = f0 + f1;
-            //System.out.println("ergebnis " + ergebnis);
+            //System.out.println("ergebnis1 " + ergebnis);
 
             f0 = f1;
             //System.out.println("f0 " + f0);
+
             f1 = ergebnis;
-            System.out.println("ergebnis " + f1);
-
-
-
-
+            //System.out.println("ergebnis " + f1);
         }
-
-
+        return ergebnis;
     }
-
-        }
-
-    /*
-        for (int i = 0; i < nfibo ; i++) {
-            System.out.println("zeilen: " + i);
-
-            zwsumme1 = bzahl1 + bzahl2;
-            System.out.println("zwsumme1: " + zwsumme1);
-
-            zwsumme2 = zwsumme1 + zwsumme2;
-            System.out.println("zwsumme2: " + zwsumme2);
-
-            }
-        }
-
-    }
-*/
+}

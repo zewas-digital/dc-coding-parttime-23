@@ -36,13 +36,13 @@ public class Calendar_5_Calendar {
         Calendar today = Calendar.getInstance(); //Kalenderobjekt mit aktuellem Datum "heute"
 
         //Hier Testdaten, falls nicht "heute" gewünscht
-        //calendar.set(2023, 0,3);
-        //today.set(2023,0,5);
+        //calendar.set(2023, 6,3);
+        //today.set(2023,6,19);
 
         SimpleDateFormat yearAndMonth = new SimpleDateFormat("yyyy LLLL");
         SimpleDateFormat weekday = new SimpleDateFormat("EE");
 
-        System.out.println("\n" + yearAndMonth.format(calendar.getTime()));//gibt Jahr und Monat aus wie vorgegeben
+        System.out.println("\n" + yearAndMonth.format(today.getTime()));//gibt Jahr und Monat aus wie vorgegeben
 
         calendar.set(Calendar.DAY_OF_WEEK, 2); //2 = Montag, für die Überschriftszeile
 
@@ -55,13 +55,17 @@ public class Calendar_5_Calendar {
         System.out.println("|");
         //Überschrift fertig ////////////////////////////////////////////////////////////////
 
+        calendar.set(Calendar.YEAR, today.get(Calendar.YEAR));
         calendar.set(Calendar.MONTH, today.get(Calendar.MONTH)); //Zählkalender wieder zurücksetzen
         calendar.set(Calendar.DAY_OF_MONTH, 1); //Datum auf ersten des Monats gesetzt
 
         while (calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH)) {
             //Drucke eine Zeile:
             for (int i = 2; i < 9; i++) {
+                //System.out.println("i " + i + " Calendar.DAY_OF_WEEK " + Calendar.DAY_OF_WEEK);//Calendar.DAY_OF_WEEK immer = 7!
                 if ((calendar.get(Calendar.DAY_OF_WEEK) == i || calendar.get(Calendar.DAY_OF_WEEK) == i % 7) && (calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH))) { //???TODO: i % 7??
+
+                   // if (calendar.get(Calendar.DAY_OF_WEEK) == i % 7) System.out.println("Alarm, calendar.get(Calendar.DAY_OF_WEEK) " + calendar.get(Calendar.DAY_OF_WEEK) +" i: " + i + " i mod 7: " + (i%7));
 
                     if (calendar.get(Calendar.DAY_OF_MONTH) == today.get(Calendar.DAY_OF_MONTH)) {
                         System.out.printf("| %2s*", calendar.get(Calendar.DAY_OF_MONTH));

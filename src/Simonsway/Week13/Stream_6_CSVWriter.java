@@ -31,14 +31,10 @@ public class Stream_6_CSVWriter {
 
             for (int i = 0; i < firstName.length; i++) {
                 writer.append(firstName[i]).append(",")
-                        .append(lastName[i])
-                        .append(",")
-                        .append(String.valueOf(age[i]))
-                        .append(",")
-                        .append(place[i])
-                        .append(",")
+                        .append(lastName[i]).append(",")
+                        .append(String.valueOf(age[i])).append(",")
+                        .append(place[i]).append(",")
                         .append(String.format("%.2f", distanceFromCapital[i]));
-
                 writer.append("\n");
             }
 

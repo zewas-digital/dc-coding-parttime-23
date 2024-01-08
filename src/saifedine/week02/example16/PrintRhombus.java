@@ -20,88 +20,45 @@ x     x
  */
 
 /*
-Version von Michael
+Version von Claudia
  */
 
 class PrintRhombus {
+
     public static void main(String[] args) {
 
-        dreieck('x', 99);
+        printRhombus('x', 7);
+
     }
 
-    static void dreieck(char buchstabe, int größe) {
-//__________________________________________________________________________
-        for (int i = 0; i < größe / 2; i++) {
-            System.out.print("-");
-        }
-        System.out.print(buchstabe);
+    public static void printRhombus(char zeichen, int size){
 
-        for (int i = 0; i < größe / 2; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
+        int zeilenmitte = (size - 1) / 2;
 
-        int m = größe / 2;
-        int n = 1;
-        for (int i = 0; i < größe / 2; i++) {
-            //__________________________________________________________________________
-            for (int j = 1; j < m; j++) {
-                System.out.print("-");
+        //obere Hälfte inkl. Mitte
+        for (int i = 0; i < (size + 1) / 2; i++) {
+            for (int j = 0; j < size; j++) {
+                if ((j == zeilenmitte - i) || (j == zeilenmitte + i)){
+                    System.out.print(zeichen);
+                }
+                else {
+                    System.out.print(" ");
+                }
             }
-            //__________________________________________________________________________
-            System.out.print(buchstabe);
-            //__________________________________________________________________________
-            for (int k = 0; k < n; k++) {
-                System.out.print("-");
-            }
-            //__________________________________________________________________________
-            System.out.print(buchstabe);
-            //__________________________________________________________________________
-            for (int l = 1; l < m; l++) {
-                System.out.print("-");
-            }
-            //__________________________________________________________________________
             System.out.println();
-            m--;
-            n += 2;
-
         }
-        m = 1;
-        n = größe - 4;
-        for (int i = 1; i < größe / 2; i++) {
-            //__________________________________________________________________________
-            for (int j = 0; j < m; j++) {
-                System.out.print("-");
+
+        // untere Hälfte
+        for (int i = zeilenmitte - 1; i >= 0; i--) {
+            for (int j = 0; j < size ; j++) {
+                if ((j == zeilenmitte - i) || (j == zeilenmitte + i)) {
+                    System.out.print(zeichen);
+                }
+                else {
+                    System.out.print(" ");
+                }
             }
-            //__________________________________________________________________________
-            System.out.print(buchstabe);
-            //__________________________________________________________________________
-            for (int k = 0; k < n; k++) {
-                System.out.print("-");
-            }
-            //__________________________________________________________________________
-            System.out.print(buchstabe);
-            //__________________________________________________________________________
-            for (int l = 0; l < m; l++) {
-                System.out.print("-");
-            }
-            //__________________________________________________________________________
             System.out.println();
-            m++;
-            n -= 2;
-            //__________________________________________________________________________
         }
-
-        for (int i = 0; i < größe / 2; i++) {
-            System.out.print("-");
-        }
-        System.out.print(buchstabe);
-
-        for (int i = 0; i < größe / 2; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
     }
 }
-
-
