@@ -30,7 +30,6 @@ public class Stream_0_BufferedReader {
 
                 lineNumber++;
             }
-
         } catch (IOException exc) {
             throw new RuntimeException(exc);
         } finally {

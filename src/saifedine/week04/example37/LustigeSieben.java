@@ -71,51 +71,61 @@ import java.util.Scanner;
 
 public class LustigeSieben {
 
-    static Scanner Eingabe = new Scanner(System.in);
     static int total = 0;
 
     public static void main(String[] args) {
 
 
+
         System.out.println("Lass uns Spielen!");
         System.out.println("=========================================");
         System.out.println("=========================================");
+        System.out.println();
 
-        readBid();
-        //readBet();
-        rollDice();
+        int bit = readBid();
 
-        }
+        int bet = readBet();
 
-    static void readBid (){
-        System.out.print("Bitte um Ihren Einsatz: ");
-        int einsatz = Eingabe.nextInt();
+        int wuerfel1 = rollDice();
+        int wuerfel2 = rollDice();
+        int dice = wuerfel1 + wuerfel2;
+        System.out.println("Die Wuerfel sind gefallen: " + wuerfel1 + " + " + wuerfel2 + " = " + dice);
 
-        System.out.println("Einsatz: " + einsatz + " EUR" + ", Kontostand: " + (total - einsatz) + " EUR");
+
 
     }
 
-        /*
+    // liest den Einsatz von der Nutzerin ein und liefert ihn als Ergebnis zurück. Der Einsatz wird dabei innerhalb der Methode vom Kontostand der Nutzerin abgezogen
+    static int readBid(){
 
-        static void readBet(){
+        System.out.print("Bitte um Ihren Einsatz: ");
+        Scanner eingabe = new Scanner(System.in);
+        int einsatz = eingabe.nextInt();
 
-        int eingabeZahl = 0;
+        total =- einsatz;
+        System.out.println("Einsatz: " + einsatz + " EUR, Kontostand: " + total + " EUR");
+        return einsatz;
+    }
 
+    // liest die Zahl, auf die der Benutzer setzt (von 2 bis 12) ein und liefert sie als Ergebnis zurück
+    static int readBet(){
 
-        eingabeZahl = Eingabe.nextInt();
-        System.out.print("Setzen Sie auf eine Zahl zwischen 2 und 12: " + eingabeZahl);
+        int zahlEinsatz = 0;
 
-        }*/
+        Scanner eingabe = new Scanner(System.in);
+        while (zahlEinsatz < 2 || zahlEinsatz > 12){
+            System.out.print("Setzen Sie auf eine Zahl zwischen 2 und 12: ");
+            zahlEinsatz = eingabe.nextInt();
+        }
+        return zahlEinsatz;
+    }
 
+    // würfelt mit einem Würfel und liefert eine zufällige Zahl von 1 bis 6
+    static int rollDice(){
 
-
-    static void rollDice(){
-
-        Random rand = new Random();
-        int dice = rand.nextInt(2,12);
-
-        System.out.print("Setzen Sie auf eine Zahl zwischen 2 und 12: " + dice);
-
+        Random zufall = new Random();
+        int wuerfel = zufall.nextInt(1,6);
+        return wuerfel;
     }
 
 }

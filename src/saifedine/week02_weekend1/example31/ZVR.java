@@ -10,42 +10,44 @@ Der Nutzer wird nacheinander aufgefordert die drei Werte einzugeben. Möchte er 
 
 Nachdem alle drei Werte erhoben sind, soll geprüft werden, ob eine der beiden Bedingungen erfüllt wurde.
 Wenn ja, soll ausgegeben werden "Abfrage erfolgreich!". Wenn nicht, soll ausgegeben werden "Kein Verein gefunden."
-
-
  */
 
 package saifedine.week02_weekend1.example31;
 
+
 import java.util.Scanner;
 
 public class ZVR {
+
     public static void main(String[] args) {
-        // Tipp zur Validierung von Vereinsname und -sitz
 
-        Scanner Eingabe = new Scanner(System.in);
+        int zvrNummer = 0;
+        String vereinsName = " ";
+        String vereinsSitz = " ";
 
+        Scanner eingabe = new Scanner(System.in);
+        System.out.println("Bitte geben Sie die ZVR Nummer ein: ");
+        zvrNummer = eingabe.nextInt();
 
-        System.out.println("Geben Sie die ZVR Nummer ein: ");
-        long longZVRNummer = Eingabe.nextLong();
-        System.out.println("Geben Sie den ersten Teil des Vereinsname ein - ohne Abstand: ");
-        String stringVereinsname = Eingabe.next();
-        System.out.println("Geben Sie den Vereinssitze ein: ");
-        String stringVereinssitz = Eingabe.next();
+        System.out.println("Bitte geben Sie den Vereinsnamen ein: ");
+        vereinsName = eingabe.next();
 
-        if (longZVRNummer >= 100000000 && longZVRNummer <= 999999999) {
+        System.out.println("Bitte geben Sie den Vereinssitze ein: ");
+        vereinsSitz = eingabe.next();
 
-            System.out.println("Hier die Vereinsdaten: ");
+        System.out.println("ZVR Nummer: " + zvrNummer);
+        System.out.println("Vereinsname: " + vereinsName);
+        System.out.println("Vereinssitz: " + vereinsSitz);
 
-        } else if (longZVRNummer == -1) {
-            if (stringVereinsname.length() >= 3 && stringVereinssitz.length() >= 3) {
-
-                System.out.println("Abfrage erfolgreich!");
-
-            }
+        if ((zvrNummer >= 100000000 && zvrNummer <= 999999999) || ((vereinsName.length() > 2 && vereinsSitz.length() > 2))){
+            System.out.println("Abfrage erfolgreich!");
         }
-
+        else if ((zvrNummer == -1) || (vereinsName.equals("-1") && vereinsSitz.equals("-1"))) {
+            System.out.println("Kein Verein gefunden.");
+        }
+        else {
+            System.out.println("Eingabe ungültig, bitte versuchen Sie es noch einmal: ");
+        }
+        System.out.println();
     }
-
-
-    //System.out.println("Beispiel".length());
 }

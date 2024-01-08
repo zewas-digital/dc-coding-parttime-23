@@ -11,17 +11,18 @@ public class BiggerSmaller {
 
     public static void main(String[] args) {
 
-        int number = 27;
+        int zahl = 10;
 
-        if (number > 10){
-            System.out.println("Größer");
+        if (zahl > 10){
+            System.out.println(zahl + " ist größer als 10");
         }
-        else if (number < 10) {
-            System.out.println("Kleiner");
+        else if (zahl < 10) {
+            System.out.println(zahl + " ist kleiner als 10");
         }
         else {
-            System.out.println("Gleich");
+            System.out.println(zahl + " ist gleich 10");
         }
     }
 }
+
 

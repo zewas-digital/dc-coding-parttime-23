@@ -10,21 +10,24 @@ printChars('x', 10);
 
 Die Ausgabe dazu soll wie folgt ausschauen:
 xxxxxxxxxx
-
-
  */
+
+// for
+// Methode: printChars('x', 10)
 
 public class Methods {
 
     public static void main(String[] args) {
 
-        printChars('x', 10);
+        int anzahl = 10;
+        char zeichen = 'x';
+
+       printChars(zeichen,anzahl);
     }
 
-    static void printChars (char value, int size) {
-
-        for (int i = 0; i < size ; i++) {
-            System.out.print(value);
+    public static void printChars(char zeichen,int anzahl){
+        for (int i = 0; i < anzahl; i++) {
+            System.out.print(zeichen);
         }
     }
 }
