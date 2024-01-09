@@ -27,17 +27,17 @@ public class Objekt_2_Autofahren {
         System.out.println("Tankinhalt vorher: " + AudiA4.tankinhalt);
         System.out.println("Der Verbrauch des Autos beträgt " + AudiA4.verbrauch  + " pro 100 km");
 
-        Double[] fahrOutput = AudiA4.fahren(100);
+        Double[] AudiA4fahrOutput = AudiA4.fahren(100);
 
         /*
-        public int gefahreneKm = (int) fahrOutput[0];
-        public double tankinhaltverbrauch = fahrOutput[1];
+        public int gefahreneKm = (int) AudiA4fahrOutput[0];
+        public double tankinhaltverbrauch = AudiA4fahrOutput[1];
         */
 
         System.out.println("gefahrene Km: " + AudiA4.gefahreneKm);                                                      // wurde nicht ausgegeben, warum?
-        System.out.println("gefahrene Km: " + fahrOutput[0]);
+        System.out.println("gefahrene Km: " + AudiA4fahrOutput[0]);
         System.out.println("Der verbrauchte Kraftstoff: " + AudiA4.tankinhaltverbrauch);
-        System.out.println("Der verbrauchte Kraftstoff: " + fahrOutput[1]);
+        System.out.println("Der verbrauchte Kraftstoff: " + AudiA4fahrOutput[1]);
         System.out.println("Der Tankinhalt nach der Fahrt ist: " + AudiA4.tankinhalt);
         System.out.println("KmStand nachher: " + AudiA4.getKilometerstand());
         System.out.println("KmStand nachher: " + AudiA4.kilometerstandFormatiert);
@@ -54,9 +54,9 @@ public class Objekt_2_Autofahren {
 
         HyundaiI20.fahren(80);
         System.out.println("gefahrene Km: " + HyundaiI20.gefahreneKm);                                                      // wurde nicht ausgegeben, warum?
-        System.out.println("gefahrene Km: " + fahrOutput[0]);
+        System.out.println("gefahrene Km: " + AudiA4fahrOutput[0]);
         System.out.println("Der verbrauchte Kraftstoff: " + HyundaiI20.tankinhaltverbrauch);
-        System.out.println("Der verbrauchte Kraftstoff: " + fahrOutput[1]);
+        System.out.println("Der verbrauchte Kraftstoff: " + AudiA4fahrOutput[1]);
         System.out.println("KmStand nachher: " + HyundaiI20.getKilometerstand());
         System.out.println("KmStand nachher: " + HyundaiI20.kilometerstandFormatiert);
 

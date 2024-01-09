@@ -10,13 +10,14 @@ public class Auto extends Object {
 
     public int baujahr = 0;
     public int km_Stand = 0;
-
     public int fahrzeug_stand=0;
 
-    public int tankinhalt = 0;
-    public int verbrauch_l_pro_km = 0; //100 km pro 6 l
+    public double tankinhalt = 0;
+    public int verbrauch_l_pro_km = 0; // 6l pro 100 km
     private int tankvolumen = 80;
 
+    // Methode mit der Befugnisse zum Überschreiben (@Override), hier wird die Standard-Methode der Objekt Klasse (extended Object - on the Top) überschrieben und gibt eine individuelle Darstellung / Version
+    // erzeugt leserliche Darstellung des Objekts Auto für Ausdruck/Ausgabe und übegibt einen String
     @Override
     public String toString() {
         return
@@ -24,13 +25,38 @@ public class Auto extends Object {
                         "Modell:"               + modell + " " +
                         "Baujahr:"              + baujahr + " " +
                         "Kilometerstand: "      + NumberFormat.getInstance( ).format( km_Stand ) + "km " +
-                        "Tankinhalt: "          + tankinhalt + "l" +
+                        "Tankinhalt: "          + String.format("%,.2f",tankinhalt )+ "l" +
                         "Verbrauch: " + verbrauch_l_pro_km +" l pro 100 km ";
-
 
     }
 
-    public int fahren( int zuFahrendeKilometer ) {
+    public void fahren( int zuFahrendeKilometer ) {
+            System.out.println("ich möchte "+ zuFahrendeKilometer +" km fahren.");
+
+            boolean warned = false;
+            // solange bis
+            // 1 zuFahrendeKilometer gefahren sind
+            // 2 tankinhalt nicht leer
+            while (zuFahrendeKilometer > 0 && this.tankinhalt >= this.getlprokm()) {
+                // fahre 1 kilometer ----------
+                // --> zu fahrende kilometer--
+                zuFahrendeKilometer--;
+                this.km_Stand++;
+                // --> tankinhalt reduziert sich um verbrauch pro km
+                this.tankinhalt -= this.getlprokm();
+
+                if (this.tankinhalt <= 5 && !warned) {
+                    System.out.println("Es sind nur mehr 5 Liter im Tank. Restliche Kilometer: " + zuFahrendeKilometer);
+                    warned = true;
+                }
+            }
+            if (zuFahrendeKilometer > 0) {
+                System.out.println("Der Tank ist leer. Restliche Kilometer: " + zuFahrendeKilometer);
+            }
+
+            // kontrollausgabe:
+            System.out.println("tankinhalt: "+ String.format("%,.2f",this.tankinhalt)+", restliche KM: "+ zuFahrendeKilometer);
+        }
         // solang ebis
         // 1 zuFahrende Kolometer gefahren sind
         // 2 tankinhalt nicht leer
@@ -51,15 +77,17 @@ public class Auto extends Object {
 
         return gefahren;
         */
-        return zuFahrendeKilometer;
-    }
+
     public int getKillometerstand() {
         return this.km_Stand;
     }
+    public double getlprokm(){
+            return ((double) this.verbrauch_l_pro_km /100);
+        }
 
     public void volltanken(){
         int tankdif=0;
-        while (this.tankinhalt<tankvolumen ){
+        while (this.tankinhalt<tankvolumen -1){
             tankinhalt++;
             tankdif++;
         }

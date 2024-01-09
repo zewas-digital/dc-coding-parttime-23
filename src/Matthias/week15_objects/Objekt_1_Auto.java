@@ -21,6 +21,6 @@ public class Objekt_1_Auto {
 
     public static void main( String[] args ) {
         Auto Auto1= new Auto( "Audi","A5",2007,6000 ,80,6);
-        System.out.println(Auto1);
+        System.out.println(Auto1.toString());
     }
 }
