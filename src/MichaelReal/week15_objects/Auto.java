@@ -24,13 +24,21 @@ public class Auto  extends Object {
     private String modell;
     private int baujahr;
     private double kmStand;
+    private double tankvolumen;
+    private double tankinhalt;
+    private double verbrauchProKilometer;
+
 
     // Konstruktor
-    public Auto(String marke, String modell, int baujahr, double kmStand) {
+    public Auto(String marke, String modell, int baujahr, double kmStand, double tankvolumen, double verbrauchProKilometer) {
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;
         this.kmStand = kmStand;
+        this.tankvolumen = tankvolumen;
+        this.tankinhalt = 0.0; // Der Tank ist zu Beginn leer
+        this.verbrauchProKilometer = verbrauchProKilometer;
+
     }
 
     // Getter- und Setter-Methoden
@@ -66,6 +74,14 @@ public class Auto  extends Object {
         this.kmStand = kmStand;
     }
 
+    public double getTankvolumen() {
+        return tankvolumen;
+    }
+
+    public double getTankinhalt() {
+        return tankinhalt;
+    }
+
     // toString() Methode
     @Override
     public String toString() {
@@ -73,11 +89,33 @@ public class Auto  extends Object {
                 "Marke = " + marke  +
                 ", Modell = " + modell  +
                 ", Baujahr = " + baujahr +
-                ", kmStand = " + String.format("%,.0f", kmStand) + " km }";
+                ", kmStand = " + String.format("%,.0f", kmStand) + " km" +
+                ", Tankinhalt = " + String.format("%,.2f", tankinhalt) + " Liter }";
+    }
+
+    // Methode zum Fahren
+    public void fahren(double kilometer) {
+        if (kilometer >= 0) {
+            double verbrauch = kilometer * verbrauchProKilometer;
+            if (verbrauch <= tankinhalt) {
+                this.kmStand += kilometer;
+                tankinhalt -= verbrauch;
+                System.out.println("Das Auto wurde um " + kilometer + " Kilometer bewegt.");
+                if (tankinhalt <= 5.0) {
+                    System.out.println("Warnung: Nur noch " + tankinhalt + " Liter Treibstoff im Tank.");
+                }
+            } else {
+                System.out.println("Nicht genug Treibstoff im Tank.");
+            }
+        } else {
+            System.out.println("Ungültige Eingabe: Negative Kilometeranzahl.");
+        }
+    }
+
+    // Methode zum Volltanken
+    public void volltanken() {
+        tankinhalt = tankvolumen;
+        System.out.println("Der Tank wurde voll aufgefüllt.");
     }
 
 }
-
-
-
-
