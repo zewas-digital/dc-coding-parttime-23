@@ -19,12 +19,11 @@ km-Stand
 
 public class Objekt_1_Auto {
 
-    // Hauptmethode zum Erstellen und Testen der Auto-Instanz
+
     public static void main(String[] args) {
         // Erstellen einer Instanz von Auto
         Auto FiatPanda = new Auto("FIAT", "Panda", 2021, 25000,40.0, 0.06);
 
-        // Rufe die toString() Methode der Auto-Instanz auf und gib das Auto aus
         System.out.println(FiatPanda);
 
         // Ausgabe der Eigenschaften des Objekts

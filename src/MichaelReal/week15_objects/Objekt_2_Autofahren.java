@@ -21,13 +21,22 @@ public class Objekt_2_Autofahren {
         Auto fiatPanda = new Auto("FIAT", "Panda", 2021, 25000,40.0, 0.06);
 
         fiatPanda.volltanken();
-        fiatPanda.fahren(100); // Auto fährt 100 Kilometer
+
+        fiatPanda.fahren(100);
         System.out.println(fiatPanda);
-        fiatPanda.fahren(50); // Auto fährt 100 Kilometer
+        fiatPanda.fahren(50);
         System.out.println(fiatPanda);
-        fiatPanda.fahren(5); // Auto fährt 100 Kilometer
+        fiatPanda.fahren(5);
         System.out.println(fiatPanda);
-        fiatPanda.fahren(30); // Auto fährt 100 Kilometer
+        fiatPanda.fahren(30);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(200);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(100);
+        System.out.println(fiatPanda);
+       // fiatPanda.fahren(100);        //aktivieren für 5km limit
+        System.out.println(fiatPanda);
+       // fiatPanda.fahren(200);       // aktivieren für leeren tank
         System.out.println(fiatPanda);
     }
 }
