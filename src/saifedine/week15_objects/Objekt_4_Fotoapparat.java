@@ -1,4 +1,4 @@
-package oliver.week15_objects;
+package saifedine.week15_objects;
 
 /*
 Aufgabe: Fotoapparat

@@ -1,5 +1,7 @@
 package michael_k.week13;
 
+import java.util.Scanner;
+
 public class Selbsttest {
     public static void main(String[] args) {
         // Schleifen *******************
@@ -8,7 +10,12 @@ public class Selbsttest {
          * Ausgabe:
             10 9 8 7 6 5 4 3 2 1 0
          */
-
+        System.out.println ( "Aufgabe 1: " );
+        for (int i = 10; i > -1; i--) {
+            System.out.print ( " " + i );
+        }
+        System.out.println ( );
+        System.out.println ( );
         // Aufgabe 2 -------------------
         /* Zähle in einer for-Schleife von -30 bis inklusive 30 und gib jede Zahl aus die ohne Rest durch 3 teilbar ist.
          * Ausgabe:
@@ -20,7 +27,14 @@ public class Selbsttest {
             27
             30
          */
-
+        System.out.println ( "Aufgabe 2:" );
+        for (int i = -30; i < 31; i++) {
+            if (i % 3 == 0) {
+                System.out.print ( " " + i );
+            }
+        }
+        System.out.println ( );
+        System.out.println ( );
         // Aufgabe 3 -------------------
         /* Zähle mit Hilfe einer while-Schleife und einer separaten Zählvariable von 0 bis inklusive 10 und
          * gib die Zahlen aus. Wenn die Zahl größer als 5 ist mach 2 Zeilenumbrüche.
@@ -41,6 +55,16 @@ public class Selbsttest {
 
 10
          */
+        System.out.println ( "Aufgabe 3:" );
+        for (int i = 0; i < 11; i++) {
+
+            if (i < 6) {
+                System.out.println ( i );
+            } else {
+                System.out.println ( i );
+                System.out.println ( );
+            }
+        }
 
         // Methoden ********************
         // Aufgabe 4 -------------------
@@ -58,6 +82,13 @@ PrintLineStipple(symbol, amount);
          * Ausgabe:
 X X X X X X X X X X
          */
+        System.out.println ( "Aufgabe 4:" );
+
+        String str1 = "Hi!";
+        int amount1 = 6;
+
+        Aufgabe4 ( str1, amount1 );
+        System.out.println ( );
 
         // Aufgabe 5 -------------------
         /* Erstelle eine Methode welche einen string und einen int Parmeter erhält.
@@ -74,6 +105,13 @@ X
 
 X
          */
+
+        System.out.println ( "Aufgabe 5:" );
+
+        String str2 = "Hi!";
+        int amount2 = 3;
+
+        Aufgabe5 ( str2, amount2 );
 
         // Aufgabe 6 -------------------
         /* Erstelle eine Methode welche einen string und einen int Parameter erhält.
@@ -93,6 +131,16 @@ X
 X
          */
 
+        System.out.println ( "Aufgabe 6:" );
+
+        String str3 = "Hi!";
+        int amount3 = 3;
+
+        Aufgabe4 ( str3, amount3 );
+        System.out.println ( );
+        Aufgabe5 ( str3, amount3 );
+        System.out.println ( );
+
         // Input ***********************
         // Aufgabe 7 -------------------
         /* Lies einen string vom Benutzer ein und einen int.
@@ -110,6 +158,14 @@ Heute wird ein guter Tag
 Heute wird ein guter Tag
          */
 
+        System.out.println ( "Aufgabe 7:" );
+        int amount = Aufgabe7Int ( );
+        String input = Aufgabe7String ( );
+
+        for (int i = 0; i < amount; i++) {
+            System.out.println ( input );
+        }
+        System.out.println ( );
         // Arrays **********************
         int[] arr = new int[]{0, 1, 23, 5, 12, 4, 4, 2, 5, 2, 10};
         int[] arr2 = new int[]{123, 19471, 1, 4, 15715, 15, 1, 5, 15, 1, -10, -100};
@@ -125,7 +181,12 @@ PrintFirstAndLast(arr);
 First: 0, Last: 10
          *
          */
+        System.out.println ( "Aufgabe 8:" );
 
+        Aufgabe8 ( arr );
+        Aufgabe8 ( arr2 );
+        Aufgabe8 ( arr3 );
+        System.out.println ( );
         // Aufgabe 9 -------------------
         /* Ertelle jeweils eine Methode für Minimum (min), Maximum (max), und Durchschnitt (avg),
          * welche den jeweiligen Wert für ein int[] berechnet und zurückgeben kann.
@@ -140,6 +201,11 @@ PrintMyResult("Maximum",GetMax(arr));
          * Beispiel Ausgabe
 Maximum: 23
          */
+        System.out.println ("Aufgabe 9:" );
+        System.out.println ( );
+        Aufgabe9Print ( "Minimum",Aufgabe9getMin ( arr ) );
+        Aufgabe9Print ( "Maximum",Aufgabe9getMax ( arr2 ) );
+        Aufgabe9Print ( "Durchschnitt",Aufgabe9getAvg ( arr3 ) );
 
         // Aufgabe 10 ------------------
         /* Erstelle eine Methode welche einen int als Parameter nimmt.
@@ -195,4 +261,69 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
 DI 19.10.2021
          */
     }
+
+    static void Aufgabe4(String str, int amount) {
+        for (int i = 0; i < amount; i++) {
+            System.out.print ( str + " " );
+        }
+    }
+
+    static void Aufgabe5(String str, int amount) {
+        for (int i = 0; i < amount; i++) {
+            System.out.println ( str + "\n" );
+        }
+    }
+
+    static String Aufgabe7String() {
+        Scanner inputKonsole = new Scanner ( System.in );
+        System.out.println ( "Bitte geben Sie einen Text ein:" );
+        String input = inputKonsole.nextLine ( );
+        return input;
+    }
+
+    static int Aufgabe7Int() {
+        Scanner inputKonsole = new Scanner ( System.in );
+        System.out.println ( "Wie oft soll der Text ausgegeben werden:" );
+        int input = inputKonsole.nextInt ( );
+        return input;
+    }
+
+    static void Aufgabe8(int[] arr) {
+        int firstValue = arr[0];
+        int lastValue = arr[arr.length - 1];
+
+        System.out.println ( "First: " + firstValue + ", " + "Last: " + lastValue );
+    }
+
+    static void Aufgabe9Print(String metode, int value) {
+        System.out.println ( metode + ": " + value );
+    }
+
+    static int Aufgabe9getMin(int[] arr) {
+        int x = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (x > arr[i]) {
+                x = arr[i];
+            }
+        }
+        return x;
+    }
+    static int Aufgabe9getMax(int[] arr) {
+        int x = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (x < arr[i]) {
+                x = arr[i];
+            }
+        }
+        return x;
+    }
+    static int Aufgabe9getAvg(int[] arr) {
+        int x = 0;
+        for (int i = 0; i < arr.length; i++) {
+            x= x+arr[i];
+        }
+
+        return x/ arr.length;
+    }
+
 }

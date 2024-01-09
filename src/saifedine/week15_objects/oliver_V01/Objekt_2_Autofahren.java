@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package saifedine.week15_objects.oliver_V01;
 
 /*
 Aufgabe: Auto fahren
@@ -15,21 +15,30 @@ Gib eine Warnmeldung aus, wenn nur mehr 5 Liter im Tank sind.
 Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht gefahren sind.
  */
 
+import oliver.week15_objects.Auto;
+
 public class Objekt_2_Autofahren {
     public static void main(String[] args) {
+        oliver.week15_objects.Auto FordBronco = new Auto("Ford", "Bronco", 2023, 10000, 70);
+        FordBronco.tankinhalt = 70; // vollgetankt
+        //FordBronco.fahreBerechnet(650);
 
-        Auto auto = new Auto("VW", "Golf", 1990, 15000, 60, 30, 7.3);
-
-        System.out.println("\nNeues Auto erzeugt: " + auto.toString());
-        System.out.println("Aktueller Tankinhalt: " + auto.getTankAktuellFormatiert());
-        System.out.println("Aktueller Kilometerstand = " + auto.getKmStandFormatiert());
-
-        auto.fahren(700);
-        auto.fahren(1000);
-
-        auto.volltanken();
-
-        auto.fahren(20);
-
+        FordBronco.fahren(1000);
+        //FordBronco.fahren(400);
+        //FordBronco.fahren(400);
+        //System.out.println("Neuer Kilometerstand: "+ FordBronco.getKilometerstandFormatiert());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
