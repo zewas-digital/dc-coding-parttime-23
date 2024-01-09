@@ -24,15 +24,13 @@ public class Objekt_1_Auto {
         // Erstellen einer Instanz von Auto
         Auto FiatPanda = new Auto("FIAT", "Panda", 2021, 25000);
 
-        // Ausgabe der Eigenschaften des Objekts
-        System.out.println("Marke: " + FiatPanda.getMarke());
-        System.out.println("Modell: " + FiatPanda.getModell());
-        System.out.println("Baujahr: " + FiatPanda.getBaujahr());
-        System.out.println("Kilometerstand: " + String.format("%,.0f", FiatPanda.getKmStand()) + " km");
+        // Rufe die toString() Methode der Auto-Instanz auf und gib das Auto aus
+        System.out.println(FiatPanda);
 
-        // Ausgabe der Eigenschaften des Objekts mithilfe der toString()-Methode
-        System.out.println(FiatPanda.toString());
+        // Ausgabe der Eigenschaften des Objekts
+       // System.out.println("Marke: " + FiatPanda.getMarke());
+        //System.out.println("Modell: " + FiatPanda.getModell());
+        //System.out.println("Baujahr: " + FiatPanda.getBaujahr());
+        //System.out.println("Kilometerstand: " + String.format("%,.0f", FiatPanda.getKmStand()) + " km");
     }
 }
-
-
