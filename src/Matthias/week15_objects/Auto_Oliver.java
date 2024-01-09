@@ -32,6 +32,7 @@ public class Auto_Oliver extends Object {
         System.out.println("Auto erzeugt mit Kilometerstand "+ kilometerstandFormatiert);
     }
 
+
     public int getTankvolumen() {
         return this.tankvolumen;
     }
