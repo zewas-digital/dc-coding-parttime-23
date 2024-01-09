@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package claudia.week15_objects.auto;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -33,18 +33,21 @@ public class Auto {
         this.verbrauch = verbrauch;
         this.verbrauchFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(verbrauch) + " l pro 100 km" ;
     }
-    public Auto () {
+
+    public Auto() {
         this.marke = "unbekannt";
         this.modell = "unbekannt";
     }
-public void volltanken(){
-    System.out.println("\nEs wird vollgetankt!");
-    System.out.println("Aktueller Tankinhalt " + tankAktuellFormatiert + ", max. Volumen " + tankMaxFormatiert);
-    double differenz = tankMax - tankAktuell;
-    tankAktuell = tankMax;
-    System.out.println(differenz + " Liter getankt!");
-}
-    public void fahren(double strecke){
+
+    public void volltanken() {
+        System.out.println("\nEs wird vollgetankt!");
+        System.out.println("Aktueller Tankinhalt " + tankAktuellFormatiert + ", max. Volumen " + tankMaxFormatiert);
+        double differenz = tankMax - tankAktuell;
+        tankAktuell = tankMax;
+        System.out.println(differenz + " Liter getankt!");
+    }
+
+    public void fahren(double strecke) {
         System.out.println("\nEs sollen " + strecke + " km gefahren werden:");
         System.out.println("Aktueller km-Stand " + getKmStandFormatiert());
         System.out.println("Aktueller Tankinhalt " + getTankAktuellFormatiert());
@@ -86,10 +89,11 @@ public void volltanken(){
         return verbrauchFormatiert;
     }
 
-    public double getTankAktuell(){
+    public double getTankAktuell() {
         return this.tankAktuell;
-   }
-    public String getTankAktuellFormatiert(){ //fragt aktuellen Wert ab und gibt ihn formatiert zurück
+    }
+
+    public String getTankAktuellFormatiert() { //fragt aktuellen Wert ab und gibt ihn formatiert zurück
         return this.tankAktuell + " Liter";
     }
 
@@ -98,16 +102,19 @@ public void volltanken(){
         this.tankAktuellFormatiert = this.tankAktuell + " Liter";
     }
 
-    public String getTankMaxFormatiert(){ //fragt aktuellen Wert ab und gibt ihn formatiert zurück
+    public String getTankMaxFormatiert() { //fragt aktuellen Wert ab und gibt ihn formatiert zurück
         return this.tankMax + " Liter";
     }
+
     public double getKmStand() {
         return kmStand;
     }
+
     public String getKmStandFormatiert() {
         return kmStand + " km";
     }
-    public void setKmStand(double kmStand){
+
+    public void setKmStand(double kmStand) {
         //TODO Validierung: neue km > alte km? Sonst stimmt was nicht!
         this.kmStand = kmStand;
         this.kmStandFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(kmStand) + " Liter";
@@ -131,7 +138,7 @@ public void volltanken(){
 
     @Override
     public String toString() {
-        if (marke == null || modell == null || baujahr < 0 || kmStand < 0 ){
+        if (marke == null || modell == null || baujahr < 0 || kmStand < 0) {
             System.out.println("Achtung! Auto nicht vernünftig initialisiert - nicht genügend Daten vorhanden!");
         }
         return super.toString() + "\nMarke: " + marke + ", Modell: " + modell + "\nBaujahr: " + baujahr + ", km-Stand: " + kmStandFormatiert + "\nTankvolumen: " + tankMaxFormatiert + ", Verbrauch: " + verbrauchFormatiert;
