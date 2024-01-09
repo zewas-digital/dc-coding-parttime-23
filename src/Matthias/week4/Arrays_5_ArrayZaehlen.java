@@ -11,32 +11,35 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Arrays_5_ArrayZaehlen {
-    //Methode 1
-    public static int[] makeACopy0( int[] original, int min, int max ) {
-        int[] copy = new int[original.length];
+
+    public static void main( String[] args ) {
+        int arraysize= 100;
+        int [] Arrayradomnumbers= new int[arraysize];
+
+        // Ausgabe des Array mit den befüllten Randomzahlen
+        System.out.println( Arrays.toString(Arrayradomnumbers= createRandomArrayWithMinMax(Arrayradomnumbers, 1,100)));
+
+        // Zählt alle Werte, welche sich >30 sind
+        countoverthirty( Arrayradomnumbers);
+    }
+    //Methode 1 Befüllt einen Array mit den Zufallszahlen von min bis max
+    public static int[] createRandomArrayWithMinMax( int[] original, int min, int max ) {
+        int[] Array = new int[original.length];
         Random random = new Random( );
         for (int i = 0; i < original.length; i++) {
-            copy[i] = random.nextInt( min, max );
+            Array[i] = random.nextInt( min, max );
         }
 
-        return copy;
+        return Array;
     }
-    //Methode 2
+    //Methode 2: Druckt die Anzahl der Zahlen welche über 30 sind im Array auf der Console aus
     public static void countoverthirty(int[] original) {
-      int counter = 0;
+        int counter = 0;
         for (int number: original) {
             if ( number > 30 ) {
                 counter++;
             }
         }
         System.out.println( " Anzahl > 30 =" + counter );
-    }
-
-
-    public static void main( String[] args ) {
-        int arraysize= 100;
-        int [] Arrayradomnumbers= new int[arraysize];
-        System.out.println( Arrays.toString(Arrayradomnumbers=makeACopy0(Arrayradomnumbers, 1,100)));
-        countoverthirty( Arrayradomnumbers);
     }
 }

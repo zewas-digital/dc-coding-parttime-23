@@ -8,33 +8,6 @@ package Matthias.week2_weekend_Scanner;
 import java.util.Scanner;
 
 public class example_28_GasolineConsumption {
-    // Methoden deklareation
-
-    //Methode 4: Datentype float Ausgeben
-    static float getBenzinverbrauch(){
-        float floatNumber;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Tippen Sie den Benzinverbrauch in l ein:");
-        floatNumber = scanner.nextFloat();
-        return floatNumber;
-    }
-    static float getKilometer(){
-        float floatNumber;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Tippen Sie den Kilometerstand kmein:");
-        floatNumber = scanner.nextFloat();
-        return floatNumber;
-    }
-
-    //Methode 5: Datentype String Ausgeben
-    static String getString(){
-        String nameSting;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Tippen Sie eine Namen ein:");
-        nameSting = scanner.next();
-        return nameSting;
-    }
-
 
     public static void main(String[] args) {
         float BenzininL=getBenzinverbrauch();
@@ -43,5 +16,25 @@ public class example_28_GasolineConsumption {
 
         System.out.println(" Der Sprintverbrauch: " + berechnet + " " + "l/100 km" );
 
+    }
+
+    // Methoden deklareation
+
+    //Methode 1: Datentype float Ausgeben
+    static float getBenzinverbrauch(){
+        float floatNumber;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Tippen Sie den Benzinverbrauch in l ein:");
+        floatNumber = scanner.nextFloat();
+        return floatNumber;
+    }
+
+    // Methode 2: Holt sich die Kilometer vom Benutzer für die Berechung
+    static float getKilometer(){
+        float floatNumber;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Tippen Sie den Kilometerstand kmein:");
+        floatNumber = scanner.nextFloat();
+        return floatNumber;
     }
 }
