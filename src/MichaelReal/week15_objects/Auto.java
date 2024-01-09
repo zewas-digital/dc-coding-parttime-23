@@ -85,12 +85,12 @@ public class Auto  extends Object {
     // toString() Methode
     @Override
     public String toString() {
-        return "\nAuto { " +
+        return "\n 🚗 { " +
                 "Marke = " + marke  +
                 ", Modell = " + modell  +
                 ", Baujahr = " + baujahr +
                 ", kmStand = " + String.format("%,.0f", kmStand) + " km" +
-                ", Tankinhalt = " + String.format("%,.2f", tankinhalt) + " Liter }";
+                ",  ⛽ = " + String.format("%,.2f", tankinhalt) + " Liter }";
     }
 
     // Methode zum Fahren
@@ -100,12 +100,12 @@ public class Auto  extends Object {
             if (verbrauch <= tankinhalt) {
                 this.kmStand += kilometer;
                 tankinhalt -= verbrauch;
-                System.out.println("Das Auto wurde um " + kilometer + " Kilometer bewegt.");
+                System.out.println("\nDas Auto wurde um " + kilometer + " Kilometer bewegt.");
                 if (tankinhalt <= 5.0) {
                     System.out.println("Warnung: Nur noch " + tankinhalt + " Liter Treibstoff im Tank.");
                 }
             } else {
-                System.out.println("Nicht genug Treibstoff im Tank.");
+                System.out.println("Nicht genug Treibstoff im Tank. Kacke!! 😭");
             }
         } else {
             System.out.println("Ungültige Eingabe: Negative Kilometeranzahl.");
@@ -115,7 +115,7 @@ public class Auto  extends Object {
     // Methode zum Volltanken
     public void volltanken() {
         tankinhalt = tankvolumen;
-        System.out.println("Der Tank wurde voll aufgefüllt.");
+        System.out.println("Der Tank wurde voll aufgefüllt. Juhuuu!! ⛽🤓");
     }
 
 }
