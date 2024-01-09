@@ -11,22 +11,8 @@ import java.util.Scanner;
 
 import java.util.Scanner;
 
-    public class Arrays_1_NumberArray {
-    //Methode 1
-    public static int[] arraybefuellen(int[] original, int anzahl){
-        for (int i = 0; i < anzahl; i++) {
-            original[i]=i+1;
-        }
-        return original;
-    }
-        public static int[] arraybefuellenRückwärts(int[] original, int anzahl){
-            for (int i = anzahl; i > 0 ; i--) {
-                original[i-1]=(anzahl+1)-i;
-            }
-            return original;
-        }
-    //Methode 2
 
+public class Arrays_1_NumberArray {
     public static void main( String[] args ) {
         int EingabeAnzahlArray=0;
         System.out.println( "Willkommen Geben Sie die Anzahl der Arrays ein" );
@@ -36,4 +22,20 @@ import java.util.Scanner;
         System.out.println( Arrays.toString(arraybefuellen( number, EingabeAnzahlArray)));
         System.out.println( Arrays.toString(arraybefuellenRückwärts( number, EingabeAnzahlArray)));
     }
+
+    //Methode 1: Methode füllt einen Array mit Zahlen von 1 bis Anzahl
+    public static int[] arraybefuellen(int[] original, int anzahl){
+        for (int i = 0; i < anzahl; i++) {
+            original[i]=i+1;
+        }
+        return original;
+    }
+    //Methode 2: Methode befüllt einen Array Rückwärts von Anzahl Zahlen bis 1
+    public static int[] arraybefuellenRückwärts(int[] original, int anzahl){
+        for (int i = anzahl; i > 0 ; i--) {
+            original[i-1]=(anzahl+1)-i;
+        }
+        return original;
+    }
+
 }

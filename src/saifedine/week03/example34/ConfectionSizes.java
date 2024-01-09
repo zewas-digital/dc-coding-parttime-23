@@ -64,127 +64,99 @@ Bye bye
 
  */
 public class ConfectionSizes {
+
     public static void main(String[] args) {
 
-        Scanner Eingabe = new Scanner(System.in);
+        char gender = ' ';
+        char beenden = ' ';
 
+        Scanner eingabe = new Scanner(System.in);
 
-        System.out.println("Konfektionsgrößen:");
+        while (beenden != 'j'){
 
-        while (true) {
+            while (gender != 'd' && gender != 'h') {
 
-            System.out.println("Damen (d) oder Herren (h)?:");
-            String eingabeString = Eingabe.next();
-            char gender = eingabeString.charAt(0);
-
-            if (gender == 'h') {
-
-                System.out.println("Konfektionsgrößen:");
-                int eingabeInt = Eingabe.nextInt();
-
-                String groesse = "?";
-
-                switch (eingabeInt) {
-                    case 44:
-                    case 46:
-                        groesse = "S";
-                        break;
-
-                    case 48:
-                    case 50:
-                        groesse = "M";
-                        break;
-
-                    case 52:
-                    case 54:
-                        groesse = "L";
-                        break;
-
-                    case 56:
-                    case 58:
-                        groesse = "XL";
-                        break;
-
-                    case 60:
-                    case 62:
-                        groesse = "XXL";
-                        break;
-
-                    case 64:
-                    case 66:
-                        groesse = "3XL";
-                        break;
-
-                    case 68:
-                    case 70:
-                        groesse = "4XL";
-
-                }
-
-                System.out.println("Herren " + eingabeInt + " -> " + groesse);
-
-                System.out.println("Beenden (j/n) ?");
-
-
-
-            } else if (gender == 'd') {
-
-                System.out.println("Konfektionsgrößen:");
-                int eingabeInt = Eingabe.nextInt();
-
-                String groesse = "?";
-
-                switch (eingabeInt) {
-                    case 32:
-                        groesse = "XXS";
-                        break;
-
-                    case 34:
-                        groesse = "XS";
-                        break;
-
-                    case 36:
-                        groesse = "S";
-                        break;
-
-                    case 38:
-                        groesse = "M";
-                        break;
-
-                    case 40:
-                        groesse = "L";
-                        break;
-
-                    case 42:
-                        groesse = "XL";
-                        break;
-
-                    case 44:
-                        groesse = "XXL";
-                        break;
-
-                    case 46:
-                        groesse = "3XL";
-                        break;
-
-                    case 48:
-                        groesse = "4XL";
-                        break;
-
-                    case 50:
-                        groesse = "5XL";
-
-
-                }
-
-                System.out.println("Damen " + eingabeInt + " -> " + groesse);
-
+                System.out.print("Damen (d) oder Herren (h)?: ");
+                gender = eingabe.next().charAt(0);
             }
 
+            System.out.print("Konfektionsgröße: ");
+            int sizeNumber = eingabe.nextInt();
 
+            String size = getSize(gender,sizeNumber);
+
+            printSize(gender,sizeNumber,size);
+            gender = ' ';
+            beenden = ' ';
+
+            while (beenden != 'j' && beenden != 'n') {
+
+                System.out.println("Beenden (j/n)? ");
+                beenden = eingabe.next().charAt(0);
+            }
+
+            if (beenden == 'j') {
+                System.out.println("Bye bye");
+            }
+            else {
+                continue;                                                                                               // mit Strg & Maus auf continue --> wo hingesprungen wird bei continue, nämlich zu Zeile 75
+            }
+        }
+    }
+
+    static String getSize(char gender, int sizeNumber){
+
+        // Damen
+        if (gender == 'd'){
+
+            switch (sizeNumber){
+
+                case 32: return "XXS";
+                case 34: return "XS";
+                case 36: return "S";
+                case 38: return "M";
+                case 40: return "L";
+                case 42: return "XL";
+                case 44: return "XXL";
+                case 46: return "3XL";
+                case 48: return "4XL";
+                case 50: return "5XL";
+                default: return "?";
+            }
+        }
+
+        // Herren
+        else {
+
+            switch (sizeNumber){
+
+                case 44:
+                case 46: return "S";
+                case 48:
+                case 50: return "M";
+                case 52:
+                case 54: return "L";
+                case 56:
+                case 58: return "XL";
+                case 60:
+                case 62: return "XXL";
+                case 64:
+                case 66: return "3XL";
+                case 68:
+                case 70: return "4XL";
+                default: return "?";
+            }
+        }
+    }
+
+    static void printSize(char gender, int sizeNumber, String size){
+
+        if (gender == 'd'){
+
+            System.out.println("Damen " + sizeNumber + " --> " + size);
+        }
+        else {
+            System.out.println("Herren " + sizeNumber + " --> " + size);
         }
     }
 }
-
-//getSize();
-//char gender = string.charAt(0);

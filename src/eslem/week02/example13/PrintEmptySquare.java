@@ -29,5 +29,5 @@ A A
 AAA
 
  */
-public class PrintEmptySquare {
-}
+//public class PrintEmptySquare {
+//}

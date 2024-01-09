@@ -21,13 +21,13 @@ public class Objekt_1_Auto {
 
     public static void main(String[] args) {
 
-
-
-        Auto Audi = new Auto("Audi","A3",2003, 200000, 50, 30, 0.06, 450, 600);
+        Auto Audi = new Auto("Audi","A3",2003, 200000, 50, 30, 0.06, 450, 100);
         System.out.println(Audi.toString());
 
         Auto Ford = new Auto("Ford","Mustang",1998, 130000, 70, 45, 0.04, 10, 100);
         System.out.println(Ford.toString());
+
+
 
     }
 

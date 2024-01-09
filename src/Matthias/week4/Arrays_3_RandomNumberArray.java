@@ -19,59 +19,72 @@ import java.util.Scanner;
 
 public class Arrays_3_RandomNumberArray {
 
-    //Methode 1:
-    public static int[] makeACopy0( int[] original, int iArraylenth ) {
-        int[] copy = new int[original.length];
-        Random random = new Random();
-        for (int i = 0; i <original.length ; i++) {
-            copy[i]= random.nextInt(iArraylenth);
-        }
-        return copy;
-    }
-
-    //Methode 2:
-    public static void makeACopy1( int[] original, int iArraylenth ) {
-        int[] copy = makeACopy0( original, iArraylenth );
-        for (int number: copy) {
-           System.out.print(number + ","+ " ");
-        }
-    }
-    //Methode 3:
-    public static int[] makeACopy3( int[] original, int iArraylenth ) {
-        int[] copy = new int[original.length];
-        Random random = new Random();
-        for (int i = 0; i <original.length ; i+=2) {
-            copy[i]= random.nextInt(iArraylenth);
-        }
-        return copy;
-    }
-
     public static void main( String[] args ) {
-        //Variabeln dokumentieren
-
-        int SizeArray=0;
-
-        // Start Programm
-
-        System.out.println( "Willkommen Geben Sie die Anzahl der Arrays ein:" );
-
         Scanner scanner= new Scanner(System.in);
 
-        SizeArray=scanner.nextInt();
+        //Variabeln deklarieren
 
-
+        int SizeArray=0;
         int [] Arrayradomnumbers= new int[SizeArray];
 
-        // User Output
-        System.out.println( Arrays.toString(makeACopy0( Arrayradomnumbers, SizeArray )));
-        makeACopy1( Arrayradomnumbers, SizeArray );
+        // Start Programm
+        System.out.println( "Willkommen Geben Sie die Size des Eindemensionalen Arrays ein:" );
+
+        // Holt sich die Size des Arrays vom Benutzer
+        SizeArray=scanner.nextInt();
+
+        // Druckt den Array an Zufallszahlen mit der Array.toString Methode
+        System.out.println( Arrays.toString( createRandomArray0( Arrayradomnumbers, SizeArray )));
+
+        // Druckt den Array mit der selbsterstellten print Methode mit for each Ausgabe
+        printRandomArray( Arrayradomnumbers, SizeArray );
+
+        // Abstand
         System.out.println(  );
-        System.out.println( Arrays.toString(makeACopy3( Arrayradomnumbers, SizeArray )));
-        int [] Arraybefüllt= makeACopy0(Arrayradomnumbers, SizeArray);
+
+        // Gibt den 2, 5, 10 Wert des Arrays aus
+        int [] Arraybefüllt= createRandomArray0(Arrayradomnumbers, SizeArray);
+
         System.out.println( Arraybefüllt[1]);
 
         System.out.println(Arraybefüllt[4] );
 
         System.out.println( Arraybefüllt[9]);
+
+        // Abstand
+        System.out.println(  );
+
+        // Gibt jeden zweiten ArrayInhalt aus
+        System.out.println( Arrays.toString( createRandomArray2( Arrayradomnumbers, SizeArray )));
+
+
+    }
+
+    //Methode 1:
+    public static int[] createRandomArray0( int[] original, int maxBoundRandom ) {
+        int[] Array = new int[original.length];
+        Random random = new Random();
+        for (int i = 0; i <original.length ; i++) {
+            Array[i]= random.nextInt(maxBoundRandom);
+        }
+        return Array;
+    }
+
+    //Methode 2: Druckt einen Array mit Random Array, wie eine Array.toString Methode
+    public static void printRandomArray( int[] original, int maxBoundRandom ) {
+        int[] Array = createRandomArray0( original, maxBoundRandom );
+        for (int number: Array) {
+            System.out.print(number + ","+ " ");
+        }
+    }
+
+    //Methode 3: Befüllt jeden zweiten Arrayplatz mit der Zufallszahl
+    public static int[] createRandomArray2( int[] original, int maxBoundRandom ) {
+        int[] Array = new int[original.length];
+        Random random = new Random();
+        for (int i = 0; i <original.length ; i+=2) {
+            Array[i]= random.nextInt(maxBoundRandom);
+        }
+        return Array;
     }
 }

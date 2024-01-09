@@ -29,41 +29,40 @@ AAA
 
  */
 
-public class PrintEmptySquare {
+// Methode: printEmptySquare('x', 10) & printEmptySquare('A', 3);
 
+public class PrintEmptySquare {
 
     public static void main(String[] args) {
 
         printEmptySquare('x', 10);
         System.out.println();
-        System.out.println();
         printEmptySquare('A', 3);
     }
 
-    static void printEmptySquare(char value, int size) {
+    public static void printEmptySquare(char zeichen, int hoehe){
 
-        for (int i = 0; i < size; i++) {
-            System.out.print(value);
+        // 1. Zeile
+        for (int i = 0; i < hoehe; i++) {
+            System.out.print(zeichen);
         }
         System.out.println();
-
-        for (int i = 0; i < size - 2 ; i++) {
-            for (int j = 0; j < size; j++) {
-
-                if (j == 0){
-                    System.out.print(value);
-                } else if (j == size - 1) {
-                    System.out.print(value);
-                }
-                else {
-                    System.out.print(' ');
+        // alle Zeilen nach der 1. Zeile und vor der letzten Zeile
+        for (int i = 0; i < hoehe - 2; i++) {
+            for (int j = 0; j < hoehe; j++) {
+                if (j == 0) {
+                    System.out.print(zeichen);
+                } else if (j == hoehe - 1) {
+                    System.out.print(zeichen);
+                } else {
+                    System.out.print(" ");
                 }
             }
             System.out.println();
         }
-
-        for (int i = 0; i < size; i++) {
-            System.out.print(value);
+        // letzte Zeile
+        for (int i = 0; i < hoehe; i++) {
+            System.out.print(zeichen);
         }
     }
 }

@@ -15,7 +15,7 @@ tankinhalt: Der aktuelle Tankinhalt des Autos				// public int tankinhalt;
 
 // Siehe Screenshot vom 19.02.23
 
-package saifedine.week15_objects.oliver;
+package saifedine.week15_objects.oliver_V01;
 
 import java.text.NumberFormat;
 import java.util.Locale;

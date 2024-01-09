@@ -1,7 +1,8 @@
-package solutions.claudia.week2.example16;
+package claudia.week2.example16;
 
 /*
-Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegebene Zeichen ausgibt. Die Größe soll dabei die Höhe des Rhombus sein.
+Erstelle eine Methode welche einen Rhombus von variabler Größe und mit angegebene Zeichen ausgibt.
+Die Größe soll dabei die Höhe des Rhombus sein.
 
    x
  */

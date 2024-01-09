@@ -7,22 +7,23 @@ ohne break.
 
  */
 
+// 10 bis -10;
+// for & while (10 bis -10)
+// while --> Abbruchkondition ohne break
+
 public class LoopMinus {
 
     public static void main(String[] args) {
 
         for (int i = 10; i >= 0; i--) {
-            System.out.println(i);
-
+            System.out.println("for: " + i);
         }
 
         int j = -1;
 
         while (j >= -10){
-            System.out.println(j);
+            System.out.println("while: " + j);
             j--;
-
         }
     }
-
 }
