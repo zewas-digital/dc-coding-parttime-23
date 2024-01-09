@@ -12,4 +12,22 @@ Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig
  */
 
 public class Objekt_4_Fotoapparat {
+    public static void main(String[] args) {
+        Fotoapparat sony = new Fotoapparat(18, 55, "Ultra", "Sony", 24);
+
+        //INFOS
+        System.out.println("Infos der Kamera");
+        System.out.println(sony);
+
+
+        //FOTO MACHEN
+        System.out.println("\nFotos aufnehmen:");
+        sony.takePhoto();
+
+
+        //ÄNDERN DER EINSTELLUNGEN
+        System.out.println("\nÄndere die Brennweite von auf 50.0");
+        sony.setBrennweiteMax(50.0);
+        System.out.println(sony);
+    }
 }
