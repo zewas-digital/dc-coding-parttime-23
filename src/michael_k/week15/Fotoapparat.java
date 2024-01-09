@@ -2,16 +2,16 @@ package michael_k.week15;
 
 public class Fotoapparat extends Object {
 
-    public static int brennweite;
-    public static int brennweiteMin;
-    public static int brennweiteMax;
-    public static int megapixel;
-    public static int iso = 0;
-    public static float blende;
-    public static int blendeMin;
-    public static int blendeMax;
-    public static String marke;
-    public static String model;
+    public int brennweite;
+    public int brennweiteMin;
+    public int brennweiteMax;
+    public int megapixel;
+    public int iso = 0;
+    public float blende;
+    public int blendeMin;
+    public int blendeMax;
+    public String marke;
+    public String model;
 
 
     public Fotoapparat (String marke, String model, String brennweite_Min_Max, int megapixel, String blende_Min_Max){
@@ -32,51 +32,51 @@ public class Fotoapparat extends Object {
 
 
     }
-    public static void takePhoto(){
+    public void takePhoto(){
         System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
-        System.out.println ("________________________________________" );
+        System.out.println ("_____#______#____#______#____#__________" );
+        System.out.println ("_____#______#___________#____#__________" );
+        System.out.println ("_____#______#____#______#____#__________" );
+        System.out.println ("_____########____#______#____#__________" );
+        System.out.println ("_____#______#____#______#____#__________" );
+        System.out.println ("_____#______#____#______________________" );
+        System.out.println ("_____#______#____#______#____#__________" );
         System.out.println ("________________________________________" );
     }
-    public static void toSrting(){
-        System.out.println ("Akteelle Kamaradaten" );
-        System.out.println ("Marke: " + marke );
-        System.out.println ("Model: " + model );
-        System.out.println ("Brennweite: " + brennweite );
-        System.out.println ("Megapixel: " + megapixel );
-        System.out.println ("Blende: " + blende );
-        System.out.println ("Iso-Wert: " + iso );
+    public String toString(){
+        return "Akteelle Kamaradaten\n" +
+        "Marke: " + marke +"\n" +
+        "Model: " + model +"\n" +
+        "Brennweite: " + brennweite +"\n" +
+        "Megapixel: " + megapixel +"\n" +
+        "Blende: " + blende +"\n" +
+        "Iso-Wert: " + iso +"\n" ;
     }
-    public static int getBrennweite(){
+    public int getBrennweite(){
         return brennweite;
     }
     public void setBrennweite(int brennweite){
         this.brennweite = brennweite;
     }
-    public static int getMegapixel(){
+    public int getMegapixel(){
         return megapixel;
     }
-    public static int getIso(){
+    public int getIso(){
         return iso;
     }
     public void setIso(int iso){
         this.iso = iso;
     }
-    public static float getBlende(){
+    public float getBlende(){
         return blende;
     }
     public void setBlende(float blende){
         this.blende = blende;
     }
-    public static String getMarke(){
+    public String getMarke(){
         return marke;
     }
-    public static String getModel(){
+    public String getModel(){
         return model;
     }
 }
