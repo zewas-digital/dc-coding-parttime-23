@@ -17,9 +17,13 @@ public class Objekt_4_Fotoapparat {
 
         Fotoapparat fa1 = new Fotoapparat ( "Sony", "Alpha6000", "16/50", 24,  "2/22" );
 
-        fa1.takePhoto();
+        Fotoapparat fa2 = new Fotoapparat ( "Canon", "zx5", "18/55", 30,"4/18" );
 
-        fa1.toSrting();
+        fa1.takePhoto();
+        fa1.setIso ( 100 );
+
+        System.out.println ( fa1.toString());
+        System.out.println ( fa2.toString());
 
 
     }

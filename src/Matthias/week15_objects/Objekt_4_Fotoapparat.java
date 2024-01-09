@@ -12,4 +12,9 @@ Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig
  */
 
 public class Objekt_4_Fotoapparat {
+    public static void main( String[] args ) {
+        Fotoaperat Fotoaparat1= new Fotoaperat( "Sony","Alpha 4",50, 48 );
+        System.out.println(  Fotoaparat1 );
+    }
+
 }
