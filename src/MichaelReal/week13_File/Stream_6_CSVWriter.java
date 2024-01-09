@@ -24,10 +24,11 @@ public class Stream_6_CSVWriter {
 
     static String relativeFileLink = "./src/MichaelReal/week13_File/writerData.csv";
 
+
     public static void main(String[] args) {
 
                 StringBuilder sb = new StringBuilder();
-                sb.append("Vorname;Nachname;Alter;Ort;Entfernung\n");
+                sb.append("Vorname🍑;Nachname;Alter;Ort;Entfernung\n");
                 for (int i = 0; i < firstName.length; i++) {
                     sb.append(firstName[i]).append(';')
                             .append(lastName[i]).append(';')

@@ -1,4 +1,4 @@
-package Matthias.week15_objects;
+package michael_k.week15;
 
 /*
 Aufgabe: Auto
@@ -19,8 +19,14 @@ km-Stand
 
 public class Objekt_1_Auto {
 
-    public static void main( String[] args ) {
-        Auto Auto1= new Auto( "Audi","A5",2007,6000 ,80,6);
-        System.out.println(Auto1.toString());
+    public static void main(String[] args) {
+
+        Auto auto1 = new Auto ( "Audi", "A5", 2011, 200000 );
+        Auto auto2 = new Auto ( "BMW", "5", 2013, 100000 );
+
+        System.out.println ( auto1.toSrting ());
+
+        System.out.println ( auto2.toSrting ());
     }
+
 }
