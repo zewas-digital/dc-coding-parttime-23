@@ -10,23 +10,33 @@ Speicherkarte High-Capacity: 32 GB
 Speicherkarte Extended-Capacity: 128 GB
         */
 public class Speicherkarte {
-    private int size; // in GB
-    private int numberOfPhotos = 0;
+    private static double memoryTotal; // in GB
+    private double memoryFree; // in GB
+    private int numberOfPhotosTaken = 0;
 
     public Speicherkarte(int size) {
-        this.size = size;
+        memoryTotal = size;
+        memoryFree = size;
     }
 
-    public int getSize() {
-        return size;
+    public double getMemoryTotal() {
+        return memoryTotal;
     }
 
-    public int getNumberOfPhotos() {
-        return numberOfPhotos;
+    public double getMemoryFree() {
+        return memoryFree;
     }
 
-    public void setNumberOfPhotos(int n) {
-        numberOfPhotos = n;
+    public void setMemoryFree(double memoryFree) {
+        this.memoryFree = memoryFree;
+    }
+
+    public int getNumberOfPhotosTaken() {
+        return numberOfPhotosTaken;
+    }
+
+    public void setNumberOfPhotosTaken(int n) {
+        numberOfPhotosTaken = n;
     }
 
 

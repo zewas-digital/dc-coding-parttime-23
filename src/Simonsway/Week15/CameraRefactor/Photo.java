@@ -10,5 +10,4 @@ public class Photo {
         return photoCount;
     }
 
-
 }

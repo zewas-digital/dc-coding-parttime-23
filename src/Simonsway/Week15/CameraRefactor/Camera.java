@@ -11,7 +11,7 @@ public class Camera {
         model1.setBrand("Nikon");
         model1.setModel(1);
         storage1.setSdCard(64);
-        photo1.setPhotoCount(15);
+        photo1.setPhotoCount(1000);
 
         model1.calcModelMegaPixel();
         storage1.calcSdCard();

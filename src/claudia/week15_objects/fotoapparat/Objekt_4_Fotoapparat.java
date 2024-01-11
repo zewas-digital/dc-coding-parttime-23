@@ -24,8 +24,8 @@ public class Objekt_4_Fotoapparat {
         System.out.println("Zweites Modell hat folgende Brennweite f: " + fa2.getBrennweite() + " mm");
 
         System.out.println("\nMach ein Foto mit fa1: ");
-        fa1.takePhoto();
+        fa1.takePhoto(1);
         System.out.println("\nMach ein Foto mit fa3: ");
-        fa3.takePhoto();
+        fa3.takePhoto(1);
     }
 }
