@@ -1,4 +1,4 @@
-package claudia.week15_objects.fotoapparat;
+package claudia.week16_objects.fotoapparat;
 
 /*
 Mit zumindest folgenden Attributen (es dürfen auch gerne mehr sein), Brennweite min/max (in mm, z.B. 24 <= f <= 70, Modell, Hersteller und Megapixel (zw. 12 u 40).

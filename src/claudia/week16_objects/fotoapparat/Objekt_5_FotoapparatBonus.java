@@ -1,4 +1,4 @@
-package claudia.week15_objects.fotoapparat;
+package claudia.week16_objects.fotoapparat;
 
 /*
 Aufgabe: Fotoapparat & Objektiv & Speicherkarte

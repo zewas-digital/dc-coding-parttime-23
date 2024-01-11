@@ -1,4 +1,4 @@
-package claudia.week15_objects.fotoapparat;
+package claudia.week16_objects.fotoapparat;
 /*
 Objektiv Weitwinkel: Brennweite 10 - 28
         Objektiv normal: Brennweite 50
