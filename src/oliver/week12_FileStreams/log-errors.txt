@@ -1,0 +1,16 @@
++----- ERROR 2023-11-30 21:57:04––––––––––––
+Index 12 out of bounds for length 10
+[oliver.week12_FileStreams.Stream_2_FileLog.main(Stream_2_FileLog.java:31)]
++----- WARNING 2023-11-30 21:57:04––––––––––––
+Datei wurde nicht gefunden: ./src/filedoesnotexist.txt (No such file or directory)
+[java.base/java.io.FileInputStream.open0(Native Method), java.base/java.io.FileInputStream.open(FileInputStream.java:213), java.base/java.io.FileInputStream.<init>(FileInputStream.java:152), java.base/java.io.FileInputStream.<init>(FileInputStream.java:106), oliver.week12_FileStreams.Stream_2_FileLog.main(Stream_2_FileLog.java:38)]
++----- INFO 2023-11-30 21:57:04––––––––––––
+Stream_2_FileLog.main wurde erfolgreich ausgeführt.
++----- ERROR 2023-12-05 18:48:27––––––––––––
+Index 12 out of bounds for length 10
+[oliver.week12_FileStreams.Stream_2_FileLog.main(Stream_2_FileLog.java:31)]
++----- WARNING 2023-12-05 18:48:27––––––––––––
+Datei wurde nicht gefunden: ./src/filedoesnotexist.txt (No such file or directory)
+[java.base/java.io.FileInputStream.open0(Native Method), java.base/java.io.FileInputStream.open(FileInputStream.java:213), java.base/java.io.FileInputStream.<init>(FileInputStream.java:152), java.base/java.io.FileInputStream.<init>(FileInputStream.java:106), oliver.week12_FileStreams.Stream_2_FileLog.main(Stream_2_FileLog.java:38)]
++----- INFO 2023-12-05 18:48:27––––––––––––
+Stream_2_FileLog.main wurde erfolgreich ausgeführt.
