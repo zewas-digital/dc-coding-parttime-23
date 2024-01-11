@@ -132,4 +132,6 @@ public class BasicFunctions {
         }
         return input.charAt(0);
     }
+
+
 }

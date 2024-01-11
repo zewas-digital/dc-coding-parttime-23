@@ -14,7 +14,9 @@ public class Arrays_BS {
         numbers[1] = 17;
         numbers[2] = 62;
 
+        System.out.println(numbers[1]);
         System.out.println(Arrays.toString(numbers));
+
 
         // Ausgabe mit foreach
         int[] values = {10, 20, 30, 40, 50};

@@ -6,23 +6,7 @@ package Matthias.week2_weekend_Scanner;
 
 public class example_22_SumOfDigits {
 
-    static void SumofDigits ( int zahl1){
 
-        int summe = 0;
-
-        for (int i = 0; i < zahl1 +1 ; i++) {
-            //
-            int idigit = zahl1  % 10;
-                    ;
-            //
-            summe = summe + idigit;
-
-            //
-            zahl1=zahl1/10;
-
-        }
-        System.out.println("Summe der Digits: "+ summe);
-    }
     public static void main(String[] args) {
         //definieren Variabeln
 
@@ -34,5 +18,23 @@ public class example_22_SumOfDigits {
         SumofDigits(zahl1);
         SumofDigits(zahl2);
         SumofDigits(zahl3);
+    }
+    // Methode 1: Berechnet die Summe der Digits
+    static void SumofDigits ( int zahl1){
+
+        int summe = 0;
+
+        for (int i = 0; i < zahl1 +1 ; i++) {
+            //
+            int idigit = zahl1  % 10;
+            ;
+            //
+            summe = summe + idigit;
+
+            //
+            zahl1=zahl1/10;
+
+        }
+        System.out.println("Summe der Digits: "+ summe);
     }
 }

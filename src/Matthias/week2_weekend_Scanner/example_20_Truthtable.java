@@ -4,29 +4,37 @@ Wir berechnen alle möglichen Kombinationen von Werten für A und B und zeigen d
  */
 
 package Matthias.week2_weekend_Scanner;
-
+/*
+* Übernahme von Claudia ;)
+*
+* */
 public class example_20_Truthtable {
 
-    static void oder( boolean Kobination1, boolean Kobination2){
-        System.out.println(" a " +" | " + " b " + " = " + " c ");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3 ; j++) {
+        public static void main(String[] args) {
 
-                if (Kobination1 || Kobination2) {
-                    System.out.print("  "+ 1 + "  ");
-                }else {
-                    System.out.print(0);
-                }
+            System.out.println("   &&   | TRUE  | FALSE ");
+            System.out.println("________________________");
+            System.out.println(" TRUE   | " + (true && true) + " | " + (true && false));
+            System.out.println("________________________");
+            System.out.println("FALSE   | " + (false && true) + " | " + (false && false));
 
-            }
             System.out.println();
+            System.out.println();
+
+            System.out.println("   ||   | TRUE  | FALSE ");
+            System.out.println("________________________");
+            System.out.println(" TRUE   | " + (true || true) + " | " + (true || false));
+            System.out.println("________________________");
+            System.out.println("FALSE   | " + (false || true) + " | " + (false || false));
+
+            System.out.println();
+            System.out.println();
+
+            System.out.println("   !   ");
+            System.out.println("________________________");
+            System.out.println(" TRUE   | " + !true);
+            System.out.println("________________________");
+            System.out.println("FALSE   | " + !false);
         }
-    }
-
-    public static void main(String[] args) {
-        boolean zahl1=true;
-        boolean zahl2=true;
-
-        oder(zahl1, zahl2);
-    }
 }
+

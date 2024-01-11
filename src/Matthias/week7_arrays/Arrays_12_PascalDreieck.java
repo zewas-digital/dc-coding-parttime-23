@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class Arrays_12_PascalDreieck {
 //Methoden Aufruf:
-    //TODO Feritg Programmieren
     //rand aus der Klasse Random
     public static Random rand = new Random( );
     //scanner aus der Klasse Random
@@ -22,51 +21,44 @@ public class Arrays_12_PascalDreieck {
 
     //Start Main Programm
     public static void main( String[] args ) {
-
-        //Deklaration der Variabeln
-        System.out.println( "Eingabe von j für das Befüllen des zwei dimensionalen Arrays:" );
-        int i = scanner.nextInt( );
-        System.out.println( "Eingabe von i für das Befüllen des zwei dimensionalen Arrays:" );
-        int j = scanner.nextInt( );
-        System.out.println( "Eingabe von k für das Befüllen des zwei dimensionalen Arrays:" );
-        int k = scanner.nextInt( );
-        System.out.println( "Eingabe von n für das Befüllen des zwei dimensionalen Arrays:" );
-        int n = scanner.nextInt( );
-
-        int[][] array = createBinomialArray( i, j,n,k );
-        print2dArray( array );
-        System.out.println( binomialCoefficient( 5, 2 ) ); // 10
-        System.out.println( binomialCoefficient( 10, 5 ) ); // 252
+        System.out.print( "Wie groß soll das Pascal-Dreieck sein? :" );
+        int demension = getUserInputForDemension();
+        int[][] pascalArray=getcreatedBinomialArray( demension );
+        print2dArray( pascalArray );
 
     }
 
-    // Google Bard als Unterstüztung ansonsten zu kompliziert, gedacht
-    public static int binomialCoefficient( int n, int k ) {
-
-        if ( k > n ) {
-            System.out.println( "k muss kleiner oder gleich n sein." );
-        }
-        if ( k == 0 || k == n ) {
-            return 1;
-        } else {
-            return binomialCoefficient( n - 1, k - 1 ) + binomialCoefficient( n - 1, k );
-        }
+    //Schritt 1: User Eingabe über die Dimension des Paskalschen Dreiecks
+    public static int getUserInputForDemension() {
+        Scanner scanner1= new Scanner( System.in );
+        int eingabe = scanner1.nextInt( );
+        return eingabe;
     }
 
     //Dyamisch Array erzeugen muss man noch umschreiben mit dem oberen Hinweis
-    public static int[][] createBinomialArray( int xLength, int yLength ,int n, int k) {
-        int[][] newArray = new int[xLength][yLength];
-        for (int i = 0; i < newArray.length; i++) {
-            for (int j = 0; j < newArray[i].length; j++) {
-                newArray[i][j] = binomialCoefficient( n, k );
+    public static int[][] getcreatedBinomialArray( int demension) {
+        int[][] pascalDreieck = new int[demension][demension];
+        //Hinweis: https://miro.medium.com/v2/resize:fit:1200/1*e2MXyQCS28jQghVLZumLsA.png
+        // 1. m-rows -> 1.spalte mit 1 befüllen -> i changes -> j=0 bei aij Matrix
+        for (int i = 0; i < demension; i++) {
+            pascalDreieck[i][0] = 1;
+        }
+        //2. n-colums -> Spalten 1 befüllen aij
+        for (int j = 0; j < demension; j++) {
+            pascalDreieck[0][j] = 1;
+        }
+        //Achtung: a11,a21,a31,a21 -> Spalte für Spalte -> Sinn -> kei Problem auf dem darüberlingenden Wert zrückzugreifen und aud den daneben
+        for (int i = 1; i < demension; i++) {
+            for (int j = 1; j < demension; j++) {
+                pascalDreieck[j][i] = pascalDreieck[j][i - 1] + pascalDreieck[j - 1][i];
             }
         }
-        return newArray;
+        return pascalDreieck;
     }
-
     public static void print2dArray( int[][] array ) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println( Arrays.toString( array[i] ) );
+        for (int[] ints : array) {
+            //Druckt die Zeilen des jeweiligen Arrays
+            System.out.println( Arrays.toString( ints ) );
         }
     }
 }

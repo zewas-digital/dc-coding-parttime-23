@@ -11,6 +11,7 @@ import claudia.BasicFunctions;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Scanner;
 
 
 public class Calendar_1_MyBirthday {
@@ -20,20 +21,29 @@ public class Calendar_1_MyBirthday {
         SimpleDateFormat dateFormat1 = new SimpleDateFormat("EEEEE, dd. LLLL yyyy");
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEEEE");
 
-
+        /*
         int year = BasicFunctions.readInt("\nGib Dein Geburtsjahr ein! ");
         int month = BasicFunctions.readInt("Monat? ");
         int day = BasicFunctions.readInt("Am wievielten? ");
+        calendar.set(year, month - 1, day);
+*/
 
-        /*
-        //Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Gib Dein Geburtsdatum in folgendem Format ein: dd.mm.yyyy ");
         String date = sc.next();
+        while (!date.matches("[0-9]{1,2}.[0-9]{1,2}.[0-9]{4}")){
+            System.out.println("Bitte noch mal: ");
+            date = sc.next();
+        }
         String[] datum = date.split("\\.");
         BasicFunctions.print1DArray(datum);
-        */
+        int month = Integer.parseInt(datum[1]) - 1;
+        int day = Integer.parseInt(datum[0]);
+        int year = Integer.parseInt(datum[2]);
+        calendar.set(year, month, day);
 
-        calendar.set(year, month - 1, day);
+
+
 
         //System.out.println(dateFormat.format(calendar.getTime()));
         System.out.println("Dein Geburtstag war an einem " + (dateFormat1.format(calendar.getTime()).split(","))[0] + "!");

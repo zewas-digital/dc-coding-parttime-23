@@ -55,12 +55,6 @@ negative number -96
 96 = 2*2*2*2*2*3
 1024 = 2*2*2*2*2*2*2*2*2*2
 1025 = 5*5*41
-
-
-
-
-
-
  */
 
 
@@ -68,4 +62,28 @@ negative number -96
 
 
 public class example_39_Primfaktorenzerlegung {
+    public static void main( String[] args ) {
+
+    }
+    //liefert die Primfaktoren als String. zB 2*2*2*2*3 bei number=48.
+    public static String primeFactors(int number){
+        return "Hallo";
+    }
+
+    // gibt die Primfaktoren auf der Konsole aus, siehe Beispielausgabe. Fehlermeldung bei negativer Nummer.
+    public static void printPrimeFactors(int number){
+
+    }
+    // Automatisch Testen
+    public static void automaticTest() {
+        for (int i = 0; i <= 100; i++) printPrimeFactors(i);
+        System.out.println();
+        printPrimeFactors(-96);
+        printPrimeFactors(4);
+        printPrimeFactors(96);
+        printPrimeFactors(1024);
+        printPrimeFactors(1025);
+    }
+
+
 }

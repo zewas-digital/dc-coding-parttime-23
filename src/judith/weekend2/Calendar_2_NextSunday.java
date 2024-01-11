@@ -11,7 +11,7 @@ Erstelle eine neue GregorianCalendar Instanz und gib das Datum des nächsten Son
 
 // Ausgangsdatum z.b. 29.11.2023
 // Welcher Wochentag ist es c.get(DayofWeek) INDEX im Beispiel 4
-//Differenz  zwischen Wochentag und Sonntag (index) im Beispiel (1-7) - 4
+//Differenz zwischen Wochentag und Sonntag (index) im Beispiel (1-7) - 4
 // 29.11.2023 + 3 = 03.12.2023
 
 
@@ -26,8 +26,14 @@ public class Calendar_2_NextSunday {
 
         Calendar c = Calendar.getInstance();
         System.out.println("Datum " + c.get(Calendar.DATE) + "."+ (c.get(Calendar.MONTH) + 1) + "." + c.get(Calendar.YEAR));
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
-        System.out.println(dateFormat.format(c.getTime()));
+        int dayOfWeek = Calendar.DAY_OF_WEEK;
+        int nextSunnday = (1+7) - dayOfWeek;
+
+        c.add(Calendar.DAY_OF_MONTH, nextSunnday);
+
+
+        //  SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
+        System.out.println(c.getTime());
 
     }
 }

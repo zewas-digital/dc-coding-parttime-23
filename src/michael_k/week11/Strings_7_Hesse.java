@@ -16,12 +16,23 @@ Verwende die replace() Funktion.
 import data.Texts;
 
 public class Strings_7_Hesse {
-    String text = Texts.HESSE;
+    static String text = Texts.HESSE;
 
     public static void main(String[] args) {
 
+        //String testText = "Die ersten ersten beiden Vorkommnisse sind.";
+        int counter = 0;
+        int index = text.indexOf ( "Hesse" );
 
 
+        while(true){
+
+            int secondIndex = text.indexOf("Hesse", index +1);
+
+            index = secondIndex;
+            counter++;
+
+        }
 
     }
 }

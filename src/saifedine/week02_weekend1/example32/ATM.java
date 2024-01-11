@@ -28,7 +28,7 @@ public class ATM {
 
     public static void main(String[] args) {
 
-        Scanner Eingabe = new Scanner(System.in);
+        Scanner eingabe = new Scanner(System.in);
 
         while (true) {
 
@@ -39,59 +39,56 @@ public class ATM {
             System.out.println("4. Beenden");
             System.out.println("Geben Sie Ihre Auswahl: ");
 
+            int intAuswahl = eingabe.nextInt();
 
-            int intAuswahl = Eingabe.nextInt();
+            if (intAuswahl >= 1 && intAuswahl <=4){
 
-            if (intAuswahl == 1) {
+                if (intAuswahl == 1) {
 
-                Einzahlen();
+                    einzahlen();
 
-            } else if (intAuswahl == 2) {
+                } else if (intAuswahl == 2) {
 
-                Auszahlen();
+                    auszahlen();
 
-            } else if (intAuswahl == 3) {
+                } else if (intAuswahl == 3) {
 
-                System.out.println("Ihr Kontostand ist: " + balance);
+                    System.out.println("Ihr Kontostand ist: " + balance);
 
-            } else if (intAuswahl == 4) {
+                } else {
 
-                System.out.println("Aufwiedersehen, bis zum nächsten Mal!");
-                break;
+                    System.out.println("Aufwiedersehen, bis zum nächsten Mal!");
+                    break;
 
+                }
+            } else {
+
+                System.out.println("Ihre Eingabe ist ungültig! Probieren Sie es nochmal.");
+                System.out.println();
 
             }
-
         }
     }
 
+    static void einzahlen() {
 
-    static void Einzahlen() {
-
-        Scanner Eingabe = new Scanner(System.in);
-
+        Scanner eingabe = new Scanner(System.in);
         System.out.println("Bitte geben Sie den Betrag zum Einzahlen ein: ");
-        int Ein = Eingabe.nextInt();
+        int ein = eingabe.nextInt();
 
-        balance += Ein;
+        balance += ein;
 
         System.out.println("Ihr Kontostand beträgt: " + balance);
-
     }
 
-    static void Auszahlen() {
+    static void auszahlen() {
 
-        Scanner Eingabe = new Scanner(System.in);
-
+        Scanner eingabe = new Scanner(System.in);
         System.out.println("Bitte geben Sie den Betrag zum Auszahlen ein: ");
-        int Aus = Eingabe.nextInt();
+        int aus = eingabe.nextInt();
 
-        balance -= Aus;
+        balance -= aus;
 
         System.out.println("Ihr Kontostand beträgt: " + balance);
-
     }
-
 }
-
-

@@ -20,11 +20,24 @@ km-Stand
 
 public class Objekt_1_Auto {
 
+
     public static void main(String[] args) {
+
+        /**
+         *
+         * Aufgabe 2/ Erstelle eine Instanz dieser Klasse (Objekt) in dieser Klasse Objekt_1_Auto (oben)
+         *
+         */
 
         Auto Auto1 = new Auto();
         Auto Auto2 = new Auto("Audi", "A4", 2015, 143000,75,33,5.7);
         Auto Auto3 = new Auto("Hyundai", "i20", 2016, 83622,35,23,4.8);
+
+
+        /**
+         *
+         * Aufgabe 4/ Gib das Auto in Objekt_1_Auto über die toString() Methode aus (oben)
+         */
 
 //Ausgabe durch Auto1, wird die Methode toString in Auto.java aufgerufen und angezeigt
         System.out.println(Auto1 + "Die Auto-Daten sind: " + "\n");
