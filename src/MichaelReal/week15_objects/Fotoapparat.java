@@ -11,12 +11,15 @@ Erstelle weiters die Methode takePhoto(), die ein Foto schießt (Mach einfach ei
 Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig.
  */
 
-public class Fotoapparat {
+public class Fotoapparat extends Object {
     private double brennweiteMin;
     private double brennweiteMax;
     private String modell;
     private String hersteller;
     private int megapixel;
+    private Objektiv aktivesObjektiv;
+    private Speicherkarte aktiveSpeicherkarte;
+
 
     public Fotoapparat(double brennweiteMin, double brennweiteMax, String modell, String hersteller, int megapixel) {
         this.brennweiteMin = brennweiteMin;
@@ -66,22 +69,50 @@ public class Fotoapparat {
         this.megapixel = megapixel;
     }
 
+    public Objektiv getAktivesObjektiv() {
+        return aktivesObjektiv;
+    }
+
+    public void setAktivesObjektiv(Objektiv aktivesObjektiv) {
+        this.aktivesObjektiv = aktivesObjektiv;
+    }
+
+    public Speicherkarte getAktiveSpeicherkarte() {
+        return aktiveSpeicherkarte;
+    }
+
+    public void setAktiveSpeicherkarte(Speicherkarte aktiveSpeicherkarte) {
+        this.aktiveSpeicherkarte = aktiveSpeicherkarte;
+    }
+
+
     @Override
     public String toString() {
         return "Fotoapparat {" +
                 "Brennweite (min) = " + brennweiteMin + "mm" +
-                ", Brennweite (max) = " + brennweiteMax + "mm " +
-                ", Modell = '" + modell + '\'' +
-                ", Hersteller = '" + hersteller + '\'' +
-                ", Megapixel = " + megapixel +
+                "\nBrennweite (max) = " + brennweiteMax + "mm " +
+                "\nModell = '" + modell + '\'' +
+                "\nHersteller = '" + hersteller + '\'' +
+                "\nMegapixel = " + megapixel +
+                "\nAktives Objektiv = " + (aktivesObjektiv != null ? aktivesObjektiv.toString() : "Kein Objektiv") +
+                "\nAktive Speicherkarte = " + (aktiveSpeicherkarte != null ? aktiveSpeicherkarte.toString() : "Keine Speicherkarte") +
                 '}';
     }
 
     public void takePhoto() {
-        System.out.println("📷📷📷📷" +
-                "\n🤓🤓🤓🤓" +
-                "\n📷📷📷📷" +
-                "\n😖😖😖😖");
+        if (aktiveSpeicherkarte != null) {
+            int groesse = 5; // Annahme: Ein Foto belegt 5 MB Speicherplatz
+            aktiveSpeicherkarte.speicherplatzBelegen(groesse);
+            System.out.println("Foto aufgenommen und " + groesse + " MB Speicherplatz belegt.");
+            int verfuegbarerSpeicher = aktiveSpeicherkarte.verfuegbarerSpeicherplatz();
+            System.out.println("Verfügbarer Speicherplatz auf der Karte: " + verfuegbarerSpeicher + " MB");
+            System.out.println("📷📷📷📷" +
+                    "\n🤓🤓🤓🤓" +
+                    "\n📷📷📷📷" +
+                    "\n😖😖😖😖");
+        } else {
+            System.out.println("Keine Speicherkarte eingelegt. Foto konnte nicht aufgenommen werden.");
+        }
     }
 
 }
