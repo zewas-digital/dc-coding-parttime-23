@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package claudia.week15_objects.auto;
 
 /*
 Aufgabe: Auto fahren
@@ -25,10 +25,11 @@ public class Objekt_2_Autofahren {
         System.out.println("Aktueller Kilometerstand = " + auto.getKmStandFormatiert());
 
         auto.fahren(700);
-
         auto.fahren(1000);
 
         auto.volltanken();
+
+        auto.fahren(20);
 
     }
 }

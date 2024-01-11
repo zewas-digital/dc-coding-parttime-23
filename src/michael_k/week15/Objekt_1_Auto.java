@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package michael_k.week15;
 
 /*
 Aufgabe: Auto
@@ -21,13 +21,12 @@ public class Objekt_1_Auto {
 
     public static void main(String[] args) {
 
-        Auto auto1 = new Auto();
-        Auto auto2 = new Auto("Fiat", "Punto", 1980, 15000000, 35, 10, 7.2);
-        Auto auto3 = new Auto("Skoda", "Octavia", 2000, 1450, 60, 30, 6.3 );
+        Auto auto1 = new Auto ( "Audi", "A5", 2011, 200000 );
+        Auto auto2 = new Auto ( "BMW", "5", 2013, 100000 );
 
-        System.out.println("\nDrei neue Autos erzeugt: ");
-        System.out.println(auto1.toString() + "\n");
-        System.out.println(auto2.toString() + "\n");
-        System.out.println(auto3.toString() + "\n");
+        System.out.println ( auto1.toSrting ());
+
+        System.out.println ( auto2.toSrting ());
     }
+
 }

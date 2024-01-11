@@ -16,4 +16,27 @@ Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht 
  */
 
 public class Objekt_2_Autofahren {
+    public static void main(String[] args) {
+        // Erstellen einer Instanz von Auto
+        Auto fiatPanda = new Auto("FIAT", "Panda", 2021, 25000,40.0, 0.06);
+
+        fiatPanda.volltanken();
+
+        fiatPanda.fahren(100);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(50);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(5);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(30);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(200);
+        System.out.println(fiatPanda);
+        fiatPanda.fahren(100);
+        System.out.println(fiatPanda);
+       // fiatPanda.fahren(100);        //aktivieren für 5km limit
+        System.out.println(fiatPanda);
+       // fiatPanda.fahren(200);       // aktivieren für leeren tank
+        System.out.println(fiatPanda);
+    }
 }
