@@ -33,10 +33,13 @@ public class Auto extends Object {
         System.out.println("Auto erzeugt mit Kilometerstand "+ kilometerstandFormatiert);
     }
 
+    // GETTER: übergibt den Tankvolumen an getTankvolumen
     public int getTankvolumen() {
         return this.tankvolumen;
     }
 
+    // SETTER: setzt und überprüft die Variablen Tankinhalt auf deren Input
+    // wenn ein neues Objekt Auto erstellt wird! Für alle Autos wurde ein max. Tankvolumen von 80 definiert.
     public void setTankinhalt(int neuerTankinhalt) {
         if (neuerTankinhalt <= this.tankvolumen && neuerTankinhalt >= 0)
             this.tankinhalt = neuerTankinhalt;
@@ -44,19 +47,28 @@ public class Auto extends Object {
             throw new IllegalArgumentException("Das ist nicht möglich.");
     }
 
+    // Ausdruck/Ausgabe
     public String getFormatierterTankinhalt() {
         return this.tankinhalt +" Liter";
     }
 
+    // SETTER: Methode zur Erhöhung des Km Standes um die gefahrenen Km
+    // Methode wird aufgerufen in Objekt_1_Auto - package saifedine.week15_objects.oliver_V02
     public void setKilometerstand(int neuerKilometerstand) {
+
+        // Übergibt den Konstruktor der Methode an die Klassen-Variable kilometerstand
         this.kilometerstand = neuerKilometerstand;
+
+        // Km Stand Formatierung - Formatierung
         this.kilometerstandFormatiert = NumberFormat.getInstance(Locale.GERMAN).format(neuerKilometerstand) +" km";
     }
 
+    // getKilometerstand(): Gibt den Kilometerstand des Autos zurück (Eigenschaft: private int kilometerstand)
     public int getKilometerstand() {
         return this.kilometerstand;
     }
 
+    // GETTER: übergibt formatierten kilometerstand als String zurück
     public String getKilometerstandFormatiert() {
         return NumberFormat.getInstance(Locale.GERMAN).format(kilometerstand) +" km";
     }

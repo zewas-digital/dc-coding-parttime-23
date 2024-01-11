@@ -1,4 +1,4 @@
-package claudia.week15_objects;
+package claudia.week15_objects.auto;
 
 /*
 Aufgabe: Auto
@@ -27,6 +27,9 @@ public class Objekt_1_Auto {
 
         System.out.println("\nDrei neue Autos erzeugt: ");
         System.out.println(auto1.toString() + "\n");
+        //sobald es eine toString-Methode gibt, liefert Aufruf von auto1 innerhalb einer print-Methode das Ergebnis von toString,
+        //weil ein String erwartet wird.
+        //so festgelegt in Object
         System.out.println(auto2.toString() + "\n");
         System.out.println(auto3.toString() + "\n");
     }
