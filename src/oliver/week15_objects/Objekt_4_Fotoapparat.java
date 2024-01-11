@@ -12,4 +12,5 @@ Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig
  */
 
 public class Objekt_4_Fotoapparat {
+
 }

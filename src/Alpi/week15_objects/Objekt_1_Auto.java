@@ -46,9 +46,7 @@ public class Objekt_1_Auto {
 
         // Klasse aus anderem Package:
         // das Schlüsselwort "protected" schützt Attribute und Methoden vor dem globalen Zugriff ausserhalb des Pakets (Package)
-        // auf oliver.week15_extend.Auto.wheels kann deshalt nicht zugegriffen werden
-
-
+        // auf oliver.week15_extend.Auto.wheels kann deshalb nicht zugegriffen werden
     }
 }
 
