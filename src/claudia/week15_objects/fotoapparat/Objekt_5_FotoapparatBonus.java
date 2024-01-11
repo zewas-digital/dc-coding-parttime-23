@@ -34,29 +34,40 @@ public class Objekt_5_FotoapparatBonus {
 
         System.out.println("\nWeitwinkelobjektiv: " + weitwinkelObjektiv);
 
-        Fotoapparat fa1 = new Fotoapparat("Sony", "XYZ", 20, normalesObjektiv, sk1);
-        //Fotoapparat fa2 = new Fotoapparat("Canon", "ABC", 20, 24);
+        Fotoapparat fa1 = new Fotoapparat("Sony", "XYZ", 20);
 
-        System.out.println("\nNeuer Fotoapparat erzeugt mit Normalobjektiv:\n" + fa1);
+        System.out.println("\nNeuer Fotoapparat erzeugt:\n" + fa1);
+        System.out.println("\nSetze Normalobjektiv ein: ");
+        fa1.setObjektiv(normalesObjektiv);
         System.out.println(fa1.getObjektiv().toString());
 
-        System.out.println("\nWechsel des Objektivs: ");
-        fa1.setObjektiv(teleObjektiv);
+        System.out.println("\nWechsel zu Weitwinkelobjektiv: ");
+        fa1.setObjektiv(weitwinkelObjektiv);
         System.out.println("Neue Werte: \n" + fa1);
         System.out.println(fa1.getObjektiv());
 
-        //System.out.println("\nNeuer einfacher Fotoapparat erzeugt: " + fa2);
+        System.out.println("\nSpeicherkarte einsetzen: ");
+        fa1.setSpeicherkarte(sk1);
+        System.out.println("Speicherkapazität gesamt: " + sk1.getMemoryTotal() + " GB");
 
         System.out.println("\nMach ein Foto: ");
-        fa1.takePhoto();
+        fa1.takePhoto(1);
+
+        System.out.println("Entferne Objektiv!");
+        fa1.entferneObjektiv();
         System.out.println("\nMach 10 Fotos: ");
-        for (int i = 0; i < 10; i++) {
-            fa1.takePhoto();
-        }
+        fa1.takePhoto(10);
 
         System.out.println("\nEntferne Speicherkarte, versuch noch ein Foto: ");
         fa1.setSpeicherkarte(null);
-        fa1.takePhoto();
+        fa1.takePhoto(1);
 
+        System.out.println("\nNeue Kamera mit Teleojektiv: ");
+        Fotoapparat fa2 = new Fotoapparat("Canon", "A1", 40);
+        fa2.setObjektiv(teleObjektiv);
+        System.out.println("\n" + fa2 + "\n" + teleObjektiv);
+        System.out.println("\nVerwende dieselbe Speicherkarte, mach zwei Fotos: ");
+        fa2.setSpeicherkarte(sk1);
+        fa2.takePhoto(2);
     }
 }
