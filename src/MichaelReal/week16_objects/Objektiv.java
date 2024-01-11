@@ -1,4 +1,4 @@
-package MichaelReal.week15_objects;
+package MichaelReal.week16_objects;
 
 /*
 Aufgabe: Fotoapparat & Objektiv & Speicherkarte

@@ -1,4 +1,4 @@
-package MichaelReal.week15_objects;
+package MichaelReal.week16_objects;
 
 public class Speicherkarte extends Object {
     private String modell;
