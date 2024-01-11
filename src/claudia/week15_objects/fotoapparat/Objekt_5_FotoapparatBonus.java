@@ -35,15 +35,28 @@ public class Objekt_5_FotoapparatBonus {
         System.out.println("\nWeitwinkelobjektiv: " + weitwinkelObjektiv);
 
         Fotoapparat fa1 = new Fotoapparat("Sony", "XYZ", 20, normalesObjektiv, sk1);
-        Fotoapparat fa2 = new Fotoapparat("Canon", "ABC", 20, 24);
+        //Fotoapparat fa2 = new Fotoapparat("Canon", "ABC", 20, 24);
 
         System.out.println("\nNeuer Fotoapparat erzeugt mit Normalobjektiv:\n" + fa1);
-        System.out.println(normalesObjektiv);
+        System.out.println(fa1.getObjektiv().toString());
 
         System.out.println("\nWechsel des Objektivs: ");
         fa1.setObjektiv(teleObjektiv);
         System.out.println("Neue Werte: \n" + fa1);
+        System.out.println(fa1.getObjektiv());
 
-        System.out.println("\nNeuer einfacher Fotoapparat erzeugt: " + fa2);
+        //System.out.println("\nNeuer einfacher Fotoapparat erzeugt: " + fa2);
+
+        System.out.println("\nMach ein Foto: ");
+        fa1.takePhoto();
+        System.out.println("\nMach 10 Fotos: ");
+        for (int i = 0; i < 10; i++) {
+            fa1.takePhoto();
+        }
+
+        System.out.println("\nEntferne Speicherkarte, versuch noch ein Foto: ");
+        fa1.setSpeicherkarte(null);
+        fa1.takePhoto();
+
     }
 }

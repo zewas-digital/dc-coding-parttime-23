@@ -15,6 +15,7 @@ public class Fotoapparat {
     private int brennweite; //in mm, z.B. zwischen 24 u. 70
     private Objektiv objektiv;
     private Speicherkarte speicherkarte;
+    private double speicherplatzProBild;
 
     //Konstruktoren:
     public Fotoapparat(){
@@ -33,22 +34,38 @@ public class Fotoapparat {
         this.aufloesung = aufloesung;
         this.brennweite = objektiv.getBrennweite();
         this.speicherkarte = speicherkarte;
+        this.objektiv = objektiv;
+        speicherplatzProBild = 0.3 * aufloesung * Math.pow(2, -10); //von MB in GB umgerechnet
     }
 
     public void takePhoto() {
         if (this.modell.equals("unbekannt"))
             System.out.println("Gerät nicht vernünftig definiert - kein Foto möglich! ");
+        else if (speicherkarte == null)
+            System.out.println("Keine Speicherkarte eingesetzt - kein Foto möglich! ");
         else {
-            System.out.println("*".repeat(15));
-            System.out.println("*.............*");
-            System.out.println("*......+......*");
-            System.out.println("*....+...+....*");
-            System.out.println("*..+++++++++..*");
-            System.out.println("*..+.......+..*");
-            System.out.println("*..+.......+..*");
-            System.out.println("*..+++++++++..*");
-            System.out.println("*.............*");
-            System.out.println("*".repeat(15));
+
+            System.out.println("\nBenötigter Speicherplatz: " + speicherplatzProBild);
+            if (speicherplatzProBild > speicherkarte.getMemoryFree())
+                System.out.println("Speicher voll - kein Foto möglich! " + speicherkarte.getMemoryFree());
+            else {
+                System.out.println("*".repeat(15));
+                System.out.println("*.............*");
+                System.out.println("*......+......*");
+                System.out.println("*....+...+....*");
+                System.out.println("*..+++++++++..*");
+                System.out.println("*..+.......+..*");
+                System.out.println("*..+.......+..*");
+                System.out.println("*..+++++++++..*");
+                System.out.println("*.............*");
+                System.out.println("*".repeat(15));
+
+                speicherkarte.setNumberOfPhotosTaken(speicherkarte.getNumberOfPhotosTaken() + 1);
+                System.out.println("Bereits gespeicherte Fotos: " + speicherkarte.getNumberOfPhotosTaken());
+                speicherkarte.setMemoryFree(speicherkarte.getMemoryFree() - speicherplatzProBild);
+                System.out.println("Bereits belegter Speicherplatz: " + speicherkarte.getMemoryFree());
+            }
+
         }
     }
     public String toString(){
@@ -57,11 +74,19 @@ public class Fotoapparat {
         else {
             String info = ":\nFotoapparat Marke " + hersteller + ", Modell " + modell + ", " +
                     "\nAuflösung: " + aufloesung + " Megapixel, Brennweite: " + brennweite + " mm";
-            if (speicherkarte != null) info = info + "\nSpeicherkarte vorhanden, Größe " + speicherkarte.getSize();
+            if (speicherkarte != null) info = info + "\nSpeicherkarte vorhanden, Größe " + speicherkarte.getMemoryTotal() + " GB";
 
             return (super.toString() + info);
         }
 
+    }
+
+    public void setSpeicherkarte(Speicherkarte speicherkarte) {
+        this.speicherkarte = speicherkarte;
+    }
+
+    public double getSpeicherplatzProBild() {
+        return speicherplatzProBild;
     }
 
     public Objektiv getObjektiv() {
