@@ -79,4 +79,29 @@ negative number -96
 
 
 public class Primfaktorenzerlegung {
+
+    public static void main(String[] args) {
+
+        /*
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        }
+        System.out.println();
+
+        for (int j = 10; j < 20; j++) {
+            System.out.println(j);
+        }
+        System.out.println();
+
+         */
+
+        for (int x = 10; x >= 1 ; x--) {
+            System.out.println(x);
+        }
+        System.out.println();
+
+        for (int x = 10; x >= 1 ; x--) {
+            System.out.println(10 - x);
+        }
+    }
 }
