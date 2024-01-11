@@ -1,4 +1,4 @@
-package MichaelReal.week15_objects;
+package michael_k.week15;
 
 /*
 Aufgabe: Fotoapparat
@@ -12,22 +12,19 @@ Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig
  */
 
 public class Objekt_4_Fotoapparat {
+
     public static void main(String[] args) {
-        Fotoapparat sony = new Fotoapparat(18, 55, "Ultra", "Sony", 24);
 
-        //INFOS
-        System.out.println("Infos der Kamera");
-        System.out.println(sony);
+        Fotoapparat fa1 = new Fotoapparat ( "Sony", "Alpha6000", "16/50", 24,  "2/22" );
+
+        Fotoapparat fa2 = new Fotoapparat ( "Canon", "zx5", "18/55", 30,"4/18" );
+
+        fa1.takePhoto();
+        fa1.setIso ( 100 );
+
+        System.out.println ( fa1.toString());
+        System.out.println ( fa2.toString());
 
 
-        //FOTO MACHEN
-        System.out.println("\nFotos aufnehmen:");
-        sony.takePhoto();
-
-
-        //ÄNDERN DER EINSTELLUNGEN
-        System.out.println("\nÄndere die Brennweite von auf 50.0");
-        sony.setBrennweiteMax(50.0);
-        System.out.println(sony);
     }
 }

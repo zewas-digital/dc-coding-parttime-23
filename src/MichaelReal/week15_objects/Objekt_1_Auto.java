@@ -19,20 +19,17 @@ km-Stand
 
 public class Objekt_1_Auto {
 
-    // Hauptmethode zum Erstellen und Testen der Auto-Instanz
+
     public static void main(String[] args) {
         // Erstellen einer Instanz von Auto
-        Auto FiatPanda = new Auto("FIAT", "Panda", 2021, 25000);
+        Auto FiatPanda = new Auto("FIAT", "Panda", 2021, 25000,40.0, 0.06);
+
+        System.out.println(FiatPanda);
 
         // Ausgabe der Eigenschaften des Objekts
-        System.out.println("Marke: " + FiatPanda.getMarke());
-        System.out.println("Modell: " + FiatPanda.getModell());
-        System.out.println("Baujahr: " + FiatPanda.getBaujahr());
-        System.out.println("Kilometerstand: " + String.format("%,.0f", FiatPanda.getKmStand()) + " km");
-
-        // Ausgabe der Eigenschaften des Objekts mithilfe der toString()-Methode
-        System.out.println(FiatPanda.toString());
+       // System.out.println("Marke: " + FiatPanda.getMarke());
+        //System.out.println("Modell: " + FiatPanda.getModell());
+        //System.out.println("Baujahr: " + FiatPanda.getBaujahr());
+        //System.out.println("Kilometerstand: " + String.format("%,.0f", FiatPanda.getKmStand()) + " km");
     }
 }
-
-
