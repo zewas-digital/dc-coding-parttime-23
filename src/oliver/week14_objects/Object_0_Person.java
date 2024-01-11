@@ -9,9 +9,10 @@ public class Object_0_Person {
 
         int number = 7;
         String text = "tst";
+        String sub = text.substring(1,3);
         char[] charray = {'t','e','s','t'};
 
-        String text1 = new String();
+        String text1 = new String(charray);
         System.out.println(text1);
 
         Person Peter = new Person("Peter", 22);
