@@ -1,4 +1,4 @@
-package claudia.week15_objects.fotoapparat;
+package claudia.week16_objects.fotoapparat;
 /*
 Erstelle Methoden um zu erfragen, wieviele Fotos bereits aufgenommen wurden und wieviel Speicher noch frei ist.
 Für die Berechnung speicherplatz pro bild, kann ein wert von 0.3mb pro Megapixel angenommen werden.
