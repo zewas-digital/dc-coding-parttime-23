@@ -20,6 +20,7 @@ public class Auto extends Fahrzeug {
 
     @Override
     public void drive(int kilometer) {
+        System.out.println("Fahre Auto.");
         //TODO drive x kilometer...
     }
 

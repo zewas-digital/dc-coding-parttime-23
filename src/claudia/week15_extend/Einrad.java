@@ -9,4 +9,5 @@ public class Einrad extends Fahrzeug {
     public void drive(int kilometer) {
         //TODO drive x kilometer...
     }
+
 }

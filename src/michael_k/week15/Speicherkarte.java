@@ -4,13 +4,12 @@ public class Speicherkarte extends Object{
 
     public int speichergroesse;
     public int speicherBelegt=0;
+    public int speicherFrei;
 
     public Speicherkarte(int groesse){
 
         this.speichergroesse = groesse;
+        this.speicherFrei = groesse;
     }
-    public void takePhoto(){
 
-        speicherBelegt = speicherBelegt +5;
-    }
 }

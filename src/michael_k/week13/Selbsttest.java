@@ -1,5 +1,8 @@
 package michael_k.week13;
 
+import java.io.Console;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Selbsttest {
@@ -219,6 +222,23 @@ int[] arr = fillArr(10);
          * Ausgabe:
 0 1 2 3 4 5 6 7 8 9 10
          */
+        System.out.println ( );
+        System.out.println ("Aufgabe 10:" );
+        System.out.println ( );
+        
+        Scanner inputKonsole = new Scanner ( System.in );
+        System.out.println ( "Wie lang soll des Array sein:" );
+        int input2 = inputKonsole.nextInt ( );
+
+        int[] arr10 = Aufgabe10FillArray (input2);
+
+        for (int i = 0; i < input2+1; i++) {
+            System.out.print (arr10[i]+" " );
+        }
+        for (int value: arr10) {
+            System.out.print ( value +" ");
+        }
+        //Console.WriteLine("[{0}]", String.join(" ", arr10));
 
         // String **********************
         String text = "Heute der 19.10.2021 wird ein sehr guter Tag. Zwar gibt es sowas wie einen Test, den 14 Leute schreiben, aber das ist doch egal!";
@@ -233,6 +253,17 @@ int[] arr = fillArr(10);
          * Ausgabe:
 HeYYe deY ab.a0.a0aa YYYd eYY YeYY YYYeY TXY. ZYXY YYXY eY YYYXY YYe eYYeY TeYY, deY aa LeYYe YXYYeYXeY, XXeY dXY YYY dYXY eYXY!
          */
+
+        System.out.println ( );
+        System.out.println ("Aufgabe 11:" );
+        System.out.println ( );
+
+        String text1 = text;
+        text1= text1.replaceAll("[a-c]", "X");
+        text1= text1.replaceAll("[f-z]", "Y");
+        text1= text1.replaceAll("[1-5]", "a");
+        text1= text1.replaceAll("[6-9]", "b");
+        System.out.println (text1);
 
         // Aufgabe 12 ------------------
         /* Erstelle einen regulären Ausdruck der folgendem Sachverhalt entspricht und
@@ -260,6 +291,16 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          
          * Ausgabe:
 DI 19.10.2021
          */
+        System.out.println ( );
+        System.out.println ("Aufgabe 13:" );
+        System.out.println ( );
+
+        Calendar cal = Calendar.getInstance ();
+
+        SimpleDateFormat today = new SimpleDateFormat ( "EE dd.MM.yyyy" );
+        System.out.println ( today.format ( cal.getTime ( ) ) );
+
+
     }
 
     static void Aufgabe4(String str, int amount) {
@@ -324,6 +365,14 @@ DI 19.10.2021
         }
 
         return x/ arr.length;
+    }
+    static int[] Aufgabe10FillArray(int sice){
+
+        int[] arr = new int[sice+1];
+        for (int i = 0; i < sice+1; i++) {
+            arr[i] = i;
+        }
+        return arr;
     }
 
 }

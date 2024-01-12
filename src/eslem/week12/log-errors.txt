@@ -1,0 +1,9 @@
+WARNING - Datei wurde nicht gefunden.\src\filedoesnotexist.txt (Das System kann die angegebene Datei nicht finden)
+---ERROR 2023/12/05 18:46:05---
+Index 12 out of bounds for length 10
+[eslem.week12.Stream_2_FileLog.main(Stream_2_FileLog.java:34)]
+---WARNING 2023/12/05 18:46:05---
+Datei wurde nicht gefunden!.\src.filedoesnotexist.txt (Das System kann die angegebene Datei nicht finden)
+[java.base/java.io.FileInputStream.open0(Native Method), java.base/java.io.FileInputStream.open(FileInputStream.java:219), java.base/java.io.FileInputStream.<init>(FileInputStream.java:158), java.base/java.io.FileInputStream.<init>(FileInputStream.java:112), eslem.week12.Stream_2_FileLog.main(Stream_2_FileLog.java:40)]
+---INFO 2023/12/05 18:46:05---
+Stream_2Filelog.main wurde erfolgreich ausgeführt!

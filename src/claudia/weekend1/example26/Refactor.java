@@ -1,4 +1,4 @@
-package solutions.claudia.weekend1.example26;
+package claudia.weekend1.example26;
 import java.util.Scanner;
 public class Refactor {
 
