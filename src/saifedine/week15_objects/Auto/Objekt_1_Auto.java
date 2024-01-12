@@ -1,4 +1,4 @@
-package saifedine.week15_objects;
+package saifedine.week15_objects.Auto;
 
 /*
 Aufgabe: Auto
