@@ -1,4 +1,4 @@
-package Matthias.week15_objects;
+package florian.week_15_objects;
 
 /*
 Aufgabe: Fotoapparat & Objektiv & Speicherkarte
@@ -11,19 +11,19 @@ Für die Berechnung speicherplatz pro bild, kann ein wert von 0.3mb pro Megapixe
  */
 
 public class Objekt_5_FotoapparatBonus {
-    public static void main( String[] args ) {
-
-        Fotokamera_5 Fotokamara1= new Fotokamera_5( "Sony","Alpha 4",48 );
-        Objektiv_5 Objektiv=new Objektiv_5( 50 );
-        Speicherkarte_5 Speicherkarte = new Speicherkarte_5( 25 );
-        Fotokamara1.setObjektiv(  Objektiv);
-        Fotokamara1.setSpeicherkarte( Speicherkarte );
-        System.out.println( Fotokamara1 );
-
-        Fotokamara1.objektiv.brennweite=60;
-        System.out.println( Fotokamara1 );
+    public static void main(String[] args) {
 
 
+        Objektiv objektiv = new Objektiv(50);
+        Speicherkarte speicherkarte = new Speicherkarte(50);
+
+        Fotoapparat nikon = new Fotoapparat("Nikon","Z8",45,objektiv,speicherkarte);
+
+        Fotoapparat sony = new Fotoapparat("Sony", "ZV1",30,objektiv,speicherkarte);
+
+        objektiv.brennweite = 110;
+
+        System.out.println(nikon);
 
     }
 }
