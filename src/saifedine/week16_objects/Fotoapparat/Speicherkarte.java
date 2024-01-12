@@ -4,5 +4,5 @@ public class Speicherkarte {
 
     public float speicher;
 
-    public Speicherkarte(float speicherkarte){ this.speicher = speicherkarte;}
+    public Speicherkarte(float speicher){ this.speicher = speicher;}
 }

@@ -12,6 +12,9 @@ public class Fotoapparat {
 
     Speicherkarte speicherkarte;
 
+    public int fotoCounter = 0;
+    float restSpeicher;
+
     /*
     public Fotoapparat(String hersteller, String model, float megapixel, int brennweite){
 
@@ -56,15 +59,26 @@ public class Fotoapparat {
 
     public void takePhoto(){
         System.out.println("Click, ein Foto wurde erstellt");
+        fotoCounter++;
+        //System.out.println("Sie haben " + fotoCounter + " Fotos gemacht");
     }
 
     public void verbindeObjektiv(Objektiv objektiv){
-
         this.objektiv = objektiv;
     }
 
     public void verbindeSpeicherkarte(Speicherkarte speicherkarte){
-
         this.speicherkarte = speicherkarte;
     }
+
+    public void gemachteFotosMitRestspeicher(){
+        System.out.println("\n" + "Sie haben " + this.fotoCounter + " Fotos gemacht");
+        //System.out.println("Der Speicher ist: " + this.speicherkarte.speicher);
+        //System.out.println("Megapixel: " + this.megapixel);
+
+        this.restSpeicher = (float) (this.speicherkarte.speicher - (this.fotoCounter * (this.megapixel * 0.3)));
+
+        System.out.println("Der Restspeicher beträgt: " + this.restSpeicher);
+    }
+
 }

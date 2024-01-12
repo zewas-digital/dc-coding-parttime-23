@@ -18,6 +18,11 @@ public class Objekt_5_FotoapparatBonus {
         Objektiv zoomObjektiv = new Objektiv(50);
         sonyKamera.verbindeObjektiv(zoomObjektiv);
 
+        sonyKamera.setHersteller("Sony");
+        sonyKamera.setModel("8747");
+        sonyKamera.setMegapixel(22.3F);
+
+
         Fotoapparat canonKamera = new Fotoapparat();
         canonKamera.verbindeObjektiv(zoomObjektiv);
 
@@ -31,5 +36,23 @@ public class Objekt_5_FotoapparatBonus {
         // da beide Fotoapparat Instanzen das selbe Objektiv (zoomObjektiv) verwenden, wird im sout unten der Wert von zoomObjektiv.brennweite (1.1) verwendet.
         System.out.println("Sony: " + sonyKamera.objektiv.brennweite);
         System.out.println("Canon: " + canonKamera.objektiv.brennweite);
+
+        Speicherkarte sd100 = new Speicherkarte(100.0F);
+        sonyKamera.verbindeSpeicherkarte(sd100);
+
+        //System.out.println("\n" + sonyKamera.speicherkarte.speicher + "\n");
+        System.out.println("\n" + sd100.speicher + "\n");
+
+        System.out.println("\n" + sonyKamera + "\n");
+
+        sonyKamera.takePhoto();
+
+        for (int i = 0; i < 5; i++) {
+            sonyKamera.takePhoto();
+        }
+
+        //System.out.println("\n" + "Sie haben " + sonyKamera.fotoCounter + " Fotos gemacht" + "\n");
+
+        sonyKamera.gemachteFotosMitRestspeicher();
     }
 }
