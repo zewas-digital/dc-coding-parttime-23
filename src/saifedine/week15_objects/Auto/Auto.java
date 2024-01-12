@@ -1,4 +1,4 @@
-package saifedine.week15_objects;
+package saifedine.week15_objects.Auto;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -17,35 +17,36 @@ import java.util.Locale;
 
 public class Auto extends Object {
 
-    // Attribute
+    // Attribute - Objekt_1_Auto
     public String marke = "Marke -> unbekannt";
     public String modell = "Model -> unbekannt";;
     public int baujahr;
     private int kmStand;
     String kilometerstandFormatiert;
-
-
     private int tankvolumen = 80;
     public double tankinhalt;
-    public double getankteMenge;
-
     public double verbrauch;
 
-//        Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
-//        return fahrOutput;
-
-
+    // Attribute - Objekt_2_Autofahren
     public int gefahreneKm;
     public double tankinhaltverbrauch;
 
+    public double getankteMenge;
+
+    public double reichweite;
+
+
+
+//        Double[] fahrOutput = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
+//        return fahrOutput;
 
 
     // Methode zur Erstellung einer Instanz Auto ohne Konstruktoren
     public Auto() {
     }
 
-    // Methode zur Erstellung einer Instanz Auto mit Konstruktoren & Überprüfung der Konstruktoren baujahr & tankvolumen
 
+    // Methode zur Erstellung einer Instanz Auto mit Konstruktoren & Überprüfung der Konstruktoren baujahr & tankvolumen
     /**
      * Konstruktor
      *
@@ -91,6 +92,8 @@ public class Auto extends Object {
      * Aufgabe 3/ Erstelle weiters eine toString() Methode und erstelle einen schönen String mit den gegebenen Werten das Auto.
      *
      * @return: String
+     *
+     * -->  package saifedine.week15_objects; Objekt_1_Auto
      */
 
     // Methode mit der Befugnisse zum Überschreiben (@Override), hier wird die Standard-Methode der Objekt Klasse (extended Object - on the Top) überschrieben und gibt eine individuelle Darstellung / Version
@@ -121,6 +124,18 @@ public class Auto extends Object {
         return verbrauch / 100;
     }
 
+
+    /**
+     *
+     * Aufgabe 1/ Ergänze bei deiner Klasse Auto eine Methode fahren(...) der ein Parameter
+     * mit den zu fahrenden Kilometern übergeben werden kann. Erhöhe den Kilometerstand.
+     *
+     * @param gefahreneKm
+     * @return
+     *
+     * -->  package saifedine.week15_objects; Objekt_2_Autofahren
+     */
+
     // Objekt_2_Autofahren
     // fahren(): Setzt den neuen Kilometerstand des Autos (Eigenschaft: private int kmStand; & String kilometerstandFormatiert;)
     public Double[] fahren(int gefahreneKm) {
@@ -141,7 +156,7 @@ public class Auto extends Object {
         this.tankinhaltverbrauch = this.gefahreneKm * this.getVerbrauchProKm();
 
         // Minderung des Tankinhalts um den Verbrauch (darüber) - Kalkulation
-        this.tankinhalt = tankinhalt - this.tankinhaltverbrauch;
+        // this.tankinhalt = tankinhalt - this.tankinhaltverbrauch;
 
         // Speicherung der gefahrenen Km & Verbrauch der gefahrenen Km in ein Double Array inkl. parsen zu double
         // in unserem Fall, wird in der fahrOutput in Objekt_2_Autofahren verwendet und ausgedruckt, leider bezieht sich das nur auf den AudiA4, somit unbrauchbar.
@@ -150,6 +165,65 @@ public class Auto extends Object {
 
         return fahrOutput;
     }
+
+
+    public Double[] fahren(int zuFahrendeKm, int gefahreneKm){
+
+        System.out.println("ich möchte "+ zuFahrendeKm +" km fahren.");
+
+        // Berechnung der Reichweiter in km mit dem aktuellen Tankinhalt
+        this.reichweite =  this.tankinhalt / this.getVerbrauchProKm();
+
+        //System.out.println("Audi: " + this.reichweite);
+
+        if (this.reichweite > zuFahrendeKm){
+
+            gefahreneKm = zuFahrendeKm;
+            fahren(gefahreneKm);
+            this.tankinhalt = tankinhalt - this.tankinhaltverbrauch;
+        }
+
+        else {
+
+            int counterGefKm = 0;
+            boolean warned = false;
+
+            while (counterGefKm != zuFahrendeKm){
+
+                this.tankinhalt -= this.getVerbrauchProKm();
+
+                if (this.tankinhalt <= 5 && warned == false){                                                           // Kurzform !warned von Oliver
+                    System.out.println("Sie haben nur mehr 5 Liter im Tank");
+                    warned = true;
+                }
+                if (this.tankinhalt <= 0 && counterGefKm <= zuFahrendeKm){
+
+                    int rest = zuFahrendeKm - counterGefKm;
+
+                    System.out.println("Bis zum Ziel sind es noch " + rest);
+
+                    gefahreneKm = counterGefKm;
+                    fahren(gefahreneKm);
+                    break;
+                }
+                counterGefKm++;
+            }
+        }
+        Double[] fahrOutput1 = {(double) this.gefahreneKm, this.tankinhaltverbrauch};
+        return fahrOutput1;
+    }
+
+
+    /**
+     *
+     * Aufgabe 2/ Ergänze ein Tankvolumen und den Tankinhalt für deine Auto-Klasse
+     * und eine Methode volltanken() die das Tankvolumen auffüllt.
+     * Gib aus, wie viele Liter getankt wurden.
+     *
+     * @return getankteMenge
+     *
+     * -->  package saifedine.week15_objects; Objekt_2_Autofahren
+     */
 
     // Objekt_2_Autofahren
     // vollTanke(): Füllt den Tankinhalt bis Tankvolumen auf (Eingenschaft: private int tankvolumen = 80; & public int tankinhalt; & public int getankteMenge;)

@@ -1,4 +1,4 @@
-package saifedine.week15_objects;
+package saifedine.week15_objects.Auto;
 
 /*
 Aufgabe: Auto fahren
@@ -19,7 +19,7 @@ public class Objekt_2_Autofahren {
 
     public static void main(String[] args) {
 
-        Auto AudiA4 = new Auto("Audi", "A4", 2015, 143000,75,33,5.7);
+        Auto AudiA4 = new Auto("Audi", "A4", 2015, 143000,75,33,7.5);
         Auto HyundaiI20 = new Auto("Hyundai", "i20", 2016, 83622,35,23,5);
 
         System.out.println(AudiA4);
@@ -28,6 +28,7 @@ public class Objekt_2_Autofahren {
         System.out.println("Der Verbrauch des Autos beträgt " + AudiA4.verbrauch  + " pro 100 km");
 
         Double[] AudiA4fahrOutput = AudiA4.fahren(100);
+
 
         /*
         public int gefahreneKm = (int) AudiA4fahrOutput[0];
@@ -48,6 +49,7 @@ public class Objekt_2_Autofahren {
 
         System.out.println("-----------------------------------------------------------------------------------------");
 
+        /*
         System.out.println(HyundaiI20);
         System.out.println("KmStand vorher: " + HyundaiI20.kilometerstandFormatiert);
         System.out.println("Tankinhalt vorher: " + HyundaiI20.tankinhalt);
@@ -64,5 +66,22 @@ public class Objekt_2_Autofahren {
         System.out.println("Das Auto wurde mit " + HyundaiI20.getankteMenge + " L getankt.");
         System.out.println("Tankinhalt nachher: " + HyundaiI20.getTankinhalt());
 
+         */
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("KmStand vorher: " + AudiA4.kilometerstandFormatiert);
+        System.out.println("Tankinhalt vorher: " + AudiA4.tankinhalt);
+        System.out.println("Der Verbrauch des Autos beträgt " + AudiA4.verbrauch  + " pro 100 km");
+
+        AudiA4.fahren(1500, 0);
+
+        System.out.println("gefahrene Km: " + AudiA4.gefahreneKm);                                                      // wurde nicht ausgegeben, warum?
+        //System.out.println("gefahrene Km: " + AudiA4fahrOutput[0]);
+        System.out.println("Der verbrauchte Kraftstoff: " + AudiA4.tankinhaltverbrauch);
+        //System.out.println("Der verbrauchte Kraftstoff: " + AudiA4fahrOutput[1]);
+        System.out.println("Der Tankinhalt nach der Fahrt ist: " + AudiA4.tankinhalt);                                  // -1.4145629112505276E-12 ist in Dezimalform ungefähr -0,0000000000014146.
+        System.out.println("KmStand nachher: " + AudiA4.getKilometerstand());
+        System.out.println("KmStand nachher: " + AudiA4.kilometerstandFormatiert);
     }
 }
