@@ -19,7 +19,7 @@ public class Zoo extends Object{
         return gehege;
     }
     public String printoverview(){
-        String ausgabe = "|---Zoo: " + this.name + ", gegründet" + this.gruendungsjahr+"\n";
+        String ausgabe = "|---Zoo: " + this.name + ", gegründet " + this.gruendungsjahr+"\n";
         int arraySize = zoogehege.size ( );
 
         for (int i = 0; i < arraySize; i++) {
