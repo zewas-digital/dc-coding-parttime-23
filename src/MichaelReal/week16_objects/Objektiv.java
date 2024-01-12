@@ -47,10 +47,9 @@ Für die Berechnung speicherplatz pro bild, kann ein wert von 0.3mb pro Megapixe
 
     @Override
     public String toString() {
-        return "Objektiv {" +
+        return "Objektiv " +
                 "Modell = '" + modell + '\'' +
                 "\nHersteller =" + hersteller + '\'' +
-                "\nBrennweite = " + brennweite +
-                '}';
+                "\nBrennweite = " + brennweite;
     }
 }

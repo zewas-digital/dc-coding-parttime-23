@@ -88,15 +88,14 @@ public class Fotoapparat extends Object {
 
     @Override
     public String toString() {
-        return "Fotoapparat {" +
+        return "Fotoapparat " +
                 "Brennweite (min) = " + brennweiteMin + "mm" +
                 "\nBrennweite (max) = " + brennweiteMax + "mm " +
                 "\nModell = '" + modell + '\'' +
                 "\nHersteller = '" + hersteller + '\'' +
                 "\nMegapixel = " + megapixel +
                 "\nAktives Objektiv = " + (aktivesObjektiv != null ? aktivesObjektiv.toString() : "Kein Objektiv") +
-                "\nAktive Speicherkarte = " + (aktiveSpeicherkarte != null ? aktiveSpeicherkarte.toString() : "Keine Speicherkarte") +
-                '}';
+                "\nAktive Speicherkarte = " + (aktiveSpeicherkarte != null ? aktiveSpeicherkarte.toString() : "Keine Speicherkarte");
     }
 
     public void takePhoto() {

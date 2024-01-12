@@ -56,11 +56,10 @@ public class Speicherkarte extends Object {
 
         @Override
         public String toString() {
-            return "Speicherkarte {" +
+            return "Speicherkarte " +
                     "\nModell = '" + modell + '\'' +
                     "\nHersteller = '" + hersteller + '\'' +
                     "\nKapazität = " + kapazitaet + " MB" +
-                    "\nBelegter Speicherplatz = " + belegterSpeicherplatz + " MB" +
-                    '}';
+                    "\nBelegter Speicherplatz = " + belegterSpeicherplatz + " MB";
         }
     }
