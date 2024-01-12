@@ -18,3 +18,21 @@ public abstract class Fahrzeug extends Object {
         return this.name;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

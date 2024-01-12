@@ -1,4 +1,4 @@
-package solutions.eslem.example15;
+//package solutions.eslem.example15;
 
 /*
 Erstelle eine Methode welche ein Dreick von variabler Größe und mit angegebene Zeichen ausgibt.
@@ -24,5 +24,5 @@ xxxxxxxxx
 
 */
 
-public class PrintTriangle2 {
-}
+//public class PrintTriangle2 {
+//}

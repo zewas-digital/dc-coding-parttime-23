@@ -23,6 +23,35 @@ public class Fotoaperat extends Object{
         this.brennweite=brennweite;
         this.aufloesung=aufloesung;
     }
+    //Getter und Setter der Instanzen
+
+    //Getter 1: Holt sich die Brennweite
+    public int getBrennweite(){
+        return this.brennweite;
+    }
+    //Getter 2: Holt sich die Aufloesung
+    public int getAufloesung(){
+        return this.aufloesung;
+    }
+
+    //Getter 3: Holt sich das Modell
+    public String getModell(){
+        return this.Modell;
+    }
+
+    //Getter 4: HOlt sich den Hersteller
+    public String getHersteller(){
+        return this.hersteller;
+    }
+
+    //Setter 1:
+
+    //Setter 2:
+
+    //Setter 3:
+
+    //Setter 4:
+
 
     //to String ist eine Rückgabe die für die Instanz einen unterscheidbaren Rückgabewert liefert
     @Override
