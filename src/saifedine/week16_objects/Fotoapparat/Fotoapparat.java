@@ -1,11 +1,16 @@
-package saifedine.week15_objects;
+package saifedine.week16_objects.Fotoapparat;
+
 
 public class Fotoapparat {
 
     private String hersteller;
     private String model;
     private float megapixel;
-    private int brennweite;
+    //private int brennweite;
+
+    Objektiv objektiv;
+
+    Speicherkarte speicherkarte;
 
     /*
     public Fotoapparat(String hersteller, String model, float megapixel, int brennweite){
@@ -32,10 +37,12 @@ public class Fotoapparat {
     }
     public float getMegapixel(){return this.megapixel;}
 
+    /*
     public void setBrennweite(int brennweite){
         this.brennweite = brennweite;
     }
     public int getBrennweite(){return this.brennweite;}
+     */
 
     public String toString(){
 
@@ -43,7 +50,21 @@ public class Fotoapparat {
                 "\n Hersteller: " + hersteller +
                 "\n Model: " + model +
                 "\n Megapixel: " + megapixel +
-                "\n Brennweite: " + brennweite +
+                //"\n Brennweite: " + brennweite +
                 "\n}";
+    }
+
+    public void takePhoto(){
+        System.out.println("Click, ein Foto wurde erstellt");
+    }
+
+    public void verbindeObjektiv(Objektiv objektiv){
+
+        this.objektiv = objektiv;
+    }
+
+    public void verbindeSpeicherkarte(Speicherkarte speicherkarte){
+
+        this.speicherkarte = speicherkarte;
     }
 }
