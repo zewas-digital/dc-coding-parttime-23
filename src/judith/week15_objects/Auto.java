@@ -16,6 +16,7 @@ public class Auto extends Object{
     public int tankInhalt;
 
     public double verbrauchPKm;
+    //Oliver hat hier privat warum???
     
 
     public Auto() {
@@ -58,20 +59,25 @@ public class Auto extends Object{
     }
 
 
-    public int tankInhalt(int gefahreneKilometer){
-        double verbrauchteLiter =  (gefahreneKilometer / 100) * verbrauchPKm;
+    public int tankInhalt(int zuFahrendeKilometer){
+        double verbrauchteLiter =  (zuFahrendeKilometer / 100) * verbrauchPKm; // könnte auch mit einer while gelöst werden siehe Beispiel Oliver, hier sind beide enthalten
         double aktuellerTankinhalt = this.tankInhalt - verbrauchteLiter;
-        if(aktuellerTankinhalt <= 0 ){
-            System.out.println("Der Tank ist leer und es sind noch " + "blbla KM zu fahren");
-        } else if (aktuellerTankinhalt <= 5) {
-            System.out.println("Es sind nur noch 5 Liter im Tank ");
-        }
-        else {
-            System.out.println("Aktueller Tankinhalt  nach "+ gefahreneKilometer +" gefahrenen Kilometern beträgt " + aktuellerTankinhalt + " Liter");
-        }
+
+        while (zuFahrendeKilometer >0 && this.tankInhalt >= this.verbrauchPKm)
 
 
-        return gefahreneKilometer;
+            if (aktuellerTankinhalt <= 0) {
+                System.out.println("Der Tank ist leer und es sind noch " + "blbla KM zu fahren");
+            } else if (aktuellerTankinhalt <= 5) {
+                System.out.println("Es sind nur noch 5 Liter im Tank ");
+            } else {
+                System.out.println("Aktueller Tankinhalt  nach " + zuFahrendeKilometer + " gefahrenen Kilometern beträgt " + aktuellerTankinhalt + " Liter");
+            }
+
+
+            return zuFahrendeKilometer;
+
+
     }
 
 
