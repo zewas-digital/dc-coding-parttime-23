@@ -37,7 +37,7 @@ public class Objekt_5_FotoapparatBonus {
         System.out.println("Sony: " + sonyKamera.objektiv.brennweite);
         System.out.println("Canon: " + canonKamera.objektiv.brennweite);
 
-        Speicherkarte sd100 = new Speicherkarte(100.0F);
+        Speicherkarte sd100 = new Speicherkarte(100.0F, sonyKamera);
         sonyKamera.verbindeSpeicherkarte(sd100);
 
         //System.out.println("\n" + sonyKamera.speicherkarte.speicher + "\n");
@@ -52,6 +52,8 @@ public class Objekt_5_FotoapparatBonus {
         }
 
         //System.out.println("\n" + "Sie haben " + sonyKamera.fotoCounter + " Fotos gemacht" + "\n");
+
+        //sonyKamera.belegterSpeicherKapa();
 
         sonyKamera.gemachteFotosMitRestspeicher();
     }
