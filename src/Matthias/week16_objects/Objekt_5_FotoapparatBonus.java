@@ -1,4 +1,4 @@
-package Matthias.week15_objects;
+package Matthias.week16_objects;
 
 /*
 Aufgabe: Fotoapparat & Objektiv & Speicherkarte
@@ -19,9 +19,12 @@ public class Objekt_5_FotoapparatBonus {
         Fotokamara1.setObjektiv(  Objektiv);
         Fotokamara1.setSpeicherkarte( Speicherkarte );
         System.out.println( Fotokamara1 );
-
         Fotokamara1.objektiv.brennweite=60;
         System.out.println( Fotokamara1 );
+        Fotokamara1.takePhoto( true );
+        Fotokamara1.takePhoto( true );
+        System.out.println(Fotokamara1.speicherkarte.getSpeicherplatzStatus() );
+        System.out.println(Fotokamara1.speicherkarte.getAnzahlderFotos() );
 
 
 
