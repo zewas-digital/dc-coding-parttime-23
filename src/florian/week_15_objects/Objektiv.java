@@ -2,7 +2,7 @@ package florian.week_15_objects;
 
 public class Objektiv {
 
-    public int brennweite;
+    private int brennweite;
 
     public Objektiv (int brennweite){
         this.brennweite = brennweite;
@@ -10,5 +10,12 @@ public class Objektiv {
 
     public String toString (){
         return "" + brennweite;
+    }
+
+    public int getBrennweite() {
+        return brennweite;
+    }
+    public int setBrennweite(int brennweite) {
+        return   this.brennweite = brennweite;
     }
 }
