@@ -47,6 +47,9 @@ public class Objekt_6_Zoo {
         Landtiere Boa2 = new Schlange("Boa2", 5.1, TerrariumWarm.getListeDerTiere());
         Landtiere Boa3 = new Schlange("Boa3", 0.1, TerrariumWarm.getListeDerTiere());
 
+        Gehege Aquarium = new Gehege(2000000, "Aquarium", meinZoo.getListeDerGehege());
+        Wassertiere Wal1 = new Wal("Wal1", 235465, Aquarium.getListeDerTiere());
+
         meinZoo.printStructure(meinZoo.getListeDerGehege());
 
         System.out.println("\nGehege " + Ried.getName() + " entfernen:");
