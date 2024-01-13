@@ -1,4 +1,4 @@
-package Matthias.week15_objects;
+package Matthias.week16_objects;
 
 public class Fotokamera_5 extends Object{
 
@@ -6,8 +6,9 @@ public class Fotokamera_5 extends Object{
         private String hersteller;  // Herstellername der Kamera
         private String modell;      // Modelname der Kamera
         private int aufloesung;     // Auflösung der Kamera in MegaPixel
+        private double sizeFoto;    // groeße eines Fotos
 
-        public Objektiv_5 objektiv;
+        public Objektiv_5 objektiv;  // Datentype Objektiv_5 -> deklarier das objektiv
 
         public Speicherkarte_5 speicherkarte;
 
@@ -20,9 +21,12 @@ public class Fotokamera_5 extends Object{
             this.hersteller =Hersteller;
             this.modell =Modell;
             this.aufloesung=aufloesung;
+            this.sizeFoto=this.aufloesung*0.3;
         }
+
         public void takePhoto(boolean Foto){
             if ( Foto ) {
+                if (this.speicherkarte.getSpeicherplatzStatus() + sizeFoto < speicherkarte.SpeicherplatzMax) {
                 System.out.println( " ---------------------------------------------------------------\n" +
                         "|                                                           |\n" +
                         "|                                                           |\n" +
@@ -37,22 +41,28 @@ public class Fotokamera_5 extends Object{
                         "|                                                           |\n" +
                         "|                                                           |\n" +
                         " ---------------------------------------------------------------\n" );
+                this.speicherkarte.setSpeicherplatzStatus( this.speicherkarte.getSpeicherplatzStatus()+ sizeFoto );
+                this.speicherkarte.setAnzahlderFotos( this.speicherkarte.getAnzahlderFotos()+1 );
+                }else {
+                    System.out.println("Speicherplatz voll!!!!" );
+                }
+
             }
         }
 
         //Getter und Setter der Instanzen
 
-        //Getter 2: Holt sich die Aufloesung
+        //Getter 1: Holt sich die Aufloesung
         public int getAufloesung(){
             return this.aufloesung;
         }
 
-        //Getter 3: Holt sich das Modell
+        //Getter 2: Holt sich das Modell
         public String getModell(){
             return this.modell;
         }
 
-        //Getter 4: HOlt sich den Hersteller
+        //Getter 3: Holt sich den Hersteller
         public String getHersteller(){
             return this.hersteller;
         }
@@ -62,17 +72,17 @@ public class Fotokamera_5 extends Object{
             this.hersteller=hersteller;
         }
 
-        //Setter 3: Setzt den Wert des Modelles
+        //Setter 2: Setzt den Wert des Modelles
         public void setModell (String Modell){
             this.modell =Modell;
         }
 
-        //Setter 4: setzt den Wert der Auflösung
+        //Setter 3: Setzt den Wert der Auflösung
         public void setAufloesung(int aufloesung){
             this.aufloesung=aufloesung;
         }
 
-        //Setter 1: Setzt den Wert der Brennweite
+        // Setter 4: Übergibt das Objektiv der Fotokamera
          public void setObjektiv( Objektiv_5 Objektiv){
 
             this.objektiv=Objektiv;
@@ -91,7 +101,7 @@ public class Fotokamera_5 extends Object{
                     ",\n Model = " + modell +
                     ",\n Auflösung = " + aufloesung +" in MegaPixel"+
                     ",\n Objektiv = " + objektiv.brennweite+" in mm"+
-                    ",\n Speicherkarte = " + speicherkarte.megabyte+" in Megabyte"+
+                    ",\n Speicherkarte = " + speicherkarte.SpeicherplatzMax +" in Megabyte"+
                     "\n}";
         }
 

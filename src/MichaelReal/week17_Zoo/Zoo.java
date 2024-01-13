@@ -2,38 +2,61 @@ package MichaelReal.week17_Zoo;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 public abstract class Zoo {
 
-    private final String name;
+    private String name;
     private final int GRUENDUNGSJAHR;
-    private final List<Tiere> tiere;
-    private final List<Gehege> gehege;
+    private List<Gehege> gehegeListe;
 
     public Zoo(String name, int gruendungsjahr) {
         this.name =name;
         this.GRUENDUNGSJAHR = gruendungsjahr;
-        this.tiere = new ArrayList<>();
-        this.gehege = new ArrayList<>();
+        this.gehegeListe = new ArrayList<>();
     }
 
     public int getGRUENDUNGSJAHR() {
         return GRUENDUNGSJAHR;
     }
 
-    public void tierHinzufuegen(Tiere tier) {
-        tier.add(tier);
+    public String getName() {
+        return name;
     }
 
-    public void gehegeHünzufügen(Gehege gehege) {
-        gehege.add(gehege);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Gehege> getGehegeList() {
+        return gehegeListe;
+    }
+
+    public void setGehegeList(List<Gehege> gehegeList) {
+        this.gehegeListe = gehegeList;
+    }
+
+    public void addGehege(Gehege gehege) {
+        gehegeListe.add(gehege);
+    }
+
+    public void addTierToGehege(Tier tier, Gehege gehege) {
+        if (gehegeListe.contains(gehege)) {
+            gehege.addTier(tier);
+        }
+    }
+
+    public List<Tier> getTiereInGehege(Gehege gehege) {
+        if (gehegeListe.contains(gehege)) {
+            return gehege.getTiere();
+        }
+        return null;
     }
 
     @Override
     public String toString() {
         return "Zoo" +
                 "\n Name = " + name +
-                "\n Tier = " + tiere +
-                "\n Gehege = " + gehege;
+                "\n GRUENDUNGSJAHR = " + GRUENDUNGSJAHR +
+                "\n Gehege Liste = " + gehegeListe;
     }
-}
+}*/

@@ -25,16 +25,16 @@ public class Objekt_1_Auto {
 
     public static void main(String[] args) {
 
-        Auto VW = new Auto();
-        VW.marke = "VW";
-        VW.modell = "Golf";
-        VW.baujahr = 2022;
-        VW.kiloMeter = 80680;
-        VW.tankVolumen = 50;
-        VW.tankInhalt = 10;
+        Auto VWGolf = new Auto();
+        VWGolf.marke = "VW";
+        VWGolf.modell = "Golf";
+        VWGolf.baujahr = 2022;
+        VWGolf.kiloMeter = 80680;
+        VWGolf.tankVolumen = 50;
+        VWGolf.tankInhalt = 10;
 
 
-        System.out.println(VW.toString());
+        System.out.println(VWGolf.toString());
 
 
 
