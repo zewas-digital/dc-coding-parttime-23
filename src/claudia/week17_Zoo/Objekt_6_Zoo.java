@@ -36,7 +36,31 @@ public class Objekt_6_Zoo {
 
         meinZoo.printStructure();
 
+        System.out.println("\nNeues Tier: ");
+        Tier Storch1 = new Storch ("Adebar1", 1);
+        System.out.println(Storch1);
+        Storch1.feed();
+        System.out.println("Hinzufügen zu Gehege " + Ried.getName());
+        Ried.tierHinzufuegen(Storch1);
+        Ried.tierHinzufuegen(new Storch("Adebar2", 0.5));
+
+        Alpenwiese.tierHinzufuegen(new Murmeltier("Murmel1", 0.78));
+
+        TerrariumWarm.tierHinzufuegen(new Schlange("Boa1", 2.2));
+        TerrariumWarm.tierHinzufuegen(new Schlange("Boa2", 5.1));
+        TerrariumWarm.tierHinzufuegen(new Schlange("Boa3", 0.1));
+
+        meinZoo.printStructure();
+
+        System.out.println("\nGehege " + Ried.getName() + " entfernen:");
+        meinZoo.gehegeLoeschen(Ried);
+        meinZoo.printStructure();
+        System.out.println("\nGehege wieder hinzufügen! ");
+        meinZoo.gehegeHinzufuegen(Ried);
+
+        meinZoo.alleFuettern();
     }
+
 
 
 }
