@@ -1,9 +1,11 @@
 package claudia.week17_Zoo;
 
-public class Schlange extends Tier {
+import java.util.ArrayList;
 
-        public Schlange(String name, double mengeInKilo){
-            super("Boa Constrictor", name, 1, "Mäuse", mengeInKilo);
+public class Schlange extends Landtiere {
+
+        public Schlange(String name, double mengeInKilo, ArrayList<Tiere> liste){
+            super("Boa Constrictor", name, 1, "Mäuse", mengeInKilo, liste);
         }
 
     @Override

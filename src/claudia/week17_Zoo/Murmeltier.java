@@ -1,8 +1,10 @@
 package claudia.week17_Zoo;
 
-public class Murmeltier extends Tier {
-    public Murmeltier(String name, double mengeInKilo) {
-        super("Murmeltier", name, 25, "Gras und Kräuter", mengeInKilo);
+import java.util.ArrayList;
+
+public class Murmeltier extends Landtiere {
+    public Murmeltier(String name, double mengeInKilo, ArrayList<Tiere> liste) {
+        super("Murmeltier", name, 25, "Gras und Kräuter", mengeInKilo, liste);
     }
 
     @Override

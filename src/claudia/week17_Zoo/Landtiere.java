@@ -1,18 +1,22 @@
 package claudia.week17_Zoo;
 
-public abstract class Tier {
+import java.util.ArrayList;
+
+public abstract class Landtiere implements Tiere {
     private String art;
     private String name;
     private int flaecheBenoetigt;
     private String futter;
     private double mengeInKilo;
 
-    public Tier (String art, String name, int flaecheBenoetigt, String futter, double mengeInKilo){
+    public Landtiere(String art, String name, int flaecheBenoetigt, String futter, double mengeInKilo, ArrayList<Tiere> ListeDerTiereImGehege){
         this.art = art;
         this.name = name;
         this.flaecheBenoetigt = flaecheBenoetigt;
         this.futter = futter;
         this.mengeInKilo = mengeInKilo;
+        ListeDerTiereImGehege.add(this);
+
     }
 
     public void feed (){

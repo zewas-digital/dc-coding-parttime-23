@@ -1,9 +1,11 @@
 package claudia.week17_Zoo;
 
-public class Storch extends Tier{
+import java.util.ArrayList;
 
-    public Storch(String name, double mengeInKilo){
-        super("Storch", name, 20, "Frösche", mengeInKilo);
+public class Storch extends Landtiere {
+
+    public Storch(String name, double mengeInKilo, ArrayList<Tiere> liste){
+        super("Storch", name, 20, "Frösche", mengeInKilo, liste);
     }
 
     @Override
