@@ -12,11 +12,11 @@ public class Zoo {
         this.jahr = jahr;
     }
 
-     public void printStructure() {
+     public void printStructure(ArrayList<Gehege> ListeDerGehege) {
          System.out.println("\n|-- Zoo: " + this.toString());
-         for (Gehege g : this.ListeDerGehege) {
+         for (Gehege g : ListeDerGehege) {
              System.out.println("|\t|-- Gehege: " + g.getName());
-             for (Tier t : g.getListeDerTiere()) {
+             for (Tiere t : g.getListeDerTiere()) {
                  System.out.println("|\t|--|-- Tier: " + t.getName());
              }
          }
@@ -26,19 +26,19 @@ public class Zoo {
          System.out.println("\nEs ist Fütterungszeit! ");
          for (Gehege g : this.ListeDerGehege) {
              System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
-             for (Tier t : g.getListeDerTiere())  {
+             for (Tiere t : g.getListeDerTiere())  {
                  System.out.print("\t");
                  t.feed();
              }
          }
      }
 
-    public void gehegeHinzufuegen(Gehege gehege){
-        this.ListeDerGehege.add(gehege);
+    public void gehegeHinzufuegen(Gehege gehege, ArrayList<Gehege> ListeDerGehege){
+        ListeDerGehege.add(gehege);
     }
 
-    public void gehegeLoeschen(Gehege gehege){
-        this.ListeDerGehege.remove(gehege);
+    public void gehegeLoeschen(Gehege gehege, ArrayList<Gehege> ListeDerGehege){
+        ListeDerGehege.remove(gehege);
     }
     @Override
     public String toString(){

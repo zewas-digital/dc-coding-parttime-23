@@ -5,18 +5,19 @@ import java.util.ArrayList;
 public class Gehege {
     private int flaeche; //in qm
     private String name;
-    private ArrayList<Tier> ListeDerTiere = new ArrayList<>();
+    private ArrayList<Tiere> ListeDerTiere = new ArrayList<>();
 
-    public Gehege(int flaeche, String name) {
+    public Gehege(int flaeche, String name, ArrayList<Gehege> ListeDerGehege) {
         this.flaeche = flaeche;
         this.name = name;
+        ListeDerGehege.add(this);
     }
 
-    public void tierHinzufuegen(Tier tier) {
+    public void tierHinzufuegen(Tiere tier) {
         this.ListeDerTiere.add(tier);
     }
 
-    public void tierLoeschen(Tier tier) {
+    public void tierLoeschen(Tiere tier) {
         this.ListeDerTiere.remove(tier);
     }
     public String getName(){
@@ -27,7 +28,7 @@ public class Gehege {
         return "Das Gehege " + this.name + " hat eine Fläche von " + this.flaeche + " qm.";
     }
 
-    public ArrayList<Tier> getListeDerTiere() {
+    public ArrayList<Tiere> getListeDerTiere() {
         return ListeDerTiere;
     }
 }
