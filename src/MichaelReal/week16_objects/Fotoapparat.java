@@ -11,7 +11,7 @@ Erstelle weiters die Methode takePhoto(), die ein Foto schießt (Mach einfach ei
 Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig.
  */
 
-public class Fotoapparat extends Object {
+public class Fotoapparat {
     private double brennweiteMin;
     private double brennweiteMax;
     private String modell;
