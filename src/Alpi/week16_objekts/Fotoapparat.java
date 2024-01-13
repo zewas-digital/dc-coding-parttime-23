@@ -28,7 +28,7 @@ public class Fotoapparat {
         this.aufloesung = aufloesung;
         this.brennweite = brennweite;
     }
-    public Fotoapparat(String hersteller, String modell, int aufloesung, objektiv, Speicherkarte speicherkarte){
+    public Fotoapparat(String hersteller, String modell, int aufloesung, Speicherkarte speicherkarte){
         this.hersteller = hersteller;
         this.modell = modell;
         this.aufloesung = aufloesung;
