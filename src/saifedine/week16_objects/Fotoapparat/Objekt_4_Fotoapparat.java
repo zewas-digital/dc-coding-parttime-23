@@ -48,6 +48,13 @@ public class Objekt_4_Fotoapparat {
 
         nikon485U.takePhoto();
 
+        for (int i = 0; i < 5; i++) {
+            nikon485U.takePhoto();
+        }
+
+        System.out.println();
+
+        System.out.println("Sie haben " + nikon485U.fotoCounter + " Fotos gemacht");
 
     }
 

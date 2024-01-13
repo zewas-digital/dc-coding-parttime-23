@@ -1,4 +1,4 @@
-package judith.week15_objects;
+package florian.week_15_objects;
 
 /*
 Aufgabe: Fotoapparat

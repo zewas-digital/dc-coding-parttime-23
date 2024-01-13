@@ -7,7 +7,9 @@ public class Object_0_Person {
         Roger.name = "Roger"; // dem Objekt "Roger" wird der Name "Roger" hinterlegt
 
 
-        Person Peter = new Person("Peter");
+       Person Peter = new Person("Peter", 30);
+
+
         // Die Werte können in der Klammer nur hinterlegt werden wenn es in der Klasse definiert wurde das es möglich ist.
         // siehe Klasse Person Zeile (public Person (String name)
         // {this.name = name; } hiermit wird festgelegt das wenn in der Klammer ein Name eingegeben wurde dieser dann auch
