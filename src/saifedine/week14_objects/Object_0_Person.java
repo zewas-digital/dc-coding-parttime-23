@@ -10,7 +10,8 @@ public class Object_0_Person {
         Roger.age = 30;
 
         // int number = 7;
-        // String text = "tst";
+        String text = "tst";
+        String sub = text.substring(1,3);
         char[] charray = {'t','e','s','t'};
 
         String text1 = new String(charray);
