@@ -14,16 +14,44 @@ public class Objekt_5_FotoapparatBonus {
     public static void main(String[] args) {
 
 
-        Objektiv objektiv = new Objektiv(50);
-        Speicherkarte speicherkarte = new Speicherkarte(50);
+        Objektiv breitobjektiv = new Objektiv(50);
+        Objektiv weitWinkelObjektiv = new Objektiv(110);
+        Speicherkarte speicherkarte = new Speicherkarte(100,0);
 
-        Fotoapparat nikon = new Fotoapparat("Nikon","Z8",45,objektiv,speicherkarte);
+        Fotoapparat sony = new Fotoapparat("Sony", "ZV1",30,weitWinkelObjektiv,speicherkarte);
 
-        Fotoapparat sony = new Fotoapparat("Sony", "ZV1",30,objektiv,speicherkarte);
+        Fotoapparat nikon = new Fotoapparat("Nikon","Z8",45,breitobjektiv,speicherkarte);
 
-        objektiv.brennweite = 110;
+
+        // Mit Methode gewechselt und Objektiv auf private gesetzt
+
+        sony.objektiventfernen();
+        sony.objektiveinsetzen(breitobjektiv);
+        nikon.objektiveinsetzen(weitWinkelObjektiv);
+
+        /* ohne Methode gewechselt, geht nur mit public
+
+        sony.objektiv = null;
+        nikon.objektiv = weitWinkelObjektiv;
+        sony.objektiv = breitobjektiv;
+         */
+
+
+
+        sony.fotomachen(8);
+
+
+
+        sony.speicherkarte.restSpeicherplatz();
+
+        nikon.speicherkarte.restSpeicherplatz();
+
+
+        System.out.println(sony);
 
         System.out.println(nikon);
+
+
 
     }
 }
