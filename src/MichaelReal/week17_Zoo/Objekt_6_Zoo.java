@@ -28,24 +28,28 @@ public class Objekt_6_Zoo extends Zoo {
 
     @Override
     public void printAdditionalInfo() {
-        System.out.println("Weitere Informationen über den Objekt_6_Zoo.");
+        System.out.println("""
+                
+                Weitere Informationen über den Objekt_6_Zoo.
+                🐵🦊🐺🫏🫎🐴🐆🐮🐂🐃🐄🐷🐖🐗                    
+                """);
     }
 
     public static void main(String[] args) {
-        Objekt_6_Zoo zoo = new Objekt_6_Zoo("Objekt_6_Zoo", 2022);
+        Objekt_6_Zoo zoo = new Objekt_6_Zoo("Objekt_6_Zoo", 2024);
 
         zoo.addGehege("Alpenwiese");
         zoo.addGehege("Ried");
         zoo.addGehege("Terrarium (warm)");
 
-        Futter heu = new Futter("Heu");
-        Futter fischfutter = new Futter("Fischfutter");
-        Futter insekten = new Futter("Insekten");
+        Futter heu = new Futter("Heu🌿");
+        Futter fischfutter = new Futter("Fischfutter🫘");
+        Futter insekten = new Futter("Insekten🪳");
 
-        Tier hase = new Tier("Hase", heu);
-        Tier reh = new Tier("Reh", heu);
-        Tier fisch = new Tier("Fisch", fischfutter);
-        Tier schmetterling = new Tier("Schmetterling", insekten);
+        Tier hase = new Tier("Hase🐰", heu);
+        Tier reh = new Tier("Reh🦌", heu);
+        Tier fisch = new Tier("Fisch🐟", fischfutter);
+        Tier schmetterling = new Tier("Schmetterling🦋", insekten);
 
         zoo.assignTierToGehege("Alpenwiese", hase);
         zoo.assignTierToGehege("Alpenwiese", reh);
@@ -54,13 +58,15 @@ public class Objekt_6_Zoo extends Zoo {
 
         zoo.printZooStructureWithTiere();
 
-        Futter karotten = new Futter("Karotten");
-        zoo.changeTierFutter("Alpenwiese", "Hase", karotten);
+        Futter karotten = new Futter("Karotten🥕");
+        zoo.changeTierFutter("Alpenwiese", "Hase🐰", karotten);
 
         zoo.printZooStructureWithTiere();
 
-        zoo.removeTierFromGehege("Ried", "Fisch");
+        zoo.removeTierFromGehege("Ried", "Fisch🐟");
 
         zoo.printZooStructureWithTiere();
+
+
     }
 }

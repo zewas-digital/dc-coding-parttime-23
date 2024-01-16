@@ -1,0 +1,44 @@
+package Matthias.week17_objects;
+
+import java.util.ArrayList;
+
+public class Zoo {
+    private  String zooname;
+    private int builddate;
+    private ArrayList<Gehege> geheges = new ArrayList<>( );
+    public Zoo(String zooname,int builddate ){
+        this.zooname =zooname;
+        this.builddate=builddate;
+    }
+
+    // Getter 1: Kann den Zoo Namen über das erzeugte Objekt ausgeben
+    public String getZooname() {
+        return this.zooname;
+    }
+
+    // Getter 2: Kann den Gründungsnamen über das erzeugte Objekt ausgeben
+    public int getBuilddate() {
+        return this.builddate;
+    }
+
+    //Methode 1: Eigenschaft: öffentlich zugänglich durch public, erzugt ein neues Gehege und fügt es in die Liste der Gehege
+    public void addGehege( Gehege gehege ) {
+       geheges.add( gehege);
+    }
+
+    //Methode 2:  Eigenschaft: öffentlich zugänglich durch public, erzugt ein neues Gehege und fügt es in die Liste der Gehege
+    public void removeGehege( Gehege gehegeObjekt) {geheges.remove( gehegeObjekt);}
+    public void printFormated(){
+            System.out.println( "|--"+this.toString()); // Zeiger auf den Zoo Konstruktor der das neue Objekt Zoo erstellt
+            for (Gehege gehege:geheges) {
+                System.out.print("|" );
+                System.out.println( "\t|--"+gehege);
+            }
+    }
+
+
+    @Override
+    public String toString(){
+        return "Zoo: " + this.zooname + ", gegründet " + this.builddate;
+    }
+}

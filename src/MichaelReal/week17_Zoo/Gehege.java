@@ -24,7 +24,7 @@ public class Gehege {
         for (int i = 0; i < tierList.size(); i++) {
             if (tierList.get(i).getName().equals(tierName)) {
                 tierList.remove(i);
-                System.out.println("Tier " + tierName + " wurde aus dem Gehege " + name + " entfernt.");
+                System.out.println("\nTier " + tierName + " wurde aus dem Gehege " + name + " entfernt.");
                 return;
             }
         }
@@ -35,7 +35,7 @@ public class Gehege {
         for (int i = 0; i < tierList.size(); i++) {
             if (tierList.get(i).getName().equals(tierName)) {
                 tierList.get(i).setFutter(futter);
-                System.out.println("Das Futter für Tier " + tierName + " wurde geändert zu: " + futter.getName());
+                System.out.println("\nDas Futter für Tier " + tierName + " wurde geändert zu: " + futter.getName());
                 return;
             }
         }
