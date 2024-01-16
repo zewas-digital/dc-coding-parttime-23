@@ -8,13 +8,22 @@ public class Zoo {
     private final String name;
     private final int jahr;
     private ArrayList <Gehege> ListeDerGehege = new ArrayList <>();
-    private ArrayList <Tiere> ListeDerTiere = new ArrayList<>();
+    //private ArrayList <Tiere> ListeDerTiere = new ArrayList<>();
 
     public Zoo(String name, int jahr){
         this.name = name;
         this.jahr = jahr;
     }
 
+    public ArrayList <String> listeAllerTiere(){
+        ArrayList<String> liste = new ArrayList<>();
+        for (Gehege g : ListeDerGehege) {
+            for (Tiere t: g.getListeDerTiere()) {
+                liste.add(t.getName());
+            }
+                    }
+        return liste;
+    }
      public void printStructure(ArrayList<Gehege> ListeDerGehege) {
          System.out.println("\n|-- Zoo: " + this.toString());
          for (Gehege g : ListeDerGehege) {
@@ -51,11 +60,6 @@ public class Zoo {
     public ArrayList <Gehege> getListeDerGehege(){
         return this.ListeDerGehege;
     }
-
-
-
-
-
 
     public String getName() {
         return name;
