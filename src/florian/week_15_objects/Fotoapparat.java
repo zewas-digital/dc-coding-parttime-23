@@ -4,9 +4,11 @@ public class Fotoapparat {
 
     String hersteller;
     String modell;
-    private double megapixel;
+    private int megapixel;
     private Objektiv objektiv;
     Speicherkarte speicherkarte;
+
+    public int fotos = 0;
 
 
 
@@ -19,7 +21,7 @@ public class Fotoapparat {
 
     }
 
-    public double getMegapixel(){
+    public int getMegapixel(){
         return this.megapixel;
     }
 
@@ -31,8 +33,8 @@ public class Fotoapparat {
          return "Hersteller: " + hersteller +
                  ", Modell: " + modell +
                  ", Megapixel: " + megapixel +
-                 ", Objektiv: " + objektiv +
-                 ", Speicherplatz: " + speicherkarte + " GB";
+                 ", Objektiv: " + objektiv +" Brennweite" +
+                 ", Speicherplatz:" + speicherkarte;
     }
 
     public void objektiveinsetzen(Objektiv objektiv){
@@ -41,6 +43,15 @@ public class Fotoapparat {
 
     public void objektiventfernen(){
         this.objektiv = null;
+    }
+
+    public int fotomachen(int fotos){
+
+        this.speicherkarte.fotos += fotos;
+
+        System.out.println("Du hast " + fotos + " Fotos gemacht");
+
+        return this.fotos = fotos;
     }
 
 

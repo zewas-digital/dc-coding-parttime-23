@@ -16,6 +16,6 @@ public class Objektiv {
         return brennweite;
     }
     public int setBrennweite(int brennweite) {
-        return   this.brennweite = brennweite;
+        return this.brennweite = brennweite;
     }
 }

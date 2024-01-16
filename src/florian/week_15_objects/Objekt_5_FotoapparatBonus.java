@@ -16,7 +16,7 @@ public class Objekt_5_FotoapparatBonus {
 
         Objektiv breitobjektiv = new Objektiv(50);
         Objektiv weitWinkelObjektiv = new Objektiv(110);
-        Speicherkarte speicherkarte = new Speicherkarte(50,0);
+        Speicherkarte speicherkarte = new Speicherkarte(100,0);
 
         Fotoapparat sony = new Fotoapparat("Sony", "ZV1",30,weitWinkelObjektiv,speicherkarte);
 
@@ -29,16 +29,22 @@ public class Objekt_5_FotoapparatBonus {
         sony.objektiveinsetzen(breitobjektiv);
         nikon.objektiveinsetzen(weitWinkelObjektiv);
 
-        /* ohne Methode gewechselt geht nur mit public
+        /* ohne Methode gewechselt, geht nur mit public
 
         sony.objektiv = null;
         nikon.objektiv = weitWinkelObjektiv;
         sony.objektiv = breitobjektiv;
          */
 
-        sony.speicherkarte.fotomachen(5);
 
 
+        sony.fotomachen(8);
+
+
+
+        sony.speicherkarte.restSpeicherplatz();
+
+        nikon.speicherkarte.restSpeicherplatz();
 
 
         System.out.println(sony);
