@@ -18,7 +18,7 @@ public class Storage {
         double photoSize = megaPixel * 0.3;
         double totalPhotoCountSize = photoSize * photoCount;
         double sdCardSize = sdCard - totalPhotoCountSize;
-        System.out.println("SD Card MB: " + sdCardSize);
+        System.out.println("SD Card Space Left: " + sdCardSize);
     }
 
     public void calcSdCard() {
@@ -29,7 +29,6 @@ public class Storage {
         } else if (sdCard == 128) {
             this.sdCard = 128000;
         }
-        System.out.println(this.photo.getPhotoCount() + " photos can be stored in " + sdCard + " MB.");
     }
 
 }

@@ -11,6 +11,22 @@ public class Auto1 {
     public String modell ;
     public int kilometerstand ;
 
+    public int getBaujahr() {
+        return baujahr;
+    }
+
+    public void setBaujahr(int baujahr) {
+        this.baujahr = baujahr;
+    }
+
+    public String getMarke() {
+        return marke;
+    }
+
+    public void setMarke(String marke) {
+        this.marke = marke;
+    }
+
     public Auto1 () {
 
 

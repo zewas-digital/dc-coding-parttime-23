@@ -15,18 +15,10 @@ Gib eine Warnmeldung aus, wenn nur mehr 5 Liter im Tank sind.
 Gib aus, wenn der Tank leer ist und wie viele Kilometer bis zum Ziel noch nicht gefahren sind.
  */
 
-import oliver.week15_objects.Auto;
-
 public class Objekt_2_Autofahren {
     public static void main(String[] args) {
-        oliver.week15_objects.Auto FordBronco = new Auto("Ford", "Bronco", 2023, 10000, 70);
+        Auto FordBronco = new Auto("Ford", "Bronco", 2023, 10000, 70);
         FordBronco.tankinhalt = 70; // vollgetankt
-        //FordBronco.fahreBerechnet(650);
-
-        FordBronco.fahren(1000);
-        //FordBronco.fahren(400);
-        //FordBronco.fahren(400);
-        //System.out.println("Neuer Kilometerstand: "+ FordBronco.getKilometerstandFormatiert());
     }
 }
 

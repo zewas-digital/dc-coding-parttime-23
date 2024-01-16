@@ -2,6 +2,9 @@ package Alpi.week14_Selbsttest;
 
 public class Objekt_1_Autoo {
 
+    public Objekt_1_Autoo() {
+    }
+
     public static void main(String[] args) {
 
 
@@ -11,6 +14,8 @@ public class Objekt_1_Autoo {
         Bmw.modell = "Alpina 550";
         Bmw.baujahr = 2022;
         Bmw.kilometerstand = 12500;
+
+
 
 
 
