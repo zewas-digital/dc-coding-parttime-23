@@ -1,4 +1,4 @@
-package marcelsimma.week16.Wiederholung;
+package judith.week16.Wiederholung;
 
 public class Engine {
 
@@ -22,8 +22,5 @@ public class Engine {
         return leistung;
     }
 
-    public void setLeistung(int leistung) {
-        this.leistung = leistung;
-    }
 
 }

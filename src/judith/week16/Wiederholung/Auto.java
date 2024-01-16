@@ -1,6 +1,6 @@
-package marcelsimma.week16.Wiederholung;
+package judith.week16.Wiederholung;
 
-public class Auto extends Fahrzeug implements Reifenwechsel{
+public class Auto extends Fahrzeug {
 
     //Attribute
 
@@ -23,6 +23,7 @@ public class Auto extends Fahrzeug implements Reifenwechsel{
         this.marke = marke;
         this.modell = modell;
         this.engine = engine;
+        Engine v8 = new Engine(400);
 
     }
 
@@ -37,22 +38,7 @@ public class Auto extends Fahrzeug implements Reifenwechsel{
         return this.engine;
     }
 
-    @Override
-    public void fahren() {
-        super.fahren();
-        this.engine.start();
-    }
-
-    public void move() {
-        this.fahren();
-    }
-
-    @Override
-    public void change(int anzahlDerRaeder) {
-        System.out.println("Ich brauche vier Reifen.");
-    }
-
-    /*
+/*
 
     public String getPickerl() {
         return this.pickerl;
