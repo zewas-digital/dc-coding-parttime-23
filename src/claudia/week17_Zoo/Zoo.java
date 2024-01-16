@@ -24,15 +24,19 @@ public class Zoo {
                     }
         return liste;
     }
-     public void printStructure(ArrayList<Gehege> ListeDerGehege) {
-         System.out.println("\n|-- Zoo: " + this.toString());
-         for (Gehege g : ListeDerGehege) {
-             System.out.println("|\t|-- Gehege: " + g.getName());
-             for (Tiere t : g.getListeDerTiere()) {
-                 System.out.println("|\t|--|-- Tier: " + t.getName());
-             }
-         }
-     }
+
+    public void printStructure(ArrayList<Gehege> ListeDerGehege) {
+        System.out.println("\n|-- Zoo: " + this.toString());
+        for (Gehege g : ListeDerGehege) {
+            System.out.println("|\t|-- Gehege: " + g.getName());
+            if (g.getListeDerTiere().isEmpty()) System.out.println("|\t|--|-- (leer)");
+            else {
+                for (Tiere t : g.getListeDerTiere()) {
+                    System.out.println("|\t|--|-- Tier: " + t.getName() + ", " + t.getArt());
+                }
+            }
+        }
+    }
 
      public void alleFuettern() {
          System.out.println("\nEs ist Fütterungszeit! ");
