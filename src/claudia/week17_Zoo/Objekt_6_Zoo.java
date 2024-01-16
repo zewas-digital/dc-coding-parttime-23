@@ -64,6 +64,7 @@ public class Objekt_6_Zoo {
         System.out.println("Anzahl der Tiere im Ried: " + Ried.anzahlDerTiere());
 
         System.out.println("\nListe aller Tiere: " + meinZoo.listeAllerTiere());//TODO nur die Namen!
+        System.out.println("\nKrill kostet pro Kilo " + Futter.PREIS_IN_EURO_KRILL + " €.");
     }
 
 
