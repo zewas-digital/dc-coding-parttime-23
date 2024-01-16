@@ -10,6 +10,22 @@ Erweitere dein Zooprogramm mit Futter-Bedarfsanalyse.
 Für diese Aufgabe kann man HashMap gut brauchen.
  */
 
-public class Objekt_8_FutterBonus {
+import java.util.HashMap;
 
+public class Objekt_8_FutterBonus {
+    public static void main(String[] args) {
+
+        // Eine HashMap speichert Schlüssel-Wert-Paare,
+        // dessen Datentypen wir definieren können
+        HashMap<String, Integer> hashMap = new HashMap<>();
+
+        // Wert hinzufügen
+        hashMap.put("erster Schlüssel", 120);
+        hashMap.put("zweiter Schlüssel", 300);
+
+        // Wert lesen
+        System.out.println(
+                hashMap.get("erster Schlüssel")
+        );
+    }
 }
