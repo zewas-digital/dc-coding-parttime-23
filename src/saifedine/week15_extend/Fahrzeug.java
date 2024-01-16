@@ -2,6 +2,7 @@ package saifedine.week15_extend;
 
 // Abstrakte Klassen können nicht instanziert werden. Sie bilden die Blaupause für ihre Subklassen.
 public abstract class Fahrzeug extends Object {
+
     // Klassenattribut
     protected static int wheels = 1;
     private String name;

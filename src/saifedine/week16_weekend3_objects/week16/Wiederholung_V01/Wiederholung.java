@@ -1,4 +1,4 @@
-package saifedine.week16_weekend3_objects.week16.Wiederholung;
+package saifedine.week16_weekend3_objects.week16.Wiederholung_V01;
 
 public class Wiederholung {
 

@@ -12,8 +12,9 @@ public class Fotoapparat {
 
     Speicherkarte speicherkarte;
 
-    public int fotoCounter = 0;
-    float restSpeicher;
+    public int fotoCounter;
+    //private float restSpeicher;
+    private float belegterSpeicher;
 
     /*
     public Fotoapparat(String hersteller, String model, float megapixel, int brennweite){
@@ -59,8 +60,9 @@ public class Fotoapparat {
 
     public void takePhoto(){
         System.out.println("Click, ein Foto wurde erstellt");
-        fotoCounter++;
-        //System.out.println("Sie haben " + fotoCounter + " Fotos gemacht");
+        this.fotoCounter++;
+        System.out.println("Sie haben " + this.fotoCounter + " Fotos gemacht" + "\n");
+
     }
 
     public void verbindeObjektiv(Objektiv objektiv){
@@ -71,14 +73,32 @@ public class Fotoapparat {
         this.speicherkarte = speicherkarte;
     }
 
+    /*
+    public void belegterSpeicherKapa (){
+
+        // Berechnung der verbrauchten Speicherkapazität durch gemachten Fotos
+        this.belegterSpeicher = (float) (this.fotoCounter * (this.megapixel * 0.3));
+
+        System.out.println("Belegte Speicherkapazität ist: " + this.belegterSpeicher + " MB \n");
+    }
+     */
+
+
     public void gemachteFotosMitRestspeicher(){
-        System.out.println("\n" + "Sie haben " + this.fotoCounter + " Fotos gemacht");
+        //System.out.println("\n" + "Sie haben " + this.fotoCounter + " Fotos gemacht");
         //System.out.println("Der Speicher ist: " + this.speicherkarte.speicher);
         //System.out.println("Megapixel: " + this.megapixel);
 
-        this.restSpeicher = (float) (this.speicherkarte.speicher - (this.fotoCounter * (this.megapixel * 0.3)));
+        //this.restSpeicher = (float) (this.speicherkarte.speicher - (this.fotoCounter * (this.megapixel * 0.3)));
 
-        System.out.println("Der Restspeicher beträgt: " + this.restSpeicher);
+        //System.out.println("Der Restspeicher beträgt: " + this.restSpeicher);
+
+        System.out.println("Die Speicherkapazität des Speichers beträgt: " + this.speicherkarte.speicher + " MB \n");
+
+        //this.belegterSpeicherKapa();
+
+        this.speicherkarte.getBelegterSpeicher();
+
+        this.speicherkarte.setRestSpeicher();
     }
-
 }

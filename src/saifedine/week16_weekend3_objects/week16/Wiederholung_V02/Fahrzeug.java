@@ -1,6 +1,6 @@
-package saifedine.week16_weekend3_objects.week16.Wiederholung;
+package saifedine.week16_weekend3_objects.week16.Wiederholung_V02;
 
-public abstract class Fahrzeug {
+public abstract class Fahrzeug implements Move {
 
     // Attribute
     private String color;
