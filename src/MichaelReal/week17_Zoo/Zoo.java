@@ -34,7 +34,7 @@ public abstract class Zoo {
         for (Gehege gehege : gehegeList) {
             if (gehege.getName().equals(gehegeName)) {
                 gehege.addTier(tier);
-                System.out.println("Tier " + tier.getName() + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
+                System.out.println("\nTier " + tier.getName() + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
                 return;
             }
         }
@@ -62,7 +62,7 @@ public abstract class Zoo {
     }
 
     public void printZooStructureWithTiere() {
-        System.out.println("├── Zoo: " + name + ", gegründet " + gruendungsjahr);
+        System.out.println("\n├── Zoo: " + name + ", gegründet " + gruendungsjahr);
         for (Gehege gehege : gehegeList) {
             System.out.println("│   ├── Gehege: " + gehege.getName());
             ArrayList<Tier> tierList = gehege.getTierList();
@@ -71,6 +71,8 @@ public abstract class Zoo {
                 System.out.println("│   │   │   ├── Futter: " + tier.getFutter().getName());
             }
         }
+
+        printAdditionalInfo();
     }
 
     public abstract void printAdditionalInfo();
