@@ -14,18 +14,42 @@ public class Objekt_5_FotoapparatBonus {
     public static void main( String[] args ) {
 
         Fotokamera_5 Fotokamara1= new Fotokamera_5( "Sony","Alpha 4",48 );
-        Objektiv_5 Objektiv=new Objektiv_5( 50 );
+        Fotokamera_5 Fotokamara2= new Fotokamera_5( "Nikon","Alpha 4",48 );
+
+        Objektiv_5 schmallwinkel=new Objektiv_5( 50 );
+        Objektiv_5 breitwinkel=new Objektiv_5( 120 );
+
         Speicherkarte_5 Speicherkarte = new Speicherkarte_5( 25 );
-        Fotokamara1.setObjektiv(  Objektiv);
+        Speicherkarte_5 Speicherkarte2 = new Speicherkarte_5( 23);
+
+        Fotokamara1.setObjektiv(  schmallwinkel);
         Fotokamara1.setSpeicherkarte( Speicherkarte );
+
+        Fotokamara2.setObjektiv(  breitwinkel);
+        Fotokamara2.setSpeicherkarte( Speicherkarte2 );
+
         System.out.println( Fotokamara1 );
-        Fotokamara1.objektiv.brennweite=60;
-        System.out.println( Fotokamara1 );
+        System.out.println( Fotokamara2 );
+
+        Objektiv_5 Objetivbox=Fotokamara1.getObjektiv();
+
+        Speicherkarte_5 Speicherbox=Fotokamara1.getSpeicherkarte();
+
+        Fotokamara1.setObjektiv(Fotokamara2.getObjektiv());
+
+        Fotokamara1.setSpeicherkarte(Fotokamara2.getSpeicherkarte());
+
+        Fotokamara2.setObjektiv( Objetivbox);
+        Fotokamara2.setSpeicherkarte( Speicherbox);
+
         Fotokamara1.takePhoto( true );
-        Fotokamara1.takePhoto( true );
+        Fotokamara2.takePhoto( true );
+
         System.out.println(Fotokamara1.speicherkarte.getSpeicherplatzStatus() );
         System.out.println(Fotokamara1.speicherkarte.getAnzahlderFotos() );
 
+        System.out.println( Fotokamara1 );
+        System.out.println( Fotokamara2 );
 
 
     }
