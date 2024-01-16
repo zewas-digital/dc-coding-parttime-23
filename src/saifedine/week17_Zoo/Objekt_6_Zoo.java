@@ -23,4 +23,14 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
 public class Objekt_6_Zoo {
 
+    public static void main(String[] args) {
+
+        Zoo tiergartenDornbirn = new Zoo("Tiergarten Dornbirn",2022);
+        System.out.println(tiergartenDornbirn);
+
+        Gehege alpenwiese = new Gehege("Alpenwiese");
+        System.out.println(alpenwiese);
+
+    }
+
 }
