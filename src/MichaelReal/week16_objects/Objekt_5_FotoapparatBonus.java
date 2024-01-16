@@ -13,7 +13,7 @@ Für die Berechnung speicherplatz pro bild, kann ein wert von 0.3mb pro Megapixe
 public class Objekt_5_FotoapparatBonus {
         public static void main(String[] args) {
             // Erstelle ein Objektiv
-            Objektiv objektiv1 = new Objektiv("EF-S 18-135mm", "Canon", 18.0);
+            Objektiv objektiv1 = new Objektiv("EF-S 18-135mm", "Canon", 19.0);
 
             // Erstelle eine Speicherkarte
             Speicherkarte speicherkarte1 = new Speicherkarte("SanDisk Extreme Pro", "SanDisk", 128);

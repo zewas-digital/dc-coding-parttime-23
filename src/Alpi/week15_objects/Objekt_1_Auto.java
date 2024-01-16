@@ -21,6 +21,7 @@ public class Objekt_1_Auto {
     public static void main(String[] args) {
         Auto FordBronco = new Auto("Ford", "Bronco", 2023, 10000, 70);
 
+
         FordBronco.tankinhalt = 50;
         while (FordBronco.tankinhalt < FordBronco.getTankvolumen()) {
             FordBronco.tankinhalt++;
