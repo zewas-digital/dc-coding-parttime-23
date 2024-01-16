@@ -12,7 +12,7 @@ public class Speicherkarte {
         this.fotos = fotos;
 
     }
-
+    @Override
     public String toString (){
         return " " + restspeicherplatz + " von "
                 + speicherplatz +" GB verfügbar" +
