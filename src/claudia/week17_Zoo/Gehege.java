@@ -1,5 +1,7 @@
 package claudia.week17_Zoo;
 
+import claudia.week17_Zoo.Tiere.Tiere;
+
 import java.util.ArrayList;
 
 public class Gehege {
