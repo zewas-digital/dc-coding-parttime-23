@@ -21,8 +21,8 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
-public class Objekt_6_Zoo extends Zoo {
-    public Objekt_6_Zoo(String name, int gruendungsjahr) {
+public class Object_Zoo_6 extends Zoo {
+    public Object_Zoo_6(String name, int gruendungsjahr) {
         super(name, gruendungsjahr);
     }
 
@@ -36,7 +36,7 @@ public class Objekt_6_Zoo extends Zoo {
     }
 
     public static void main(String[] args) {
-        Objekt_6_Zoo zoo = new Objekt_6_Zoo("Objekt_6_Zoo", 2024);
+        Object_Zoo_6 zoo = new Object_Zoo_6("Objekt_6_Zoo", 2024);
 
         zoo.addGehege("Alpenwiese");
         zoo.addGehege("Ried");
