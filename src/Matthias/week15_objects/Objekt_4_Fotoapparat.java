@@ -13,8 +13,22 @@ Erstelle verschiedene Instanzen der Fotoapparat Klasse und Teste diese ausgiebig
 
 public class Objekt_4_Fotoapparat {
     public static void main( String[] args ) {
-        Fotoaperat Fotoaparat1= new Fotoaperat( "Sony","Alpha 4",50, 48 );
+        Fotokamera Fotoaparat1= new Fotokamera( "Sony","Alpha 4",50, 48 );
         System.out.println(  Fotoaparat1 );
+        Fotoaparat1.setAufloesung( 55 );
+        System.out.println(  Fotoaparat1 );
+        Fotoaparat1.setBrennweite( 56 );
+        System.out.println(  Fotoaparat1 );
+        Fotoaparat1.setModell( "Beta" );
+        System.out.println(  Fotoaparat1 );
+        Fotoaparat1.setHersteller(  "Nikon" );
+        System.out.println(  Fotoaparat1 );
+        Fotoaparat1.takePhoto( true );
+        System.out.println( "Hersteller: " + Fotoaparat1.getHersteller() +
+                " Modell: "      +   Fotoaparat1.getModell()+
+                " Brennweite: "  +   Fotoaparat1.getBrennweite( )+
+                " Auflösung: "   +   Fotoaparat1.getAufloesung( ));
+
     }
 
 }

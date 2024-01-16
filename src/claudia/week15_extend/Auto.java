@@ -25,6 +25,6 @@ public class Auto extends Fahrzeug {
 
     @Override
     public String toString() {
-        return super.getName() +" der Marke "+ this.marke + " verbraucht "+ this.mileage +" Liter pro 100 km.";
+        return super.getName() + " der Marke " + this.marke + " verbraucht " + this.mileage + " Liter pro 100 km.";
     }
 }
