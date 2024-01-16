@@ -7,8 +7,7 @@ public class Fotokamera_5 extends Object{
         private String modell;      // Modelname der Kamera
         private int aufloesung;     // Auflösung der Kamera in MegaPixel
         private double sizeFoto;    // groeße eines Fotos
-
-        public Objektiv_5 objektiv;  // Datentype Objektiv_5 -> deklarier das objektiv
+         private Objektiv_5 objektiv;  // Datentype Objektiv_5 -> deklarier das objektiv
 
         public Speicherkarte_5 speicherkarte;
 
@@ -86,6 +85,13 @@ public class Fotokamera_5 extends Object{
          public void setObjektiv( Objektiv_5 Objektiv){
 
             this.objektiv=Objektiv;
+        }
+        public Objektiv_5 getObjektiv() {
+            return objektiv;
+        }
+
+        public Speicherkarte_5 getSpeicherkarte() {
+            return speicherkarte;
         }
 
         public void setSpeicherkarte( Speicherkarte_5 Speicherkarte){
