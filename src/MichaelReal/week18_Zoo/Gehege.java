@@ -1,48 +1,56 @@
 package MichaelReal.week18_Zoo;
 
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Gehege {
     private String name;
-    private ArrayList<Tier> tierList;
+    private HashMap<Tier, Integer> tierList;
+    private HashMap<Futter, Integer> futterBedarf;
 
     public Gehege(String name) {
         this.name = name;
-        this.tierList = new ArrayList<>();
+        this.tierList = new HashMap<>();
+        this.futterBedarf = new HashMap<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void addTier(Tier tier) {
-        tierList.add(tier);
+    public void addTier(Tier tier, int anzahl) {
+        tierList.put(tier, anzahl);
     }
 
-    public void removeTier(String tierName) {
-        for (int i = 0; i < tierList.size(); i++) {
-            if (tierList.get(i).getName().equals(tierName)) {
-                tierList.remove(i);
-                System.out.println("\nTier " + tierName + " wurde aus dem Gehege " + name + " entfernt.");
+    public void removeTier(String tier) {
+        tierList.remove(tier);
+    }
+
+    public void addFutterBedarf(Futter futter, int menge) {
+        futterBedarf.put(futter, menge);
+    }
+
+    // Methode zum Ändern des Futters für ein Tier in diesem Gehege
+    public void changeTierFutter(String tierName, Futter neuesFutter, int neueMenge) {
+        for (Tier tier : tierList.keySet()) {
+            if (tier.getName().equals(tierName)) {
+                HashMap<Futter, Integer> futterBedarf = tier.getFutterBedarf();
+                futterBedarf.clear();
+                futterBedarf.put(neuesFutter, neueMenge);
+                System.out.println("Futter für Tier " + tierName + " in Gehege " + name + " geändert zu " + neuesFutter.getName() + " (Menge: " + neueMenge + ")");
                 return;
             }
         }
-        System.out.println("Tier " + tierName + " wurde nicht gefunden.");
+        System.out.println("Tier " + tierName + " wurde nicht im Gehege " + name + " gefunden.");
     }
 
-    public void changeTierFutter(String tierName, Futter futter) {
-        for (int i = 0; i < tierList.size(); i++) {
-            if (tierList.get(i).getName().equals(tierName)) {
-                tierList.get(i).setFutter(futter);
-                System.out.println("\nDas Futter für Tier " + tierName + " wurde geändert zu: " + futter.getName());
-                return;
-            }
-        }
-        System.out.println("Tier " + tierName + " wurde nicht gefunden.");
-    }
-
-    public ArrayList<Tier> getTierList() {
+    public HashMap<Tier, Integer> getTierList() {
         return tierList;
     }
+
+    public HashMap<Futter, Integer> getFutterBedarf() {
+        return futterBedarf;
+    }
 }
+
+

@@ -1,4 +1,4 @@
-package MichaelReal.week18_Zoo;
+package MichaelReal.week17_Zoo;
 
 /*
 Aufgabe: Tiere

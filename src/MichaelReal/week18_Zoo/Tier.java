@@ -1,23 +1,31 @@
 package MichaelReal.week18_Zoo;
 
+import java.util.HashMap;
+
 public class Tier {
     private String name;
-    private Futter futter;
+    private String gattung; // Hinzugefügt: Die Gattung des Tiers
+    private HashMap<Futter, Integer> futterBedarf; // Hinzugefügt: Die Liste der benötigten Futtermittel und Mengen
 
-    public Tier(String name, Futter futter) {
+    public Tier(String name, String gattung) {
         this.name = name;
-        this.futter = futter;
+        this.gattung = gattung;
+        this.futterBedarf = new HashMap<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public Futter getFutter() {
-        return futter;
+    public String getGattung() {
+        return gattung;
     }
 
-    public void setFutter(Futter futter) {
-        this.futter = futter;
+    public void addFutterBedarf(Futter futter, int menge) {
+        futterBedarf.put(futter, menge);
+    }
+
+    public HashMap<Futter, Integer> getFutterBedarf() {
+        return futterBedarf;
     }
 }
