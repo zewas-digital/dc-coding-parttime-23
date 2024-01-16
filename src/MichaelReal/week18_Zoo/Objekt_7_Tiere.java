@@ -43,14 +43,14 @@ public class Objekt_7_Tiere extends Zoo {
         zoo.addGehege("Ried");
         zoo.addGehege("Terrarium (warm)");
 
-        zoo.Futter heu = new zoo.Futter("Heu🌿");
-        zoo.Futter fischfutter = new zoo.Futter("Fischfutter🫘");
-        zoo.Futter insekten = new zoo.Futter("Insekten🪳");
+        Futter heu = new Futter("Heu🌿");
+        Futter fischfutter = new Futter("Fischfutter🫘");
+        Futter insekten = new Futter("Insekten🪳");
 
-        zoo.Tier hase = new zoo.Tier("Hase🐰", heu);
-        zoo.Tier reh = new zoo.Tier("Reh🦌", heu);
-        zoo.Tier fisch = new zoo.Tier("Fisch🐟", fischfutter);
-        zoo.Tier schmetterling = new Tier("Schmetterling🦋", insekten);
+        Tier hase = new Tier("Hase🐰", heu);
+        Tier reh = new Tier("Reh🦌", heu);
+        Tier fisch = new Tier("Fisch🐟", fischfutter);
+        Tier schmetterling = new Tier("Schmetterling🦋", insekten);
 
         zoo.assignTierToGehege("Alpenwiese", hase);
         zoo.assignTierToGehege("Alpenwiese", reh);
@@ -59,7 +59,7 @@ public class Objekt_7_Tiere extends Zoo {
 
         zoo.printZooStructureWithTiere();
 
-        zoo.Futter karotten = new Futter("Karotten🥕");
+        Futter karotten = new Futter("Karotten🥕");
         zoo.changeTierFutter("Alpenwiese", "Hase🐰", karotten);
 
         zoo.printZooStructureWithTiere();
