@@ -1,4 +1,4 @@
-package oliver.week18_Zoo;
+package claudia.week18_Zoo;
 
 /*
 Bonusaufgabe: Tierfutter
@@ -17,6 +17,7 @@ Beispielausgabe der Statistik:
 =======================
 Total Daily cost: 144,70 €
  */
+//Hashmap mit Name des Futters und benötigten Einheiten
 
 import java.util.HashMap;
 
