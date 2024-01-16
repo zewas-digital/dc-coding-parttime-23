@@ -33,7 +33,13 @@ public class Objekt_6_Zoo {
         zoo.gehegeHinzufuegen("Ried");
         zoo.gehegeHinzufuegen("Terrarium (warm)");
 
-        System.out.println (zoo.printoverview () );
+        zoo.tierHinzufuegen ( 1, "Gazelle", "Heu", 5 );
+        System.out.println (zoo.printuebersicht () );
+
+        zoo.gehegeEntfernen ( 2 );
+        zoo.tierHinzufuegen ( 2, "Camellion", "Insekten", 1 );
+
+        System.out.println (zoo.printuebersicht () );
 
     }
 
