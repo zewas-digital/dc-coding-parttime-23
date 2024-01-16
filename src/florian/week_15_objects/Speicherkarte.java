@@ -10,7 +10,6 @@ public class Speicherkarte {
     public Speicherkarte (int speicherplatz,int fotos){
         this.speicherplatz = speicherplatz;
         this.fotos = fotos;
-
     }
     @Override
     public String toString (){
