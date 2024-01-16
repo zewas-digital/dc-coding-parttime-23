@@ -21,7 +21,7 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
-import claudia.week17_Zoo.Tier;
+
 
 import java.util.ArrayList;
 
