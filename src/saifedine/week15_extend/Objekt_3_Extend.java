@@ -30,7 +30,7 @@ public class Objekt_3_Extend {
             }
         };
 
-        A.drive(100);                                                                                                                                                   // A drives anonymous.
+        A.drive(100);                                                                                                                                           // A drives anonymous.
 
         System.out.println("Fahrzeugname ist: " + A.getName());                                                                                                         // Fahrzeugname ist: A
     }
