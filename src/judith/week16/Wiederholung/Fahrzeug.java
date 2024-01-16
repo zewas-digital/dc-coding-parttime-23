@@ -1,4 +1,4 @@
-package saifedine.week16_weekend3_objects.week16.Wiederholung;
+package judith.week16.Wiederholung;
 
 public abstract class Fahrzeug {
 

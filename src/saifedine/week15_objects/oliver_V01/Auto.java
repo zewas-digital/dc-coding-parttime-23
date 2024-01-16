@@ -81,11 +81,13 @@ public class Auto extends Object {
      * @return
      */
 
+    // GETTER: übergibt den Tankvolumen an getTankvolumen
     // getTankvolumen(): Gibt das Tankvolumen des Autos zurück (Eigenschaft: private int tankvolumen = 80;)
     public int getTankvolumen() {
         return this.tankvolumen;
     }
 
+    // SETTER: setzt und überprüft die Variablen Tankinhalt auf deren Input
     // setTankinhalt(): Setzt den Tankinhalt des Autos (Eigenschaft: private int tankvolumen = 80; & public int tankinhalt;)
     public void setTankinhalt(int neuerTankinhalt) {
         if (neuerTankinhalt <= this.tankvolumen && neuerTankinhalt >= 0)

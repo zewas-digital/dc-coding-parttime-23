@@ -22,5 +22,8 @@ public class Engine {
         return leistung;
     }
 
+    public void setLeistung(int leistung) {
+        this.leistung = leistung;
+    }
 
 }
