@@ -1,4 +1,4 @@
-package judith.week17_zoo;
+package saifedine.week17_Zoo;
 
 /*
 Aufgabe: Zoo
@@ -21,28 +21,16 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
-
-
-import java.util.ArrayList;
-
 public class Objekt_6_Zoo {
 
     public static void main(String[] args) {
 
-        Zoo TiergartenDornbirn = new Zoo("Tiergarten Dornbirn",2022 );
-        System.out.println(TiergartenDornbirn);
-
-        /*
-        Zoo TiergartenBregenz = new Zoo();
-        TiergartenBregenz.setName("Tiergarten Bregenz");
-        TiergartenBregenz.setGruendungsJahr(2000);
-        System.out.println(TiergartenBregenz);
-         */
+        Zoo tiergartenDornbirn = new Zoo("Tiergarten Dornbirn",2022);
+        System.out.println(tiergartenDornbirn);
 
         Gehege alpenwiese = new Gehege("Alpenwiese");
         System.out.println(alpenwiese);
 
-
-
     }
+
 }

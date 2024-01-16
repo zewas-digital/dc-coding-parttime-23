@@ -1,18 +1,18 @@
-package claudia.week17_Zoo;
+package claudia.week17_Zoo.Tiere;
 
 import java.util.ArrayList;
 
-public abstract class Landtiere implements Tiere {
+public class Wassertiere implements Tiere {
     private String art;
     private String name;
-    private int flaecheBenoetigt;
+    private int volumenBenoetigt;
     private String futter;
     private double mengeInKilo;
 
-    public Landtiere(String art, String name, int flaecheBenoetigt, String futter, double mengeInKilo, ArrayList<Tiere> ListeDerTiereImGehege){
+    public Wassertiere(String art, String name, int volumenBenoetigt, String futter, double mengeInKilo, ArrayList<Tiere> ListeDerTiereImGehege){
         this.art = art;
         this.name = name;
-        this.flaecheBenoetigt = flaecheBenoetigt;
+        this.volumenBenoetigt = volumenBenoetigt;
         this.futter = futter;
         this.mengeInKilo = mengeInKilo;
         ListeDerTiereImGehege.add(this);

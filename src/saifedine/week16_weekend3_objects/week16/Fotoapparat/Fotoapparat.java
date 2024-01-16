@@ -1,4 +1,4 @@
-package saifedine.week16_weekend3_objects.week16;
+package saifedine.week16_weekend3_objects.week16.Fotoapparat;
 
 public class Fotoapparat {
     private int brennweiteMin;

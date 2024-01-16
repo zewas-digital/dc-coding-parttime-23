@@ -21,7 +21,7 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
-import java.util.ArrayList;
+import claudia.week17_Zoo.Tiere.*;
 
 public class Objekt_6_Zoo {
     public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class Objekt_6_Zoo {
         meinZoo.printStructure(meinZoo.getListeDerGehege());
 
         System.out.println("\nNeues Tier: ");
-        Landtiere Storch1 = new Storch ("Adebar1", 1, Ried.getListeDerTiere());
+        Landtiere Storch1 = new Storch("Adebar1", 1, Ried.getListeDerTiere());
         System.out.println(Storch1);
         Storch1.feed();
 

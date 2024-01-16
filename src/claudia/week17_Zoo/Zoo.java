@@ -1,11 +1,14 @@
 package claudia.week17_Zoo;
 
+import claudia.week17_Zoo.Tiere.Tiere;
+
 import java.util.ArrayList;
 
 public class Zoo {
     private final String name;
     private final int jahr;
-    private ArrayList <Gehege> ListeDerGehege = new ArrayList <> ();
+    private ArrayList <Gehege> ListeDerGehege = new ArrayList <>();
+    private ArrayList <Tiere> ListeDerTiere = new ArrayList<>();
 
     public Zoo(String name, int jahr){
         this.name = name;
@@ -47,6 +50,15 @@ public class Zoo {
 
     public ArrayList <Gehege> getListeDerGehege(){
         return this.ListeDerGehege;
+    }
+
+
+
+
+
+
+    public String getName() {
+        return name;
     }
 }
 
