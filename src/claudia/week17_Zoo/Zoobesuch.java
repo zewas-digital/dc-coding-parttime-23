@@ -1,5 +1,7 @@
 package claudia.week17_Zoo;
 
+import claudia.week17_Zoo.Tiere.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Timer;
