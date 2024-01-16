@@ -7,6 +7,25 @@ public class Einrad extends Fahrzeug {
 
     @Override
     public void drive(int kilometer) {
+        System.out.println("Fahre Einrad.");
         //TODO drive x kilometer...
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
