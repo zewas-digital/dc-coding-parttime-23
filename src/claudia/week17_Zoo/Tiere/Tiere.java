@@ -1,4 +1,4 @@
-package claudia.week17_Zoo;
+package claudia.week17_Zoo.Tiere;
 
 public interface Tiere {
     public void feed();
