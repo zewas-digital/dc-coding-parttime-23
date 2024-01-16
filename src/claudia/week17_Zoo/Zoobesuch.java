@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Zoobesuch<T> {
+public class Zoobesuch {
 
 
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class Zoobesuch<T> {
 
         System.out.println();
         String auswahl = "0";
-        String gehege = "x";
+        //String gehege = "x";
         Scanner sc = new Scanner(System.in);
 
         while (!auswahl.equals("N")){

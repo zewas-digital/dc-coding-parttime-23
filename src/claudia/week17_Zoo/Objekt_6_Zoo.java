@@ -59,6 +59,11 @@ public class Objekt_6_Zoo {
         meinZoo.gehegeHinzufuegen(Ried, meinZoo.getListeDerGehege());
 
         meinZoo.alleFuettern();
+
+        System.out.println("\nAnzahl der Tiere im Aquarium: " + Aquarium.anzahlDerTiere());
+        System.out.println("Anzahl der Tiere im Ried: " + Ried.anzahlDerTiere());
+
+        System.out.println("\nListe aller Tiere: " + meinZoo.listeAllerTiere());//TODO nur die Namen!
     }
 
 
