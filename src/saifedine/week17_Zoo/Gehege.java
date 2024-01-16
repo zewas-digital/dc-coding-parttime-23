@@ -13,16 +13,4 @@ public class Gehege {
     public String toString(){
         return "Gehege: " + this.gehegeName;
     }
-
-    public Gehege(String gehegeName, ArrayList<Gehege> gehegeArrayList){
-        this.gehegeName = gehegeName;
-        gehegeArrayList.add(this);
-    }
-
-    /*
-    public Gehege(String gehegeName, ArrayList<Gehege> gehegeArrayList){
-        this.gehegeName = gehegeName;
-        gehegeArrayList.remove(this);
-    }
-     */
 }
