@@ -21,7 +21,7 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
-import java.util.ArrayList;
+import claudia.week17_Zoo.Tiere.*;
 
 public class Objekt_6_Zoo {
     public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class Objekt_6_Zoo {
         meinZoo.printStructure(meinZoo.getListeDerGehege());
 
         System.out.println("\nNeues Tier: ");
-        Landtiere Storch1 = new Storch ("Adebar1", 1, Ried.getListeDerTiere());
+        Landtiere Storch1 = new Storch("Adebar1", 1, Ried.getListeDerTiere());
         System.out.println(Storch1);
         Storch1.feed();
 
@@ -48,7 +48,7 @@ public class Objekt_6_Zoo {
         Landtiere Boa3 = new Schlange("Boa3", 0.1, TerrariumWarm.getListeDerTiere());
 
         Gehege Aquarium = new Gehege(2000000, "Aquarium", meinZoo.getListeDerGehege());
-        Wassertiere Wal1 = new Wal("Wal1", 235465, Aquarium.getListeDerTiere());
+        //Wassertiere Wal1 = new Wal("Wal1", 235465, Aquarium.getListeDerTiere());
 
         meinZoo.printStructure(meinZoo.getListeDerGehege());
 
@@ -59,6 +59,12 @@ public class Objekt_6_Zoo {
         meinZoo.gehegeHinzufuegen(Ried, meinZoo.getListeDerGehege());
 
         meinZoo.alleFuettern();
+
+        System.out.println("\nAnzahl der Tiere im Aquarium: " + Aquarium.anzahlDerTiere());
+        System.out.println("Anzahl der Tiere im Ried: " + Ried.anzahlDerTiere());
+
+        System.out.println("\nListe aller Tiere: " + meinZoo.listeAllerTiere());//TODO nur die Namen!
+        System.out.println("\nKrill kostet pro Kilo " + Futter.PREIS_IN_EURO_KRILL + " €.");
     }
 
 

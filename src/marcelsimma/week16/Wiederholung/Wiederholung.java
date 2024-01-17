@@ -1,5 +1,7 @@
 package marcelsimma.week16.Wiederholung;
 
+import java.util.ArrayList;
+
 public class Wiederholung {
 
 
@@ -7,17 +9,33 @@ public class Wiederholung {
 
         Engine v8 = new Engine(400);
 
+        Auto VWPolo = new Auto("red", "VW", "Polo", "BDE492378459", new Engine(400));
 
 
-        Auto VWPolo = new Auto("red", "VW", "Polo", "BDE492378459", v8);
+        ArrayList<Move> objekte = new ArrayList<>();
+
+        Flugzeug Boeing737Max = new Flugzeug(objekte);
+
+
+
+        objekte.add(VWPolo);
+        //objekte.add(Boeing737Max);
+
+        for (int i = 0; i < 10; i++) {
+            new Flugzeug(objekte);
+        }
+
+        // objekte.forEach(o -> o.move());
+
+        for (Move o : objekte) {
+            o.move();
+        }
+
+
+
 
         // aus einer abstrakten Klasse kann kein Objekt erzeugt werden
         //Fahrzeug Prototyp = new Fahrzeug("red", "RETE4543");
-
-        System.out.println(VWPolo.getColor());
-        System.out.println(v8.getLeistung());
-
-        System.out.println(VWPolo.getEngine());
 
 
 

@@ -21,6 +21,36 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
+import java.util.ArrayList;
+
 public class Objekt_6_Zoo {
+
+    public static void main(String[] args) {
+
+        Zoo tiergartenDornbirn = new Zoo("Tiergarten Dornbirn",2022);
+        //System.out.println(tiergartenDornbirn);
+
+        //Gehege alpenwiese = new Gehege("Alpenwiese");
+        //System.out.println(alpenwiese);
+
+        Gehege alpenwiese = new Gehege("Alpenwiese");
+        Gehege ried = new Gehege("Ried");
+        Gehege terrarium = new Gehege("Terrarium (warm)");
+        Gehege hugo = new Gehege("Hugo");
+
+        tiergartenDornbirn.addGehege(alpenwiese);
+        tiergartenDornbirn.addGehege(ried);
+        tiergartenDornbirn.addGehege(terrarium);
+        tiergartenDornbirn.addGehege(hugo);
+
+        System.out.println("getgehegeArrayList(): " + tiergartenDornbirn.getgehegeArrayList() + "\n");
+
+        tiergartenDornbirn.zooStruktur();
+
+        tiergartenDornbirn.removeGehege(hugo);
+
+        tiergartenDornbirn.zooStruktur();
+
+    }
 
 }

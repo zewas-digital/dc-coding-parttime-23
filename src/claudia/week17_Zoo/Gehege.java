@@ -1,5 +1,7 @@
 package claudia.week17_Zoo;
 
+import claudia.week17_Zoo.Tiere.Tiere;
+
 import java.util.ArrayList;
 
 public class Gehege {
@@ -13,6 +15,9 @@ public class Gehege {
         ListeDerGehege.add(this);
     }
 
+    public int anzahlDerTiere(){
+        return this.ListeDerTiere.size();
+    }
     public void tierHinzufuegen(Tiere tier) {
         this.ListeDerTiere.add(tier);
     }

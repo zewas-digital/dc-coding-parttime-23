@@ -1,13 +1,30 @@
 package florian.week_15_objects;
 
 public class Speicherkarte {
-    double speicherplatz;
+    int speicherplatz;
+    int fotos;
 
-    public Speicherkarte (double speicherplatz){
+    public Fotoapparat fotoapparat;
+    int restspeicherplatz = 0;
+
+    public Speicherkarte (int speicherplatz,int fotos){
         this.speicherplatz = speicherplatz;
+        this.fotos = fotos;
+    }
+    @Override
+    public String toString (){
+        return " " + restspeicherplatz + " von "
+                + speicherplatz +" GB verfügbar" +
+                ", Du hast: " + fotos + " Fotos gespeichert";
+
     }
 
-    public String toString (){
-        return "" + speicherplatz;
+
+    public void restSpeicherplatz(){
+
+       restspeicherplatz = (int) (speicherplatz - ((30 * 0.3) * fotos));
+
+       System.out.println("Restspeicher: " + restspeicherplatz + " " + "Anzahl Fotos: "+ fotos);
     }
+
 }

@@ -1,6 +1,6 @@
 package marcelsimma.week16.Wiederholung;
 
-public abstract class Fahrzeug {
+public abstract class Fahrzeug implements Move {
 
     // Attribute
     private String color;
