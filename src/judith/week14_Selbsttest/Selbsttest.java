@@ -9,6 +9,10 @@ public class Selbsttest {
             10 9 8 7 6 5 4 3 2 1 0
          */
 
+
+
+
+
         // Aufgabe 2 -------------------
         /* Zähle in einer for-Schleife von -30 bis inklusive 30 und gib jede Zahl aus die ohne Rest durch 3 teilbar ist.
          * Ausgabe:
