@@ -4,4 +4,6 @@ public interface Tiere {
     public void feed();
 
     String getName();
+    String getArt();
+    
 }

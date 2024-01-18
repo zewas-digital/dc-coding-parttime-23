@@ -1,4 +1,4 @@
-package oliver.week18_Zoo;
+package Simonsway.Week18;
 
 /*
 Bonusaufgabe: Tierfutter

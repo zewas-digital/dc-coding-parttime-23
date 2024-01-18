@@ -1,6 +1,7 @@
-package oliver.week18_Zoo;
+package claudia.week17_Zoo;
 
-/*
+public class Futter {
+    /*
 Bonusaufgabe: Tierfutter
 Erweitere dein Zooprogramm mit Futter-Bedarfsanalyse.
 
@@ -17,23 +18,14 @@ Beispielausgabe der Statistik:
 =======================
 Total Daily cost: 144,70 €
  */
+//Hashmap mit Name des Futters und benötigten Einheiten
 
-import java.util.HashMap;
-
-public class Objekt_8_FutterBonus {
-    public static void main(String[] args) {
-
-        // Eine HashMap speichert Schlüssel-Wert-Paare,
-        // dessen Datentypen wir definieren können
-        HashMap<String, Integer> hashMap = new HashMap<>();
-
-        // Wert hinzufügen
-        hashMap.put("erster Schlüssel", 120);
-        hashMap.put("zweiter Schlüssel", 300);
-
-        // Wert lesen
-        System.out.println(
-                hashMap.get("erster Schlüssel")
-        );
+    private String nameInEinheit;
+    public static final double PREIS_IN_EURO_GRAS = 0.20;
+    public static final double PREIS_IN_EURO_FROESCHE = 2.3;
+    public static final double PREIS_IN_EURO_MAEUSE = 1.7;
+    public static final double PREIS_IN_EURO_KRILL = 0.44;
+    public Futter(String nameInEinheit){
+        this.nameInEinheit = nameInEinheit;
     }
 }

@@ -7,7 +7,6 @@ public class Camera {
         Storage storage1 = new Storage();
         Photo photo1 = new Photo();
 
-
         model1.setBrand("Nikon");
         model1.setModel(1);
         storage1.setSdCard(64);

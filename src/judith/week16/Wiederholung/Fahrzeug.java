@@ -3,6 +3,8 @@ package judith.week16.Wiederholung;
 public abstract class Fahrzeug {
 
     // Attribute
+
+    //Diese Variablen sind privat damit sie nur einmal definiert und nicht wieder verändert werden können.
     private String color;
     private String seriennummer;
 
