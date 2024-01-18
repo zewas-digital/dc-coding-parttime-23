@@ -1,6 +1,6 @@
 package florian.week_17_Zoo;
 
-import MichaelReal.week17_Zoo.Tier;
+
 
 import java.util.ArrayList;
 
