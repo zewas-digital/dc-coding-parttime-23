@@ -21,9 +21,6 @@ Erweitere dein Zooprogramm mit Tiere.
 │       ├── (leer)
  */
 
-import Matthias.week17_objects.Gehege;
-import Matthias.week17_objects.Zoo;
-
 public class Objekt_7_Tiere {
     public static void main( String[] args ) {
        Zoo zoo1= new Zoo( "Tiergarten Dornbirn", 2022 );
@@ -41,6 +38,16 @@ public class Objekt_7_Tiere {
         zoo1.removeGehege(gehege1);
         zoo1.printFormated();
         zoo1.addGehege( gehege1);
+        zoo1.printFormated();
+        Tiere Tier1 =new Tiere( "Rijska", "Kuh" );
+        Tiere Tier2 =new Tiere( "Garmond", "Kuh" );
+        Tiere Tier3 =new Tiere( "Idaxis", "Kuh" );
+        gehege1.addNewAnimal(  Tier1);
+        gehege1.addNewAnimal(  Tier2);
+        gehege1.addNewAnimal(  Tier3);
+        gehege2.addNewAnimal( Tier3 );
+        zoo1.printFormated();
+        gehege1.removeAnimal(  Tier3);
         zoo1.printFormated();
 
     }
