@@ -5,4 +5,5 @@ public interface Tiere {
 
     String getName();
     String getArt();
+    
 }

@@ -33,7 +33,11 @@ public class Zoo {
             System.out.println( "|--"+this.toString()); // Zeiger auf den Zoo Konstruktor der das neue Objekt Zoo erstellt
             for (Gehege gehege: gehegeArrayList) {
                 System.out.print("|" );
-                System.out.println( "\t|--"+gehege);
+                System.out.println( "\t|--"+gehege.toString());
+                for (Tiere Tier:gehege.getTierListe()) {
+                    System.out.print("|" );
+                    System.out.println( "\t\t|--"+Tier.toString());
+                }
             }
     }
 
