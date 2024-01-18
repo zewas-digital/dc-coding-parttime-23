@@ -1,4 +1,4 @@
-package saifedine.week17_Zoo;
+package saifedine.week18_Zoo;
 
 /*
 Aufgabe: Zoo
@@ -21,7 +21,7 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
-import java.util.ArrayList;
+import MichaelReal.week17_Zoo.Tier;
 
 public class Objekt_6_Zoo {
 
@@ -45,12 +45,34 @@ public class Objekt_6_Zoo {
 
         System.out.println("getgehegeArrayList(): " + tiergartenDornbirn.getgehegeArrayList() + "\n");
 
-        tiergartenDornbirn.zooStruktur();
+        tiergartenDornbirn.zooStrukturGehege();
 
         tiergartenDornbirn.removeGehege(hugo);
 
-        tiergartenDornbirn.zooStruktur();
+        tiergartenDornbirn.zooStrukturGehege();
 
+        Tiere hirsch1wild = new Tiere("Hirsch", "Wild");
+        Tiere reh1wild = new Tiere("Reh", "Wild");
+        Tiere schlange1reptil = new Tiere("Schlange","Reptil");
+        Tiere schlidkroete1reptil = new Tiere("Schildkröte","Reptil");
+        Tiere barbara = new Tiere("Barbara", "Säugetier");
+
+
+        //System.out.println(hirsch1wild);
+
+        ried.addTiere(hirsch1wild);
+        ried.addTiere(reh1wild);
+        terrarium.addTiere(schlange1reptil);
+        terrarium.addTiere(schlidkroete1reptil);
+        terrarium.addTiere(barbara);
+
+        System.out.println("\n" + ried.gettierArrayList());
+
+        tiergartenDornbirn.zooStrukturGehegeTiere();
+
+        terrarium.removeTiere(barbara);
+
+        tiergartenDornbirn.zooStrukturGehegeTiere();
     }
 
 }

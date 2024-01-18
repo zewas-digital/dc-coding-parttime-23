@@ -15,6 +15,9 @@ public class Gehege {
         ListeDerGehege.add(this);
     }
 
+    public int anzahlDerTiere(){
+        return this.ListeDerTiere.size();
+    }
     public void tierHinzufuegen(Tiere tier) {
         this.ListeDerTiere.add(tier);
     }
