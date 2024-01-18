@@ -22,7 +22,7 @@ public class Gehege {
         tierList.put(tier, anzahl);
     }
 
-    public void removeTier(String tier) {
+    public void removeTier(Tier tier) {
         tierList.remove(tier);
     }
 
@@ -37,7 +37,7 @@ public class Gehege {
                 HashMap<Futter, Integer> futterBedarf = tier.getFutterBedarf();
                 futterBedarf.clear();
                 futterBedarf.put(neuesFutter, neueMenge);
-                System.out.println("Futter für Tier " + tierName + " in Gehege " + name + " geändert zu " + neuesFutter.getName() + " (Menge: " + neueMenge + ")");
+                System.out.println("\nFutter für Tier " + tierName + " in Gehege " + name + " geändert zu " + neuesFutter.getName() + " (Menge: " + neueMenge + ")");
                 return;
             }
         }
