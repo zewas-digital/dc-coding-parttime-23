@@ -1,9 +1,12 @@
 package judith.week16.Wiederholung;
 
+
+//Diese Klasse erbt vom Fahrzeug
 public class Auto extends Fahrzeug {
 
     //Attribute
 
+    // mit "final" wird ein wert zwar sichtbar aber unveränderbar gemach wie z.b. bei "PI"
     public static final int WHEELS = 4;
     private String marke;
     private String modell;
@@ -19,6 +22,8 @@ public class Auto extends Fahrzeug {
     //Constructor
     public Auto (String color, String marke, String modell, String seriennummer, Engine engine) {
         super(color, seriennummer);
+        //Color und Seriennummer sind im Fahrzeug privat gesetzt deshalb wird der wert für das angelegte
+        //Auto auch hier verspeichert und muss somit mit "super(color, seriennummer); definiert bzw. aufgerufen werden.
         // this ist ein Zeiger zum aktuellen Objekt
         this.marke = marke;
         this.modell = modell;

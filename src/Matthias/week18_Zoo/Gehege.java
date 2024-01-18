@@ -15,9 +15,15 @@ public class Gehege{
     public void addNewAnimal( Tiere newAnimal) {
         TierListe.add( newAnimal);
     }
-    public String getStandort() {
-        return Standort;
+
+    public void removeAnimal( Tiere newAnimal) {
+        TierListe.remove( newAnimal);
     }
+    public String getStandort() {
+        return this.Standort;
+    }
+
+    public ArrayList<Tiere> getTierListe() {return this.TierListe;}
 
     @Override
     public String toString(){
