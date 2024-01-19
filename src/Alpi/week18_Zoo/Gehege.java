@@ -1,8 +1,6 @@
-package Alpi.week17_Zoo;
+package Alpi.week18_Zoo;
 
 
-
-import Alpi.week18_Zoo.Tiere;
 
 import java.util.ArrayList;
 
@@ -18,7 +16,7 @@ public class Gehege {
         this.bezeichnung = bezeichung;
         this.tiereImGehege  = new ArrayList<>();
 
-        System.out.println("Gehege: " + this.bezeichnung);
+       // System.out.println("Gehege: " + this.bezeichnung);
 
 
     }

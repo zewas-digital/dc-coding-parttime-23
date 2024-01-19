@@ -1,4 +1,4 @@
-package Alpi.week17_Zoo;
+package Alpi.week18_Zoo;
 
 /*
 Aufgabe: Zoo
@@ -22,27 +22,26 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
  */
 
 
+
 import java.util.ArrayList;
 
 public class Zoo {
 
 
-    String name;
+    public String name;
 
-    int Gründungsjahr;
+    public int gruendungsjahr;
 
-    public ArrayList <Gehege> gehegeArrayList = new ArrayList<>();
+    public ArrayList <Gehege> gehegeArrayList;
 
-    public Zoo(String name, int Gründungsjahr) {
+    public Zoo(String name, int gruendungsjahr) {
 
         this.name = name;
-        this.Gründungsjahr = Gründungsjahr;
+        this.gruendungsjahr = gruendungsjahr;
+        this.gehegeArrayList  = new ArrayList<>();
 
-        System.out.println("Zoo: " + this.name + "Gegründet: " + this.Gründungsjahr);
-
-
+        System.out.println("Zoo: " + this.name + "Gegründet: " + this.gruendungsjahr);
     }
-
 
 
 }
