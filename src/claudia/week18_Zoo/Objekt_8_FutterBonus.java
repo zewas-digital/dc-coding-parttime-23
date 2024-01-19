@@ -43,8 +43,9 @@ public class Objekt_8_FutterBonus {
 
         meinNeuerZoo.erstelleFutterstatistik(futterTabelle);
 
-        double[] liste = {1.2, 3.0, 23.78, 7.2};
-        Zoo nocheinZoo = new Zoo("noch ein Zoo", 1978, liste);
+        double[] preisliste = {1.2, 3.0, 23.78, 7.2};
+        Zoo nocheinZoo = new Zoo("noch ein Zoo", 1978, preisliste);
+        Zoo.erstelleStandardZooMitPreisliste(nocheinZoo, preisliste);
         futterTabelle = nocheinZoo.erstelleFutterTabelle();
         nocheinZoo.erstelleFutterstatistik(futterTabelle);
 

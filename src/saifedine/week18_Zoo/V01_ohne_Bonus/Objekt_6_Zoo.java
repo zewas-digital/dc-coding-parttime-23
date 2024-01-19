@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V01_ohne_Bonus;
 
 /*
 Aufgabe: Zoo
@@ -20,8 +20,6 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 │   ├── Gehege: Terrarium (warm)
 
  */
-
-import MichaelReal.week17_Zoo.Tier;
 
 public class Objekt_6_Zoo {
 
