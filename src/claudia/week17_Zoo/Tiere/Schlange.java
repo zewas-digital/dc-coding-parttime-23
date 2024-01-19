@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Schlange extends Landtiere {
 
         public Schlange(String name, Futter futter, double mengeInKilo, ArrayList<Tiere> liste){
-            super("Boa Constrictor", name, 1, futter, mengeInKilo, liste);
+            super("Schlange", name, 1, futter, mengeInKilo, liste);
         }
     public double preisinEinheit = this.getFutter().getPreisProEinheit();
     @Override
