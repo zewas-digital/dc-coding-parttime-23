@@ -1,6 +1,7 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V02_mit_Bonus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Zoo {
 
@@ -8,7 +9,13 @@ public class Zoo {
     private int gruendungsjahr;
     private ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
 
-    Gehege gehege;
+    private float futterPreisProEinheit;
+
+    private float tagesbedarf;
+
+    Futter futter;
+    Tiere tiere;
+
 
     //
     public Zoo(String zooName, int gruendungsjahr) {
@@ -58,8 +65,40 @@ public class Zoo {
                 System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
             }
         }
-
     }
 
+    public void zooStrukturGehegeTiereFutter(){
+
+        String zooDaten = toString();
+
+        System.out.println("\n├── " + zooDaten);
+
+        for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
+            System.out.println("│   ├── " + this.gehegeArrayList.get(i));
+
+            for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().toArray().length; j++) {
+                System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
+
+            }
+        }
+    }
+
+    HashMap<Futter, Float> futterPreisListe = new HashMap<>();
+
+    public void addfutterPreis(Futter futter,float futterPreisProEinheit){
+        this.futterPreisListe.put(futter,futterPreisProEinheit);
+    }
+
+    public float kalkulationBedarf(Futter futter, Tiere tiere){
+
+        // fori
+        // this.gehegeArrayList.get(i).gettierArrayList(). usw.
+
+        float tagesbedarf = this.futter.getFutterPreis() * this.tiere.getFutterBedarf();
+
+        System.out.println("Der Tagesbedarf an " + this.futter.getFutterName() + " ist " + tagesbedarf);
+
+        return tagesbedarf;
+    }
 }
 

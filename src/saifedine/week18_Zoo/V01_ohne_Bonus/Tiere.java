@@ -1,6 +1,4 @@
-package saifedine.week18_Zoo;
-
-import java.util.ArrayList;
+package saifedine.week18_Zoo.V01_ohne_Bonus;
 
 // Erstelle eine Tier-Klasse mit einem Namen und einer Gattung
 public class Tiere {
