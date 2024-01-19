@@ -22,14 +22,6 @@ public class Gehege {
         tierList.put(tier, anzahl);
     }
 
-    public void removeTier(Tier tier, int anzahl) {
-        tierList.remove(tier, anzahl);
-    }
-
-    public void addFutterBedarf(Futter futter, int menge) {
-        futterBedarf.put(futter, menge);
-    }
-
     // Methode zum Ändern des Futters für ein Tier in diesem Gehege
     public void changeTierFutter(String tierName, Futter neuesFutter, int neueMenge) {
         for (Tier tier : tierList.keySet()) {
