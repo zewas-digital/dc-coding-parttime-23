@@ -8,24 +8,27 @@ public class Futter {
 
     private float futterPreis;
 
-    public Futter(String futterName, String einheitKg, float futterPreis){
+
+    public Futter(String futterName, String einheitKg, float futterPreis) {
         this.futterName = futterName;
         this.einheitKg = einheitKg;
         this.futterPreis = futterPreis;
     }
 
-    public String toString(){return this.futterName + ", " + this.einheitKg + ", " + this.futterPreis;}
+    public String toString() {
+        return this.futterName + ", " + this.einheitKg + ", " + this.futterPreis;
+    }
 
 
     public String getFutterName() {
-        return futterName;
+        return this.futterName;
     }
 
     public String getEinheitKg() {
-        return einheitKg;
+        return this.einheitKg;
     }
 
     public float getFutterPreis() {
-        return futterPreis;
+        return this.futterPreis;
     }
 }

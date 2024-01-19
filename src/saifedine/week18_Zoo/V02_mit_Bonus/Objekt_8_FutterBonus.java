@@ -26,12 +26,5 @@ public class Objekt_8_FutterBonus {
 
         System.out.println(hirsch2wild);
 
-
-
     }
-
-
-
-
-
 }

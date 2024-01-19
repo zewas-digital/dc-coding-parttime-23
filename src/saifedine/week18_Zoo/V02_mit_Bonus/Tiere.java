@@ -11,20 +11,20 @@ public class Tiere {
     Futter futter;
 
 
-    public Tiere(String tierName,String tierGattung){
+    public Tiere(String tierName, String tierGattung) {
         this.tierName = tierName;
         this.tierGattung = tierGattung;
     }
 
-    public String toString(){
-        return this.tierName + ", " + this.tierGattung + ", " + this.futter + ", " + this.futterBedarf;
-    }
-
-    public Tiere(String tierName,String tierGattung, Futter futter, int futterBedarf){
+    public Tiere(String tierName, String tierGattung, Futter futter, int futterBedarf) {
         this.tierName = tierName;
         this.tierGattung = tierGattung;
         this.futter = futter;
         this.futterBedarf = futterBedarf;
+    }
+
+    public String toString() {
+        return this.tierName + ", " + this.tierGattung + ", " + this.futter + ", " + this.futterBedarf;
     }
 
     public void setFutterBedarf(int futterBedarf) {
@@ -32,6 +32,6 @@ public class Tiere {
     }
 
     public int getFutterBedarf() {
-        return futterBedarf;
+        return this.futterBedarf;
     }
 }
