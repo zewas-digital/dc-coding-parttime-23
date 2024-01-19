@@ -1,4 +1,6 @@
 package claudia.week18_Zoo;
+import claudia.week17_Zoo.*;
+import claudia.week17_Zoo.Tiere.*;
 
 /*
 Bonusaufgabe: Tierfutter
@@ -24,17 +26,31 @@ import java.util.HashMap;
 public class Objekt_8_FutterBonus {
     public static void main(String[] args) {
 
-        // Eine HashMap speichert Schlüssel-Wert-Paare,
-        // dessen Datentypen wir definieren können
-        HashMap<String, Integer> hashMap = new HashMap<>();
 
-        // Wert hinzufügen
-        hashMap.put("erster Schlüssel", 120);
-        hashMap.put("zweiter Schlüssel", 300);
+        Zoo meinNeuerZoo = new Zoo("Neuer Zoo", 2023);
+        Zoo.erstelleStandardZoo(meinNeuerZoo);
+        HashMap<Futter, Double> futterTabelle = meinNeuerZoo.erstelleFutterTabelle();
+/*
+        for (Gehege g : meinNeuerZoo.getListeDerGehege()) {
+            for (Tiere t : g.getListeDerTiere()) {
+                //Falls aktuelles Futter noch nicht im Hashmap, hinzufügen mit Futtermenge des aktuellen Tiers t
+                if (!futterStatistik.containsKey(t.getFutter()))
+                    futterStatistik.put(t.getFutter(), t.getMengeInEinheit());
+                    //Falls bereits enthalten, addiere Futtermenge des aktuellen Tiers dazu
+                else futterStatistik.put(t.getFutter(), futterStatistik.get(t.getFutter()) + t.getMengeInEinheit());
+            }
+        }*/
 
-        // Wert lesen
-        System.out.println(
-                hashMap.get("erster Schlüssel")
-        );
+        meinNeuerZoo.erstelleFutterstatistik(futterTabelle);
+
+        double[] liste = {1.2, 3.0, 23.78, 7.2};
+        Zoo nocheinZoo = new Zoo("noch ein Zoo", 1978, liste);
+        futterTabelle = nocheinZoo.erstelleFutterTabelle();
+        nocheinZoo.erstelleFutterstatistik(futterTabelle);
+
+
     }
 }
+
+
+
