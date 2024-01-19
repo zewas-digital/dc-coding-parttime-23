@@ -21,31 +21,29 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
+
+
 public class Objekt_6_Zoo {
     public static void main(String[] args) {
 
-        Tiere tiere = new Tiere("","");
+        String haken = "├──";
+        String haken2 = "│   ├──";
+        Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
 
-        Gehege gehege = new Gehege("",tiere);
+        // Gehege erstellen
 
-        Zoo schoenbrunn = new Zoo("Schönbrunn",1752,gehege,tiere);
-
-        schoenbrunn.gehegeArrayList.add("Säugetiere");
-        schoenbrunn.gehegeArrayList.add("Reptilien");
-        schoenbrunn.gehegeArrayList.add("Alpenwiese");
-        schoenbrunn.gehegeArrayList.remove("Alpenwiese");
-        schoenbrunn.gehegeArrayList.add("Aquarium");
-
-        System.out.println(schoenbrunn);
-        schoenbrunn.formatGehege();
+        // Gehege alpen = new Gehege("Alpen");
+        // tierpark.gehegeArrayList.add(alpen);
+        tierpark.gehegeArrayList.add(new Gehege("Alpen"));
+        tierpark.gehegeArrayList.add(new Gehege("Savanne"));
+        tierpark.gehegeArrayList.add(new Gehege("Tropen"));
 
 
+        System.out.println(haken + " Zoo: " + tierpark.name + ", gegründet " + tierpark.gruendungsjahr);
+        for (Gehege s : tierpark.gehegeArrayList) {
+            System.out.println(haken2 + " Gehege: " + s.bezeichnung);
 
-
-
-
-
-
+        }
     }
 
 }
