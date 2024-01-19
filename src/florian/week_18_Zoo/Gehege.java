@@ -1,8 +1,6 @@
-package florian.week_17_Zoo;
+package florian.week_18_Zoo;
 
 
-
-import florian.week_18_Zoo.Tiere;
 
 import java.util.ArrayList;
 
@@ -17,6 +15,9 @@ public class Gehege {
 
         this.bezeichnung = bezeichung;
         this.tiereImGehege  = new ArrayList<>();
+
+       // System.out.println("Gehege: " + this.bezeichnung);
+
 
     }
     public void addTiere (Tiere tier ){

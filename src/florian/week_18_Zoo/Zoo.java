@@ -1,4 +1,4 @@
-package florian.week_17_Zoo;
+package florian.week_18_Zoo;
 
 /*
 Aufgabe: Zoo
@@ -23,8 +23,6 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
 
 
-
-
 import java.util.ArrayList;
 
 public class Zoo {
@@ -42,6 +40,7 @@ public class Zoo {
         this.gruendungsjahr = gruendungsjahr;
         this.gehegeArrayList  = new ArrayList<>();
 
+        System.out.println("Zoo: " + this.name + "Gegründet: " + this.gruendungsjahr);
     }
 
 
