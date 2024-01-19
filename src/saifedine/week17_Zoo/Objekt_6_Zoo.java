@@ -43,7 +43,7 @@ public class Objekt_6_Zoo {
         tiergartenDornbirn.addGehege(terrarium);
         tiergartenDornbirn.addGehege(hugo);
 
-        //System.out.println(tiergartenDornbirn.getgehegeArrayList());
+        System.out.println("getgehegeArrayList(): " + tiergartenDornbirn.getgehegeArrayList() + "\n");
 
         tiergartenDornbirn.zooStruktur();
 
