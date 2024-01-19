@@ -21,35 +21,80 @@ Erweitere dein Zooprogramm mit Tiere.
 │       ├── (leer)
  */
 
-import florian.week_17_Zoo.Gehege;
-import florian.week_17_Zoo.Tiere;
-import florian.week_17_Zoo.Zoo;
-
 public class Objekt_7_Tiere {
+
     public static void main(String[] args) {
-        Tiere tiere = new Tiere("", "");
 
-        Gehege gehege = new Gehege("", tiere);
+        String haken = "├──";
+        String haken2 = "│   ├──";
+        String haken3 = "│       ├──";
+        // Zoo erstellen
+        Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
 
-        Zoo schoenbrunn = new Zoo("Schönbrunn", 1752, gehege, tiere);
+        // Gehege erstellen
 
-        System.out.println(schoenbrunn);
+        // Gehege alpen = new Gehege("Alpen");
+        // tierpark.gehegeArrayList.add(alpen);
+        tierpark.gehegeArrayList.add(new Gehege("Alpen"));
+        tierpark.gehegeArrayList.add(new Gehege("Savanne"));
+        tierpark.gehegeArrayList.add(new Gehege("Tropen"));
 
-        schoenbrunn.gehegeArrayList.add("Säugetiere");
-        schoenbrunn.gehegeArrayList.add("Reptilien");
-        schoenbrunn.gehegeArrayList.add("Alpenwiese");
-        schoenbrunn.gehegeArrayList.remove("Alpenwiese");
-        schoenbrunn.gehegeArrayList.add("Aquarium");
+        // Tiere erstellen
+        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Wildschwein", new Futter("Heu", 5)));
+        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Hugo", "Bär", new Futter("Fisch", 15)));
 
-        schoenbrunn.gehege.addTiere(new Tiere("Löwe, ","Paul"));
+        tierpark.gehegeArrayList.get(1).tiereImGehege.add(new Tiere("Maxiking", "Löwe", new Futter("Fisch", 10)));
 
-        schoenbrunn.formatGehege();
+        //Gehege löschen
+        tierpark.gehegeArrayList.get(0).tiereImGehege.remove(1);
+
+        // Ausgabe des Zoos
+        System.out.println("Start der Ausgabe");
+        System.out.println(haken + " Zoo: " + tierpark.name + ", gegründet " + tierpark.gruendungsjahr);
+        for (Gehege s : tierpark.gehegeArrayList){
+            System.out.println(haken2 + " Gehege: " + s.bezeichnung );
+            for (Tiere t : s.tiereImGehege){
+                System.out.println(haken3 + "Name: " + t.Name + ", Gattung: "+ t.Gattung + "; Futter: " + t.futter.name);
+            }
+        }
 
 
 
 
+        /*
 
 
+
+        // Zoo erstellen
+        Zoo TiergartenFeldkirch = new Zoo("├──  Tiergarten Feldkirch " + ", " ,1985);
+        Gehege montes = new Gehege("│   ├── Montes");
+
+
+        Zoo TiergartenHohenems = new Zoo("Tiergarten Hohenems ", 2022);
+
+        // Gehege erstellen
+
+        Gehege Affen = new Gehege("Affen");
+        Gehege Katzen = new Gehege("Katzen");
+
+        // Tiere erstellen
+        Tiere Affe = new Tiere("Affe ", "Orangutan" );
+        Tiere Tiger = new Tiere ("Tiger ", "Katze");
+
+        // Tiere in Gehegen hinzufügen
+        montes.addTiere(Tiger);
+        Affen.addTiere(Affe);
+
+        montes.removeTiere(Tiger);
+        Affen.removeTiere(Affe);
+
+        //
+
+        Futter heu = new Futter("heu", "kg", 2);
+
+        /*
+        System.out.println(Tiger.addFutter().toString());
+         */
 
 
     }

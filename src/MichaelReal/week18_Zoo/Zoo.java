@@ -33,10 +33,10 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-    public final void assignTierToGehege(String gehegeName, Tier tier) {
+    public final void assignTierToGehege(String gehegeName, Tier tier, int anzahl) {
         for (Gehege gehege : gehegeList) {
             if (gehege.getName().equals(gehegeName)) {
-                gehege.addTier(tier, 1);
+                gehege.addTier(tier, anzahl);
                 System.out.println("\n🌿Tier🌿 " + tier.getName() + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
                 return;
             }
@@ -44,16 +44,32 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-    public void removeTierFromGehege(String gehegeName, Tier tier) {
+    public void removeTierFromGehege(String gehegeName, Tier tier, int anzahl) {
         for (Gehege gehege : gehegeList) {
             if (gehege.getName().equals(gehegeName)) {
-                gehege.removeTier(tier);
-                System.out.println("\n🌿Tier🌿 " + tier.getName() + " wurde aus dem Gehege " + gehegeName + " entfernt.");
-                return;
+                HashMap<Tier, Integer> tierList = gehege.getTierList();
+                if (tierList.containsKey(tier)) {
+                    int aktuelleAnzahl = tierList.get(tier);
+                    if (anzahl <= aktuelleAnzahl) {
+                        if (aktuelleAnzahl - anzahl == 0) {
+                            tierList.remove(tier); // Das Tier vollständig entfernen, wenn die Anzahl 0 ist
+                        } else {
+                            tierList.put(tier, aktuelleAnzahl - anzahl); // Anzahl aktualisieren
+                        }
+                        System.out.println("\n🌿Tier🌿 " + tier.getName() + " wurde aus dem Gehege " + gehegeName + " entfernt (Anzahl: " + anzahl + ").");
+                        return;
+                    } else {
+                        System.out.println("Nicht genügend " + tier.getName() + " im Gehege " + gehegeName + ".");
+                    }
+                } else {
+                    System.out.println("Tier " + tier.getName() + " wurde nicht im Gehege " + gehegeName + " gefunden.");
+                }
             }
         }
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
+
+
 
     public void changeTierFutter(String gehegeName, String tierName, Futter Futter, int neueMenge) {
         for (Gehege gehege : gehegeList) {
@@ -80,7 +96,7 @@ public abstract class Zoo {
                 HashMap<Futter, Integer> futterBedarf = tier.getFutterBedarf();
                 for (Futter futter : futterBedarf.keySet()) {
                     int menge = futterBedarf.get(futter);
-                    System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge + " " + futter.getEinheit());
+                    System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * tierList.get(tier) + " " + futter.getEinheit());
                 }
             }
         }

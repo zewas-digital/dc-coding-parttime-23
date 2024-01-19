@@ -1,51 +1,53 @@
 package florian.week_17_Zoo;
 
+/*
+Aufgabe: Zoo
+1/ Erstelle eine Main Klasse, die zuständig ist für
++ die Initialisierung des Zoos und aller seiner Bestandteile
+
+2/ Erstelle eine Zoo Klasse mit Name und Gründungsjahr
+
+3/ Erstelle eine Gehege Klasse mit Name der als Beschreibung des Geheges dient.
+
+4/ Erweitere deinen Zoo, sodass Gehege dynamisch hinzugefügt und entfernt werden können.
+
+5/ Erweitere dein Programm um eine Funktion, die die Struktur des Zoos ausgibt.
+Der erwartete Ausdruck sieht folgendermaßen aus:
+
+├── Zoo: Tiergarten Dornbirn, gegründet 2022
+│   ├── Gehege: Alpenwiese
+│   ├── Gehege: Ried
+│   ├── Gehege: Terrarium (warm)
+
+ */
+
+
+
 
 
 import java.util.ArrayList;
 
 public class Zoo {
 
+
     public String name;
 
-    private final int gruendungsJahr;
+    public int gruendungsjahr;
 
-    public Gehege gehege;
+    public ArrayList <Gehege> gehegeArrayList;
 
-    public Tiere tiere;
+    public Zoo(String name, int gruendungsjahr) {
 
-    public Zoo(String name, int gruendungsJahr, Gehege gehege, Tiere tiere) {
         this.name = name;
-        this.gruendungsJahr = gruendungsJahr;
-        this.gehege = gehege;
-        this.tiere = tiere;
-    }
-
-    public ArrayList<String> gehegeArrayList = new ArrayList<>();
-
-    public void formatGehege() {
-
-
-        for ( String s : gehegeArrayList) {
-            System.out.println("│\t├── " + "Gehegename: " + s );
-            for (Tiere t : gehege.getListeDerTiere()){
-                System.out.println("│       ├── " + t);
-            }
-
-        }
-
+        this.gruendungsjahr = gruendungsjahr;
+        this.gehegeArrayList  = new ArrayList<>();
 
     }
 
-
-    public String toString() {
-
-
-        return "├── Zoo: " + name +
-                ", Gründungsjahr: " + gruendungsJahr +
-                gehege +
-                tiere;
-
-    }
 
 }
+
+
+
+
+

@@ -1,33 +1,32 @@
 package florian.week_17_Zoo;
 
+
+
+import florian.week_18_Zoo.Tiere;
+
 import java.util.ArrayList;
 
 public class Gehege {
 
-    String gehegeName;
+    public String bezeichnung;
 
-    Tiere tiere;
+    public ArrayList<Tiere> tiereImGehege;
 
 
-    public Gehege(String gehegeName, Tiere tiere) {
-        this.gehegeName = gehegeName;
-        this.tiere = tiere;
+    public Gehege(String bezeichung) {
+
+        this.bezeichnung = bezeichung;
+        this.tiereImGehege  = new ArrayList<>();
+
+    }
+    public void addTiere (Tiere tier ){
+        this.tiereImGehege.add(tier);
     }
 
-    public ArrayList<Tiere> tiereArrayList = new ArrayList<>();
-
-    public void addTiere(Tiere tiere) {
-        this.tiereArrayList.add(tiere);
+    public void removeTiere (Tiere tier){
+        this.tiereImGehege.remove(tier);
     }
 
-    public void removeTiere(Tiere tiere) {
-        this.tiereArrayList.remove(tiere);
-    }
-
-    public ArrayList <Tiere> getListeDerTiere (){ return this.tiereArrayList;}
-
-    @Override
-    public String toString() {
-        return "" + gehegeName;
-    }
 }
+
+

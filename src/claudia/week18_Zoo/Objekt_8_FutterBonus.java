@@ -26,27 +26,22 @@ import java.util.HashMap;
 public class Objekt_8_FutterBonus {
     public static void main(String[] args) {
 
+        Zoo meinNeuerZoo = Zoo.erstelleStandardZoo("Neuer Zoo", 2023);
 
-        Zoo meinNeuerZoo = new Zoo("Neuer Zoo", 2023);
-        Zoo.erstelleStandardZoo(meinNeuerZoo);
-        HashMap<Futter, Double> futterTabelle = meinNeuerZoo.erstelleFutterTabelle();
-/*
-        for (Gehege g : meinNeuerZoo.getListeDerGehege()) {
-            for (Tiere t : g.getListeDerTiere()) {
-                //Falls aktuelles Futter noch nicht im Hashmap, hinzufügen mit Futtermenge des aktuellen Tiers t
-                if (!futterStatistik.containsKey(t.getFutter()))
-                    futterStatistik.put(t.getFutter(), t.getMengeInEinheit());
-                    //Falls bereits enthalten, addiere Futtermenge des aktuellen Tiers dazu
-                else futterStatistik.put(t.getFutter(), futterStatistik.get(t.getFutter()) + t.getMengeInEinheit());
-            }
-        }*/
+        meinNeuerZoo.erstelleFutterstatistik();
 
-        meinNeuerZoo.erstelleFutterstatistik(futterTabelle);
+        double[] preisliste = {1.2, 3.0, 23.78, 7.2};
+        Zoo nochEinZoo = Zoo.erstelleZooMitPreisliste("Zoo Excelsior", 1974, preisliste);
+        nochEinZoo.erstelleFutterstatistik();
 
-        double[] liste = {1.2, 3.0, 23.78, 7.2};
-        Zoo nocheinZoo = new Zoo("noch ein Zoo", 1978, liste);
-        futterTabelle = nocheinZoo.erstelleFutterTabelle();
-        nocheinZoo.erstelleFutterstatistik(futterTabelle);
+
+
+
+        nochEinZoo.printStructure(nochEinZoo.getListeDerGehege());
+
+        nochEinZoo.erstelleFutterstatistik();
+
+        nochEinZoo.alleFuettern();
 
 
     }
