@@ -1,4 +1,4 @@
-package Alpi.week18_Zoo;
+package Alpi.week18_Zoofutter;
 
 /*
 Aufgabe: Tiere
@@ -21,9 +21,6 @@ Erweitere dein Zooprogramm mit Tiere.
 │       ├── (leer)
  */
 
-import Alpi.week18_Zoo.Gehege;
-import Alpi.week18_Zoo.Zoo;
-
 public class Objekt_7_Tiere {
 
     public static void main(String[] args) {
@@ -35,6 +32,8 @@ public class Objekt_7_Tiere {
         // Zoo erstellen
         Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
 
+        Futterlager futterlager = new Futterlager();
+
         // Gehege erstellen
         // Gehege alpen = new Gehege("Alpen");---------------------------
         // tierpark.gehegeArrayList.add(alpen);
@@ -45,9 +44,9 @@ public class Objekt_7_Tiere {
 
 
         // Tiere erstellen---------------------------------------------------------------------------------------------------------------------
-        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Wildschwein", new Futter("Heu", 5)));
-        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Hugo", "Bär", new Futter("Fisch", 15)));
-        tierpark.gehegeArrayList.get(1).tiereImGehege.add(new Tiere("Maxiking", "Löwe", new Futter("Fisch", 10)));
+        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Wildschwein", Futterlager.futterarten.HEU, 5));
+        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Hugo", "Bär", Futterlager.futterarten.FISCH, 15));
+        tierpark.gehegeArrayList.get(1).tiereImGehege.add(new Tiere("Maxiking", "Löwe", Futterlager.futterarten.FISCH, 10));
         //--------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -62,7 +61,7 @@ public class Objekt_7_Tiere {
         for (Gehege s : tierpark.gehegeArrayList){
             System.out.println(haken2 + " Gehege: " + s.bezeichnung );
             for (Tiere t : s.tiereImGehege){
-                System.out.println(haken3 + "Name: " + t.Name + ", Gattung: "+ t.Gattung + "; Futter: " + t.futter.name);
+                System.out.println(haken3 + "Name: " + t.Name + ", Gattung: "+ t.Gattung + "; Futter: " + futterlager.lagerliste.get(t.futter).bezeichnung);
             }
         }
         //-------------------------------------------------------------------------------------------------------------------------
