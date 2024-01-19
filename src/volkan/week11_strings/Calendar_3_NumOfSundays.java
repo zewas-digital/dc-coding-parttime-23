@@ -7,5 +7,4 @@ Erstelle eine Methode welche als Parameter das Jahr und den Monat nimmt und die 
  */
 
 public class Calendar_3_NumOfSundays {
-
 }
