@@ -6,12 +6,10 @@ import java.util.HashMap;
 public class Gehege {
     private String name;
     private HashMap<Tier, Integer> tierList;
-    private HashMap<Futter, Integer> futterBedarf;
 
     public Gehege(String name) {
         this.name = name;
         this.tierList = new HashMap<>();
-        this.futterBedarf = new HashMap<>();
     }
 
     public String getName() {
