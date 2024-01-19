@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V02_mit_Bonus;
 
 /*
 Aufgabe: Tiere

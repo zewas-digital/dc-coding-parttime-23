@@ -35,10 +35,11 @@ public class Calendar_1_MyBirthday {
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 
         // Wochentag ausgeben
-        System.out.println("Dein Geburtstag war ein " + getDayOfWeek(dayOfWeek));
+        Calendar thaiCalendar = null;
+        System.out.println("Dein Geburtstag war ein " + getDayOfWeek(thaiCalendar, dayOfWeek));
     }
 
-    public static String getDayOfWeek(int dayOfWeek) {
+    public static String getDayOfWeek(Calendar thaiCalendar, int dayOfWeek) {
         switch (dayOfWeek) {
             case 1:
                 return "Montag";

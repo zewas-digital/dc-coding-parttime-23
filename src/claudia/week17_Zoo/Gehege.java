@@ -18,6 +18,7 @@ public class Gehege {
     public int anzahlDerTiere(){
         return this.ListeDerTiere.size();
     }
+
     public void tierHinzufuegen(Tiere tier) {
         this.ListeDerTiere.add(tier);
     }
@@ -25,6 +26,8 @@ public class Gehege {
     public void tierLoeschen(Tiere tier) {
         this.ListeDerTiere.remove(tier);
     }
+
+
     public String getName(){
         return this.name;
     }
