@@ -141,5 +141,31 @@ public class Zoo {
         Wassertiere wal1 = new Wal("Wal1", krill, 23.5465, aquarium.getListeDerTiere());
 
     }
+
+    public static void erstelleStandardZooMitPreisliste(Zoo meinZoo, double[] futterpreisliste) {
+
+        Gehege alpenwiese = new Gehege(10234, "Alpenwiese", meinZoo.getListeDerGehege());
+        Gehege ried = new Gehege(373, "Ried", meinZoo.getListeDerGehege());
+        Gehege terrariumWarm = new Gehege(80, "Terrarium (warm)", meinZoo.getListeDerGehege());
+
+        Futter gras = new Futter("Gras und Kräuter", "kg", futterpreisliste[0]);
+        Futter frosch = new Futter("Frösche", "kg", futterpreisliste[1]);
+        Futter maus = new Futter("Mäuse", "kg", futterpreisliste[2]);
+        Futter krill = new Futter("Krill", "t", futterpreisliste[3]);
+
+        Landtiere storch1 = new Storch("Adebar1", frosch, 1, ried.getListeDerTiere());
+        Landtiere storch2 = new Storch("Adebar2", frosch, 0.5, ried.getListeDerTiere());
+
+        Landtiere murmel1 = new Murmeltier("Murmel1", gras, 0.78, alpenwiese.getListeDerTiere());
+
+        Landtiere boa1 = new Schlange("Boa1", maus, 2.2, terrariumWarm.getListeDerTiere());
+        Landtiere boa2 = new Schlange("Boa2", maus, 5.1, terrariumWarm.getListeDerTiere());
+        Landtiere boa3 = new Schlange("Boa3", maus, 0.1, terrariumWarm.getListeDerTiere());
+
+        Gehege aquarium = new Gehege(2000000, "Aquarium", meinZoo.getListeDerGehege());
+        Wassertiere wal1 = new Wal("Wal1", krill, 23.5465, aquarium.getListeDerTiere());
+
+    }
+
 }
 
