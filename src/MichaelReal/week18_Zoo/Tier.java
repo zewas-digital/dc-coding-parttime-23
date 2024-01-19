@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Tier {
     private String name;
-    private String gattung; // Hinzugefügt: Die Gattung des Tiers
-    private HashMap<Futter, Integer> futterBedarf; // Hinzugefügt: Die Liste der benötigten Futtermittel und Mengen
+    private String gattung;
+    private HashMap<Futter, Integer> futterBedarf;
 
     public Tier(String name, String gattung) {
         this.name = name;

@@ -4,10 +4,10 @@ import claudia.week17_Zoo.Futter;
 
 import java.util.ArrayList;
 
-public class Wal extends Wassertiere {
+public class Goldfisch extends Wassertiere {
 
-    public Wal(String name, Futter futter, double mengeInTonnen, ArrayList<Tiere> liste){
-        super("Wal", name, 20000, futter, mengeInTonnen, liste);
+    public Goldfisch(String name, Futter futter, double mengeInTonnen, ArrayList<Tiere> liste){
+        super("Goldfisch", name, 20, futter, mengeInTonnen, liste);
     }
     public double preisinEinheit = this.getFutter().getPreisProEinheit();
     @Override
