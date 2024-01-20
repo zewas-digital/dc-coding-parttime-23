@@ -19,28 +19,28 @@ public class Objekt_5_FotoapparatBonus {
         Objektiv_5 schmallwinkel=new Objektiv_5( 50 );
         Objektiv_5 breitwinkel=new Objektiv_5( 120 );
 
-        Speicherkarte_5 Speicherkarte = new Speicherkarte_5( 25 );
-        Speicherkarte_5 Speicherkarte2 = new Speicherkarte_5( 23);
+        Speicherkarte_5 speicherkarte1 = new Speicherkarte_5( 25 );
+        Speicherkarte_5 speicherkarte2 = new Speicherkarte_5( 23);
 
         Fotokamara1.setObjektiv(  schmallwinkel);
-        Fotokamara1.setSpeicherkarte( Speicherkarte );
+        Fotokamara1.setSpeicherkarte( speicherkarte1 );
 
         Fotokamara2.setObjektiv(  breitwinkel);
-        Fotokamara2.setSpeicherkarte( Speicherkarte2 );
+        Fotokamara2.setSpeicherkarte( speicherkarte2 );
 
         System.out.println( Fotokamara1 );
         System.out.println( Fotokamara2 );
 
-        Objektiv_5 Objetivbox=Fotokamara1.getObjektiv();
+        Objektiv_5 objektivBox=Fotokamara1.getObjektiv();
 
-        Speicherkarte_5 Speicherbox=Fotokamara1.getSpeicherkarte();
+        Speicherkarte_5 speicherBox=Fotokamara1.getSpeicherkarte();
 
         Fotokamara1.setObjektiv(Fotokamara2.getObjektiv());
 
         Fotokamara1.setSpeicherkarte(Fotokamara2.getSpeicherkarte());
 
-        Fotokamara2.setObjektiv( Objetivbox);
-        Fotokamara2.setSpeicherkarte( Speicherbox);
+        Fotokamara2.setObjektiv( objektivBox);
+        Fotokamara2.setSpeicherkarte( speicherBox);
 
         Fotokamara1.takePhoto( true );
         Fotokamara2.takePhoto( true );
