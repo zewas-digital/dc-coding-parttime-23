@@ -5,26 +5,23 @@ import java.util.HashMap;
 
 public class Zoo {
 
+    // Attribute
     private String zooName;
     private int gruendungsjahr;
     private ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
-
-    private float futterPreisProEinheit = 2;
-
     private float tagesbedarf;
 
-    Tiere tiere;
-    Futter futter;
+    HashMap<Futter.FutterArt, Integer> futterMengenBedarfListe = new HashMap<>();
 
 
-
-    //
+    // Konstruktor
     public Zoo(String zooName, int gruendungsjahr) {
         this.zooName = zooName;
         this.gruendungsjahr = gruendungsjahr;
     }
 
 
+    // alle Methoden, wobei toString immer der erste sein soll
     public String toString() {
         return "Zoo: " + this.zooName + ", gegründet " + this.gruendungsjahr;
     }
@@ -68,28 +65,6 @@ public class Zoo {
         }
     }
 
-    public void zooStrukturGehegeTiereFutter() {
-
-        String zooDaten = toString();
-
-        System.out.println("\n├── " + zooDaten);
-
-        for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
-            System.out.println("│   ├── " + this.gehegeArrayList.get(i));
-
-            for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().toArray().length; j++) {
-                System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
-
-            }
-        }
-    }
-
-    HashMap<String, Integer> futterMengenBedarfListe = new HashMap<>();
-
-    public void addfutterMengenBedarf(String futterName, int futterBedarf) {
-        this.futterMengenBedarfListe.put(futterName, futterBedarf);
-    }
-
     public float kalkulationBedarf() {
 
         for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
@@ -100,7 +75,7 @@ public class Zoo {
                 System.out.println(this.tagesbedarf);
             }
         }
-        System.out.println("Der Tagesbedarf an allen Futtersorten ist: " + this.tagesbedarf);
+        System.out.println("\nDer Tagesbedarf an allen Futtersorten ist: " + this.tagesbedarf + "\n");
         return this.tagesbedarf;
     }
 
@@ -111,41 +86,27 @@ public class Zoo {
 
             for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().size(); j++) {
 
-                String futterName =  this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterArt().toString();
+                Futter.FutterArt futterArt =  this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterArt();
                 int futterBedarf =   this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterBedarf();
 
-                //System.out.println("----->" + futterName);
+                //System.out.println("----->" + futterArt);
 
-                if (this.futterMengenBedarfListe.get(futterName) != null){
-                    this.futterMengenBedarfListe.replace(futterName,futterBedarf + this.futterMengenBedarfListe.get(futterName));
+                if (this.futterMengenBedarfListe.get(futterArt) != null){
+                    this.futterMengenBedarfListe.replace(futterArt,futterBedarf + this.futterMengenBedarfListe.get(futterArt));
                 }
                 else {
-                    this.futterMengenBedarfListe.put(futterName,futterBedarf);
+                    this.futterMengenBedarfListe.put(futterArt,futterBedarf);
                 }
             }
         }
+        System.out.println("Der Tagesbedarf an Futter pro Sorte ist: " + this.futterMengenBedarfListe + "\n");
 
-        System.out.println("Der Tagesbedarf an allen Futtersorten ist: " + this.futterMengenBedarfListe);
+        // https://www.w3schools.com/java/java_hashmap.asp
 
-    }
-
-
-
-
-    //this.tagesbedarf = this.futterPreisProEinheit * this.tiere.getFutterBedarf();
-
-    // version von simon:
-
-    /*
-    public float gesamtBedarfKalkulation(){
-    float gesamtBedarf = 0;
-    for (int i = 0; i < this.gehegeArrayList.size(); i++) {
-        for (int j = 0; j < this.gehegeArrayList.get(i).getTiereArrayList().size(); j++) {
-            gesamtBedarf += this.gehegeArrayList.get(i).getTiereArrayList().get(j).getBedarf();
+        System.out.println("Kalkulation Tagesbedarf: ");
+        for (Futter.FutterArt futterArt: futterMengenBedarfListe.keySet()){
+            System.out.println(futterArt + " : " + (Futter.FutterLagerListe.get(futterArt).getFutterPreis() * this.futterMengenBedarfListe.get(futterArt)) + " € Kosten am Tag");
         }
     }
-    return gesamtBedarf;
-}
-     */
 }
 
