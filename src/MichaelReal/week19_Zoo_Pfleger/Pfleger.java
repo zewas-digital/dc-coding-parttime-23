@@ -12,5 +12,29 @@ public class Pfleger {
         this.zustaendigeGehege = new HashMap<>();
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void zuweisenGehege(String gehegeName) {
+        zustaendigeGehege.put(gehegeName, new ArrayList<>());
+    }
+
+    public void entfernenGehege(String gehegeName) {
+        zustaendigeGehege.remove(gehegeName);
+    }
+
+    public void zuweisenTier(String gehegeName, String tierName) {
+        if (zustaendigeGehege.containsKey(gehegeName)) {
+            ArrayList<String> zugeordneteTiere = zustaendigeGehege.get(gehegeName);
+            zugeordneteTiere.add(tierName);
+        }
+    }
+
+    public void entfernenTier(String tierName) {
+        for (String gehege : zustaendigeGehege.keySet()) {
+            ArrayList<String> zugeordneteTiere = zustaendigeGehege.get(gehege);
+            zugeordneteTiere.remove(tierName);
+        }
+    }
 }
