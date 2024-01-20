@@ -9,7 +9,8 @@ public class Zoo {
 // 2/ Erstelle eine Zoo Klasse mit Name und Gründungsjahr
     private String zooName;
     private int gruendungsJahr;
-    public Gehege gehege;
+    Gehege gehege;
+
 
 
 
@@ -28,19 +29,35 @@ public class Zoo {
 
     public int getGruendungsJahr(){return this.gruendungsJahr;}
 
-    @Override
-    public String toString(){
-        return "Zoo {" + super.toString() +
-                "\n Zooname: " + zooName +
-                "\n Gründungsjahr: " + gruendungsJahr +
-                "\n}";
-        }
 
-    ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
+
+    public ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
 
     public void addGehege(Gehege gehege){
-        gehegeArrayList.add(this.gehege);
+        gehegeArrayList.add(gehege);}
 
+    public void zooStrukturGehege(){
+        System.out.println("\n├── " + "Zoo: "+ getZooName() + ", gegründet " + gruendungsJahr);
+
+        for (int i = 0; i <gehegeArrayList.size() ; i++) {
+            System.out.println("│   ├── " + this.gehegeArrayList.get(i));
+
+        }
+    }
+
+    public void zooStrukturGegeheTiere(){
+        System.out.println("\n├── " + "Zoo: "+ getZooName() + ", gegründet " + gruendungsJahr);
+
+        for (int i = 0; i <gehegeArrayList.size() ; i++) {
+            System.out.println("│   ├── " + this.gehegeArrayList.get(i));
+
+
+            for (int j = 0; j < this.gehegeArrayList.get(i).getTiereArrayList().toArray().length; j++) {
+                System.out.println("│       ├── " + this.gehegeArrayList.get(i).getTiereArrayList().get(j));
+            } {
+
+            }
+        }
     }
 }
 

@@ -21,14 +21,32 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 
  */
 
+
+import java.util.ArrayList;
+
 public class Zoo {
 
 
+    String name;
 
+    int Gründungsjahr;
+
+    public ArrayList <Gehege> gehegeArrayList = new ArrayList<>();
+
+    public Zoo(String name, int Gründungsjahr) {
+
+        this.name = name;
+        this.Gründungsjahr = Gründungsjahr;
+
+        System.out.println("Zoo: " + this.name + "Gegründet: " + this.Gründungsjahr);
+
+
+    }
 
 
 
 }
+
 
 
 

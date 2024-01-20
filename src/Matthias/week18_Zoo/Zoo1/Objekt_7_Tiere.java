@@ -1,4 +1,4 @@
-package Matthias.week18_Zoo;
+package Matthias.week18_Zoo.Zoo1;
 
 /*
 Aufgabe: Tiere
@@ -39,17 +39,14 @@ public class Objekt_7_Tiere {
         zoo1.printFormated();
         zoo1.addGehege( gehege1);
         zoo1.printFormated();
-        Tiere Tier1 =new Tiere( "Rijska", "Kuh" );
-        Tiere Tier2 =new Tiere( "Garmond", "Kuh" );
-        Tiere Tier3 =new Tiere( "Idaxis", "Kuh" );
+        Futterbedarf Menge1=new Futterbedarf( 2 );
+        Futter Futter1 =new Futter( "Fleisch", "kg",0.5 );
+        Futter Futter2 =new Futter( "Fisch", "kg",0.5 );
+        Tiere Tier1 =new Tiere( "Rijska", "Kuh" ,Futter1,Menge1);
+        Tiere Tier2 =new Tiere( "Garmond", "Kuh",Futter2,Menge1 );
         gehege1.addNewAnimal(  Tier1);
         gehege1.addNewAnimal(  Tier2);
-        gehege1.addNewAnimal(  Tier3);
-        gehege2.addNewAnimal( Tier3 );
         zoo1.printFormated();
-        gehege1.removeAnimal(  Tier3);
-        zoo1.printFormated();
-
     }
 
 }

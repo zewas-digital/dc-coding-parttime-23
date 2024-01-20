@@ -6,12 +6,10 @@ import java.util.HashMap;
 public class Gehege {
     private String name;
     private HashMap<Tier, Integer> tierList;
-    private HashMap<Futter, Integer> futterBedarf;
 
     public Gehege(String name) {
         this.name = name;
         this.tierList = new HashMap<>();
-        this.futterBedarf = new HashMap<>();
     }
 
     public String getName() {
@@ -20,14 +18,6 @@ public class Gehege {
 
     public void addTier(Tier tier, int anzahl) {
         tierList.put(tier, anzahl);
-    }
-
-    public void removeTier(Tier tier, int anzahl) {
-        tierList.remove(tier, anzahl);
-    }
-
-    public void addFutterBedarf(Futter futter, int menge) {
-        futterBedarf.put(futter, menge);
     }
 
     // Methode zum Ändern des Futters für ein Tier in diesem Gehege

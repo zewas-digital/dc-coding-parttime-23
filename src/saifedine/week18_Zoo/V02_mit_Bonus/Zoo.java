@@ -9,12 +9,13 @@ public class Zoo {
     private int gruendungsjahr;
     private ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
 
-    private float futterPreisProEinheit;
+    private float futterPreisProEinheit = 2;
 
     private float tagesbedarf;
 
-    Futter futter;
     Tiere tiere;
+    Futter futter;
+
 
 
     //
@@ -40,7 +41,7 @@ public class Zoo {
         return this.gehegeArrayList;
     }
 
-    public void zooStrukturGehege(){
+    public void zooStrukturGehege() {
 
         String zooDaten = toString();
 
@@ -52,7 +53,7 @@ public class Zoo {
         //System.out.println("gehegeArrayList.toArray().length - Länge: " + gehegeArrayList.toArray().length);
     }
 
-    public void zooStrukturGehegeTiere(){
+    public void zooStrukturGehegeTiere() {
 
         String zooDaten = toString();
 
@@ -67,7 +68,7 @@ public class Zoo {
         }
     }
 
-    public void zooStrukturGehegeTiereFutter(){
+    public void zooStrukturGehegeTiereFutter() {
 
         String zooDaten = toString();
 
@@ -83,22 +84,68 @@ public class Zoo {
         }
     }
 
-    HashMap<Futter, Float> futterPreisListe = new HashMap<>();
+    HashMap<String, Integer> futterMengenBedarfListe = new HashMap<>();
 
-    public void addfutterPreis(Futter futter,float futterPreisProEinheit){
-        this.futterPreisListe.put(futter,futterPreisProEinheit);
+    public void addfutterMengenBedarf(String futterName, int futterBedarf) {
+        this.futterMengenBedarfListe.put(futterName, futterBedarf);
     }
 
-    public float kalkulationBedarf(Futter futter, Tiere tiere){
+    public float kalkulationBedarf() {
 
-        // fori
-        // this.gehegeArrayList.get(i).gettierArrayList(). usw.
+        for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
 
-        float tagesbedarf = this.futter.getFutterPreis() * this.tiere.getFutterBedarf();
+            for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().size(); j++) {
 
-        System.out.println("Der Tagesbedarf an " + this.futter.getFutterName() + " ist " + tagesbedarf);
-
-        return tagesbedarf;
+                this.tagesbedarf += ((this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterBedarf()));
+                System.out.println(this.tagesbedarf);
+            }
+        }
+        System.out.println("Der Tagesbedarf an allen Futtersorten ist: " + this.tagesbedarf);
+        return this.tagesbedarf;
     }
+
+
+    public void kalkulationBedarfPreis() {
+
+        for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
+
+            for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().size(); j++) {
+
+                String futterName =  this.gehegeArrayList.get(i).gettierArrayList().get(j).futter.getFutterName();
+                int futterBedarf =   this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterBedarf();
+
+                //System.out.println("----->" + futterName);
+
+                if (this.futterMengenBedarfListe.get(futterName) != null){
+                    this.futterMengenBedarfListe.replace(futterName,futterBedarf + this.futterMengenBedarfListe.get(futterName));
+                }
+                else {
+                    this.futterMengenBedarfListe.put(futterName,futterBedarf);
+                }
+            }
+        }
+
+        System.out.println("Der Tagesbedarf an allen Futtersorten ist: " + this.futterMengenBedarfListe);
+
+    }
+
+
+
+
+    //this.tagesbedarf = this.futterPreisProEinheit * this.tiere.getFutterBedarf();
+
+    // version von simon:
+
+    /*
+    public float gesamtBedarfKalkulation(){
+    float gesamtBedarf = 0;
+    for (int i = 0; i < this.gehegeArrayList.size(); i++) {
+        for (int j = 0; j < this.gehegeArrayList.get(i).getTiereArrayList().size(); j++) {
+            gesamtBedarf += this.gehegeArrayList.get(i).getTiereArrayList().get(j).getBedarf();
+        }
+    }
+    return gesamtBedarf;
+}
+     */
 }
 

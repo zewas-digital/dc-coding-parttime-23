@@ -3,14 +3,21 @@ package volkan.week11_strings;
 /*
 Aufgabe: RegionalCalendar (Bonus)
 
-Die Leute in Thailand sind traurig, weil die Ausgabe deines Kalenderprogramms aus der vorhergehenden Aufgabe nicht korrekt ist, da ihre Woche am Sonntag beginnt. Ändere dein Programm so ab, dass es Kalenderunabhängig den richtigen Wochenstart verwendet. Verwende dafür CultureInnfo.DateTimeFormat.Calendar und CultureInnfo.DateTimeFormat.FirstDayOfWeek. Teste dein Programm mit verschiedenen CultureInfo in der Start() Methode.
+Die Leute in Thailand sind traurig,
+weil die Ausgabe deines Kalenderprogramms aus der vorhergehenden Aufgabe nicht korrekt ist,
+da ihre Woche am Sonntag beginnt. Ändere dein Programm so ab,
+dass es Kalenderunabhängig den richtigen Wochenstart verwendet.
+
+Verwende dafür CultureInnfo.DateTimeFormat.Calendar und CultureInnfo.DateTimeFormat.FirstDayOfWeek.
+Teste dein Programm mit verschiedenen CultureInfo in der Start() Methode.
 
 Aufruf
 
 CultureInfo austrian = new CultureInfo("de-AT");
 DayOfWeek dow = austrian.DateTimeFormat.FirstDayOfWeek;
 
-//Locale wird auf Thailand gesetzt, hier wird der Buddistische Kalender verwendet
+//Locale wird auf Thailand gesetzt,
+hier wird der Buddistische Kalender verwendet
 PrintCalendar("th-TH", 2565, 4);
 
 //Locale wird auf Deutschland gesetzt, hier wird der Gregorianische Kalender verwendet
@@ -37,5 +44,31 @@ Ausgabe
 
  */
 
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Calendar_6_RegionalCalendar {
+    public static void main(String[] args) {
+
+        Calendar today = Calendar.getInstance();
+        System.out.println(Arrays.toString(today.getAvailableLocales()));
+
+        System.out.println(
+                "today...   day: " + today.get(Calendar.DAY_OF_MONTH) +
+                        " month: " + today.get(Calendar.MONTH) +
+                        " year: " + today.get(Calendar.YEAR) +
+                        " dayOfWeek: " + today.get(Calendar.DAY_OF_WEEK) +
+                        " firstDayOfWeek: " + today.getFirstDayOfWeek());
+
+        Calendar todayTH = Calendar.getInstance(new Locale("th_TH_#Thai"));
+        todayTH.set(Calendar.YEAR, 2566);
+
+        System.out.println(
+                "todayTH... day: " + todayTH.get(Calendar.DAY_OF_MONTH) +
+                        " month: " + todayTH.get(Calendar.MONTH) +
+                        " year: " + todayTH.get(Calendar.YEAR) +
+                        " dayOfWeek: " + todayTH.get(Calendar.DAY_OF_WEEK) +
+                        " firstDayOfWeek: " + todayTH.getFirstDayOfWeek());
+    }
 }
