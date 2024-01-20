@@ -94,16 +94,12 @@ public class Objekt_8_FutterBonus {
 
         for (Futterlager.futterarten f : result.keySet()) {
 
+            System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
+                    result.get(f) * futterlager.lagerliste.get(f).preis);
 
-            System.out.println("\n" + "Futter: " + f + ", Menge: " + result.get(f) + futterlager.lagerliste.get(f).einheit);
-            System.out.println("Gesamtpreis: " + result.get(f) * futterlager.lagerliste.get(f).preis + " €");
             sum += result.get(f) * futterlager.lagerliste.get(f).preis;
-
-            System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit+ "         " + f + "             :   "  +
-                    result.get(f) * futterlager.lagerliste.get(f).preis +"\n Total Cost:"+ sum);
-
         }
-
+        System.out.println("\n" + "Total Cost: " + sum);
 
     }
 
