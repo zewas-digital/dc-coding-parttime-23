@@ -1,4 +1,4 @@
-package florian.week_18_Futteraufgabe;
+package florian.week_18_Pflegeraufgabe;
 
 
 import java.util.HashMap;

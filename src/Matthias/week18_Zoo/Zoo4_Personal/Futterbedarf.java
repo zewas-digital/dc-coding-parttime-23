@@ -1,4 +1,4 @@
-package Matthias.week18_Zoo.Zoo2;
+package Matthias.week18_Zoo.Zoo4_Personal;
 
 public class Futterbedarf {
     private int futtermenge;

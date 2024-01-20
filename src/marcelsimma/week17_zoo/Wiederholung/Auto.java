@@ -1,6 +1,4 @@
-package marcelsimma.week16.Wiederholung;
-
-import java.util.HashMap;
+package marcelsimma.week17_zoo.Wiederholung;
 
 public class Auto extends Fahrzeug implements Reifenwechsel {
 
@@ -11,7 +9,6 @@ public class Auto extends Fahrzeug implements Reifenwechsel {
     private String modell;
 
     private Engine engine;
-    public Fahrzeug.fuels fuel;
 
 
     private int kilometerstand;
@@ -26,7 +23,7 @@ public class Auto extends Fahrzeug implements Reifenwechsel {
         this.marke = marke;
         this.modell = modell;
         this.engine = engine;
-        this.fuel = fuels.BENZIN;
+
     }
 
     // getter
@@ -54,7 +51,7 @@ public class Auto extends Fahrzeug implements Reifenwechsel {
     public void change(int anzahlDerRaeder) {
         System.out.println("Ich brauche vier Reifen.");
     }
-void
+
     /*
 
     public String getPickerl() {

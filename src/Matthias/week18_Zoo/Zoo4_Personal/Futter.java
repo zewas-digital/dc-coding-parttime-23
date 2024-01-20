@@ -1,6 +1,11 @@
-package Matthias.week18_Zoo.Zoo2;
+package Matthias.week18_Zoo.Zoo4_Personal;
 
 public class Futter {
+    public enum Futtersorten{
+        Fleisch,
+        Fisch,
+        Heu
+    }
     private  String futterArtikelname;
 
     private String einheit;

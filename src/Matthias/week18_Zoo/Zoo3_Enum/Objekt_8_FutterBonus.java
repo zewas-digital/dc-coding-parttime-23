@@ -1,4 +1,4 @@
-package Matthias.week18_Zoo.Zoo2;
+package Matthias.week18_Zoo.Zoo3_Enum;
 
 /*
 Bonusaufgabe: Tierfutter
@@ -19,8 +19,6 @@ Beispielausgabe der Statistik:
 Total Daily cost: 144,70 €
  */
 
-import java.util.HashMap;
-
 public class Objekt_8_FutterBonus {
     public static void main(String[] args) {
         Zoo zoo1= new Zoo( "Tiergarten Dornbirn", 2022 );
@@ -39,11 +37,9 @@ public class Objekt_8_FutterBonus {
         zoo1.printFormated();
         zoo1.addGehege( gehege1);
         zoo1.printFormated();
-        Futterbedarf Menge1=new Futterbedarf( 2 );
-        Futter Futter1 =new Futter( "Fleisch", "kg",0.5 );
-        Futter Futter2 =new Futter( "Fisch", "kg",0.6);
-        Tiere WILD =new Tiere( "Rijska", "Kuh" ,Futter1,Menge1);
-        Tiere VOGEL =new Tiere( "Garmond", "Kuh",Futter2,Menge1 );
+        Futterbedarf Menge1=new Futterbedarf( 3 );
+        Tiere WILD =new Tiere( "Rijska", "Kuh" , Futter.Futtersorten.Fisch,Menge1);
+        Tiere VOGEL =new Tiere( "Garmond", "Kuh", Futter.Futtersorten.Heu,Menge1 );
         gehege1.addNewAnimal(  WILD);
         gehege1.addNewAnimal(  VOGEL);
         zoo1.printFormated();

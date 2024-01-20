@@ -1,4 +1,4 @@
-package oliver.week18_Zoo;
+package saifedine.week18_Zoo.V03_mit_Bonus;
 
 /*
 Aufgabe: Pfleger
@@ -11,7 +11,4 @@ Erweitere den Struktur-Ausdruck um die neu eingeführten Pfleger.
  */
 
 public class Objekt_9_Pfleger {
-
-
-
 }
