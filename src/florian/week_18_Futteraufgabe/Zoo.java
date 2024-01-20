@@ -1,4 +1,4 @@
-package florian.week_18_Zoo;
+package florian.week_18_Futteraufgabe;
 
 /*
 Aufgabe: Zoo
@@ -33,6 +33,8 @@ public class Zoo {
     public int gruendungsjahr;
 
     public ArrayList <Gehege> gehegeArrayList;
+
+
 
     public Zoo(String name, int gruendungsjahr) {
 
