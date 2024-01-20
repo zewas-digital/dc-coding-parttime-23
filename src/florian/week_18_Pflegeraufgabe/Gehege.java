@@ -16,7 +16,7 @@ public class Gehege {
         this.bezeichnung = bezeichung;
         this.tiereImGehege  = new ArrayList<>();
 
-       // System.out.println("Gehege: " + this.bezeichnung);
+
 
 
     }

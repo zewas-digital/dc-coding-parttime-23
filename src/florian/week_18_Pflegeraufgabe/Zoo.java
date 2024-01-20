@@ -34,8 +34,6 @@ public class Zoo {
 
     public ArrayList <Gehege> gehegeArrayList;
 
-
-
     public Zoo(String name, int gruendungsjahr) {
 
         this.name = name;
