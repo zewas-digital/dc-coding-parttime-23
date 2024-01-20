@@ -42,7 +42,6 @@ public class Zoo {
         this.gruendungsjahr = gruendungsjahr;
         this.gehegeArrayList  = new ArrayList<>();
 
-        System.out.println("Zoo: " + this.name + "Gegründet: " + this.gruendungsjahr);
     }
 
 
