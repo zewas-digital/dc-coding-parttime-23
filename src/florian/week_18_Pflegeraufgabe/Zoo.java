@@ -1,4 +1,4 @@
-package florian.week_18_Zootiere;
+package florian.week_18_Pflegeraufgabe;
 
 /*
 Aufgabe: Zoo
@@ -40,7 +40,6 @@ public class Zoo {
         this.gruendungsjahr = gruendungsjahr;
         this.gehegeArrayList  = new ArrayList<>();
 
-        System.out.println("Zoo: " + this.name + "Gegründet: " + this.gruendungsjahr);
     }
 
 

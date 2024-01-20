@@ -41,7 +41,7 @@ public class Objekt_8_FutterBonus {
         String haken = "├──";
         String haken2 = "│   ├──";
         String haken3 = "│       ├──";
-        float totalDailyfloat= 0;
+        float totalDailycost= 0;
 
         HashMap<Futterlager.futterarten, Float> result = new HashMap<>();
 
@@ -94,13 +94,13 @@ public class Objekt_8_FutterBonus {
 
         for (Futterlager.futterarten f : result.keySet()) {
 
-            System.out.println(+result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
+            System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
                     result.get(f) * futterlager.lagerliste.get(f).preis + " €");
 
-            totalDailyfloat += result.get(f) * futterlager.lagerliste.get(f).preis;
+            totalDailycost += result.get(f) * futterlager.lagerliste.get(f).preis;
         }
 
-        System.out.println("=======================" +"\n" + "Total Cost: " + totalDailyfloat);
+        System.out.println("=======================" +"\n" + "Total Cost: " + totalDailycost);
 
     }
 
