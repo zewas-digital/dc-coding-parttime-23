@@ -1,10 +1,11 @@
-package saifedine.week18_Zoo.V02_mit_Bonus;
+package saifedine.week18_Zoo.V03_mit_Bonus;
 
 // Erstelle eine Tier-Klasse mit einem Namen und einer Gattung
 public class Tiere {
 
     private String tierName;
     private String tierGattung;
+    private Futter.FutterArt FutterArt;
 
     private int futterBedarf;
 
@@ -16,15 +17,15 @@ public class Tiere {
         this.tierGattung = tierGattung;
     }
 
-    public Tiere(String tierName, String tierGattung, Futter futter, int futterBedarf) {
+    public Tiere(String tierName, String tierGattung, Futter.FutterArt FutterArt, int futterBedarf) {
         this.tierName = tierName;
         this.tierGattung = tierGattung;
-        this.futter = futter;
+        this.FutterArt = FutterArt;
         this.futterBedarf = futterBedarf;
     }
 
     public String toString() {
-        return this.tierName + ", " + this.tierGattung + ", " + this.futter + ", " + this.futterBedarf;
+        return this.tierName + ", " + this.tierGattung + ", " + this.FutterArt + ", " + this.futterBedarf;
     }
 
     public void setFutterBedarf(int futterBedarf) {
@@ -33,5 +34,13 @@ public class Tiere {
 
     public int getFutterBedarf() {
         return this.futterBedarf;
+    }
+
+    public Futter.FutterArt getFutterArt(){
+        return this.FutterArt;
+    }
+
+    public void setFutterArt(Futter.FutterArt FutterArt){
+        this.FutterArt = FutterArt;
     }
 }

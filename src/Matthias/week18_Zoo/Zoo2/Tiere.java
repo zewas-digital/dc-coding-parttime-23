@@ -1,12 +1,16 @@
-package Matthias.week18_Zoo;
+package Matthias.week18_Zoo.Zoo2;
 
 public class Tiere {
 
     private String animalName;
     private String gattungName;
-    public Tiere(String animalName,String gattungName){
+    private Futterbedarf futterbedarf;
+   private Futter futter;
+    public Tiere(String animalName,String gattungName, Futter futter,Futterbedarf futterbedarf){
         this.animalName=animalName;
         this.gattungName=gattungName;
+        this.futterbedarf=futterbedarf;
+        this.futter=futter;
     }
 
     public String getAnimalName() {
@@ -15,6 +19,14 @@ public class Tiere {
 
     public String getGattungName() {
         return gattungName;
+    }
+
+    public Futterbedarf getFutterbedarf() {
+        return futterbedarf;
+    }
+
+    public Futter getFutter() {
+        return futter;
     }
 
     @Override

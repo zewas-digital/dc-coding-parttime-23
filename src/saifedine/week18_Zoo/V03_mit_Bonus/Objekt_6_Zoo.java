@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo.V02_mit_Bonus;
+package saifedine.week18_Zoo.V03_mit_Bonus;
 
 /*
 Aufgabe: Zoo
@@ -75,25 +75,38 @@ public class Objekt_6_Zoo {
 
         tiergartenDornbirn.zooStrukturGehegeTiere();
 
-        Futter heu = new Futter("Heu","kg", 0.16F);
-        Futter mauese = new Futter("Maus", "Stück", 2.50F);
+        //Futter heu = new Futter("Heu","kg", 0.16F);
+        //Futter MAUS = new Futter("Maus", "Stück", 2.50F);
+        //Futter wildfutter = new Futter("Heu", "kg", 0.16F);
+        Futter heu = new Futter(Futter.FutterArt.HEU,Futter.FutterEinheit.KG,0.16F);
+        Futter maus = new Futter(Futter.FutterArt.MAUS,Futter.FutterEinheit.STK,2.50F);
+        Futter wildfutter = new Futter(Futter.FutterArt.GETREIDE,Futter.FutterEinheit.KG,3F);
+        Futter salat = new Futter(Futter.FutterArt.SALAT,Futter.FutterEinheit.KG,1.49F);
 
-        Futter wildfutter = new Futter("Heu", "kg", 0.16F);
 
-        Tiere hirsch1wild = new Tiere("Hirsch", "Wild",wildfutter,12);
-        Tiere hirsch2wild = new Tiere("Hirsch2","Wild",wildfutter,18);
-        Tiere reh1wild = new Tiere("Reh", "Wild",wildfutter,9);
-        Tiere schlidkroete1reptil = new Tiere("Schildkröte","Reptil",mauese,3);
+
+        Tiere hirsch1wild = new Tiere("Hirsch1", "Wild",Futter.FutterArt.HEU,12);
+        Tiere hirsch2wild = new Tiere("Hirsch2","Wild",Futter.FutterArt.HEU,18);
+        Tiere reh1wild = new Tiere("Reh", "Wild",Futter.FutterArt.GETREIDE,9);
+        Tiere schlidkroete1reptil = new Tiere("Schildkröte","Reptil",Futter.FutterArt.SALAT,3);
+        Tiere schlange2reptil = new Tiere("Danger Noodle", "Reptil", Futter.FutterArt.MAUS,2);
+
 
         ried.addTiere(hirsch1wild);
         ried.addTiere(hirsch2wild);
         ried.addTiere(reh1wild);
         terrarium.addTiere(schlidkroete1reptil);
+        terrarium.addTiere(schlange2reptil);
 
-        //Tiere schlange1reptil = new Tiere("Schlange", "Reptil", mauese,1);
+        //Tiere schlange1reptil = new Tiere("Schlange", "Reptil", MAUS,1);
 
-        schlange1reptil.futter = mauese;
+        //schlange1reptil.futter = maus;
+
+        schlange1reptil.setFutterArt(Futter.FutterArt.MAUS);
         schlange1reptil.setFutterBedarf(1);
+
+
+
 
         tiergartenDornbirn.zooStrukturGehegeTiere();
 

@@ -1,4 +1,4 @@
-package Matthias.week18_Zoo;
+package Matthias.week18_Zoo.Zoo1;
 
 import java.util.ArrayList;
 
@@ -37,6 +37,7 @@ public class Zoo {
                 for (Tiere Tier:gehege.getTierListe()) {
                     System.out.print("|" );
                     System.out.println( "\t\t|--"+Tier.toString());
+                    System.out.println( "\t\t\t|--"+"Futtermenge: "+Tier.getFutterbedarf().getFuttermenge()+ " Futtername: "+Tier.getFutter().getFutterArtikelname());
                 }
             }
     }

@@ -1,4 +1,4 @@
-package florian.week_18_Zoo;
+package Alpi.week18_Zoofutter;
 
 /*
 Aufgabe: Zoo

@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo.V02_mit_Bonus;
+package saifedine.week18_Zoo.V03_mit_Bonus;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -111,7 +111,7 @@ public class Zoo {
 
             for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().size(); j++) {
 
-                String futterName =  this.gehegeArrayList.get(i).gettierArrayList().get(j).futter.getFutterName();
+                String futterName =  this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterArt().toString();
                 int futterBedarf =   this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterBedarf();
 
                 //System.out.println("----->" + futterName);

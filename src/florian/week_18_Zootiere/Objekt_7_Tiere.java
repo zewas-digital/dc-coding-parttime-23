@@ -1,4 +1,4 @@
-package Alpi.week18_Zoo;
+package florian.week_18_Zootiere;
 
 /*
 Aufgabe: Tiere
@@ -21,9 +21,6 @@ Erweitere dein Zooprogramm mit Tiere.
 │       ├── (leer)
  */
 
-import Alpi.week18_Zoo.Gehege;
-import Alpi.week18_Zoo.Zoo;
-
 public class Objekt_7_Tiere {
 
     public static void main(String[] args) {
@@ -31,32 +28,27 @@ public class Objekt_7_Tiere {
         String haken = "├──";
         String haken2 = "│   ├──";
         String haken3 = "│       ├──";
-
         // Zoo erstellen
         Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
 
         // Gehege erstellen
-        // Gehege alpen = new Gehege("Alpen");---------------------------
+
+        // Gehege alpen = new Gehege("Alpen");
         // tierpark.gehegeArrayList.add(alpen);
         tierpark.gehegeArrayList.add(new Gehege("Alpen"));
         tierpark.gehegeArrayList.add(new Gehege("Savanne"));
         tierpark.gehegeArrayList.add(new Gehege("Tropen"));
-        //----------------------------------------------------------------
 
-
-        // Tiere erstellen---------------------------------------------------------------------------------------------------------------------
+        // Tiere erstellen
         tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Wildschwein", new Futter("Heu", 5)));
         tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Hugo", "Bär", new Futter("Fisch", 15)));
+
         tierpark.gehegeArrayList.get(1).tiereImGehege.add(new Tiere("Maxiking", "Löwe", new Futter("Fisch", 10)));
-        //--------------------------------------------------------------------------------------------------------------------------------------
 
-
-        //Gehege löschen-----------------------------------------------
+        //Gehege löschen
         tierpark.gehegeArrayList.get(0).tiereImGehege.remove(1);
-        //-------------------------------------------------------------
 
-
-        // Ausgabe des Zoos---------------------------------------------------------------------------------------------------
+        // Ausgabe des Zoos
         System.out.println("Start der Ausgabe");
         System.out.println(haken + " Zoo: " + tierpark.name + ", gegründet " + tierpark.gruendungsjahr);
         for (Gehege s : tierpark.gehegeArrayList){
@@ -65,45 +57,6 @@ public class Objekt_7_Tiere {
                 System.out.println(haken3 + "Name: " + t.Name + ", Gattung: "+ t.Gattung + "; Futter: " + t.futter.name);
             }
         }
-        //-------------------------------------------------------------------------------------------------------------------------
-
-
-
-        /*
-
-
-
-        // Zoo erstellen
-        Zoo TiergartenFeldkirch = new Zoo("├──  Tiergarten Feldkirch " + ", " ,1985);
-        Gehege montes = new Gehege("│   ├── Montes");
-
-
-        Zoo TiergartenHohenems = new Zoo("Tiergarten Hohenems ", 2022);
-
-        // Gehege erstellen
-
-        Gehege Affen = new Gehege("Affen");
-        Gehege Katzen = new Gehege("Katzen");
-
-        // Tiere erstellen
-        Tiere Affe = new Tiere("Affe ", "Orangutan" );
-        Tiere Tiger = new Tiere ("Tiger ", "Katze");
-
-        // Tiere in Gehegen hinzufügen
-        montes.addTiere(Tiger);
-        Affen.addTiere(Affe);
-
-        montes.removeTiere(Tiger);
-        Affen.removeTiere(Affe);
-
-        //
-
-        Futter heu = new Futter("heu", "kg", 2);
-
-        /*
-        System.out.println(Tiger.addFutter().toString());
-         */
-
 
     }
 

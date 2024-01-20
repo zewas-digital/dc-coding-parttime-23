@@ -1,4 +1,4 @@
-package florian.week_18_Zoo;
+package Matthias.week18_Zoo.Zoo1;
 
 /*
 Bonusaufgabe: Tierfutter
@@ -8,6 +8,7 @@ Erweitere dein Zooprogramm mit Futter-Bedarfsanalyse.
 + Jedes Tier hat einen Futterbedarf, die beinhaltet das Futter und eine Menge
 + Erstelle eine Statistik, was der Futterbedarf von Zoo ist, und wie viel die Tagesversorgung sich kostet.
 Für diese Aufgabe kann man HashMap gut brauchen.
+
 
 Beispielausgabe der Statistik:
 =======================
@@ -34,7 +35,6 @@ public class Objekt_8_FutterBonus {
         // Wert lesen
         System.out.println(
                 hashMap.get("erster Schlüssel")
-
         );
     }
 }
