@@ -1,12 +1,6 @@
-package marcelsimma.week16.Wiederholung;
+package marcelsimma.week17_zoo.Wiederholung;
 
 public abstract class Fahrzeug implements Move {
-
-    public enum fuels {
-        DIESEL,
-        BENZIN,
-        STROM
-    }
 
     // Attribute
     private String color;
