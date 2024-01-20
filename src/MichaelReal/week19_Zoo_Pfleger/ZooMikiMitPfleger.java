@@ -34,7 +34,8 @@ public class ZooMikiMitPfleger extends Zoo {
 
         otto.addZustandigesGehege(zooMiki.getGehegeByName("Savanne"));
         otto.addZustandigesGehege(zooMiki.getGehegeByName("Dschungel"));
-
+        otto.addZustandigesTier("🦁Alf");
+        otto.addZustandigesTier("🐘Peter");
 
 
         adam.addZustandigesGehege(zooMiki.getGehegeByName("Fischtank"));
@@ -46,9 +47,6 @@ public class ZooMikiMitPfleger extends Zoo {
         Tier loewe = new Tier("🦁Alf", "Löwe");
         Tier elefant = new Tier("🐘Peter", "Elefant");
         Tier nemos = new Tier("Nemos", "Fisch");
-
-        otto.addZustandigesTier("🦁Alf");
-        otto.addZustandigesTier("🐘Peter");
 
 
         zooMiki.assignTierToGehege("Savanne", loewe,1);
