@@ -12,7 +12,7 @@ public class Gehege {
         this.flaeche = flaeche;
     }
 
-   public void tierHinzfuegen(Tier tier){
+   public void tierHinzufuegen(Tier tier){
         this.ListeDerTiere.add(tier);
    }
 

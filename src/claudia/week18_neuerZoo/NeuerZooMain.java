@@ -26,22 +26,27 @@ public class NeuerZooMain {
         Tier goldfisch2 = new Tier("Goldi 2", "Goldfisch", Lagerhaus.Futterarten.SCHOKOLADE, 0.02);
 
 
-        aquarium.tierHinzfuegen(hai1);
-        aquarium.tierHinzfuegen(goldfisch1);
-        aquarium.tierHinzfuegen(goldfisch2);
+        aquarium.tierHinzufuegen(hai1);
+        aquarium.tierHinzufuegen(goldfisch1);
+        aquarium.tierHinzufuegen(goldfisch2);
 
         Tier tiger1 = new Tier("Tiger 1", "Tiger", Lagerhaus.Futterarten.SCHOKOLADE, 18.00);
 
-        wald.tierHinzfuegen(tiger1);
+        wald.tierHinzufuegen(tiger1);
 
         Tier murmeltier1 = new Tier("Murmel 1", "Murmeltier", Lagerhaus.Futterarten.GRAS, 0.027);
 
-        hochgebirge.tierHinzfuegen(murmeltier1);
+        hochgebirge.tierHinzufuegen(murmeltier1);
 
         zoo.printStructure();
 
         zoo.erstelleFutterstatistik();
 
+        /*
+        System.out.println("\nTier " + murmeltier1.getName() + " wird gefüttert: ");
+        murmeltier1.feed();
+        zoo.feedAll();
+*/
 
 
 

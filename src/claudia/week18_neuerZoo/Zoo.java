@@ -11,6 +11,7 @@ public class Zoo {
     private final int jahr;
     private Lagerhaus lagerhaus;
     private ArrayList<Gehege> ListeDerGehege = new ArrayList <>();
+    //private HashMap<Lagerhaus.Futterarten, Futter> futterliste;
 
     public Zoo(String name, int jahr) {
         this.name = name;
@@ -67,6 +68,21 @@ public class Zoo {
                 for (Tier t : g.getListeDerTiere()) {
                     System.out.println("|\t|--|-- Tier: " + t.getName() + ", " + t.getArt());
                 }
+            }
+        }
+    }
+
+    //public HashMap<Lagerhaus.Futterarten, Futter> getFutterliste() {
+    //    return this.lagerhaus.getFutterliste();
+    //}
+
+    public void feedAll() {
+        System.out.println("\nEs ist Fütterungszeit! ");
+        for (Gehege g : this.ListeDerGehege) {
+            System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
+            for (Tier t : g.getListeDerTiere())  {
+                System.out.print("\t");
+                t.feed();
             }
         }
     }

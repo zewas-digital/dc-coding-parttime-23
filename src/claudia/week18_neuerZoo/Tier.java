@@ -15,6 +15,10 @@ public class Tier {
         this.futterBedarfInEinheit = futterBedarfInEinheit;
     }
 
+    public void feed(){
+        System.out.println("Ich heiße " + this.name + " und fresse " + futter);
+    }
+
     public String getName() {
         return this.name;
     }
