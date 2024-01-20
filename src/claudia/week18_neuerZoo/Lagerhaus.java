@@ -19,7 +19,8 @@ public class Lagerhaus {
 
     public Lagerhaus() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("\nBitte geben Sie für Ihren neuen Zoo die Futterpreise ein!: ");
+        System.out.println("\nIhr neuer Zoo benötigt Futter. Welche Preise haben Sie ausgehandelt? ");
+        System.out.println("\nBitte geben Sie die Futterpreise ein!: ");
         System.out.print("Gras pro Tonne: ");
         double preisGras = sc.nextDouble();
         System.out.print("Fisch pro Stück: ");
