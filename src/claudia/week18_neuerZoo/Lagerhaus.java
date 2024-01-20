@@ -1,6 +1,5 @@
 package claudia.week18_neuerZoo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
