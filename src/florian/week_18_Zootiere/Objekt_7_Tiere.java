@@ -1,4 +1,4 @@
-package florian.week_18_Zoo;
+package florian.week_18_Zootiere;
 
 /*
 Aufgabe: Tiere
@@ -57,45 +57,6 @@ public class Objekt_7_Tiere {
                 System.out.println(haken3 + "Name: " + t.Name + ", Gattung: "+ t.Gattung + "; Futter: " + t.futter.name);
             }
         }
-
-
-
-
-        /*
-
-
-
-        // Zoo erstellen
-        Zoo TiergartenFeldkirch = new Zoo("├──  Tiergarten Feldkirch " + ", " ,1985);
-        Gehege montes = new Gehege("│   ├── Montes");
-
-
-        Zoo TiergartenHohenems = new Zoo("Tiergarten Hohenems ", 2022);
-
-        // Gehege erstellen
-
-        Gehege Affen = new Gehege("Affen");
-        Gehege Katzen = new Gehege("Katzen");
-
-        // Tiere erstellen
-        Tiere Affe = new Tiere("Affe ", "Orangutan" );
-        Tiere Tiger = new Tiere ("Tiger ", "Katze");
-
-        // Tiere in Gehegen hinzufügen
-        montes.addTiere(Tiger);
-        Affen.addTiere(Affe);
-
-        montes.removeTiere(Tiger);
-        Affen.removeTiere(Affe);
-
-        //
-
-        Futter heu = new Futter("heu", "kg", 2);
-
-        /*
-        System.out.println(Tiger.addFutter().toString());
-         */
-
 
     }
 

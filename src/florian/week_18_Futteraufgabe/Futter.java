@@ -1,4 +1,4 @@
-package florian.week_18_Zoo;
+package florian.week_18_Futteraufgabe;
 
 public class Futter {
 
@@ -9,7 +9,10 @@ public class Futter {
             this.name = name;
             this.menge= menge;
         }
-
+    @Override
+        public String toString(){
+            return "Futter: " + this.name;
+        }
 
 
 
