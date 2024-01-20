@@ -10,12 +10,35 @@ public abstract class Zoo {
     private final int gruendungsjahr;
     private final ArrayList<Gehege> gehegeList;
     private final HashMap<Futter, Integer> gesamtFutterBedarf;
-
+    private final HashMap<String, Pfleger> pflegerList; // Zuordnung von Pflegern zu ihren Namen
     public Zoo(String name, int gruendungsjahr) {
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
         this.gehegeList = new ArrayList<>();
         this.gesamtFutterBedarf = new HashMap<>();
+        this.pflegerList = new HashMap<>();
+    }
+
+    public void addPfleger(String pflegerName) {
+        pflegerList.put(pflegerName, new Pfleger(pflegerName));
+    }
+
+    public void removePfleger(String pflegerName) {
+        pflegerList.remove(pflegerName);
+    }
+
+    public void assignPflegerToGehege(String pflegerName, String gehegeName) {
+        if (pflegerList.containsKey(pflegerName)) {
+            Pfleger pfleger = pflegerList.get(pflegerName);
+            pfleger.zuweisenGehege(gehegeName);
+        }
+    }
+
+    public void assignPflegerToTier(String pflegerName, String gehegeName, String tierName) {
+        if (pflegerList.containsKey(pflegerName)) {
+            Pfleger pfleger = pflegerList.get(pflegerName);
+            pfleger.zuweisenTier(gehegeName, tierName);
+        }
     }
 
     public final void addGehege(String gehegeName) {
