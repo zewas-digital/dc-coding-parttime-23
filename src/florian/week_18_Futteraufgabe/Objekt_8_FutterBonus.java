@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 public class Objekt_8_FutterBonus {
     public static <gehege> void main(String[] args) {
-
+       /*
         // Eine HashMap speichert Schlüssel-Wert-Paare,
         // dessen Datentypen wir definieren können
         HashMap<String, Integer> hashMap = new HashMap<>();
@@ -35,12 +35,13 @@ public class Objekt_8_FutterBonus {
         System.out.println(
                 hashMap.get("erster Schlüssel")
 
-        );
+        );*/
 
 
         String haken = "├──";
         String haken2 = "│   ├──";
         String haken3 = "│       ├──";
+        float totalDailyfloat= 0;
 
         HashMap<Futterlager.futterarten, Float> result = new HashMap<>();
 
@@ -86,20 +87,20 @@ public class Objekt_8_FutterBonus {
                 } else {
                     result.put(t.futter, t.menge);
                 }
-
             }
         }
 
-        float sum = 0;
+        System.out.println();
 
         for (Futterlager.futterarten f : result.keySet()) {
 
-            System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
-                    result.get(f) * futterlager.lagerliste.get(f).preis);
+            System.out.println(+result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
+                    result.get(f) * futterlager.lagerliste.get(f).preis + " €");
 
-            sum += result.get(f) * futterlager.lagerliste.get(f).preis;
+            totalDailyfloat += result.get(f) * futterlager.lagerliste.get(f).preis;
         }
-        System.out.println("\n" + "Total Cost: " + sum);
+
+        System.out.println("=======================" +"\n" + "Total Cost: " + totalDailyfloat);
 
     }
 
