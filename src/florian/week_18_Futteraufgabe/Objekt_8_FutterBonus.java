@@ -65,8 +65,19 @@ public class Objekt_8_FutterBonus {
         //--------------------------------------------------------------------------------------------------------------------------------------
 
         //Gehege löschen-----------------------------------------------
-       // tierpark.gehegeArrayList.get(0).tiereImGehege.remove(1);
+        // tierpark.gehegeArrayList.get(0).tiereImGehege.remove(1);
         //-------------------------------------------------------------
+        // Ausgabe des Zoos---------------------------------------------------------------------------------------------------
+        System.out.println("Start der Ausgabe");
+        System.out.println(haken + " Zoo: " + tierpark.name + ", gegründet " + tierpark.gruendungsjahr);
+        for (Gehege s : tierpark.gehegeArrayList) {
+            System.out.println(haken2 + " Gehege: " + s.bezeichnung);
+            for (Tiere t : s.tiereImGehege) {
+                System.out.println(haken3 + "Name: " + t.Name + ", Gattung: " + t.Gattung + ", Futter: " + futterlager.lagerliste.get(t.futter).bezeichnung);
+            }
+        }
+        //-------------------------------------------------------------------------------------------------------------------------
+
 
         for (Gehege g : tierpark.gehegeArrayList) {
             for (Tiere t : g.tiereImGehege) {
@@ -79,30 +90,19 @@ public class Objekt_8_FutterBonus {
             }
         }
 
-            System.out.println("Ergebniss" + result);
-            for (Futterlager.futterarten f: result.keySet()) {
-                System.out.println("Futter " + f + "Menge: " + result.get(f));
-                System.out.println( "Gesamtpreis: " + result.get(f) * futterlager.lagerliste.get(f).preis);
+        float sum = 0;
+
+        for (Futterlager.futterarten f : result.keySet()) {
 
 
+            System.out.println("\n" + "Futter: " + f + ", Menge: " + result.get(f) + futterlager.lagerliste.get(f).einheit);
+            System.out.println("Gesamtpreis: " + result.get(f) * futterlager.lagerliste.get(f).preis + " €");
+            sum += result.get(f) * futterlager.lagerliste.get(f).preis;
 
-            }
+            System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit+ "         " + f + "             :   "  +
+                    result.get(f) * futterlager.lagerliste.get(f).preis +"\n Total Cost:"+ sum);
 
-
-
-
-
-
-            // Ausgabe des Zoos---------------------------------------------------------------------------------------------------
-            System.out.println("Start der Ausgabe");
-            System.out.println(haken + " Zoo: " + tierpark.name + ", gegründet " + tierpark.gruendungsjahr);
-            for (Gehege s : tierpark.gehegeArrayList) {
-                System.out.println(haken2 + " Gehege: " + s.bezeichnung);
-                for (Tiere t : s.tiereImGehege) {
-                    System.out.println(haken3 + "Name: " + t.Name + ", Gattung: " + t.Gattung + "; Futter: " + futterlager.lagerliste.get(t.futter).bezeichnung);
-                }
-            }
-            //-------------------------------------------------------------------------------------------------------------------------
+        }
 
 
     }
