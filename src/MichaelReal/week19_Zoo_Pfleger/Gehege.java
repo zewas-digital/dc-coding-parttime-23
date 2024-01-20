@@ -6,10 +6,12 @@ import java.util.HashMap;
 public class Gehege {
     private String name;
     private HashMap<Tier, Integer> tierList;
+    private final HashMap<Pfleger, Integer> zustaendigePfleger;
 
     public Gehege(String name) {
         this.name = name;
         this.tierList = new HashMap<>();
+        this.zustaendigePfleger = new HashMap<>();
     }
 
     public String getName() {
@@ -36,6 +38,18 @@ public class Gehege {
 
     public HashMap<Tier, Integer> getTierList() {
         return tierList;
+    }
+
+    public void addZustaendigerPfleger(Pfleger pfleger, int anzahl) {
+        zustaendigePfleger.put(pfleger, anzahl);
+    }
+
+    public void removeZustandigerPfleger(Pfleger pfleger) {
+        zustaendigePfleger.remove(pfleger);
+    }
+
+    public HashMap<Pfleger, Integer> getZustaendigePfleger() {
+        return zustaendigePfleger;
     }
 
 }

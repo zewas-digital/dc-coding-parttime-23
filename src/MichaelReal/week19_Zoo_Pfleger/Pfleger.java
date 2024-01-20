@@ -5,36 +5,73 @@ import java.util.HashMap;
 
 public class Pfleger {
     private String name;
-    private HashMap<String, ArrayList<String>> zustaendigeGehege;
+    private ArrayList<Gehege> zustandigeGehege; // Gehege, für die der Pfleger zuständig ist
+    private ArrayList<Tier> zustandigeTiere; // Tiere, für die der Pfleger zuständig ist
+    private HashMap<Gehege, Integer> gehegeTierAnzahl; // Anzahl der Tiere pro Gehege
 
     public Pfleger(String name) {
         this.name = name;
-        this.zustaendigeGehege = new HashMap<>();
+        this.zustandigeGehege = new ArrayList<>();
+        this.zustandigeTiere = new ArrayList<>();
+        this.gehegeTierAnzahl = new HashMap<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void zuweisenGehege(String gehegeName) {
-        zustaendigeGehege.put(gehegeName, new ArrayList<>());
+    public ArrayList<Gehege> getZustandigeGehege() {
+        return zustandigeGehege;
     }
 
-    public void entfernenGehege(String gehegeName) {
-        zustaendigeGehege.remove(gehegeName);
+    public void addZustandigesGehege(Gehege gehege) {
+        zustandigeGehege.add(gehege);
     }
 
-    public void zuweisenTier(String gehegeName, String tierName) {
-        if (zustaendigeGehege.containsKey(gehegeName)) {
-            ArrayList<String> zugeordneteTiere = zustaendigeGehege.get(gehegeName);
-            zugeordneteTiere.add(tierName);
+    public void removeZustandigesGehege(Gehege gehege) {
+        zustandigeGehege.remove(gehege);
+    }
+
+    public ArrayList<Tier> getZustandigeTiere() {
+        return zustandigeTiere;
+    }
+
+    public void addZustandigesTier(String tierName) {
+        Tier tier = getTierByName(tierName);
+        if (tier != null) {
+            zustandigeTiere.add(tier);
+        } else {
+            System.out.println("Tier mit dem Namen " + tierName + " wurde nicht gefunden.");
         }
     }
 
-    public void entfernenTier(String tierName) {
-        for (String gehege : zustaendigeGehege.keySet()) {
-            ArrayList<String> zugeordneteTiere = zustaendigeGehege.get(gehege);
-            zugeordneteTiere.remove(tierName);
+
+    public void removeZustandigesTier(Tier tier) {
+        zustandigeTiere.remove(tier);
+    }
+
+    public Tier getTierByName(String tierName) {
+        for (Tier tier : zustandigeTiere) {
+            if (tier.getName().equals(tierName)) {
+                return tier;
+            }
+        }
+        return null;
+    }
+
+    public HashMap<Gehege, Integer> getGehegeTierAnzahl() {
+        return gehegeTierAnzahl;
+    }
+
+    public void assignTierToGehege(Gehege gehege, int anzahl) {
+        int currentAnzahl = gehegeTierAnzahl.getOrDefault(gehege, 0);
+        gehegeTierAnzahl.put(gehege, currentAnzahl + anzahl);
+    }
+
+    public void removeTierFromGehege(Gehege gehege, int anzahl) {
+        int currentAnzahl = gehegeTierAnzahl.getOrDefault(gehege, 0);
+        if (currentAnzahl >= anzahl) {
+            gehegeTierAnzahl.put(gehege, currentAnzahl - anzahl);
         }
     }
 }
