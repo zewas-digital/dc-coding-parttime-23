@@ -9,38 +9,26 @@ public class NeuerZooMain {
         System.out.println("\nNeuer Zoo erzeugt: " + zoo);
         System.out.println("\nFolgende Arten von Futter sind verfügbar:\n");
 
-        for (Lagerhaus.Futterarten fa : Lagerhaus.Futterarten.values()){
+        for (Lagerhaus.Futterarten fa : Lagerhaus.Futterarten.values()) {
             System.out.println(fa);
         }
 
-        Gehege aquarium = new Gehege("Aquarium", 20000);
-        Gehege wald = new Gehege("Wald", 4390);
-        Gehege hochgebirge = new Gehege("Hochgebirge", 43);
-        Gehege tiefsee = new Gehege("Tiefsee", 1149);
+        Gehege aquarium = new Gehege("Aquarium", 20000, zoo.getListeDerGehege());
+        Gehege wald = new Gehege("Wald", 4390, zoo.getListeDerGehege());
+        Gehege hochgebirge = new Gehege("Hochgebirge", 43, zoo.getListeDerGehege());
+        Gehege tiefsee = new Gehege("Tiefsee", 1149, zoo.getListeDerGehege());
 
-        zoo.gehegeHinzufuegen(aquarium, zoo.getListeDerGehege());
-        zoo.gehegeHinzufuegen(wald, zoo.getListeDerGehege());
-        zoo.gehegeHinzufuegen(hochgebirge, zoo.getListeDerGehege());
-        zoo.gehegeHinzufuegen(tiefsee, zoo.getListeDerGehege());
 
-        Tier hai1 = new Tier("Hai 1", "Hai", Lagerhaus.Futterarten.FISCH, 127 );
+        Tier hai1 = new Tier("Hai 1", "Hai", Lagerhaus.Futterarten.FISCH, 127, aquarium.getListeDerTiere());
         System.out.println("\nNeues Tier erzeugt: " + hai1.getName() + "\nEs frisst " + hai1.getFutterBedarfInEinheit()
                 + " " + zoo.getLagerhaus().getFutterliste().get(hai1.getFutterart()).getEinheit() + " " + hai1.getFutter());
-        Tier goldfisch1 = new Tier("Goldi 1", "Goldfisch", Lagerhaus.Futterarten.SCHOKOLADE, 0.02);
-        Tier goldfisch2 = new Tier("Goldi 2", "Goldfisch", Lagerhaus.Futterarten.SCHOKOLADE, 0.017);
+        Tier goldfisch1 = new Tier("Goldi 1", "Goldfisch", Lagerhaus.Futterarten.SCHOKOLADE, 0.02, aquarium.getListeDerTiere());
+        Tier goldfisch2 = new Tier("Goldi 2", "Goldfisch", Lagerhaus.Futterarten.SCHOKOLADE, 0.017, aquarium.getListeDerTiere());
 
 
-        aquarium.tierHinzufuegen(hai1);
-        aquarium.tierHinzufuegen(goldfisch1);
-        aquarium.tierHinzufuegen(goldfisch2);
+        Tier tiger1 = new Tier("Tiger 1", "Tiger", Lagerhaus.Futterarten.SCHOKOLADE, 18.00, wald.getListeDerTiere());
 
-        Tier tiger1 = new Tier("Tiger 1", "Tiger", Lagerhaus.Futterarten.SCHOKOLADE, 18.00);
-
-        wald.tierHinzufuegen(tiger1);
-
-        Tier murmeltier1 = new Tier("Murmel 1", "Murmeltier", Lagerhaus.Futterarten.GRAS, 0.027);
-
-        hochgebirge.tierHinzufuegen(murmeltier1);
+        Tier murmeltier1 = new Tier("Murmel 1", "Murmeltier", Lagerhaus.Futterarten.GRAS, 0.027, hochgebirge.getListeDerTiere());
 
         //zoo.printStructure();
 
@@ -52,19 +40,62 @@ public class NeuerZooMain {
         zoo.feedAll();
 */
         System.out.println("\nDer Zoo braucht Personal!");
-        Pfleger hansi = new Pfleger("Hansi", zoo.getListeDerGehege(), zoo.getZustaendig());
-        Pfleger berni = new Pfleger("Berni", zoo.getListeDerGehege(), zoo.getZustaendig());
+        Pfleger hansi = new Pfleger("Hansi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), zoo.getZustaendig());
+        Pfleger berni = new Pfleger("Berni", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), zoo.getZustaendig());
 
-        zoo.pflegerHinzufuegen(hansi, zoo.getListeDerPfleger());
-        zoo.pflegerHinzufuegen(berni, zoo.getListeDerPfleger());
+        System.out.println("\nAlle Pfleger im Zoo: ");
+        ArrayList<Pfleger> allePfleger = zoo.getListeDerPfleger();
+        for (Pfleger p : allePfleger) {
+            System.out.println(p.getName());
+        }
 
-       /* int index = 0;
-        for (Pfleger p: zoo.getListeDerPfleger()) {
-            for (Gehege g: p.getListeDerBetreutenGehege()){
-                zoo.getPflegerUndGehege()[index][0] = p;
-                zoo.getPflegerUndGehege()[index][1] = g);
-            }
+        System.out.println("\nPfleger " + hansi.getName() + " betreut Gegehe: ");
+        ArrayList<Gehege> betreuteGehege = hansi.getListeDerBetreutenGehege();
+        for (Gehege g : betreuteGehege) {
+            System.out.println(g.getName());
+        }
+
+        /*
+        System.out.println("\nListe aller Tiere: ");
+        ArrayList<String> liste = zoo.listeAllerTiere();
+        for (String t : liste) {
+            System.out.println(t);
+        }
+*/
+        System.out.println("\n\nLISTE!: ");
+        zoo.getPflegerUndGehegeListe();
+    }
+
+        /*
+        ArrayList<Object[]> superliste = zoo.getPflegerUndGehegeListe();
+
+        for (Object[] obj : superliste){
+            Pfleger p = (Pfleger) obj[0];
+            Gehege g = (Gehege) obj[1];
+            System.out.println(p.toString() + " betreut " + g.toString());
         }*/
 
-    }
-}
+       /*
+        for (int i = 0; i < superliste.size(); i++) {
+            System.out.println((Pfleger)superliste.get(i));
+            System.out.println((Gehege)superliste.get(i));
+            }
+
+        /////////////////////
+        public void printPflegerUndGehegeListe(){
+            ArrayList<Object[]> pflegerUndGehegeListe = getPflegerUndGehegeListe();
+            for (Object[] obj : pflegerUndGehegeListe){
+                Pfleger p = (Pfleger) obj[0];
+                Gehege g = (Gehege) obj[1];
+                System.out.println(p.toString() + " betreut " + g.toString());
+            }
+        }*/
+        ////////////////////
+
+
+
+
+        }
+
+       // }
+

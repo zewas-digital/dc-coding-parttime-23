@@ -7,9 +7,11 @@ public class Gehege {
     private int flaeche;
     private ArrayList<Tier> ListeDerTiere = new ArrayList<>();
 
-    public Gehege(String name, int flaeche) {
-        this.name = name;
+
+    public Gehege(String name, int flaeche, ArrayList<Gehege> ListeDerGehege) {
         this.flaeche = flaeche;
+        this.name = name;
+        ListeDerGehege.add(this);
     }
 
    public void tierHinzufuegen(Tier tier){
