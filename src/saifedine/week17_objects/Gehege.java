@@ -1,6 +1,4 @@
-package saifedine.week17_Zoo;
-
-import java.util.ArrayList;
+package saifedine.week17_objects;
 
 public class Gehege {
 

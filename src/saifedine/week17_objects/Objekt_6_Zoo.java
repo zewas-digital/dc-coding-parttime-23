@@ -1,4 +1,4 @@
-package saifedine.week17_Zoo;
+package saifedine.week17_objects;
 
 /*
 Aufgabe: Zoo
@@ -20,8 +20,6 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
 │   ├── Gehege: Terrarium (warm)
 
  */
-
-import java.util.ArrayList;
 
 public class Objekt_6_Zoo {
 

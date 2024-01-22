@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo.V02_mit_Bonus;
+package saifedine.week17_weekend4_objects_Zoo.V02_mit_Bonus;
 
 public class Futter {
 

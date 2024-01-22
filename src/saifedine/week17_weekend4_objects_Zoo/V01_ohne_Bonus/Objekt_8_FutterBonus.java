@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo.V01_ohne_Bonus;
+package saifedine.week17_weekend4_objects_Zoo.V01_ohne_Bonus;
 
 /*
 Bonusaufgabe: Tierfutter

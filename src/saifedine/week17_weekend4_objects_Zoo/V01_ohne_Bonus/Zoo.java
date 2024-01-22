@@ -1,13 +1,14 @@
-package saifedine.week17_Zoo;
+package saifedine.week17_weekend4_objects_Zoo.V01_ohne_Bonus;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Zoo {
 
     private String zooName;
     private int gruendungsjahr;
     private ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
+
+    Gehege gehege;
 
     //
     public Zoo(String zooName, int gruendungsjahr) {
@@ -32,7 +33,7 @@ public class Zoo {
         return this.gehegeArrayList;
     }
 
-    public void zooStruktur(){
+    public void zooStrukturGehege(){
 
         String zooDaten = toString();
 
@@ -42,6 +43,22 @@ public class Zoo {
             System.out.println("│   ├── " + this.gehegeArrayList.get(i));
         }
         //System.out.println("gehegeArrayList.toArray().length - Länge: " + gehegeArrayList.toArray().length);
+    }
+
+    public void zooStrukturGehegeTiere(){
+
+        String zooDaten = toString();
+
+        System.out.println("\n├── " + zooDaten);
+
+        for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
+            System.out.println("│   ├── " + this.gehegeArrayList.get(i));
+
+            for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().toArray().length; j++) {
+                System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
+            }
+        }
+
     }
 
 }
