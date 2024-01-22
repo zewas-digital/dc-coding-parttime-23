@@ -1,4 +1,4 @@
-package florian.week_18_Zootiere;
+package florian.week_18_Pflegeraufgabe;
 
 
 
@@ -16,7 +16,7 @@ public class Gehege {
         this.bezeichnung = bezeichung;
         this.tiereImGehege  = new ArrayList<>();
 
-       // System.out.println("Gehege: " + this.bezeichnung);
+
 
 
     }

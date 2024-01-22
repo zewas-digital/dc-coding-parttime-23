@@ -8,13 +8,21 @@ public class Auto extends Object {
 
     public String modell = "Model   -> unbekannt";
 
-    public int baujahr = 0;
-    public int km_Stand = 0;
-    public int fahrzeug_stand=0;
+    public int bauJahr = 0;
+    public int kmStand = 0;
+    public int fahrzeugStand =0;
+    public double tankInhalt = 0;
+    public int verbrauchLProKm = 0; // 6l pro 100 km
+    private int tankVolumen = 80;
 
-    public double tankinhalt = 0;
-    public int verbrauch_l_pro_km = 0; // 6l pro 100 km
-    private int tankvolumen = 80;
+    public Auto( String marke, String modell, int bauJahr, int kmStand, int tankVolumen, int verbrauchLProKm )  {
+        this.marke= marke;
+        this.modell = modell;
+        this.bauJahr = bauJahr;
+        this.kmStand = kmStand;
+        this.tankVolumen = tankVolumen;
+        this.verbrauchLProKm = verbrauchLProKm;
+    }
 
     // Methode mit der Befugnisse zum Überschreiben (@Override), hier wird die Standard-Methode der Objekt Klasse (extended Object - on the Top) überschrieben und gibt eine individuelle Darstellung / Version
     // erzeugt leserliche Darstellung des Objekts Auto für Ausdruck/Ausgabe und übegibt einen String
@@ -23,10 +31,10 @@ public class Auto extends Object {
         return
                 "Marke:" + marke + " " +
                         "Modell:"               + modell + " " +
-                        "Baujahr:"              + baujahr + " " +
-                        "Kilometerstand: "      + NumberFormat.getInstance( ).format( km_Stand ) + "km " +
-                        "Tankinhalt: "          + String.format("%,.2f",tankinhalt )+ "l" +
-                        "Verbrauch: " + verbrauch_l_pro_km +" l pro 100 km ";
+                        "Baujahr:"              + bauJahr + " " +
+                        "Kilometerstand: "      + NumberFormat.getInstance( ).format( kmStand ) + "km " +
+                        "Tankinhalt: "          + String.format("%,.2f", tankInhalt )+ "l" +
+                        "Verbrauch: " + verbrauchLProKm +" l pro 100 km ";
 
     }
 
@@ -37,15 +45,15 @@ public class Auto extends Object {
             // solange bis
             // 1 zuFahrendeKilometer gefahren sind
             // 2 tankinhalt nicht leer
-            while (zuFahrendeKilometer > 0 && this.tankinhalt >= this.getlprokm()) {
+            while (zuFahrendeKilometer > 0 && this.tankInhalt >= this.getLProKm()) {
                 // fahre 1 kilometer ----------
                 // --> zu fahrende kilometer--
                 zuFahrendeKilometer--;
-                this.km_Stand++;
+                this.kmStand++;
                 // --> tankinhalt reduziert sich um verbrauch pro km
-                this.tankinhalt -= this.getlprokm();
+                this.tankInhalt -= this.getLProKm();
 
-                if (this.tankinhalt <= 5 && !warned) {
+                if (this.tankInhalt <= 5 && !warned) {
                     System.out.println("Es sind nur mehr 5 Liter im Tank. Restliche Kilometer: " + zuFahrendeKilometer);
                     warned = true;
                 }
@@ -55,12 +63,12 @@ public class Auto extends Object {
             }
 
             // kontrollausgabe:
-            System.out.println("tankinhalt: "+ String.format("%,.2f",this.tankinhalt)+", restliche KM: "+ zuFahrendeKilometer);
+            System.out.println("tankinhalt: "+ String.format("%,.2f",this.tankInhalt )+", restliche KM: "+ zuFahrendeKilometer);
         }
         // solang ebis
         // 1 zuFahrende Kolometer gefahren sind
         // 2 tankinhalt nicht leer
-/*
+        /*
         double verbrauchlprokm=(this.verbrauch_l_pro_km/100); // Berechung Verbrauch l pro km
         double AbsolutTankVolumenInL=this.tankinhalt+(verbrauchlprokm*zuFahrendeKilometer); // Absolutverbrauch in l
         int differenzdesTankVolumenInL=AbsolutTankVolumenInL-
@@ -79,28 +87,21 @@ public class Auto extends Object {
         */
 
     public int getKillometerstand() {
-        return this.km_Stand;
+        return this.kmStand;
     }
-    public double getlprokm(){
-            return ((double) this.verbrauch_l_pro_km /100);
+    public double getLProKm(){
+            return ((double) this.verbrauchLProKm /100);
         }
 
-    public void volltanken(){
+    public void vollTanken(){
         int tankdif=0;
-        while (this.tankinhalt<tankvolumen -1){
-            tankinhalt++;
+        while (this.tankInhalt < tankVolumen -1){
+            tankInhalt++;
             tankdif++;
         }
         System.out.println( "Es sind "+ tankdif+" l " +"getankt worden" );
 
     }
 
-    public Auto( String Marke, String Modell, int Baujahr, int km_Stand,int tankvolumen,int verbrauch_l_pro_km)  {
-        this.marke= Marke;
-        this.modell = Modell;
-        this.baujahr= Baujahr;
-        this.km_Stand= km_Stand;
-        this.tankvolumen=tankvolumen;
-        this.verbrauch_l_pro_km=verbrauch_l_pro_km;
-    }
+
 }

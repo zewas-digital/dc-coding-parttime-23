@@ -1,8 +1,5 @@
 package claudia.week18_neuerZoo;
 
-
-import claudia.week18_neuerZoo.Gehege;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,13 +7,22 @@ public class Zoo {
     private final String name ;
     private final int jahr;
     private Lagerhaus lagerhaus;
+
+    private HashMap<Pfleger, Gehege> zustaendig;
     private ArrayList<Gehege> ListeDerGehege = new ArrayList <>();
+    private ArrayList<Pfleger> ListeDerPfleger = new ArrayList<>();
     //private HashMap<Lagerhaus.Futterarten, Futter> futterliste;
+
+
+    //private Object[] PflegerUndGehege = new Object[2];
+    //PflegerUndGehege[0] = pfleger;
+    private ArrayList<Object[]> PflegerUndGehegeListe = new ArrayList<>();
 
     public Zoo(String name, int jahr) {
         this.name = name;
         this.jahr = jahr;
         this.lagerhaus = new Lagerhaus();
+        this.zustaendig = new HashMap<>();
     }
 
     public ArrayList <String> listeAllerTiere(){
@@ -27,6 +33,39 @@ public class Zoo {
             }
         }
         return liste;
+    }
+
+    public ArrayList<Object[]> getPflegerUndGehegeListe(){
+        Object[] temp = new Object[2];
+        int counter = 0;
+        System.out.println("Pflegerliste Size: " + this.getListeDerPfleger().size());
+        for (Pfleger p : this.getListeDerPfleger()){
+            for (Gehege g : p.getListeDerBetreutenGehege()){
+                System.out.println("Gehegeliste size: " + p.getListeDerBetreutenGehege().size());
+                temp[0] = p;
+                System.out.println(p.getName());
+                temp[1] = g;
+                System.out.println(g.getName());
+                PflegerUndGehegeListe.add(temp);
+                counter++;
+                System.out.println("Counter: " + counter);
+            }
+
+        }
+        ///////////////////////////////////////
+        System.out.println(PflegerUndGehegeListe.size());
+        //for (int i = 0; i < PflegerUndGehegeListe.size(); i++) {
+        //    System.out.println();
+        //}
+        //ArrayList<Object[]> pflegerUndGehegeListe = zoo.getPflegerUndGehegeListe();
+        for (Object[] obj : PflegerUndGehegeListe){
+            Pfleger p = (Pfleger) obj[0];
+            Gehege g = (Gehege) obj[1];
+            System.out.println(p.getName() + " -> " + g.getName());
+        }
+
+        /////////////////////////////////////
+        return PflegerUndGehegeListe;
     }
     public void erstelleFutterstatistik() {
         //Hashmap speichert Futterart mit benötigter Gesamtmenge:
@@ -56,7 +95,6 @@ public class Zoo {
         }
         System.out.printf("\n=> Kosten am Tag gesamt: %6.2f € \n", gesamt);
     }
-
 
     public void printStructure() {
         ArrayList<Gehege> ListeDerGehege = this.getListeDerGehege();
@@ -99,6 +137,13 @@ public class Zoo {
         return lagerhaus;
     }
 
+    public void pflegerHinzufuegen(Pfleger pfleger, ArrayList<Pfleger> ListeDerPfleger){
+        ListeDerPfleger.add(pfleger);
+    }
+
+    public void pflegerLoeschen(Pfleger pfleger, ArrayList<Pfleger> ListeDerPfleger){
+        ListeDerPfleger.remove(pfleger);
+    }
     public void gehegeHinzufuegen(Gehege gehege, ArrayList<Gehege> ListeDerGehege){
         ListeDerGehege.add(gehege);
     }
@@ -114,4 +159,17 @@ public class Zoo {
     public ArrayList <Gehege> getListeDerGehege(){
         return this.ListeDerGehege;
     }
+
+    public HashMap<Pfleger, Gehege> getZustaendig() {
+        return zustaendig;
+    }
+
+   /* public ArrayList<Object>[][] getPflegerUndGehege() {
+        return PflegerUndGehege;
+    }*/
+
+    public ArrayList<Pfleger> getListeDerPfleger() {
+        return ListeDerPfleger;
+    }
+
 }

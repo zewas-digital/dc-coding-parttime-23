@@ -4,7 +4,7 @@ public class Fotokamera extends Object{
 
     //Festlegen der Attribute des Objektes
     private String hersteller;  // Herstellername der Kamera
-    private String Modell;      // Modelname der Kamera
+    private String modell;      // Modelname der Kamera
     private int brennweite;     // Angabe in mm bei Fotoobjektiven
     private int aufloesung;     // Auflösung der Kamera in MegaPixel
 
@@ -13,10 +13,10 @@ public class Fotokamera extends Object{
     // Es können verschiedene Konstruktoren, implementiert werden
     // im Konstruktor wird nur das Implementiert was für das Objekt WIRKLICH & INIZIAL RELEVANT IST!!!
 
-    public Fotokamera( String Hersteller, String Modell, int brennweite, int aufloesung){
+    public Fotokamera( String hersteller, String modell, int brennweite, int aufloesung){
 
-        this.hersteller =Hersteller;
-        this.Modell=Modell;
+        this.hersteller =hersteller;
+        this.modell =modell;
         this.brennweite=brennweite;
         this.aufloesung=aufloesung;
     }
@@ -52,7 +52,7 @@ public class Fotokamera extends Object{
 
     //Getter 3: Holt sich das Modell
     public String getModell(){
-        return this.Modell;
+        return this.modell;
     }
 
     //Getter 4: HOlt sich den Hersteller
@@ -72,7 +72,7 @@ public class Fotokamera extends Object{
 
     //Setter 3: Setzt den Wert des Modelles
     public void setModell (String Modell){
-        this.Modell=Modell;
+        this.modell =Modell;
     }
 
     //Setter 4: setzt den Wert der Auflösung
@@ -86,7 +86,7 @@ public class Fotokamera extends Object{
     public String toString() {
         return "Foto { " + super.toString() + // super entspricht der erweiterten Object-Klasse
                 "\n Hersteller = " + hersteller +
-                ",\n Model = " + Modell +
+                ",\n Model = " + modell +
                 ",\n Brennweite = " + brennweite + " in mm"+
                 ",\n Auflösung = " + aufloesung +" in MegaPixel"+
                 "\n}";

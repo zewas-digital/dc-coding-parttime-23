@@ -1,4 +1,4 @@
-package Matthias.week18_Zoo.Zoo2;
+package Matthias.week18_Zoo.Zoo2_Hashmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
