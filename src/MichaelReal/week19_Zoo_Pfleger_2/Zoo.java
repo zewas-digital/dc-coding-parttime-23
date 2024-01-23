@@ -11,6 +11,7 @@ public abstract class Zoo {
     private final ArrayList<Gehege> gehegeList;
     private final HashMap<Futter, Integer> gesamtFutterBedarf;
     private ArrayList<Pfleger> pflegerListe; // Liste der Pfleger im Zoo
+    private HashMap<String, Gehege> gehegeListe; // HashMap zur Speicherung der Gehege
 
     public Zoo(String name, int gruendungsjahr) {
         this.name = name;
@@ -18,6 +19,12 @@ public abstract class Zoo {
         this.gehegeList = new ArrayList<>();
         this.gesamtFutterBedarf = new HashMap<>();
         this.pflegerListe = new ArrayList<>();
+        this.gehegeListe = new HashMap<>();
+    }
+
+    // Methode zum Abrufen eines Geheges anhand seines Namens
+    public Gehege getGehegeByName(String name) {
+        return this.gehegeListe.get(name);
     }
 
     public final void addGehege(String gehegeName) {
@@ -110,14 +117,25 @@ public abstract class Zoo {
                 HashMap<Futter, Integer> futterBedarf = tier.getFutterBedarf();
                 for (Futter futter : futterBedarf.keySet()) {
                     int menge = futterBedarf.get(futter);
-                    System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * tierList.get(tier) + " " + futter.getEinheit());
+                    System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * anzahl + " " + futter.getEinheit());
+                }
+            }
+
+
+            // Ausgabe der Pfleger und ihrer zugeordneten Tiere für jedes Gehege
+            System.out.println("│   │   ├── 🧑‍⚕️Pfleger🧑‍⚕️:");
+            for (Pfleger pfleger : gehege.getZustaendigePfleger().keySet()) {
+                System.out.println("│   │   │   ├── " + pfleger.getName());
+                System.out.println("│   │   │   │   ├── 🦁Zuständige Tiere🦁:");
+                for (Tier zustandigesTier : pfleger.getZustaendigeTiere()) {
+                    System.out.println("│   │   │   │   │   ├── " + zustandigesTier.getName());
                 }
             }
         }
 
-
         printAdditionalInfo();
     }
+
 
     // Methode zur Berechnung des Gesamtfutterbedarfs und der Kosten
     public void calculateFutterBedarfUndKosten() {
