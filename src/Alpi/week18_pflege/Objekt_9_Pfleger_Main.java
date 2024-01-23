@@ -21,13 +21,6 @@ public class Objekt_9_Pfleger_Main {
 
 
 
-        // Gehege erstellen
-        // Gehege alpen = new Gehege("Alpen");---------------------------
-        // tierpark.gehegeArrayList.add(alpen);
-        tierpark.gehegeArrayList.add(new Gehege("Alpen"));
-        tierpark.gehegeArrayList.add(new Gehege("Savanne"));
-        tierpark.gehegeArrayList.add(new Gehege("Tropen"));
-        //----------------------------------------------------------------
 
 
     }
