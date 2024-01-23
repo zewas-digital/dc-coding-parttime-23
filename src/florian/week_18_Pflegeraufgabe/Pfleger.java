@@ -6,8 +6,7 @@ public class Pfleger {
 
     public String pflegerName;
 
-    public ArrayList<Pfleger> gehegeZustaendigkeitArrayList;
-
+    private ArrayList<Gehege> gehegeZustaendigkeitArrayList;
 
 
     public Pfleger(String pflegerName) {
@@ -16,15 +15,18 @@ public class Pfleger {
 
     }
 
-    public void addPfleger (Pfleger pfleger){
-        this.gehegeZustaendigkeitArrayList.add(pfleger);
+    // Getter und Setter
+    public ArrayList<Gehege> getGehegeZustaendigkeitArrayList() {
+        return gehegeZustaendigkeitArrayList;
     }
 
-    public void removePfleger (Pfleger pfleger){
-        this.gehegeZustaendigkeitArrayList.add(pfleger);
+    public void setGehegeZustaendigkeitArrayList(ArrayList<Gehege> gehegeZustaendigkeitArrayList) {
+        this.gehegeZustaendigkeitArrayList = gehegeZustaendigkeitArrayList;
     }
 
-@Override
-    public String toString () {return this.pflegerName;}
+    @Override
+    public String toString() {
+        return this.pflegerName ;
+    }
 
 }

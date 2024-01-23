@@ -6,19 +6,32 @@ import java.util.ArrayList;
 
 public class Gehege {
 
-    public String bezeichnung;
+    private String gehegeBezeichnung;
 
-    public ArrayList<Tiere> tiereImGehege;
+    private ArrayList<Tiere> tiereImGehege;
 
 
     public Gehege(String bezeichung) {
 
-        this.bezeichnung = bezeichung;
+        this.gehegeBezeichnung = bezeichung;
         this.tiereImGehege  = new ArrayList<>();
 
+    }
 
+    public String getBezeichnung() {
+        return gehegeBezeichnung;
+    }
 
+    public void setBezeichnung(String bezeichnung) {
+        this.gehegeBezeichnung = bezeichnung;
+    }
 
+    public ArrayList<Tiere> getTiereImGehege() {
+        return tiereImGehege;
+    }
+
+    public void setTiereImGehege(ArrayList<Tiere> tiereImGehege) {
+        this.tiereImGehege = tiereImGehege;
     }
     public void addTiere (Tiere tier ){
         this.tiereImGehege.add(tier);
@@ -28,6 +41,11 @@ public class Gehege {
         this.tiereImGehege.remove(tier);
     }
 
+
+    @Override
+    public String toString() {
+        return "" + this.gehegeBezeichnung + this.tiereImGehege;
+    }
 }
 
 

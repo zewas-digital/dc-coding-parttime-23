@@ -1,12 +1,12 @@
 package Matthias.week18_Zoo.Zoo4_Personal;
 
-public class Tiere {
+public class Tier {
 
     private String animalName;
     private String gattungName;
     private Futterbedarf futterbedarf;
     public Futter.Futtersorten futtersorte;
-    public Tiere( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf){
+    public Tier( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf){
         this.animalName=animalName;
         this.gattungName=gattungName;
         this.futterbedarf=futterbedarf;
