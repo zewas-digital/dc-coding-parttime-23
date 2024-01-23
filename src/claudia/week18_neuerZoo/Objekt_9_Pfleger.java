@@ -53,6 +53,11 @@ public class Objekt_9_Pfleger {
             System.out.printf("%-25s :  %-25s \n", (Pfleger)temp[0], (Gehege)temp[1]);
         }
 
+        System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(0), zoo.getListeDerGehege().get(0)));
+        System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(0), zoo.getListeDerGehege().get(1)));
+        System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(1), zoo.getListeDerGehege().get(0)));
+        System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(1), zoo.getListeDerGehege().get(1)));
+
     }
 
 

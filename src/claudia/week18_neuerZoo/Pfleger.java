@@ -35,11 +35,11 @@ public class Pfleger {
                 }
             }
         } else {
-            int[] vector = BasicFunctions.createRandom1DArray(ListeAllerGehege.size(), 0, 2);
-            BasicFunctions.print1DArray(vector);
+            int[] vector = BasicFunctions.createRandom1DArray(ListeAllerGehege.size(), 0, 3);
+            //BasicFunctions.print1DArray(vector);
             int i = 0;
             for (Gehege g : ListeAllerGehege) {
-                if (vector[i] == 1) this.ListeDerBetreutenGehege.add(g);
+                if (vector[i] != 0) this.ListeDerBetreutenGehege.add(g);
                 i++;
             }
         }
