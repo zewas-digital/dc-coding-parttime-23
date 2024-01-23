@@ -10,25 +10,23 @@ public abstract class Zoo {
     private final int gruendungsjahr;
     private final ArrayList<Gehege> gehegeList;
     private final HashMap<Futter, Integer> gesamtFutterBedarf;
-    private ArrayList<Pfleger> pflegerListe; // Liste der Pfleger im Zoo
-    private HashMap<String, Gehege> gehegeListe; // HashMap zur Speicherung der Gehege
+    private final ArrayList<Pfleger> pflegerList;
 
     public Zoo(String name, int gruendungsjahr) {
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
         this.gehegeList = new ArrayList<>();
         this.gesamtFutterBedarf = new HashMap<>();
-        this.pflegerListe = new ArrayList<>();
-        this.gehegeListe = new HashMap<>();
+        this.pflegerList = new ArrayList<>();
     }
 
-    // Methode zum Abrufen eines Geheges anhand seines Namens
-    public Gehege getGehegeByName(String name) {
-        return this.gehegeListe.get(name);
-    }
 
     public final void addGehege(String gehegeName) {
         gehegeList.add(new Gehege(gehegeName));
+    }
+
+    public final void addPfleger(String pflegerName) {
+        pflegerList.add(new Pfleger(pflegerName));
     }
 
     public void removeGehege(String gehegeName) {
@@ -42,6 +40,17 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
+    public void removePfleger(String pflegerName) {
+        for (int i = 0; i < pflegerList.size(); i++) {
+            if (pflegerList.get(i).getName().equals(pflegerName)) {
+                pflegerList.remove(i);
+                System.out.println("Pfleger " + pflegerName + " wurde entfernt.");
+                return;
+            }
+        }
+        System.out.println("Pfleger " + pflegerName + " wurde nicht gefunden.");
+    }
+
     public final void assignTierToGehege(String gehegeName, Tier tier, int anzahl) {
         for (Gehege gehege : gehegeList) {
             if (gehege.getName().equals(gehegeName)) {
@@ -51,6 +60,16 @@ public abstract class Zoo {
             }
         }
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
+    }
+
+    public final void assignPflegerToGehege(Pfleger name, String gehegeName) {
+        for (Gehege gehege : gehegeList) {
+            if (gehege.getName().equals(gehegeName)) {
+                gehege.addPfleger(name);
+                System.out.println("\n Pfleger " + name + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
+            }
+        }
+        System.out.println("Pfleger " + name + " wurde nicht gefunden.");
     }
 
     public void removeTierFromGehege(String gehegeName, Tier tier, int anzahl) {
@@ -90,17 +109,6 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-    // Methode zum Hinzufügen eines Pflegers
-    public void addPfleger(Pfleger pfleger) {
-        if (!pflegerListe.contains(pfleger)) {
-            pflegerListe.add(pfleger);
-        }
-    }
-
-    // Methode zum Entfernen eines Pflegers
-    public void removePfleger(Pfleger pfleger) {
-        pflegerListe.remove(pfleger);
-    }
 
     public abstract void printAdditionalInfo();
 
@@ -118,17 +126,6 @@ public abstract class Zoo {
                 for (Futter futter : futterBedarf.keySet()) {
                     int menge = futterBedarf.get(futter);
                     System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * anzahl + " " + futter.getEinheit());
-                }
-            }
-
-
-            // Ausgabe der Pfleger und ihrer zugeordneten Tiere für jedes Gehege
-            System.out.println("│   │   ├── 🧑‍⚕️Pfleger🧑‍⚕️:");
-            for (Pfleger pfleger : gehege.getZustaendigePfleger().keySet()) {
-                System.out.println("│   │   │   ├── " + pfleger.getName());
-                System.out.println("│   │   │   │   ├── 🦁Zuständige Tiere🦁:");
-                for (Tier zustandigesTier : pfleger.getZustaendigeTiere()) {
-                    System.out.println("│   │   │   │   │   ├── " + zustandigesTier.getName());
                 }
             }
         }
