@@ -2,6 +2,12 @@ package marcelsimma.week16.Wiederholung;
 
 public abstract class Fahrzeug implements Move {
 
+    public enum fuels {
+        DIESEL,
+        BENZIN,
+        STROM
+    }
+
     // Attribute
     private String color;
     private String seriennummer;

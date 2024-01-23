@@ -1,5 +1,7 @@
 package claudia.week17_Zoo;
 
+import java.util.HashMap;
+
 public class Futter {
     /*
 Bonusaufgabe: Tierfutter
@@ -17,15 +19,49 @@ Beispielausgabe der Statistik:
 30 g          Tubiflex            :     4,50 €
 =======================
 Total Daily cost: 144,70 €
+
+
+    // Eine HashMap speichert Schlüssel-Wert-Paare,
+        // deren Datentypen wir definieren können
+        HashMap<String, Integer> hashMap = new HashMap<>();
+
+        // Wert hinzufügen
+        hashMap.put("erster Schlüssel", 120);
+        hashMap.put("zweiter Schlüssel", 300);
+
+        // Wert lesen
+        System.out.println(
+                hashMap.get("erster Schlüssel")
  */
 //Hashmap mit Name des Futters und benötigten Einheiten
 
-    private String nameInEinheit;
-    public static final double PREIS_IN_EURO_GRAS = 0.20;
-    public static final double PREIS_IN_EURO_FROESCHE = 2.3;
-    public static final double PREIS_IN_EURO_MAEUSE = 1.7;
-    public static final double PREIS_IN_EURO_KRILL = 0.44;
-    public Futter(String nameInEinheit){
-        this.nameInEinheit = nameInEinheit;
+    private String name;
+    private String einheit;
+    private double preisProEinheit;
+    public static final double STANDARD_PREIS_IN_EURO_PRO_KILO_GRAS = 0.20;
+    public static final double STANDARD_PREIS_IN_EURO_PRO_KILO_FROESCHE = 2.3;
+    public static final double STANDARD_PREIS_IN_EURO_PRO_KILO_MAEUSE = 1.7;
+    public static final double STANDARD_PREIS_IN_EURO_PRO_TONNE_KRILL = 12.44;
+
+
+    public Futter(String name, String einheit, double preisProEinheit) {
+        this.name = name;
+        this.einheit = einheit;
+        this.preisProEinheit = preisProEinheit;
+
+    }
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEinheit() {
+        return einheit;
+    }
+
+    public double getPreisProEinheit() {
+        return preisProEinheit;
     }
 }

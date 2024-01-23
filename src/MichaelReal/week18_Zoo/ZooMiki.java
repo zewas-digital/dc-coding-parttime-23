@@ -9,39 +9,55 @@ public class ZooMiki extends Zoo {
 
     @Override
     public void printAdditionalInfo() {
-        // Überschreiben Sie diese Methode, um zusätzliche Informationen für ZooMiki auszugeben
-        System.out.println("Zusätzliche Informationen für ZooMiki");
+        System.out.println("""
+               
+                Zusätzliche Informationen für ZooMiki
+                🐵🦊🐺🫏🫎🐴🐆🐮🐂🐃🐄🐷🐖🐗
+                        
+                """);
     }
 
     public static void main(String[] args) {
         ZooMiki zooMiki = new ZooMiki("ZooMiki", 2023);
 
+
         // Hinzufügen von Gehegen
-        zooMiki.addGehege("Gehege1");
-        zooMiki.addGehege("Gehege2");
+        zooMiki.addGehege("Savanne");
+        zooMiki.addGehege("Dschungel");
+        zooMiki.addGehege("Fischtank");
 
         // Hinzufügen von Tieren
-        Tier Loewe = new Tier("Alf", "Löwe");
-        Tier Elefant = new Tier("Elefant", "Säugetier");
+        Tier Loewe = new Tier("🦁Alf", "Löwe");
+        Tier Elefant = new Tier("🐘Peter", "Elefant");
+        Tier Nemos = new Tier("Nemos", "Fisch");
 
-        zooMiki.assignTierToGehege("Gehege1", Loewe);
-        zooMiki.assignTierToGehege("Gehege2", Elefant);
+
+        zooMiki.assignTierToGehege("Savanne", Loewe,1);
+        zooMiki.assignTierToGehege("Dschungel", Elefant,1);
+        zooMiki.assignTierToGehege("Fischtank", Nemos, 20);
 
         // Hinzufügen von Futter
-        Futter futter1 = new Futter("Fleisch", "kg", 5.0);
-        Futter futter2 = new Futter("Heu", "kg", 2.0);
+        Futter Lammkeule = new Futter("Lammkeule", "kg", 5.0);
+        Futter Hasenkeule = new Futter("Hasenkeule", "kg", 3.5);
+        Futter Heu = new Futter("Heu", "kg", 2.0);
+        Futter Fischfutter = new Futter("Fischfutter", "Becher",2);
 
-        Loewe.addFutterBedarf(futter1, 2);
-        Elefant.addFutterBedarf(futter2, 3);
+        Loewe.addFutterBedarf(Lammkeule, 2);
+        Elefant.addFutterBedarf(Heu, 3);
+        Nemos.addFutterBedarf(Fischfutter,1);
 
-        // Ändern des Futters für ein Tier in einem Gehege
-        zooMiki.changeTierFutter("Gehege1", "Löwe", futter1, 3);
-
-
-        // Ausgabe der Zoo-Struktur
         zooMiki.printZooStructureWithTiere();
 
-        // Berechnung des Gesamtfutterbedarfs und der Kosten
+        zooMiki.calculateFutterBedarfUndKosten();
+
+        // Ändern des Futters für ein Tier in einem Gehege
+        zooMiki.changeTierFutter("Savanne", "🦁Alf", Hasenkeule, 8);
+        zooMiki.removeTierFromGehege("Dschungel", Elefant, 1);
+        zooMiki.removeTierFromGehege("Fischtank", Nemos, 5);
+
+
+        zooMiki.printZooStructureWithTiere();
+
         zooMiki.calculateFutterBedarfUndKosten();
     }
 }

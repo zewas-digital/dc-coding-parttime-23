@@ -6,25 +6,26 @@ public class Gehege {
 
     private String gehegeName;
 
-    private ArrayList<Tiere> tiereArrayList = new ArrayList<>();
+    private ArrayList<Tiere> tiereArrayList;
 
-    public Gehege(String gehegeName){
+    public Gehege(String gehegeName) {
         this.gehegeName = gehegeName;
+        this.tiereArrayList = new ArrayList<>();
     }
 
-    public String toString(){
+    public String toString() {
         return "Gehege: " + this.gehegeName;
     }
 
-    public void addTiere(Tiere tiere){
-        tiereArrayList.add(tiere);
+    public void addTiere(Tiere tiere) {
+        this.tiereArrayList.add(tiere);
     }
 
-    public void removeTiere(Tiere tiere){
-        tiereArrayList.remove(tiere);
+    public void removeTiere(Tiere tiere) {
+        this.tiereArrayList.remove(tiere);
     }
 
-    public ArrayList<Tiere> gettierArrayList(){return this.tiereArrayList;}
-
-
+    public ArrayList<Tiere> gettierArrayList() {
+        return this.tiereArrayList;
+    }
 }
