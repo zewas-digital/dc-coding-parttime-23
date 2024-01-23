@@ -79,7 +79,7 @@ public class Objekt_8_FutterBonus {
         }
         //-------------------------------------------------------------------------------------------------------------------------
 
-
+        // Überprüfung und Hinzufügen des Futters und der Futtermenge
         for (Gehege g : tierpark.gehegeArrayList) {
             for (Tiere t : g.tiereImGehege) {
                 if (result.get(t.futter) != null) {
@@ -92,6 +92,7 @@ public class Objekt_8_FutterBonus {
 
         System.out.println();
 
+        // Ausrechnen des Tagesbedarfs
         for (Futterlager.futterarten f : result.keySet()) {
 
             System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
