@@ -1,6 +1,8 @@
 package marcelsimma.week16.Wiederholung;
 
-public class Auto extends Fahrzeug implements Reifenwechsel{
+import java.util.HashMap;
+
+public class Auto extends Fahrzeug implements Reifenwechsel {
 
     //Attribute
 
@@ -9,6 +11,7 @@ public class Auto extends Fahrzeug implements Reifenwechsel{
     private String modell;
 
     private Engine engine;
+    public Fahrzeug.fuels fuel;
 
 
     private int kilometerstand;
@@ -23,7 +26,7 @@ public class Auto extends Fahrzeug implements Reifenwechsel{
         this.marke = marke;
         this.modell = modell;
         this.engine = engine;
-
+        this.fuel = fuels.BENZIN;
     }
 
     // getter

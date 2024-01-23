@@ -22,6 +22,8 @@ Der erwartete Ausdruck sieht folgendermaßen aus:
  */
 
 
+import MichaelReal.week17_Zoo.Tier;
+import data.Texts;
 
 import java.util.ArrayList;
 
@@ -29,20 +31,48 @@ public class Objekt_6_Zoo {
 
     public static void main(String[] args) {
 
-        Zoo TiergartenDornbirn = new Zoo("Tiergarten Dornbirn",2022 );
-        System.out.println(TiergartenDornbirn);
+        Zoo tiergartenDornbirn = new Zoo("Tiergarten Dornbirn", 2022);
+        //System.out.println(TiergartenDornbirn);
 
-        /*
-        Zoo TiergartenBregenz = new Zoo();
-        TiergartenBregenz.setName("Tiergarten Bregenz");
-        TiergartenBregenz.setGruendungsJahr(2000);
-        System.out.println(TiergartenBregenz);
-         */
-
+        // Gehege anlegen
         Gehege alpenwiese = new Gehege("Alpenwiese");
-        System.out.println(alpenwiese);
+        Gehege ried = new Gehege("Ried");
+        Gehege terrarium = new Gehege("Terrarium");
+
+        // Gehege dem Zoo zuordnen
+        tiergartenDornbirn.addGehege(alpenwiese);
+        tiergartenDornbirn.addGehege(ried);
+        tiergartenDornbirn.addGehege(terrarium);
+
+        // Testausgabe Zoo Struktur mit Gehege
+        tiergartenDornbirn.zooStrukturGehege();
 
 
+        //Anlage Tiere
+       Tiere hirsch1 = new Tiere("Olaf", "Wild");
+       Tiere reh1  = new Tiere("Berta" , "Wild");
+
+       Tiere hase1 = new Tiere("Klopfer" , "Nagetier");
+       Tiere hase2 = new Tiere("Doris", "Nagetier");
+
+       Tiere schlange1 = new Tiere("Danger Noodle", "Reptil");
+       Tiere schlange2 = new Tiere("Kaa" , "Reptil");
+       Tiere schlange3 = new Tiere("Würgi", "Reptil");
+
+
+       //Tiere dem Gehege zuordnen
+        alpenwiese.addTiere(hirsch1);
+        alpenwiese.addTiere(reh1);
+
+        ried.addTiere(hase1);
+        ried.addTiere(hase2);
+
+        terrarium.addTiere(schlange1);
+        terrarium.addTiere(schlange2);
+        terrarium.addTiere(schlange3);
+
+        tiergartenDornbirn.zooStrukturGegeheTiere();
 
     }
+
 }

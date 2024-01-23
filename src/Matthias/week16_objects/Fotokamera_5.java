@@ -16,9 +16,9 @@ public class Fotokamera_5 extends Object{
         // Es können verschiedene Konstruktoren, implementiert werden
         // im Konstruktor wird nur das Implementiert was für das Objekt WIRKLICH & INIZIAL RELEVANT IST!!!
 
-        public Fotokamera_5( String Hersteller, String Modell, int aufloesung){
-            this.hersteller =Hersteller;
-            this.modell =Modell;
+        public Fotokamera_5( String hersteller, String modell, int aufloesung){
+            this.hersteller =hersteller;
+            this.modell =modell;
             this.aufloesung=aufloesung;
             this.sizeFoto=this.aufloesung*0.3;
         }
@@ -82,9 +82,9 @@ public class Fotokamera_5 extends Object{
         }
 
         // Setter 4: Übergibt das Objektiv der Fotokamera
-         public void setObjektiv( Objektiv_5 Objektiv){
+         public void setObjektiv( Objektiv_5 objektiv){
 
-            this.objektiv=Objektiv;
+            this.objektiv=objektiv;
         }
         public Objektiv_5 getObjektiv() {
             return objektiv;
@@ -94,8 +94,8 @@ public class Fotokamera_5 extends Object{
             return speicherkarte;
         }
 
-        public void setSpeicherkarte( Speicherkarte_5 Speicherkarte){
-            this.speicherkarte=Speicherkarte;
+        public void setSpeicherkarte( Speicherkarte_5 speicherkarte){
+            this.speicherkarte=speicherkarte;
         }
 
 

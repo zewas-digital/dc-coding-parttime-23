@@ -48,13 +48,26 @@ public class Zoo {
         }
         return futterTabelle;
     }
-    public void erstelleFutterstatistik(HashMap<Futter, Double> futterStatistik) {
+    public void erstelleFutterstatistik() {
+
+        HashMap<Futter, Double> futterTabelle = new HashMap<>();
+
+        for (Gehege g : getListeDerGehege()) {
+            for (Tiere t : g.getListeDerTiere()) {
+                //Falls aktuelles Futter noch nicht im Hashmap, hinzufügen mit Futtermenge des aktuellen Tiers t
+                if (!futterTabelle.containsKey(t.getFutter()))
+                    futterTabelle.put(t.getFutter(), t.getMengeInEinheit());
+                    //Falls bereits enthalten, addiere Futtermenge des aktuellen Tiers dazu
+                else futterTabelle.put(t.getFutter(), futterTabelle.get(t.getFutter()) + t.getMengeInEinheit());
+            }
+        }
+
         double gesamt = 0;
         System.out.println("\n\n=========   Futterausgaben für den Zoo:   ========= ");
         System.out.println("====================================================");
 
-        for (Futter key : futterStatistik.keySet()) {
-            double menge = futterStatistik.get(key);
+        for (Futter key : futterTabelle.keySet()) {
+            double menge = futterTabelle.get(key);
             double produkt = menge * key.getPreisProEinheit();
             gesamt += produkt;
             System.out.printf("%10f  %3s %-20s : %10.2f € \n", menge, key.getEinheit(), key.getName(), produkt);
@@ -117,7 +130,8 @@ public class Zoo {
     public String getName() {
         return name;
     }
-    public static void erstelleStandardZoo(Zoo meinZoo) {
+    public static Zoo erstelleStandardZoo(String name, int jahr) {
+        Zoo meinZoo = new Zoo(name, jahr);
 
         Gehege alpenwiese = new Gehege(10234, "Alpenwiese", meinZoo.getListeDerGehege());
         Gehege ried = new Gehege(373, "Ried", meinZoo.getListeDerGehege());
@@ -140,9 +154,11 @@ public class Zoo {
         Gehege aquarium = new Gehege(2000000, "Aquarium", meinZoo.getListeDerGehege());
         Wassertiere wal1 = new Wal("Wal1", krill, 23.5465, aquarium.getListeDerTiere());
 
+        return meinZoo;
     }
 
-    public static void erstelleStandardZooMitPreisliste(Zoo meinZoo, double[] futterpreisliste) {
+    public static Zoo erstelleZooMitPreisliste(String name, int jahr, double[] futterpreisliste) {
+        Zoo meinZoo = new Zoo(name, jahr, futterpreisliste);
 
         Gehege alpenwiese = new Gehege(10234, "Alpenwiese", meinZoo.getListeDerGehege());
         Gehege ried = new Gehege(373, "Ried", meinZoo.getListeDerGehege());
@@ -153,19 +169,47 @@ public class Zoo {
         Futter maus = new Futter("Mäuse", "kg", futterpreisliste[2]);
         Futter krill = new Futter("Krill", "t", futterpreisliste[3]);
 
-        Landtiere storch1 = new Storch("Adebar1", frosch, 1, ried.getListeDerTiere());
-        Landtiere storch2 = new Storch("Adebar2", frosch, 0.5, ried.getListeDerTiere());
+        Storch storch1 = new Storch("Adebar1", frosch, 1, ried.getListeDerTiere());
+        Storch storch2 = new Storch("Adebar2", frosch, 0.5, ried.getListeDerTiere());
 
-        Landtiere murmel1 = new Murmeltier("Murmel1", gras, 0.78, alpenwiese.getListeDerTiere());
+        Murmeltier murmel1 = new Murmeltier("Murmel1", gras, 0.78, alpenwiese.getListeDerTiere());
 
-        Landtiere boa1 = new Schlange("Boa1", maus, 2.2, terrariumWarm.getListeDerTiere());
-        Landtiere boa2 = new Schlange("Boa2", maus, 5.1, terrariumWarm.getListeDerTiere());
-        Landtiere boa3 = new Schlange("Boa3", maus, 0.1, terrariumWarm.getListeDerTiere());
+        Schlange boa1 = new Schlange("Boa1", maus, 2.2, terrariumWarm.getListeDerTiere());
+        Schlange boa2 = new Schlange("Boa2", maus, 5.1, terrariumWarm.getListeDerTiere());
+        Schlange boa3 = new Schlange("Boa3", maus, 0.1, terrariumWarm.getListeDerTiere());
 
         Gehege aquarium = new Gehege(2000000, "Aquarium", meinZoo.getListeDerGehege());
-        Wassertiere wal1 = new Wal("Wal1", krill, 23.5465, aquarium.getListeDerTiere());
+        Wal wal1 = new Wal("Wal1", krill, 23.5465, aquarium.getListeDerTiere());
+        Goldfisch goldi1 = new Goldfisch("Goldi1", krill, 0.000002, aquarium.getListeDerTiere());
+        Goldfisch goldi2 = new Goldfisch("Goldi2", krill, 0.0000002, aquarium.getListeDerTiere());
+        Goldfisch goldi3 = new Goldfisch("Goldi3", krill, 0.0000309, aquarium.getListeDerTiere());
+
+
+        Gehege wald = new Gehege(8743, "Wald", meinZoo.getListeDerGehege());
+        Murmeltier murmel2 = new Murmeltier("Murmel2", gras, 2.1, wald.getListeDerTiere());
+        Schlange kreuzotter1 = new Schlange("KO1", maus, 0.5, wald.getListeDerTiere());
+        Schlange kreuzotter2 = new Schlange("KO2", frosch, 0.3, wald.getListeDerTiere());
+
+        return meinZoo;
 
     }
+
+    public Futter getFutterGras() {
+        return futterGras;
+    }
+
+    public Futter getFutterMaus() {
+        return futterMaus;
+    }
+
+    public Futter getFutterFrosch() {
+        return futterFrosch;
+    }
+
+    public Futter getFutterKrill() {
+        return futterKrill;
+    }
+
 
 }
 

@@ -22,7 +22,7 @@ public class Objekt_2_Autofahren {
         Auto1.fahren( 100 );// nicht
         System.out.println( Auto1 );
         System.out.println( "Get:"+Auto1.getKillometerstand());
-        Auto1.volltanken();
+        Auto1.vollTanken();
         System.out.println( Auto1 );
         Auto1.fahren( 100 );
         System.out.println( Auto1 );

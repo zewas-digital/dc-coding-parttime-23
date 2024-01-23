@@ -11,8 +11,10 @@ public class Zoobesuch {
 
 
     public static void main(String[] args) {
-        Zoo meinZoo = new Zoo("Premiumzoo Dornbirn", 2024);
-        Zoo.erstelleStandardZoo(meinZoo);
+
+        double[] preisliste = {1.2, 3.0, 23.78, 7.2};
+        Zoo meinZoo = Zoo.erstelleZooMitPreisliste("Premiumzoo Dornbirn", 2024, preisliste);
+
 
         System.out.println("\nDer Zoo " + meinZoo.getName() + " öffnet!");
 
