@@ -36,6 +36,18 @@ public class Zoohilfe {
 
     }
 
+    public static void printArrayListGehege(ArrayList<Gehege> liste) {
+        for (Gehege g : liste) {
+            System.out.println(g.getName());
+        }
+    }
+
+    public static void printArrayListPfleger(ArrayList<Pfleger> liste) {
+        for (Pfleger g : liste) {
+            System.out.println(g.getName());
+        }
+    }
+
 
 }
 
