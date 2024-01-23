@@ -1,6 +1,4 @@
-package marcelsimma.week16.Wiederholung;
-
-import java.util.HashMap;
+package saifedine.week17_weekend4_objects_Zoo.Wiederholung;
 
 public class Auto extends Fahrzeug implements Reifenwechsel {
 

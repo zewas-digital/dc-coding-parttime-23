@@ -21,9 +21,12 @@ Erweitere dein Zooprogramm mit Tiere.
 │       ├── (leer)
  */
 
+import java.util.HashMap;
+
 public class Objekt_7_Tiere {
 
     public static void main(String[] args) {
+
 
         String haken = "├──";
         String haken2 = "│   ├──";
@@ -50,9 +53,15 @@ public class Objekt_7_Tiere {
         //--------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
+
+
         //Gehege löschen-----------------------------------------------
         tierpark.gehegeArrayList.get(0).tiereImGehege.remove(1);
         //-------------------------------------------------------------
+
+
 
 
         // Ausgabe des Zoos---------------------------------------------------------------------------------------------------
