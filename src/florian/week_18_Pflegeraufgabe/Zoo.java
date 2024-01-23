@@ -93,7 +93,7 @@ public class Zoo {
     public void zustaendigkeitfuerGehege(Pfleger pfleger, Gehege gehege) {
 
         if (this.pflegerArrayList.contains(pfleger) && this.gehegeArrayList.contains(gehege)) {
-            pfleger.gehegeZustaendigkeitArrayList.add(gehege);
+            pfleger.getGehegeZustaendigkeitArrayList().add(gehege);
         } else {
             System.out.println("Pfleger oder Gehege schon Vorhanden oder falsch zugeordnet");
         }
