@@ -27,19 +27,39 @@ public class Objekt_6_Zoo {
 
     public static void main(String[] args) {
 
-        Zoo zoo = new Zoo ( "Tiergarten Dornbirn", 2024 );
+        Zoo zooDornbirn = new Zoo ( "Tiergarten Dornbirn", 2024 );
+        Zoo zooFeldkirch = new Zoo ( "Tiergarten Feldkirch", 2021 );
 
-        zoo.gehegeHinzufuegen("Alpenwiese");
-        zoo.gehegeHinzufuegen("Ried");
-        zoo.gehegeHinzufuegen("Terrarium (warm)");
+        Pfleger pflegerHektor = new Pfleger ( "Hektor" );
+        Pfleger pflegerCharlie = new Pfleger ( "Charlie" );
+        Pfleger pflegerAnna = new Pfleger ( "Anna" );
+        Pfleger pflegerCarlo = new Pfleger ( "Carlo" );
 
-        zoo.tierHinzufuegen ( 1, "Gazelle", "Heu", 5 );
-        System.out.println (zoo.printuebersicht () );
+        zooDornbirn.pflegerZuordnen ( pflegerHektor );
+        zooDornbirn.pflegerZuordnen ( pflegerCharlie );
+        zooDornbirn.pflegerZuordnen ( pflegerAnna );
+        zooFeldkirch.pflegerZuordnen ( pflegerCarlo );
 
-        zoo.gehegeEntfernen ( 2 );
-        zoo.tierHinzufuegen ( 2, "Camellion", "Insekten", 1 );
+        zooDornbirn.pflegerAbziehen ( pflegerCharlie );
 
-        System.out.println (zoo.printuebersicht () );
+
+        zooDornbirn.gehegeHinzufuegen("Alpenwiese");
+        zooDornbirn.gehegeHinzufuegen("Ried");
+        zooDornbirn.gehegeHinzufuegen("Terrarium (warm)");
+
+        zooDornbirn.tierHinzufuegen ( 1, "Gazelle", "Heu", 5 );
+        zooDornbirn.tierHinzufuegen ( 1, "Schaf", "Heu", 4 );
+        zooDornbirn.tierHinzufuegen ( 1, "Huhn", "Mais", 1 );
+        zooDornbirn.tierHinzufuegen ( 2, "Huhn", "Mais", 1 );
+        System.out.println (zooDornbirn.printuebersicht () );
+
+        zooDornbirn.tierHinzufuegen ( 3, "Camellion", "Insekten", 1 );
+        zooDornbirn.tierHinzufuegen ( 2, "Schaf", "Heu", 4 );
+
+        System.out.println (zooDornbirn.printuebersicht () );
+        System.out.println (zooFeldkirch.printuebersicht () );
+        //zooDornbirn.tierEntfernen ( 2, 2 );
+
 
     }
 
