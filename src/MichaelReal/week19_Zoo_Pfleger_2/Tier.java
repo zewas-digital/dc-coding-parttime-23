@@ -7,7 +7,7 @@ public class Tier {
     private String name;
     private String gattung;
     private HashMap<Futter, Integer> futterBedarf;
-    private ArrayList<Pfleger> pflegerTierList;
+    private ArrayList<String> pflegerTierList;
 
 
     public Tier(String name, String gattung) {
@@ -30,7 +30,7 @@ public class Tier {
         futterBedarf.put(futter, menge);
     }
 
-    public void addPfleger(Pfleger name) {
+    public void addPfleger(String name) {
         pflegerTierList.add(name);
     }
 
@@ -38,7 +38,7 @@ public class Tier {
         return futterBedarf;
     }
 
-    public ArrayList<Pfleger> getPflegerTierList() {
+    public ArrayList<String> getPflegerTierList() {
         return pflegerTierList;
     }
 }

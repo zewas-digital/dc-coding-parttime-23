@@ -62,14 +62,15 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-    public final void assignPflegerToGehege(Pfleger name, String gehegeName) {
+    public final void assignPflegerToGehege(String pflegerName, String gehegeName) {
         for (Gehege gehege : gehegeList) {
             if (gehege.getName().equals(gehegeName)) {
-                gehege.addPfleger(name);
-                System.out.println("\n Pfleger " + name + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
+                gehege.addPfleger(pflegerName);
+                System.out.println("\n Pfleger " + pflegerName + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
+                return;
             }
         }
-        System.out.println("Pfleger " + name + " wurde nicht gefunden.");
+        System.out.println("Pfleger " + pflegerName + " wurde nicht gefunden.");
     }
 
     public void removeTierFromGehege(String gehegeName, Tier tier, int anzahl) {
@@ -114,18 +115,21 @@ public abstract class Zoo {
 
     // Methode zur Ausgabe der Zoo-Struktur mit Tieren und ihrem Futter
     public void printZooStructureWithTiere() {
-        System.out.println("\n├── 🐯Zoo🐯: " + name + ", gegründet " + gruendungsjahr);
+        System.out.println("\n├── 🐯Zoo: " + name + ", gegründet " + gruendungsjahr);
         for (Gehege gehege : gehegeList) {
             System.out.println("│   ├── 🏁Gehege: " + gehege.getName());
             HashMap<Tier, Integer> tierList = gehege.getTierList();
             for (Tier tier : tierList.keySet()) {
                 int anzahl = tierList.get(tier);
-                System.out.println("│   │   ├── 🌿Tier🌿: " + tier.getName() + " (Gattung: " + tier.getGattung() + ", Anzahl: " + anzahl + ")");
-                System.out.println("│   │   │   ├── 🥗Futterbedarf🥗:");
+                System.out.println("│   │   ├── 🌿Tier: " + tier.getName() + " (Gattung: " + tier.getGattung() + ", Anzahl: " + anzahl + ")");
+                System.out.println("│   │   │   ├── 🥗Futterbedarf:");
                 HashMap<Futter, Integer> futterBedarf = tier.getFutterBedarf();
                 for (Futter futter : futterBedarf.keySet()) {
                     int menge = futterBedarf.get(futter);
                     System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * anzahl + " " + futter.getEinheit());
+                    for (Pfleger pfleger : pflegerList) {
+                        System.out.println("│   │   │   │   │   ├── 👨‍⚕️Pfleger: " + pfleger.getName());
+                    }
                 }
             }
         }

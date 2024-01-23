@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Gehege {
     private String name;
     private HashMap<Tier, Integer> tierList;
-    private ArrayList<Pfleger> pflegerGehegeList;
+    private ArrayList<String> pflegerGehegeList;
 
     public Gehege(String name) {
         this.name = name;
@@ -23,8 +23,8 @@ public class Gehege {
         tierList.put(tier, anzahl);
     }
 
-    public void addPfleger(Pfleger name) {
-        pflegerGehegeList.add(name);
+    public void addPfleger(String pfleger) {
+        pflegerGehegeList.add(pfleger);
     }
 
     // Methode zum Ändern des Futters für ein Tier in diesem Gehege
@@ -45,7 +45,7 @@ public class Gehege {
         return tierList;
     }
 
-    public ArrayList<Pfleger> getPflegerGehegeList() {
+    public ArrayList<String> getPflegerGehegeList() {
         return pflegerGehegeList;
     }
 
