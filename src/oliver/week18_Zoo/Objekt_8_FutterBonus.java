@@ -6,7 +6,7 @@ Erweitere dein Zooprogramm mit Futter-Bedarfsanalyse.
 
 + Erstelle eine Klasse für Futter mit einen Namen, Einheit und Einheitspreis.
 + Jedes Tier hat einen Futterbedarf, die beinhaltet das Futter und eine Menge
-+ Erstelle eine Statistik, was der Futterbedarf von Zoo ist, und wie viel die Tagesversorgung sich kostet.
++ Erstelle eine Statistik, was der Futterbedarf von Zoo ist, und wie viel die Tagesversorgung kostet.
 Für diese Aufgabe kann man HashMap gut brauchen.
 
 Beispielausgabe der Statistik:
@@ -33,7 +33,39 @@ public class Objekt_8_FutterBonus {
 
         // Wert lesen
         System.out.println(
-                hashMap.get("erster Schlüssel")
+                "Erster Schlüssel in Hashmap: "+
+                hashMap.get("zweiter Schlüssel")
         );
+        // --------------------------
+
+
+        // Zoo ----------------------
+        Zoo tierpark = new Zoo("Tierpark");
+
+        // Gehege
+        Gehege waldrand = tierpark.neuesGehege("Waldrand");
+        Gehege weide = tierpark.neuesGehege("Weide");
+
+        System.out.println(tierpark.gehege.size() +" - "+ tierpark.gehege.toArray().length);
+        System.out.println(tierpark.gehege.get(1).bezeichnung);
+
+        // Futter
+        Futter heu = new Futter("Heu", "kg", 2);
+        Futter fleisch = new Futter("Fleisch", "kg", 12);
+        // Futter kann auch in den Zoo
+        tierpark.futterHinzufuegen(heu, 2.2);
+        System.out.println(
+                "Heu Standardpreis: "+ heu.getPreisProEinheit() +
+                        " Zoo-Preis: "+ tierpark.getFutterpreis(heu));
+
+        // Tiere
+        Tier rehKiez = waldrand.tierHinzufuegen("rehKiez", heu, 2);
+        Tier rehBock = waldrand.tierHinzufuegen("rehBock", heu, 5);
+        Tier luchs = weide.tierHinzufuegen("Luchs", fleisch, 1);
+
+        System.out.println(luchs.getFutter().getName());
+
+        // Drucke berechneten Futterbedarf
+        tierpark.druckeFutterStatistik();
     }
 }
