@@ -14,9 +14,13 @@ public class Pfleger {
         this.zustaendigeTiere = new ArrayList<>();
     }
 
-    // Methode zum Hinzufügen eines Geheges
+    // Hinzufügen eines Geheges zu den zuständigen Gehegen des Pflegers
     public void addZustaendigesGehege(Gehege gehege) {
-        zustaendigeGehege.put(gehege, zustaendigeGehege.getOrDefault(gehege, 0) + 1);
+        // Prüfen, ob das Gehege bereits in der Liste ist, und hinzufügen, falls nicht
+        if (!this.zustaendigeGehege.containsKey(gehege)) {
+            this.zustaendigeGehege.put(gehege, 0);
+        }
+        this.zustaendigeGehege.put(gehege, this.zustaendigeGehege.get(gehege) + 1);
     }
 
     // Methode zum Entfernen eines Geheges
@@ -29,10 +33,11 @@ public class Pfleger {
         }
     }
 
-    // Methode zum Hinzufügen eines Tieres
+    // Hinzufügen eines Tieres zu den zuständigen Tieren des Pflegers
     public void addZustaendigesTier(Tier tier) {
-        if (!zustaendigeTiere.contains(tier)) {
-            zustaendigeTiere.add(tier);
+        // Prüfen, ob das Tier bereits in der Liste ist, und hinzufügen, falls nicht
+        if (!this.zustaendigeTiere.contains(tier)) {
+            this.zustaendigeTiere.add(tier);
         }
     }
 

@@ -57,6 +57,12 @@ public class Gehege {
             }
             pfleger.removeZustaendigesGehege(this); // Pfleger auch informieren
         }
+    }
+
+    // Getter-Methode für zuständige Pfleger
+    public HashMap<Pfleger, Integer> getZustaendigePfleger() {
+        return new HashMap<>(zustaendigePfleger);
+    }
 
 }
 
