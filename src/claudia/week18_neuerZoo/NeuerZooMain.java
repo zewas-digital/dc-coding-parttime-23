@@ -30,18 +30,18 @@ public class NeuerZooMain {
 
         Tier murmeltier1 = new Tier("Murmel 1", "Murmeltier", Lagerhaus.Futterarten.GRAS, 0.027, hochgebirge.getListeDerTiere());
 
-        //zoo.printStructure();
+        zoo.printStructure();
 
-        //zoo.erstelleFutterstatistik();
+        zoo.erstelleFutterstatistik();
 
-        /*
+
         System.out.println("\nTier " + murmeltier1.getName() + " wird gefüttert: ");
         murmeltier1.feed();
         zoo.feedAll();
-*/
+
         System.out.println("\nDer Zoo braucht Personal!");
-        Pfleger hansi = new Pfleger("Hansi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), zoo.getZustaendig());
-        Pfleger berni = new Pfleger("Berni", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), zoo.getZustaendig());
+        Pfleger hansi = new Pfleger("Hansi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);//, zoo.getZustaendig());
+        Pfleger berni = new Pfleger("Berni", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);//, zoo.getZustaendig());
 
         System.out.println("\nAlle Pfleger im Zoo: ");
         ArrayList<Pfleger> allePfleger = zoo.getListeDerPfleger();
@@ -55,47 +55,19 @@ public class NeuerZooMain {
             System.out.println(g.getName());
         }
 
-        /*
+
         System.out.println("\nListe aller Tiere: ");
         ArrayList<String> liste = zoo.listeAllerTiere();
         for (String t : liste) {
             System.out.println(t);
         }
-*/
+
         System.out.println("\n\nLISTE!: ");
         zoo.getPflegerUndGehegeListe();
     }
 
-        /*
-        ArrayList<Object[]> superliste = zoo.getPflegerUndGehegeListe();
 
-        for (Object[] obj : superliste){
-            Pfleger p = (Pfleger) obj[0];
-            Gehege g = (Gehege) obj[1];
-            System.out.println(p.toString() + " betreut " + g.toString());
-        }*/
-
-       /*
-        for (int i = 0; i < superliste.size(); i++) {
-            System.out.println((Pfleger)superliste.get(i));
-            System.out.println((Gehege)superliste.get(i));
-            }
-
-        /////////////////////
-        public void printPflegerUndGehegeListe(){
-            ArrayList<Object[]> pflegerUndGehegeListe = getPflegerUndGehegeListe();
-            for (Object[] obj : pflegerUndGehegeListe){
-                Pfleger p = (Pfleger) obj[0];
-                Gehege g = (Gehege) obj[1];
-                System.out.println(p.toString() + " betreut " + g.toString());
-            }
-        }*/
-        ////////////////////
+}
 
 
-
-
-        }
-
-       // }
 

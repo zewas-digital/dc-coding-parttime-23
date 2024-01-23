@@ -35,6 +35,15 @@ public class Lagerhaus {
 
     }
 
+    public Lagerhaus(double[] preislisteGrasFischSchokolade) {
+        Futter gras = new Futter("Gras", "Tonnen", preislisteGrasFischSchokolade[0]);
+        Futter fisch = new Futter("Fisch", "Stück", preislisteGrasFischSchokolade[1]);
+        Futter schokolade = new Futter("Schokolade", "kg", preislisteGrasFischSchokolade[2]);
+        futterliste.put(Futterarten.GRAS, gras);
+        futterliste.put(Futterarten.FISCH, fisch);
+        futterliste.put(Futterarten.SCHOKOLADE, schokolade);
+    }
+
     public HashMap<Futterarten, Futter> getFutterliste() {
         return futterliste;
     }

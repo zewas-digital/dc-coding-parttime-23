@@ -13,28 +13,36 @@ Erweitere den Struktur-Ausdruck um die neu eingeführten Pfleger.
 public class Objekt_9_Pfleger {
     public static void main( String[] args ) {
 
+        // Zoo erstellen
+        Zoo zoo1= new Zoo( "Tiergarten Dornbirn", 2022 );
 
-    Zoo zoo1= new Zoo( "Tiergarten Dornbirn", 2022 );
+        //Pfleger erstellen
+        Pfleger pflegerSafi= new Pfleger( "Safi" );
+        Pfleger pflegerClaudi= new Pfleger( "Claudi" );
 
-    Gehege gehege1=new Gehege( "Alpenwiese" );
-    Gehege gehege2=new Gehege( "Ried" );
-    Gehege gehege3=new Gehege( "Terrarium (warm)" );
+        //Pfleger Zoos zuweisen
+        zoo1.neuerPfleger( pflegerSafi );
+        zoo1.neuerPfleger( pflegerClaudi);
 
-    //ArrayList<Zoo> zoos = new ArrayList<>( );
+        //Gehege
+        Gehege wildwiese=zoo1.addGehege("Ried" );
+        Gehege wuestenlandschaft=zoo1.addGehege( "Terrarium (warm)" );
+        Gehege blubberBecken=zoo1.addGehege( "Terrarium (warm)" );
 
-        zoo1.addGehege( gehege1 );
-        zoo1.addGehege( gehege2 );
-        zoo1.addGehege( gehege3 );
+        //Plegern ihre Verantwortung mit Validierung hinzufügen
+
+        zoo1.verantwortlichFuerGehege( pflegerSafi,wildwiese );
+        zoo1.verantwortlichFuerGehege( pflegerSafi,wuestenlandschaft);
+        zoo1.verantwortlichFuerGehege( pflegerClaudi,blubberBecken );
+
+
         zoo1.printFormated();
-        zoo1.removeGehege(gehege1);
-        zoo1.printFormated();
-        zoo1.addGehege( gehege1);
-        zoo1.printFormated();
+
         Futterbedarf Menge1=new Futterbedarf( 3 );
-        Tiere WILD =new Tiere( "Rijska", "Kuh" , Futter.Futtersorten.Fisch,Menge1);
-        Tiere VOGEL =new Tiere( "Garmond", "Kuh", Futter.Futtersorten.Heu,Menge1 );
-        gehege1.addNewAnimal(  WILD);
-        gehege1.addNewAnimal(  VOGEL);
+
+        Tier Kuh=wildwiese.addNewAnimal( "Garmond", "Kuh", Futter.Futtersorten.Heu,Menge1);
+        Tier Fisch= wildwiese.addNewAnimal( "Rijska", "Hai" , Futter.Futtersorten.Fisch,Menge1);
+
         zoo1.printFormated();
         zoo1.printFutterbedarfsliteZoo();
     }
