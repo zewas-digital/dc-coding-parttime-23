@@ -203,14 +203,6 @@ public abstract class Zoo {
         }
     }
 
-    private void beobachteZufaelligesTier(Gehege gehege) {
-        Random random = new Random();
-        ArrayList<Tier> tiere = new ArrayList<>(gehege.getTierList().keySet());
-        if (!tiere.isEmpty()) {
-            Tier zufaelligesTier = tiere.get(random.nextInt(tiere.size()));
-            System.out.println("Beobachtung des Tiers: " + zufaelligesTier.getName());
-        }
-    }
 
     public void beobachteLieblingstierInAnderemGehege(Pfleger pfleger) {
         for (Gehege gehege : gehegeList) {
