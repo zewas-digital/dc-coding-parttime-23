@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V01;
 
 /*
 Aufgabe: Pfleger
@@ -9,7 +9,6 @@ wofür der Pfleger zuständig ist. Erweitere die Klasse Zoo, dass die eine Liste
 
 Erweitere den Struktur-Ausdruck um die neu eingeführten Pfleger.
  */
-
 
 
 public class Objekt_9_Pfleger {
