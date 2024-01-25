@@ -91,11 +91,13 @@ public class Zoo extends Object{
 
     }
     public String printuebersicht(){
-        //gehegeZuordnung ();
+
         HashMap<String, Float> futterpreis = preisliste ();
 
         String ausgabe = "|---Zoo: " + this.name + ", gegründet " + this.gruendungsjahr+"\n";
         ausgabe = ausgabe + "|\n";
+
+
         //Preisübersicht Futterkosten Zoogesamt
         ausgabe = ausgabe + "|---Futter Tagesbedarf\n";
         for (String str: futteruebersicht.keySet () ) {
@@ -103,6 +105,8 @@ public class Zoo extends Object{
             String Preis = String.format ( "%.2f", preis );
             ausgabe = ausgabe + "|   |---" + str + ": "+ futteruebersicht.get(str) +"kg -->"+ Preis + "€\n";
         }
+
+
         //Ausgabe Gesamtpreis
         gesamtpreis = 0;
         for (String futter:futteruebersicht.keySet ()) {
@@ -113,15 +117,19 @@ public class Zoo extends Object{
         String Preis = String.format ( "%.2f", gesamtpreis );
         ausgabe = ausgabe + "|   |---Gesamtpreis = "+Preis+"€\n";
         ausgabe = ausgabe + "|\n";
+
+
         //Ausgabe Personal
         ausgabe = ausgabe +"|---Personaleinteilung\n";
         for (int i = 0; i < pfleger.size (); i++) {
             ausgabe = ausgabe + "|   |---Personal"+(i+1)+": "+ pfleger.get ( i ).name+"\n";
             for (int j = 0; j < pfleger.get ( i ).gehege.size (); j++) {
-                ausgabe = ausgabe +"|   |   |---"+pfleger.get ( i ).gehege.get(j).name+"\n";
+                ausgabe = ausgabe +"|       |---"+pfleger.get ( i ).gehege.get(j).name+"\n";
             }
         }
         ausgabe = ausgabe + "|\n";
+
+
         //Ausgabe Gehege mit Tieren
         int arraySize = zoogehege.size ( );
 
@@ -131,6 +139,12 @@ public class Zoo extends Object{
         }
 
         return ausgabe;
+    }
+    public void kontrollgang(){
+
+        for (Pfleger pfleger: this.pfleger ) {
+            pfleger.kontrollgang ();
+        }
     }
     private HashMap<String, Float> preisliste(){
         HashMap<String, Float> futterpreis= new HashMap<> ();

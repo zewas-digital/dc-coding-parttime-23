@@ -2,6 +2,7 @@ package michael_k.week17;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Gehege extends Object {
 
@@ -62,5 +63,22 @@ public class Gehege extends Object {
         }
         ausgabe = ausgabe + "|\n";
         return ausgabe;
+    }
+    public String zufallstier(String lieblingstier){
+        String tier = "keiner";
+        Random zufall = new Random ();
+
+        int anzahlTiere = gehegeTiere.size ();
+
+        if(gehegeTiere.size () == 1){ tier = gehegeTiere.get (0).name;}
+        else{ tier = gehegeTiere.get (zufall.nextInt (  0,anzahlTiere-1)).name;}
+
+        for (Tiere t: gehegeTiere) {
+            if (t.name.equals ( lieblingstier )){
+                tier = "sein Lieblingstier \"" + t.name +"\"";
+            }
+        }
+
+        return tier;
     }
 }

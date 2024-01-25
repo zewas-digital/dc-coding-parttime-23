@@ -30,16 +30,18 @@ public class Objekt_6_Zoo {
         Zoo zooDornbirn = new Zoo ( "Tiergarten Dornbirn", 2024 );
         Zoo zooFeldkirch = new Zoo ( "Tiergarten Feldkirch", 2021 );
 
-        Pfleger pflegerHektor = new Pfleger ( "Hektor" );
-        Pfleger pflegerCharlie = new Pfleger ( "Charlie" );
-        Pfleger pflegerAnna = new Pfleger ( "Anna" );
-        Pfleger pflegerCarlo = new Pfleger ( "Carlo" );
+        Pfleger pflegerHektor = new Pfleger ( "Hektor", "Gazelle" );
+        Pfleger pflegerCharlie = new Pfleger ( "Charlie", "Huhn" );
+        Pfleger pflegerAnna = new Pfleger ( "Anna", "Pinguin" );
+        Pfleger pflegerCarlo = new Pfleger ( "Carlo", "Robe" );
+        Pfleger pflegerLena = new Pfleger ( "Lena", "Robe" );
 
 
         zooDornbirn.pflegerZuordnen ( pflegerHektor );
         zooDornbirn.pflegerZuordnen ( pflegerCharlie );
         zooFeldkirch.pflegerZuordnen ( pflegerAnna );
         zooFeldkirch.pflegerZuordnen ( pflegerCarlo );
+        zooFeldkirch.pflegerZuordnen ( pflegerLena );
         //zooDornbirn.pflegerAbziehen ( pflegerCharlie );
 
 
@@ -53,6 +55,8 @@ public class Objekt_6_Zoo {
         zooDornbirn.gehegeZuordnen ( "Alpenwiese",pflegerHektor );
         zooDornbirn.gehegeZuordnen ( "Ried",pflegerHektor );
         zooDornbirn.gehegeZuordnen ( "Terrarium (warm)",pflegerCharlie );
+        zooDornbirn.gehegeZuordnen ( "Ried",pflegerCharlie );
+
         zooFeldkirch.gehegeZuordnen ( "Antaktika",pflegerAnna );
         zooFeldkirch.gehegeZuordnen ( "Savane",pflegerCarlo );
 
@@ -71,6 +75,15 @@ public class Objekt_6_Zoo {
         System.out.println (zooDornbirn.printuebersicht () );
         System.out.println (zooFeldkirch.printuebersicht () );
         //zooDornbirn.tierEntfernen ( 2, 2 );
+
+        zooDornbirn.kontrollgang ();
+        zooFeldkirch.kontrollgang ();
+
+
+
+
+
+
 
 
     }
