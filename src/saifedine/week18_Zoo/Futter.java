@@ -41,4 +41,8 @@ public class Futter {
     public float getFutterPreis() {
         return this.futterPreis;
     }
+
+    public FutterEinheit getFutterEinheit() {
+        return this.futterEinheit;
+    }
 }

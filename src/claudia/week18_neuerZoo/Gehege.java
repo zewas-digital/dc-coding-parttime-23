@@ -33,4 +33,8 @@ public class Gehege {
     public ArrayList<Tier> getListeDerTiere() {
         return this.ListeDerTiere;
     }
+    @Override
+    public String toString(){
+        return ("Gehege " + this.name);
+    }
 }

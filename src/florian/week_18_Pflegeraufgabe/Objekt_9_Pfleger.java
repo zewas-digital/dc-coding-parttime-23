@@ -11,37 +11,66 @@ Erweitere den Struktur-Ausdruck um die neu eingeführten Pfleger.
  */
 
 
-
-
 public class Objekt_9_Pfleger {
     public static void main(String[] args) {
 
         String haken = "├──";
         String haken2 = "│   ├──";
-        String haken3 = "│       ├──";
+        String haken3 = "│     ├──";
+        String haken4 = "│       ├──";
 
-     Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
+        Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
 
-     Futterlager futterlager = new Futterlager();
+        Futterlager futterlager = new Futterlager();
 
-        tierpark.gehegeArrayList.add(new Gehege("Alpen"));
-        tierpark.gehegeArrayList.add(new Gehege("Savanne"));
-        tierpark.gehegeArrayList.add(new Gehege("Tropen"));
+        Pfleger peter = new Pfleger("Peter");
+        Pfleger hans = new Pfleger("Hans");
+        Pfleger bernd = new Pfleger("Bernd");
 
-        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Wildschwein", Futterlager.futterarten.HEU, 5));
-        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Hugo", "Bär", Futterlager.futterarten.FISCH, 15));
-        tierpark.gehegeArrayList.get(1).tiereImGehege.add(new Tiere("Maxiking", "Löwe", Futterlager.futterarten.FISCH, 10));
+        Gehege alpen = new Gehege("Alpen");
+        Gehege savanne = new Gehege("Savanne");
+        Gehege aquarium = new Gehege("Aquarium");
 
-        System.out.println(haken + " Zoo: " + tierpark.name + ", gegründet " + tierpark.gruendungsjahr);
-        for (Gehege s : tierpark.gehegeArrayList) {
-            System.out.println(haken2 + " Gehege: " + s.bezeichnung);
-            for (Tiere t : s.tiereImGehege) {
-                System.out.println(haken3 + "Name: " + t.Name + ", Gattung: " + t.Gattung + ", Futter: " + futterlager.lagerliste.get(t.futter).bezeichnung);
+        //Pfleger erstellen
+
+        tierpark.addPfleger(peter);
+        tierpark.addPfleger(hans);
+        tierpark.addPfleger(bernd);
+        // System.out.println(tierpark.pflegerArrayList);
+
+        // Pfleger löschen
+        //tierpark.removePfleger(peter);
+        // System.out.println(tierpark.pflegerArrayList);
+
+        // Gehege erstellen
+
+        tierpark.addGehege(alpen);
+        tierpark.addGehege(savanne);
+        tierpark.addGehege(aquarium);
+
+        tierpark.zustaendigkeitfuerGehege(peter, alpen);
+        tierpark.zustaendigkeitfuerGehege(hans, savanne);
+        tierpark.zustaendigkeitfuerGehege(bernd, aquarium);
+
+
+        //Tiere hinzufügen
+
+        tierpark.getGehegeArrayList().get(0).getTiereImGehege().add(new Tiere("Maxi", "Wildschwein", Futterlager.futterarten.HEU, 5));
+        tierpark.getGehegeArrayList().get(0).getTiereImGehege().add(new Tiere("Hugo", "Bär", Futterlager.futterarten.FISCH, 15));
+        tierpark.getGehegeArrayList().get(1).getTiereImGehege().add(new Tiere("Aslan", "Löwe", Futterlager.futterarten.FISCH, 10));
+        tierpark.getGehegeArrayList().get(2).getTiereImGehege().add(new Tiere("Nemo", "Weisser Hai", Futterlager.futterarten.FISCH, 15));
+
+        // Ausgabe
+        System.out.println(haken + " Zoo: " + tierpark.getName() + ", gegründet " + tierpark.getGruendungsjahr());
+        for (Pfleger p : tierpark.getPflegerArrayList()) {
+            System.out.println(haken2 + "Zuständiger Pfleger: " + p);
+            for (Gehege s : p.getGehegeZustaendigkeitArrayList()) {
+                System.out.println(haken3 + " Gehege: " + s.getBezeichnung());
+                for (Tiere t : s.getTiereImGehege()) {
+                    System.out.println(haken4 + "Name: " + t.Name + ", Gattung: " + t.Gattung + ", Futter: " + futterlager.lagerliste.get(t.futter).bezeichnung);
+                }
             }
         }
-
-
-
 
 
     }
