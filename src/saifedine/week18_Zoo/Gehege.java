@@ -13,6 +13,7 @@ public class Gehege {
         this.tiereArrayList = new ArrayList<>();
     }
 
+    @Override
     public String toString() {
         return "Gehege: " + this.gehegeName;
     }
