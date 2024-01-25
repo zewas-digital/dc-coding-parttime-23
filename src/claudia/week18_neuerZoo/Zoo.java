@@ -2,6 +2,7 @@ package claudia.week18_neuerZoo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Zoo {
     private final String name ;
@@ -11,6 +12,7 @@ public class Zoo {
    // private HashMap<Pfleger, Gehege> zustaendig;
     private ArrayList<Gehege> ListeDerGehege = new ArrayList <>();
     private ArrayList<Pfleger> ListeDerPfleger = new ArrayList<>();
+    private ArrayList<Tier> ListeDerTiere = new ArrayList<>();
 
     private ArrayList<Object[]> PflegerUndGehegeListe = new ArrayList<>();
 
@@ -32,6 +34,38 @@ public class Zoo {
         for (Gehege g : ListeDerGehege) {
             for (Tier t: g.getListeDerTiere()) {
                 liste.add(t.getName());
+            }
+        }
+        return liste;
+    }
+
+    public Tier findArt(String art) {
+        ArrayList<Tier> liste = this.getListeDerTiere();
+        Random random = new Random();
+        int anzahl = liste.size();
+
+        int temp = random.nextInt(anzahl);
+        Tier t = liste.get(temp);
+       // System.out.println("Erstes ausgesucht: " + t.getArt());
+
+        int counter = 0;
+
+        while (!t.getArt().equals(art) && counter < anzahl) {
+            t = liste.get((temp + counter) % anzahl);
+            //System.out.println("In der Schleife: " + t.getArt());
+            counter++;
+        }
+        if (counter == anzahl) {
+            System.out.println("Die Art " + art + " ist im Zoo leider nicht vorhanden!");
+            return null;
+        } else return t;
+    }
+
+    public ArrayList<Tier> getListeDerTiere() {
+        ArrayList<Tier> liste = new ArrayList<>();
+        for (Gehege gehege : this.getListeDerGehege()) {
+            for (Tier tier : gehege.getListeDerTiere()) {
+                liste.add(tier);
             }
         }
         return liste;

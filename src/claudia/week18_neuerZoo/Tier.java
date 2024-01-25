@@ -1,6 +1,7 @@
 package claudia.week18_neuerZoo;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Tier {
     private String name;
@@ -20,7 +21,32 @@ public class Tier {
 
     public void feed() {
         System.out.println("Ich heiße " + this.name + " und fresse " + futter);
+        try {
+            Thread.sleep(2000);}
+        catch (InterruptedException e){
+            throw new RuntimeException(e);
+        }
     }
+
+    public void watch(Pfleger p) {
+        Random random = new Random();
+        int multiplicator = random.nextInt(10);
+        int counter = 0;
+        System.out.print("\nPfleger " + p.getName() + " beobachtet " + this.getName() + ", " + this.getArt() + ". ");
+        try {
+            while(counter < multiplicator){
+            System.out.print(" . ");
+            counter++;
+
+            Thread.sleep(2000);}
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("\nPfleger " + p.getName() + " geht weiter!");
+    }
+
 
     public String getName() {
         return this.name;
