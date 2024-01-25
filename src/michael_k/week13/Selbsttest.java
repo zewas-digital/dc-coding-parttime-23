@@ -235,10 +235,18 @@ int[] arr = fillArr(10);
         for (int i = 0; i < input2+1; i++) {
             System.out.print (arr10[i]+" " );
         }
+        System.out.println ( );
         for (int value: arr10) {
             System.out.print ( value +" ");
         }
-        //Console.WriteLine("[{0}]", String.join(" ", arr10));
+        System.out.println ( );
+        String[] StringArray= new String[arr10.length];
+
+        //Hilfe: https://javabeginners.de/String/int_zu_String.php
+        for (int i = 0; i < arr10.length; i++) {
+            StringArray[i]=Integer.toString( arr10[i]);
+        }
+        System.out.println(String.join( " ",StringArray));
 
         // String **********************
         String text = "Heute der 19.10.2021 wird ein sehr guter Tag. Zwar gibt es sowas wie einen Test, den 14 Leute schreiben, aber das ist doch egal!";
@@ -284,7 +292,16 @@ Aufruf          Console.WriteLine(Regex.IsMatch("test101ABCDE", regex));        
 
 Aufruf          Console.WriteLine(Regex.IsMatch("test1ABCDE", regex));          Ausgabe          true
          */
+        System.out.println ( );
+        System.out.println ("Aufgabe 12:" );
+        System.out.println ( );
 
+        String Regex="^[a-z]{3,}[1-9][0-9]{2}[A-Z]+$";
+        String[] strings = new String[]{"abc100A","Abc100A","luke010A","test101ABCDE","test1ABCDE"};
+        for (String string : strings) {
+            System.out.println ( string + ": " + string.matches( Regex ));
+        }
+        //System.out.println( "abc100A".matches("^[a-z]{3,}[1-9][0-9]{2}[A-Z]+$" ) );
         // Kalender ********************
         // Aufgabe 13 ------------------
         /* Gib mit Hilfe der Calendar Api den Wochentag des aktuellen Tages inklusive Datum aus.
