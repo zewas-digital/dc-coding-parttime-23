@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V02;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -130,13 +130,11 @@ public class Zoo {
              */
 
             // Version mit soutf
-            System.out.printf("%2d %-9s %-13s %-9s %5s %s%n",
+            System.out.printf("%2d %-9s %-13s :   %6.2f € %n",
                     this.futterMengenBedarfListe.get(futterArt),
                     Futter.FutterLagerListe.get(futterArt).getFutterEinheit(),
                     futterArt,
-                    ":",
-                    (Futter.FutterLagerListe.get(futterArt).getFutterPreis() * this.futterMengenBedarfListe.get(futterArt)),
-                    " €");
+                    (Futter.FutterLagerListe.get(futterArt).getFutterPreis() * this.futterMengenBedarfListe.get(futterArt)));
         }
 
         System.out.println("=======================");

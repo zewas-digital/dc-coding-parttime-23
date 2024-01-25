@@ -1,9 +1,10 @@
-package MichaelReal.week19_Zoo_Pfleger_2;
+package MichaelReal.week19_Zoo_Simulation;
 
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public abstract class Zoo {
     private final String name;
@@ -25,8 +26,8 @@ public abstract class Zoo {
         gehegeList.add(new Gehege(gehegeName));
     }
 
-    public final void addPfleger(String pflegerName) {
-        pflegerList.add(new Pfleger(pflegerName));
+    public final void addPfleger(String pflegerName, String lieblingsGattung) {
+        pflegerList.add(new Pfleger(pflegerName, lieblingsGattung));
     }
 
     public void removeGehege(String gehegeName) {
@@ -171,5 +172,48 @@ public abstract class Zoo {
         }
 
         System.out.println("Gesamtkosten für die Tagesversorgung: " + gesamtKosten + " Euro");
+    }
+
+    public void simulateDay() {
+        // Zurücksetzen der Bearbeitungszustände für alle Gehege
+        for (Gehege gehege : gehegeList) {
+            gehege.resetWurdeBearbeitet();
+        }
+
+        // Simulation für jeden Pfleger
+        for (Pfleger pfleger : pflegerList) {
+            System.out.println("\nPfleger " + pfleger.getName() + " beginnt seinen Tag.");
+            for (Gehege gehege : gehegeList) {
+                if (!gehege.isWurdeBearbeitet() && gehege.getPflegerGehegeList().contains(pfleger.getName())) {
+                    System.out.println("Pfleger " + pfleger.getName() + " bearbeitet Gehege " + gehege.getName());
+                    gehege.bearbeiteGehege();
+                    // Beobachten eines zufälligen Tiers
+                    beobachteZufaelligesTier(gehege);
+                }
+            }
+            // Pfleger besucht sein Lieblingstier in anderen Gehegen
+            beobachteLieblingstierInAnderemGehege(pfleger);
+        }
+    }
+
+    private void beobachteZufaelligesTier(Gehege gehege) {
+        Random random = new Random();
+        ArrayList<Tier> tiere = new ArrayList<>(gehege.getTierList().keySet());
+        if (!tiere.isEmpty()) {
+            Tier zufaelligesTier = tiere.get(random.nextInt(tiere.size()));
+            System.out.println("Beobachtung des Tiers: " + zufaelligesTier.getName());
+        }
+    }
+
+    public void beobachteLieblingstierInAnderemGehege(Pfleger pfleger) {
+        for (Gehege gehege : gehegeList) {
+            for (Tier tier : gehege.getTierList().keySet()) {
+                if (tier.getGattung().equals(pfleger.getLieblingsGattung())) {
+                    System.out.println("Pfleger " + pfleger.getName() + " besucht sein Lieblingstier " + tier.getName() + " im Gehege " + gehege.getName());
+                    return; // Pfleger hat sein Lieblingstier gefunden und beobachtet
+                }
+            }
+        }
+        System.out.println("Pfleger " + pfleger.getName() + " konnte sein Lieblingstier nicht finden.");
     }
 }
