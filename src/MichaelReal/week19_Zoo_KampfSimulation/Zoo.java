@@ -1,4 +1,4 @@
-package MichaelReal.week19_Zoo_Simulation;
+package MichaelReal.week19_Zoo_KampfSimulation;
 
 
 
@@ -197,13 +197,13 @@ public abstract class Zoo {
                     gehege.bearbeiteGehegeFuerSpezifischenPfleger(pfleger);
                 }
             }
-            // Pfleger besucht sein Lieblingstier
-            beobachteLieblingstier(pfleger);
+            // Pfleger besucht sein Lieblingstier in anderen Gehegen
+            beobachteLieblingstierInAnderemGehege(pfleger);
         }
     }
 
 
-    public void beobachteLieblingstier(Pfleger pfleger) {
+    public void beobachteLieblingstierInAnderemGehege(Pfleger pfleger) {
         for (Gehege gehege : gehegeList) {
             for (Tier tier : gehege.getTierList().keySet()) {
                 if (tier.getGattung().equals(pfleger.getLieblingsGattung())) {

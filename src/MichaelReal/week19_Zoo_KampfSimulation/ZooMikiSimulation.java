@@ -1,4 +1,4 @@
-package MichaelReal.week19_Zoo_Simulation;
+package MichaelReal.week19_Zoo_KampfSimulation;
 
 
 public class ZooMikiSimulation extends Zoo {
@@ -72,7 +72,7 @@ public class ZooMikiSimulation extends Zoo {
         //Hinzufügen von Pflegern
         zooMiki.addPfleger("Otto","Krokodil");
         zooMiki.addPfleger("Carl","Löwe");
-        zooMiki.addPfleger("Anna","Krokodil");
+        zooMiki.addPfleger("Anna","Elefant");
 
 
         zooMiki.assignPflegerToGehege("Otto","Savanne");
@@ -91,6 +91,18 @@ public class ZooMikiSimulation extends Zoo {
         krokodil2.addPfleger("Anna");
 
 
+
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
+        // Starten der Tagessimulation
+        zooMiki.simulateDay();
+
+        // Ändern des Futters für ein Tier in einem Gehege
+        zooMiki.changeTierFutter("Savanne", "🦁Alf", Hasenkeule, 8);
+        zooMiki.removeTierFromGehege("Fischtank", nemos, 5);
 
 
         zooMiki.printZooStructureWithTiere();
