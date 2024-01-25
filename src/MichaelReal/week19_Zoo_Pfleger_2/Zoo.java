@@ -127,8 +127,9 @@ public abstract class Zoo {
                 for (Futter futter : futterBedarf.keySet()) {
                     int menge = futterBedarf.get(futter);
                     System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * anzahl + " " + futter.getEinheit());
-                    for (String pflegerName : gehege.getPflegerGehegeList()) {
-                        System.out.println("│   │   │   │   │   ├── 👨‍⚕️Pfleger: " + pflegerName);
+                    ArrayList<String> pflegerTierList = tier.getPflegerTierList();
+                    for (String pflegerName : pflegerTierList) {
+                        System.out.println("│   │   │   │   │   ├── 👨‍⚕️Pfleger: " + pflegerName + " ist verantwortlich für " + tier.getName());
                     }
                 }
             }

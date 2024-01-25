@@ -28,11 +28,13 @@ public class ZooMikiMitPfleger extends Zoo {
 
         // Hinzufügen von Tieren
         Tier loewe = new Tier("🦁Alf", "Löwe");
+        Tier loewe2 = new Tier("🦁Udo", "Löwe");
         Tier elefant = new Tier("🐘Peter", "Elefant");
         Tier nemos = new Tier("Nemos", "Fisch");
 
 
         zooMiki.assignTierToGehege("Savanne", loewe,1);
+        zooMiki.assignTierToGehege("Savanne", loewe2,1);
         zooMiki.assignTierToGehege("Dschungel", elefant,1);
         zooMiki.assignTierToGehege("Fischtank", nemos, 20);
 
@@ -43,6 +45,7 @@ public class ZooMikiMitPfleger extends Zoo {
         Futter Fischfutter = new Futter("Fischfutter", "Becher",2);
 
         loewe.addFutterBedarf(Lammkeule, 2);
+        loewe2.addFutterBedarf(Lammkeule, 2);
         elefant.addFutterBedarf(Heu, 3);
         nemos.addFutterBedarf(Fischfutter,1);
 
@@ -57,6 +60,8 @@ public class ZooMikiMitPfleger extends Zoo {
         loewe.addPfleger("Otto");
         elefant.addPfleger("Otto");
         nemos.addPfleger("Carl");
+        loewe2.addPfleger("Carl");
+
 
 
         zooMiki.printZooStructureWithTiere();
