@@ -6,6 +6,7 @@ public class Gehege {
     private String name;
     private int flaeche;
     private ArrayList<Tier> ListeDerTiere = new ArrayList<>();
+    private boolean alreadyFed = false;
 
 
     public Gehege(String name, int flaeche, ArrayList<Gehege> ListeDerGehege) {
@@ -36,5 +37,13 @@ public class Gehege {
     @Override
     public String toString(){
         return ("Gehege " + this.name);
+    }
+
+    public boolean isAlreadyFed() {
+        return alreadyFed;
+    }
+    public void changeFeedStatus(){
+        if (this.alreadyFed) this.alreadyFed = false;
+        else this.alreadyFed = true;
     }
 }

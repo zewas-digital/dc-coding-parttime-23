@@ -10,6 +10,7 @@ public class Pfleger {
     private String name;
     private ArrayList<Gehege> ListeDerBetreutenGehege = new ArrayList<Gehege>();
     //Array mit ArrayLists Zuordnung Gehege <-> Pfleger, 1:1-Beziehung
+    private String lieblingsArt = "";
 
     public Pfleger(String name, ArrayList<Pfleger> ListeDerPfleger, ArrayList<Gehege> ListeAllerGehege, boolean abfrage) {//, HashMap<Pfleger, Gehege> zustaendig){
         this.name = name;
@@ -68,5 +69,14 @@ public class Pfleger {
     public String toString(){
         return ("Pfleger " + this.name);
     }
+
+    public String getLieblingsArt() {
+        return lieblingsArt;
+    }
+
+    public void setLieblingsArt(String name) {
+        this.lieblingsArt = name;
+    }
+
 
 }
