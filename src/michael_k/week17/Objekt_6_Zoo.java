@@ -35,26 +35,38 @@ public class Objekt_6_Zoo {
         Pfleger pflegerAnna = new Pfleger ( "Anna" );
         Pfleger pflegerCarlo = new Pfleger ( "Carlo" );
 
+
         zooDornbirn.pflegerZuordnen ( pflegerHektor );
         zooDornbirn.pflegerZuordnen ( pflegerCharlie );
-        zooDornbirn.pflegerZuordnen ( pflegerAnna );
+        zooFeldkirch.pflegerZuordnen ( pflegerAnna );
         zooFeldkirch.pflegerZuordnen ( pflegerCarlo );
+        //zooDornbirn.pflegerAbziehen ( pflegerCharlie );
 
-        zooDornbirn.pflegerAbziehen ( pflegerCharlie );
+
+        zooDornbirn.gehegeHinzufuegen("Alpenwiese" );
+        zooDornbirn.gehegeHinzufuegen("Ried" );
+        zooDornbirn.gehegeHinzufuegen("Terrarium (warm)" );
+        zooFeldkirch.gehegeHinzufuegen ( "Antaktika" );
+        zooFeldkirch.gehegeHinzufuegen ( "Savane" );
 
 
-        zooDornbirn.gehegeHinzufuegen("Alpenwiese");
-        zooDornbirn.gehegeHinzufuegen("Ried");
-        zooDornbirn.gehegeHinzufuegen("Terrarium (warm)");
+        zooDornbirn.gehegeZuordnen ( "Alpenwiese",pflegerHektor );
+        zooDornbirn.gehegeZuordnen ( "Ried",pflegerHektor );
+        zooDornbirn.gehegeZuordnen ( "Terrarium (warm)",pflegerCharlie );
+        zooFeldkirch.gehegeZuordnen ( "Antaktika",pflegerAnna );
+        zooFeldkirch.gehegeZuordnen ( "Savane",pflegerCarlo );
 
-        zooDornbirn.tierHinzufuegen ( 1, "Gazelle", "Heu", 5 );
-        zooDornbirn.tierHinzufuegen ( 1, "Schaf", "Heu", 4 );
-        zooDornbirn.tierHinzufuegen ( 1, "Huhn", "Mais", 1 );
-        zooDornbirn.tierHinzufuegen ( 2, "Huhn", "Mais", 1 );
-        System.out.println (zooDornbirn.printuebersicht () );
 
-        zooDornbirn.tierHinzufuegen ( 3, "Camellion", "Insekten", 1 );
-        zooDornbirn.tierHinzufuegen ( 2, "Schaf", "Heu", 4 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Gazelle", "Heu", 5 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Huhn", "Mais", 1 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1 );
+        zooDornbirn.tierHinzufuegen ( "Terrarium (warm)", "Camellion", "Insekten", 1 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Schaf", "Heu", 4 );
+
+        zooFeldkirch.tierHinzufuegen ( "Savane", "Wasserbüffel", "Heu", 9 );
+        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Pinguin", "Fisch", 1 );
+        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Robe", "Fisch", 2 );
 
         System.out.println (zooDornbirn.printuebersicht () );
         System.out.println (zooFeldkirch.printuebersicht () );

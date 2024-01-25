@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Gehege extends Object {
 
     protected String name;
+    public boolean gehegeKontrolliert = false;
     public ArrayList<Tiere> gehegeTiere = new ArrayList<Tiere>();
 
 

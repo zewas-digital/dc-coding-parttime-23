@@ -20,15 +20,26 @@ public class Zoo extends Object{
     public void gehegeHinzufuegen(String gehegename){
         this.zoogehege.add(new Gehege ( gehegename ));
     }
-    public void gehegeEntfernen(int gehegeNummer){
-
-        zoogehege.remove ( gehegeNummer-1 );
-
+    public void gehegeEntfernen(String name){
+        int i = 0;
+        for(Gehege x : this.zoogehege){
+            if(x.name.equals(name)) {
+                this.zoogehege.remove ( i );
+            }
+            i++;
+        }
     };
-    public void tierHinzufuegen(int gehegeNummer, String tiername, String futterart, float futtermenge){
+    public void tierHinzufuegen(String gehege, String tiername, String futterart, float futtermenge){
+        int i = 0;
+        for(Gehege x : this.zoogehege){
+            if(x.name.equals(gehege)) {
+                break;
+            }
+            i++;
+        }
+        zoogehege.get(i).tierHinzufuegen ( tiername, futterart,futtermenge );
 
-        zoogehege.get(gehegeNummer-1).tierHinzufuegen ( tiername, futterart,futtermenge );
-
+        // Futterbedarf in Zoo futterübersicht eintragen
         if(futteruebersicht.get ( futterart ) == null){
             futteruebersicht.put(futterart, futtermenge);
 
@@ -66,42 +77,19 @@ public class Zoo extends Object{
         }
 
     }
-    /*private void gehegeZuordnung(){
-        // Gehegezuständigkeit der Pfleger löschen
-        for (Pfleger pfleger:pfleger) {
-            pfleger.resetGehege ();
-        }
-
-
-        // Ein Array erstellen und zufällig mit Gehege befüllt
-        Random random = new Random();
-        // Array Kopie erstellen
-        Gehege[] gehege = new Gehege[zoogehege.size ()];
-        int l = 0;
-        for (Gehege g:zoogehege) {
-            gehege[l] =g;
-            l++;
-        }
-        // Arraykopie mischen
-        for (int i = 0; i < random.nextInt ( 5); i++) {
-            int index1 = random.nextInt(gehege.length - 1);
-            int index2 = random.nextInt(gehege.length - 1);
-
-            Gehege temp = gehege[index1];
-            gehege[index1] = gehege[index2];
-            gehege[index2] = temp;
-        }
-        // Gehege den Pfleger wieder zuordnen
-        int k = 0;
-        for (Gehege i:gehege) {
-            int j = pfleger.size ();
-            pfleger.get ( k ).gehegeHinzufuegen ( i );
-            k++;
-            if (k == pfleger.size ()){
-                k=0;
+    public void gehegeZuordnen(String gehege, Pfleger pfleger){
+        int i = 0;
+        for(Gehege x : this.zoogehege){
+            if(x.name.equals(gehege)) {
+                break;
             }
+            i++;
         }
-    }*/
+        if(this.pfleger.contains ( pfleger ) && i != zoogehege.size ( ) ){
+            pfleger.gehegeHinzufuegen ( zoogehege.get ( i ) );
+        }
+
+    }
     public String printuebersicht(){
         //gehegeZuordnung ();
         HashMap<String, Float> futterpreis = preisliste ();
@@ -149,7 +137,7 @@ public class Zoo extends Object{
         futterpreis.put ( "Fleisch", 9.8F );
         futterpreis.put ( "Insekten", 1.6F );
         futterpreis.put ( "Heu", 1.2F );
-        futterpreis.put ( "Fischfutter", 4.7F );
+        futterpreis.put ( "Fisch", 4.7F );
         futterpreis.put ( "Mais", 3.9F );
         return futterpreis;
     }
