@@ -29,14 +29,14 @@ public class ZooMikiSimulation extends Zoo {
 
 
         // Hinzufügen von Tieren
-        Tier loewe = new Tier("🦁Alf", "Löwe");
-        Tier loewe2 = new Tier("🦁Sonja", "Löwe");
-        Tier elefant = new Tier("🐘Peter", "Elefant");
-        Tier elefant2 = new Tier("🐘Carla", "Elefant");
-        Tier nemos = new Tier("🐟Nemos", "Fisch");
-        Tier seestern = new Tier("⭐Seestern", "Seestern");
-        Tier krokodil1 = new Tier("🐊Fido", "Krokodil");
-        Tier krokodil2 = new Tier("🐊Leila", "Krokodil");
+        Tier loewe = new Tier("🦁Alf", "Löwe",100,60);
+        Tier loewe2 = new Tier("🦁Sonja", "Löwe",100,60);
+        Tier elefant = new Tier("🐘Peter", "Elefant",100,30);
+        Tier elefant2 = new Tier("🐘Carla", "Elefant",100,30);
+        Tier nemos = new Tier("🐟Nemos", "Fisch",100,15);
+        Tier seestern = new Tier("⭐Seestern", "Seestern",100,5);
+        Tier krokodil1 = new Tier("🐊Fido", "Krokodil",100,80);
+        Tier krokodil2 = new Tier("🐊Leila", "Krokodil",100,80);
 
 
 
