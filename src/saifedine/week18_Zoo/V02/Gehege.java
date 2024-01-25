@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V02;
 
 import java.util.ArrayList;
 
@@ -13,6 +13,7 @@ public class Gehege {
         this.tiereArrayList = new ArrayList<>();
     }
 
+    @Override
     public String toString() {
         return "Gehege: " + this.gehegeName;
     }

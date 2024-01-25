@@ -1,4 +1,4 @@
-package Matthias.week18_Zoo.Zoo2;
+package saifedine.week18_Zoo.oliver;
 
 /*
 Aufgabe: Tiere
@@ -14,16 +14,13 @@ Erweitere dein Zooprogramm mit Tiere.
 │   ├── Gehege: Alpenwiese
 │       ├── Rijska, Kuh
 │   ├── Gehege: Ried
-│       ├── Garmond, Storch
+│       ├── Garmond, Storh
 │       ├── Hugo, Storh
-│       ├── Idaxis, Storch
+│       ├── Idaxis, Storh
 │   ├── Gehege: Terrarium (warm)
 │       ├── (leer)
  */
 
 public class Objekt_7_Tiere {
-    public static void main( String[] args ) {
-
-    }
 
 }

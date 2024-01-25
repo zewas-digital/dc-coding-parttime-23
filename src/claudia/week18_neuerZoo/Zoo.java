@@ -1,7 +1,6 @@
 package claudia.week18_neuerZoo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Zoo {
@@ -12,11 +11,7 @@ public class Zoo {
    // private HashMap<Pfleger, Gehege> zustaendig;
     private ArrayList<Gehege> ListeDerGehege = new ArrayList <>();
     private ArrayList<Pfleger> ListeDerPfleger = new ArrayList<>();
-    //private HashMap<Lagerhaus.Futterarten, Futter> futterliste;
 
-
-    //private Object[] PflegerUndGehege = new Object[2];
-    //PflegerUndGehege[0] = pfleger;
     private ArrayList<Object[]> PflegerUndGehegeListe = new ArrayList<>();
 
     public Zoo(String name, int jahr) {
@@ -56,6 +51,47 @@ public class Zoo {
         }
         return this.PflegerUndGehegeListe;
     }
+
+    /*
+    //Umständliche Variante von Abfrage der Zuständigkeit!
+    public boolean pflegerZustaendigFuerGehege(Pfleger pfleger, Gehege gehege) {
+        ArrayList<Object[]> liste = this.getPflegerUndGehegeListe();
+        for (int i = 0; i < liste.size(); i++) {
+            Object[] temp = liste.get(i);
+            if (temp[0].equals(pfleger) && temp[1].equals(gehege)) {
+                System.out.println("Pfleger: " + pfleger.getName() + ", Gehege: " + gehege.getName());
+                return true;
+            }
+        }
+        System.out.println("Pfleger: " + pfleger.getName() + ", Gehege: " + gehege.getName());
+
+        return false;
+    }
+*/
+    //Bessere Variante von Abfrage der Zuständigkeit
+    public boolean pflegerZustaendigFuerGehege2(Pfleger pfleger, Gehege gehege) {
+       for (Gehege g : pfleger.getListeDerBetreutenGehege()){
+           if (g.equals(gehege)) {
+               System.out.println("Pfleger " + pfleger.getName() + " zuständig für Gehege: " + gehege.getName());
+               return true;
+           }
+       }
+        System.out.println("Pfleger " + pfleger.getName() + " nicht zuständig für Gehege: " + gehege.getName());
+        return false;
+    }
+
+
+    public void printPflegerUndGehegeListe() {
+        System.out.println("\n\nListe der betreuten Gehege: ");
+        ArrayList<Object[]> PflegerUndGehegeListe = this.getPflegerUndGehegeListe();
+        for (int i = 0; i < PflegerUndGehegeListe.size(); i++) {
+            Object[] temp = PflegerUndGehegeListe.get(i);
+            System.out.printf("%-25s :  %-25s \n", (Pfleger) temp[0], (Gehege) temp[1]);
+        }
+    }
+
+
+
     public void erstelleFutterstatistik() {
         //Hashmap speichert Futterart mit benötigter Gesamtmenge:
         HashMap<Lagerhaus.Futterarten, Double> futterTabelle = new HashMap<>();
@@ -99,9 +135,6 @@ public class Zoo {
         }
     }
 
-    //public HashMap<Lagerhaus.Futterarten, Futter> getFutterliste() {
-    //    return this.lagerhaus.getFutterliste();
-    //}
 
     public void feedAll() {
         System.out.println("\nEs ist Fütterungszeit! ");
@@ -149,13 +182,6 @@ public class Zoo {
         return this.ListeDerGehege;
     }
 
-   // public HashMap<Pfleger, Gehege> getZustaendig() {
-     //   return zustaendig;
-    //}
-
-   /* public ArrayList<Object>[][] getPflegerUndGehege() {
-        return PflegerUndGehege;
-    }*/
 
     public ArrayList<Pfleger> getListeDerPfleger() {
         return ListeDerPfleger;

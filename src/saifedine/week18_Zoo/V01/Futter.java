@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V01;
 
 import java.util.HashMap;
 
@@ -40,5 +40,9 @@ public class Futter {
 
     public float getFutterPreis() {
         return this.futterPreis;
+    }
+
+    public FutterEinheit getFutterEinheit() {
+        return this.futterEinheit;
     }
 }

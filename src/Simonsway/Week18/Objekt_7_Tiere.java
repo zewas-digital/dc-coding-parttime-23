@@ -34,29 +34,45 @@ public class Objekt_7_Tiere {
         // Create Gehege
         Gehege alpenLuft = new Gehege("Alpen Luft");
         Gehege suedhang = new Gehege("Südhang");
+        Gehege westhang = new Gehege("Westhang");
 
         // Add Gehege to Zoo
         zooTierGartenDornbirn.addGehege(alpenLuft);
+        zooTierGartenDornbirn.addGehege(westhang);
         zooTierGartenBregenz.addGehege(suedhang);
-
-        // Create Tiere
-        Tiere hirsch = new Tiere("Hirsch", "Wildtiere");
-        Tiere reh = new Tiere("Reh", "Wildtiere");
-
-        // Add Tiere to Gehege
-        alpenLuft.addTiere(hirsch);
-        suedhang.addTiere(reh);
 
         // Add Futter
         Futter haferKorn = new Futter("Haferkorn", "KG", 0.12F);
         Futter mehl = new Futter("Haferkorn", "Gramm", 0.40F);
 
-        // Add Futter to Tiere
-        hirsch.addFutter(haferKorn);
+        // Add Futterlagerliste
+        Futterlager futterlager = new Futterlager();
+
+
+        // Create Tiere
+        Tiere hirsch = new Tiere("Hirsch", "Wildtiere", Futterlager.futterArten.HEU, 15);
+        Tiere reh = new Tiere("Reh", "Wildtiere", Futterlager.futterArten.HEU, 5);
+        Tiere wildschein = new Tiere("Wildschwin", "Wildtiere", Futterlager.futterArten.FLEISCH, 15);
+
+        // Add Tiere to Gehege
+        alpenLuft.addTiere(hirsch);
+        suedhang.addTiere(reh);
+        westhang.addTiere(wildschein);
 
         // Display Output
         zooTierGartenDornbirn.zooDisplayOutput();
         zooTierGartenBregenz.zooDisplayOutput();
+
+
+
+
+
+
+
+
+        // Gesamt Bedarf Kalkulation
+        //System.out.println("Gesamt Bedarf Kalkulation: " + zooTierGartenDornbirn.gesamtBedarfKalkulation());
+        //System.out.println("Gesamt Bedarf Preis: " + zooTierGartenDornbirn.gesamtBedarfKalkluationPreis());
 
     }
 

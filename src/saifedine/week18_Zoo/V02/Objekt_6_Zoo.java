@@ -1,4 +1,4 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V02;
 
 /*
 Aufgabe: Zoo

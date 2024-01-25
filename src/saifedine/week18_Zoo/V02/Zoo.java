@@ -1,7 +1,8 @@
-package saifedine.week18_Zoo;
+package saifedine.week18_Zoo.V02;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Vector;
 
 public class Zoo {
 
@@ -13,11 +14,16 @@ public class Zoo {
 
     HashMap<Futter.FutterArt, Integer> futterMengenBedarfListe = new HashMap<>();
 
+    public Vector<Pfleger> pfleger;
+
+
+
 
     // Konstruktor
     public Zoo(String zooName, int gruendungsjahr) {
         this.zooName = zooName;
         this.gruendungsjahr = gruendungsjahr;
+        this.pfleger = new Vector<>();
     }
 
 
@@ -104,8 +110,78 @@ public class Zoo {
         // https://www.w3schools.com/java/java_hashmap.asp
 
         System.out.println("Kalkulation Tagesbedarf: ");
+
+        System.out.println("=======================");
+
         for (Futter.FutterArt futterArt: futterMengenBedarfListe.keySet()){
-            System.out.println(futterArt + " : " + (Futter.FutterLagerListe.get(futterArt).getFutterPreis() * this.futterMengenBedarfListe.get(futterArt)) + " € Kosten am Tag");
+            //System.out.print(this.futterMengenBedarfListe.get(futterArt) +  " " + Futter.FutterLagerListe.get(futterArt).getFutterEinheit() + "         ");
+
+            /*
+            // Version ohne soutf
+            System.out.println(this.futterMengenBedarfListe.get(futterArt)
+                    +  " "
+                    + Futter.FutterLagerListe.get(futterArt).getFutterEinheit()
+                    + "         "
+                    + futterArt
+                    + " : "
+                    + (Futter.FutterLagerListe.get(futterArt).getFutterPreis() * this.futterMengenBedarfListe.get(futterArt))
+                    + " € Kosten am Tag");
+            System.out.println("----------------------------------------------------------------------------------------");
+             */
+
+            // Version mit soutf
+            System.out.printf("%2d %-9s %-13s :   %6.2f € %n",
+                    this.futterMengenBedarfListe.get(futterArt),
+                    Futter.FutterLagerListe.get(futterArt).getFutterEinheit(),
+                    futterArt,
+                    (Futter.FutterLagerListe.get(futterArt).getFutterPreis() * this.futterMengenBedarfListe.get(futterArt)));
+        }
+
+        System.out.println("=======================");
+    }
+
+    // Objekt_9_Pfleger
+
+    public void addPfleger(Pfleger pfleger){
+        this.pfleger.add(pfleger);
+    }
+
+    public void zustaendigkeitGehege(Pfleger pfleger, Gehege gehege){
+
+        //System.out.println("Pfleger: " + this.pfleger.contains(pfleger));
+        //System.out.println("Gehege: " + this.gehegeArrayList.contains(gehege));
+
+        if (this.pfleger.contains(pfleger) && this.gehegeArrayList.contains(gehege)){
+            pfleger.gehegeZustaendigkeit.add(gehege);
+        }
+        else if (this.pfleger.contains(pfleger) == false && this.gehegeArrayList.contains(gehege) == false) {
+
+            System.out.println(pfleger + " und " + gehege + " ist diesem " + this.zooName + " nicht zugeordnet!");
+        }
+        else if (this.pfleger.contains(pfleger) == false) {
+
+            System.out.println(pfleger + " ist diesem " + this.zooName + " nicht zugeordnet!");
+        }
+        else {
+            System.out.println(gehege + " ist diesem " + this.zooName + " nicht zugeordnet!");
+        }
+    }
+
+    public void zooStrukturGehegeTierePfleger() {
+
+        String zooDaten = toString();
+
+        System.out.println("\n├── " + zooDaten);
+
+        for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
+            System.out.println("│   ├── " + this.gehegeArrayList.get(i));
+
+            for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().toArray().length; j++) {
+                System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
+            }
+        }
+        for (int k = 0; k < this.pfleger.size(); k++) {
+            System.out.println("│          ├── " + this.pfleger.get(k));
         }
     }
 }
