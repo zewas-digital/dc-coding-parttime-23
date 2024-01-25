@@ -1,4 +1,4 @@
-package MichaelReal.week19_Zoo_Pfleger_2;
+package MichaelReal.week19_Zoo_Pfleger_Shit;
 
 
 
@@ -12,6 +12,7 @@ public abstract class Zoo {
     private final HashMap<Futter, Integer> gesamtFutterBedarf;
     private final ArrayList<Pfleger> pflegerList;
 
+
     public Zoo(String name, int gruendungsjahr) {
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
@@ -20,18 +21,35 @@ public abstract class Zoo {
         this.pflegerList = new ArrayList<>();
     }
 
+    public void addPfleger(Pfleger pfleger) {
+        pflegerList.add(pfleger);
+    }
+
+    public void removePfleger(Pfleger pfleger) {
+        pflegerList.remove(pfleger);
+    }
+
 
     public final void addGehege(String gehegeName) {
         gehegeList.add(new Gehege(gehegeName));
     }
 
-    public final void addPfleger(String pflegerName) {
-        pflegerList.add(new Pfleger(pflegerName));
-    }
-
     public void removeGehege(String gehegeName) {
+        // Durchlaufe die Liste der Gehege
         for (int i = 0; i < gehegeList.size(); i++) {
             if (gehegeList.get(i).getName().equals(gehegeName)) {
+                // Durchlaufe die Liste der Pfleger
+                for (Pfleger pfleger : pflegerList) {
+                    // Entferne das zu entfernende Gehege aus der Liste der vom Pfleger betreuten Gehege
+                    pfleger.removeZustandigesGehege(gehegeList.get(i));
+                    // Durchlaufe die Liste der Tiere im zu entfernenden Gehege
+                    HashMap<Tier, Integer> tierList = gehegeList.get(i).getTierList();
+                    for (Tier tier : tierList.keySet()) {
+                        // Entferne die Zuordnung des Pflegers zum Tier (falls vorhanden)
+                        pfleger.removeZustandigesTier(tier);
+                    }
+                }
+
                 gehegeList.remove(i);
                 System.out.println("Gehege " + gehegeName + " wurde entfernt.");
                 return;
@@ -40,16 +58,15 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-    public void removePfleger(String pflegerName) {
-        for (int i = 0; i < pflegerList.size(); i++) {
-            if (pflegerList.get(i).getName().equals(pflegerName)) {
-                pflegerList.remove(i);
-                System.out.println("Pfleger " + pflegerName + " wurde entfernt.");
-                return;
+    public Gehege getGehegeByName(String gehegeName) {
+        for (Gehege gehege : gehegeList) {
+            if (gehege.getName().equals(gehegeName)) {
+                return gehege;
             }
         }
-        System.out.println("Pfleger " + pflegerName + " wurde nicht gefunden.");
+        return null; // Gehege mit dem angegebenen Namen wurde nicht gefunden
     }
+
 
     public final void assignTierToGehege(String gehegeName, Tier tier, int anzahl) {
         for (Gehege gehege : gehegeList) {
@@ -62,41 +79,34 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-    public final void assignPflegerToGehege(String pflegerName, String gehegeName) {
-        for (Gehege gehege : gehegeList) {
-            if (gehege.getName().equals(gehegeName)) {
-                gehege.addPfleger(pflegerName);
-                System.out.println("\n Pfleger " + pflegerName + " wurde dem Gehege " + gehegeName + " hinzugefügt.");
-                return;
-            }
-        }
-        System.out.println("Pfleger " + pflegerName + " wurde nicht gefunden.");
-    }
-
-    public void removeTierFromGehege(String gehegeName, Tier tier, int anzahl) {
+    public void removeTierFromGehege(String gehegeName, String tierName, int anzahl) {
         for (Gehege gehege : gehegeList) {
             if (gehege.getName().equals(gehegeName)) {
                 HashMap<Tier, Integer> tierList = gehege.getTierList();
-                if (tierList.containsKey(tier)) {
-                    int aktuelleAnzahl = tierList.get(tier);
-                    if (anzahl <= aktuelleAnzahl) {
-                        if (aktuelleAnzahl - anzahl == 0) {
-                            tierList.remove(tier); // Das Tier vollständig entfernen, wenn die Anzahl 0 ist
+                for (Tier tier : tierList.keySet()) {
+                    if (tier.getName().equals(tierName)) {
+                        int aktuelleAnzahl = tierList.get(tier);
+                        if (anzahl <= aktuelleAnzahl) {
+                            if (aktuelleAnzahl - anzahl == 0) {
+                                tierList.remove(tier); // Das Tier vollständig entfernen, wenn die Anzahl 0 ist
+                            } else {
+                                tierList.put(tier, aktuelleAnzahl - anzahl); // Anzahl aktualisieren
+                            }
+                            System.out.println("\n🌿Tier🌿 " + tierName + " wurde aus dem Gehege " + gehegeName + " entfernt (Anzahl: " + anzahl + ").");
+                            return;
                         } else {
-                            tierList.put(tier, aktuelleAnzahl - anzahl); // Anzahl aktualisieren
+                            System.out.println("Nicht genügend " + tierName + " im Gehege " + gehegeName + ".");
+                            return;
                         }
-                        System.out.println("\n🌿Tier🌿 " + tier.getName() + " wurde aus dem Gehege " + gehegeName + " entfernt (Anzahl: " + anzahl + ").");
-                        return;
-                    } else {
-                        System.out.println("Nicht genügend " + tier.getName() + " im Gehege " + gehegeName + ".");
                     }
-                } else {
-                    System.out.println("Tier " + tier.getName() + " wurde nicht im Gehege " + gehegeName + " gefunden.");
                 }
+                System.out.println("Tier " + tierName + " wurde nicht im Gehege " + gehegeName + " gefunden.");
+                return;
             }
         }
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
+
 
 
 
@@ -110,28 +120,36 @@ public abstract class Zoo {
         System.out.println("Gehege " + gehegeName + " wurde nicht gefunden.");
     }
 
-
     public abstract void printAdditionalInfo();
 
     // Methode zur Ausgabe der Zoo-Struktur mit Tieren und ihrem Futter
     public void printZooStructureWithTiere() {
-        System.out.println("\n├── 🐯Zoo: " + name + ", gegründet " + gruendungsjahr);
+        System.out.println("\n├── 🐯Zoo🐯: " + name + ", gegründet " + gruendungsjahr);
         for (Gehege gehege : gehegeList) {
             System.out.println("│   ├── 🏁Gehege: " + gehege.getName());
             HashMap<Tier, Integer> tierList = gehege.getTierList();
             for (Tier tier : tierList.keySet()) {
                 int anzahl = tierList.get(tier);
-                System.out.println("│   │   ├── 🌿Tier: " + tier.getName() + " (Gattung: " + tier.getGattung() + ", Anzahl: " + anzahl + ")");
-                System.out.println("│   │   │   ├── 🥗Futterbedarf:");
+                System.out.println("│   │   ├── 🌿Tier🌿: " + tier.getName() + " (Gattung: " + tier.getGattung() + ", Anzahl: " + anzahl + ")");
+                System.out.println("│   │   │   ├── 🥗Futterbedarf🥗:");
                 HashMap<Futter, Integer> futterBedarf = tier.getFutterBedarf();
                 for (Futter futter : futterBedarf.keySet()) {
                     int menge = futterBedarf.get(futter);
-                    System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * anzahl + " " + futter.getEinheit());
-                    ArrayList<String> pflegerTierList = tier.getPflegerTierList();
-                    for (String pflegerName : pflegerTierList) {
-                        System.out.println("│   │   │   │   │   ├── 👨‍⚕️Pfleger: " + pflegerName + " ist verantwortlich für " + tier.getName());
-                    }
+                    System.out.println("│   │   │   │   ├── " + futter.getName() + ": " + menge * tierList.get(tier) + " " + futter.getEinheit());
                 }
+            }
+        }
+
+        // Schleife über Pfleger und ihre Zuordnungen zu Tieren und Gehegen
+        for (Pfleger pfleger : pflegerList) {
+            System.out.println("│   │   ├── 🧑‍⚕️Pfleger🧑‍⚕️: " + pfleger.getName());
+            System.out.println("│   │   │   ├── 🏠Zuständige Gehege🏠:");
+            for (Gehege gehege : pfleger.getZustandigeGehege()) {
+                System.out.println("│   │   │   │   ├── " + gehege.getName());
+            }
+            System.out.println("│   │   │   ├── 🦁Zuständige Tiere🦁:");
+            for (Tier tier : pfleger.getZustandigeTiere()) {
+                System.out.println("│   │   │   │   ├── " + tier.getName());
             }
         }
 

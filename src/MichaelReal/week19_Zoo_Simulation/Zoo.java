@@ -1,4 +1,4 @@
-package MichaelReal.week19_Zoo_Pfleger_2;
+package MichaelReal.week19_Zoo_Simulation;
 
 
 
@@ -25,8 +25,8 @@ public abstract class Zoo {
         gehegeList.add(new Gehege(gehegeName));
     }
 
-    public final void addPfleger(String pflegerName) {
-        pflegerList.add(new Pfleger(pflegerName));
+    public final void addPfleger(String pflegerName, String lieblingsGattung) {
+        pflegerList.add(new Pfleger(pflegerName, lieblingsGattung));
     }
 
     public void removeGehege(String gehegeName) {
@@ -171,5 +171,47 @@ public abstract class Zoo {
         }
 
         System.out.println("Gesamtkosten für die Tagesversorgung: " + gesamtKosten + " Euro");
+    }
+
+    public void simulateDay() {
+        // Zurücksetzen der Bearbeitungszustände für alle Gehege
+        for (Gehege gehege : gehegeList) {
+            gehege.resetWurdeBearbeitet();
+        }
+
+        // Simulation für jeden Pfleger
+        for (Pfleger pfleger : pflegerList) {
+            System.out.println("\nPfleger " + pfleger.getName() + " beginnt seinen Tag.");
+            // Pfleger bearbeitet zuerst die ihm zugewiesenen Gehege
+            for (Gehege gehege : gehegeList) {
+                if (gehege.getPflegerGehegeList().contains(pfleger.getName()) && !gehege.isWurdeBearbeitet()) {
+                    System.out.println("Pfleger " + pfleger.getName() + " bearbeitet Gehege " + gehege.getName());
+                    gehege.bearbeiteGehege(pfleger);
+                    gehege.setWurdeBearbeitet(true);
+                }
+            }
+
+            // Pfleger füttert Tiere, die ihm zugewiesen sind, aber sich in anderen Gehegen befinden
+            for (Gehege gehege : gehegeList) {
+                if (!gehege.getPflegerGehegeList().contains(pfleger.getName())) {
+                    gehege.bearbeiteGehegeFuerSpezifischenPfleger(pfleger);
+                }
+            }
+            // Pfleger besucht sein Lieblingstier
+            beobachteLieblingstier(pfleger);
+        }
+    }
+
+
+    public void beobachteLieblingstier(Pfleger pfleger) {
+        for (Gehege gehege : gehegeList) {
+            for (Tier tier : gehege.getTierList().keySet()) {
+                if (tier.getGattung().equals(pfleger.getLieblingsGattung())) {
+                    System.out.println("Pfleger " + pfleger.getName() + " besucht sein Lieblingstier " + tier.getName() + " im Gehege " + gehege.getName());
+                    return; // Pfleger hat sein Lieblingstier gefunden und beobachtet
+                }
+            }
+        }
+        System.out.println("Pfleger " + pfleger.getName() + " konnte sein Lieblingstier nicht finden.");
     }
 }

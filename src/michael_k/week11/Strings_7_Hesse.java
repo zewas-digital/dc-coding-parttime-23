@@ -19,20 +19,29 @@ public class Strings_7_Hesse {
     static String text = Texts.HESSE;
 
     public static void main(String[] args) {
-
-        //String testText = "Die ersten ersten beiden Vorkommnisse sind.";
         int counter = 0;
+
+        String[] array = text.split ( " " );
+        for (String word: array) {
+            if(word.equals ( "Hesse" )){
+                counter++;
+            }
+        }
+
+        /*int counter = 0;
         int index = text.indexOf ( "Hesse" );
 
 
-        while(true){
+        while(index != -1){
 
             int secondIndex = text.indexOf("Hesse", index +1);
 
+
+            System.out.println (secondIndex );
             index = secondIndex;
             counter++;
 
-        }
-
+        }*/
+        System.out.println (counter );
     }
 }
