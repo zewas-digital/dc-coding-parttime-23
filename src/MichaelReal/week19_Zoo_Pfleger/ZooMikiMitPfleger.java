@@ -69,7 +69,7 @@ public class ZooMikiMitPfleger extends Zoo {
 
         // Ändern des Futters für ein Tier in einem Gehege
         zooMiki.changeTierFutter("Savanne", "🦁Alf", Hasenkeule, 8);
-        zooMiki.removeTierFromGehege("Dschungel","Peter", 1);
+        zooMiki.removeTierFromGehege("Dschungel","🐘Peter", 1);
         zooMiki.removeTierFromGehege("Fischtank", "Nemos", 5);
 
 

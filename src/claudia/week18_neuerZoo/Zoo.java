@@ -8,23 +8,25 @@ public class Zoo {
     private final int jahr;
     private Lagerhaus lagerhaus;
 
-    private HashMap<Pfleger, Gehege> zustaendig;
+   // private HashMap<Pfleger, Gehege> zustaendig;
     private ArrayList<Gehege> ListeDerGehege = new ArrayList <>();
     private ArrayList<Pfleger> ListeDerPfleger = new ArrayList<>();
-    //private HashMap<Lagerhaus.Futterarten, Futter> futterliste;
 
-
-    private Object[] PflegerUndGehege = new Object[2];
-    //PflegerUndGehege[0] = pfleger;
-
+    private ArrayList<Object[]> PflegerUndGehegeListe = new ArrayList<>();
 
     public Zoo(String name, int jahr) {
         this.name = name;
         this.jahr = jahr;
         this.lagerhaus = new Lagerhaus();
-        this.zustaendig = new HashMap<>();
+        //this.zustaendig = new HashMap<>();
     }
 
+    public Zoo(String name, int jahr, Lagerhaus lagerhaus) {
+        this.name = name;
+        this.jahr = jahr;
+        this.lagerhaus = lagerhaus;
+        //this.zustaendig = new HashMap<>();
+    }
     public ArrayList <String> listeAllerTiere(){
         ArrayList<String> liste = new ArrayList<>();
         for (Gehege g : ListeDerGehege) {
@@ -35,11 +37,47 @@ public class Zoo {
         return liste;
     }
 
-    public void erstellePflegerGehegeListe(){
+    public ArrayList<Object[]> getPflegerUndGehegeListe() {
 
+        this.PflegerUndGehegeListe.clear();
+        for (Pfleger p : this.getListeDerPfleger()) {
+            for (Gehege g : p.getListeDerBetreutenGehege()) {
 
-
+                Object[] temp = new Object[2];
+                temp[0] = p;
+                temp[1] = g;
+                this.PflegerUndGehegeListe.add(temp);
+            }
+        }
+        return this.PflegerUndGehegeListe;
     }
+
+    public boolean pflegerZustaendigFuerGehege(Pfleger pfleger, Gehege gehege) {
+        ArrayList<Object[]> liste = this.getPflegerUndGehegeListe();
+        for (int i = 0; i < liste.size(); i++) {
+            Object[] temp = liste.get(i);
+            if (temp[0].equals(pfleger) && temp[1].equals(gehege)) {
+                System.out.println("Pfleger: " + pfleger.getName() + ", Gehege: " + gehege.getName());
+                return true;
+            }
+        }
+        System.out.println("Pfleger: " + pfleger.getName() + ", Gehege: " + gehege.getName());
+
+        return false;
+    }
+
+
+    public void printPflegerUndGehegeListe() {
+        System.out.println("\n\nListe der betreuten Gehege: ");
+        ArrayList<Object[]> PflegerUndGehegeListe = this.getPflegerUndGehegeListe();
+        for (int i = 0; i < PflegerUndGehegeListe.size(); i++) {
+            Object[] temp = PflegerUndGehegeListe.get(i);
+            System.out.printf("%-25s :  %-25s \n", (Pfleger) temp[0], (Gehege) temp[1]);
+        }
+    }
+
+
+
     public void erstelleFutterstatistik() {
         //Hashmap speichert Futterart mit benötigter Gesamtmenge:
         HashMap<Lagerhaus.Futterarten, Double> futterTabelle = new HashMap<>();
@@ -83,9 +121,6 @@ public class Zoo {
         }
     }
 
-    //public HashMap<Lagerhaus.Futterarten, Futter> getFutterliste() {
-    //    return this.lagerhaus.getFutterliste();
-    //}
 
     public void feedAll() {
         System.out.println("\nEs ist Fütterungszeit! ");
@@ -133,13 +168,6 @@ public class Zoo {
         return this.ListeDerGehege;
     }
 
-    public HashMap<Pfleger, Gehege> getZustaendig() {
-        return zustaendig;
-    }
-
-   /* public ArrayList<Object>[][] getPflegerUndGehege() {
-        return PflegerUndGehege;
-    }*/
 
     public ArrayList<Pfleger> getListeDerPfleger() {
         return ListeDerPfleger;

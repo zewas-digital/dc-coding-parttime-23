@@ -1,29 +1,35 @@
 package Matthias.week18_Zoo.Zoo4_Personal;
 
+
 import java.util.ArrayList;
 
 public class Gehege{
 
     //Deklaration der Antribute
     private String Standort;    //Standort des Geheges
-    private ArrayList<Tiere> TierListe = new ArrayList<>( );
+
+
+    private ArrayList<Tier> TierListe = new ArrayList<>( );
 
     // Konstruktor für das Gehege
     public Gehege (String Standort){
         this.Standort=Standort;
     }
-    public void addNewAnimal( Tiere newAnimal) {
-        TierListe.add( newAnimal);
+    public Tier addNewAnimal( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf) {
+        Tier neuesTier=new Tier( animalName, gattungName, futtersorte, futterbedarf);
+        TierListe.add( neuesTier);
+        return neuesTier;
     }
 
-    public void removeAnimal( Tiere newAnimal) {
+
+    public void removeAnimal( Tier newAnimal) {
         TierListe.remove( newAnimal);
     }
     public String getStandort() {
         return this.Standort;
     }
 
-    public ArrayList<Tiere> getTierListe() {return this.TierListe;}
+    public ArrayList<Tier> getTierListe() {return this.TierListe;}
 
     @Override
     public String toString(){

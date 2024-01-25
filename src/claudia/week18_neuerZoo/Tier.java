@@ -1,5 +1,7 @@
 package claudia.week18_neuerZoo;
 
+import java.util.ArrayList;
+
 public class Tier {
     private String name;
     private String art;
@@ -8,11 +10,12 @@ public class Tier {
     // menge: int
     private double futterBedarfInEinheit;
 
-    public Tier(String name, String art, Lagerhaus.Futterarten futter, double futterBedarfInEinheit) {
+    public Tier(String name, String art, Lagerhaus.Futterarten futter, double futterBedarfInEinheit, ArrayList<Tier> listeDerTiere) {
         this.name = name;
         this.art = art;
         this.futter = futter;
         this.futterBedarfInEinheit = futterBedarfInEinheit;
+        listeDerTiere.add(this);
     }
 
     public void feed() {

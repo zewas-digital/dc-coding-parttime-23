@@ -36,6 +36,14 @@ public class BasicFunctions {
         }
         return vector;
     }
+    public static int[] createRandom1DArray(int size, int lower, int upper) {
+        Random random = new Random();
+        int[] vector = new int[size];
+        for (int i = 0; i < size; i++) {
+            vector[i] = random.nextInt(lower, upper);
+        }
+        return vector;
+    }
 
     public static void swapElementsIn1DArray(int[] vector, int i, int j) {
         if (i != j) {
