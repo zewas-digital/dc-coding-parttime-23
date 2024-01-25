@@ -52,6 +52,8 @@ public class Zoo {
         return this.PflegerUndGehegeListe;
     }
 
+    /*
+    //Umständliche Variante von Abfrage der Zuständigkeit!
     public boolean pflegerZustaendigFuerGehege(Pfleger pfleger, Gehege gehege) {
         ArrayList<Object[]> liste = this.getPflegerUndGehegeListe();
         for (int i = 0; i < liste.size(); i++) {
@@ -63,6 +65,18 @@ public class Zoo {
         }
         System.out.println("Pfleger: " + pfleger.getName() + ", Gehege: " + gehege.getName());
 
+        return false;
+    }
+*/
+    //Bessere Variante von Abfrage der Zuständigkeit
+    public boolean pflegerZustaendigFuerGehege2(Pfleger pfleger, Gehege gehege) {
+       for (Gehege g : pfleger.getListeDerBetreutenGehege()){
+           if (g.equals(gehege)) {
+               System.out.println("Pfleger " + pfleger.getName() + " zuständig für Gehege: " + gehege.getName());
+               return true;
+           }
+       }
+        System.out.println("Pfleger " + pfleger.getName() + " nicht zuständig für Gehege: " + gehege.getName());
         return false;
     }
 

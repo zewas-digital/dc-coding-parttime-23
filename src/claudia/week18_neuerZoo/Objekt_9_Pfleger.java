@@ -39,11 +39,11 @@ public class Objekt_9_Pfleger {
             Object [] temp = PflegerUndGehegeListe.get(i);
             System.out.printf("%-25s :  %-25s \n", (Pfleger)temp[0], (Gehege)temp[1]);
         }
-
+/*
         pflegerHansi.gehegeHinzufuegen(zoo.getListeDerGehege().get(0));
         pflegerHansi.gehegeHinzufuegen(zoo.getListeDerGehege().get(1));
         pflegerBerni.gehegeLoeschen(zoo.getListeDerGehege().get(0));
-
+*/
         System.out.println("\n\nListe der betreuten Gehege: ");
 
         PflegerUndGehegeListe = zoo.getPflegerUndGehegeListe();
@@ -52,11 +52,16 @@ public class Objekt_9_Pfleger {
             Object [] temp = PflegerUndGehegeListe.get(i);
             System.out.printf("%-25s :  %-25s \n", (Pfleger)temp[0], (Gehege)temp[1]);
         }
-
+/*
         System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(0), zoo.getListeDerGehege().get(0)));
         System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(0), zoo.getListeDerGehege().get(1)));
         System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(1), zoo.getListeDerGehege().get(0)));
         System.out.println(zoo.pflegerZustaendigFuerGehege(zoo.getListeDerPfleger().get(1), zoo.getListeDerGehege().get(1)));
+*/
+        System.out.println(zoo.pflegerZustaendigFuerGehege2(zoo.getListeDerPfleger().get(0), zoo.getListeDerGehege().get(0)));
+        System.out.println(zoo.pflegerZustaendigFuerGehege2(zoo.getListeDerPfleger().get(0), zoo.getListeDerGehege().get(1)));
+        System.out.println(zoo.pflegerZustaendigFuerGehege2(zoo.getListeDerPfleger().get(1), zoo.getListeDerGehege().get(0)));
+        System.out.println(zoo.pflegerZustaendigFuerGehege2(zoo.getListeDerPfleger().get(1), zoo.getListeDerGehege().get(1)));
 
     }
 
