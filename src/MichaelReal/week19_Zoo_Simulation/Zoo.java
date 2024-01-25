@@ -183,12 +183,19 @@ public abstract class Zoo {
         // Simulation für jeden Pfleger
         for (Pfleger pfleger : pflegerList) {
             System.out.println("\nPfleger " + pfleger.getName() + " beginnt seinen Tag.");
+            // Pfleger bearbeitet zuerst die ihm zugewiesenen Gehege
             for (Gehege gehege : gehegeList) {
-                if (!gehege.isWurdeBearbeitet() && gehege.getPflegerGehegeList().contains(pfleger.getName())) {
+                if (gehege.getPflegerGehegeList().contains(pfleger.getName()) && !gehege.isWurdeBearbeitet()) {
                     System.out.println("Pfleger " + pfleger.getName() + " bearbeitet Gehege " + gehege.getName());
-                    gehege.bearbeiteGehege();
-                    // Beobachten eines zufälligen Tiers
-                    beobachteZufaelligesTier(gehege);
+                    gehege.bearbeiteGehege(pfleger);
+                    gehege.setWurdeBearbeitet(true);
+                }
+            }
+
+            // Pfleger füttert Tiere, die ihm zugewiesen sind, aber sich in anderen Gehegen befinden
+            for (Gehege gehege : gehegeList) {
+                if (!gehege.getPflegerGehegeList().contains(pfleger.getName())) {
+                    gehege.bearbeiteGehegeFuerSpezifischenPfleger(pfleger);
                 }
             }
             // Pfleger besucht sein Lieblingstier in anderen Gehegen

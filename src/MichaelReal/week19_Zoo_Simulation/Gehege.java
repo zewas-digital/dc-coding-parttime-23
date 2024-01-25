@@ -52,9 +52,19 @@ public class Gehege {
         return pflegerGehegeList;
     }
 
-    public void bearbeiteGehege() {
-        System.out.println("Füttern der Tiere im Gehege " + name);
+    public void bearbeiteGehege(Pfleger pfleger) {
+
+      // Kann verwendet werden, wenn ein Pfleger das ganze Gehege füttert. Für Methode "fuettereTiere()".
+/*        System.out.println("Füttern der Tiere im Gehege " + name);
         fuettereTiere();
+*/
+        for (Tier tier : tierList.keySet()) {
+            if (tier.getPflegerTierList().contains(pfleger.getName())) {
+                // Füttere nur das Tier, wenn es dem Pfleger zugewiesen ist
+                int anzahl = tierList.get(tier);
+                System.out.println("Pfleger " + pfleger.getName() + " füttert " + anzahl + "x " + tier.getName());
+            }
+        }
 
         System.out.println("Beobachtung eines zufälligen Tiers im Gehege " + name);
         beobachteZufaelligesTier();
@@ -87,6 +97,19 @@ public class Gehege {
 
     public void resetWurdeBearbeitet() {
         wurdeBearbeitet = false;
+    }
+
+    public void setWurdeBearbeitet(boolean wurdeBearbeitet) {
+        this.wurdeBearbeitet = wurdeBearbeitet;
+    }
+
+    public void bearbeiteGehegeFuerSpezifischenPfleger(Pfleger pfleger) {
+        for (Tier tier : tierList.keySet()) {
+            if (tier.getPflegerTierList().contains(pfleger.getName())) {
+                int anzahl = tierList.get(tier);
+                System.out.println("Pfleger " + pfleger.getName() + " füttert " + anzahl + "x " + tier.getName() + " im Gehege " + this.name);
+            }
+        }
     }
 
 
