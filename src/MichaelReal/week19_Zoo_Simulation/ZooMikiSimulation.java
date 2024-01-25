@@ -72,7 +72,7 @@ public class ZooMikiSimulation extends Zoo {
         //Hinzufügen von Pflegern
         zooMiki.addPfleger("Otto","Krokodil");
         zooMiki.addPfleger("Carl","Löwe");
-        zooMiki.addPfleger("Anna","Krokodil");
+        zooMiki.addPfleger("Anna","Elefant");
 
 
         zooMiki.assignPflegerToGehege("Otto","Savanne");
