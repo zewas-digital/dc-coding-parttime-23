@@ -200,6 +200,11 @@ public abstract class Zoo {
             // Pfleger besucht sein Lieblingstier in anderen Gehegen
             beobachteLieblingstierInAnderemGehege(pfleger);
         }
+
+        // Lassen Sie die Tiere sich am Ende des Tages gegenseitig beißen
+        for (Gehege gehege : gehegeList) {
+            gehege.tiereBeissenLassen();
+        }
     }
 
 

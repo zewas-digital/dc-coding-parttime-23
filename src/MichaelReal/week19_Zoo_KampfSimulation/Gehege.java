@@ -112,6 +112,26 @@ public class Gehege {
         }
     }
 
+    public void tiereBeissenLassen() {
+        Random random = new Random();
+        ArrayList<Tier> tiere = new ArrayList<>(tierList.keySet());
+
+        for (Tier tier : tiere) {
+            if (random.nextInt(100) < 40) { // 40 % Chance zu beissen
+                tiere.stream()
+                        .filter(anderesTier -> !anderesTier.equals(tier) && anderesTier.istLebendig())
+                        .findAny()
+                        .ifPresent(tier::beissen);
+            }
+        }
+
+        entferneToteTiere();
+    }
+
+    private void entferneToteTiere() {
+        tierList.keySet().removeIf(tier -> !tier.istLebendig());
+    }
+
 
 }
 
