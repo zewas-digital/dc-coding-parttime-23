@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Pfleger {
     private String name;
     private ArrayList<Gehege> ListeDerBetreutenGehege = new ArrayList<Gehege>();
-    //Array mit ArrayLists Zuordnung Gehege <-> Pfleger, 1:1-Beziehung
+
     private String lieblingsArt = "";
 
     public Pfleger(String name, ArrayList<Pfleger> ListeDerPfleger, ArrayList<Gehege> ListeAllerGehege, boolean abfrage) {//, HashMap<Pfleger, Gehege> zustaendig){
@@ -76,6 +76,12 @@ public class Pfleger {
 
     public void setLieblingsArt(String name) {
         this.lieblingsArt = name;
+    }
+    public void endDay(){
+        System.out.println("Pfleger " + this.getName() + " beendet seinen Arbeitstag. ");
+    }
+    public void startDay(){
+        System.out.println("\nPfleger " + this.getName() + " beginnt seinen Arbeitstag.");
     }
 
 

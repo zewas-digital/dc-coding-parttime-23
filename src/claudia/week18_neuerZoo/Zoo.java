@@ -159,7 +159,10 @@ public class Zoo {
         ArrayList<Gehege> ListeDerGehege = this.getListeDerGehege();
         System.out.println("\n|-- Zoo: " + this.toString());
         for (Gehege g : ListeDerGehege) {
-            System.out.println("|\t|-- Gehege: " + g.getName());
+            ArrayList<Pfleger> zustaendigePfleger = g.getListeDerZustaendigenPfleger(this.getListeDerPfleger());
+            System.out.print("|\t|-- Gehege: " + g.getName() + ", betreut von ");
+            Zoohilfe.printArrayListPfleger(zustaendigePfleger);
+            System.out.println();
             if (g.getListeDerTiere().isEmpty()) System.out.println("|\t|--|-- (leer)");
             else {
                 for (Tier t : g.getListeDerTiere()) {

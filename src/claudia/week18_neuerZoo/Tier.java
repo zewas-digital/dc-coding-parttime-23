@@ -22,7 +22,7 @@ public class Tier {
     public void feed() {
         System.out.println("Ich heiße " + this.name + " und fresse " + futter);
         try {
-            Thread.sleep(2000);}
+            Thread.sleep(1000);}
         catch (InterruptedException e){
             throw new RuntimeException(e);
         }

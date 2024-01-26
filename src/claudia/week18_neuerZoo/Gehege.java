@@ -9,6 +9,7 @@ public class Gehege {
     private boolean alreadyFed = false;
 
 
+
     public Gehege(String name, int flaeche, ArrayList<Gehege> ListeDerGehege) {
         this.flaeche = flaeche;
         this.name = name;
@@ -34,6 +35,16 @@ public class Gehege {
     public ArrayList<Tier> getListeDerTiere() {
         return this.ListeDerTiere;
     }
+
+    public ArrayList<Pfleger> getListeDerZustaendigenPfleger(ArrayList<Pfleger> ListeAllerPfleger){
+        ArrayList<Pfleger> liste = new ArrayList<>();
+        for (Pfleger p : ListeAllerPfleger){
+            for (Gehege g : p.getListeDerBetreutenGehege()){
+                if (this.equals(g)) liste.add(p);
+            }
+        }
+        return liste;
+    };
     @Override
     public String toString(){
         return ("Gehege " + this.name);
@@ -45,5 +56,13 @@ public class Gehege {
     public void changeFeedStatus(){
         if (this.alreadyFed) this.alreadyFed = false;
         else this.alreadyFed = true;
+    }
+
+    public void feedAllAnimalsInEnclosure(Lagerhaus lagerhaus){
+        //System.out.println("In diesem Gehege wird folgendes Futter benötigt: ");
+        for (Tier tier : this.getListeDerTiere()) {
+            //System.out.println(tier.getFutterBedarfInEinheit() + " " + lagerhaus.getFutterliste().get(tier.getFutterart()).getEinheit() + " " + tier.getFutter());
+            tier.feed();
+        }
     }
 }
