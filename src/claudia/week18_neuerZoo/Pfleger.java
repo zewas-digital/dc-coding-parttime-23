@@ -60,7 +60,7 @@ public class Pfleger {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
     public String getID(){
         return super.toString();
@@ -78,10 +78,10 @@ public class Pfleger {
         this.lieblingsArt = name;
     }
     public void endDay(){
-        System.out.println("Pfleger " + this.getName() + " beendet seinen Arbeitstag. ");
+        System.out.println("\n" + this + " beendet seinen Arbeitstag. ");
     }
     public void startDay(){
-        System.out.println("\nPfleger " + this.getName() + " beginnt seinen Arbeitstag.");
+        System.out.println("\n" + this + " beginnt seinen Arbeitstag.");
     }
 
 

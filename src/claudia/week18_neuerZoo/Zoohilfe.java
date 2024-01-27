@@ -1,12 +1,15 @@
 package claudia.week18_neuerZoo;
 
 import java.util.ArrayList;
+import java.util.Random;
+
 public class Zoohilfe {
 
     public static Zoo erstelleStandardZooOhnePfleger() {
         double[] preisliste = {3.5, 21.0, 5.21};
         Lagerhaus lagerhaus = new Lagerhaus(preisliste);
         Zoo zoo = new Zoo("Standardzoo", 2024, lagerhaus);
+        zoo.getDirektor().setLieblingsArt("Hängebauchschwein");
 
         Gehege aquarium = new Gehege("Aquarium", 20000, zoo.getListeDerGehege());
         Gehege wald = new Gehege("Wald", 4390, zoo.getListeDerGehege());
@@ -23,6 +26,9 @@ public class Zoohilfe {
         Tier murmeltier2 = new Tier("Murmel 2", "Murmeltier", Lagerhaus.Futterarten.GRAS, 1.03, hochgebirge.getListeDerTiere());
         Tier murmeltier3 = new Tier("Murmel 3", "Murmeltier", Lagerhaus.Futterarten.GRAS, 0.52, hochgebirge.getListeDerTiere());
         Tier riesenkrake = new Tier("Kraki 1", "Riesenkrake", Lagerhaus.Futterarten.FISCH, 82, tiefsee.getListeDerTiere());
+        Tier haengebauchschwein1 = new Tier("Heinz", "Hängebauchschwein", Lagerhaus.Futterarten.GRAS, 0.030, wald.getListeDerTiere());
+        Tier haengebauchschwein2 = new Tier("Hilde", "Hängebauchschwein", Lagerhaus.Futterarten.SCHOKOLADE, 123, wald.getListeDerTiere());
+
 
         for (int i = 1; i < 6; i++){
             new Tier("Böckle " + i, "Steinbock", Lagerhaus.Futterarten.GRAS, i, hochgebirge.getListeDerTiere());
@@ -70,12 +76,18 @@ public class Zoohilfe {
         }
     }
     public static void watchFavourite(Zoo zoo, Pfleger pfleger) {
-        System.out.println("\nPfleger " + pfleger.getName() + " schaut noch sein Lieblingstier an: ");
+        System.out.println("\n" + pfleger + " schaut noch das Lieblingstier an: ");
         Tier t = zoo.findArt(pfleger.getLieblingsArt());
         if (t != null){
             t.watch(pfleger);
         }
         //else System.out.println("Leider ist das Lieblingtier " + pfleger.getLieblingsArt() + " im Zoo nicht vorhanden.");
+    }
+
+    public static void watchRandom(Zoo zoo, Pfleger pfleger) {
+        System.out.println("\n" + pfleger + " schaut noch ein zufälliges Tier an: ");
+        Random random = new Random();
+        zoo.getListeDerTiere().get(random.nextInt(zoo.getListeDerTiere().size())).watch(pfleger);
     }
 
 }

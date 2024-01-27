@@ -32,7 +32,7 @@ public class NeuerZooMain {
 
         zoo.printStructure();
 
-        zoo.erstelleFutterstatistik();
+        zoo.printFeedList();
 
 
         System.out.println("\nTier " + murmeltier1.getName() + " wird gefüttert: ");

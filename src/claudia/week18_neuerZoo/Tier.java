@@ -32,7 +32,7 @@ public class Tier {
         Random random = new Random();
         int multiplicator = random.nextInt(10);
         int counter = 0;
-        System.out.print("\nPfleger " + p.getName() + " beobachtet " + this.getName() + ", " + this.getArt() + ". ");
+        System.out.print("\n" + p + " beobachtet " + this.getName() + ", " + this.getArt() + ". ");
         try {
             while(counter < multiplicator){
             System.out.print(" . ");
