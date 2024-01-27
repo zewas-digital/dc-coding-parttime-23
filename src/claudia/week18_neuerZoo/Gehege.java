@@ -63,7 +63,7 @@ public class Gehege {
         //
         for (Tier tier : this.getListeDerTiere()) {
             //System.out.println(tier.getFutterBedarfInEinheit() + " " + lagerhaus.getFutterliste().get(tier.getFutterart()).getEinheit() + " " + tier.getFutter());
-            tier.feed();
+            tier.feed(lagerhaus);
         }
         System.out.print("\nIn diesem Gehege wurde folgendes Futter benötigt: ");
         printFeedListEnclosure(lagerhaus);

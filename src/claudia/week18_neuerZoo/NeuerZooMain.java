@@ -36,7 +36,7 @@ public class NeuerZooMain {
 
 
         System.out.println("\nTier " + murmeltier1.getName() + " wird gefüttert: ");
-        murmeltier1.feed();
+        murmeltier1.feed(zoo.getLagerhaus());
         zoo.feedAll();
 
         System.out.println("\nDer Zoo braucht Personal!");

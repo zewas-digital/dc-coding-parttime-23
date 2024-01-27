@@ -26,12 +26,16 @@ public class Objekt_10_ZooSimulation {
 
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
 
-        //Testweise für ein Gehege alle zuständigen Pfleger entfernen:
+        //Test: für ein Gehege alle zuständigen Pfleger entfernen:
         for (Pfleger pfleger : zoo.getListeDerPfleger()) {
             pfleger.getListeDerBetreutenGehege().remove(zoo.getListeDerGehege().get(1));
             // pfleger.gehegeLoeschen(zoo.getListeDerGehege().get(0));
 
         }
+        //zoo.getLagerhaus().printStocklist();
+        //Test: Lagerbestand senken:
+        //zoo.getLagerhaus().setStockListSingleFeed(Lagerhaus.Futterarten.FISCH, 200);
+
         /*
         for (Gehege g : zoo.getListeDerGehege()) {
             System.out.print("Gehege: " + g.getName() + " betreut von: ");
@@ -39,9 +43,17 @@ public class Objekt_10_ZooSimulation {
             System.out.println();
         }
 */
+        System.out.println("\nZoo erstellt! ");
         zoo.printStructure();
-
-        //zoo.printFeedList();
+        //TEST LAGERHAUS UND FÜTTERN:
+        /*
+        zoo.getLagerhaus().printStocklist();
+        for (Tier t : zoo.getListeDerTiere()){
+            t.feed(zoo.getLagerhaus());
+        }
+        zoo.getLagerhaus().printStocklist();
+*/
+        zoo.printFeedList();
 
         // zoo.printPflegerUndGehegeListe();
         /*
@@ -53,7 +65,7 @@ public class Objekt_10_ZooSimulation {
 
 
 
-        System.out.println("Starte Zoowoche mit ENTER!");
+        System.out.println("\nStarte Zoowoche mit ENTER!");
         sc.nextLine();
 
 
@@ -100,6 +112,7 @@ public class Objekt_10_ZooSimulation {
             }
         }
         Zoohilfe.watchFavourite(zoo, zoo.getDirektor());
+        zoo.getLagerhaus().printStocklist();
         zoo.getDirektor().endDay();
     }
 
@@ -137,6 +150,7 @@ public class Objekt_10_ZooSimulation {
             }
 
         Zoohilfe.watchFavourite(zoo, zoo.getDirektor());
+        zoo.getLagerhaus().printStocklist();
         zoo.getDirektor().endDay();
     }
 

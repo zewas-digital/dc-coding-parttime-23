@@ -19,8 +19,17 @@ public class Tier {
         listeDerTiere.add(this);
     }
 
-    public void feed() {
-        System.out.println("Ich heiße " + this.name + " und fresse " + futter);
+    public void feed(Lagerhaus lagerhaus) {
+        String einheit = lagerhaus.getFutterliste().get(this.getFutterart()).getEinheit();
+        System.out.println("Ich heiße " + this.name + " und fresse " + this.getFutterBedarfInEinheit() + " " + einheit+ " " + this.futter);
+
+      //  System.out.println("Futterart: " + lagerhaus.getFutterliste().get(this.getFutterart()));
+       // System.out.println("aktueller Lagerbestand: " + lagerhaus.getStockListAllFeeds().get(this.getFutterart()));
+       // System.out.println("Bedarf: " + this.getFutterBedarfInEinheit());
+        lagerhaus.setStockListSingleFeed(this.futter, lagerhaus.getStockListAllFeeds().get(this.futter) - this.getFutterBedarfInEinheit());
+       // System.out.println("Neuer Lagerbestand: ");
+        //System.out.println(lagerhaus.getStockListAllFeeds().get(this.getFutterart()));
+
         try {
             Thread.sleep(1000);}
         catch (InterruptedException e){
@@ -44,7 +53,7 @@ public class Tier {
             throw new RuntimeException(e);
         }
 
-        System.out.println("\nPfleger " + p.getName() + " geht weiter!");
+        System.out.println("\n" + p.getName() + " geht weiter!");
     }
 
 

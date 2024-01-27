@@ -8,6 +8,7 @@ public class Zoohilfe {
     public static Zoo erstelleStandardZooOhnePfleger() {
         double[] preisliste = {3.5, 21.0, 5.21};
         Lagerhaus lagerhaus = new Lagerhaus(preisliste);
+
         Zoo zoo = new Zoo("Standardzoo", 2024, lagerhaus);
         zoo.getDirektor().setLieblingsArt("Hängebauchschwein");
 

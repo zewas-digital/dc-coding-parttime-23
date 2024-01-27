@@ -176,7 +176,7 @@ public class Zoo {
             System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
             for (Tier t : g.getListeDerTiere())  {
                 System.out.print("\t");
-                t.feed();
+                t.feed(this.getLagerhaus());
             }
         }
     }
