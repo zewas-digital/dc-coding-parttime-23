@@ -1,4 +1,4 @@
-package florian.week19_Zoo;
+package florian.week_19_ZooSimulation;
 
 /*
 Aufgabe: Simulation 0.1
