@@ -101,5 +101,11 @@ public class Gehege {
         }
     }
 
-
+    public void removeDeadAnimals() {
+        ArrayList<Tier> temp = new ArrayList<>(); //neue ArrayList, um zu löschende zu speichern
+        for (Tier t : this.ListeDerTiere) {
+            if (t.getHealthActual() <= 0) temp.add(t); //füge zu löschende hinzu
+        }
+        this.ListeDerTiere.removeAll(temp); //lösche alle auf einmal
+    }
 }

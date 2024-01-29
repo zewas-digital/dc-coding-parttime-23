@@ -63,11 +63,8 @@ public class Objekt_10_ZooSimulation {
             System.out.println();
         }*/
 
-
-
         System.out.println("\nStarte Zoowoche mit ENTER!");
         sc.nextLine();
-
 
         System.out.println("\nEine Woche im Zoo: ");
 

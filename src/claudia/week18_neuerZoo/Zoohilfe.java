@@ -64,10 +64,20 @@ public class Zoohilfe {
             }
         }
     }
+    public static void setAllAnimalsToHasntBitten(ArrayList<Tier> liste){
+        for (Tier t : liste){
+            t.setHasBitten(false);
+        }
+    }
 
     public static void printArrayListGehege(ArrayList<Gehege> liste) {
         for (Gehege g : liste) {
             System.out.println(g.getName());
+        }
+    }
+    public static void printArrayListTiere(ArrayList<Tier> liste) {
+        for (Tier t: liste) {
+            System.out.println(t.getName());
         }
     }
 
@@ -87,8 +97,13 @@ public class Zoohilfe {
 
     public static void watchRandom(Zoo zoo, Pfleger pfleger) {
         System.out.println("\n" + pfleger + " schaut noch ein zufälliges Tier an: ");
+        //Random random = new Random();
+        chooseRandom(zoo.getListeDerTiere()).watch(pfleger);
+    }
+
+    public static Tier chooseRandom(ArrayList<Tier> liste){
         Random random = new Random();
-        zoo.getListeDerTiere().get(random.nextInt(zoo.getListeDerTiere().size())).watch(pfleger);
+        return liste.get(random.nextInt(liste.size()));
     }
 
 }

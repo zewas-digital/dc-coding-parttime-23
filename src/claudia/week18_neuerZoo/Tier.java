@@ -10,6 +10,11 @@ public class Tier {
     // futterArt: enum
     // menge: int
     private double futterBedarfInEinheit;
+    private boolean hasBitten = false;
+    private int healthMax = 100;
+    private int healthActual = healthMax;
+    private double probabilityOfBite = 0.4;
+    private int strengthOfBite = 40;
 
     public Tier(String name, String art, Lagerhaus.Futterarten futter, double futterBedarfInEinheit, ArrayList<Tier> listeDerTiere) {
         this.name = name;
@@ -17,6 +22,19 @@ public class Tier {
         this.futter = futter;
         this.futterBedarfInEinheit = futterBedarfInEinheit;
         listeDerTiere.add(this);
+    }
+
+    public void bite (Tier tier){
+        double random = Math.random(); //Zufallszahl in [0,1)
+        if (!this.hasBitten && random < this.probabilityOfBite){
+            this.hasBitten = true;
+            tier.setHealthActual(tier.getHealthActual() - this.strengthOfBite);
+            System.out.println("\n" + this.name + " beißt " + tier.getName() + "!");
+            if (tier.getHealthActual() > 0)
+                System.out.println("Die Gesundheit dieses Tieres verringert sich um " + this.strengthOfBite + " auf " + tier.getHealthActual() + ".");
+            else System.out.println("Dieses Tier ist damit leider aufgefressen.");
+        }
+        else System.out.println("Kein Biss! ");
     }
 
     public void feed(Lagerhaus lagerhaus) {
@@ -75,4 +93,34 @@ public class Tier {
     public double getFutterBedarfInEinheit() {
         return futterBedarfInEinheit;
     }
+
+    public boolean getHasBitten() {
+        return hasBitten;
+    }
+
+    public void setHasBitten(boolean hasBitten) {
+        this.hasBitten = hasBitten;
+    }
+
+     public int getHealthMax() {
+        return healthMax;
+    }
+
+     public int getHealthActual() {
+        return healthActual;
+    }
+
+    public void setHealthActual(int healthActual) {
+        this.healthActual = healthActual;
+    }
+
+    public double getProbabilityOfBite() {
+        return probabilityOfBite;
+    }
+
+
+    public int getStrengthOfBite() {
+        return strengthOfBite;
+    }
+
 }
