@@ -41,7 +41,7 @@ public class Zoo {
         for (Futter.Futtersorten Futtersorte: FutterbedarslisteTier.keySet()) {
             double zwischensummepreis= FutterbedarslisteTier.get( Futtersorte ) *  Futterlager.get( Futtersorte ).getEinheitpreis();
            Gesampreis=Gesampreis+zwischensummepreis;
-            System.out.println(FutterbedarslisteTier.get( Futtersorte ) +" "+ Futterlager.get( Futtersorte ).getEinheit()+" " + Futtersorte + " " +"Preis pro Menge: "+zwischensummepreis);;
+            System.out.println(FutterbedarslisteTier.get( Futtersorte ) +" "+ Futterlager.get( Futtersorte ).getEinheit()+" " + Futtersorte + " " +"Preis pro Menge: "+zwischensummepreis + " Euro" );;
         }
         System.out.println( "Zoo Gesamtkosten: " + Gesampreis );
         System.out.println( "*************************************" );
@@ -56,11 +56,11 @@ public class Zoo {
     }
     private void fillFutterbedarsliste() {
         for (Gehege gehege: gehegeArrayList) {
-            for (Matthias.week18_Zoo.Zoo4_Personal.Tier Tier : gehege.getTierListe( )) {
-                if ( FutterbedarslisteTier.get(Tier.futtersorte)!=null ) {
-                    this.FutterbedarslisteTier.replace( Tier.futtersorte,Tier.getFutterbedarf( ).getFuttermenge( ));
+            for (Tier tier : gehege.getTierListe( )) {
+                if ( FutterbedarslisteTier.get(tier.futtersorte)!=null ) {
+                    this.FutterbedarslisteTier.replace( tier.futtersorte,tier.getFutterbedarf( ).getFuttermenge( )+FutterbedarslisteTier.get( tier.futtersorte));
                 }else {
-                    this.FutterbedarslisteTier.put(Tier.futtersorte,Tier.getFutterbedarf().getFuttermenge());
+                    this.FutterbedarslisteTier.put(tier.futtersorte,tier.getFutterbedarf().getFuttermenge());
                 }
             }
         }
