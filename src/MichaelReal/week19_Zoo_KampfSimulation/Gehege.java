@@ -128,6 +128,34 @@ public class Gehege {
         entferneToteTiere();
     }
 
+    //Die gleiche Methode ohne die Verwendung von einem Stream
+
+/*  public void tiereBeissenLassen() {
+    Random random = new Random();
+    ArrayList<Tier> tiere = new ArrayList<>(tierList.keySet());
+
+    for (Tier tier : tiere) {
+        if (random.nextInt(100) < 40) { // 40 % Chance zu beissen
+            // Liste für lebende Tiere, die nicht das aktuelle Tier sind
+            ArrayList<Tier> moeglicheOpfer = new ArrayList<>();
+            for (Tier anderesTier : tiere) {
+                if (!anderesTier.equals(tier) && anderesTier.istLebendig()) {
+                    moeglicheOpfer.add(anderesTier);
+                }
+            }
+
+            if (!moeglicheOpfer.isEmpty()) {
+                // Wähle ein zufälliges Tier aus der Liste der möglichen Opfer
+                Tier zielTier = moeglicheOpfer.get(random.nextInt(moeglicheOpfer.size()));
+                tier.beissen(zielTier);
+            }
+        }
+    }
+
+    entferneToteTiere();
+*/
+
+
     private void entferneToteTiere() {
         tierList.keySet().removeIf(tier -> !tier.istLebendig());
     }
