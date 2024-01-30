@@ -15,58 +15,92 @@ Lass auf der Konsole ausdrucken, wer was macht.
 
 import claudia.week18_neuerZoo.*;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Objekt_11_ZooSimulationBonus1 {
     public static void main(String[] args) {
+        //Zoo erstellen, Gehege aussuchen
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
-        Gehege gehege = zoo.getListeDerGehege().get(0);
-        Zoohilfe.setAllAnimalsToHasntBitten(gehege.getListeDerTiere());
-        Zoohilfe.printArrayListTiere(gehege.getListeDerTiere());
+        //Gehege gehege = zoo.getListeDerGehege().get(1);
+        //ArrayList<Tier> listeDerTiere = gehege.getListeDerTiere();
+        ArrayList<Gehege> listeDerGehege = zoo.getListeDerGehege();
 
-        gehege.removeDeadAnimals();
+        System.out.println("Folgende Tiere gibt es im Zoo: ");
+        Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
 
-        for (Tier t : gehege.getListeDerTiere()) {
-            System.out.println(t.getHealthActual());
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\nStarte Zoowoche mit ENTER!");
+        sc.nextLine();
+
+        System.out.println("\nEine Woche im Zoo: ");
+
+        for (int i = 0; i < 7; i++) {
+            System.out.println("\n *** TAG " + (i + 1) + " *** ");
+            //Zum Starten HasBitten auf False setzen:
+            Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());
+           // Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
+
+            int counter = 0;
+            for (Gehege g : listeDerGehege) {
+
+                ArrayList<Tier> tiereImGehege = g.getListeDerTiere();
+                if (tiereImGehege.size() > 1) {//Sonst ist nur noch ein Tier im Gehege, was niemanden beißen kann!
+
+                    BiteThread bt = new BiteThread(g, counter);
+                    //bt.setName("Thread " + g.getName());
+                    bt.start();
+                    //System.out.println(bt.getName() + " fertig.");
+                    counter++;
+
+                }
+                g.removeDeadAnimals();
+            }
+            //Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
+            //zoo.feedAll();
         }
-
-        Tier t5 = Zoohilfe.chooseRandom(gehege.getListeDerTiere());
-        Tier t6 = Zoohilfe.chooseRandom(gehege.getListeDerTiere());
-        System.out.println(t5.getName());
-        System.out.println(t6.getName());
-
-        for (int i = 0; i < 10; i++) {
-            t5.bite(t6);
-            t5.setHasBitten(false);
-        }
-        for (Tier t : gehege.getListeDerTiere()) {
-            System.out.println(t.getHealthActual());
-        }
-
-
-        gehege.removeDeadAnimals();
-
-        Zoohilfe.printArrayListTiere(gehege.getListeDerTiere());
-    }
-        /*
-        Tier t1 = Zoohilfe.chooseRandom(zoo.getListeDerTiere());
-        Tier t2 = Zoohilfe.chooseRandom(zoo.getListeDerTiere());
-        Tier t3 = Zoohilfe.chooseRandom(zoo.getListeDerTiere());
-        Tier t4 = Zoohilfe.chooseRandom(zoo.getListeDerTiere());
-
-        System.out.println(t1.getName());
-        System.out.println(t2.getName());
-        System.out.println(t3.getName());
-        System.out.println(t4.getName());
-
-        /*
-        t1.bite(t2);
-        t2.bite(t3);
-        t3.bite(t4);
-        t4.bite(t1);*/
+        Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
 /*
-        for (int i = 0; i < 10; i++) {
-            t1.bite(t2);
+
+
+        for (int i = 0; i < 20; i++) {
+//TODO Falls Gehege nur noch ein Tier enthält, abbrechen!
+            //TODO Falls Tier zwischendrin schon tot, nicht mehr beißen
+            System.out.println((i + 1) + "-ter Tag");
+            //Zum Starten HasBitten auf False setzen:
+            Zoohilfe.setAllAnimalsToHasntBitten(listeDerTiere);
+
+
+
+            for (Tier tier : listeDerTiere) {
+                if (tier.getHealthActual() > 0) { //nur lebendige Tiere können beißen
+                    Tier zufaelligesTier = tier;
+                    //Tier beißt sich nicht selber, Tier mit Health < 0 wird nicht mehr gebissen:
+                    //TODO potentielle Endlosschleife!
+                    while (zufaelligesTier.equals(tier) || (zufaelligesTier.getHealthActual() <= 0)) {
+                        zufaelligesTier = Zoohilfe.chooseRandom(listeDerTiere);
+                    }
+                    tier.bite(zufaelligesTier);
+                }
+            }
+            gehege.removeDeadAnimals();
+            Zoohilfe.printArrayListTiere(listeDerTiere);
         }
+       //
+
+        for (Tier t : gehege.getListeDerTiere()) {
+            System.out.println(t.getHealthActual());
+        }
+
+
+        gehege.removeDeadAnimals();
+
+        Zoohilfe.printArrayListTiere(gehege.getListeDerTiere());
 */
-   // }
+
+    }
+
+
 
 }
