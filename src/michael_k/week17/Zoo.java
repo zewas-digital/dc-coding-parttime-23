@@ -11,10 +11,15 @@ public class Zoo extends Object{
     public ArrayList<Pfleger> pfleger = new ArrayList<Pfleger>();
     public HashMap<String, Float> futteruebersicht = new HashMap<> ();
     private float gesamtpreis;
+
+
+
+
     public Zoo (String name, int gruendungsjahr){
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
     }
+
 
 
     public void gehegeHinzufuegen(String gehegename){
@@ -29,7 +34,7 @@ public class Zoo extends Object{
             i++;
         }
     };
-    public void tierHinzufuegen(String gehege, String tiername, String futterart, float futtermenge){
+    public void tierHinzufuegen(String gehege, String tiername, String futterart, float futtermenge, int gesundheit, int biss){
         int i = 0;
         for(Gehege x : this.zoogehege){
             if(x.name.equals(gehege)) {
@@ -37,7 +42,7 @@ public class Zoo extends Object{
             }
             i++;
         }
-        zoogehege.get(i).tierHinzufuegen ( tiername, futterart,futtermenge );
+        zoogehege.get(i).tierHinzufuegen ( tiername, futterart, futtermenge, gesundheit, biss );
 
         // Futterbedarf in Zoo futterübersicht eintragen
         if(futteruebersicht.get ( futterart ) == null){
@@ -142,8 +147,20 @@ public class Zoo extends Object{
     }
     public void kontrollgang(){
 
+        for (Gehege gehege: zoogehege) {
+            gehege.gehegeKontrolliert=false;
+        }
+
+        tiereStreiten ();
+
         for (Pfleger pfleger: this.pfleger ) {
             pfleger.kontrollgang ();
+        }
+    }
+    private void tiereStreiten(){
+
+        for (Gehege gehege: zoogehege) {
+            gehege.tiereStreiten();
         }
     }
     private HashMap<String, Float> preisliste(){
@@ -156,5 +173,3 @@ public class Zoo extends Object{
         return futterpreis;
     }
 }
-
-//public String[][] futterliste = {{" "," "," "}, {"Fleisch", "10","kg"}, {"Heu", "1","kg"}, {"Insekten", "2","kg"}, {"Fischfutter", "5","kg"},};

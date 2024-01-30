@@ -61,24 +61,28 @@ public class Objekt_6_Zoo {
         zooFeldkirch.gehegeZuordnen ( "Savane",pflegerCarlo );
 
 
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Gazelle", "Heu", 5 );
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4 );
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Huhn", "Mais", 1 );
-        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1 );
-        zooDornbirn.tierHinzufuegen ( "Terrarium (warm)", "Camellion", "Insekten", 1 );
-        zooDornbirn.tierHinzufuegen ( "Ried", "Schaf", "Heu", 4 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Gazelle", "Heu", 5, 10, 4 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4, 10, 5 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4, 10, 5 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Huhn", "Mais", 1, 5, 1 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1,5,1 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1,5,1 );
+        zooDornbirn.tierHinzufuegen ( "Terrarium (warm)", "Camellion", "Insekten", 1, 3, 2 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Schaf", "Heu", 4, 10, 4 );
 
-        zooFeldkirch.tierHinzufuegen ( "Savane", "Wasserbüffel", "Heu", 9 );
-        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Pinguin", "Fisch", 1 );
-        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Robe", "Fisch", 2 );
+        zooFeldkirch.tierHinzufuegen ( "Savane", "Wasserbüffel", "Heu", 9, 40, 8 );
+        zooFeldkirch.tierHinzufuegen ( "Savane", "Löwe", "Fleisch", 3, 25, 12 );
+        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Pinguin", "Fisch", 1, 6, 3 );
+        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Robe", "Fisch", 2, 8, 4 );
 
         System.out.println (zooDornbirn.printuebersicht () );
         System.out.println (zooFeldkirch.printuebersicht () );
         //zooDornbirn.tierEntfernen ( 2, 2 );
 
-        zooDornbirn.kontrollgang ();
-        zooFeldkirch.kontrollgang ();
-
+        while(true) {
+            zooDornbirn.kontrollgang ( );
+            //zooFeldkirch.kontrollgang ( );
+        }
 
 
 
