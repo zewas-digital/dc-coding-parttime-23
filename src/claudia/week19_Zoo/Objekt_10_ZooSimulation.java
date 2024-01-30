@@ -1,6 +1,7 @@
 package claudia.week19_Zoo;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 
 /*
@@ -21,32 +22,56 @@ import claudia.week18_neuerZoo.*;
 
 public class Objekt_10_ZooSimulation {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
 
-        //zoo.printStructure();
+        //Test: für ein Gehege alle zuständigen Pfleger entfernen:
+        for (Pfleger pfleger : zoo.getListeDerPfleger()) {
+            pfleger.getListeDerBetreutenGehege().remove(zoo.getListeDerGehege().get(1));
+            // pfleger.gehegeLoeschen(zoo.getListeDerGehege().get(0));
 
-        zoo.printPflegerUndGehegeListe();
+        }
+        //zoo.getLagerhaus().printStocklist();
+        //Test: Lagerbestand senken:
+        //zoo.getLagerhaus().setStockListSingleFeed(Lagerhaus.Futterarten.FISCH, 200);
 
-       /*
-        System.out.println("\nPfleger " + zoo.getListeDerPfleger().get(0).getName() + " hat am liebsten die Art: " + zoo.getListeDerPfleger().get(0).getLieblingsArt());
-        System.out.println("Gibt es ein solches Tier im Zoo? ");
-        Tier t1 = zoo.findArt(zoo.getListeDerPfleger().get(0).getLieblingsArt());
-        if (t1 != null) System.out.println("Lieblingstier vorhanden! " + t1.getName());
-
-        System.out.println("\nPfleger " + zoo.getListeDerPfleger().get(1).getName() + " hat am liebsten die Art: " + zoo.getListeDerPfleger().get(1).getLieblingsArt());
-        System.out.println("Gibt es ein solches Tier im Zoo? ");
-        Tier t2 =zoo.findArt(zoo.getListeDerPfleger().get(1).getLieblingsArt());
-        if (t2 != null) System.out.println("Lieblingstier vorhanden! " + t1.getName());
-
+        /*
+        for (Gehege g : zoo.getListeDerGehege()) {
+            System.out.print("Gehege: " + g.getName() + " betreut von: ");
+            Zoohilfe.printArrayListPfleger(g.getListeDerZustaendigenPfleger(zoo.getListeDerPfleger()));
+            System.out.println();
+        }
 */
+        System.out.println("\nZoo erstellt! ");
+        zoo.printStructure();
+        //TEST LAGERHAUS UND FÜTTERN:
+        /*
+        zoo.getLagerhaus().printStocklist();
+        for (Tier t : zoo.getListeDerTiere()){
+            t.feed(zoo.getLagerhaus());
+        }
+        zoo.getLagerhaus().printStocklist();
+*/
+        zoo.printFeedList();
 
+        // zoo.printPflegerUndGehegeListe();
+        /*
+        for (Gehege g : zoo.getListeDerGehege()) {
+            System.out.print("Gehege: " + g.getName() + " betreut von: ");
+            Zoohilfe.printArrayListPfleger(g.getListeDerZustaendigenPfleger(zoo.getListeDerPfleger()));
+            System.out.println();
+        }*/
+
+        System.out.println("\nStarte Zoowoche mit ENTER!");
+        sc.nextLine();
 
         System.out.println("\nEine Woche im Zoo: ");
 
         for (int i = 0; i < 7; i++) {
             System.out.println("\n *** TAG " + (i + 1) + " *** ");
-            //Tagesablauf pro Gehege: jeweils Pfleger finden/aussuchen - füttern - anschließend alle Pfleger Tiere beobachten
-            tagesablaufProGehege(zoo);//TODO Fehler bei Zuordnung! Pfleger für falsches Gehege! Bernie Tiefsee?
+            //Tagesablauf pro Gehege: jeweils Pfleger aussuchen - füttern - anschließend alle Pfleger Tiere beobachten
+            tagesablaufProGehege(zoo);
 
             //Tagesablauf pro Pfleger: pro Pfleger Gehege durchlaufen - ggf. füttern - Tier beobachten
             //tagesablaufProPfleger(zoo);
@@ -55,88 +80,82 @@ public class Objekt_10_ZooSimulation {
     }
 
     private static void tagesablaufProPfleger(Zoo zoo) {
+        zoo.getDirektor().startDay();
         //Alle Gehege auf "nicht gefüttert" setzen:
-        for (Gehege g : zoo.getListeDerGehege()) {
-            if (g.isAlreadyFed()) {
-               g.changeFeedStatus();
-            }
-        }
+        Zoohilfe.setAllEnclosuresToUnfed(zoo);
 
         for (Pfleger pfleger : zoo.getListeDerPfleger()) {
-            System.out.println("\nPfleger " + pfleger.getName() + " beginnt seinen Arbeitstag.");
+            pfleger.startDay();
             for (Gehege gehege : pfleger.getListeDerBetreutenGehege()) {
+                if (gehege.getListeDerTiere().isEmpty()) break;
                 if (!gehege.isAlreadyFed()) {
-                    System.out.println("\nPfleger " + pfleger.getName() + " füttert alle Tiere in Gehege " + gehege.getName() + ":\n");
-                    for (Tier tier : gehege.getListeDerTiere()) {
-                        tier.feed();
-                    }
+                    System.out.println("\n" + pfleger + " füttert alle Tiere in Gehege " + gehege.getName() + ":\n");
+                    gehege.feedAllAnimalsInEnclosure(zoo.getLagerhaus());
                     gehege.changeFeedStatus();
                 } else
                     System.out.println("\nGehege " + gehege.getName() + " bereits von anderem Pfleger betreut - Pfleger " + pfleger.getName() + " geht weiter!");
             }
-            Random random = new Random();
 
-            zoo.getListeDerTiere().get(random.nextInt(zoo.getListeDerTiere().size())).watch(pfleger);
-            watchFavourite(zoo, pfleger);
-            System.out.println("Pfleger " + pfleger.getName() + " beendet seinen Arbeitstag. ");
+            //zufälliges Tier beobachten:
+            Zoohilfe.watchRandom(zoo, pfleger);
+            //Tier der Lieblingsart beobachten:
+            Zoohilfe.watchFavourite(zoo, pfleger);
+            pfleger.endDay();
         }
-
+        //überprüfen, ob alle Gehege betreut wurden:
         for (Gehege g : zoo.getListeDerGehege()) {
-            if (!g.isAlreadyFed()) {
-                System.out.println("\nKein Pfleger zuständig für Gehege " + g.getName() + "! ");
-                System.out.println("Dieser Zoo ist wirklich schlecht gemanagt! ");
+            if (!g.isAlreadyFed() && !g.getListeDerTiere().isEmpty()) {
+                directorsIntervention(zoo, g);
             }
-
         }
+        Zoohilfe.watchFavourite(zoo, zoo.getDirektor());
+        zoo.getLagerhaus().printStocklist();
+        zoo.getDirektor().endDay();
     }
 
+
+
     private static void tagesablaufProGehege(Zoo zoo) {
-        //Alle Gehege auf "nicht gefüttert" setzen:
-        for (Gehege g : zoo.getListeDerGehege()) {
-            if (g.isAlreadyFed()) {
-                g.changeFeedStatus();
-            }
-        }
+        zoo.getDirektor().startDay();
+        //setze alle Gehege auf "ungefüttert"
+        Zoohilfe.setAllEnclosuresToUnfed(zoo);
+        for (Pfleger p : zoo.getListeDerPfleger())
+            p.startDay();
+        //Schleife über alle Gehege:
         for (Gehege gehege : zoo.getListeDerGehege()) {
-            ArrayList<Object[]> liste = zoo.getPflegerUndGehegeListe();
-
-            Gehege temp = (Gehege) liste.get(0)[1];
-
-            int i = 1;
-            while (!temp.equals(gehege) && i < liste.size() - 1) {
-                temp = (Gehege) liste.get(i)[1];
-                i++;
-            }
-
-            if (!temp.equals(gehege)) System.out.println("\nFür das Gehege " + gehege.getName() + " ist niemand zuständig!\nDieser Zoo ist wirklich schlecht gemanagt!");
+            if (gehege.getListeDerTiere().isEmpty()) break;
+            //alle zuständigen Pfleger:
+            ArrayList<Pfleger> zustaendigePfleger = gehege.getListeDerZustaendigenPfleger(zoo.getListeDerPfleger());
+            if (zustaendigePfleger.isEmpty())
+                    directorsIntervention(zoo,gehege);
             else {
-
-                Pfleger pfleger = (Pfleger) liste.get(i)[0];
-                System.out.println("\nPfleger " + pfleger.getName() + " füttert alle Tiere in Gehege " + gehege.getName() + ":\n");
-                for (Tier tier : gehege.getListeDerTiere()) {
-                    tier.feed();
-                }
+                Random random = new Random();
+                //suche zufälligen Pfleger aus der Liste aus:
+                Pfleger pfleger = zustaendigePfleger.get(random.nextInt(zustaendigePfleger.size()));
+                System.out.println("\n" + pfleger + " füttert alle Tiere in Gehege " + gehege.getName() + ":\n");
+                gehege.feedAllAnimalsInEnclosure(zoo.getLagerhaus());
                 gehege.changeFeedStatus();
             }
         }
-        for (Pfleger pfleger : zoo.getListeDerPfleger()) {
-            Random random = new Random();
-            zoo.getListeDerTiere().get(random.nextInt(zoo.getListeDerTiere().size())).watch(pfleger);
 
+            for (Pfleger pfleger : zoo.getListeDerPfleger()) {
+                //zufälliges Tier anschauen
+                Zoohilfe.watchRandom(zoo, pfleger);
+                //Tier der Lieblingsart anschauen
+                Zoohilfe.watchFavourite(zoo, pfleger);
+                pfleger.endDay();
+            }
 
-            watchFavourite(zoo, pfleger);
-
-
-            System.out.println("Pfleger " + pfleger.getName() + " beendet seinen Arbeitstag. ");
-        }
+        Zoohilfe.watchFavourite(zoo, zoo.getDirektor());
+        zoo.getLagerhaus().printStocklist();
+        zoo.getDirektor().endDay();
     }
 
-    private static void watchFavourite(Zoo zoo, Pfleger pfleger) {
-        System.out.println("\nPfleger " + pfleger.getName() + " schaut noch sein Lieblingstier an: ");
-        Tier t = zoo.findArt(pfleger.getLieblingsArt());
-        if (t != null){
-            t.watch(pfleger);
-        }
-        //else System.out.println("Leider ist das Lieblingtier " + pfleger.getLieblingsArt() + " im Zoo nicht vorhanden.");
+    private static void directorsIntervention(Zoo zoo, Gehege g) {
+        System.out.println("\nKein Pfleger zuständig für Gehege " + g.getName() + " - ");
+        System.out.println("die Direktorin muss eingreifen!");
+        System.out.println("\n" + zoo.getDirektor() + " füttert alle Tiere in Gehege " + g.getName() + ":\n");
+        g.feedAllAnimalsInEnclosure(zoo.getLagerhaus());
+        g.changeFeedStatus();
     }
 }
