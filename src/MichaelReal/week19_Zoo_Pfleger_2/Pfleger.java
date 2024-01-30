@@ -11,6 +11,12 @@ public class Pfleger {
     public String getName() {
         return name;
     }
+
+    public void removeZustaendigesGehege(Gehege gehege) {
+    }
+
+    public void addZustaendigesGehege(Gehege gehege) {
+    }
 }
 
 

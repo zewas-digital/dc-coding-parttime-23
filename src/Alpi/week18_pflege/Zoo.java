@@ -34,6 +34,8 @@ public class Zoo {
 
     public ArrayList <Gehege> gehegeArrayList;
 
+    public ArrayList <Pfleger> pflegerArrayList;
+
 
 
     public Zoo(String name, int gruendungsjahr) {
@@ -41,9 +43,12 @@ public class Zoo {
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
         this.gehegeArrayList  = new ArrayList<>();
+        this.pflegerArrayList = new ArrayList<>();
 
         System.out.println("Zoo: " + this.name + "Gegründet: " + this.gruendungsjahr);
     }
+
+
 
 
 }
