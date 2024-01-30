@@ -27,7 +27,7 @@ public class Objekt_9_Pfleger {
         //Gehege
         Gehege wildwiese=zoo1.addGehege("Ried" );
         Gehege wuestenlandschaft=zoo1.addGehege( "Terrarium (warm)" );
-        Gehege blubberBecken=zoo1.addGehege( "Terrarium (warm)" );
+        Gehege blubberBecken=zoo1.addGehege( "Wasserplanschbecken" );
 
         //Plegern ihre Verantwortung mit Validierung hinzufügen
 
@@ -35,14 +35,13 @@ public class Objekt_9_Pfleger {
         zoo1.verantwortlichFuerGehege( pflegerSafi,wuestenlandschaft);
         zoo1.verantwortlichFuerGehege( pflegerClaudi,blubberBecken );
 
-
-        zoo1.printFormated();
-
         Futterbedarf Menge1=new Futterbedarf( 3 );
 
         Tier Kuh=wildwiese.addNewAnimal( "Garmond", "Kuh", Futter.Futtersorten.Heu,Menge1);
-        Tier Fisch= wildwiese.addNewAnimal( "Rijska", "Hai" , Futter.Futtersorten.Fisch,Menge1);
-
+        Tier Fisch= wildwiese.addNewAnimal( "Rijska", "Hai" , Futter.Futtersorten.Fleisch,Menge1);
+        Tier Giraffe= wildwiese.addNewAnimal( "Berti", "Giarffe" , Futter.Futtersorten.Heu,Menge1);
+        Tier Kamlion = wildwiese.addNewAnimal( "Jucki", "Kamelion" , Futter.Futtersorten.Heu,Menge1);
+        Tier Hengst = wildwiese.addNewAnimal( "Joe", "Ross" , Futter.Futtersorten.Heu,Menge1);
         zoo1.printFormated();
         zoo1.printFutterbedarfsliteZoo();
     }
