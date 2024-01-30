@@ -23,17 +23,24 @@ import java.util.HashMap;
 public class Objekt_8_FutterBonus {
     public static void main(String[] args) {
 
-        // Eine HashMap speichert Schlüssel-Wert-Paare,
-        // dessen Datentypen wir definieren können
-        HashMap<String, Integer> hashMap = new HashMap<>();
+        // Zoo erstellen
+        Zoo tierGartenDornbirn = new Zoo("Tier Garten Dornbirn", "2021");
 
-        // Wert hinzufügen
-        hashMap.put("erster Schlüssel", 120);
-        hashMap.put("zweiter Schlüssel", 300);
+       // Gehege erstellen
+        tierGartenDornbirn.gehegeArrayList.add(new Gehege("Alpenwiese"));
+        tierGartenDornbirn.gehegeArrayList.add(new Gehege("Südhang"));
+        tierGartenDornbirn.gehegeArrayList.add(new Gehege("Norhang"));
 
-        // Wert lesen
-        System.out.println(
-                hashMap.get("erster Schlüssel")
-        );
+        // Tiere erstellen
+        tierGartenDornbirn.gehegeArrayList.get(0).tiereArrayList.add(new Tiere("Hirsch1", "Wildtiere", Futterlager.futterArten.HEU, 10 ));
+        tierGartenDornbirn.gehegeArrayList.get(0).tiereArrayList.add(new Tiere("Reh1", "Wildtiere", Futterlager.futterArten.FISCH, 8 ));
+        tierGartenDornbirn.gehegeArrayList.get(1).tiereArrayList.add(new Tiere("Fish1", "Wassertiere", Futterlager.futterArten.FISCH, 2 ));
+
+
+        // Ausgabe Zoo
+
+        //tierGartenDornbirn.zooDisplayOutputV1();
+
+
     }
 }
