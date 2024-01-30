@@ -111,5 +111,13 @@ public class ZooMikiSimulation extends Zoo {
 
         // Starten der Tagessimulation
         zooMiki.simulateDay();
+
+        zooMiki.simulateDay();
+
+        zooMiki.simulateDay();
+
+        zooMiki.simulateDay();
+
+        zooMiki.simulateDay();
     }
 }
