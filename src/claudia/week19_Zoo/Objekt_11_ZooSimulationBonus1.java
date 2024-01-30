@@ -36,37 +36,53 @@ public class Objekt_11_ZooSimulationBonus1 {
 
         System.out.println("\nEine Woche im Zoo: ");
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 1; i++) {
             System.out.println("\n *** TAG " + (i + 1) + " *** ");
             //Zum Starten HasBitten auf False setzen:
             Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());
-           // Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
 
             int counter = 0;
             for (Gehege g : listeDerGehege) {
 
                 ArrayList<Tier> tiereImGehege = g.getListeDerTiere();
                 if (tiereImGehege.size() > 1) {//Sonst ist nur noch ein Tier im Gehege, was niemanden beißen kann!
-
                     BiteThread bt = new BiteThread(g, counter);
-                    //bt.setName("Thread " + g.getName());
                     bt.start();
-                    //System.out.println(bt.getName() + " fertig.");
                     counter++;
-
                 }
-                g.removeDeadAnimals();
             }
-            //Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
-            //zoo.feedAll();
         }
+        zoo.removeAllDeadAnimals();
+        zoo.feedAll();
         Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
+
+        for (int i = 0; i < 1; i++) {
+            System.out.println("\n *** TAG " + (i + 1) + " *** ");
+            //Zum Starten HasBitten auf False setzen:
+            Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());
+
+            int counter = 0;
+            for (Gehege g : listeDerGehege) {
+
+                ArrayList<Tier> tiereImGehege = g.getListeDerTiere();
+                if (tiereImGehege.size() > 1) {//Sonst ist nur noch ein Tier im Gehege, was niemanden beißen kann!
+                    BiteThread bt = new BiteThread(g, counter);
+                    bt.start();
+                    counter++;
+                }
+            }
+        }
+
+        zoo.removeAllDeadAnimals();
+        zoo.feedAll();
+        Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
+
 /*
 
 
         for (int i = 0; i < 20; i++) {
 //TODO Falls Gehege nur noch ein Tier enthält, abbrechen!
-            //TODO Falls Tier zwischendrin schon tot, nicht mehr beißen
+            //TODO Falls Tier schon tot, nicht mehr beißen
             System.out.println((i + 1) + "-ter Tag");
             //Zum Starten HasBitten auf False setzen:
             Zoohilfe.setAllAnimalsToHasntBitten(listeDerTiere);

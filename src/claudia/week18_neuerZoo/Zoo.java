@@ -173,14 +173,21 @@ public class Zoo {
     public void feedAll() {
         System.out.println("\nEs ist Fütterungszeit! ");
         for (Gehege g : this.ListeDerGehege) {
-            System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
-            for (Tier t : g.getListeDerTiere())  {
-                System.out.print("\t");
-                t.feed(this.getLagerhaus());
+            if (!g.getListeDerTiere().isEmpty()) {
+                System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
+                for (Tier t : g.getListeDerTiere()) {
+                    System.out.print("\t");
+                    t.feed(this.getLagerhaus());
+                }
             }
         }
     }
 
+    public void removeAllDeadAnimals(){
+        for (Gehege gehege : this.ListeDerGehege){
+            gehege.removeDeadAnimals();
+        }
+    }
 
     public Direktor getDirektor() {
         return direktor;
