@@ -15,9 +15,14 @@ public class Objekt_9_Pfleger_Main {
     public static void main(String[] args) {
         // Zoo erstellen
         Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
+        Zoo tierpark1 = new Zoo("Waldbrand" , 1855);
 
-
+        //Pfleger erstellen
         Pfleger PflegerDaniel = new Pfleger("Franz");
+        Pfleger Volkan = new Pfleger("Volkan");
+
+        //Pfleger Zoo zuweisen
+
 
 
 
