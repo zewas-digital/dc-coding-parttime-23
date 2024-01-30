@@ -112,11 +112,27 @@ public class ZooMikiKampfSimulation extends Zoo {
         // Starten der Tagessimulation
         zooMiki.simulateDay();
 
-        zooMiki.simulateDay();
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
 
         zooMiki.simulateDay();
 
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
         zooMiki.simulateDay();
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
+        zooMiki.simulateDay();
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
 
         zooMiki.simulateDay();
     }
