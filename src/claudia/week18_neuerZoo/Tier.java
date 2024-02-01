@@ -11,40 +11,56 @@ public class Tier {
     // menge: int
     private double futterBedarfInEinheit;
     private boolean hasBitten = false;
-    private int healthMax = 100;
-    private int healthActual = healthMax;
-    private double probabilityOfBite = 0.4;
-    private int strengthOfBite = 40;
+    private int healthMax;
+    private int healthActual;
+    private double probabilityOfBite;
+    private int strengthOfBite;
 
     public Tier(String name, String art, Lagerhaus.Futterarten futter, double futterBedarfInEinheit, ArrayList<Tier> listeDerTiere) {
         this.name = name;
         this.art = art;
         this.futter = futter;
         this.futterBedarfInEinheit = futterBedarfInEinheit;
+        this.healthMax = 100;
+        this.healthActual = healthMax;
+        this.probabilityOfBite = 0.4;
+        this.strengthOfBite = 40;
         listeDerTiere.add(this);
     }
 
-    public void bite (Tier tier){
+    public Tier(String name, String art, Lagerhaus.Futterarten futter, double futterBedarfInEinheit, ArrayList<Tier> listeDerTiere, int healthMax, int strengthOfBite, double probabilityOfBite) {
+        this.name = name;
+        this.art = art;
+        this.futter = futter;
+        this.futterBedarfInEinheit = futterBedarfInEinheit;
+        this.healthMax = healthMax;
+        this.healthActual = healthMax;
+        this.strengthOfBite = strengthOfBite;
+        this.probabilityOfBite = probabilityOfBite;
+        listeDerTiere.add(this);
+    }
+
+    public void bite (Tier anderesTier){
         double random = Math.random(); //Zufallszahl in [0,1)
         if (!this.hasBitten && random < this.probabilityOfBite){
             this.hasBitten = true;
-            tier.setHealthActual(tier.getHealthActual() - this.strengthOfBite);
-            System.out.println("\n" + this.name + " beißt " + tier.getName() + "!");
-            if (tier.getHealthActual() > 0)
-                System.out.println("Die Gesundheit dieses Tieres verringert sich um " + this.strengthOfBite + " auf " + tier.getHealthActual() + ".");
+            anderesTier.setHealthActual(anderesTier.getHealthActual() - this.strengthOfBite);
+            System.out.println("\n" + this.name + " beißt " + anderesTier.getName() + "!");
+            if (anderesTier.getHealthActual() > 0)
+                System.out.println("Die Gesundheit dieses Tieres verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".");
             else System.out.println("Dieses Tier ist damit leider aufgefressen.");
         }
-        else System.out.println("Kein Biss! ");
+        //else System.out.println("Kein Biss! ");
     }
-    public void bite (Tier tier, int counter){
+    public void bite (Tier anderesTier, int counter){
         double random = Math.random(); //Zufallszahl in [0,1)
         if (!this.hasBitten && random < this.probabilityOfBite){
             this.hasBitten = true;
-            tier.setHealthActual(tier.getHealthActual() - this.strengthOfBite);
-            System.out.println("\n" + "\t".repeat(2 * counter) +  this.name + " beißt " + tier.getName() + ":");
-            if (tier.getHealthActual() > 0)
-                System.out.println("\t".repeat(2 * counter) + "Die Gesundheit von " + tier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + tier.getHealthActual() + ".");
-            else System.out.println("\t".repeat(2 * counter) + tier.getName() + " ist damit leider aufgefressen.");
+            anderesTier.setHealthActual(anderesTier.getHealthActual() - this.strengthOfBite);
+            System.out.println("\n" + "\t".repeat(2 * counter) +  this.name + " beißt " + anderesTier.getName() + ":");
+            if (anderesTier.getHealthActual() > 0)
+                System.out.println("\t".repeat(2 * counter) + "Die Gesundheit von " + anderesTier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".");
+            else System.out.println("\t".repeat(2 * counter) + anderesTier.getName() + " ist damit leider aufgefressen.");
         }
         //else System.out.println("\t".repeat(2 * counter) + "Kein Biss! ");
     }
