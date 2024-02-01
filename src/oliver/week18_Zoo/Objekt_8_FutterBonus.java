@@ -40,6 +40,13 @@ public class Objekt_8_FutterBonus {
 
 
         // Zoo ----------------------
+        Zoo tierpark = erzeugeBeispielZoo();
+
+        // Drucke berechneten Futterbedarf
+        tierpark.druckeFutterStatistik();
+    }
+
+    public static Zoo erzeugeBeispielZoo() {
         Zoo tierpark = new Zoo("Tierpark");
 
         // Gehege
@@ -52,7 +59,9 @@ public class Objekt_8_FutterBonus {
         // Futter
         Futter heu = new Futter("Heu", "kg", 2);
         Futter fleisch = new Futter("Fleisch", "kg", 12);
+
         // Futter kann auch in den Zoo
+        // z. B. wenn jeder Zoo eigene Preise hat
         tierpark.futterHinzufuegen(heu, 2.2);
         System.out.println(
                 "Heu Standardpreis: "+ heu.getPreisProEinheit() +
@@ -63,9 +72,8 @@ public class Objekt_8_FutterBonus {
         Tier rehBock = waldrand.tierHinzufuegen("rehBock", heu, 5);
         Tier luchs = weide.tierHinzufuegen("Luchs", fleisch, 1);
 
-        System.out.println(luchs.getFutter().getName());
+        // System.out.println(luchs.getFutter().getName());
 
-        // Drucke berechneten Futterbedarf
-        tierpark.druckeFutterStatistik();
+        return tierpark;
     }
 }

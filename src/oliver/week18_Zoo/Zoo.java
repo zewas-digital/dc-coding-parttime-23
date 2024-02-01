@@ -3,7 +3,7 @@ package oliver.week18_Zoo;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class Zoo {
+public class Zoo extends Object {
     private String name;
 
     public Vector<Gehege> gehege;
@@ -15,6 +15,7 @@ public class Zoo {
     public Zoo(String name) {
         this.name = name;
         this.gehege = new Vector<>();
+        this.pfleger = new Vector<>();
     }
 
     public Gehege neuesGehege(String bezeichnung) {
@@ -43,23 +44,6 @@ public class Zoo {
         return this.futterliste.get(futter);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void druckeFutterStatistik() {
         HashMap<Futter, Integer> taeglicherBedarf = new HashMap<>();
 
@@ -69,7 +53,7 @@ public class Zoo {
         }
 
         System.out.println("-".repeat(12));
-        
+
         int summe = 0;
         for (Futter f: taeglicherBedarf.keySet()) {
             summe += f.getPreisProEinheit() * taeglicherBedarf.get(f);

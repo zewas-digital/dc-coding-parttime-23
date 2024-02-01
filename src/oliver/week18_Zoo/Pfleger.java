@@ -10,6 +10,14 @@ public class Pfleger {
     public Pfleger(String name) {
         this.name = name;
         this.zustaendigFuerGehege = new Vector<>();
+        System.out.println("pfleger hash "+ super.hashCode());
+    }
+    public String getId() {
+        return Integer.toHexString(super.hashCode());
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void verantwortlichFuerGehege(Gehege gehege) {
