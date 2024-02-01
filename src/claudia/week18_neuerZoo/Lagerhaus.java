@@ -15,6 +15,10 @@ public class Lagerhaus {
     private Futter fisch;
     private Futter schokolade;
     private HashMap<Futterarten, Futter> futterliste = new HashMap<>();
+    //Lagerbestandsliste:
+    private HashMap<Futterarten, Double> stocklist = new HashMap<>();
+    private Direktor direktor;
+
 
     public Lagerhaus() {
         Scanner sc = new Scanner(System.in);
@@ -32,6 +36,9 @@ public class Lagerhaus {
         futterliste.put(Futterarten.GRAS, gras);
         futterliste.put(Futterarten.FISCH, fisch);
         futterliste.put(Futterarten.SCHOKOLADE, schokolade);
+        //Zu Beginn Lager füllen:
+        stockWareHouse(1000.0, 1000.0, 1000.0);
+
 
     }
 
@@ -42,7 +49,37 @@ public class Lagerhaus {
         futterliste.put(Futterarten.GRAS, gras);
         futterliste.put(Futterarten.FISCH, fisch);
         futterliste.put(Futterarten.SCHOKOLADE, schokolade);
+        stockWareHouse(1000.0, 1000.0, 1000.0);
     }
+
+    private void stockWareHouse(double lagerbestandGras, double lagerbestandFisch, double lagerbestandSchokolade) {
+        // Lager füllen:
+        //System.out.println("\nLager aufgefüllt!");
+        //System.out.println("Lagerbestand " + Futterarten.GRAS + " = " + lagerbestandGras);
+        //System.out.println("Lagerbestand " + Futterarten.FISCH + " = " + lagerbestandFisch);
+        //System.out.println("Lagerbestand " + Futterarten.SCHOKOLADE + " = " + lagerbestandSchokolade);
+        stocklist.put(Futterarten.GRAS, lagerbestandGras);
+        stocklist.put(Futterarten.FISCH, lagerbestandFisch);
+        stocklist.put(Futterarten.SCHOKOLADE, lagerbestandSchokolade);
+    }
+
+    public void printStocklist(){
+        //Hashmap speichert Futterart mit benötigter Gesamtmenge:
+        HashMap<Futterarten, Double> stocklist = this.getStockListAllFeeds();
+        
+        System.out.println("\n\n==========   Lagerbestand Futter:   =========== ");
+        System.out.println("===============================================");
+
+        for (Futterarten key : stocklist.keySet()) {
+            String einheit = this.getFutterliste().get(key).getEinheit();
+            System.out.printf("%-20s    :    %10.3f %-10s\n", key, stocklist.get(key), einheit);
+            //System.out.println("Futterart: " + key + ", Menge: " + stocklist.get(key));
+        }
+        System.out.println();
+
+        }
+
+
 
     public HashMap<Futterarten, Futter> getFutterliste() {
         return futterliste;
@@ -50,5 +87,22 @@ public class Lagerhaus {
     // neue Hashmap
         // key enum
         // value Objekt mit allen Futterdaten ("Heu", "kg", 12)
+
+    public HashMap<Futterarten, Double> getStockListAllFeeds() {
+        return stocklist;
     }
+
+    public void setStockListSingleFeed(Futterarten futterart, double newStock) {
+        this.stocklist.put(futterart, newStock);
+        if (newStock <= 0) {
+            System.out.println("Achtung! Lagerbestand von " + futterart + " geht zur Neige!");
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Sie müssen etwas tun! Bestätigen Sie mit ENTER!");
+            sc.nextLine();
+        }
+
+
+    }
+}
 
