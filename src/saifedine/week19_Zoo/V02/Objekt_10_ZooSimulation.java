@@ -59,28 +59,27 @@ public class Objekt_10_ZooSimulation {
         tiergartenDornbirn.addPfleger(pflegerFranz);
 
         tiergartenDornbirn.zustaendigkeitGehege(pflegerHugo, ried);
+        tiergartenDornbirn.zustaendigkeitGehege(pflegerFranz, ried);
+        tiergartenDornbirn.zustaendigkeitGehege(pflegerHugo, terrarium);
         tiergartenDornbirn.zustaendigkeitGehege(pflegerFranz, terrarium);
+        tiergartenDornbirn.zustaendigkeitGehege(pflegerHugo, alpenwiese);
         tiergartenDornbirn.zustaendigkeitGehege(pflegerFranz, alpenwiese);
 
         tiergartenDornbirn.zooStrukturGehegeTierePfleger();
 
         Simulation_1 sim1 = new Simulation_1(tiergartenDornbirn);
 
-        System.out.println(sim1);
+        System.out.println("\n" + sim1);
 
         boolean checkStatus = sim1.checkZustaendigkeit(pflegerFranz,terrarium);
+        System.out.println("\n" + pflegerFranz.toString() + " ist zuständig für " + terrarium.toString() + " : " + checkStatus);
 
-        System.out.println(checkStatus);
+        checkStatus = sim1.checkZustaendigkeit(pflegerHugo,alpenwiese);
+        System.out.println("\n" + pflegerHugo.toString() + " ist zuständig für " + alpenwiese.toString() + " : " + checkStatus + "\n");
 
-        sim1.arbeitListe(pflegerFranz,terrarium);
+        sim1.arbeitListe();
 
         sim1.arbeit(tiergartenDornbirn);
 
-
-
-
-
     }
-
-
 }
