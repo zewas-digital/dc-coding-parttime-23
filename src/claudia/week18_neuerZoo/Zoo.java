@@ -2,21 +2,26 @@ package claudia.week18_neuerZoo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Zoo {
     private final String name ;
     private final int jahr;
+    private Direktor direktor;
     private Lagerhaus lagerhaus;
+
 
    // private HashMap<Pfleger, Gehege> zustaendig;
     private ArrayList<Gehege> ListeDerGehege = new ArrayList <>();
     private ArrayList<Pfleger> ListeDerPfleger = new ArrayList<>();
+    private ArrayList<Tier> ListeDerTiere = new ArrayList<>();
 
     private ArrayList<Object[]> PflegerUndGehegeListe = new ArrayList<>();
 
     public Zoo(String name, int jahr) {
         this.name = name;
         this.jahr = jahr;
+        this.direktor = new Direktor("Ariane", this.ListeDerPfleger, this.ListeDerGehege, false);
         this.lagerhaus = new Lagerhaus();
         //this.zustaendig = new HashMap<>();
     }
@@ -24,6 +29,7 @@ public class Zoo {
     public Zoo(String name, int jahr, Lagerhaus lagerhaus) {
         this.name = name;
         this.jahr = jahr;
+        this.direktor = new Direktor("Ariane", this.ListeDerPfleger, this.ListeDerGehege, false);
         this.lagerhaus = lagerhaus;
         //this.zustaendig = new HashMap<>();
     }
@@ -32,6 +38,38 @@ public class Zoo {
         for (Gehege g : ListeDerGehege) {
             for (Tier t: g.getListeDerTiere()) {
                 liste.add(t.getName());
+            }
+        }
+        return liste;
+    }
+
+    public Tier findArt(String art) {
+        ArrayList<Tier> liste = this.getListeDerTiere();
+        Random random = new Random();
+        int anzahl = liste.size();
+
+        int temp = random.nextInt(anzahl);
+        Tier t = liste.get(temp);
+       // System.out.println("Erstes ausgesucht: " + t.getArt());
+
+        int counter = 0;
+
+        while (!t.getArt().equals(art) && counter < anzahl) {
+            t = liste.get((temp + counter) % anzahl);
+            //System.out.println("In der Schleife: " + t.getArt());
+            counter++;
+        }
+        if (counter == anzahl) {
+            System.out.println("Die Art " + art + " ist im Zoo leider nicht vorhanden!");
+            return null;
+        } else return t;
+    }
+
+    public ArrayList<Tier> getListeDerTiere() {
+        ArrayList<Tier> liste = new ArrayList<>();
+        for (Gehege gehege : this.getListeDerGehege()) {
+            for (Tier tier : gehege.getListeDerTiere()) {
+                liste.add(tier);
             }
         }
         return liste;
@@ -91,19 +129,12 @@ public class Zoo {
     }
 
 
-
-    public void erstelleFutterstatistik() {
+    public void printFeedList() {
         //Hashmap speichert Futterart mit benötigter Gesamtmenge:
         HashMap<Lagerhaus.Futterarten, Double> futterTabelle = new HashMap<>();
 
         for (Gehege g : getListeDerGehege()) {
-            for (Tier t : g.getListeDerTiere()) {
-                //Falls aktuelles Futter noch nicht im Hashmap, hinzufügen mit Futtermenge des aktuellen Tiers t
-                if (!futterTabelle.containsKey(t.getFutterart()))
-                    futterTabelle.put(t.getFutterart(), t.getFutterBedarfInEinheit());
-                    //Falls bereits enthalten, addiere Futtermenge des aktuellen Tiers dazu
-                else futterTabelle.put(t.getFutterart(), futterTabelle.get(t.getFutterart()) + t.getFutterBedarfInEinheit());
-            }
+            g.feedListEnclosure(futterTabelle)  ;
         }
 
         double gesamt = 0;
@@ -125,7 +156,10 @@ public class Zoo {
         ArrayList<Gehege> ListeDerGehege = this.getListeDerGehege();
         System.out.println("\n|-- Zoo: " + this.toString());
         for (Gehege g : ListeDerGehege) {
-            System.out.println("|\t|-- Gehege: " + g.getName());
+            ArrayList<Pfleger> zustaendigePfleger = g.getListeDerZustaendigenPfleger(this.getListeDerPfleger());
+            System.out.print("|\t|-- Gehege: " + g.getName() + ", betreut von ");
+            Zoohilfe.printArrayListPfleger(zustaendigePfleger);
+            System.out.println();
             if (g.getListeDerTiere().isEmpty()) System.out.println("|\t|--|-- (leer)");
             else {
                 for (Tier t : g.getListeDerTiere()) {
@@ -139,12 +173,24 @@ public class Zoo {
     public void feedAll() {
         System.out.println("\nEs ist Fütterungszeit! ");
         for (Gehege g : this.ListeDerGehege) {
-            System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
-            for (Tier t : g.getListeDerTiere())  {
-                System.out.print("\t");
-                t.feed();
+            if (!g.getListeDerTiere().isEmpty()) {
+                System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
+                for (Tier t : g.getListeDerTiere()) {
+                    System.out.print("\t");
+                    t.feed(this.getLagerhaus());
+                }
             }
         }
+    }
+
+    public void removeAllDeadAnimals(){
+        for (Gehege gehege : this.ListeDerGehege){
+            gehege.removeDeadAnimals();
+        }
+    }
+
+    public Direktor getDirektor() {
+        return direktor;
     }
 
     public String getName() {

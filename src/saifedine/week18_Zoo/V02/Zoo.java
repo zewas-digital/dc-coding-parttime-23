@@ -17,8 +17,6 @@ public class Zoo {
     public Vector<Pfleger> pfleger;
 
 
-
-
     // Konstruktor
     public Zoo(String zooName, int gruendungsjahr) {
         this.zooName = zooName;
@@ -92,16 +90,15 @@ public class Zoo {
 
             for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().size(); j++) {
 
-                Futter.FutterArt futterArt =  this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterArt();
-                int futterBedarf =   this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterBedarf();
+                Futter.FutterArt futterArt = this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterArt();
+                int futterBedarf = this.gehegeArrayList.get(i).gettierArrayList().get(j).getFutterBedarf();
 
                 //System.out.println("----->" + futterArt);
 
-                if (this.futterMengenBedarfListe.get(futterArt) != null){
-                    this.futterMengenBedarfListe.replace(futterArt,futterBedarf + this.futterMengenBedarfListe.get(futterArt));
-                }
-                else {
-                    this.futterMengenBedarfListe.put(futterArt,futterBedarf);
+                if (this.futterMengenBedarfListe.get(futterArt) != null) {
+                    this.futterMengenBedarfListe.replace(futterArt, futterBedarf + this.futterMengenBedarfListe.get(futterArt));
+                } else {
+                    this.futterMengenBedarfListe.put(futterArt, futterBedarf);
                 }
             }
         }
@@ -113,7 +110,7 @@ public class Zoo {
 
         System.out.println("=======================");
 
-        for (Futter.FutterArt futterArt: futterMengenBedarfListe.keySet()){
+        for (Futter.FutterArt futterArt : futterMengenBedarfListe.keySet()) {
             //System.out.print(this.futterMengenBedarfListe.get(futterArt) +  " " + Futter.FutterLagerListe.get(futterArt).getFutterEinheit() + "         ");
 
             /*
@@ -142,27 +139,24 @@ public class Zoo {
 
     // Objekt_9_Pfleger
 
-    public void addPfleger(Pfleger pfleger){
+    public void addPfleger(Pfleger pfleger) {
         this.pfleger.add(pfleger);
     }
 
-    public void zustaendigkeitGehege(Pfleger pfleger, Gehege gehege){
+    public void zustaendigkeitGehege(Pfleger pfleger, Gehege gehege) {
 
         //System.out.println("Pfleger: " + this.pfleger.contains(pfleger));
         //System.out.println("Gehege: " + this.gehegeArrayList.contains(gehege));
 
-        if (this.pfleger.contains(pfleger) && this.gehegeArrayList.contains(gehege)){
+        if (this.pfleger.contains(pfleger) && this.gehegeArrayList.contains(gehege)) {
             pfleger.gehegeZustaendigkeit.add(gehege);
-        }
-        else if (this.pfleger.contains(pfleger) == false && this.gehegeArrayList.contains(gehege) == false) {
+        } else if (this.pfleger.contains(pfleger) == false && this.gehegeArrayList.contains(gehege) == false) {
 
             System.out.println(pfleger + " und " + gehege + " ist diesem " + this.zooName + " nicht zugeordnet!");
-        }
-        else if (this.pfleger.contains(pfleger) == false) {
+        } else if (this.pfleger.contains(pfleger) == false) {
 
             System.out.println(pfleger + " ist diesem " + this.zooName + " nicht zugeordnet!");
-        }
-        else {
+        } else {
             System.out.println(gehege + " ist diesem " + this.zooName + " nicht zugeordnet!");
         }
     }
@@ -178,11 +172,18 @@ public class Zoo {
 
             for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().toArray().length; j++) {
                 System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
+
+                for (int k = 0; k < this.pfleger.size(); k++) {
+
+                    if (this.pfleger.get(k).gehegeZustaendigkeit.contains(this.gehegeArrayList.get(i)))
+
+                        System.out.println("│          ├── " + this.pfleger.get(k));
+                }
             }
         }
-        for (int k = 0; k < this.pfleger.size(); k++) {
-            System.out.println("│          ├── " + this.pfleger.get(k));
-        }
+
+
+
     }
 }
 

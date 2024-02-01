@@ -26,7 +26,7 @@ public class Wiederholung {
         //zulassungsregister.put("B 65438", Boeing737Max);
         zulassungsregister.put("B 11111", VWCaddy);
 
-        System.out.println(zulassungsregister.get("B 11111"));
+       // System.out.println(zulassungsregister.get("B 11111").g);
         System.out.println();
 
 

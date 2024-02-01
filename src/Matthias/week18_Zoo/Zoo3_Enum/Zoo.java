@@ -9,6 +9,8 @@ public class Zoo {
     private HashMap<Futter.Futtersorten,Futter> Futterlager;
     private HashMap<Futter.Futtersorten, Integer> FutterbedarslisteTier;
     private ArrayList<Gehege> gehegeArrayList = new ArrayList<>( );
+
+
     public Zoo(String zooname,int builddate ){
         this.zooname =zooname;
         this.builddate=builddate;
@@ -23,9 +25,12 @@ public class Zoo {
         System.out.println( "*************************************" );
         double Gesampreis=0;
         for (Futter.Futtersorten Futtersorte: FutterbedarslisteTier.keySet()) {
+
             double zwischensummepreis= FutterbedarslisteTier.get( Futtersorte ) *  Futterlager.get( Futtersorte ).getEinheitpreis();
+
            Gesampreis=Gesampreis+zwischensummepreis;
-            System.out.println(FutterbedarslisteTier.get( Futtersorte ) +" "+ Futterlager.get( Futtersorte ).getEinheit()+" " + Futtersorte + " " +"Preis pro Menge: "+zwischensummepreis);;
+
+            System.out.println(FutterbedarslisteTier.get( Futtersorte ) +" "+ Futterlager.get( Futtersorte ).getEinheit()+" " + Futtersorte + " " +"Preis pro Menge: "+zwischensummepreis+ " Euro");;
         }
         System.out.println( "Zoo Gesamtkosten: " + Gesampreis );
         System.out.println( "*************************************" );
@@ -41,11 +46,11 @@ public class Zoo {
 
     private void fillFutterbedarsliste() {
         for (Gehege gehege: gehegeArrayList) {
-            for (Tiere Tier : gehege.getTierListe( )) {
-                if ( FutterbedarslisteTier.get(Tier.futtersorte)!=null ) {
-                    this.FutterbedarslisteTier.replace( Tier.futtersorte,Tier.getFutterbedarf( ).getFuttermenge( ));
+            for (Tiere tier : gehege.getTierListe( )) {
+                if ( FutterbedarslisteTier.get(tier.futtersorte)!=null ) {
+                    this.FutterbedarslisteTier.replace( tier.futtersorte,tier.getFutterbedarf( ).getFuttermenge( )+FutterbedarslisteTier.get( tier.futtersorte));
                 }else {
-                    this.FutterbedarslisteTier.put(Tier.futtersorte,Tier.getFutterbedarf().getFuttermenge());
+                    this.FutterbedarslisteTier.put(tier.futtersorte,tier.getFutterbedarf().getFuttermenge());
                 }
             }
         }
