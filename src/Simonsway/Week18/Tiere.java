@@ -1,30 +1,49 @@
 package Simonsway.Week18;
 
-import java.util.ArrayList;
-
 public class Tiere {
-
     private String name;
     private String gattung;
-    private ArrayList<Futter> futterArrayList = new ArrayList<>();
+    private float bedarf;
+    Futterlager.futterArten futter;
 
 
-    public Tiere(String name, String gattung){
+    // Konstruktor
+    public Tiere(String name, String gattung, Futterlager.futterArten futter, float bedarf){
         this.name = name;
         this.gattung = gattung;
+        this.futter = futter;
+        this.bedarf = bedarf;
     }
+
+    // To String
     public String toString(){
         return this.name + ", " + this.gattung;
     }
 
 
-    public void addFutter (Futter futter){
-        this.futterArrayList.add(futter);
+    // Setter
+    public void setName(String name) {
+        this.name = name;
     }
-    public void removeFutter (Futter futter){
-        this.futterArrayList.remove(futter);
+    public void setGattung(String gattung) {
+        this.gattung = gattung;
+    }
+    public void setBedarf(float bedarf) {
+        this.bedarf = bedarf;
     }
 
 
-
+    // Getter
+    public String getName() {
+        return this.name;
+    }
+    public String getGattung() {
+        return gattung;
+    }
+    public float getBedarf() {
+        return this.bedarf;
+    }
+    public Futterlager.futterArten getFutter() {
+        return futter;
+    }
 }

@@ -57,28 +57,16 @@ public class Gehege {
             }
             pfleger.removeZustaendigesGehege(this); // Pfleger auch informieren
         }
+
     }
 
-    // Getter-Methode für zuständige Pfleger
-    public HashMap<Pfleger, Integer> getZustaendigePfleger() {
-        return new HashMap<>(zustaendigePfleger);
+    public void addPfleger(String pflegerName) {
+
     }
 
-    // Methode zum Hinzufügen eines Pflegers
-    public void addZustaendigerPfleger(Pfleger pfleger) {
-        this.zustaendigePfleger.put(pfleger, this.zustaendigePfleger.getOrDefault(pfleger, 0) + 1);
+    public String[] getPflegerGehegeList() {
+        return new String[0];
     }
-
-    // Methode zum Entfernen eines Pflegers
-    public void removeZustaendigerPfleger(Pfleger pfleger) {
-        int count = this.zustaendigePfleger.getOrDefault(pfleger, 0);
-        if (count > 1) {
-            this.zustaendigePfleger.put(pfleger, count - 1);
-        } else {
-            this.zustaendigePfleger.remove(pfleger);
-        }
-    }
-
 }
 
 

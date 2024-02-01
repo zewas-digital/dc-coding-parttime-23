@@ -33,6 +33,30 @@ Heute wird ein guter
 
  */
 
+import java.util.Arrays;
+
 public class Strings_10_Split_Bonus {
 
+    public static String text = "Heute wird ein guter Tag! Heute wird der beste Tag überhaupt! Heute wird ein spitzen super Tag!";
+    public static void main(String[] args) {
+
+        String[] textParts = wordSplit(text, "Tag");
+
+        StringBuilder sb = new StringBuilder ();
+        String s = System.lineSeparator ();
+        for (String xy: textParts) {
+            sb.append ( xy );
+            sb.append ( s );
+        }
+
+        System.out.println ( sb.toString () );
+    }
+
+
+    public static String[] wordSplit(String text, String splitvalue){
+
+        String[] words = text.split ( splitvalue );
+
+        return words;
+    }
 }
