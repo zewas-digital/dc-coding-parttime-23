@@ -1,9 +1,9 @@
 package MichaelReal.week19_Zoo_KampfSimulation;
 
 
-public class ZooMikiSimulation extends Zoo {
+public class ZooMikiKampfSimulation extends Zoo {
 
-    public ZooMikiSimulation(String name, int gruendungsjahr) {
+    public ZooMikiKampfSimulation(String name, int gruendungsjahr) {
         super(name, gruendungsjahr);
     }
 
@@ -18,7 +18,7 @@ public class ZooMikiSimulation extends Zoo {
     }
 
     public static void main(String[] args) {
-        ZooMikiSimulation zooMiki = new ZooMikiSimulation("ZooMiki", 2023);
+        ZooMikiKampfSimulation zooMiki = new ZooMikiKampfSimulation("ZooMiki", 2023);
 
 
         // Hinzufügen von Gehegen
@@ -110,6 +110,30 @@ public class ZooMikiSimulation extends Zoo {
         zooMiki.calculateFutterBedarfUndKosten();
 
         // Starten der Tagessimulation
+        zooMiki.simulateDay();
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
+        zooMiki.simulateDay();
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
+        zooMiki.simulateDay();
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
+        zooMiki.simulateDay();
+
+        zooMiki.printZooStructureWithTiere();
+
+        zooMiki.calculateFutterBedarfUndKosten();
+
         zooMiki.simulateDay();
     }
 }
