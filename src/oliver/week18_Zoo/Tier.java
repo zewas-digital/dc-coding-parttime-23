@@ -18,11 +18,6 @@ public class Tier {
         return futter;
     }
 
-
-
-
-
-
     public void berechneTaeglichenBedarf(HashMap<Futter, Integer> taeglicherBedarf) {
         int bedarf = 0;
 
@@ -33,3 +28,10 @@ public class Tier {
         taeglicherBedarf.put(this.futter, bedarf + this.taeglicherBedarf);
     }
 }
+
+
+
+
+
+
+

@@ -19,21 +19,19 @@ public class Gehege {
         return tier;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public void berechneTaeglichenBedarf(HashMap<Futter, Integer> taeglicherBedarf) {
         for (Tier t: this.tiere) {
             t.berechneTaeglichenBedarf(taeglicherBedarf);
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
