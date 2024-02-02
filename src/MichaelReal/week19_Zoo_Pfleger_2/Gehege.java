@@ -1,18 +1,17 @@
 package MichaelReal.week19_Zoo_Pfleger_2;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Gehege {
     private String name;
     private HashMap<Tier, Integer> tierList;
-    private ArrayList<String> pflegerGehegeList;
+    private HashMap<Pfleger, Integer> zustaendigePfleger; // Zuordnung von Pflegern zu diesem Gehege
 
     public Gehege(String name) {
         this.name = name;
         this.tierList = new HashMap<>();
-        this.pflegerGehegeList = new ArrayList<>();
+        this.zustaendigePfleger = new HashMap<>();
     }
 
     public String getName() {
@@ -21,10 +20,6 @@ public class Gehege {
 
     public void addTier(Tier tier, int anzahl) {
         tierList.put(tier, anzahl);
-    }
-
-    public void addPfleger(String pfleger) {
-        pflegerGehegeList.add(pfleger);
     }
 
     // Methode zum Ändern des Futters für ein Tier in diesem Gehege
@@ -45,11 +40,33 @@ public class Gehege {
         return tierList;
     }
 
-    public ArrayList<String> getPflegerGehegeList() {
-        return pflegerGehegeList;
+    // Methode zum Zuordnen eines Pflegers zum Gehege
+    public void assignPfleger(Pfleger pfleger) {
+        zustaendigePfleger.put(pfleger, zustaendigePfleger.getOrDefault(pfleger, 0) + 1);
+        pfleger.addZustaendigesGehege(this); // Pfleger auch informieren
     }
 
+    // Methode zum Entfernen eines Pflegers aus dem Gehege
+    public void removePfleger(Pfleger pfleger) {
+        if (zustaendigePfleger.containsKey(pfleger)) {
+            int count = zustaendigePfleger.get(pfleger);
+            if (count > 1) {
+                zustaendigePfleger.put(pfleger, count - 1);
+            } else {
+                zustaendigePfleger.remove(pfleger);
+            }
+            pfleger.removeZustaendigesGehege(this); // Pfleger auch informieren
+        }
 
+    }
+
+    public void addPfleger(String pflegerName) {
+
+    }
+
+    public String[] getPflegerGehegeList() {
+        return new String[0];
+    }
 }
 
 

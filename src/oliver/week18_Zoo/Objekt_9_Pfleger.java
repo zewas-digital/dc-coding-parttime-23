@@ -19,6 +19,7 @@ public class Objekt_9_Pfleger {
         // Pfleger
         Pfleger pflegerDaniel = new Pfleger("Daniel");
         Pfleger pflegerBernhard = new Pfleger("Bernhard");
+        System.out.println(pflegerDaniel +"-"+ pflegerBernhard);
 
         // Pfleger Zoos zuweisen
         tierparkDornbirn.neuerPfleger(pflegerDaniel);
@@ -42,6 +43,37 @@ public class Objekt_9_Pfleger {
         pflegerBernhard.verantwortlichFuerGehege(weideDB);
         pflegerBernhard.verantwortlichFuerGehege(waldrandFK);
          */
+    }
+
+    public static Zoo erzeugeZoo(String name) {
+        // Zoo ----------------------
+        Zoo tierpark = new Zoo(name);
+
+        // Pfleger
+        Pfleger pflegerDaniel = new Pfleger("Daniel");
+        Pfleger pflegerBernhard = new Pfleger("Bernhard");
+
+        // Pfleger Zoos zuweisen
+        tierpark.neuerPfleger(pflegerDaniel);
+        tierpark.neuerPfleger(pflegerBernhard);
+
+        // Gehege
+        Gehege waldrand = tierpark.neuesGehege("Waldrand");
+        Gehege weide = tierpark.neuesGehege("Weide");
+        Gehege wiese = tierpark.neuesGehege("Wiese");
+        Gehege wald = tierpark.neuesGehege("Wald");
+        Gehege teich = tierpark.neuesGehege("Teich");
+
+
+        // Pflegern ihre Verantwortung zuweisen mit Validierung
+        tierpark.verantwortlichFuerGehege(pflegerDaniel, waldrand);
+        tierpark.verantwortlichFuerGehege(pflegerDaniel, wiese);
+        tierpark.verantwortlichFuerGehege(pflegerBernhard, weide);
+        tierpark.verantwortlichFuerGehege(pflegerBernhard, waldrand);
+        tierpark.verantwortlichFuerGehege(pflegerDaniel, wald);
+        tierpark.verantwortlichFuerGehege(pflegerBernhard, teich);
+
+        return tierpark;
     }
 
 }

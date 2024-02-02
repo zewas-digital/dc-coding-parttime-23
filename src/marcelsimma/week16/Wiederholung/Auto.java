@@ -54,7 +54,6 @@ public class Auto extends Fahrzeug implements Reifenwechsel {
     public void change(int anzahlDerRaeder) {
         System.out.println("Ich brauche vier Reifen.");
     }
-
     /*
 
     public String getPickerl() {

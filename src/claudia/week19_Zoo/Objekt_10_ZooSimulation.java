@@ -27,11 +27,10 @@ public class Objekt_10_ZooSimulation {
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
 
         //Test: für ein Gehege alle zuständigen Pfleger entfernen:
-        for (Pfleger pfleger : zoo.getListeDerPfleger()) {
-            pfleger.getListeDerBetreutenGehege().remove(zoo.getListeDerGehege().get(1));
+        //for (Pfleger pfleger : zoo.getListeDerPfleger()) {
+        //    pfleger.getListeDerBetreutenGehege().remove(zoo.getListeDerGehege().get(1));
             // pfleger.gehegeLoeschen(zoo.getListeDerGehege().get(0));
-
-        }
+        //}
         //zoo.getLagerhaus().printStocklist();
         //Test: Lagerbestand senken:
         //zoo.getLagerhaus().setStockListSingleFeed(Lagerhaus.Futterarten.FISCH, 200);
@@ -43,8 +42,12 @@ public class Objekt_10_ZooSimulation {
             System.out.println();
         }
 */
-        System.out.println("\nZoo erstellt! ");
-        zoo.printStructure();
+        //System.out.println("\nZoo erstellt! ");
+        //zoo.printStructure();
+
+
+
+
         //TEST LAGERHAUS UND FÜTTERN:
         /*
         zoo.getLagerhaus().printStocklist();
@@ -53,7 +56,7 @@ public class Objekt_10_ZooSimulation {
         }
         zoo.getLagerhaus().printStocklist();
 */
-        zoo.printFeedList();
+        //zoo.printFeedList();
 
         // zoo.printPflegerUndGehegeListe();
         /*
@@ -63,24 +66,68 @@ public class Objekt_10_ZooSimulation {
             System.out.println();
         }*/
 
-
-
         System.out.println("\nStarte Zoowoche mit ENTER!");
         sc.nextLine();
-
-
         System.out.println("\nEine Woche im Zoo: ");
 
         for (int i = 0; i < 7; i++) {
             System.out.println("\n *** TAG " + (i + 1) + " *** ");
+            //Tagesablauf rundenbasiert: jeder Pfleger arbeitet in jeder Runde einen Schritt seiner Liste ab
+            //tagesablaufRundenbasiert(zoo);
             //Tagesablauf pro Gehege: jeweils Pfleger aussuchen - füttern - anschließend alle Pfleger Tiere beobachten
             tagesablaufProGehege(zoo);
-
             //Tagesablauf pro Pfleger: pro Pfleger Gehege durchlaufen - ggf. füttern - Tier beobachten
             //tagesablaufProPfleger(zoo);
         }
 
     }
+
+    private static void tagesablaufRundenbasiert(Zoo zoo){
+        //gesamte Todo-Liste entspricht Liste der (nicht leeren) Gehege des Zoos!
+        //TODO Wenn Pfleger fehlt -> Fehler!
+        zoo.startDay();
+
+        Zoohilfe.setAllEnclosuresToUnfed(zoo);
+        ArrayList<Pfleger> listeDerPfleger = zoo.getListeDerPfleger();
+
+
+        int[] indizes = new int[listeDerPfleger.size()]; //speichert aktuellen Index auf Todo-Liste jedes Pflegers
+        //int index = 0;
+        while (!zoo.areAllEnclosuresFed()) {
+            for (Pfleger pfleger : zoo.getListeDerPfleger()) {
+                int index = listeDerPfleger.indexOf(pfleger); //Platz von Pfleger in Pflegerliste, damit man Wert in indizes zuordnen kann
+                Gehege gehege = pfleger.getListeDerBetreutenGehege().get(indizes[index]); //wähle nächstes Gehege auf der Liste aus
+                //Todo-Liste als clone geshuffelt? cast (ArrayList)
+
+                if (indizes[index] == pfleger.getListeDerBetreutenGehege().size()) break; //Dann Liste des Pflegers abgearbeitet
+
+                while ((gehege.isAlreadyFed() || gehege.getListeDerTiere().isEmpty())) { //Finde das nächste Gehege, was noch nicht bearbeitet wurde und nicht leer ist
+                    if (gehege.isAlreadyFed())
+                        System.out.println("\nGehege " + gehege.getName() + " bereits von anderem Pfleger betreut - Pfleger " + pfleger + " geht weiter!");
+                    if (gehege.getListeDerTiere().isEmpty())
+                        System.out.println("Das Gehege " + gehege.getName() + " ist leer. " + pfleger + " geht weiter.");
+                    indizes[index]++;
+                    gehege = pfleger.getListeDerBetreutenGehege().get(indizes[index]);
+                }
+
+                //unbearbeitetes Gehege gefunden!
+
+                System.out.println("\n" + pfleger + " füttert alle Tiere in Gehege " + gehege.getName() + ":\n");
+                gehege.feedAllAnimalsInEnclosure(zoo.getLagerhaus());
+                gehege.changeFeedStatus();
+                indizes[index]++;
+
+            }
+            //noch Gehege übrig?
+            for (Gehege g : zoo.getListeDerGehege()) {
+                if (!g.isAlreadyFed() && !g.getListeDerTiere().isEmpty()) {
+                    directorsIntervention(zoo, g);
+                }
+            }
+        }
+        zoo.endDay();
+    }
+
 
     private static void tagesablaufProPfleger(Zoo zoo) {
         zoo.getDirektor().startDay();
@@ -115,7 +162,6 @@ public class Objekt_10_ZooSimulation {
         zoo.getLagerhaus().printStocklist();
         zoo.getDirektor().endDay();
     }
-
 
 
     private static void tagesablaufProGehege(Zoo zoo) {

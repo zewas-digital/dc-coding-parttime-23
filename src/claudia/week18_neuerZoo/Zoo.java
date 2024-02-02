@@ -43,6 +43,27 @@ public class Zoo {
         return liste;
     }
 
+    public void startDay() {
+        this.direktor.startDay();
+        for (Pfleger p : this.ListeDerPfleger) {
+            p.startDay();
+        }
+    }
+
+    public void endDay(){
+        for (Pfleger p : this.ListeDerPfleger) {
+            p.endDay();
+        }
+        this.direktor.endDay();
+    }
+
+    public boolean areAllEnclosuresFed(){
+        for (Gehege g : this.ListeDerGehege){
+            if (!g.isAlreadyFed()) return false;
+        }
+        return true;
+    }
+
     public Tier findArt(String art) {
         ArrayList<Tier> liste = this.getListeDerTiere();
         Random random = new Random();
@@ -173,14 +194,21 @@ public class Zoo {
     public void feedAll() {
         System.out.println("\nEs ist Fütterungszeit! ");
         for (Gehege g : this.ListeDerGehege) {
-            System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
-            for (Tier t : g.getListeDerTiere())  {
-                System.out.print("\t");
-                t.feed(this.getLagerhaus());
+            if (!g.getListeDerTiere().isEmpty()) {
+                System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
+                for (Tier t : g.getListeDerTiere()) {
+                    System.out.print("\t");
+                    t.feed(this.getLagerhaus());
+                }
             }
         }
     }
 
+    public void removeAllDeadAnimals(){
+        for (Gehege gehege : this.ListeDerGehege){
+            gehege.removeDeadAnimals();
+        }
+    }
 
     public Direktor getDirektor() {
         return direktor;
