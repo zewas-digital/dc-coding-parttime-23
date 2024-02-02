@@ -1,19 +1,18 @@
-package Matthias.week19_Zoo;
-
-import java.util.ArrayList;
+package Matthias.week19_Zoo.Zoo5_gehegeFuerGehege;
+import java.util.Vector;
 
 public class Pfleger {
     private String name;
 
-    private ArrayList<Gehege> zustaendigFuerGehege;
+    private Vector<Gehege> zustaendigFuerGehege;
 
     public Pfleger( String name){
 
         this.name=name;
-        this.zustaendigFuerGehege=new ArrayList<>(  );
+        this.zustaendigFuerGehege=new Vector<>(  );
     }
 
-    public ArrayList<Gehege> getZustaendigFuerGehege() {
+    public Vector<Gehege> getZustaendigFuerGehege() {
         return this.zustaendigFuerGehege;
     }
 
@@ -34,6 +33,9 @@ public class Pfleger {
 
             zustaendigFuerGehege.get( indexGehege ).setGehegeFutterStatus( true );
             System.out.println( this.name + ":" + "Ich habe das " + this.zustaendigFuerGehege.get( indexGehege ).getStandort( ) + "angesehen und den Stautus auf :" + this.zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) );
+        } else if ( zustaendigFuerGehege.isEmpty()) {
+            System.out.println(  this.name+":"+"Ich bin fertig! und mache Pause");
         }
+
     }
 }

@@ -1,4 +1,4 @@
-package Matthias.week19_Zoo;
+package Matthias.week19_Zoo.Zoo5_gehegeFuerGehege;
 
 /*
 Aufgabe: Simulation 0.1
@@ -16,6 +16,13 @@ Drucke auf der Konsole aus, wer-was macht...
 
 public class Objekt_10_ZooSimulation {
     public static void main( String[] args ) {
+        Zoo zoo1 = getDemoZoo( );
+        ZooSimulator1 zooSimulator11 =new ZooSimulator1( zoo1 );
+        zooSimulator11.TagesSimulation( 3 );
+
+    }
+
+    public static Zoo getDemoZoo() {
         Zoo zoo1 = new Zoo( "Tiergarten Dornbirn", 2022 );
 
         //Pfleger erstellen
@@ -40,21 +47,20 @@ public class Objekt_10_ZooSimulation {
         zoo1.verantwortlichFuerGehege( pflegerClaudi, wildwiese);
 
 
-        Futterbedarf Menge1 = new Futterbedarf( 3 );
+        Futterbedarf regMenge = new Futterbedarf( 3 );
 
-        Tier Kuh = wildwiese.addNewAnimal( "Garmond", "Kuh", Futter.Futtersorten.HEU, Menge1 );
-        Tier Fisch = wildwiese.addNewAnimal( "Rijska", "Hai", Futter.Futtersorten.FLEISCH, Menge1 );
-        Tier Giraffe = wildwiese.addNewAnimal( "Berti", "Giarffe", Futter.Futtersorten.HEU, Menge1 );
-        Tier Kamlion = wildwiese.addNewAnimal( "Jucki", "Kamelion", Futter.Futtersorten.HEU, Menge1 );
-        Tier Hengst = wildwiese.addNewAnimal( "Joe", "Ross", Futter.Futtersorten.HEU, Menge1 );
+        Tier Kuh = wildwiese.addNewAnimal( "Garmond", "Kuh", Futter.Futtersorten.HEU, regMenge );
+        Tier Fisch = wildwiese.addNewAnimal( "Rijska", "Hai", Futter.Futtersorten.FLEISCH, regMenge );
+        Tier Giraffe = wildwiese.addNewAnimal( "Berti", "Giarffe", Futter.Futtersorten.HEU, regMenge );
+        Tier Kamelion = wildwiese.addNewAnimal( "Jucki", "Kamelion", Futter.Futtersorten.HEU, regMenge );
+        Tier Hengst = wildwiese.addNewAnimal( "Joe", "Ross", Futter.Futtersorten.HEU, regMenge );
 
         //Zoo Struktur
         zoo1.printFormated( );
 
         // Zoo Bedarfsliste
         zoo1.printFutterbedarfsliteZoo( );
-
-        // Pfleger durchlauf
-        zoo1.TagesSimulation( );
+        return zoo1;
     }
+
 }

@@ -1,4 +1,4 @@
-package Matthias.week19_Zoo;
+package Matthias.week19_Zoo.Zoo5_gehegeFuerGehege;
 
 
 import java.util.ArrayList;
