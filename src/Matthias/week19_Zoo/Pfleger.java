@@ -14,7 +14,7 @@ public class Pfleger {
     }
 
     public ArrayList<Gehege> getZustaendigFuerGehege() {
-        return zustaendigFuerGehege;
+        return this.zustaendigFuerGehege;
     }
 
     public String getName() {
@@ -25,16 +25,15 @@ public class Pfleger {
         this.zustaendigFuerGehege.add( gehege );
     }
 
-    public void geheZuGehge(){
-        while ( true ) {
-            for (Gehege g : this.zustaendigFuerGehege) {
-                if ( !g.isGehegeFutterStatus( ) ) {
-                    g.setGehegeFutterStatus( true );
-                    System.out.println( this.name + ":" + "Ich habe das " + g.getStandort( ) + "angesehen und den Stautus auf :" + g.isGehegeFutterStatus( ) );
-                } else {
-                    System.out.println( this.name + ":" + "Der Standort: " + g.getStandort( ) + "wurde schon barbeitet" );
-                }
-            }
+    public void abarbeitungEinesGeheges(int indexGehege) {
+        if ( this.zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) ) {
+
+            System.out.println( this.name + ":" + "Der Standort: " + this.zustaendigFuerGehege.get( indexGehege ).getStandort( ) + "wurde schon barbeitet" );
+
+        } else if ( !zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) ) {
+
+            zustaendigFuerGehege.get( indexGehege ).setGehegeFutterStatus( true );
+            System.out.println( this.name + ":" + "Ich habe das " + this.zustaendigFuerGehege.get( indexGehege ).getStandort( ) + "angesehen und den Stautus auf :" + this.zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) );
         }
-    };
+    }
 }

@@ -26,7 +26,7 @@ public class Gehege{
         return neuesTier;
     }
 
-    public boolean isGehegeFutterStatus() {
+    public boolean getGehegeFutterStatus() {
         return gehegeFutterStatus;
     }
 

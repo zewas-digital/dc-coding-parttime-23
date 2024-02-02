@@ -25,13 +25,45 @@ public class Zoo {
         this.pflegerArrayList.add(pfleger);
     }
 
-    public void pflegerErledigenEinGehege(){
-
-        for (int i = 0; i < pflegerArrayList.size(); i++) {
-                pflegerArrayList.get( i ).geheZuGehge();
+   public void TagesSimulation(){
+        int inkrementGehege=0;
+        boolean status =false;
+        while (this.gehegeArrayList.size()>=inkrementGehege){
+            System.out.println("Erledige:"+inkrementGehege );
+            for (Pfleger pfleger:this.pflegerArrayList) {
+                pflegerToDoList( inkrementGehege );
+                for (Gehege g:pfleger.getZustaendigFuerGehege()) {
+                        if(!g.getGehegeFutterStatus()){
+                            pflegerToDoList( inkrementGehege ).replace( g,true );
+                        }
+                    }
+                pfleger.abarbeitungEinesGeheges( inkrementGehege );
+            }
+            inkrementGehege++;
         }
+      //
+        //System.out.println( "Tages Simulation Beendet!" );
+   }
+
+    private HashMap<Gehege,Boolean> pflegerToDoList( int index ) {
+        HashMap<Gehege, Boolean> pflegerToDoList= new HashMap<>();
+        for (int e = 0; e < index; e++) {
+            for (int i = 0; i < this.pflegerArrayList.size(); i++) {
+                System.out.println("Gehege:"+pflegerArrayList.get( e).getZustaendigFuerGehege( ).get( i)+"|" +"Status:"+ pflegerArrayList.get( e).getZustaendigFuerGehege().get( i ).getGehegeFutterStatus());
+                pflegerToDoList.put( pflegerArrayList.get( e).getZustaendigFuerGehege( ).get( i), pflegerArrayList.get( e).getZustaendigFuerGehege().get( i ).getGehegeFutterStatus());
+            }
+        }
+        return pflegerToDoList;
     }
 
+    public boolean zooGehgeToDOStatus(){
+       for (Gehege g : this.gehegeArrayList) {
+           if ( !g.getGehegeFutterStatus( ) ) {
+               return true;         // es ist noch was zu tun
+           }
+       }
+       return false;
+   }
 
     public void verantwortlichFuerGehege( Pfleger pfleger, Gehege gehege) {
         if (this.pflegerArrayList.contains(pfleger) && this.gehegeArrayList.contains(gehege)) {

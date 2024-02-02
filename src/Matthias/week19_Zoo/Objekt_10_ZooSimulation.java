@@ -16,45 +16,45 @@ Drucke auf der Konsole aus, wer-was macht...
 
 public class Objekt_10_ZooSimulation {
     public static void main( String[] args ) {
-        Zoo zoo1= new Zoo( "Tiergarten Dornbirn", 2022 );
+        Zoo zoo1 = new Zoo( "Tiergarten Dornbirn", 2022 );
 
         //Pfleger erstellen
-        Pfleger pflegerSafi= new Pfleger( "Safi" );
-        Pfleger pflegerClaudi= new Pfleger( "Claudi" );
+        Pfleger pflegerSafi = new Pfleger( "Safi" );
+        Pfleger pflegerClaudi = new Pfleger( "Claudi" );
 
         //Pfleger Zoos zuweisen
         zoo1.neuerPfleger( pflegerSafi );
-        zoo1.neuerPfleger( pflegerClaudi);
+        zoo1.neuerPfleger( pflegerClaudi );
 
         //Gehege
-        Gehege wildwiese=zoo1.addGehege("Ried");
-        Gehege wuestenlandschaft=zoo1.addGehege( "Terrarium (warm)");
-        Gehege blubberBecken=zoo1.addGehege( "Wasserplanschbecken");
+        Gehege wildwiese = zoo1.addGehege( "Ried" );
+        Gehege wuestenlandschaft = zoo1.addGehege( "Terrarium (warm)" );
+        Gehege blubberBecken = zoo1.addGehege( "Wasserplanschbecken" );
 
         //Plegern ihre Verantwortung mit Validierung hinzufügen
 
-        zoo1.verantwortlichFuerGehege( pflegerSafi,wildwiese );
-        zoo1.verantwortlichFuerGehege( pflegerSafi,wuestenlandschaft);
-        zoo1.verantwortlichFuerGehege( pflegerClaudi,blubberBecken );
-        zoo1.verantwortlichFuerGehege( pflegerClaudi,blubberBecken );
+        zoo1.verantwortlichFuerGehege( pflegerSafi, wildwiese );
+        zoo1.verantwortlichFuerGehege( pflegerSafi, wuestenlandschaft );
+        zoo1.verantwortlichFuerGehege( pflegerSafi, blubberBecken );
+        zoo1.verantwortlichFuerGehege( pflegerClaudi, blubberBecken );
+        zoo1.verantwortlichFuerGehege( pflegerClaudi, wildwiese);
 
-        Futterbedarf Menge1=new Futterbedarf( 3 );
 
-        Tier Kuh=wildwiese.addNewAnimal( "Garmond", "Kuh", Futter.Futtersorten.HEU,Menge1);
-        Tier Fisch= wildwiese.addNewAnimal( "Rijska", "Hai" ,Futter.Futtersorten.FLEISCH,Menge1);
-        Tier Giraffe= wildwiese.addNewAnimal( "Berti", "Giarffe" , Futter.Futtersorten.HEU,Menge1);
-        Tier Kamlion = wildwiese.addNewAnimal( "Jucki", "Kamelion" , Futter.Futtersorten.HEU,Menge1);
-        Tier Hengst = wildwiese.addNewAnimal( "Joe", "Ross" , Futter.Futtersorten.HEU,Menge1);
+        Futterbedarf Menge1 = new Futterbedarf( 3 );
+
+        Tier Kuh = wildwiese.addNewAnimal( "Garmond", "Kuh", Futter.Futtersorten.HEU, Menge1 );
+        Tier Fisch = wildwiese.addNewAnimal( "Rijska", "Hai", Futter.Futtersorten.FLEISCH, Menge1 );
+        Tier Giraffe = wildwiese.addNewAnimal( "Berti", "Giarffe", Futter.Futtersorten.HEU, Menge1 );
+        Tier Kamlion = wildwiese.addNewAnimal( "Jucki", "Kamelion", Futter.Futtersorten.HEU, Menge1 );
+        Tier Hengst = wildwiese.addNewAnimal( "Joe", "Ross", Futter.Futtersorten.HEU, Menge1 );
 
         //Zoo Struktur
-        zoo1.printFormated();
+        zoo1.printFormated( );
 
         // Zoo Bedarfsliste
-        zoo1.printFutterbedarfsliteZoo();
+        zoo1.printFutterbedarfsliteZoo( );
 
         // Pfleger durchlauf
-        pflegerClaudi.geheZuGehge();
-        pflegerSafi.geheZuGehge();
+        zoo1.TagesSimulation( );
     }
-
 }
