@@ -44,6 +44,7 @@ public class Zoo {
     }
 
     public void startDay() {
+        Zoohilfe.setAllEnclosuresToUnfed(this);
         this.direktor.startDay();
         for (Pfleger p : this.ListeDerPfleger) {
             p.startDay();
@@ -59,6 +60,12 @@ public class Zoo {
 
     public boolean areAllEnclosuresFed(){
         for (Gehege g : this.ListeDerGehege){
+            if (!g.isAlreadyFed()) return false;
+        }
+        return true;
+    }
+    public boolean areEnclosuresFed(ArrayList<Gehege> listeDerGehege){
+        for (Gehege g : listeDerGehege){
             if (!g.isAlreadyFed()) return false;
         }
         return true;
