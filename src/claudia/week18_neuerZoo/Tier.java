@@ -73,8 +73,15 @@ public class Tier {
       //  System.out.println("Futterart: " + lagerhaus.getFutterliste().get(this.getFutterart()));
        // System.out.println("aktueller Lagerbestand: " + lagerhaus.getStockListAllFeeds().get(this.getFutterart()));
        // System.out.println("Bedarf: " + this.getFutterBedarfInEinheit());
+
+        /* * * * *
+
+        //Hier Lagerbestand neu berechnen, "einkaufen"!
         lagerhaus.setStockListSingleFeed(this.futter, lagerhaus.getStockListAllFeeds().get(this.futter) - this.getFutterBedarfInEinheit());
-       // System.out.println("Neuer Lagerbestand: ");
+
+        */
+
+        // System.out.println("Neuer Lagerbestand: ");
         //System.out.println(lagerhaus.getStockListAllFeeds().get(this.getFutterart()));
 
         try {

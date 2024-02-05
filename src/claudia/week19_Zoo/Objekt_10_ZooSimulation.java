@@ -28,13 +28,13 @@ public class Objekt_10_ZooSimulation {
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
 
         //Test: für ein Gehege alle zuständigen Pfleger entfernen:
-/*
+
         for (Pfleger pfleger : zoo.getListeDerPfleger()) {
-            //pfleger.getListeDerBetreutenGehege().remove(zoo.getListeDerGehege().get(1));
+            pfleger.getListeDerBetreutenGehege().remove(zoo.getListeDerGehege().get(1));
              pfleger.gehegeLoeschen(zoo.getListeDerGehege().get(0));
         }
 
-*/
+
         //zoo.getLagerhaus().printStocklist();
         //Test: Lagerbestand senken:
         //zoo.getLagerhaus().setStockListSingleFeed(Lagerhaus.Futterarten.FISCH, 200);
@@ -97,7 +97,8 @@ public class Objekt_10_ZooSimulation {
                     todoListeGesamt.add(gehege);
                 // else System.out.println("Im Gehege " + gehege.getName() + " befinden sich heute keine Tiere.");
             }
-            int betreuteGehege = todoListeGesamt.size();
+            //Anzahl der nicht-leeren Gehege, für die ein Pfleger (!= Direktor) zuständig ist
+            int zuBetreuendeGehege = todoListeGesamt.size();
             //Erstelle Arbeitsliste für jeden Pfleger und lege sie in Hashmap ab:
             HashMap<Pfleger, ArrayList<Gehege>> todoListePfleger = new HashMap<>();
 
@@ -118,10 +119,11 @@ public class Objekt_10_ZooSimulation {
             int pflegerFertig = 0;
            // System.out.println(" * ".repeat(40));
             //while (!todoListeGesamt.isEmpty() && pflegerFertig < anzahlDerPfleger) {
-            while (pflegerFertig < anzahlDerPfleger && betreuteGehege > 0) {//Dann gibt es noch einen Pfleger, dessen Liste nicht abgearbeitet ist
+            while (pflegerFertig < anzahlDerPfleger && zuBetreuendeGehege > 0) {//Dann gibt es noch einen Pfleger, dessen Liste nicht abgearbeitet ist
 
                 for (Pfleger pfleger : listeDerPfleger) {
                     Gehege gehege = null;
+                    //Finde ein Gehege, was noch niemand betreut hat:
                     while (!todoListePfleger.get(pfleger).isEmpty()) {//Wenn er noch ein Gehege auf seiner Liste hat...
                         gehege = todoListePfleger.get(pfleger).get(0);
 
@@ -139,15 +141,15 @@ public class Objekt_10_ZooSimulation {
                     if (gehege != null) {
                         System.out.printf("%-30s  ", pfleger + ": " + gehege.getName());
                         gehege.changeFeedStatus();
-                        betreuteGehege--;
+                        zuBetreuendeGehege--;
                         todoListeGesamt.remove(gehege);
                         todoListePfleger.get(pfleger).remove(gehege);
                         //gehege = null;
-                        if (todoListePfleger.get(pfleger).isEmpty()){
-                            pflegerFertig++;
+                        //if (todoListePfleger.get(pfleger).isEmpty()){
+                          //  pflegerFertig++;
                             //System.out.printf("%-30s  Gehege bearbeitet, jetzt leer", pfleger + ": fertig");
                         }
-                    } else { //Dann ist seine Liste leer
+                     else { //Dann ist seine Liste leer
                         System.out.printf("%-30s  ", pfleger + ": fertig");
                         pflegerFertig++;
                     }
@@ -271,7 +273,7 @@ public class Objekt_10_ZooSimulation {
     private static void directorsIntervention(Zoo zoo, Gehege g) {
         System.out.println("\nKein Pfleger zuständig für Gehege " + g.getName() + " - ");
         System.out.println("die Direktorin muss eingreifen!");
-        System.out.println("\n" + zoo.getDirektor() + " füttert alle Tiere in Gehege " + g.getName() + ":\n");
+        System.out.println("\n" + zoo.getDirektor() + " füttert alle Tiere in Gehege " + g.getName() + ".\n");
         //g.feedAllAnimalsInEnclosure(zoo.getLagerhaus());
         g.changeFeedStatus();
     }
