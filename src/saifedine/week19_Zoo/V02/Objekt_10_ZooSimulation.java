@@ -81,5 +81,7 @@ public class Objekt_10_ZooSimulation {
 
         sim1.arbeit(tiergartenDornbirn);
 
+        tiergartenDornbirn.zooStrukturGehegeTierePfleger();
+
     }
 }
