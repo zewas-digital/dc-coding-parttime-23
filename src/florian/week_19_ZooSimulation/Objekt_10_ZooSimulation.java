@@ -14,6 +14,21 @@ Bonus/ Mit einer Erweiterung der Pfleger um seine Lieblings-Tier-Gattung, kann d
 Drucke auf der Konsole aus, wer-was macht...
  */
 
+
+
+
+import florian.week_18_Pflegeraufgabe.Objekt_9_Pfleger;
+import florian.week_18_Pflegeraufgabe.Zoo;
+
 public class Objekt_10_ZooSimulation {
+    public static void main(String[] args) {
+
+        Zoo tierpark = Objekt_9_Pfleger.erzeugeZoo("Doppelmayer",1980);
+        ZooSimulation simulator = new ZooSimulation(tierpark);
+
+
+
+
+    }
 
 }
