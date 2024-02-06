@@ -10,8 +10,9 @@ import java.util.Scanner;
 
 public class Objekt_11_ZooSimulationBonus1b {
     public static void main(String[] args) {
+        //Versuch mit Threads...
 
-
+        //TODO Schleife über die Tiere, nicht über Gehege?
         //Zoo erstellen, Gehege aussuchen
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
         //Gehege gehege = zoo.getListeDerGehege().get(1);

@@ -5,6 +5,24 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Zoohilfe {
+    public static void main(String[] args) {
+        Zoo zoo = erstelleStandardZooMitPflegern();
+        ArrayList<Gehege> gehegeliste = zoo.getListeDerGehege();
+        System.out.println("Liste aller Gehege: ");
+        printArrayListGehege(gehegeliste);
+        Gehege gehege = gehegeliste.get(0);
+        System.out.println("Gehege ausgewählt: " + gehege.getName());
+        System.out.println("Erstelle Shuffleclone: ");
+        ArrayList<Gehege> neueListe = shufflecloneGehege(gehegeliste);
+        printArrayListGehege(neueListe);
+        System.out.println("\nIst Gehege enthalten? " + neueListe.contains(gehege));
+        System.out.println("\nEntfernen: ");
+        neueListe.remove(gehege);
+        printArrayListGehege(neueListe);
+        System.out.println("Ist Gehege enthalten? (neue Liste) " + neueListe.contains(gehege));
+        System.out.println("Ist Gehege enthalten? (Original) " + gehegeliste.contains(gehege));
+
+    }
 
     public static Zoo erstelleStandardZooOhnePfleger() {
         double[] preisliste = {3.5, 21.0, 5.21};
@@ -49,6 +67,7 @@ public class Zoohilfe {
         Pfleger pflegerHansi = new Pfleger("Hansi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);//, zoo.getZustaendig());
         Pfleger pflegerBerni = new Pfleger("Berni", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);//, zoo.getZustaendig());
         Pfleger pflegerWerner = new Pfleger("Werner", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);
+        //Pfleger pflegerHeinzi = new Pfleger("Heinzi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), true);
         pflegerHansi.setLieblingsArt("Tiger");
         pflegerBerni.setLieblingsArt("Regenwurm");
         pflegerWerner.setLieblingsArt("Hecht");
@@ -57,8 +76,13 @@ public class Zoohilfe {
 
     }
 
-    public static ArrayList<Gehege> shuffleclone(ArrayList<Gehege> liste){
+    public static ArrayList<Gehege> shufflecloneGehege(ArrayList<Gehege> liste){
         ArrayList<Gehege> neueListe = (ArrayList<Gehege>) liste.clone();
+        Collections.shuffle(neueListe);
+        return neueListe;
+    }
+    public static ArrayList<Pfleger> shuffleclonePfleger(ArrayList<Pfleger> liste){
+        ArrayList<Pfleger> neueListe = (ArrayList<Pfleger>) liste.clone();
         Collections.shuffle(neueListe);
         return neueListe;
     }
