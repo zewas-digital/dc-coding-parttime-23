@@ -67,7 +67,7 @@ public class Zoohilfe {
         Pfleger pflegerHansi = new Pfleger("Hansi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);//, zoo.getZustaendig());
         Pfleger pflegerBerni = new Pfleger("Berni", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);//, zoo.getZustaendig());
         Pfleger pflegerWerner = new Pfleger("Werner", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);
-        //Pfleger pflegerHeinzi = new Pfleger("Heinzi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), true);
+        //Pfleger pflegerHeinzi = new Pfleger("Heinzi", zoo.getListeDerPfleger(), zoo.getListeDerGehege(), false);
         pflegerHansi.setLieblingsArt("Tiger");
         pflegerBerni.setLieblingsArt("Regenwurm");
         pflegerWerner.setLieblingsArt("Hecht");
