@@ -1,4 +1,4 @@
-package oliver.week18_Zoo;
+package saifedine.week19_Zoo.oliver;
 
 /*
 Bonusaufgabe: Tierfutter

@@ -50,8 +50,16 @@ public class Tier {
 
     public void beissen(Tier anderesTier) {
         if (this.gesundheit > 0) { // Nur lebende Tiere beißen
+            System.out.println("\n" + this.name + " beißt " + anderesTier.getName() + ".");
+            int alterGesundheitswert = anderesTier.gesundheit;
             anderesTier.gesundheit -= this.bissStaerke;
-            System.out.println(this.name + " hat " + anderesTier.getName() + " gebissen!");
+
+            if (anderesTier.gesundheit <= 0) {
+                anderesTier.gesundheit = 0;
+                System.out.println(anderesTier.getName() + " wurde getötet.");
+            } else {
+                System.out.println(anderesTier.getName() + " hat " + (alterGesundheitswert - anderesTier.gesundheit) + " Gesundheitspunkte verloren und hat jetzt " + anderesTier.gesundheit + " Gesundheitspunkte.");
+            }
         }
     }
 
