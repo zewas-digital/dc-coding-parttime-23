@@ -90,8 +90,8 @@ public class ZooMikiArztSimulation extends Zoo {
         krokodil1.addPfleger("Anna");
         krokodil2.addPfleger("Anna");
 
-        zooMiki.addTierarzt("Dr.Jekyll");
-        zooMiki.addTierarzt("Mr.Hyde");
+        zooMiki.addTierarzt("😷Dr.Jekyll😷");
+        zooMiki.addTierarzt("🧌Mr.Hyde🧌");
 
 
 
