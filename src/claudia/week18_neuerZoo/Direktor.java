@@ -21,6 +21,7 @@ public class Direktor extends Pfleger{
         double stockMax = 1000.0; //TODO flexibilisieren!
         String einheit = lagerhaus.getFutterliste().get(futterart).getEinheit();
         System.out.println("\n" + this + " muss " + futterart + " nachbestellen und kauft " + (stockMax - stockActual) + " " + einheit);
+        lagerhaus.setStockListSingleFeed(futterart, stockMax); //TODO flexibilisieren!
     }
 
     @Override
