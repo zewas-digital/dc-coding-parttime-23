@@ -43,6 +43,34 @@ public class Zoo {
         return liste;
     }
 
+    public void startDay() {
+        Zoohilfe.setAllEnclosuresToUnfed(this);
+        this.direktor.startDay();
+        for (Pfleger p : this.ListeDerPfleger) {
+            p.startDay();
+        }
+    }
+
+    public void endDay(){
+        for (Pfleger p : this.ListeDerPfleger) {
+            p.endDay();
+        }
+        this.direktor.endDay();
+    }
+
+    public boolean areAllEnclosuresFed(){
+        for (Gehege g : this.ListeDerGehege){
+            if (!g.isAlreadyFed()) return false;
+        }
+        return true;
+    }
+    public boolean areEnclosuresFed(ArrayList<Gehege> listeDerGehege){
+        for (Gehege g : listeDerGehege){
+            if (!g.isAlreadyFed()) return false;
+        }
+        return true;
+    }
+
     public Tier findArt(String art) {
         ArrayList<Tier> liste = this.getListeDerTiere();
         Random random = new Random();

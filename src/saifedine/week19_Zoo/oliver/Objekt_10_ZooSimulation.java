@@ -1,4 +1,4 @@
-package oliver.week19_Zoo;
+package saifedine.week19_Zoo.oliver;
 
 /*
 Aufgabe: Simulation 0.1

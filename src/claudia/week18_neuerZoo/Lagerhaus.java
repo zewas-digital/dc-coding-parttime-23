@@ -17,6 +17,7 @@ public class Lagerhaus {
     private HashMap<Futterarten, Futter> futterliste = new HashMap<>();
     //Lagerbestandsliste:
     private HashMap<Futterarten, Double> stocklist = new HashMap<>();
+    private Direktor direktor;
 
 
     public Lagerhaus() {
@@ -92,14 +93,16 @@ public class Lagerhaus {
     }
 
     public void setStockListSingleFeed(Futterarten futterart, double newStock) {
+        this.stocklist.put(futterart, newStock);
         if (newStock <= 0) {
-            System.out.println("Achtung! Lagerbestand von " + futterart + " geht zur Neige -");
+            System.out.println("Achtung! Lagerbestand von " + futterart + " geht zur Neige!");
+
             Scanner sc = new Scanner(System.in);
             System.out.println("Sie müssen etwas tun! Bestätigen Sie mit ENTER!");
             sc.nextLine();
         }
 
-        this.stocklist.put(futterart, newStock);
+
     }
 }
 
