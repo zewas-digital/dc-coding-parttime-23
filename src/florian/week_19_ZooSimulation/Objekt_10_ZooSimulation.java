@@ -26,7 +26,7 @@ public class Objekt_10_ZooSimulation {
         Zoo tierpark = Objekt_9_Pfleger.erzeugeZoo("Doppelmayer",1980);
         ZooSimulation simulator = new ZooSimulation(tierpark);
 
-
+        System.out.println(tierpark);
 
 
     }

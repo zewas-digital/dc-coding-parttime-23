@@ -99,6 +99,11 @@ public class Zoo {
         }
     }
 
+    public String toString() {
+
+        return this.name + this.gruendungsjahr + this.getPflegerArrayList() + this.getGehegeArrayList();
+
+    }
 
 }
 
