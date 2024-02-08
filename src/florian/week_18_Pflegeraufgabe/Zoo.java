@@ -73,7 +73,7 @@ public class Zoo {
     }
 
 
-    // Main für die Methoden
+    // Methoden für die Main
     public void addGehege(Gehege gehege) {
         this.gehegeArrayList.add(gehege);
     }
