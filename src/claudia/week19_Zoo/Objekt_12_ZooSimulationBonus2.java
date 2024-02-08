@@ -52,7 +52,7 @@ public class Objekt_12_ZooSimulationBonus2 {
             //Entferne tote Tiere:
             zoo.removeAllDeadAnimals();
             //Füttere alle:
-            //zoo.feedAll();
+            zoo.feedAll();
             //neue Übersicht:
             Objekt_11_ZooSimulationBonus1.printTierTabelle(zoo);
             //Tierarzt heilt das schwächste Tier:
