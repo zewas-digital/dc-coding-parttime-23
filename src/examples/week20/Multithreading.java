@@ -54,20 +54,20 @@ public class Multithreading {
 
         a.start();
         b.start();
-        c.start();
-        d.start();
+
 
         a.join();
         b.join();
-        c.join();
-        d.join();
+
 
         long endTime1 = System.nanoTime();
         System.out.println("ArrayList time: " + ((endTime1 - startTime1)/1000000)+ " ms");
         long startTime2 = System.nanoTime();
+        c.start();
+        d.start();
 
-
-
+        c.join();
+        d.join();
 
 
         long endTime2 = System.nanoTime();
