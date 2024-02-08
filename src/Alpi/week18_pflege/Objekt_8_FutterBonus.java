@@ -60,10 +60,14 @@ public class Objekt_8_FutterBonus {
 
 
         // Tiere erstellen---------------------------------------------------------------------------------------------------------------------
-        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Wildschwein", Futterlager.futterarten.HEU, 5));
+        tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Maxi", "Hase", Futterlager.futterarten.HEU, 5));
         tierpark.gehegeArrayList.get(0).tiereImGehege.add(new Tiere("Hugo", "Bär", Futterlager.futterarten.FISCH, 15));
         tierpark.gehegeArrayList.get(1).tiereImGehege.add(new Tiere("Maxiking", "Löwe", Futterlager.futterarten.FISCH, 10));
         //--------------------------------------------------------------------------------------------------------------------------------------
+
+
+        // Pfleger erstellen ????
+
 
 
         //Gehege löschen-----------------------------------------------

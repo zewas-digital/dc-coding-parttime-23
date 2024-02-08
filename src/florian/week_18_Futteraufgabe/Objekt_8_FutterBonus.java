@@ -45,10 +45,12 @@ public class Objekt_8_FutterBonus {
 
         HashMap<Futterlager.futterarten, Float> result = new HashMap<>();
 
+        Futterlager futterlager = new Futterlager();
+
         // Zoo erstellen
         Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
 
-        Futterlager futterlager = new Futterlager();
+
 
         // Gehege erstellen
         // Gehege alpen = new Gehege("Alpen");---------------------------
@@ -95,13 +97,13 @@ public class Objekt_8_FutterBonus {
         // Ausrechnen des Tagesbedarfs
         for (Futterlager.futterarten f : result.keySet()) {
 
-            System.out.println(result.get(f) + futterlager.lagerliste.get(f).einheit + "         " + f + "             :   " +
-                    result.get(f) * futterlager.lagerliste.get(f).preis + " €");
+            System.out.printf("%5.2f%5.4s%s %-10s  %7.2f %s %n",result.get(f) , futterlager.lagerliste.get(f).einheit,":    ",f ,
+                    result.get(f) * futterlager.lagerliste.get(f).preis , " €");
 
             totalDailycost += result.get(f) * futterlager.lagerliste.get(f).preis;
         }
 
-        System.out.println("=======================" +"\n" + "Total Cost: " + totalDailycost);
+        System.out.printf("%s%s%s%6.2f%n","=======================" ,"\n" , "Total Cost: " , totalDailycost);
 
     }
 
