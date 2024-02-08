@@ -12,11 +12,9 @@ public class Objekt_11_ZooSimulationBonus1b {
     public static void main(String[] args) throws InterruptedException {
         //Versuch mit Threads...
 
-        //TODO Schleife über die Tiere, nicht über Gehege?
         //Zoo erstellen, Gehege aussuchen
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
-        //Gehege gehege = zoo.getListeDerGehege().get(1);
-        //ArrayList<Tier> listeDerTiere = gehege.getListeDerTiere();
+
         ArrayList<Gehege> listeDerGehege = zoo.getListeDerGehege();
 
         System.out.println("Folgende Tiere gibt es im Zoo: ");
@@ -29,7 +27,7 @@ public class Objekt_11_ZooSimulationBonus1b {
 
         System.out.println("\nEine Woche im Zoo: ");
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 100; i++) {
             System.out.println("\n *** TAG " + (i + 1) + " *** ");
             //Zum Starten HasBitten auf False setzen:
             Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());
@@ -48,6 +46,12 @@ public class Objekt_11_ZooSimulationBonus1b {
 
             zoo.removeAllDeadAnimals();
             zoo.feedAll();
+            Objekt_11_ZooSimulationBonus1.printTierTabelle(zoo);
+            try {
+                Thread.sleep(1000);}
+            catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
 
         }
         System.out.println("Tierbestand am Ende: ");
