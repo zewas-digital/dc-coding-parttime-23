@@ -30,7 +30,7 @@ public class Main {
 
         // Tiere Geheg zuordnen
 
-        alpenWiese.addTiere(wildschwein);
+        //alpenWiese.addTiere(wildschwein);
 
         // Futter Tier zuordnen
 
