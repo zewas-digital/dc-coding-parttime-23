@@ -9,6 +9,7 @@ public class Zoo {
     // Attribute
     private String zooName;
     private int gruendungsjahr;
+
     private ArrayList<Gehege> gehegeArrayList = new ArrayList<>();
     private float tagesbedarf;
 
@@ -26,6 +27,7 @@ public class Zoo {
 
 
     // alle Methoden, wobei toString immer der erste sein soll
+    @Override
     public String toString() {
         return "Zoo: " + this.zooName + ", gegründet " + this.gruendungsjahr;
     }
@@ -33,7 +35,6 @@ public class Zoo {
     public void addGehege(Gehege gehege) {
         gehegeArrayList.add(gehege);
     }
-
     public void removeGehege(Gehege gehege) {
         gehegeArrayList.remove(gehege);
     }
@@ -181,9 +182,6 @@ public class Zoo {
                 }
             }
         }
-
-
-
     }
 }
 

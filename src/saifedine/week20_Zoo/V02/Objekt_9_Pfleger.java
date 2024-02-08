@@ -41,10 +41,6 @@ public class Objekt_9_Pfleger {
 
         tierparkFeldkirch.zooStrukturGehege();
 
-        tierparkDornbirn.zooStrukturGehegeTierePfleger();
-
-        tierparkFeldkirch.zooStrukturGehegeTierePfleger();
-
         System.out.println();
 
         // Pflegern ihre Verantwortung zuweisen mit Validierung
@@ -56,5 +52,9 @@ public class Objekt_9_Pfleger {
         System.out.println("\nPfleger von Tierpark DB" + tierparkDornbirn.pfleger.toString());
 
         System.out.println("\nPfleger von Tierpark FK" + tierparkFeldkirch.pfleger.toString());
+
+        tierparkDornbirn.zooStrukturGehegeTierePfleger();
+
+        tierparkFeldkirch.zooStrukturGehegeTierePfleger();
     }
 }

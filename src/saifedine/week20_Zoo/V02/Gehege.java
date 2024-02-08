@@ -4,15 +4,20 @@ import java.util.ArrayList;
 
 public class Gehege {
 
+    // Attribute
     private String gehegeName;
 
     private ArrayList<Tiere> tiereArrayList;
 
+
+    // Konstruktor
     public Gehege(String gehegeName) {
         this.gehegeName = gehegeName;
         this.tiereArrayList = new ArrayList<>();
     }
 
+
+    // alle Methoden, wobei toString immer der erste sein soll
     @Override
     public String toString() {
         return "Gehege: " + this.gehegeName;
@@ -31,6 +36,6 @@ public class Gehege {
     }
 
     public String getGehegeName() {
-        return gehegeName;
+        return "Gehege " + this.gehegeName;
     }
 }
