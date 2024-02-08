@@ -26,7 +26,6 @@ public class Gehege {
     public void addTiere(Tiere tiere) {
         this.tiereArrayList.add(tiere);
     }
-
     public void removeTiere(Tiere tiere) {
         this.tiereArrayList.remove(tiere);
     }

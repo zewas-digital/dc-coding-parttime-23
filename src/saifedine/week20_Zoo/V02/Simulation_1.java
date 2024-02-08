@@ -26,16 +26,7 @@ public class Simulation_1 {
         System.out.print("gefüttert!\n");
     }
 
-    public void beobachten(Gehege gehege) {
 
-            Random zufallsTierAuswahl = new Random();
-            int zufallsZahl = zufallsTierAuswahl.nextInt(gehege.gettierArrayList().size());
-
-            gehege.gettierArrayList().get(zufallsZahl);
-            System.out.print(" das zufällige Tier " + gehege.gettierArrayList().get(zufallsZahl));
-
-        System.out.print(" beobachtet!\n\n");
-    }
 
 
     public boolean checkZustaendigkeit(Pfleger pfleger, Gehege gehege) {
@@ -57,6 +48,23 @@ public class Simulation_1 {
             return vorhanden1 = false;
         }
         return vorhanden1;
+    }
+
+    public void zufallsTier(Gehege gehege) {
+
+        Random zufallsTierAuswahl = new Random();
+        int zufallsZahl = zufallsTierAuswahl.nextInt(gehege.gettierArrayList().size());
+
+        gehege.gettierArrayList().get(zufallsZahl);
+        System.out.print(" das zufällige Tier " + gehege.gettierArrayList().get(zufallsZahl));
+
+    }
+
+    public void beobachten(Gehege gehege) {
+
+        zufallsTier(gehege);
+
+        System.out.print(" beobachtet!\n\n");
     }
 
     public void arbeitsSimulation() {
@@ -137,36 +145,4 @@ public class Simulation_1 {
             }
         }
     }
-
-    /*
-    public void zufallsTier() {
-
-        Vector<Tiere> zuBeobachtendeTiere = new Vector<Tiere>();
-
-        for (Gehege gehege : this.zoo.getgehegeArrayList()) {
-
-            for (Tiere tiere : gehege.gettierArrayList()) {
-
-                zuBeobachtendeTiere.add(tiere);
-
-            }
-        }
-
-        if (this.zoo.getgehegeArrayList().contains(gehege.gettierArrayList().equals(zuBeobachtendeTiere))){
-
-            System.out.println("zuBeobachtendeTiere " + zuBeobachtendeTiere);
-
-            Random zufallsTierAuswahl = new Random();
-            int zufallsZahl = zufallsTierAuswahl.nextInt(zuBeobachtendeTiere.size());
-
-            zuBeobachtendeTiere.get(zufallsZahl);
-            System.out.println("ZufallsTier: " + zuBeobachtendeTiere.get(zufallsZahl));
-        }
-    }
-
-     */
 }
-
-
-
-
