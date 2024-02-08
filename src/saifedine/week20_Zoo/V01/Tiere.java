@@ -25,7 +25,8 @@ public class Tiere {
     }
 
     public String toString() {
-        return this.tierName + ", " + this.tierGattung + ", " + this.FutterArt + ", " + this.futterBedarf;
+        //return this.tierName + ", " + this.tierGattung + ", " + this.FutterArt + ", " + this.futterBedarf;
+        return this.tierName + ", " + this.tierGattung;
     }
 
     public void setFutterBedarf(int futterBedarf) {

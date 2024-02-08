@@ -32,7 +32,7 @@ public class Simulation_1 {
             int zufallsZahl = zufallsTierAuswahl.nextInt(gehege.gettierArrayList().size());
 
             gehege.gettierArrayList().get(zufallsZahl);
-            System.out.println("ZufallsTier: " + gehege.gettierArrayList().get(zufallsZahl));
+            System.out.print(" das zufällige Tier " + gehege.gettierArrayList().get(zufallsZahl));
 
         System.out.print(" beobachtet!\n\n");
     }
@@ -122,7 +122,7 @@ public class Simulation_1 {
 
                     System.out.print("\nTiere im " + gehegeTodo.getGehegeName() + " wurden ");
                     futtern();
-                    System.out.print(pfleger.getName() + " hat die Tiere im " + gehegeTodo.getGehegeName());
+                    System.out.print(pfleger.getName() + " hat im " + gehegeTodo.getGehegeName());
                     beobachten(gehegeTodo);
 
                     // entferne Gehege von zu erledigenden Zoo-Gehegen

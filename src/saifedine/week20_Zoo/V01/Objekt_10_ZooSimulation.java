@@ -32,7 +32,7 @@ public class Objekt_10_ZooSimulation {
         tiergartenDornbirn.addGehege(terrarium);
         tiergartenDornbirn.addGehege(alpenwiese);
 
-        System.out.println("getgehegeArrayList(): " + tiergartenDornbirn.getgehegeArrayList() + "\n");
+        System.out.println("\ngetgehegeArrayList(): " + tiergartenDornbirn.getgehegeArrayList());
 
         tiergartenDornbirn.zooStrukturGehege();
 
