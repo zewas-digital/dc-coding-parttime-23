@@ -1,43 +1,30 @@
 package Simonsway.Week18.ZooRefactor;
 
+import oliver.week18_Zoo.Futter;
+import oliver.week18_Zoo.Tier;
+
 import java.util.ArrayList;
 
 public class Gehege {
 
     private String name;
+    public ArrayList <Tiere> tiere;
 
     // Konstruktor
     public Gehege (String name){
         this.name = name;
-    }
-
-    // Setter
-    public void setName(String name) {
-        this.name = name;
-    }
-    // Getter
-    public String getName() {
-        return this.name;
-    }
-
-    public String toString(){
-        return "Gehege: " + this.name;
+        this.tiere = new ArrayList<>();
     }
 
 
     // Tiere
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    public ArrayList<Tiere> tiereArrayList = new ArrayList<>();
 
-    public void addTiere (Tiere tiere){
-        this.tiereArrayList.add(tiere);
+    public Tier tiereAdd (String name, Futter futter, int taeglicherBedraf){
+        Tier tier = new Tier(name, futter, taeglicherBedraf);
+        //this.tiere.add(tier);
+
+        return tier;
     }
 
-    public void removeTiere (Tiere tiere){
-        this.tiereArrayList.remove(tiere);
-    }
-
-    public ArrayList<Tiere> getTiereArrayList(){
-        return this.tiereArrayList;
-    }
 }

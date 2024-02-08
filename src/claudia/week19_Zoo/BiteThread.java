@@ -31,7 +31,7 @@ public class BiteThread extends Thread {
                 //System.out.print("\t".repeat(this.counter * 2) + " im Gehege " + gehege.getName());
                 tier.bite(zufaelligesTier, counter);
                 try {
-                    Thread.sleep(1000);}
+                    Thread.sleep(500);}
                 catch (InterruptedException e){
                     throw new RuntimeException(e);
                 }
