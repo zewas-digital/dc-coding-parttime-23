@@ -36,6 +36,11 @@ public class Objekt_6_Zoo {
         Pfleger pflegerCarlo = new Pfleger ( "Carlo", "Robe" );
         Pfleger pflegerLena = new Pfleger ( "Lena", "Robe" );
 
+        Tierarzt tierarztDornbirn = new Tierarzt ("Dr. Shepard");
+        Tierarzt tierarztFeldkirch = new Tierarzt ("Dr. Omelly");
+
+        zooDornbirn.tierarztHinzufuegen ( tierarztDornbirn );
+        zooFeldkirch.tierarztHinzufuegen ( tierarztFeldkirch );
 
         zooDornbirn.pflegerZuordnen ( pflegerHektor );
         zooDornbirn.pflegerZuordnen ( pflegerCharlie );
@@ -61,33 +66,36 @@ public class Objekt_6_Zoo {
         zooFeldkirch.gehegeZuordnen ( "Savane",pflegerCarlo );
 
 
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Gazelle", "Heu", 5, 10, 4 );
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4, 10, 5 );
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4, 10, 5 );
-        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Huhn", "Mais", 1, 5, 1 );
-        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1,5,1 );
-        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1,5,1 );
-        zooDornbirn.tierHinzufuegen ( "Terrarium (warm)", "Camellion", "Insekten", 1, 3, 2 );
-        zooDornbirn.tierHinzufuegen ( "Ried", "Schaf", "Heu", 4, 10, 4 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Gazelle", "Heu", 5, 20, 4 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4, 20, 5 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Schaf", "Heu", 4, 20, 5 );
+        zooDornbirn.tierHinzufuegen ( "Alpenwiese", "Huhn", "Mais", 1, 10, 1 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1,10,1 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Huhn", "Mais", 1,10,1 );
+        zooDornbirn.tierHinzufuegen ( "Terrarium (warm)", "Camellion", "Insekten", 1, 6, 2 );
+        zooDornbirn.tierHinzufuegen ( "Ried", "Schaf", "Heu", 4, 20, 4 );
 
-        zooFeldkirch.tierHinzufuegen ( "Savane", "Wasserbüffel", "Heu", 9, 40, 8 );
-        zooFeldkirch.tierHinzufuegen ( "Savane", "Löwe", "Fleisch", 3, 25, 12 );
-        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Pinguin", "Fisch", 1, 6, 3 );
-        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Robe", "Fisch", 2, 8, 4 );
+        zooFeldkirch.tierHinzufuegen ( "Savane", "Wasserbüffel", "Heu", 9, 60, 8 );
+        zooFeldkirch.tierHinzufuegen ( "Savane", "Löwe", "Fleisch", 3, 40, 12 );
+        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Pinguin", "Fisch", 1, 12, 3 );
+        zooFeldkirch.tierHinzufuegen ( "Antaktika", "Robe", "Fisch", 2, 15, 4 );
 
-        System.out.println (zooDornbirn.printuebersicht () );
-        System.out.println (zooFeldkirch.printuebersicht () );
+        //System.out.println (zooDornbirn.printuebersicht () );
+
+        Simulation2 simulation2 = new Simulation2 (zooDornbirn);
+
+
+        //System.out.println (zooFeldkirch.printuebersicht () );
         //zooDornbirn.tierEntfernen ( 2, 2 );
 
         while(true) {
-            zooDornbirn.kontrollgang ( );
-            //zooFeldkirch.kontrollgang ( );
+            simulation2.tagesSimulation ();
+            try {
+                Thread.sleep(15000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException ( e );
+            }
         }
-
-
-
-
-
 
 
     }

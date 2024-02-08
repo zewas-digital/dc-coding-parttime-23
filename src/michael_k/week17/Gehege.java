@@ -92,7 +92,7 @@ public class Gehege extends Object {
                 int bisswahrscheinlichkeit = zufall.nextInt (0,101);
 
                 if(bisswahrscheinlichkeit <=40) {
-                    zufallstier.gesundheit = zufallstier.gesundheit - tier.biss;
+                    zufallstier.gesundheitAbsolut = zufallstier.gesundheitAbsolut - tier.biss;
                 }
                 System.out.println ( tier.name + " hat mit "+ zufallstier.name+ " gestritten." );
             }

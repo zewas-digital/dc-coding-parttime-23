@@ -11,7 +11,7 @@ public class Zoo extends Object{
     public ArrayList<Pfleger> pfleger = new ArrayList<Pfleger>();
     public HashMap<String, Float> futteruebersicht = new HashMap<> ();
     private float gesamtpreis;
-
+    public Tierarzt tierarzt;
 
 
 
@@ -19,7 +19,6 @@ public class Zoo extends Object{
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
     }
-
 
 
     public void gehegeHinzufuegen(String gehegename){
@@ -81,6 +80,9 @@ public class Zoo extends Object{
             i++;
         }
 
+    }
+    public void tierarztHinzufuegen(Tierarzt tierarzt){
+        this.tierarzt = tierarzt;
     }
     public void gehegeZuordnen(String gehege, Pfleger pfleger){
         int i = 0;

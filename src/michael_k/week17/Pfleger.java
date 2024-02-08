@@ -34,7 +34,7 @@ public class Pfleger {
                 }
 
                 for (int k = 0; k < gehege.get ( i ).gehegeTiere.size (); k++) {
-                    if (gehege.get ( i ).gehegeTiere.get ( k ).gesundheit <= 0 ){
+                    if (gehege.get ( i ).gehegeTiere.get ( k ).gesundheitAbsolut <= 0 ){
                         System.out.println ( name + " hat " + gehege.get ( i ).gehegeTiere.get ( k ).name + " tot aufgefunden und entfernt." );
                         gehege.get ( i ).gehegeTiere.remove ( k );
                         try {
@@ -44,7 +44,6 @@ public class Pfleger {
                         }
                     }
                 }
-
 
                 if(!gehege.get ( i ).gehegeKontrolliert){
                     System.out.println (name + " füttert die Tiere und säubert das Gehege." );
