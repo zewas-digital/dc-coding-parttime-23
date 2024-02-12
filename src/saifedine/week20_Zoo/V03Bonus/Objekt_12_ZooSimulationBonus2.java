@@ -1,4 +1,4 @@
-package saifedine.week20_Zoo.V02;
+package saifedine.week20_Zoo.V03Bonus;
 
 /*
 Bonusaufgabe: Simulation 0.3
