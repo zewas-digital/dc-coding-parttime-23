@@ -1,4 +1,4 @@
-package Matthias.week19_Zoo.Zoo5_gehegeFuerGehege;
+package Matthias.week19_Zoo.Zoo6_Futter;
 
 /*
 Aufgabe: Simulation 0.1
@@ -14,10 +14,11 @@ Bonus/ Mit einer Erweiterung der Pfleger um seine Lieblings-Tier-Gattung, kann d
 Drucke auf der Konsole aus, wer-was macht...
  */
 
+
 public class Objekt_10_ZooSimulation {
     public static void main( String[] args ) {
         Zoo zoo1 = getDemoZoo( );
-        ZooSimulator1 zooSimulator1 =new ZooSimulator1( zoo1 );
+        ZooSimulator1 zooSimulator1 =new ZooSimulator1(zoo1 );
         zooSimulator1.TagesSimulation( 10 );
 
     }

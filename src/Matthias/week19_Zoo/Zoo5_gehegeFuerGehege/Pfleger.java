@@ -24,18 +24,4 @@ public class Pfleger {
         this.zustaendigFuerGehege.add( gehege );
     }
 
-    public void abarbeitungEinesGeheges(int indexGehege) {
-        if ( this.zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) ) {
-
-            System.out.println( this.name + ":" + "Der Standort: " + this.zustaendigFuerGehege.get( indexGehege ).getStandort( ) + "wurde schon barbeitet" );
-
-        } else if ( !zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) ) {
-
-            zustaendigFuerGehege.get( indexGehege ).setGehegeFutterStatus( true );
-            System.out.println( this.name + ":" + "Ich habe das " + this.zustaendigFuerGehege.get( indexGehege ).getStandort( ) + "angesehen und den Stautus auf :" + this.zustaendigFuerGehege.get( indexGehege ).getGehegeFutterStatus( ) );
-        } else if ( zustaendigFuerGehege.isEmpty()) {
-            System.out.println(  this.name+":"+"Ich bin fertig! und mache Pause");
-        }
-
-    }
 }
