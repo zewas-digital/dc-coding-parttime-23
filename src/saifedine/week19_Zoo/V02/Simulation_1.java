@@ -1,5 +1,6 @@
 package saifedine.week19_Zoo.V02;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
@@ -60,32 +61,16 @@ public class Simulation_1 {
 
         // https://www.geeksforgeeks.org/convert-arraylist-to-vector-in-java/
 
+        // Liste aller Gehege
+
+        //System.out.println("Array Liste aller Gehege im Zoo " + Arrays.toString(this.zoo.getgehegeArrayList().toArray()));
+
         Vector<Gehege> zuErledigendeGehege = new Vector<>(this.zoo.getgehegeArrayList());
+        //System.out.println("Kopie der Array Liste aller Gehege im Zoo " + zuErledigendeGehege);
 
-        System.out.println(zuErledigendeGehege);
-        /*
+        // wer hat was zu erledigen?
 
-        for (int i = 0; i < zoo.getgehegeArrayList().size(); i++) {
 
-            // clone Plegerliste
-            // shuffle
-            // foreach
-
-            Vector<Pfleger> pflegerListe = (Vector)this.zoo.pfleger.clone();
-            Collections.shuffle(pflegerListe);
-
-            for (Pfleger pfleger : pflegerListe) {
-
-                if (pfleger.gehegeZustaendigkeit.contains(zoo.getgehegeArrayList().get(i))) {
-
-                    toDoListZoo.put(zoo.getgehegeArrayList().get(i), pfleger);
-                    break;
-                }
-            }
-        }
-        System.out.println(toDoListZoo + "\n");
-
-         */
     }
 
     /*

@@ -9,13 +9,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Objekt_11_ZooSimulationBonus1b {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
+        //Versuch mit Threads...
 
         //Zoo erstellen, Gehege aussuchen
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
-        //Gehege gehege = zoo.getListeDerGehege().get(1);
-        //ArrayList<Tier> listeDerTiere = gehege.getListeDerTiere();
+
         ArrayList<Gehege> listeDerGehege = zoo.getListeDerGehege();
 
         System.out.println("Folgende Tiere gibt es im Zoo: ");
@@ -28,7 +27,7 @@ public class Objekt_11_ZooSimulationBonus1b {
 
         System.out.println("\nEine Woche im Zoo: ");
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 100; i++) {
             System.out.println("\n *** TAG " + (i + 1) + " *** ");
             //Zum Starten HasBitten auf False setzen:
             Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());
@@ -41,32 +40,21 @@ public class Objekt_11_ZooSimulationBonus1b {
                     BiteThread bt = new BiteThread(g, counter);
                     bt.start();
                     counter++;
+                    bt.join();
                 }
             }
-        }
-        zoo.removeAllDeadAnimals();
-        zoo.feedAll();
-        Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
 
-        for (int i = 0; i < 1; i++) {
-            System.out.println("\n *** TAG " + (i + 1) + " *** ");
-            //Zum Starten HasBitten auf False setzen:
-            Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());
-
-            int counter = 0;
-            for (Gehege g : listeDerGehege) {
-
-                ArrayList<Tier> tiereImGehege = g.getListeDerTiere();
-                if (tiereImGehege.size() > 1) {//Sonst ist nur noch ein Tier im Gehege, was niemanden beißen kann!
-                    BiteThread bt = new BiteThread(g, counter);
-                    bt.start();
-                    counter++;
-                }
+            zoo.removeAllDeadAnimals();
+            zoo.feedAll();
+            Objekt_11_ZooSimulationBonus1.printTierTabelle(zoo);
+            try {
+                Thread.sleep(1000);}
+            catch (InterruptedException e){
+                throw new RuntimeException(e);
             }
-        }
 
-        zoo.removeAllDeadAnimals();
-        zoo.feedAll();
+        }
+        System.out.println("Tierbestand am Ende: ");
         Zoohilfe.printArrayListTiere(zoo.getListeDerTiere());
 
     }

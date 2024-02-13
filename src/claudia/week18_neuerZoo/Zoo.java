@@ -8,6 +8,7 @@ public class Zoo {
     private final String name ;
     private final int jahr;
     private Direktor direktor;
+    private Tierarzt tierarzt;
     private Lagerhaus lagerhaus;
 
 
@@ -44,6 +45,7 @@ public class Zoo {
     }
 
     public void startDay() {
+        Zoohilfe.setAllEnclosuresToUnfed(this);
         this.direktor.startDay();
         for (Pfleger p : this.ListeDerPfleger) {
             p.startDay();
@@ -59,6 +61,12 @@ public class Zoo {
 
     public boolean areAllEnclosuresFed(){
         for (Gehege g : this.ListeDerGehege){
+            if (!g.isAlreadyFed()) return false;
+        }
+        return true;
+    }
+    public boolean areEnclosuresFed(ArrayList<Gehege> listeDerGehege){
+        for (Gehege g : listeDerGehege){
             if (!g.isAlreadyFed()) return false;
         }
         return true;
@@ -197,7 +205,7 @@ public class Zoo {
             if (!g.getListeDerTiere().isEmpty()) {
                 System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
                 for (Tier t : g.getListeDerTiere()) {
-                    System.out.print("\t");
+                    //System.out.print("\t");
                     t.feed(this.getLagerhaus());
                 }
             }
@@ -208,6 +216,15 @@ public class Zoo {
         for (Gehege gehege : this.ListeDerGehege){
             gehege.removeDeadAnimals();
         }
+    }
+
+
+    public Tierarzt getTierarzt() {
+        return tierarzt;
+    }
+
+    public void setTierarzt(Tierarzt tierarzt) {
+        this.tierarzt = tierarzt;
     }
 
     public Direktor getDirektor() {

@@ -95,11 +95,11 @@ public class Lagerhaus {
     public void setStockListSingleFeed(Futterarten futterart, double newStock) {
         this.stocklist.put(futterart, newStock);
         if (newStock <= 0) {
-            System.out.println("Achtung! Lagerbestand von " + futterart + " geht zur Neige!");
-
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Sie müssen etwas tun! Bestätigen Sie mit ENTER!");
-            sc.nextLine();
+            //System.out.println("Achtung! Lagerbestand von " + futterart + " geht zur Neige!");
+            //TODO Hier Direktor einkaufen!
+           // Scanner sc = new Scanner(System.in);
+           // System.out.println("Sie müssen etwas tun! Bestätigen Sie mit ENTER!");
+            //sc.nextLine();
         }
 
 
