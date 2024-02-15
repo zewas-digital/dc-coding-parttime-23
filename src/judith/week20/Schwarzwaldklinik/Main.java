@@ -5,11 +5,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-
+        //Krankenhaus anlage
         Hospital schwKlinik = new Hospital("Schwarzwaldklinik");
 
         System.out.println("Hospital:" );
         System.out.println(schwKlinik.getHpName());
+
+        //Abteilungsanlage
 
         Department ime = new Department("Innere Medizin");
         Department unf = new Department("Unfallchirurgie");
@@ -20,7 +22,12 @@ public class Main {
         System.out.println(" ".repeat(4) + unf.departmentName);
         System.out.println(" ".repeat(4) + nch.departmentName);
 
+        //Abteilung dem KH zuordnen
+        schwKlinik.addDepartment(ime);
+        schwKlinik.addDepartment(unf);
+        schwKlinik.addDepartment(nch);
 
+        //Stationen anlegen
         Station ime1 = new Station("Innere Medizin", "Innere Medizin 1");
         Station ime2 = new Station("Innere Medizin", "Innere Medizin 2");
         Station ime3 = new Station("Innere Medizin", "Innere Medizin 3");
@@ -32,6 +39,7 @@ public class Main {
         Station nch1 = new Station("Neurochirurgie", "Nechir 1");
         Station nch2 = new Station("Neurochirurgie", "Nechir 2");
 
+
         System.out.println("  " + "Stations:");
         System.out.println(" ".repeat(8) + ime1.getStationName());
         System.out.println(" ".repeat(8) + ime2.getStationName());
@@ -41,41 +49,76 @@ public class Main {
         System.out.println(" ".repeat(8) + nch1.getStationName());
         System.out.println(" ".repeat(8) + nch2.getStationName());
 
-        Room imezi1 = new Room("101");
-        Room imezi2 = new Room("102");
-        Room imezi3 = new Room("103");
-
-        schwKlinik.addDepartment(ime);
-        schwKlinik.addDepartment(unf);
-        schwKlinik.addDepartment(nch);
-
+        //Stationen den Abteilungen zuordnen
         ime.addStation(ime1);
         ime.addStation(ime2);
         ime.addStation(ime3);
 
-        ime1.addRoom(imezi1);
-        ime2.addRoom(imezi2);
-        ime3.addRoom(imezi3);
+        unf.addStation(unf1);
+        unf.addStation(unf2);
+
+        nch.addStation(nch1);
+        nch.addStation(nch2);
 
 
-        System.out.println(schwKlinik);
-        System.out.println(ime);
-        System.out.println(ime1);
-        System.out.println(imezi1);
+        //Zimmer anlegen
+        Room imeZi1 = new Room("101");
+        Room imeZi2 = new Room("102");
+        Room imeZi3 = new Room("103");
 
 
-        Bed bed1 = new Bed("10");
-        Bed bed2 = new Bed("11");
-        Bed bed3 = new Bed("12");
+        Room unfZi1 = new Room("101");
+        Room unfZi2 = new Room("102");
+        Room unfZi3 = new Room("103");
+
+        Room nchZi1 = new Room("101");
+        Room nchZi2 = new Room("102");
+        Room nchZi3 = new Room("103");
 
 
-        imezi1.addBed(bed1);
-        imezi2.addBed(bed2);
-        imezi3.addBed(bed3);
+        //Zimmer einer Station zuordnen
+        ime1.addRoom(imeZi1);
+        ime2.addRoom(imeZi2);
+        ime3.addRoom(imeZi3);
 
-        System.out.println(bed1);
-        System.out.println(bed2);
-        System.out.println(bed3);
+        unf1.addRoom(unfZi1);
+        unf2.addRoom(unfZi2);
+        unf2.addRoom(unfZi3);
+
+        nch1.addRoom(nchZi1);
+        nch1.addRoom(nchZi2);
+        nch2.addRoom(nchZi3);
+
+
+        //Betten anlegen
+        Bed imeBed1 = new Bed("10");
+        Bed imeBed2 = new Bed("11");
+        Bed imeBed3 = new Bed("12");
+
+        Bed unfBed1 = new Bed("10");
+        Bed unfBed2 = new Bed("11");
+        Bed unfBed3 = new Bed("12");
+
+        Bed nchBed1 = new Bed("10");
+        Bed nchBed2 = new Bed("11");
+        Bed nchBed3 = new Bed("12");
+
+
+
+        // Bett einem Zimmer zuordnen
+        imeZi1.addBed(imeBed1);
+        imeZi2.addBed(imeBed2);
+        imeZi3.addBed(imeBed3);
+
+        unfZi1.addBed(unfBed1);
+        unfZi2.addBed(unfBed2);
+        unfZi3.addBed(unfBed3);
+
+        nchZi1.addBed(nchBed1);
+        nchZi2.addBed(nchBed2);
+        nchZi3.addBed(nchBed3);
+
+
 
 
 
