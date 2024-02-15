@@ -1,12 +1,16 @@
-package Matthias.week19_Zoo.Zoo5_gehegeFuerGehege;
+package Matthias.week20_Zoo.Zoo_bonus2;
+
+import Matthias.week19_Zoo.Zoo6_Futter.Gehege;
+import Matthias.week19_Zoo.Zoo6_Futter.Pfleger;
+import Matthias.week19_Zoo.Zoo6_Futter.Zoo;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class ZooSimulator1 {
-    Zoo zoo;
-    public ZooSimulator1( Zoo zoo) {
+public class ZooSimulator2 {
+    Matthias.week19_Zoo.Zoo6_Futter.Zoo zoo;
+    public ZooSimulator2( Zoo zoo) {
         this.zoo=zoo;
     }
 
@@ -15,13 +19,13 @@ public class ZooSimulator1 {
             System.out.println( "+– | Tag " + i + " " + "–".repeat( 52 ) + "+" );
             int indexGehege = 1;
             // was ist zu erledigen?
-            Vector<Gehege> zuErledigendeGehege = (Vector) this.zoo.getGehegeVListe().clone( );
+            Vector<Matthias.week19_Zoo.Zoo6_Futter.Gehege> zuErledigendeGehege = (Vector) this.zoo.getGehegeVListe().clone( );
 
             // wer hat was zu erledigen?
-            HashMap<Pfleger, Vector<Gehege>> pfleger_zuErledigendeGehege = new HashMap<>( );
-            for (Pfleger p : this.zoo.getPflegerVListe()) {
+            HashMap<Matthias.week19_Zoo.Zoo6_Futter.Pfleger, Vector<Matthias.week19_Zoo.Zoo6_Futter.Gehege>> pfleger_zuErledigendeGehege = new HashMap<>( );
+            for (Matthias.week19_Zoo.Zoo6_Futter.Pfleger p : this.zoo.getPflegerVListe()) {
                 // Aufgabenliste des Pflegers mit zufälliger Reihenfolge
-                Vector<Gehege> pflegerTodoList = (Vector) p.getZustaendigFuerGehege( ).clone( );
+                Vector<Matthias.week19_Zoo.Zoo6_Futter.Gehege> pflegerTodoList = (Vector) p.getZustaendigFuerGehege( ).clone( );
                 Collections.shuffle( pflegerTodoList );
                 pfleger_zuErledigendeGehege.put( p, pflegerTodoList );
             }
@@ -50,6 +54,10 @@ public class ZooSimulator1 {
                     if ( gehegeToDo != null ) {
                         // hier wird seine Aufgabe abgearbeitet und sonstiges gemacht
                         System.out.printf( "%-50s | ", pfleger.getName( ) + " erledigt " + gehegeToDo.getStandort( ) );
+                        gehegeToDo.fuetternAlleGehege();
+                        if ( !gehegeToDo.getTierListe().isEmpty()) {
+                            gehegeToDo.randomTierBeobachten( );
+                        }
                         // entferne Gehege von zu erledigenden Zoo-Gehegen
                         zuErledigendeGehege.remove( gehegeToDo );
                         // entferne Gehege von zu erledigenden Pfleger-Gehegen
