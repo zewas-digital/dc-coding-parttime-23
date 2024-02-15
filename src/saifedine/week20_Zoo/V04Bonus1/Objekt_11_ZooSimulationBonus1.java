@@ -7,8 +7,6 @@ Erweitere die Simulation
 ToDo:
  Simulation mit Simulationstage als Übergabeparameter erweitern
 
- Konsturktor Simulationsklasse
-
 1/ Jedes Tier hat eine Gesundheit, ein MaxGesundheit und einen Biss.
 ToDo:
  int MaxGesundheit pro Tier (individuell - siehe nächste Aufgabe "ZooSimulationBonus2)
