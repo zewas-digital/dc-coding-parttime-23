@@ -35,7 +35,6 @@ public class Main {
         Station unf1 = new Station("Unfallchirurgie", "Unfall 1");
         Station unf2 = new Station("Unfallchirurgie", "Unfall 2");
 
-
         Station nch1 = new Station("Neurochirurgie", "Nechir 1");
         Station nch2 = new Station("Neurochirurgie", "Nechir 2");
 
@@ -118,6 +117,33 @@ public class Main {
         nchZi2.addBed(nchBed2);
         nchZi3.addBed(nchBed3);
 
+        //Ambulanzen angelegt
+        Ambulance ambIme1 = new Ambulance("Innere Medizin", "Innere Ambulanz 1", "09 - 12 Uhr");
+        Ambulance ambIme2 = new Ambulance("Innere Medizin", "Innere Ambulanz 2", "06 - 18 Uhr");
+        Ambulance ambIme3 = new Ambulance("Innere Medizin", "Innere Ambulanz 2", "15 - 20 Uhr");
+
+
+        Ambulance ambUnf1 = new Ambulance("Unfallchirurgie", "Unfall Ambulanz 1","06 - 22 Uhr ");
+        Ambulance ambUnf2 = new Ambulance("Unfallchirurgie", "Unfall Ambulanz 2","09- 18 Uhr");
+
+        Ambulance ambNch1 = new Ambulance("Neurochirurgie", "Neurochir. Ambulanz 1", "08 - 14 Uhr");
+        Ambulance ambNch2 = new Ambulance("Neurochirurgie", "Neurochir. Ambulanz 2", "16 - 20 Uhr ");
+
+
+
+        //Ambulanzen den Abteilungen zugeordnet
+
+        ime1.addAmbulance(ambIme1);
+        ime2.addAmbulance(ambIme2);
+        ime3.addAmbulance(ambIme3);
+
+        unf1.addAmbulance(ambUnf1);
+        unf2.addAmbulance(ambUnf2);
+
+        nch1.addAmbulance(ambNch1);
+        nch2.addAmbulance(ambNch2);
+
+        System.out.println(nch);
 
 
 

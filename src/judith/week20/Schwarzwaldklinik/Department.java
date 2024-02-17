@@ -7,6 +7,7 @@ public class Department {
     //Attribute
     public String departmentName;
     private ArrayList<Station> stationArrayList = new ArrayList<>();
+    private ArrayList<Ambulance> ambulanceArrayList = new ArrayList<>();
 
 
     //Konstruktor
@@ -20,6 +21,9 @@ public class Department {
     public void addStation(Station station) {
         stationArrayList.add(station);
     }
+    public void addAmbulance(Ambulance ambulance) { ambulanceArrayList.add(ambulance);
+        System.out.println("Ambulanz hinzugefügt " + ambulance);
+        System.out.println(ambulanceArrayList.size());}
 
 
     //Patient aufnehmen
@@ -28,6 +32,7 @@ public class Department {
     public void patAdmission(String name) { // name ersetzen mit Patientenname Variable
 
         System.out.println("Patient " + "patName" + " wurde aufgenommen");
+
     }
 
     public void patDischarge(String name) { // name ersetzen mit Patientennamen Variable
@@ -36,8 +41,12 @@ public class Department {
 
     }
 
+    @Override
     public String toString() {
-        return "Department: " + this.departmentName;
+        return "Department{" +
+                "departmentName='" + departmentName + '\'' +
+                ", stationArrayList=" + stationArrayList +
+                ", ambulanceArrayList=" + ambulanceArrayList +
+                '}';
     }
-
 }

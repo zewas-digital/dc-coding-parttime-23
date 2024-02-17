@@ -20,7 +20,13 @@ public class Hospital {
         return hpName;
     }
 
+    @Override
     public String toString() {
-        return "Hospital: " + this.getHpName();
+        return "Hospital{" +
+                "hpName='" + hpName + '\'' +
+                ", departmentArrayList=" + departmentArrayList +
+                '}';
     }
 }
+
+
