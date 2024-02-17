@@ -36,21 +36,37 @@ public class Objekt_10_ZooSimulation {
 
         tiergartenDornbirn.zooStrukturGehege();
 
-        // Anlage Instanzen Tiere mit alten Konstruktor
-        Tiere schlange1reptil = new Tiere("Schlange","Reptil");
-        Tiere schlange2reptil = new Tiere("Danger Nudel", "Reptil");
-        Tiere hirsch1wild = new Tiere("Hirsch1", "Wild");
-        Tiere hirsch2wild = new Tiere("Hirsch2","Wild");
-        Tiere reh1wild = new Tiere("Reh", "Wild");
-        Tiere schlidkroete1reptil = new Tiere("Schildkröte","Reptil");
+        // Anlage Instanzen Tiere mit Konstruktor 3
+        Tiere schlange1reptil = new Tiere("Schlange1","Reptil",80,40);
+        Tiere schlange2reptil = new Tiere("Schlange2", "Reptil",80,40);
+        Tiere schlange3reptil = new Tiere("Schlange3","Reptil",80,40);
+        Tiere schlange4reptil = new Tiere("Schlange4","Reptil",80,40);
+        Tiere hirsch1wild = new Tiere("Hirsch1","Wild",120,5);
+        Tiere hirsch2wild = new Tiere("Hirsch2","Wild",120,5);
+        Tiere hirsch3wild = new Tiere("Hirsch3","Wild",120,5);
+        Tiere hirsch4wild = new Tiere("Hirsch4","Wild",120,5);
+        Tiere reh1wild = new Tiere("Reh1", "Wild",100,5);
+        Tiere reh2wild = new Tiere("Reh2", "Wild",100,5);
+        Tiere reh3wild = new Tiere("Reh3", "Wild",100,5);
+        Tiere reh4wild = new Tiere("Reh4", "Wild",100,5);
+        Tiere schlidkroete1reptil = new Tiere("Schildkröte1","Reptil",150,15);
+        Tiere schlidkroete2reptil = new Tiere("Schildkröte2","Reptil",150,15);
 
         // Tierzuordnung zum Gehege
         terrarium.addTiere(schlange1reptil);
         terrarium.addTiere(schlange2reptil);
+        terrarium.addTiere(schlange3reptil);
+        terrarium.addTiere(schlange4reptil);
         ried.addTiere(hirsch1wild);
         ried.addTiere(hirsch2wild);
+        ried.addTiere(hirsch3wild);
+        ried.addTiere(hirsch4wild);
         alpenwiese.addTiere(reh1wild);
+        alpenwiese.addTiere(reh2wild);
+        alpenwiese.addTiere(reh3wild);
+        alpenwiese.addTiere(reh4wild);
         terrarium.addTiere(schlidkroete1reptil);
+        terrarium.addTiere(schlidkroete2reptil);
 
         Pfleger pflegerHugo = new Pfleger("Hugo");
         Pfleger pflegerFranz = new Pfleger("Franz");
@@ -77,12 +93,11 @@ public class Objekt_10_ZooSimulation {
         checkStatus = sim1.checkZustaendigkeit(pflegerHugo,alpenwiese);
         System.out.println("\n" + pflegerHugo.toString() + " ist zuständig für " + alpenwiese.toString() + " : " + checkStatus + "\n");
 
-        sim1.arbeitsSimulation();
+        sim1.arbeitsSimulation(5);
 
         //sim1.zufallsTier();
 
-        SimulationBonus1 simulationBonus1 = new SimulationBonus1(tiergartenDornbirn);
-        System.out.println(simulationBonus1);
+        sim1.zufallsTierBiss(alpenwiese);
 
     }
 }

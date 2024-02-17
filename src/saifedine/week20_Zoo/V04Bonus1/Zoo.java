@@ -171,15 +171,15 @@ public class Zoo {
         for (int i = 0; i < gehegeArrayList.toArray().length; i++) {
             System.out.println("│   ├── " + this.gehegeArrayList.get(i));
 
+            for (int k = 0; k < this.pfleger.size(); k++) {
+
+                if (this.pfleger.get(k).gehegeZustaendigkeit.contains(this.gehegeArrayList.get(i)))
+
+                    System.out.println("│       ├── "+ this.pfleger.get(k));
+            }
+
             for (int j = 0; j < this.gehegeArrayList.get(i).gettierArrayList().toArray().length; j++) {
-                System.out.println("│       ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
-
-                for (int k = 0; k < this.pfleger.size(); k++) {
-
-                    if (this.pfleger.get(k).gehegeZustaendigkeit.contains(this.gehegeArrayList.get(i)))
-
-                        System.out.println("│          ├── " + this.pfleger.get(k));
-                }
+                System.out.println("│          ├── " + this.gehegeArrayList.get(i).gettierArrayList().get(j));
             }
         }
     }
