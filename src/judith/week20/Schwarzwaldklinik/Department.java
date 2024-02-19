@@ -7,6 +7,9 @@ public class Department {
     //Attribute
     public String departmentName;
     private ArrayList<Station> stationArrayList = new ArrayList<>();
+
+
+    //Ändern auf Hashmap!!!!
     private ArrayList<Ambulance> ambulanceArrayList = new ArrayList<>();
 
 
@@ -21,9 +24,12 @@ public class Department {
     public void addStation(Station station) {
         stationArrayList.add(station);
     }
-    public void addAmbulance(Ambulance ambulance) { ambulanceArrayList.add(ambulance);
+
+    public void addAmbulance(Ambulance ambulance) {
+        ambulanceArrayList.add(ambulance);
         System.out.println("Ambulanz hinzugefügt " + ambulance);
-        System.out.println(ambulanceArrayList.size());}
+        System.out.println(ambulanceArrayList.size());
+    }
 
 
     //Patient aufnehmen
@@ -43,10 +49,8 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "departmentName='" + departmentName + '\'' +
-                ", stationArrayList=" + stationArrayList +
-                ", ambulanceArrayList=" + ambulanceArrayList +
-                '}';
+        return "Abteilung " + departmentName +
+                " Station " + stationArrayList +
+                " Ambulanz " + departmentName;
     }
-}
+ }

@@ -143,7 +143,7 @@ public class Main {
         nch1.addAmbulance(ambNch1);
         nch2.addAmbulance(ambNch2);
 
-        System.out.println(nch);
+        System.out.println(ime);
 
 
 

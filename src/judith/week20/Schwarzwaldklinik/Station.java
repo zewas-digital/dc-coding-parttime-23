@@ -24,18 +24,21 @@ public class Station extends Department {
         roomArrayList.add(room);
     }
 
+    // Patient aufnehmen
     @Override
     public void patAdmission(String patName) {
         super.patAdmission(patName);
         System.out.println("Patient " + patName + " wird stationär aufgenommen.");
     }
 
+    // Patient entlassen
     @Override
     public void patDischarge(String patName) {
         super.patDischarge(patName);
         System.out.println("Patient " + patName + " wird stationär entlassen.");
     }
 
+    // Ausgabe
     public String toString() {
         return "Station: " + this.getStationName();
     }

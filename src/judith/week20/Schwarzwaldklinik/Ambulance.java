@@ -37,9 +37,8 @@ public class Ambulance extends Department{
     }
 
 
-    public String toString(){ return "Ambulanz " + this.getAmbulanceName()
-        + " Öffnungszeiten " + this.openingHours;
-    }
+    public String toString(){ return "Ambulanz: " + this.getAmbulanceName()
+        + " Öffnungszeiten: " + this.openingHours;}
 
 
 }
