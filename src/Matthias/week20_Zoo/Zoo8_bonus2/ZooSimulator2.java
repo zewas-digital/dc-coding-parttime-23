@@ -1,4 +1,4 @@
-package Matthias.week20_Zoo.Zoo_bonus2;
+package Matthias.week20_Zoo.Zoo8_bonus2;
 
 import Matthias.week19_Zoo.Zoo6_Futter.Gehege;
 import Matthias.week19_Zoo.Zoo6_Futter.Pfleger;
