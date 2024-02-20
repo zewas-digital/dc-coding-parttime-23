@@ -1,0 +1,40 @@
+classDiagram
+    class Krankenhaus {
+        +String name
+        +String adresse
+        +addAbteilung(Abteilung)
+        +getAbteilungen() List~Abteilung~
+    }
+    class Abteilung {
+        <<abstract>>
+        +String bezeichnung
+        +Integer etage
+    }
+    class Ambulanz {
+        +String öffnungszeit
+        +Integer anzahlPlätzeWarteraum
+    }
+    class Station {
+        +String stationsnummer
+    }
+    class Warteraum {
+        +Integer kapazität
+    }
+    class Zimmer {
+        +String zimmerNummer
+        +Integer anzahlBetten
+    }
+    class Patient {
+        +String patientenID
+        +String name
+        +String erkrankung
+        +String behandlungsstatus
+    }
+
+    Krankenhaus --* Abteilung
+    Abteilung <|-- Ambulanz
+    Abteilung <|-- Station
+    Ambulanz --* Warteraum
+    Station --* Zimmer
+    Ambulanz "0..*" -- "0..1" Patient : besucht
+    Station "0..*" -- "0..1" Patient : aufgenommen

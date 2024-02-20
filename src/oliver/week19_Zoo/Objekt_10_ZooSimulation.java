@@ -24,6 +24,6 @@ public class Objekt_10_ZooSimulation {
         ZooSimulator1 simulation = new ZooSimulator1(tierpark);
 
         // simuliere x Tage:
-        simulation.tagesSimulation(3);
+        simulation.tagesSimulation(10);
     }
 }

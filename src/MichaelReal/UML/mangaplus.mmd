@@ -1,0 +1,51 @@
+classDiagram
+    class MangaPlusApp {
+        +startApp()
+        +showHomePage()
+        +viewMangaDetails()
+        +readChapter()
+    }
+    class UserInterface {
+        +displayMangaList()
+        +showMangaDetails(Manga manga)
+        +readMangaChapter(MangaChapter chapter)
+    }
+    class DataManager {
+        +fetchMangaList(): List~Manga~
+        +getMangaDetails(String mangaId): Manga
+        +getChapterContent(String chapterId): MangaChapter
+    }
+    class NetworkService {
+        +makeRequest(String url): String
+    }
+    class AuthenticationService {
+        +login(String username, String password): User
+        +register(User user)
+        +logout()
+    }
+    class Manga {
+        -String id
+        -String title
+        -List~String~ genres
+        +getChapters(): List~MangaChapter~
+    }
+    class MangaChapter {
+        -String id
+        -String title
+        -int number
+        -List~String~ pages
+    }
+    class User {
+        -String id
+        -String username
+        -List~String~ favoriteMangas
+    }
+
+    MangaPlusApp --|> UserInterface: Uses
+    MangaPlusApp --|> DataManager: Uses
+    MangaPlusApp --|> AuthenticationService: Uses
+    DataManager --|> NetworkService: Uses
+    DataManager --> Manga: Retrieves
+    Manga --> MangaChapter: Contains
+    UserInterface --> User: Interacts
+    AuthenticationService --> User: Authenticates

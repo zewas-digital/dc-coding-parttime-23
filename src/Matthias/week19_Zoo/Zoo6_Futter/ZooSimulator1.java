@@ -1,4 +1,4 @@
-package Matthias.week19_Zoo.Zoo5_gehegeFuerGehege;
+package Matthias.week19_Zoo.Zoo6_Futter;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -50,6 +50,10 @@ public class ZooSimulator1 {
                     if ( gehegeToDo != null ) {
                         // hier wird seine Aufgabe abgearbeitet und sonstiges gemacht
                         System.out.printf( "%-50s | ", pfleger.getName( ) + " erledigt " + gehegeToDo.getStandort( ) );
+                        gehegeToDo.fuetternAlleGehege();
+                        if ( !gehegeToDo.getTierListe().isEmpty()) {
+                            gehegeToDo.randomTierBeobachten( );
+                        }
                         // entferne Gehege von zu erledigenden Zoo-Gehegen
                         zuErledigendeGehege.remove( gehegeToDo );
                         // entferne Gehege von zu erledigenden Pfleger-Gehegen
