@@ -81,7 +81,7 @@ public class Objekt_10_ZooSimulation {
 
         //sim1.zufallsTier();
 
-        tiergartenDornbirn.zooStrukturGehegeTierePfleger();
+        //tiergartenDornbirn.zooStrukturGehegeTierePfleger();
 
     }
 }

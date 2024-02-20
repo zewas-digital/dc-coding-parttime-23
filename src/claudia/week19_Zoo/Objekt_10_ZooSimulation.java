@@ -22,7 +22,7 @@ Drucke auf der Konsole aus, wer was macht...
 import claudia.week18_neuerZoo.*;
 
 public class Objekt_10_ZooSimulation {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
         Zoo zoo = Zoohilfe.erstelleStandardZooMitPflegern();
@@ -71,6 +71,7 @@ public class Objekt_10_ZooSimulation {
         //tagesablaufProGehege(zoo, 7);
         //Tagesablauf pro Pfleger: pro Pfleger Gehege durchlaufen - ggf. füttern - Tier beobachten
         //tagesablaufProPfleger(zoo, 7);
+
     }
 
 
@@ -196,6 +197,7 @@ public class Objekt_10_ZooSimulation {
         return index;
     }
 
+
     private static void tagesablaufProPfleger(Zoo zoo, int anzahlDerTage) {
 
         int tag = 1;
@@ -276,7 +278,7 @@ public class Objekt_10_ZooSimulation {
         }
     }
 
-    private static void directorsIntervention(Zoo zoo, Gehege g) {
+    public static void directorsIntervention(Zoo zoo, Gehege g) {
         System.out.println("\nKein Pfleger zuständig für Gehege " + g.getName() + " - ");
         System.out.println("die Direktorin muss eingreifen!");
         System.out.println("\n" + zoo.getDirektor() + " füttert alle Tiere in Gehege " + g.getName() + ".\n");
