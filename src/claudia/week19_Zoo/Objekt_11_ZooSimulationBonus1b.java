@@ -27,7 +27,7 @@ public class Objekt_11_ZooSimulationBonus1b {
 
         System.out.println("\nEine Woche im Zoo: ");
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println("\n *** TAG " + (i + 1) + " *** ");
             //Zum Starten HasBitten auf False setzen:
             Zoohilfe.setAllAnimalsToHasntBitten(zoo.getListeDerTiere());

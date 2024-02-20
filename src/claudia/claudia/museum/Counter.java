@@ -1,26 +1,33 @@
 package claudia.claudia.museum;
 
+import java.util.Random;
+
 public class Counter extends Thread{
-    Museum museum;
-    int queue;
-    Counter (Museum m, int q){
-        museum = m;
-        queue = q;
+    private Museum museum;
+    private int sequentialNumberOfCounter;
+
+    Counter (Museum m, int numberOfCounter){
+        this.museum = m;
+        this.sequentialNumberOfCounter = numberOfCounter;
     }
     public void run(){
-        while (true){
-            int w = a(7);
-            museum.hire(queue, w);
-            new Visitors(museum, w).start();
+       while (true){
+            Random random = new Random();
+            int numberOfWalkmenToBeHired = random.nextInt(7) + 1;
+
+            museum.hire(sequentialNumberOfCounter, numberOfWalkmenToBeHired);
+
+            new Visitors(museum, numberOfWalkmenToBeHired).start();
+
             try{
-                sleep(a(100));
+
+                sleep((int) (Math.random() * 10000) + 1);
             }
             catch(InterruptedException e){
-
+                throw new RuntimeException(e);
             }
         }
     }
-    static int a (int x){
-        return (int) (Math.random() * x) + 1;
-    }
 }
+
+

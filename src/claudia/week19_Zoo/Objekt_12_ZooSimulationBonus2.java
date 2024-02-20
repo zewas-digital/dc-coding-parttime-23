@@ -32,10 +32,8 @@ public class Objekt_12_ZooSimulationBonus2 {
         Tierarzt tierarzt1 = new Tierarzt("Dr. Müller");
         zoo.setTierarzt(tierarzt1);
 
-
         Objekt_11_ZooSimulationBonus1.printTierTabelle(zoo);
         dailyScheduleWithDoctor(zoo, 100);
-
     }
     public static void dailyScheduleWithDoctor(Zoo zoo, int numberOfDays){
         //zweiter und dritter Tierarzt

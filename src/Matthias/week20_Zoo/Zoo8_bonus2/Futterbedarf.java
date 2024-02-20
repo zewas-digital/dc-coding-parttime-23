@@ -1,4 +1,4 @@
-package Matthias.week20_Zoo.Zoo_bonus2;
+package Matthias.week20_Zoo.Zoo8_bonus2;
 
 public class Futterbedarf {
     private int futtermenge;
