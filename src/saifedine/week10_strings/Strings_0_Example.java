@@ -1,6 +1,6 @@
 package saifedine.week10_strings;
 
-import oliver.week10_strings.StringMethods;
+import static saifedine.week10_strings.StringMethods.printLine;
 
 public class Strings_0_Example {
     public static void main(String[] args) {
@@ -52,12 +52,12 @@ public class Strings_0_Example {
 
     static void print(String text) {
         System.out.println(text);
-        oliver.week10_strings.StringMethods.printLine(text.length());
+        printLine(text.length());
     }
     static void print(String text, boolean printLine) {
         System.out.println(text);
         if (printLine) {
-            StringMethods.printLine(text.length());
+            printLine(text.length());
         }
     }
 

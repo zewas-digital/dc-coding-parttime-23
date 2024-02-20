@@ -8,6 +8,7 @@ public class Zoo {
     private final String name ;
     private final int jahr;
     private Direktor direktor;
+    private Tierarzt tierarzt;
     private Lagerhaus lagerhaus;
 
 
@@ -204,7 +205,7 @@ public class Zoo {
             if (!g.getListeDerTiere().isEmpty()) {
                 System.out.println("\nIm Gehege " + g.getName() + " wird gefüttert: ");
                 for (Tier t : g.getListeDerTiere()) {
-                    System.out.print("\t");
+                    //System.out.print("\t");
                     t.feed(this.getLagerhaus());
                 }
             }
@@ -215,6 +216,15 @@ public class Zoo {
         for (Gehege gehege : this.ListeDerGehege){
             gehege.removeDeadAnimals();
         }
+    }
+
+
+    public Tierarzt getTierarzt() {
+        return tierarzt;
+    }
+
+    public void setTierarzt(Tierarzt tierarzt) {
+        this.tierarzt = tierarzt;
     }
 
     public Direktor getDirektor() {
