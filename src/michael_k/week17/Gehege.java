@@ -2,6 +2,7 @@ package michael_k.week17;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Gehege extends Object {
 
@@ -15,9 +16,9 @@ public class Gehege extends Object {
     }
 
 
-    public void tierHinzufuegen(String name, String futterArt, float futterMenge){
+    public void tierHinzufuegen(String name, String futterArt, float futterMenge, int gesundheit, int biss){
 
-        this.gehegeTiere.add(new Tiere ( name, futterArt, futterMenge ));
+        this.gehegeTiere.add(new Tiere ( name, futterArt, futterMenge, gesundheit, biss ));
     }
     public void tierEntfernen(int tierNummer){
 
@@ -37,7 +38,6 @@ public class Gehege extends Object {
 
         return ausgabe;
     }
-
     public static String futteruebersicht(ArrayList<Tiere> tiere){
 
         HashMap<String, Float> futteruebersicht = new HashMap<> ();
@@ -62,5 +62,60 @@ public class Gehege extends Object {
         }
         ausgabe = ausgabe + "|\n";
         return ausgabe;
+    }
+    public String zufallstierBeobachten(String lieblingstier){
+        String tier = "keiner";
+        Random zufall = new Random ();
+
+        int anzahlTiere = gehegeTiere.size ();
+
+        if(gehegeTiere.size () == 1){ tier = gehegeTiere.get (0).name;}
+        else{ tier = gehegeTiere.get (zufall.nextInt (  0,anzahlTiere-1)).name;}
+
+        for (Tiere t: gehegeTiere) {
+            if (t.name.equals ( lieblingstier )){
+                tier = "sein Lieblingstier \"" + t.name +"\"";
+            }
+        }
+        return tier;
+    }
+    public void tiereStreiten(){
+
+        for (Tiere tier: gehegeTiere){
+
+            Tiere zufallstier = zufallstierStreiten ( tier );
+            if (zufallstier == null){
+                System.out.println ("keiner streitet." );
+            }
+            else {
+                Random zufall = new Random ();
+                int bisswahrscheinlichkeit = zufall.nextInt (0,101);
+
+                if(bisswahrscheinlichkeit <=40) {
+                    zufallstier.gesundheitAbsolut = zufallstier.gesundheitAbsolut - tier.biss;
+                }
+                System.out.println ( tier.name + " hat mit "+ zufallstier.name+ " gestritten." );
+            }
+        }
+    }
+    private Tiere zufallstierStreiten( Tiere tier){
+
+        Random zufall = new Random ();
+        int anzahlTiere = gehegeTiere.size ();
+        boolean gleichartigeTiere = true;
+
+        for (Tiere t: gehegeTiere) {
+            if (!t.name.equals ( tier.name )){
+                gleichartigeTiere = false;
+            }
+        }
+        Tiere zufallstier= gehegeTiere.get ( zufall.nextInt ( 0, anzahlTiere  ) );
+        if(gehegeTiere.size () == 1 || gleichartigeTiere){zufallstier = null;}
+        else {
+            while ( zufallstier.name.equals ( tier.name ) ) {
+                zufallstier = gehegeTiere.get ( zufall.nextInt ( 0, anzahlTiere  ) );
+            }
+        }
+        return zufallstier;
     }
 }

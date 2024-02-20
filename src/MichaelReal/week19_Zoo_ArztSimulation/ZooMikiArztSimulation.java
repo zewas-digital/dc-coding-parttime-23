@@ -90,49 +90,17 @@ public class ZooMikiArztSimulation extends Zoo {
         krokodil1.addPfleger("Anna");
         krokodil2.addPfleger("Anna");
 
-        zooMiki.addTierarzt("Dr.Jekyll");
-        zooMiki.addTierarzt("Mr.Hyde");
+        zooMiki.addTierarzt("😷Dr.Jekyll😷");
+        zooMiki.addTierarzt("🧌Mr.Hyde🧌");
 
 
+        for (int i = 0; i < 6; i++) {
+            zooMiki.printZooStructureWithTiere();
 
+            zooMiki.calculateFutterBedarfUndKosten();
 
-
-        zooMiki.printZooStructureWithTiere();
-
-        zooMiki.calculateFutterBedarfUndKosten();
-
-        // Starten der Tagessimulation
-        zooMiki.simulateDay();
-
-
-        zooMiki.printZooStructureWithTiere();
-
-        zooMiki.calculateFutterBedarfUndKosten();
-
-        zooMiki.simulateDay();
-
-        zooMiki.printZooStructureWithTiere();
-
-        zooMiki.calculateFutterBedarfUndKosten();
-
-        zooMiki.simulateDay();
-
-        zooMiki.printZooStructureWithTiere();
-
-        zooMiki.calculateFutterBedarfUndKosten();
-
-        zooMiki.simulateDay();
-
-        zooMiki.printZooStructureWithTiere();
-
-        zooMiki.calculateFutterBedarfUndKosten();
-
-        zooMiki.simulateDay();
-
-        zooMiki.printZooStructureWithTiere();
-
-        zooMiki.calculateFutterBedarfUndKosten();
-
-        zooMiki.simulateDay();
+            // Starten der Tagessimulation
+            zooMiki.simulateDay();
+        }
     }
 }

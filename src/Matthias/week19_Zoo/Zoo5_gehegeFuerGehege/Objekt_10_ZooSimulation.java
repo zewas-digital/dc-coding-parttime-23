@@ -17,8 +17,8 @@ Drucke auf der Konsole aus, wer-was macht...
 public class Objekt_10_ZooSimulation {
     public static void main( String[] args ) {
         Zoo zoo1 = getDemoZoo( );
-        ZooSimulator1 zooSimulator11 =new ZooSimulator1( zoo1 );
-        zooSimulator11.TagesSimulation( 3 );
+        ZooSimulator1 zooSimulator1 =new ZooSimulator1( zoo1 );
+        zooSimulator1.TagesSimulation( 10 );
 
     }
 

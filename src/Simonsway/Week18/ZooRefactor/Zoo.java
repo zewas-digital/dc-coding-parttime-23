@@ -56,9 +56,9 @@ public class Zoo {
         for (int i = 0; i < this.gehegeArrayList.size(); i++) {
             System.out.println("│   ├── " + this.gehegeArrayList.get(i));
 
-            for (int j = 0; j < this.gehegeArrayList.get(i).getTiereArrayList().size(); j++) {
-                System.out.println("│       ├── " + this.gehegeArrayList.get(i).getTiereArrayList().get(j));
+            //for (int j = 0; j < this.gehegeArrayList.get(i).getTiereArrayList().size(); j++) {
+                //System.out.println("│       ├── " + this.gehegeArrayList.get(i).getTiereArrayList().get(j));
             }
         }
     }
-}
+

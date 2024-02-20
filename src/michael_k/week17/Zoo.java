@@ -11,6 +11,10 @@ public class Zoo extends Object{
     public ArrayList<Pfleger> pfleger = new ArrayList<Pfleger>();
     public HashMap<String, Float> futteruebersicht = new HashMap<> ();
     private float gesamtpreis;
+    public Tierarzt tierarzt;
+
+
+
     public Zoo (String name, int gruendungsjahr){
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
@@ -29,7 +33,7 @@ public class Zoo extends Object{
             i++;
         }
     };
-    public void tierHinzufuegen(String gehege, String tiername, String futterart, float futtermenge){
+    public void tierHinzufuegen(String gehege, String tiername, String futterart, float futtermenge, int gesundheit, int biss){
         int i = 0;
         for(Gehege x : this.zoogehege){
             if(x.name.equals(gehege)) {
@@ -37,7 +41,7 @@ public class Zoo extends Object{
             }
             i++;
         }
-        zoogehege.get(i).tierHinzufuegen ( tiername, futterart,futtermenge );
+        zoogehege.get(i).tierHinzufuegen ( tiername, futterart, futtermenge, gesundheit, biss );
 
         // Futterbedarf in Zoo futterübersicht eintragen
         if(futteruebersicht.get ( futterart ) == null){
@@ -77,6 +81,9 @@ public class Zoo extends Object{
         }
 
     }
+    public void tierarztHinzufuegen(Tierarzt tierarzt){
+        this.tierarzt = tierarzt;
+    }
     public void gehegeZuordnen(String gehege, Pfleger pfleger){
         int i = 0;
         for(Gehege x : this.zoogehege){
@@ -91,11 +98,13 @@ public class Zoo extends Object{
 
     }
     public String printuebersicht(){
-        //gehegeZuordnung ();
+
         HashMap<String, Float> futterpreis = preisliste ();
 
         String ausgabe = "|---Zoo: " + this.name + ", gegründet " + this.gruendungsjahr+"\n";
         ausgabe = ausgabe + "|\n";
+
+
         //Preisübersicht Futterkosten Zoogesamt
         ausgabe = ausgabe + "|---Futter Tagesbedarf\n";
         for (String str: futteruebersicht.keySet () ) {
@@ -103,6 +112,8 @@ public class Zoo extends Object{
             String Preis = String.format ( "%.2f", preis );
             ausgabe = ausgabe + "|   |---" + str + ": "+ futteruebersicht.get(str) +"kg -->"+ Preis + "€\n";
         }
+
+
         //Ausgabe Gesamtpreis
         gesamtpreis = 0;
         for (String futter:futteruebersicht.keySet ()) {
@@ -113,15 +124,19 @@ public class Zoo extends Object{
         String Preis = String.format ( "%.2f", gesamtpreis );
         ausgabe = ausgabe + "|   |---Gesamtpreis = "+Preis+"€\n";
         ausgabe = ausgabe + "|\n";
+
+
         //Ausgabe Personal
         ausgabe = ausgabe +"|---Personaleinteilung\n";
         for (int i = 0; i < pfleger.size (); i++) {
             ausgabe = ausgabe + "|   |---Personal"+(i+1)+": "+ pfleger.get ( i ).name+"\n";
             for (int j = 0; j < pfleger.get ( i ).gehege.size (); j++) {
-                ausgabe = ausgabe +"|   |   |---"+pfleger.get ( i ).gehege.get(j).name+"\n";
+                ausgabe = ausgabe +"|       |---"+pfleger.get ( i ).gehege.get(j).name+"\n";
             }
         }
         ausgabe = ausgabe + "|\n";
+
+
         //Ausgabe Gehege mit Tieren
         int arraySize = zoogehege.size ( );
 
@@ -131,6 +146,24 @@ public class Zoo extends Object{
         }
 
         return ausgabe;
+    }
+    public void kontrollgang(){
+
+        for (Gehege gehege: zoogehege) {
+            gehege.gehegeKontrolliert=false;
+        }
+
+        tiereStreiten ();
+
+        for (Pfleger pfleger: this.pfleger ) {
+            pfleger.kontrollgang ();
+        }
+    }
+    private void tiereStreiten(){
+
+        for (Gehege gehege: zoogehege) {
+            gehege.tiereStreiten();
+        }
     }
     private HashMap<String, Float> preisliste(){
         HashMap<String, Float> futterpreis= new HashMap<> ();
@@ -142,5 +175,3 @@ public class Zoo extends Object{
         return futterpreis;
     }
 }
-
-//public String[][] futterliste = {{" "," "," "}, {"Fleisch", "10","kg"}, {"Heu", "1","kg"}, {"Insekten", "2","kg"}, {"Fischfutter", "5","kg"},};
