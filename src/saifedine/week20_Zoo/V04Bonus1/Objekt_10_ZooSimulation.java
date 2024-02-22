@@ -99,5 +99,7 @@ public class Objekt_10_ZooSimulation {
 
         sim1.zufallsTierBiss(ried);
 
+        tiergartenDornbirn.zooStrukturGehegeTierePfleger();
+
     }
 }
