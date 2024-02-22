@@ -5,15 +5,33 @@ public class Tier {
     private String animalName;
     private String gattungName;
     private Futterbedarf futterbedarf;
+
     public Futter.Futtersorten futtersorte;
-    public Tier( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf){
+
+    private  int MaxGesundheit;
+    private int Biss;
+    public Tier( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf,int maxGesundheit, int Biss){
         this.animalName=animalName;
         this.gattungName=gattungName;
         this.futterbedarf=futterbedarf;
         this.futtersorte=futtersorte;
+        this.MaxGesundheit=maxGesundheit;
+        this.Biss=Biss;
     }
     public void futtern(){
         System.out.print("\nGattung:"+this.gattungName+"  ist mit "+this.futtersorte.name()+" gefüttert.");
+    }
+
+    public int getMaxGesundheit() {
+        return this.MaxGesundheit;
+    }
+
+    public void setMaxGesundheit( int maxGesundheit ) {
+        this.MaxGesundheit = maxGesundheit;
+    }
+
+    public int getBiss() {
+        return this.Biss;
     }
 
     public void beobachten(){

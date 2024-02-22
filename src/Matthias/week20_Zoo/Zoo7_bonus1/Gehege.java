@@ -30,8 +30,8 @@ public class Gehege{
         this.gehegeFutterStatus = gehegeFutterStatus;
     }
 
-    public Tier addNewAnimal( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf) {
-        Tier neuesTier=new Tier( animalName, gattungName, futtersorte, futterbedarf);
+    public Tier addNewAnimal( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf,int MaxGesunheit, int Biss) {
+        Tier neuesTier=new Tier( animalName, gattungName, futtersorte, futterbedarf,MaxGesunheit,Biss);
         TierListe.add( neuesTier);
         return neuesTier;
     }
