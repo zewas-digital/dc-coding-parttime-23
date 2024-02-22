@@ -178,14 +178,17 @@ public class Simulation_1 {
 
                     gebissenesTier.setMaxGesundheit(gebissenesTier.getMaxGesundheit() - gehege.gettierArrayList().get(i).getBissKraft());
 
+                    if (gebissenesTier.getMaxGesundheit() <= 0) {
+
+                        System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " ist Tod.");
+
+                        gehege.removeTiere(gebissenesTier);
+                    }
+
                     System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " hat " + gebissenesTier.getMaxGesundheit() + "\n");
-                }
-                else {
-                    System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " ist Tod.");
                 }
             }
         }
 
     }
-
 }
