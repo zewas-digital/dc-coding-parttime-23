@@ -2,6 +2,8 @@ package claudia.week18_neuerZoo;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Tier {
     private String name;
@@ -53,14 +55,27 @@ public class Tier {
         //else System.out.println("Kein Biss! ");
     }
     public void bite (Tier anderesTier, int counter){
+
         double random = Math.random(); //Zufallszahl in [0,1)
         if (!this.hasBitten && random < this.probabilityOfBite){
             this.hasBitten = true;
             anderesTier.setHealthActual(anderesTier.getHealthActual() - this.strengthOfBite);
-            System.out.println("\n" + "\t".repeat(2 * counter) +  this.name + " beißt " + anderesTier.getName() + ":");
-            if (anderesTier.getHealthActual() > 0)
-                System.out.println("\t".repeat(2 * counter) + "Die Gesundheit von " + anderesTier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".");
-            else System.out.println("\t".repeat(2 * counter) + anderesTier.getName() + " ist damit leider aufgefressen.");
+
+
+            synchronized (this) {
+                //System.out.println("Zeile 1, Thread " + Thread.currentThread().getName());
+                //System.out.println("Zeile 2, Thread " + Thread.currentThread().getName());
+
+
+                System.out.println("\n" + "\t".repeat(2 * counter) + this.name + " beißt " + anderesTier.getName() + ":");
+                if (anderesTier.getHealthActual() > 0)
+                    System.out.println("\t".repeat(2 * counter) + "Die Gesundheit von " + anderesTier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".");
+                else
+                    System.out.println("\t".repeat(2 * counter) + anderesTier.getName() + " ist damit leider aufgefressen.");
+
+
+            }
+
         }
         //else System.out.println("\t".repeat(2 * counter) + "Kein Biss! ");
     }
@@ -144,11 +159,11 @@ public class Tier {
         return healthMax;
     }
 
-     public int getHealthActual() {
+     public synchronized int getHealthActual() {
         return healthActual;
     }
 
-    public void setHealthActual(int healthActual) {
+    public synchronized void setHealthActual(int healthActual) {
         if (healthActual <= this.healthMax)
             this.healthActual = healthActual;
         else System.out.println("Max Gesundheit überschritten! ");

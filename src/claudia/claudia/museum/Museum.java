@@ -23,7 +23,7 @@ public class Museum {
         System.out.println("Pool status: " + "Deposits " + cash + " Total " + (totalNumberOfWalkmen +cash) + " Walkmen " + totalNumberOfWalkmen);
         notifyAll();
     }
-    synchronized  void replace (int n){
+    synchronized void replace (int n){
         System.out.println("Replacing " + n);
         totalNumberOfWalkmen += n;
         cash -= n;
