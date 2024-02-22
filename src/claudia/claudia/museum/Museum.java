@@ -1,30 +1,31 @@
 package claudia.claudia.museum;
 
 public class Museum {
-    private static int walkmen;
+    private static int totalNumberOfWalkmen;
     private static int cash;
-    Museum (int w){
-        walkmen = w;
+    Museum (int totalNumber){
+        totalNumberOfWalkmen = totalNumber;
         cash = 0;
     }
-    synchronized void hire(int c, int n){
-        System.out.println("Counter " + c + " wants " + n);
-        while (walkmen < n){
+    synchronized void hire(int numberOfCounter, int numberOfWalkmenRequired){
+        System.out.println("Counter " + numberOfCounter + " wants " + numberOfWalkmenRequired);
+        while (totalNumberOfWalkmen < numberOfWalkmenRequired){
             try {
                 wait();
             }
                 catch (InterruptedException e){
+                    throw new RuntimeException(e);
             }
         }
-        walkmen -= n;
-        cash += n;
-        System.out.println("Counter " + c + " acquires " + n);
-        System.out.println("Pool status: " + "Deposits " + cash + " Total " + (walkmen+cash) + " Walkmen " + walkmen);
+        totalNumberOfWalkmen -= numberOfWalkmenRequired;
+        cash += numberOfWalkmenRequired;
+        System.out.println("Counter " + numberOfCounter + " acquires " + numberOfWalkmenRequired);
+        System.out.println("Pool status: " + "Deposits " + cash + " Total " + (totalNumberOfWalkmen +cash) + " Walkmen " + totalNumberOfWalkmen);
         notifyAll();
     }
-    synchronized  void replace (int n){
+    synchronized void replace (int n){
         System.out.println("Replacing " + n);
-        walkmen += n;
+        totalNumberOfWalkmen += n;
         cash -= n;
         notifyAll();
     }

@@ -25,10 +25,5 @@ public class Tierarzt {
         System.out.println("\n" + this + " heilt " + tier.getName() + "; Gesundheit alt: " + healthBefore + ", neu: " + healthAfter );
         //System.out.println("Delta: " + delta + " Power: " + healingPower);
         tier.setHealthActual(healthAfter);
-
-
     }
-
-
-
 }

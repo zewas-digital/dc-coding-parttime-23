@@ -19,6 +19,17 @@ public class Gehege {
         return tier;
     }
 
+    public Tier tierHinzufuegen(String name, int biss, int maxGesundheit, Tiere tiere) {
+        Tier tier = new Tier(name, biss, maxGesundheit, tiere);
+        this.tiere.add(tier);
+
+        return tier;
+    }
+
+    public Vector<Tier> getTiere() {
+        return tiere;
+    }
+
     public void berechneTaeglichenBedarf(HashMap<Futter, Integer> taeglicherBedarf) {
         for (Tier t: this.tiere) {
             t.berechneTaeglichenBedarf(taeglicherBedarf);

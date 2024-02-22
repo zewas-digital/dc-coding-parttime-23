@@ -1,20 +1,29 @@
 package claudia.claudia.museum;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class WalkmanHire {
-    static int pool;
-    static int helpers;
+    static int pool = 50;
+    static int helpers = 3;
     public static void main(String[] args) {
-        if (args.length >= 1)
-            pool = Integer.parseInt(args[0]);
-        else pool = 50;
+        /*
+        //Schließt das Museum nach 1 Minute (beendet main):
+        Timer meinTimer = new Timer();
+        meinTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("\n\nDas Museum schließt jetzt, auf Wiedersehen!");
+                meinTimer.cancel();
+                System.exit(0); //beendet die main-Methode
+            }
+        }, 60000); //60 Sekunden
+        */
+        //Museum mit 50 Walkmen
+        Museum m = new Museum(50);
 
-        Museum m = new Museum(pool);
-
-        if (args.length >= 2)
-            helpers = Integer.parseInt(args[1]);
-        else helpers = 3;
-
-        for (int i = 0; i < helpers; i++)
+        //erzeuge 3 Counter
+        for (int i = 1; i <= 3; i++)
             new Counter(m, i).start();
     }
 }
