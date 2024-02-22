@@ -62,19 +62,23 @@ public class Tier {
             anderesTier.setHealthActual(anderesTier.getHealthActual() - this.strengthOfBite);
 
 
-            synchronized (this) {
+            //synchronized (this) {
                 //System.out.println("Zeile 1, Thread " + Thread.currentThread().getName());
                 //System.out.println("Zeile 2, Thread " + Thread.currentThread().getName());
 
-
-                System.out.println("\n" + "\t".repeat(2 * counter) + this.name + " beißt " + anderesTier.getName() + ":");
+                String ausgabe = "\n" + "\t".repeat(2 * counter) + this.name + " beißt " + anderesTier.getName() + ":";
+                //System.out.println("\n" + "\t".repeat(2 * counter) + this.name + " beißt " + anderesTier.getName() + ":");
                 if (anderesTier.getHealthActual() > 0)
-                    System.out.println("\t".repeat(2 * counter) + "Die Gesundheit von " + anderesTier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".");
+                    ausgabe += "\n" + "\t".repeat(2 * counter) + "Die Gesundheit von " + anderesTier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".";
+                   //System.out.println("\t".repeat(2 * counter) + "Die Gesundheit von " + anderesTier.getName() + " verringert sich um " + this.strengthOfBite + " auf " + anderesTier.getHealthActual() + ".");
                 else
-                    System.out.println("\t".repeat(2 * counter) + anderesTier.getName() + " ist damit leider aufgefressen.");
+                    ausgabe += "\n" + "\t".repeat(2 * counter) + anderesTier.getName() + " ist damit leider aufgefressen.";
+                    //System.out.println("\t".repeat(2 * counter) + anderesTier.getName() + " ist damit leider aufgefressen.");
+            System.out.println(ausgabe);
 
 
-            }
+
+           // }
 
         }
         //else System.out.println("\t".repeat(2 * counter) + "Kein Biss! ");
