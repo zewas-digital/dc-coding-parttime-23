@@ -10,6 +10,7 @@ public class Tiere {
         this.tierNamen = tierNamen;
         this.tierArt = tierArt;
 
+
     }
 
     public String toString() {

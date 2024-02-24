@@ -27,6 +27,7 @@ public class ZooSimulator1 {
             }
             //Ablauf:
             //So lange Gehege erledigt sind wird gearbeitet
+
             while ( !zuErledigendeGehege.isEmpty( ) ) {
                 //jeder Pfleger erledigt 1 Gehege
                 for (Pfleger pfleger : this.zoo.getPflegerVListe( )) {
@@ -49,10 +50,8 @@ public class ZooSimulator1 {
                     if ( gehegeToDo != null ) {
                         // hier wird seine Aufgabe abgearbeitet und sonstiges gemacht
                         System.out.printf( "%-50s | ", pfleger.getName( ) + " erledigt " + gehegeToDo.getStandort( ) );
-
                         // entferne Gehege von zu erledigenden Zoo-Gehegen
                         zuErledigendeGehege.remove( gehegeToDo );
-
                         // entferne Gehege von zu erledigenden Pfleger-Gehegen
                         pfleger_zuErledigendeGehege.get( pfleger ).remove( gehegeToDo );
                     } else {
@@ -66,23 +65,4 @@ public class ZooSimulator1 {
         System.out.println( "Tages Simulation Beendet!" );
     }
 
-    private HashMap<Gehege, Boolean> pflegerToDoList( int index ) {
-        HashMap<Gehege, Boolean> pflegerToDoList = new HashMap<>( );
-        for (int e = 0; e < index; e++) {
-            for (int i = 0; i < this.zoo.getPflegerVListe().size( ); i++) {
-                System.out.println( "Gehege:" + this.zoo.getPflegerVListe().get( e ).getZustaendigFuerGehege( ).get( i ) + "|" + "Status:" + this.zoo.getPflegerVListe().get( e ).getZustaendigFuerGehege( ).get( i ).getGehegeFutterStatus( ) );
-                pflegerToDoList.put( this.zoo.getPflegerVListe().get( e ).getZustaendigFuerGehege( ).get( i ), this.zoo.getPflegerVListe().get( e ).getZustaendigFuerGehege( ).get( i ).getGehegeFutterStatus( ) );
-            }
-        }
-        return pflegerToDoList;
-    }
-
-    public boolean zooGehgeToDOStatus() {
-        for (Gehege g : this.zoo.getGehegeVListe()) {
-            if ( !g.getGehegeFutterStatus( ) ) {
-                return true;         // es ist noch was zu tun
-            }
-        }
-        return false;
-    }
 }

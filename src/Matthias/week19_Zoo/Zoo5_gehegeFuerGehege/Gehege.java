@@ -8,7 +8,6 @@ public class Gehege{
     //Deklaration der Antribute
     private String Standort;    //Standort des Geheges
     private ArrayList<Tier> TierListe = new ArrayList<>( );
-    private boolean gehegeFutterStatus =false;
 
     // Konstruktor für das Gehege
     public Gehege (String Standort){
@@ -16,18 +15,10 @@ public class Gehege{
         this.Standort=Standort;
     }
 
-    public void setGehegeFutterStatus( boolean gehegeFutterStatus ) {
-        this.gehegeFutterStatus = gehegeFutterStatus;
-    }
-
     public Tier addNewAnimal( String animalName, String gattungName, Futter.Futtersorten futtersorte, Futterbedarf futterbedarf) {
         Tier neuesTier=new Tier( animalName, gattungName, futtersorte, futterbedarf);
         TierListe.add( neuesTier);
         return neuesTier;
-    }
-
-    public boolean getGehegeFutterStatus() {
-        return gehegeFutterStatus;
     }
 
     public void removeAnimal( Tier newAnimal) {
