@@ -23,8 +23,16 @@ public class Main {
         double totalCircumference = 0;
 
         for (Geometry geom : geometryObjects) {
-            totalArea += geom.getArea();
-            totalCircumference += geom.getCircumference();
+            double area = geom.getArea();
+            double circumference = geom.getCircumference();
+
+            // Ausgabe der Fläche und des Umfangs für jedes Objekt
+            System.out.println("Form: " + geom.getClass().getSimpleName() +
+                    ", Fläche: " + area +
+                    ", Umfang: " + circumference);
+
+            totalArea += area;
+            totalCircumference += circumference;
         }
 
         System.out.println("Gesamtfläche: " + totalArea + " cm²");
