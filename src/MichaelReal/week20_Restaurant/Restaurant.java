@@ -43,7 +43,7 @@ public class Restaurant {
             }
         } else {
             // Wenn der Tisch keinem Kellner zugewiesen ist, führe die Zuweisung durch
-            neuerKellner.addRaum();
+           // neuerKellner.addRaum();
             tisch.setZustandigerKellner(neuerKellner);
             System.out.println("Tisch erfolgreich dem Kellner " + neuerKellner.getName() + " zugewiesen.");
         }

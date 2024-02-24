@@ -5,14 +5,15 @@ public class Square extends Geometry{
 
     public Square(double length){
         this.length = length;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        super.area = getArea();
+        super.circumference = getCircumference();
+        this.type = "Quadrat";
     }
 
     public void setLength(double length) {
         this.length = length;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
 

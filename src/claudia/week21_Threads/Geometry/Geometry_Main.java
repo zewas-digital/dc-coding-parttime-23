@@ -17,18 +17,26 @@ public class Geometry_Main {
         Rectangle r1 = new Rectangle(1.0, 2.3);
         Rectangle r2 = new Rectangle(3.2, 0.5);
         Circle c1 = new Circle(1.0);
-        Circle c2 = new Circle(2.0);
+        Circle c2 = new Circle(5.0);
+        Square s1 = new Square(3.0);
+        Square s2 = new Square(0.1);
+        Triangle t1 = new Triangle(1.0);
+        Triangle t2 = new Triangle(1.5);
 
-        ArrayList<Geometry> Formen = new ArrayList<>();
+        ArrayList<Geometry> Forms = new ArrayList<>();
 
-        Formen.add(r1);
-        Formen.add(r2);
-        Formen.add(c1);
-        Formen.add(c2);
+        Forms.add(r1);
+        Forms.add(r2);
+        Forms.add(c1);
+        Forms.add(c2);
+        Forms.add(s1);
+        Forms.add(s2);
+        Forms.add(t1);
+        Forms.add(t2);
 
-
-        for (Geometry g : Formen) {
-            System.out.println("Fläche: " + g.getCircumference() + " Umfang " + g.getCircumference());
+        System.out.println();
+        for (Geometry g : Forms) {
+            System.out.printf("%-25s :%10s %10.4f  %10s %10.4f\n", g.type, "Fläche:", g.area, "Umfang:", g.circumference);
 
         }
     }
