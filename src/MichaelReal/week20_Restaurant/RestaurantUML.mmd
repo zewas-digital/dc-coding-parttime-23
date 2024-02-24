@@ -1,0 +1,55 @@
+classDiagram
+    class Restaurant {
+        +List<Raum> raume
+        +Hauptkellner hauptkellner
+    }
+    class Raum {
+        +Kellner kellner
+        +List<Tisch> tische
+    }
+    class Kellner {
+        +String name
+        +List<Bestellung> bestellungen
+    }
+    class Hauptkellner {
+        +String name
+        +List<Bestellung> bestellungen
+        +tagesanalyseDurchführen()
+    }
+    class Tisch {
+        +int groesse
+        +List<GruppeVonGaesten> gaeste
+    }
+    class GruppeVonGaesten {
+        +Speisekarte speisekarte
+        +Bestellung bestellung
+    }
+    class Speisekarte {
+        +List<Gericht> gerichte
+        +List<Getraenk> getranke
+    }
+    class Bestellung {
+        +List<Gericht> ausgewaehlteGerichte
+        +List<Getraenk> ausgewaehlteGetraenke
+    }
+    class Gericht {
+        +String name
+        +double preis
+        +double selbstkosten
+    }
+    class Getraenk {
+        +String name
+        +double preis
+        +double selbstkosten
+    }
+    Restaurant "1" -- "*" Raum
+    Raum "1" -- "1" Kellner
+    Raum "*" -- "*" Tisch
+    Tisch "*" -- "*" GruppeVonGaesten
+    GruppeVonGaesten "1" -- "1" Speisekarte
+    GruppeVonGaesten "1" -- "1" Bestellung
+    Speisekarte "*" -- "*" Gericht
+    Speisekarte "*" -- "*" Getraenk
+    Bestellung "*" -- "*" Gericht
+    Bestellung "*" -- "*" Getraenk
+    Restaurant "1" -- "1" Hauptkellner
