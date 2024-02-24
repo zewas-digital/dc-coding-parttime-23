@@ -45,13 +45,13 @@ classDiagram
     }
 
     class Triangle {
-
-        -double length
-        +Triangle(length)
-
+        -double a
+        -double b
+        -double c
+        +Triangle(a: double, b: double, c: double)
     }
 
-    Geometry <|-- Main
+    Geometry <-- Main
 
     Geometry <|-- Circle
 
