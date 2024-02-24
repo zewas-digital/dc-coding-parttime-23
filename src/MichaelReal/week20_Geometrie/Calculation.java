@@ -1,4 +1,7 @@
 package MichaelReal.week20_Geometrie;
 
-public class Calculation {
+public interface Calculation {
+    double getArea();
+    double getCircumference();
 }
+
