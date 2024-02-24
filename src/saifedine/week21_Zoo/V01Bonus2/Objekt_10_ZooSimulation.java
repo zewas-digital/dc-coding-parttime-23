@@ -1,4 +1,4 @@
-package saifedine.week20_Zoo.V04Bonus1;
+package saifedine.week21_Zoo.V01Bonus2;
 
 /*
 Aufgabe: Simulation 0.1

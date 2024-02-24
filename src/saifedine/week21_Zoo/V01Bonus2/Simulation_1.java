@@ -1,4 +1,4 @@
-package saifedine.week20_Zoo.V04Bonus1;
+package saifedine.week21_Zoo.V01Bonus2;
 
 import java.util.*;
 
@@ -176,16 +176,16 @@ public class Simulation_1 {
                     //System.out.println("Bisskraft beißendes Tier: " + gehege.gettierArrayList().get(i).toString() + " = " + gehege.gettierArrayList().get(i).getBissKraft());
                     //System.out.println("Gesundheit gebissenes Tier: " + gebissenesTier.toString() + " = " + gebissenesTier.getMaxGesundheit());
 
-                    gebissenesTier.setMaxGesundheit(gebissenesTier.getMaxGesundheit() - gehege.gettierArrayList().get(i).getBissKraft());
+                    gebissenesTier.setAktuelleGesundkeit(gebissenesTier.getMaxGesundheit() - gehege.gettierArrayList().get(i).getBissKraft());
 
-                    if (gebissenesTier.getMaxGesundheit() <= 0) {
+                    if (gebissenesTier.getAktuelleGesundkeit() <= 0) {
 
                         System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " ist Tod.");
 
                         gehege.removeTiere(gebissenesTier);
                     }
 
-                    System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " hat " + gebissenesTier.getMaxGesundheit() + "\n");
+                    System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " hat " + gebissenesTier.getAktuelleGesundkeit() + "\n");
                 }
             }
         }
