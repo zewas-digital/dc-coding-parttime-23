@@ -1,4 +1,4 @@
-package saifedine.week21_Zoo.V01Bonus2;
+package saifedine.week21.V01Bonus2;
 
 import java.util.ArrayList;
 import java.util.HashMap;

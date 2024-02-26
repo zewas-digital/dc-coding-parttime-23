@@ -1,4 +1,4 @@
-package saifedine.week21_weekend5.Geometry;
+package saifedine.week21_weekend5;
 
 public class Rectangle extends Geometry {
 

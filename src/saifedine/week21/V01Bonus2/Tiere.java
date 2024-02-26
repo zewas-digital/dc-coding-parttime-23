@@ -1,4 +1,4 @@
-package saifedine.week21_Zoo.V01Bonus2;
+package saifedine.week21.V01Bonus2;
 
 // Erstelle eine Tier-Klasse mit einem Namen und einer Gattung
 public class Tiere {

@@ -1,4 +1,4 @@
-package saifedine.week21_weekend5.Geometry;
+package saifedine.week21_weekend5;
 
 public class Triangle extends Geometry {
 
@@ -21,5 +21,14 @@ public class Triangle extends Geometry {
     @Override
     public double getCircumference() {
         return 0;
+    }
+
+    public static interface Calculation {
+
+        public double getArea();
+
+        public double getCircumference();
+
+
     }
 }

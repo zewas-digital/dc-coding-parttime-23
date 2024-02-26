@@ -1,9 +1,5 @@
 package saifedine.week19_Zoo.oliver;
 
-import oliver.week18_Zoo.Gehege;
-import oliver.week18_Zoo.Pfleger;
-import oliver.week18_Zoo.Zoo;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;

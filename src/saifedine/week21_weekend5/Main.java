@@ -1,4 +1,4 @@
-package saifedine.week21_weekend5.Geometry;
+package saifedine.week21_weekend5;
 /*
 Erstelle eine Abstrakte Klasse Geometry. Diese enthält folgende Methoden:
 getCircumference() und gibt einen double zurück
