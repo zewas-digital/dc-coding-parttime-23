@@ -1,11 +1,9 @@
 package claudia.week19_Zoo;
 
 import claudia.week18_neuerZoo.*;
-import claudia.week21_Threads.ThreadPfleger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Objekt_11_ZooSimulationBonus1b {
     public static void main(String[] args) throws InterruptedException {

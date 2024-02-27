@@ -35,9 +35,18 @@ public class Geometry_Main {
         Forms.add(t2);
 
         System.out.println();
+
+        double circumferenceTotal = 0;
+        double areaTotal = 0;
+
         for (Geometry g : Forms) {
             System.out.printf("%-25s :%10s %10.4f  %10s %10.4f\n", g.type, "Fläche:", g.area, "Umfang:", g.circumference);
-
+            circumferenceTotal += g.circumference;
+            areaTotal += g.area;
         }
+        System.out.println();
+        System.out.println("Hier noch zwei sinnfreie Berechnungen laut Aufgabenstellung: ");
+        System.out.println("Gesamtumfänge aller Formen: " + circumferenceTotal);
+        System.out.println("Gesamtfläche aller Formen : " + areaTotal);
     }
 }
