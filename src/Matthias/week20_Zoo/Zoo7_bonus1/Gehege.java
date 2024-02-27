@@ -36,6 +36,11 @@ public class Gehege{
         return neuesTier;
     }
 
+    public Tier zufallsTier(Gehege gehege){
+        Random random = new Random();
+        return gehege.getTierListe().get( random.nextInt( 0,gehege.getTierListe().size() ) );
+    }
+
     public boolean getGehegeFutterStatus() {
         return gehegeFutterStatus;
     }

@@ -25,11 +25,17 @@ public class Tier {
     public int getMaxGesundheit() {
         return this.MaxGesundheit;
     }
+    public void wirdVerletzt(int biss){
+        this.MaxGesundheit-=biss;
 
-    public void setMaxGesundheit( int maxGesundheit ) {
-        this.MaxGesundheit = maxGesundheit;
     }
 
+    public double bissWahrscheinlichkeit() {
+        return Math.random( );
+    }
+    public Boolean istLebendig() {
+        return this.MaxGesundheit > 0;
+    }
     public int getBiss() {
         return this.Biss;
     }
