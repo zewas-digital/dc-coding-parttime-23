@@ -7,20 +7,22 @@ public class Rectangle extends Geometry {
     public Rectangle(double length, double width){
         this.length = length;
         this.width = width;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        super.area = getArea();
+        super.circumference = getCircumference();
+        this.type = "Rechteck";
+
     }
 
     public void setLength(double length) {
         this.length = length;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
     public void setWidth(double width) {
         this.width = width;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
     public double getArea(){

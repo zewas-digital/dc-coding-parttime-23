@@ -47,9 +47,8 @@ public class Objekt_1_Auto {
         // Klasse aus anderem Package:
         // das Schlüsselwort "protected" schützt Attribute und Methoden vor dem globalen Zugriff ausserhalb des Pakets (Package)
         // auf oliver.week15_extend.Auto.wheels kann deshalt nicht zugegriffen werden
-        /*System.out.println(oliver.week15_extend.Auto.calcLiterPerKilometer(3));
+        System.out.println(saifedine.week15_extend.Auto.calcLiterPerKilometer(3));
 
-         */
     }
 }
 
