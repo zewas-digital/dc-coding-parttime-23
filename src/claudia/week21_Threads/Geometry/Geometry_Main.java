@@ -10,6 +10,10 @@ Erstelle eine Methode die den Gesamtumfang und die Gesamtfläche aller Geometry 
  */
 
 
+
+
+
+
 import java.util.ArrayList;
 
 public class Geometry_Main {
