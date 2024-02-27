@@ -15,8 +15,6 @@ kann der Pfleger ein Tier seiner Lieblings-Gattung bewundern.
 Drucke auf der Konsole aus, wer was macht.
  */
 
-import oliver.week18_Zoo.Objekt_9_Pfleger;
-import oliver.week18_Zoo.Zoo;
 
 public class Objekt_10_ZooSimulation {
     public static void main(String[] args) {
