@@ -12,7 +12,7 @@ public class Square extends Geometry{
     @Override
     public double getArea() {
         double area=Math.pow( this.length,2 );
-        System.out.println("Viereck: " + "Länge:" + this.length +" Flächeninhalt: " +area);
+        System.out.println("Viereck: " + " Länge:" + this.length +" Flächeninhalt: " +area);
         return area; // Fläche eines Rechtecks A= a^2
     }
 
