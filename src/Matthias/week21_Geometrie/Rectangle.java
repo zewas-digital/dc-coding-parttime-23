@@ -6,10 +6,10 @@ public class Rectangle extends Geometry {
 
     public Rectangle(double length, double width){
         super();
-        this.area=getArea();
-        this.circumference=getCircumference();
         this.length=length;
         this.width=width;
+        this.area=getArea();
+        this.circumference=getCircumference();
     }
     public void setLength( double length ) {
         this.length = length;
