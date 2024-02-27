@@ -11,7 +11,7 @@ public class ThreadSample {
         Thread ThreadEins = new Thread() {
             public void run() {
                 for (int i = 0; i < 100; i++) {
-                    System.out.print('.');
+                    System.out.print('1');
                 }
             }
 
@@ -20,8 +20,8 @@ public class ThreadSample {
 
         Thread ThreadZwei = new Thread() {
             public void run() {
-                for (int i = 0; i < 100; i++) {
-                    System.out.print('*');
+                for (int i = 0; i < 50; i++) {
+                    System.out.print('2');
                 }
             }
 
@@ -31,8 +31,8 @@ public class ThreadSample {
         Thread ThreadDrei = new Thread() {
             public void run() {
                 for (int i = 0; i < 100; i++) {
-                    System.out.print("|ABCD");
-                    System.out.println("EFGHIJ");
+                    System.out.print("3");
+                    //System.out.println("EFGHIJ");
                 }
             }
 
@@ -44,11 +44,9 @@ public class ThreadSample {
         ThreadZwei.start();
         ThreadDrei.start();
 
-        ThreadEins.join();
-        ThreadZwei.join();
         ThreadDrei.join();
-
-        System.out.println("\n Threads beendet ------------");
-
+        ThreadZwei.join();
+        ThreadEins.join();
+        System.out.println("\n Alle Threads beendet ------------");
     }
 }

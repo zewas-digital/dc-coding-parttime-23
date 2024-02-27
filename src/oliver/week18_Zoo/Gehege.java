@@ -3,7 +3,7 @@ package oliver.week18_Zoo;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class Gehege {
+public class Gehege extends Object {
     public String bezeichnung;
     private Vector<Tier> tiere;
 
