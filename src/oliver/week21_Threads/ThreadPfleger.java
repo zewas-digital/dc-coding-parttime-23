@@ -9,13 +9,14 @@ public class ThreadPfleger extends Thread {
         this.pfleger = pfleger;
     }
 
+    @Override
     public void run() {
-        for (int i = 0; i < 3; i++) {
-            System.out.print("P-"+ this.pfleger.getName().charAt(0)+'.');
+        for (int i = 0; i < 5; i++) {
+            System.out.print("P-"+ this.pfleger.getName().charAt(0)+".|");
             //TODO Pfleger führt eine Tätigkeit aus
 
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
