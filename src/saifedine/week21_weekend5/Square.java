@@ -11,6 +11,8 @@ public class Square extends Geometry {
         this.circumference = getCircumference();
     }
 
+
+
     public void setLength(double length) {
         this.length = length;
     }
