@@ -36,8 +36,6 @@ Lass auf der Konsole ausdrucken, wer was macht.++
  */
 public class Objekt_11_ZooSimulationBonus1 {
     public static void main( String[] args ) {
-
-
             Zoo zoo1 = getDemoZoo( );
             ZooSimulator2 zooSimulator2 =new ZooSimulator2(zoo1 );
             zooSimulator2.TagesSimulation( 10);

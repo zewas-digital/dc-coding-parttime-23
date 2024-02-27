@@ -1,0 +1,66 @@
+classDiagram
+
+    class Main {
+        + geometryObjects: ArrayList Geometry
+    }
+
+    class Geometry {
+        <<abstract>>
+        +double Circumference
+        +double Area
+
+    }
+
+    class Calculation {
+        <<interface>>
+        + double getArea()
+        + double getCircumference()
+    }
+
+    class Circle {
+
+        -double radius
+        +Circle(radius: double)
+
+    }
+
+    class Square {
+
+        -double length
+        +Rectangle(length: double)
+        +Rectangle(length: int)
+
+    }
+
+    class Rectangle {
+
+        -double length
+        -double width
+        +Rectangle(length: double, width: double)
+        +Rectangle(length: int, width: int)
+        +setLength(length: double) void
+        +setWidth(width: double)void
+
+
+    }
+
+    class Triangle {
+        -double a
+        -double b
+        -double c
+        +Triangle(a: double, b: double, c: double)
+    }
+
+    Geometry <-- Main
+
+    Geometry <|-- Circle
+
+    Geometry <|-- Square
+
+    Geometry <|-- Rectangle
+
+    Geometry <|-- Triangle
+
+    Geometry <|.. Calculation
+
+
