@@ -1,13 +1,15 @@
-package claudia.week21_Threads.Geometry;
+package claudia.week22_Geometry;
 
-public class Square extends Geometry{
+public class Triangle extends Geometry {
+    //gleichseitiges Dreieck, Fläche: sqrt(3) * 0.25 * länge^2
+
     private double length;
 
-    public Square(double length){
+    public Triangle(double length){
         this.length = length;
         super.area = getArea();
         super.circumference = getCircumference();
-        this.type = "Quadrat";
+        this.type = "gleichseitiges Dreieck";
     }
 
     public void setLength(double length) {
@@ -18,9 +20,9 @@ public class Square extends Geometry{
 
 
     public double getArea(){
-        return this.length * this.length;
+        return this.length * this.length * 0.25 * Math.sqrt(3);
     }
     public double getCircumference(){
-        return 2 * (this.length + this.length);
+        return 3 * this.length;
     }
 }

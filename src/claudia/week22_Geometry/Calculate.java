@@ -1,4 +1,4 @@
-package claudia.week21_Threads.Geometry;
+package claudia.week22_Geometry;
 
 public interface Calculate {
      double getArea();

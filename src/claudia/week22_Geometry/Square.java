@@ -1,6 +1,6 @@
-package claudia.week21_Threads.Geometry;
+package claudia.week22_Geometry;
 
-public class Square extends Geometry{
+public class Square extends Geometry {
     private double length;
 
     public Square(double length){

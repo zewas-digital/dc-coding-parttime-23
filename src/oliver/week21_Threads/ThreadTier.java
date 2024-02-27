@@ -14,12 +14,12 @@ public class ThreadTier extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i < 1; i++) {
-            System.out.print("T-"+ this.tier.getName().charAt(0)+'*');
+        for (int i = 0; i < 2; i++) {
+            System.out.print("T-"+ this.tier.getName().charAt(0)+"*|");
             this.tier.streunt(this.gehege);
 
             try {
-                Thread.sleep(150);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

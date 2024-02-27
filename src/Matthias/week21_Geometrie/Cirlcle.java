@@ -5,14 +5,14 @@ public class Cirlcle extends Geometry{
 
     public Cirlcle(double radius){
         super();
+        this.radius=radius;
         this.area=getArea();
         this.circumference=getCircumference();
-        this.radius=radius;
     }
     @Override
     public double getArea() {
         double area= ((Math.pow(this.radius, 2)) *Math.PI);
-        System.out.println("Kreis: " + "Radius:" + this.radius +" Flächeninhalt: " +area);
+        System.out.println("Kreis: " + " Radius:" + this.radius +" Flächeninhalt: " +area);
         return area;
     }
 

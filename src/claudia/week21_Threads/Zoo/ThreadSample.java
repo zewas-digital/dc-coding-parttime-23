@@ -1,4 +1,4 @@
-package claudia.week21_Threads;
+package claudia.week21_Threads.Zoo;
 
 public class ThreadSample {
     public static void main(String[] args) throws InterruptedException {
