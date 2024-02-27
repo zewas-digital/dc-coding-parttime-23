@@ -8,6 +8,8 @@ Welche möglichen Vorteile ergeben sich dadurch?
 
 - Vererbung: nur von einer Klasse, aber beliebig vielen Interfaces möglich
 - Methoden: alle Methoden eines Interfaces sind abstrakt, d.h. sind nicht implementiert
+- abstrakte Methoden können nur public oder protected sein
+- sind mit Attribut abstract versehen
 - abstrakte Klasse kann Methode mit Implementierung enthalten
 - Attribute: alle Attribute im Interface sind public final static (= Konstanten!)
 - weder Interfaces noch abstrakte Klassen können instanziiert werden
