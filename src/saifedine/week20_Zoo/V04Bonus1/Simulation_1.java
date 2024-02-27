@@ -1,9 +1,6 @@
 package saifedine.week20_Zoo.V04Bonus1;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 public class Simulation_1 {
 
@@ -62,8 +59,8 @@ public class Simulation_1 {
 
     public void arbeitsSimulation(int anzahlTage) {
 
-        for (int i = 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ; i <= anzahlTage; i++) {
-            System.out.println("+– | Tag "+ i + " "+ "–".repeat(52) +"+\n");
+        for (int i = 1; i <= anzahlTage; i++) {
+            System.out.println("+– | Tag " + i + " " + "–".repeat(52) + "+\n");
 
             // Arbeitslisten
 
@@ -143,7 +140,7 @@ public class Simulation_1 {
         }
     }
 
-    public void zufallsTierBiss(Gehege gehege){
+    public void zufallsTierBiss(Gehege gehege) {
 
         // Option a
         /*
@@ -151,20 +148,47 @@ public class Simulation_1 {
         double bissWahrschZahl = bissWahrscheinlichkeit.nextDouble(0.0,1.0);
          */
 
+        Tiere gebissenesTier = zufallsTier(gehege);
+
+        //HashMap<Tiere, Integer> gebisseneTierListe = new HashMap<>();
+
+
         for (int i = 0; i < gehege.gettierArrayList().size(); i++) {
 
             // Option b
             double bissWahrschZahl = Math.random();
-            System.out.println("bissWahrschZahl: " + bissWahrschZahl);
 
-            if (bissWahrschZahl <= 0.4){
+            if (bissWahrschZahl <= 0.4) {
+                System.out.println("bissWahrschZahl: " + bissWahrschZahl);
                 System.out.println("zufallsTierBiss: " + gehege.gettierArrayList().get(i));
 
-                System.out.println("Zufallstier: " + zufallsTier(gehege));
+                //System.out.println("Zufallstier: " + zufallsTier(gehege));
 
-                //if (gehege.gettierArrayList().get(i)) !=)
 
+                while (Objects.equals(gehege.gettierArrayList().get(i).toString(), gebissenesTier.toString())) {
+                    gebissenesTier = zufallsTier(gehege);
+                }
+
+                if (gebissenesTier.getMaxGesundheit() > 0) {
+
+                    System.out.println(gehege.gettierArrayList().get(i) + " beißt " + gebissenesTier);
+
+                    //System.out.println("Bisskraft beißendes Tier: " + gehege.gettierArrayList().get(i).toString() + " = " + gehege.gettierArrayList().get(i).getBissKraft());
+                    //System.out.println("Gesundheit gebissenes Tier: " + gebissenesTier.toString() + " = " + gebissenesTier.getMaxGesundheit());
+
+                    gebissenesTier.setMaxGesundheit(gebissenesTier.getMaxGesundheit() - gehege.gettierArrayList().get(i).getBissKraft());
+
+                    if (gebissenesTier.getMaxGesundheit() <= 0) {
+
+                        System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " ist Tod.");
+
+                        gehege.removeTiere(gebissenesTier);
+                    }
+
+                    System.out.println("aktuelle Gesundheit gebissenes Tier " + gebissenesTier.toString() + " hat " + gebissenesTier.getMaxGesundheit() + "\n");
+                }
             }
         }
+
     }
 }

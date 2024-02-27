@@ -41,10 +41,10 @@ public class Objekt_10_ZooSimulation {
         Tiere schlange2reptil = new Tiere("Schlange2", "Reptil",80,40);
         Tiere schlange3reptil = new Tiere("Schlange3","Reptil",80,40);
         Tiere schlange4reptil = new Tiere("Schlange4","Reptil",80,40);
-        Tiere hirsch1wild = new Tiere("Hirsch1","Wild",120,5);
-        Tiere hirsch2wild = new Tiere("Hirsch2","Wild",120,5);
-        Tiere hirsch3wild = new Tiere("Hirsch3","Wild",120,5);
-        Tiere hirsch4wild = new Tiere("Hirsch4","Wild",120,5);
+        Tiere hirsch1wild = new Tiere("Hirsch1","Wild",5,5);
+        Tiere hirsch2wild = new Tiere("Hirsch2","Wild",5,5);
+        Tiere hirsch3wild = new Tiere("Hirsch3","Wild",5,5);
+        Tiere hirsch4wild = new Tiere("Hirsch4","Wild",5,5);
         Tiere reh1wild = new Tiere("Reh1", "Wild",100,5);
         Tiere reh2wild = new Tiere("Reh2", "Wild",100,5);
         Tiere reh3wild = new Tiere("Reh3", "Wild",100,5);
@@ -93,11 +93,13 @@ public class Objekt_10_ZooSimulation {
         checkStatus = sim1.checkZustaendigkeit(pflegerHugo,alpenwiese);
         System.out.println("\n" + pflegerHugo.toString() + " ist zuständig für " + alpenwiese.toString() + " : " + checkStatus + "\n");
 
-        sim1.arbeitsSimulation(5);
+        //sim1.arbeitsSimulation(5);
 
         //sim1.zufallsTier();
 
-        sim1.zufallsTierBiss(alpenwiese);
+        sim1.zufallsTierBiss(ried);
+
+        tiergartenDornbirn.zooStrukturGehegeTierePfleger();
 
     }
 }
