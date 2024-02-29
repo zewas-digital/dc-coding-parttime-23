@@ -1,9 +1,10 @@
-package oliver.week18_Zoo;
+package saifedine.week21.oliver_Zoo_Simulation;
+
 
 import java.util.HashMap;
 import java.util.Vector;
 
-public class Gehege extends Object {
+public class Gehege {
     public String bezeichnung;
     private Vector<Tier> tiere;
 

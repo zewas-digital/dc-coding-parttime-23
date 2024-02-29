@@ -1,4 +1,4 @@
-package oliver.week22_Geometry;
+package Matthias.week22_Geometry;
 
 /*
 Aufgabe: Geometry Enhanced Version

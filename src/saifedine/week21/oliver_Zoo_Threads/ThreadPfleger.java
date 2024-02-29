@@ -1,6 +1,4 @@
-package oliver.week21_Threads;
-
-import oliver.week18_Zoo.Pfleger;
+package saifedine.week21.oliver_Zoo_Threads;
 
 public class ThreadPfleger extends Thread {
     Pfleger pfleger;

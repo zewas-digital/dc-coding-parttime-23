@@ -1,9 +1,4 @@
-package oliver.week21_Threads;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Vector;
+package saifedine.week21.oliver_Zoo_Threads;
 
 public class ThreadSample {
     public static void main(String[] args) throws InterruptedException {
