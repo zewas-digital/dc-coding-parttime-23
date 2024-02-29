@@ -6,25 +6,28 @@ public class Square extends Geometry {
 
     public Square(double length) {
         super();
-        this.length = length;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        setLength(length);
     }
 
+    public Square(int length) {
+        super();
+        this.length = (double) length;
+        setLength(length);
+    }
 
 
     public void setLength(double length) {
         this.length = length;
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
 
     public double getArea() {
-        this.area = Math.pow(this.length, 2);
-        return this.area;
+        return Math.pow(this.length, 2);
     }
 
     public double getCircumference() {
-        this.circumference = this.length * 4;
-        return this.circumference;
+        return this.length * 4;
     }
 }
