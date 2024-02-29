@@ -1,8 +1,4 @@
-package oliver.week21_Threads;
-
-import oliver.week18_Zoo.Gehege;
-import oliver.week18_Zoo.Pfleger;
-import oliver.week18_Zoo.Tier;
+package saifedine.week21.oliver_Zoo_Threads;
 
 public class ThreadTier extends Thread {
     Tier tier;
