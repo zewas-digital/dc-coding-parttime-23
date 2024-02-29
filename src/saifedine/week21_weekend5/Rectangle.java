@@ -9,12 +9,16 @@ public class Rectangle extends Geometry {
         super();
         this.length = length;
         this.width = width;
+        this.area = getArea();
+        this.circumference = getCircumference();
     }
 
     public Rectangle(int length, int width){
         super();
         this.length = (double) length;
         this.width = (double) width;
+        this.area = getArea();
+        this.circumference = getCircumference();
     }
 
     public void setLength(double length) {
@@ -31,6 +35,7 @@ public class Rectangle extends Geometry {
     }
 
     public double getCircumference() {
-        return 0;
+        this.circumference = this.length * 2 + this.width * 2;
+        return this.circumference;
     }
 }
