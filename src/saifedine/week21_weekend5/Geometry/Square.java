@@ -1,4 +1,4 @@
-package saifedine.week21_weekend5;
+package saifedine.week21_weekend5.Geometry;
 
 public class Square extends Geometry {
 

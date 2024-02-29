@@ -1,4 +1,4 @@
-package saifedine.week22_Carsimulation;
+package MichaelReal.week22_Carsimulation;
 
 /*
 Erstelle eine Car Klasse.
@@ -28,4 +28,19 @@ Wunsch: Die Methoden sollen zu ihrer eigentlichen Funktion auch eine schöne Aus
  */
 
 public class Main_Carsimulation {
+    public static void main(String[] args) {
+        ElectricCar tesla = new ElectricCar("Tesla", "Model S", 500, 100, 2000, 0.2, 100); // Angenommen, 0.2 Liter pro km (oder entsprechend für Elektroautos)
+
+        // Versuche, 500 km zu fahren
+        int gefahreneKilometer = tesla.drive(500);
+        System.out.println("Gefahrene Kilometer: " + gefahreneKilometer);
+
+        // Tankinhalt überprüfen und Auto auftanken
+        System.out.println("Tank wird aufgefüllt...");
+        tesla.refuel(50); // Füge 50 Liter hinzu
+
+        // Versuche, weitere 300 km zu fahren
+        int weitereKilometer = tesla.drive(300);
+        System.out.println("Weitere gefahrene Kilometer: " + weitereKilometer);
+    }
 }

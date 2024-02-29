@@ -1,4 +1,4 @@
-package saifedine.week21_weekend5;
+package saifedine.week21_weekend5.Geometry;
 
 abstract class Geometry implements Calculation {
 
