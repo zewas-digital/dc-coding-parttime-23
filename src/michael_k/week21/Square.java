@@ -3,8 +3,9 @@ package michael_k.week21;
 public class Square extends Geometrie{
 
     private double length;
+
     public Square (double length){
-        //super();
+        super();
         this.length = length;
         getArea ( );
         getCircumference ( );
