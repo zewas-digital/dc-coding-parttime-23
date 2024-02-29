@@ -9,5 +9,4 @@ abstract class Geometry implements Calculation {
     public String toString(){
         return "Umfang: " + this.circumference + ", " + "Flächeninhalt: " + this.area;
     }
-
 }

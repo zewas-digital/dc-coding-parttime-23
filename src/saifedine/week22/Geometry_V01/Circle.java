@@ -6,31 +6,24 @@ public class Circle extends Geometry {
 
     public Circle(double radius){
         super();
-        this.radius = radius;
-        this.area = (double) getArea();
-        this.circumference = (double) getCircumference();
+        setRadius(radius);
     }
 
     public Circle(int radius){
         super();
         this.radius = (double) radius;
-        this.area = (double) getArea();
-        this.circumference = (double) getCircumference();
+        setRadius(radius);
     }
 
     public void setRadius(double radius) {
         this.radius = radius;
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
     @Override
-    public double getArea() {
-        this.area = Math.pow(this.radius, 2) * Math.PI;
-        return this.area;
-    }
+    public double getArea() {return Math.pow(this.radius, 2) * Math.PI;}
 
     @Override
-    public double getCircumference() {
-        this.circumference = 2 * this.radius * Math.PI;
-        return this.circumference;
-    }
+    public double getCircumference() {return  2 * this.radius * Math.PI;}
 }
