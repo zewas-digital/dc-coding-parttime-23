@@ -1,4 +1,4 @@
-package saifedine.week22_Carsimulation;
+package saifedine.week22.Carsimulation;
 
 /*
 Erstelle eine Car Klasse.

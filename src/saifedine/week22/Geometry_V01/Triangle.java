@@ -1,4 +1,4 @@
-package saifedine.week21_weekend5;
+package saifedine.week22.Geometry_V01;
 
 public class Triangle extends Geometry {
 
