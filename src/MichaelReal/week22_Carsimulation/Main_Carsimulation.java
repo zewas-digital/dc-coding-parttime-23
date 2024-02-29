@@ -34,5 +34,13 @@ public class Main_Carsimulation {
         // Versuche, 500 km zu fahren
         int gefahreneKilometer = tesla.drive(500);
         System.out.println("Gefahrene Kilometer: " + gefahreneKilometer);
+
+        // Tankinhalt überprüfen und Auto auftanken
+        System.out.println("Tank wird aufgefüllt...");
+        tesla.refuel(50); // Füge 50 Liter hinzu
+
+        // Versuche, weitere 300 km zu fahren
+        int weitereKilometer = tesla.drive(300);
+        System.out.println("Weitere gefahrene Kilometer: " + weitereKilometer);
     }
 }
