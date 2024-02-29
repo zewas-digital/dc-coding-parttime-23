@@ -19,6 +19,6 @@ public class Home extends Geometry {
 
     @Override
     public double getCircumference() {
-        return this.buildingFloorPlans.getCircumference( )+this.roof.getArea();
+        return (this.buildingFloorPlans.getCircumference( )-this.buildingFloorPlans.getLength()) + ( this.roof.circumference - this.roof.getLength());
     }
 }

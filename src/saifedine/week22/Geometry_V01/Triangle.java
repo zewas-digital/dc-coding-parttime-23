@@ -12,26 +12,19 @@ public class Triangle extends Geometry {
     public Triangle(int length){
         super();
         this.length = (double) length;
-        this.area = getArea();
-        getCircumference();
+        setLength(length);
     }
 
     public void setLength(double length) {
         this.length = length;
-        this.area = getArea();
-        getCircumference();
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
     // https://www.mathespass.at/formeln/gleichseitiges-dreieck-formeln-und-eigenschaften
     @Override
-    public double getArea() {
-        double area = (Math.sqrt(3) * Math.pow(this.length,2))/4;
-        return area;
-    }
+    public double getArea() {return (Math.sqrt(3) * Math.pow(this.length,2))/4;}
 
     @Override
-    public double getCircumference() {
-        this.circumference = this.length * 3;
-        return this.circumference;
-    }
+    public double getCircumference() {return this.length * 3;}
 }
