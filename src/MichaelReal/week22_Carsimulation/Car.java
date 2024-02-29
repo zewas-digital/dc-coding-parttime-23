@@ -9,18 +9,15 @@ public abstract class Car {
 
     // Attribute der Car Klasse
     protected String hersteller;
-
     protected String modell;
     protected int kW; // Leistung
-
-    protected double tankinhalt; // Angenommen in Litern
+    protected double tankinhalt; // Aktueller Tankinhalt in Litern
+    protected double maximaleTankkapazitaet; // Maximale Tankkapazität in Litern
     protected Antriebsart antrieb;
     protected double gewicht;
-
     protected double verbrauch; // Kraftstoffverbrauch (Kilometer pro Liter)
 
-    // Konstruktor
-    public Car(String hersteller, String modell, int kW, double tankinhalt, Antriebsart antrieb, double gewicht, double verbrauch) {
+    public Car(String hersteller, String modell, int kW, double tankinhalt, Antriebsart antrieb, double gewicht, double verbrauch, double maximaleTankkapazitaet) {
         this.hersteller = hersteller;
         this.modell = modell;
         this.kW = kW;
@@ -28,12 +25,11 @@ public abstract class Car {
         this.antrieb = antrieb;
         this.gewicht = gewicht;
         this.verbrauch = verbrauch;
+        this.maximaleTankkapazitaet = maximaleTankkapazitaet;
     }
 
-    // Eine abstrakte Methode für die Fahrsimulation
     public abstract void simulateDrive();
 
-    // Die neue drive Methode
     public int drive(int kilometer) {
         int maxDistanz = (int) (tankinhalt * verbrauch);
         if (kilometer <= maxDistanz) {
@@ -43,5 +39,17 @@ public abstract class Car {
             tankinhalt = 0; // Tank ist leer
             return maxDistanz;
         }
+    }
+
+    public void refuel(double liter) {
+        if (liter < 0) {
+            System.out.println("Die Kraftstoffmenge kann nicht negativ sein.");
+            return;
+        }
+        this.tankinhalt += liter;
+        if (this.tankinhalt > this.maximaleTankkapazitaet) {
+            this.tankinhalt = this.maximaleTankkapazitaet;
+        }
+        System.out.println("Das Auto wurde aufgetankt. Aktueller Tankinhalt: " + this.tankinhalt + " Liter");
     }
 }

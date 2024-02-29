@@ -20,13 +20,13 @@ public class Rectangle extends Geometry {
     @Override
     public double getArea() {
         double area=this.length *this.width;
-        System.out.println("Rechteck: " + " Länge:" + this.length +" Breite: " +this.width +" Flächeninhalt: " +area);
+        //System.out.println("Rechteck: " + " Länge:" + this.length +" Breite: " +this.width +" Flächeninhalt: " +area);
         return area;
     }
     @Override
     public double getCircumference() {
         double circumference=((this.length*2)+(this.width*2));
-        System.out.println("Rechteck: " + " Länge:" + this.length +" Breite: "+ this.width+" Umfang: " +circumference);
+        //System.out.println("Rechteck: " + " Länge:" + this.length +" Breite: "+ this.width+" Umfang: " +circumference);
         return circumference; // Umfang = 2*l +2*w;
     }
 }

@@ -9,17 +9,21 @@ public class Square extends Geometry {
         this.circumference=this.getCircumference();
     }
 
+    public double getLength() {
+        return this.length;
+    }
+
     @Override
     public double getArea() {
         double area=Math.pow( this.length,2 );
-        System.out.println("Viereck: " + " Länge:" + this.length +" Flächeninhalt: " +area);
+        //System.out.println("Viereck: " + " Länge:" + this.length +" Flächeninhalt: " +area);
         return area; // Fläche eines Rechtecks A= a^2
     }
 
     @Override
     public double getCircumference() {
         double circumference=this.length*4;
-        System.out.println("Viereck: " + " Länge:" + this.length +" Umfang: " +circumference);
+        //System.out.println("Viereck: " + " Länge:" + this.length +" Umfang: " +circumference);
         return circumference; // Umfang = 4*l
     }
 }

@@ -1,8 +1,8 @@
 package MichaelReal.week22_Carsimulation;
 
 public class ElectricCar extends Car {
-    public ElectricCar(String hersteller, String modell, int kW, double tankinhalt, double gewicht, double verbrauch) {
-        super(hersteller, modell, kW, tankinhalt, Antriebsart.STROM, gewicht, verbrauch);
+    public ElectricCar(String hersteller, String modell, int kW, double tankinhalt, double gewicht, double verbrauch, double maximaleTankkapazitaet) {
+        super(hersteller, modell, kW, tankinhalt, Antriebsart.STROM, gewicht, verbrauch, maximaleTankkapazitaet);
     }
 
     @Override

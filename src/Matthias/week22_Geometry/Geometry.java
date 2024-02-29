@@ -5,6 +5,13 @@ public abstract class Geometry implements Calculation {
     double circumference;
 
     // Konstruktor für Abstrakte Klasse
+
+
+    @Override
+    public String toString() {
+        return "Fläche: "+ this.area +" Umfang: "+this.circumference;
+    }
+
     public Geometry() {
 
     }
