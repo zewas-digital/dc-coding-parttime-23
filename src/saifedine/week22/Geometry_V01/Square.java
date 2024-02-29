@@ -1,6 +1,6 @@
 package saifedine.week22.Geometry_V01;
 
-public class Square extends saifedine.week21_weekend5.Geometry {
+public class Square extends Geometry {
 
     private double length;
 
