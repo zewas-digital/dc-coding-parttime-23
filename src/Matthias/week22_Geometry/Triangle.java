@@ -1,4 +1,4 @@
-package Matthias.week21_Geometrie;
+package Matthias.week22_Geometry;
 
 // Es wird von einem gleichschenkligem Dreieck ausgegangen
 public class Triangle extends Geometry {
