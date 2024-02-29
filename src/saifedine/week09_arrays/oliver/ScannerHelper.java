@@ -1,0 +1,19 @@
+package saifedine.week09_arrays.oliver;
+
+import java.util.Scanner;
+
+public class ScannerHelper {
+    public static int readNumber(String message) {
+        System.out.println(message);
+        Scanner sc = new Scanner(System.in);
+
+        while(true) {
+            try {
+                return sc.nextInt();
+            } catch (Exception exception) {
+                System.out.println("Das ist keine gültige Zahl. Exception:"+ exception.toString());
+                sc.nextLine();
+            }
+        }
+    }
+}

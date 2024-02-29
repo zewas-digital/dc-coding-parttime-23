@@ -11,8 +11,6 @@ Für das Spielfeld, verwende int[3][3] Array, in dem
 Das Kriterium für Gewinn ist, 3 Zeichen in eine Reihe, Spalte oder Diagonal.
  */
 
-import oliver.week9_arrays.ScannerHelper;
-
 public class Arrays_14_TicTacToe {
     public static String[] symbol = new String[]{"     ", "  X  ", "  O  "};
 
