@@ -14,11 +14,11 @@ public class Star extends Geometry{
 
     @Override
     public double getArea() {
-        return (this.top.getArea()*4)+ this.starBody.getArea();
+        return ((this.top.getArea()*4)+ this.starBody.getArea());
     }
 
     @Override
     public double getCircumference() {
-        return this.starBody.getCircumference( )+(this.top.getCircumference()*4);
+        return (this.top.getCircumference()*4)-(this.top.getLength()*4);
     }
 }
