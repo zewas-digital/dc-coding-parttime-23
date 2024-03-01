@@ -2,9 +2,12 @@ package saifedine.week22.Geometry_V01;
 
 public class Rectangle extends Geometry {
 
+    // Attribute
     private double length;
     private double width;
 
+
+    // Konstruktoren
     public Rectangle(double length, double width){
         super();
         setDimensions(length,width);
@@ -17,6 +20,8 @@ public class Rectangle extends Geometry {
         setDimensions(length,width);
     }
 
+
+    // Methoden
     public void setDimensions (double length,double width){
         this.length = length;
         this.width = width;

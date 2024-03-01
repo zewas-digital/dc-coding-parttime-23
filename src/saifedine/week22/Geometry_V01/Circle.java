@@ -2,8 +2,11 @@ package saifedine.week22.Geometry_V01;
 
 public class Circle extends Geometry {
 
+    // Attribute
     private double radius;
 
+
+    // Konstruktoren
     public Circle(double radius){
         super();
         setRadius(radius);
@@ -15,6 +18,7 @@ public class Circle extends Geometry {
         setRadius(radius);
     }
 
+    // Methoden
     public void setRadius(double radius) {
         this.radius = radius;
         super.area = getArea();
@@ -22,8 +26,8 @@ public class Circle extends Geometry {
     }
 
     @Override
-    public double getArea() {return Math.pow(this.radius, 2) * Math.PI;}
+    public double getArea() {return Math.pow(this.radius,2) * Math.PI;}
 
     @Override
-    public double getCircumference() {return  2 * this.radius * Math.PI;}
+    public double getCircumference() {return 2 * this.radius * Math.PI;}
 }
