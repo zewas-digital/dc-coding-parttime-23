@@ -3,7 +3,7 @@ package claudia.week22_Carsimulation;
 Aufgabe: Carsimulation Extended
 ---------------------------------------------------------
 1/
-Erweitere das vorhergende Beispiel um die Klassen
+Erweitere das vorhergehende Beispiel um die Klassen
 Engine (Motor)
 Tank
 GasStation
@@ -50,4 +50,47 @@ Teste deine Autosimulation ausgiebig.
 Bonusoption: Verwende Threads für deine Simulation
  */
 public class Main_CarsimulationExtended {
+    public static void main(String[] args) throws InterruptedException {
+        Tankstelle t1 = new Tankstelle("Express");
+        Werkstatt w1 = new Werkstatt("Bastelbude");
+        Dieselauto d1 = new Dieselauto("Skoda", "Oktavia", 10000, 60.0, "Tank 1",  7.0, "Dieselmotor 1");
+        //System.out.println(d1 + " erstellt.");
+       // t1.tanken(d1, 50.0);
+        //d1.volltanken();
+       // d1.fahren(100);
+        t1.volltanken(d1);
+        Elektroauto e2 = new Elektroauto("Tesla", "XY", 2000, "Akku super", 20.0, "Elektromotor 2");//20 % pro 100 km
+
+        Elektroauto e1 = new Elektroauto("Renault", "Zoe", 500, "Akku mini", 30.0, "Elektromotor 1");//30 % pro 100 km
+        //System.out.println("\n" + e1 + " erstellt.");
+        t1.volltanken(e1);
+        t1.volltanken(e2);
+       // e1.fahren(100);
+        /*
+        t1.ansteuern(e1);
+        t1.tanken(e1, 10);
+        t1.tanken(e1, 20);
+        t1.tanken(e1, 500);
+        t1.volltanken(e1);
+        */
+        //Motor dm2 = new Motor(4.0, Antriebsarten.DIESEL, "Dieselmotor 2");
+        //w1.motorTauschen(d1, dm2);
+
+      // Akku akku2 = new Akku("Superakku");
+       // w1.tankTauschen(e1, akku2);
+        //t1.volltanken(e1);
+
+        AutoThread at1 = new AutoThread(d1, 150,'*');
+        AutoThread at2 = new AutoThread(e1, 1000,'°');
+        AutoThread at3 = new AutoThread(e2, 15,'#');
+        at1.start();
+        at2.start();
+        at3.start();
+        at1.join();
+        at2.join();
+        at3.join();
+
+
+
+    }
 }
