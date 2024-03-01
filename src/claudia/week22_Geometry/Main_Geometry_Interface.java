@@ -7,13 +7,15 @@ Gleiche Aufgabe wie zuvor, verwende jedoch ein Interface anstatt einer abstrakte
 Welche möglichen Vorteile ergeben sich dadurch?
 
 - Vererbung: nur von einer Klasse, aber beliebig vielen Interfaces möglich
-        - Methoden: alle Methoden eines Interfaces sind abstrakt, d.h. sind nicht implementiert
-        - abstrakte Klasse kann Methode mit Implementierung enthalten
-        - Attribute: alle Attribute im Interface sind public final static
+- Methoden: alle Methoden eines Interfaces sind abstrakt, d.h. sind nicht implementiert
+- abstrakte Methoden können nur public oder protected sein
+- sind mit Attribut abstract versehen
+- abstrakte Klasse kann Methode mit Implementierung enthalten
+- Attribute: alle Attribute im Interface sind public final static (= Konstanten!)
 - weder Interfaces noch abstrakte Klassen können instanziiert werden
-        => abstrakte Klassen flexibler (Methoden können abstrakt oder nicht sein)
-        => Interfaces erzwingen gewissen Implementierung in implementierenden Klassen
-        */
+=> abstrakte Klassen flexibler (Methoden können abstrakt oder nicht sein)
+=> Interfaces erzwingen gewissen Implementierung in implementierenden Klassen
+*/
 
 public class Main_Geometry_Interface {
 }

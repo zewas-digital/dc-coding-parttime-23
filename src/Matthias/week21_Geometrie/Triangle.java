@@ -13,7 +13,7 @@ public class Triangle extends Geometry {
     }
     @Override
     public double getArea() {
-        double area= (((Math.sqrt( 3 ))/4)*this.length*2);
+        double area= (((Math.sqrt( 3 ))/4)*Math.pow(this.length,2));
         System.out.println("gleichseitiges Dreieck: " + " Länge:" + this.length +" Flächeninhalt: " +area);
         return area; //(wurzel drei / 4 )* l^2;
     }

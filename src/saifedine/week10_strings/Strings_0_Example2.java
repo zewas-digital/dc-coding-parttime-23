@@ -5,8 +5,6 @@ package saifedine.week10_strings;
 https://www.w3schools.com/java/java_ref_string.asp
  */
 
-import oliver.week10_strings.StringMethods;
-
 import java.util.Arrays;
 
 public class Strings_0_Example2 {
