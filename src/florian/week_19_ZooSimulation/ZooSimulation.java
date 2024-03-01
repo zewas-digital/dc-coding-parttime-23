@@ -31,22 +31,20 @@ public class ZooSimulation {
         while (!vorhandeneGehege.isEmpty()) {
 
 
-
             for (Pfleger pfleger : this.zoo.getPflegerArrayList()) {
                 Gehege gehegetodo = null;
 
-                while (zuErledigendeGehege.get(pfleger).size() > 0){
+                while (zuErledigendeGehege.get(pfleger).size() > 0) {
                     gehegetodo = zuErledigendeGehege.get(pfleger).get(0);
                     if (vorhandeneGehege.contains(gehegetodo)) {
-
                         break;
 
                     } else {
                         zuErledigendeGehege.get(pfleger).remove(gehegetodo);
                         gehegetodo = null;
-
                     }
                 }
+
                 if (gehegetodo != null) {
                     System.out.println(pfleger.pflegerName + " erledigt: " + gehegetodo);
                     vorhandeneGehege.remove(gehegetodo);
