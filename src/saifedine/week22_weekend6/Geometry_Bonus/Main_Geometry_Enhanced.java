@@ -10,4 +10,6 @@ Erweitere das vorhergehende Beispiel um die Geometrische Form Stern und Haus vom
 
 public class Main_Geometry_Enhanced {
 
+
+
 }
