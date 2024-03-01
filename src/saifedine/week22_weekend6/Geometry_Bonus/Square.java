@@ -24,6 +24,8 @@ public class Square extends Geometry {
         this.circumference = getCircumference();
     }
 
+    public double getLength(){return this.length;}
+
     @Override
     public double getArea() {
         return Math.pow(this.length,2);
