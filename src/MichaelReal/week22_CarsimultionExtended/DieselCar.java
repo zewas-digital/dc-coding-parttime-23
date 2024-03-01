@@ -25,8 +25,18 @@ public class DieselCar extends Car implements Refuelable {
         double requiredFuel = kilometers * (verbrauch / 100.0);
         if (requiredFuel <= this.tank.getCurrentLevel() && this.engine.isFunctional()) {
             this.tank.setCurrentLevel(this.tank.getCurrentLevel() - requiredFuel);
-            // Zusätzliche Logik für Kilometerstand und Treibstoffverbrauch
+            totalKilometers += kilometers; // Kilometerstand aktualisieren
+            System.out.println("Aktueller Kilometerstand: " + totalKilometers + " km.");
+            // Optional: Überprüfe den Zustand des Motors nach der Fahrt
+            if (!this.engine.isFunctional()) {
+                System.out.println("Motordefekt festgestellt. Reparatur erforderlich.");
+                return false;
+            }
             return true;
+        } else if (!this.engine.isFunctional()) {
+            System.out.println("Der Motor ist defekt.");
+        } else {
+            System.out.println("Nicht genügend Treibstoff für die Fahrt.");
         }
         return false;
     }

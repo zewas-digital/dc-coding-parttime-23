@@ -26,7 +26,7 @@ public class PetrolCar extends Car implements Refuelable {
             totalKilometers += kilometers; // Kilometerstand aktualisieren
             System.out.println("Aktueller Kilometerstand: " + totalKilometers + " km.");
             // Optional: Überprüfe den Zustand des Motors nach der Fahrt
-            if (!this.engine.checkEngine()) {
+            if (!this.engine.isFunctional()) {
                 System.out.println("Motordefekt festgestellt. Reparatur erforderlich.");
                 return false;
             }
