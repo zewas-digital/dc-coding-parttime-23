@@ -1,4 +1,4 @@
-package saifedine.week22.Geometry_V01;
+package saifedine.week22_weekend6.Geometry_V02;
 
 public interface Calculation {
 

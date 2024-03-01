@@ -1,4 +1,4 @@
-package saifedine.week22.Geometry_V01;
+package saifedine.week22_weekend6.Geometry_V02;
 
 public class Rectangle extends Geometry {
 
@@ -9,12 +9,10 @@ public class Rectangle extends Geometry {
 
     // Konstruktoren
     public Rectangle(double length, double width){
-        super();
         setDimensions(length,width);
     }
 
     public Rectangle(int length, int width){
-        super();
         this.length = (double) length;
         this.width = (double) width;
         setDimensions(length,width);
@@ -25,8 +23,8 @@ public class Rectangle extends Geometry {
     public void setDimensions (double length,double width){
         this.length = length;
         this.width = width;
-        super.area = getArea();
-        super.circumference = getCircumference();
+        this.area = getArea();
+        this.circumference = getCircumference();
     }
 
     @Override
