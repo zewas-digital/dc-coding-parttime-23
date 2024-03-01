@@ -10,10 +10,6 @@ Erstelle eine Methode die den Gesamtumfang und die Gesamtfläche aller Geometry 
  */
 
 
-
-
-
-
 import java.util.ArrayList;
 
 public class Geometry_Main {
@@ -26,6 +22,7 @@ public class Geometry_Main {
         Square s2 = new Square(0.1);
         Triangle t1 = new Triangle(1.0);
         Triangle t2 = new Triangle(1.5);
+
 
         ArrayList<Geometry> Forms = new ArrayList<>();
 
@@ -52,5 +49,6 @@ public class Geometry_Main {
         System.out.println("Hier noch zwei sinnfreie Berechnungen laut Aufgabenstellung: ");
         System.out.println("Gesamtumfänge aller Formen: " + circumferenceTotal);
         System.out.println("Gesamtfläche aller Formen : " + areaTotal);
+
     }
 }

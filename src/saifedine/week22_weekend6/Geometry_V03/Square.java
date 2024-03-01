@@ -1,4 +1,4 @@
-package saifedine.week22.Geometry_V01;
+package saifedine.week22_weekend6.Geometry_V03;
 
 public class Square extends Geometry {
 
@@ -8,12 +8,10 @@ public class Square extends Geometry {
 
     // Konstruktoren
     public Square(double length) {
-        super();
         setLength(length);
     }
 
     public Square(int length) {
-        super();
         this.length = (double) length;
         setLength(length);
     }
@@ -22,8 +20,8 @@ public class Square extends Geometry {
     // Methoden
     public void setLength(double length) {
         this.length = length;
-        super.area = getArea();
-        super.circumference = getCircumference();
+        this.area = getArea();
+        this.circumference = getCircumference();
     }
 
     @Override

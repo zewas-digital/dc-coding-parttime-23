@@ -1,4 +1,4 @@
-package saifedine.week22.Geometry_V01;
+package saifedine.week22_weekend6.Geometry_V02;
 
 public class Circle extends Geometry {
 
@@ -8,21 +8,20 @@ public class Circle extends Geometry {
 
     // Konstruktoren
     public Circle(double radius){
-        super();
         setRadius(radius);
     }
 
     public Circle(int radius){
-        super();
         this.radius = (double) radius;
         setRadius(radius);
     }
 
+
     // Methoden
     public void setRadius(double radius) {
         this.radius = radius;
-        super.area = getArea();
-        super.circumference = getCircumference();
+        this.area = getArea();
+        this.circumference = getCircumference();
     }
 
     @Override
