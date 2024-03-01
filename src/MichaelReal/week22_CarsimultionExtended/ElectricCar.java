@@ -5,7 +5,7 @@ public class ElectricCar extends Car implements Chargeable {
     private double aktuelleLadung; // Aktuelle Ladung in kWh
 
     public ElectricCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double batteriekapazitaet, double aktuelleLadung) {
-        super(hersteller, modell, kW, Antriebsart.STROM, gewicht, verbrauch);
+        super(hersteller, modell, kW, Antriebsart.STROM, gewicht, verbrauch, new Engine(), new Battery());
         this.batteriekapazitaet = batteriekapazitaet;
         this.aktuelleLadung = aktuelleLadung;
     }
@@ -17,13 +17,14 @@ public class ElectricCar extends Car implements Chargeable {
     }
 
     @Override
-    public int drive(int kilometer) {
-        double verbrauchProKm = verbrauch / 100.0;
-        int moeglicheDistanz = (int) (aktuelleLadung / verbrauchProKm);
-        int gefahreneDistanz = Math.min(kilometer, moeglicheDistanz);
-        aktuelleLadung -= gefahreneDistanz * verbrauchProKm;
-        System.out.println(getModell() + " fährt " + gefahreneDistanz + " km, verbleibende Ladung: " + String.format("%.2f", aktuelleLadung) + " kWh.");
-        return gefahreneDistanz;
+    public boolean drive(int kilometers) {
+        double requiredEnergy = kilometers * (verbrauch / 100.0);
+        if (requiredEnergy <= this.tank.getCurrentLevel() && this.engine.isFunctional()) {
+            this.tank.setCurrentLevel(this.tank.getCurrentLevel() - requiredEnergy);
+            // Zusätzliche Logik für Kilometerstand und Energieverbrauch
+            return true;
+        }
+        return false;
     }
 
     public double getBatteriekapazitaet() {

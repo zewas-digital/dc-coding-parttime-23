@@ -5,7 +5,7 @@ public class PetrolCar extends Car implements Refuelable {
     private double maximaleTankkapazitaet; // Maximale Tankkapazität in Litern
 
     public PetrolCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt) {
-        super(hersteller, modell, kW, Antriebsart.BENZIN, gewicht, verbrauch);
+        super(hersteller, modell, kW, Antriebsart.BENZIN, gewicht, verbrauch, new Engine(), new FuelTank());
         this.maximaleTankkapazitaet = maximaleTankkapazitaet;
         this.tankinhalt = tankinhalt;
     }
@@ -17,13 +17,14 @@ public class PetrolCar extends Car implements Refuelable {
     }
 
     @Override
-    public int drive(int kilometer) {
-        double verbrauchProKm = verbrauch / 100.0;
-        int moeglicheDistanz = (int) (tankinhalt / verbrauchProKm);
-        int gefahreneDistanz = Math.min(kilometer, moeglicheDistanz);
-        tankinhalt -= gefahreneDistanz * verbrauchProKm;
-        System.out.println(getModell() + " fährt " + gefahreneDistanz + " km, verbleibender Tankinhalt: " + String.format("%.2f", tankinhalt) + " Liter.");
-        return gefahreneDistanz;
+    public boolean drive(int kilometers) {
+        double requiredFuel = kilometers * (verbrauch / 100.0);
+        if (requiredFuel <= this.tank.getCurrentLevel() && this.engine.isFunctional()) {
+            this.tank.setCurrentLevel(this.tank.getCurrentLevel() - requiredFuel);
+            // Zusätzliche Logik für Kilometerstand und Treibstoffverbrauch
+            return true;
+        }
+        return false;
     }
 
     public double getTankinhalt() {
