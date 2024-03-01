@@ -3,11 +3,15 @@ package MichaelReal.week22_CarsimultionExtended;
 public class GasCar extends Car implements Refuelable {
     private double tankinhalt; // Aktueller Tankinhalt in kg
     private double maximaleTankkapazitaet; // Maximale Tankkapazität in kg
+    private double totalKilometers = 0; // Gesamtkilometerstand
 
-    public GasCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt) {
+
+    public GasCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt, double totalKilometers) {
         super(hersteller, modell, kW, Antriebsart.GAS, gewicht, verbrauch, new Engine(), new FuelTank());
         this.maximaleTankkapazitaet = maximaleTankkapazitaet;
         this.tankinhalt = tankinhalt;
+        this.totalKilometers = totalKilometers;
+sf
     }
 
     @Override

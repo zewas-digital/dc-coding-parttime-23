@@ -3,11 +3,15 @@ package MichaelReal.week22_CarsimultionExtended;
 public class ElectricCar extends Car implements Chargeable {
     private double batteriekapazitaet; // Maximale Batteriekapazität in kWh
     private double aktuelleLadung; // Aktuelle Ladung in kWh
+    private double totalKilometers = 0; // Gesamtkilometerstand
 
-    public ElectricCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double batteriekapazitaet, double aktuelleLadung) {
+
+    public ElectricCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double batteriekapazitaet, double aktuelleLadung, double totalKilometers) {
         super(hersteller, modell, kW, Antriebsart.STROM, gewicht, verbrauch, new Engine(), new Battery());
         this.batteriekapazitaet = batteriekapazitaet;
         this.aktuelleLadung = aktuelleLadung;
+        this.totalKilometers = totalKilometers;
+
     }
 
     @Override
