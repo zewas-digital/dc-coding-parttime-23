@@ -1,0 +1,77 @@
+classDiagram
+    class Car {
+        Hersteller: String
+        Modell: String
+        kW: int
+        Tankinhalt: double
+        Antriebsart: Benzin | Diesel | Gas | Strom
+        Gewicht: double
+
+        drive(kilometer: int): int
+        tank(menge: double): void
+        getTankinhalt(): double
+        isMotorDefekt(): boolean
+        getMotor(): Engine
+        setMotor(motor: Engine): void
+    }
+
+    class Engine {
+        start(tank: Tank): void
+        stop(): void
+        getVerbrauchProKilometer(): double
+        isDefekt(): boolean
+        reparieren(): void
+    }
+
+    class Tank {
+        getFuellstand(): double
+        tanken(menge: double): void
+    }
+
+    class GasStation {
+        tanken(car: Car): void
+    }
+
+    class RepairStation {
+        reparieren(car: Car): void
+    }
+
+    class Battery inherits Tank {
+entladen(verbrauch: double): void
+}
+
+class FuelTank inherits Tank {
+verbrauchen(verbrauch: double): void
+}
+
+class SelfRepairingCar inherits Car {
+reparieren(): void
+}
+
+class AeroDynamicCar inherits Car {
+getVerbrauchProKilometer(): double
+}
+
+class CrapCar inherits Car {
+isDefekt(): boolean
+}
+
+Car --> Engine
+Car --> Tank
+
+Car --> Engine
+Engine --> Tank
+Engine --> Tank
+
+Car --> GasStation
+
+Car --> RepairStation
+
+Battery --> Car
+FuelTank --> Car
+
+SelfRepairingCar --> Engine
+
+AeroDynamicCar --> Engine
+
+CrapCar --> Engine
