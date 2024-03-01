@@ -1,6 +1,6 @@
 package saifedine.week22_weekend6.Geometry_Bonus;
 
-public class Square extends saifedine.week22_weekend6.Geometry_V03.Geometry {
+public class Square extends Geometry {
 
     // Attribute
     private double length;
