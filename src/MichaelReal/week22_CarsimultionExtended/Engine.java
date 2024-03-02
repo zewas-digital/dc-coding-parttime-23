@@ -23,4 +23,12 @@ public class Engine {
         this.isFunctional = true; // Setze den Zustand der Engine auf funktional
         System.out.println("Motor wurde repariert.");
     }
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
 }
