@@ -1,0 +1,73 @@
+classDiagram
+    class Car {
+        - manufacturer: String
+        - model: String
+        - tankCapacity: int
+        - fuelType: FuelType
+        <<enumeration>>
+        BENZIN
+        DIESEL
+        GAS
+        STROM
+        - weight: int
+        - engine: Engine
+        - tank: Tank
+        + getTankLevel(): int
+        + getEngineState(): String
+        + drive(int kilometers): void
+        + getFuelConsumption(): double
+        + abstract getFuelConsumptionPerKilometer(): double
+    }
+    class Engine {
+        - engineName: String
+        - kW: int
+        + start(): void
+        + stop(): void
+        + isDefect(): boolean
+    }
+    class Tank {
+        - tankName: String
+        - capacity: int
+        - level: int
+        + fill(int amount): void
+        + reduce(int amount): void
+    }
+    class GasStation {
+        + refill(Tank tank): void
+    }
+    class RepairStation {
+        + repair(Engine engine): void
+    }
+    class Battery {
+        - capacity: int
+        - level: int
+        + fill(int amount): void
+        + reduce(int amount): void
+
+    }
+    class FuelTank {
+        - capacity: int
+        - level: int
+        + fill(int amount): void
+        + reduce(int amount): void
+    }
+    class SelfRepairingCar {
+        + drive(int kilometers): void
+        + repair(Engine engine): void
+    }
+    class AeroDynamicCar {
+        + drive(int kilometers): void
+    }
+    class CrapCar {
+        + drive(int kilometers): void
+    }
+
+    Car <|-- SelfRepairingCar
+    Car <|-- AeroDynamicCar
+    Car <|-- CrapCar
+    Car *-- Engine
+    Car *-- Tank
+    Tank <|-- Battery
+    Tank <|-- FuelTank
+    Car *-- GasStation
+    Car *-- RepairStation
