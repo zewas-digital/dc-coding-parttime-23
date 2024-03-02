@@ -20,11 +20,10 @@ import java.util.TimerTask;
 public class RestaurantMain {
     public static void main(String[] args) throws InterruptedException {
 
-        Oberkellner oberkellner = RestaurantHilfe.erstelleRestaurant();
+        Oberkellner oberkellner = Restaurantbuilder.erstelleOberkellner();
         oberkellner.getRestaurant().geoeffnet = true;
 
         //TODO Anzahl der Gruppen stimmt nicht mehr (?)
-        //TODO oberkellner = erstelleRestaurant unlogisch
         //TODO gegenseitige Abhängigkeiten reduzieren/aufräumen
         //TODO Oberkellner.restaurantschließen beendet nicht main
         //TODO Ist hier das PRoblem, dass die Threads laufen? Bei nur 3 Sek. funktioniert es.

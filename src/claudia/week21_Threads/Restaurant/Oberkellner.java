@@ -46,7 +46,7 @@ public class Oberkellner {
 
         int n = gaeste.getAnzahlPersonen();
         Tisch gefundenerTisch = null;
-        Vector<Raum> raumliste = RestaurantHilfe.shufflecloneRaum(this.restaurant.getListeDerRaeume());
+        Vector<Raum> raumliste = Restaurantbuilder.shufflecloneRaum(this.restaurant.getListeDerRaeume());
         for (Raum r : raumliste){
             //boolean zuKlein;
             for (Tisch t : r.getListeDerTische()){
@@ -95,7 +95,7 @@ public class Oberkellner {
         int anzahlPersonen = random.nextInt(1, 13);
         return new Gruppe(anzahlPersonen, restaurant, this.listeDerGruppen);
     }
-    public int anzahlDerAnwesedenGruppen(){
+    public int anzahlDerAnwesendenGruppen(){
         return this.listeDerGruppen.size();
     }
     @Override
