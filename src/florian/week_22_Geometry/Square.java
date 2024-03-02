@@ -14,7 +14,7 @@ public class Square extends Geometry {
 
     @Override
     public double getArea() {
-        return this.area = this.length * this.length ;
+        return this.area = this.length * this.length;
     }
 
     @Override
