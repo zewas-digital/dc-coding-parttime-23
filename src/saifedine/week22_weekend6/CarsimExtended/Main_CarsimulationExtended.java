@@ -1,8 +1,4 @@
-package MichaelReal.week22_CarsimultionExtended;
-
-import java.util.ArrayList;
-import java.util.List;
-
+package saifedine.week22_weekend6.CarsimExtended;
 /*
 Aufgabe: Carsimulation Extended
 ---------------------------------------------------------
@@ -54,17 +50,4 @@ Teste deine Autosimulation ausgiebig.
 Bonusoption: Verwende Threads für deine Simulation
  */
 public class Main_CarsimulationExtended {
-    public static void main(String[] args) {
-        List<Car> cars = new ArrayList<>();
-        cars.add(new ElectricCar("Tesla", "Model S", 500, Car.Antriebsart.STROM, 2000, 20.0, new Engine(250), new Battery(100)));
-        cars.add(new DieselCar("Volkswagen", "Golf", 110, Car.Antriebsart.DIESEL, 1500, 5.0, new Engine(100), new FuelTank(50)));
-        cars.add(new PetrolCar("Toyota", "Corolla", 90, Car.Antriebsart.BENZIN, 1300, 6.0, new Engine(90), new FuelTank(45)));
-        cars.add(new GasCar("Fiat", "Panda", 80, Car.Antriebsart.GAS, 1200, 5.5, new Engine(80), new FuelTank(40)));
-        cars.add(new SelfRepairingCar("Ford", "Focus", 100, Car.Antriebsart.BENZIN, 1400, 6.5, new Engine(95), new FuelTank(50)));
-        cars.add(new AeroDynamicCar("Mercedes", "A-Class", 120, Car.Antriebsart.DIESEL, 1450, 4.5, new Engine(115), new FuelTank(55)));
-        cars.add(new CrapCar("Renault", "Clio", 75, Car.Antriebsart.BENZIN, 1100, 7.0, new Engine(70), new FuelTank(42)));
-
-        CarSimulation simulation = new CarSimulation();
-        simulation.simulateDrive(cars, 500); // Führe eine Simulation über 500 km aus.
-    }
 }

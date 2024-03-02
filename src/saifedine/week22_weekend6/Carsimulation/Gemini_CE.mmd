@@ -1,0 +1,104 @@
+classDiagram
+class Car {
++ Hersteller: String
++ Modell: String
++ kW: int
++ Tankinhalt: int
++ Antriebsart: Antriebsart
++ Gewicht: double
++ tank: Tank
++ engine: Engine
+
+- Car(Hersteller hersteller, String modell, int kW, int tankinhalt, Antriebsart antriebsart, double gewicht)
+- getHersteller(): String
+- setHersteller(String hersteller): void
+- getModell(): String
+- setModell(String modell): void
+- getkW(): int
+- setkW(int kW): void
+- getTankinhalt(): int
+- setTankinhalt(int tankinhalt): void
+- getAntriebsart(): Antriebsart
+- setAntriebsart(Antriebsart antriebsart): void
+- getGewicht(): double
+- setGewicht(double gewicht): void
+- getTank(): Tank
+- setTank(Tank tank): void
+- getEngine(): Engine
+- setEngine(Engine engine): void
+- drive(int kilometers): void
+- getDefekt(): boolean
+- getTreibstoffverbrauch(): double
+- abstract getTreibstoffverbrauchProKilometer(): double
+}
+
+class Antriebsart{
+    <<enumeration>>
+    BENZIN
+    DIESEL
+    GAS
+    STROM
+}
+
+
+
+class Tank {
+    <<Abstract>>
++ Kapazität: int
++ Füllstand: int
+
+- Tank(int kapazität)
+- getKapazität(): int
+- setKapazität(int kapazität): void
+- getFüllstand(): int
+- setFüllstand(int füllstand): void
+- tanken(int liter): void
+- verbrauchen(int liter): void
+}
+
+class Battery extends Tank {
+- Battery(int kapazität)
+- entladen(int ampere): void
+- laden(int ampere): void
+}
+
+class FuelTank extends Tank {
+- FuelTank(int kapazität)
+- vergasen(int liter): void
+}
+
+class Engine {
++ Zustand: Zustand
++ Leistung: int
+
+- Engine(int leistung)
+- getZustand(): Zustand
+- setZustand(Zustand zustand): void
+- getLeistung(): int
+- setLeistung(int leistung): void
+- starten(Tank tank): void
+- stoppen(): void
+- defekt(): boolean
+- reparieren(): void
+}
+
+
+class RepairStation {
+- reparieren(Car car): void
+}
+
+class SelfRepairingCar extends Car {
+- SelfRepairingCar(Hersteller hersteller, String modell, int kW, int tankinhalt, Antriebsart antriebsart, double gewicht)
+}
+
+class AeroDynamicCar extends Car {
+- AeroDynamicCar(Hersteller hersteller, String modell, int kW, int tankinhalt, Antriebsart antriebsart, double gewicht)
+- @Override
+- getTreibstoffverbrauchProKilometer(): double
+}
+
+class CrapCar extends Car {
+- CrapCar(Hersteller hersteller, String modell, int kW, int tankinhalt, Antriebsart antriebsart, double gewicht)
+- @Override
+- getDefekt(): boolean
+}
