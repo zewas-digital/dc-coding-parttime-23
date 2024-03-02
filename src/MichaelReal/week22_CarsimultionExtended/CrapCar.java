@@ -7,14 +7,9 @@ public class CrapCar extends Car {
 
     @Override
     public boolean drive(int kilometers) {
-        super.drive(kilometers);
-
-        // Simuliere eine erhöhte Defektwahrscheinlichkeit
-        if (Math.random() < 0.5) { // Annahme: 50% Wahrscheinlichkeit für einen Defekt
-            this.engine.setFunctional(false);
-            System.out.println("Motor ist defekt.");
+        if (Math.random() < 0.5) { // Simuliere erhöhte Defektwahrscheinlichkeit
+            engine.setFunctional(false);
         }
-
-        return this.engine.isFunctional();
+        return super.drive(kilometers);
     }
 }

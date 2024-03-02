@@ -7,7 +7,11 @@ public class AeroDynamicCar extends Car{
 
     @Override
     public boolean drive(int kilometers) {
-        this.verbrauch *= 0.5; // Reduziere den Verbrauch um 50%.
-        return super.drive(kilometers);
+        // Temporäre Reduzierung des Verbrauchs um 50% nur für diese Fahrt
+        double originalConsumption = this.verbrauch;
+        this.verbrauch *= 0.5;
+        boolean driven = super.drive(kilometers);
+        this.verbrauch = originalConsumption; // Setze den Verbrauch zurück
+        return driven;
     }
 }

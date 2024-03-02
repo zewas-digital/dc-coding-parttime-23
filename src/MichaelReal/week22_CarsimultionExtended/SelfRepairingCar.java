@@ -10,7 +10,7 @@ public class SelfRepairingCar extends Car{
         boolean driven = super.drive(kilometers);
         if (!engine.isFunctional()) {
             engine.repair();
-            super.drive(kilometers); // Versuche erneut zu fahren nach der Reparatur.
+            super.drive(kilometers); // Versuche erneut zu fahren nach der Reparatur
         }
         return driven;
     }

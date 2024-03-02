@@ -1,50 +1,26 @@
 package MichaelReal.week22_CarsimultionExtended;
 
-public class PetrolCar extends Car implements Refuelable {
-    private double tankinhalt; // Aktueller Tankinhalt in Litern
-    private double maximaleTankkapazitaet; // Maximale Tankkapazität in Litern
-    private double totalKilometers = 0; // Gesamtkilometerstand
-
-    public PetrolCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt, double totalKilometers) {
-        super(hersteller, modell, kW, Antriebsart.BENZIN, gewicht, verbrauch, new Engine(), new FuelTank());
-        this.maximaleTankkapazitaet = maximaleTankkapazitaet;
-        this.tankinhalt = tankinhalt;
-        this.totalKilometers = totalKilometers;
-    }
-
-    @Override
-    public void refuel(double liter) {
-        tankinhalt = Math.min(tankinhalt + liter, maximaleTankkapazitaet);
-        System.out.println(getModell() + " betankt: Aktueller Tankinhalt ist jetzt " + tankinhalt + " Liter.");
+public class PetrolCar extends Car {
+    public PetrolCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, FuelTank tank) {
+        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, tank);
     }
 
     @Override
     public boolean drive(int kilometers) {
-        double requiredFuel = kilometers * (verbrauch / 100.0);
-        if (requiredFuel <= this.tank.getCurrentLevel() && this.engine.isFunctional()) {
-            this.tank.setCurrentLevel(this.tank.getCurrentLevel() - requiredFuel);
-            totalKilometers += kilometers; // Kilometerstand aktualisieren
-            System.out.println("Aktueller Kilometerstand: " + totalKilometers + " km.");
-            // Optional: Überprüfe den Zustand des Motors nach der Fahrt
-            if (!this.engine.isFunctional()) {
-                System.out.println("Motordefekt festgestellt. Reparatur erforderlich.");
-                return false;
-            }
-            return true;
-        } else if (!this.engine.isFunctional()) {
-            System.out.println("Der Motor ist defekt.");
-        } else {
-            System.out.println("Nicht genügend Treibstoff für die Fahrt.");
+        if (!engine.isFunctional() || tank.getCurrentLevel() == 0) {
+            return false;
         }
-        return false;
-    }
+        double requiredFuel = calculateFuelConsumption(kilometers);
+        tank.setCurrentLevel(tank.getCurrentLevel() - requiredFuel);
 
-    public double getTankinhalt() {
-        return tankinhalt;
-    }
+        totalKilometers += kilometers;
 
-    public double getMaximaleTankkapazitaet() {
-        return maximaleTankkapazitaet;
+        if (tank.getCurrentLevel() <= 0) {
+            System.out.println("Tank ist leer.");
+            return false;
+        }
+
+        return true;
     }
 }
 
