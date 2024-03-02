@@ -2,40 +2,40 @@ package saifedine.week22.Geometry_V01;
 
 public class Rectangle extends Geometry {
 
+    // Attribute
     private double length;
     private double width;
 
+
+    // Konstruktoren
     public Rectangle(double length, double width){
         super();
-        this.length = length;
-        this.width = width;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        setDimensions(length,width);
     }
 
     public Rectangle(int length, int width){
         super();
         this.length = (double) length;
         this.width = (double) width;
-        this.area = getArea();
-        this.circumference = getCircumference();
+        setDimensions(length,width);
     }
 
-    public void setLength(double length) {
+
+    // Methoden
+    public void setDimensions (double length,double width){
         this.length = length;
-    }
-
-    public void setWidth(double width) {
         this.width = width;
+        super.area = getArea();
+        super.circumference = getCircumference();
     }
 
+    @Override
     public double getArea() {
-        this.area = this.length * this.width;
-        return this.area;
+        return this.length * this.width;
     }
 
+    @Override
     public double getCircumference() {
-        this.circumference = this.length * 2 + this.width * 2;
-        return this.circumference;
+        return this.length * 2 + this.width * 2;
     }
 }

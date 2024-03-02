@@ -13,6 +13,7 @@ public class Raum {
     }
     public void tischZufuegen(Tisch t){
         this.listeDerTische.add(t);
+        t.setKellner(this.kellner);
     }
     public Kellner getKellner(){
         return this.kellner;

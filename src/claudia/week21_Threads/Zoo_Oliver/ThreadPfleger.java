@@ -1,4 +1,4 @@
-package claudia.week21_Threads.Zoo;
+package claudia.week21_Threads.Zoo_Oliver;
 
 import oliver.week18_Zoo.Pfleger;
 
