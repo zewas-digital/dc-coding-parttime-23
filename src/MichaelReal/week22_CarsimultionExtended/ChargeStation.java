@@ -7,8 +7,6 @@ public class ChargeStation {
             Battery battery = (Battery) car.getTank();
             battery.setCurrentLevel(battery.getCapacity()); // Setze den aktuellen Level auf die maximale Kapazität
             System.out.println(car.getModell() + " wurde erfolgreich aufgeladen.");
-        } else {
-            System.out.println("Das Fahrzeug unterstützt kein Aufladen.");
         }
     }
 }
