@@ -37,14 +37,14 @@ class tank: hier Füllstand
 
 public class Main_Carsimulation {
     public static void main(String[] args) {
-        Auto auto1 = new Auto("Skoda", "Oktavia", 0, 60, 30, 6);
-        Auto auto2 = new Auto("Fiat", "500", 100000, 35.0, 15.0, 8.0);
+        //Auto auto1 = new Auto("Skoda", "Oktavia", 0, 60, 30, 6);
+        //Auto auto2 = new Auto("Fiat", "500", 100000, 35.0, 15.0, 8.0);
 
         double[] strecken = {200.0, 1500.0, 200.0, 35.0};
 
         for (int i = 0; i < 4; i++) {
-            if (auto1.fahren(strecken[i]) > 0) auto1.volltanken();
-            if (auto2.fahren(strecken[i]) > 0) auto2.volltanken();
+            //if (auto1.fahren(strecken[i]) > 0) auto1.volltanken();
+           // if (auto2.fahren(strecken[i]) > 0) auto2.volltanken();
         }
 
     }
