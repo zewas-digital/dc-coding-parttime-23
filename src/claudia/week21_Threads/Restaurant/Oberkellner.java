@@ -1,6 +1,7 @@
 package claudia.week21_Threads.Restaurant;
 
 import java.util.Random;
+import java.util.Vector;
 
 import static java.lang.Thread.sleep;
 
@@ -32,7 +33,8 @@ public class Oberkellner {
 
     private Tisch findeTisch(int n){
         Tisch gefundenerTisch = null;
-        for (Raum r : this.restaurant.getListeDerRaeume()){
+        Vector<Raum> raumliste = RestaurantHilfe.shufflecloneRaum(this.restaurant.getListeDerRaeume());
+        for (Raum r : raumliste){
             //TODO Liste der Räume zufällig durchlaufen!
             //boolean zuKlein;
             for (Tisch t : r.getListeDerTische()){
@@ -49,7 +51,7 @@ public class Oberkellner {
     }
     private void gaestePlazieren(Tisch t){
         if (t != null){
-            System.out.println(this + " begleitet die Gruppe zum Tisch. Zuständig ist " );
+            System.out.println(this + " begleitet die Gruppe zum Tisch. Zuständig ist " + t.getKellner() );
             t.changeStatus();
         }
     }

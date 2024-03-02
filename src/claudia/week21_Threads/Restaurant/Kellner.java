@@ -5,6 +5,10 @@ public class Kellner {
 
     public Kellner(String name){
         this.name = name;
+    }
 
+    @Override
+    public String toString(){
+        return this.name;
     }
 }

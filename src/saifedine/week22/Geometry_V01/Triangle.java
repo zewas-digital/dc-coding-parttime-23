@@ -2,8 +2,11 @@ package saifedine.week22.Geometry_V01;
 
 public class Triangle extends Geometry {
 
+    // Attribute
     private double length;
 
+
+    // Konstruktoren
     public Triangle(double length){
         super();
         setLength(length);
@@ -15,6 +18,7 @@ public class Triangle extends Geometry {
         setLength(length);
     }
 
+    // Methoden
     public void setLength(double length) {
         this.length = length;
         super.area = getArea();

@@ -1,6 +1,8 @@
 package claudia.week21_Threads.Restaurant;
 
+import java.util.Collections;
 import java.util.Random;
+import java.util.Vector;
 
 public class RestaurantHilfe {
     public static Oberkellner erstelleRestaurant(){
@@ -32,11 +34,16 @@ public class RestaurantHilfe {
         }
         return ok;
     }
-}
-/*
-public static ArrayList<Gehege> shufflecloneGehege(ArrayList<Gehege> liste){
-        ArrayList<Gehege> neueListe = (ArrayList<Gehege>) liste.clone();
+
+
+    public static Vector<Raum> shufflecloneRaum(Vector<Raum> liste){
+        Vector<Raum> neueListe = (Vector<Raum>) liste.clone();
         Collections.shuffle(neueListe);
         return neueListe;
     }
+
+
+}
+/*
+
  */
