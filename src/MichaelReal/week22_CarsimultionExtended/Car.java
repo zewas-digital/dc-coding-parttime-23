@@ -28,7 +28,9 @@ public abstract class Car {
 
 
 
-        public abstract boolean drive(int kilometer);
+        public boolean drive(int kilometer) {
+            return true;
+        }
 
 
 

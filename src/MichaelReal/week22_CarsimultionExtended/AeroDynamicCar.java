@@ -1,8 +1,8 @@
 package MichaelReal.week22_CarsimultionExtended;
 
 public class AeroDynamicCar extends Car{
-    public AeroDynamicCar(Engine engine, Tank tank) {
-        super(engine, tank);
+    public AeroDynamicCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt, double totalKilometers, Antriebsart antrieb) {
+        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, new Engine(), new FuelTank());
     }
 
     @Override
