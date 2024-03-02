@@ -1,4 +1,4 @@
-package eslem.weekend2;
+package eslem.weekendCalendar;
 
 /*
 Aufgabe 4:
@@ -23,8 +23,6 @@ Console.WriteLine(GetWorkdays(2021, 2));
 Ausgabe:
 20
      */
-
-import org.w3c.dom.ls.LSOutput;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

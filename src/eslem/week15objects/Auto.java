@@ -1,4 +1,4 @@
-package eslem.week15_objects;
+package eslem.week15objects;
 /* 1/ Erstelle eine Klasse welche die typischen Werte eines Autos speichern kann.
 
        String Marke

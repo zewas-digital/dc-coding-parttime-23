@@ -1,4 +1,4 @@
-package eslem.weekend2;
+package eslem.weekendCalendar;
 
 /*
 Aufgabe 11: My Birthday

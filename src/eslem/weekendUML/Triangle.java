@@ -20,7 +20,7 @@ public class Triangle extends Geometry {
         this.area = Math.pow((this.length), 2 / 4) * Math.sqrt(3);       //length hoch 2 durch vier mal Wurzel aus 3
         return this.area;
     }
-
+    public double getLength(){return this.length;}
     public double getCircumference() {
         this.circumfence = this.length * 3;
         return this.circumfence;

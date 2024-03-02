@@ -1,4 +1,4 @@
-package eslem.week15_objects;
+package eslem.week15objects;
 
 /*
 Aufgabe: Auto
@@ -29,8 +29,8 @@ public class Objekt_1_Auto {
 
         System.out.println("Neus Objekt: " + audi + "\nDas Auto ist ein " + audi.marke + " " +  audi.modell + " baujahr " +  audi.baujahr + " km Stand " + audi.kmStand);
 
-        Auto auto1 = new Auto("bmw", "e36", 1990, 111000, 70, 56);
-        Auto auto2 = new Auto("mercedes", "cla", 2013, 222000, 50, 33);
+        Auto auto1 = new Auto("bmw", "e36", 1990, 111000,220, 70, 56,0.2);
+        Auto auto2 = new Auto("mercedes", "cla", 2013, 222000,50, 50, 33, 0.1);
 
         System.out.println(audi.toString());
         System.out.println(auto1.toString());

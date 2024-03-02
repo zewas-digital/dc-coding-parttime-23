@@ -17,7 +17,7 @@ public class Square extends Geometry {
     public void setLength(double length) {
         this.length = length;
     }
-
+    public double getLength() {return this.length;}
     public double getArea() {
         this.area = Math.pow(this.length, 2);
         return this.area;
