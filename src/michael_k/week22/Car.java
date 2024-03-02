@@ -4,52 +4,75 @@ public class Car {
 
     private String hersteller;
     private String modell;
-    private int leistung;
-    private double tankinhalt;
-    private double tankVolumen;
-    private Antriebsart antriebsart;
     private int gewicht;
-    private double verbrauchAuf100;
-    private Engine engine;
-    private Tank tank;
+    public Engine engine;
+    public Tank tank;
+    private boolean engineDefekt = false;
+    private boolean tankLeer = false;
+    private Repairstation garage;
+    private Gasstation tankstelle;
 
-    public Car(String hersteller, String modell, double tankVolumen, Antriebsart antriebsart, double verbrauchAuf100 ){
+    public Car(String hersteller, String modell, int gewicht, double tankVolumen, Antriebsart antriebsart, int leistung, double verbrauchAuf100 ){
         this.hersteller = hersteller;
         this.modell = modell;
-        this.tankVolumen = tankVolumen;
-        this.tankinhalt = tankVolumen;
-        this.antriebsart = antriebsart;
-        this.verbrauchAuf100 = verbrauchAuf100;
-    }
+        this.gewicht = gewicht;
+        this.engine = new Engine ( antriebsart, leistung );
+        this.engine.verbrauchAuf100 = verbrauchAuf100;
+        if ( antriebsart.equals ( Antriebsart.Strom )){
+            this.tank = new Batterie ( tankVolumen );
+        }else {this.tank = new Treibstofftank ( tankVolumen );}
 
+    }
     public double drive(int kilometer){
         double kilometerNichtGefahren=0;
-        double reichweite = this.tankinhalt / verbrauchAuf100 *100;
+        double reichweite = tank.tankinhalt / engine.verbrauchAuf100 *100;
 
         if(kilometer < reichweite) {
 
-            this.tankinhalt = this.tankinhalt - ( verbrauchAuf100 * kilometer / 100 );
+            tank.tankinhalt = tank.tankinhalt - ( engine.verbrauchAuf100 * kilometer / 100 );
 
         }else{
             kilometerNichtGefahren = kilometer-reichweite;
-            this.tankinhalt = 0;
-            System.out.println ( "Tank ist leer" );
+            tank.tankinhalt = 0;
+            tankLeer = true;
         }
 
-        if(tankinhalt < 5 && tankinhalt >0 ){
-            System.out.println ( "Der Tankinhalt beträgt "+ this.tankinhalt+"L");
+        if(tank.tankinhalt < 5 && tank.tankinhalt >0 ){
+            System.out.println ( "Der Tankinhalt beträgt nur noch "+ tank.tankinhalt+"L");
         }
 
+        engineDefekt = engine.kilometerZuruecklegen ( kilometer-kilometerNichtGefahren, 50 );
         return kilometerNichtGefahren;
-    }
-    public double volltanken(){
 
-        double getankt = this.tankVolumen - this.tankinhalt;
-        this.tankinhalt = this.tankVolumen;
-
-        return getankt;
     }
     public double getTankinhalt(){
-        return this.tankinhalt;
+        return tank.tankinhalt;
+    }
+    public String statusCheck (){
+        String status = "alles OK";
+        if (engineDefekt == true){
+            status = "Motor defekt";
+        }
+        if (tankLeer == true){
+            status = "Tank leer";
+        }
+        if (tankLeer == true && engineDefekt == true){
+            status = "Tank leer, Motor defekt";
+        }
+        return status;
+    }
+    public void garageZuordnen(Repairstation garage){
+        this.garage = garage;
+    }
+    public void tankstelleZuordnen(Gasstation tankstelle){
+        this.tankstelle = tankstelle;
+    }
+    public void motorreparieren(){
+        engine.motorReparieren ();
+        engineDefekt = false;
+    }
+    public void tanken(){
+        tankstelle.tanken (tank);
+        tankLeer = false;
     }
 }
