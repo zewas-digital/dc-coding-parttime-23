@@ -1,8 +1,8 @@
 package MichaelReal.week22_CarsimultionExtended;
 
 public class CrapCar extends Car {
-    public CrapCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt, double totalKilometers, Antriebsart antrieb) {
-        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, new Engine(), new FuelTank());
+    public CrapCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, FuelTank tank) {
+        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, tank);
     }
 
     @Override

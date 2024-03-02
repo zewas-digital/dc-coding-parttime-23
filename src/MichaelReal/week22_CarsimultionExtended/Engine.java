@@ -5,7 +5,7 @@ public class Engine {
     private int power;
 
 
-    public Engine() {
+    public Engine(int power) {
         this.isFunctional = true;
         this.power = power;
     }

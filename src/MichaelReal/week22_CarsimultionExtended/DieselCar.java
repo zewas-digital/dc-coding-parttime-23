@@ -6,8 +6,8 @@ public class DieselCar extends Car implements Refuelable {
     private double totalKilometers = 0; // Gesamtkilometerstand
 
 
-    public DieselCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double maximaleTankkapazitaet, double tankinhalt, double totalKilometers) {
-        super(hersteller, modell, kW, Antriebsart.DIESEL, gewicht, verbrauch, new Engine(), new FuelTank());
+    public DieselCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, FuelTank tank) {
+        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, tank);
         this.maximaleTankkapazitaet = maximaleTankkapazitaet;
         this.tankinhalt = tankinhalt;
         this.totalKilometers = totalKilometers;

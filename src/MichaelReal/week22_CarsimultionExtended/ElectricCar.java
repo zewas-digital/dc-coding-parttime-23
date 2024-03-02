@@ -6,8 +6,8 @@ public class ElectricCar extends Car implements Chargeable {
     private double totalKilometers = 0; // Gesamtkilometerstand
 
 
-    public ElectricCar(String hersteller, String modell, int kW, double gewicht, double verbrauch, double batteriekapazitaet, double aktuelleLadung, double totalKilometers) {
-        super(hersteller, modell, kW, Antriebsart.STROM, gewicht, verbrauch, new Engine(), new Battery());
+    public ElectricCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, Battery battery) {
+        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, battery);
         this.batteriekapazitaet = batteriekapazitaet;
         this.aktuelleLadung = aktuelleLadung;
         this.totalKilometers = totalKilometers;

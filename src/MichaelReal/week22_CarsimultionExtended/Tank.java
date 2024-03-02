@@ -18,4 +18,9 @@ public abstract class Tank {
         this.currentLevel = level;
     }
 
+    // Methode zur Berechnung der möglichen Distanz basierend auf dem aktuellen Füllstand und dem Verbrauch pro 100 km
+    public double calculatePossibleDistance(double verbrauchPerHundredKm) {
+        return (currentLevel / verbrauchPerHundredKm) * 100;
+    }
+
 }
