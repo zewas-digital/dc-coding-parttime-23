@@ -7,7 +7,7 @@ public class Elektroauto extends Auto{
         super(hersteller, modell, kmStand, new Akku(tankname), new Motor(verbrauch, Antriebsarten.STROM, motorname));
    }
 
-  public double fahren(double strecke, char x) {
+  public double fahren(double strecke, char x)  {
       double restlicheStrecke = strecke;
       boolean counter = true;
       //double streckeProProzent = 100 / super.getMotor().getVerbrauch();
