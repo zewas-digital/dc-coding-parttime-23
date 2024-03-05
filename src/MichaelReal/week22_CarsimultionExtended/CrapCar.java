@@ -1,15 +1,21 @@
 package MichaelReal.week22_CarsimultionExtended;
 
+import java.util.Random;
+
 public class CrapCar extends Car {
-    public CrapCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, FuelTank tank) {
-        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, tank);
+    private Random random = new Random();
+
+    public CrapCar(String hersteller, String modell, Engine engine, Tank tank, double verbrauch) {
+        super(hersteller, modell, engine, tank, verbrauch);
     }
 
     @Override
     public boolean drive(int kilometers) {
-        if (Math.random() < 0.5) { // Simuliere erhöhte Defektwahrscheinlichkeit
+        if (random.nextDouble() < 0.2) { // 20% Chance, dass der Motor ausfällt
             engine.setFunctional(false);
+            return false; // Fahrt ist nicht möglich, wenn der Motor ausfällt
         }
         return super.drive(kilometers);
     }
 }
+

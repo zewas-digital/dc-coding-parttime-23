@@ -41,7 +41,7 @@ public class Main_Carsimulation {
         cars.add(new GasCar("Fiat", "Panda Natural Power", 51, 1020, 3.1, 30, 30));
 
 
-        CarSimulation.simulateCars(cars, 1000);
+        CarSimulation.simulateCars(cars, 2500);
 
     }
 }

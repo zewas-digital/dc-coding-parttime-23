@@ -1,59 +1,20 @@
 package MichaelReal.week22_CarsimultionExtended;
 
 public abstract class Car {
-
-    public enum Antriebsart {
-        BENZIN, DIESEL, GAS, STROM
-    }
-
     protected String hersteller;
     protected String modell;
-    protected int kW; // Leistung
-    protected Antriebsart antrieb;
-    protected double gewicht;
-    protected double verbrauch;
     protected Engine engine;
     protected Tank tank;
-    protected double totalKilometers = 0;
+    protected double verbrauch; // angenommen, Verbrauch pro 100 km
 
-    public Car(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, Tank tank) {
+    public Car(String hersteller, String modell, Engine engine, Tank tank, double verbrauch) {
         this.hersteller = hersteller;
         this.modell = modell;
-        this.kW = kW;
-        this.antrieb = antrieb;
-        this.gewicht = gewicht;
-        this.verbrauch = verbrauch;
         this.engine = engine;
         this.tank = tank;
+        this.verbrauch = verbrauch;
     }
 
-
-    public boolean drive(int kilometers) {
-        if (!engine.isFunctional() || tank.getCurrentLevel() == 0) {
-            return false;
-        }
-        // Berechnung des Verbrauchs und Aktualisierung des Tankinhalts
-        double requiredFuel = calculateFuelConsumption(kilometers);
-        tank.setCurrentLevel(tank.getCurrentLevel() - requiredFuel);
-
-        // Aktualisierung des Kilometerstands
-        totalKilometers += kilometers;
-
-        // Überprüfung, ob der Tank leer ist
-        if (tank.getCurrentLevel() <= 0) {
-            System.out.println("Tank ist leer.");
-            return false;
-        }
-
-        return true;
-    }
-
-    protected double calculateFuelConsumption(int kilometers) {
-        return kilometers * (verbrauch / 100.0);
-    }
-
-
-    // Getter-Methoden
     public String getHersteller() {
         return hersteller;
     }
@@ -62,22 +23,41 @@ public abstract class Car {
         return modell;
     }
 
-    public double getTotalKilometers() {
-        return totalKilometers;
+    public boolean drive(int kilometers) {
+        if (!isEngineFunctional() || getFuelLevel() <= 0) {
+            return false;
+        }
+        // Fiktive Berechnung des Treibstoffverbrauchs und Aktualisierung des Tankinhalts
+        double requiredFuel = kilometers * verbrauch / 100.0;
+        if (requiredFuel > getFuelLevel()) {
+            return false;
+        }
+        tank.setCurrentLevel(getFuelLevel() - requiredFuel); // Treibstoff verbrauchen
+        return true;
     }
 
-    public Tank getTank() {
-        return this.tank;
+    public void refill() {
+        tank.refill();
+        System.out.println(modell + ": Wurde aufgetankt.");
     }
 
-    public Engine getEngine() {
-        return this.engine;
+    public void repairEngine() {
+        if (!engine.isFunctional()) {
+            engine.repair();
+            System.out.println(modell + ": Motor wurde repariert.");
+        }
     }
 
-    public double getVerbrauch() {
-        return verbrauch;
+    public boolean isEngineFunctional() {
+        return engine.isFunctional();
     }
 
-
+    public double getFuelLevel() {
+        return tank.getCurrentLevel();
+    }
 }
+
+
+
+
 
