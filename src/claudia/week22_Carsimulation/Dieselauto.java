@@ -7,7 +7,7 @@ public class Dieselauto extends Auto{
         super(hersteller, modell, kmStand, new Treibstofftank(tankMax, tankName), new Motor(verbrauch, Antriebsarten.DIESEL, motorname));
    }
 
-    public double fahren(double strecke, char x) {
+    public double fahren(double strecke, char x)  {
         double restlicheStrecke = strecke;
         boolean counter = true;
         //double streckeProLiter = 100 / super.getMotor().getVerbrauch();
