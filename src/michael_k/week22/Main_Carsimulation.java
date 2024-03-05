@@ -106,22 +106,27 @@ public class Main_Carsimulation {
                     break;
                 case 1:
                     boolean schleife1= true;
-                    while ( schleife1 ) {
-                        System.out.println (
-                                "Eingabe:\n" +
-                                        " j/n = Wollen sie ihr Auto in ihrer Garage reparieren? \n"
-                        );
-                        String eingabe = inputKonsole.next ( );
-                        if (eingabe.equals ( "j" )) {
-                            auto1.motorreparieren ( );
-                            System.out.println ("Der Motor wurde repariert." );
-                            schleife1 = false;
-                        } else if (eingabe.equals ( "n" )) {
-                            System.out.println ( "Der Motor wird nicht mehr repariert, das Auto kann nicht weiter gefahren werden." );
-                            abbruch = false;
-                            schleife1 = false;
-                        } else {
-                            System.out.println ("Eingabe ist nicht gültig." );
+                    if (auto1.selbstReparierend){
+                        auto1.motorreparieren ( );
+                        System.out.println ("Der Motor wurde automatisch repariert." );
+                    }else {
+                        while ( schleife1 ) {
+                            System.out.println (
+                                    "Eingabe:\n" +
+                                            " j/n = Wollen sie ihr Auto in ihrer Garage reparieren? \n"
+                            );
+                            String eingabe = inputKonsole.next ( );
+                            if (eingabe.equals ( "j" )) {
+                                auto1.motorreparieren ( );
+                                System.out.println ("Der Motor wurde repariert." );
+                                schleife1 = false;
+                            } else if (eingabe.equals ( "n" )) {
+                                System.out.println ( "Der Motor wird nicht mehr repariert, das Auto kann nicht weiter gefahren werden." );
+                                abbruch = false;
+                                schleife1 = false;
+                            } else {
+                                System.out.println ("Eingabe ist nicht gültig." );
+                            }
                         }
                     }
                     ablauf = 0;

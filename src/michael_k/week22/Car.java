@@ -11,13 +11,15 @@ public class Car {
     private boolean tankLeer = false;
     private Repairstation garage;
     private Gasstation tankstelle;
+    public final boolean selbstReparierend;
 
-    public Car(String hersteller, String modell, int gewicht, double tankVolumen, Antriebsart antriebsart, int leistung, double verbrauchAuf100 ){
+    public Car(String hersteller, String modell, int gewicht, double tankVolumen, Antriebsart antriebsart, int leistung, double verbrauchAuf100, double engineFaktor, boolean selbstReparierend){
         this.hersteller = hersteller;
         this.modell = modell;
         this.gewicht = gewicht;
-        this.engine = new Engine ( antriebsart, leistung );
+        this.engine = new Engine ( antriebsart, leistung, engineFaktor );
         this.engine.verbrauchAuf100 = verbrauchAuf100;
+        this.selbstReparierend = selbstReparierend;
         if ( antriebsart.equals ( Antriebsart.Strom )){
             this.tank = new Batterie ( tankVolumen );
         }else {this.tank = new Treibstofftank ( tankVolumen );}
@@ -41,7 +43,7 @@ public class Car {
             System.out.println ( "Der Tankinhalt beträgt nur noch "+ tank.tankinhalt+"L");
         }
 
-        engineDefekt = engine.kilometerZuruecklegen ( kilometer-kilometerNichtGefahren, 50 );
+        engineDefekt = engine.kilometerZuruecklegen ( kilometer-kilometerNichtGefahren );
         return kilometerNichtGefahren;
 
     }

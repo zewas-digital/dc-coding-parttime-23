@@ -9,16 +9,18 @@ public class Engine {
     private double kilometer=0;
     private boolean defekt= false;
     public double verbrauchAuf100;
+    private double engineFaktor;
 
-    public Engine(Antriebsart antriebsart, int leistung){
+    public Engine(Antriebsart antriebsart, int leistung, double engineFaktor){
         this.leistung = leistung;
         this.antriebsart = antriebsart;
+        this.engineFaktor = engineFaktor;
     }
-    public boolean kilometerZuruecklegen(double kilometer, double faktor){
+    public boolean kilometerZuruecklegen(double kilometer){
 
         Random random = new Random ();
         this.kilometer = this.kilometer + kilometer;
-        if ((random.nextDouble (101)*faktor)/100 < ((this.kilometer-2000)/100.0) ){this.defekt=true;}
+        if ((random.nextDouble (101)*engineFaktor)/100 < ((this.kilometer-2000)/100.0) ){this.defekt=true;}
 
         return this.defekt;
     }
