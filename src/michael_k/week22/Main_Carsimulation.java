@@ -38,18 +38,18 @@ public class Main_Carsimulation {
 
 
         ScheißAuto auto1 = new ScheißAuto ( "Audi", "A5", 1500, 60, Antriebsart.Benzin, 105, 7.5 );
-        Car auto2 = new Car ( "BMW", "5", 1400, 60, Antriebsart.Diesel, 130, 8.0 );
-        Car auto3 = new Car ( "Mercedes", "E", 1600, 60, Antriebsart.Benzin, 110, 7.0 );
+        //Car auto2 = new Car ( "BMW", "5", 1400, 60, Antriebsart.Diesel, 130, 8.0 );
+        //Car auto3 = new Car ( "Mercedes", "E", 1600, 60, Antriebsart.Benzin, 110, 7.0 );
         Repairstation garage1 = new Repairstation ( "Dave's Garage" );
         Gasstation tankstelle1 = new Gasstation ("Jack's Tankstelle");
 
         auto1.garageZuordnen ( garage1 );
-        auto2.garageZuordnen ( garage1 );
-        auto3.garageZuordnen ( garage1 );
+        //auto2.garageZuordnen ( garage1 );
+        //auto3.garageZuordnen ( garage1 );
 
         auto1.tankstelleZuordnen ( tankstelle1 );
-        auto2.tankstelleZuordnen ( tankstelle1 );
-        auto3.tankstelleZuordnen ( tankstelle1 );
+        //auto2.tankstelleZuordnen ( tankstelle1 );
+        //auto3.tankstelleZuordnen ( tankstelle1 );
 
         Scanner inputKonsole = new Scanner ( System.in );
         int kilometer;
