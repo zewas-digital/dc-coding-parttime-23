@@ -1,17 +1,20 @@
 package MichaelReal.week22_CarsimultionExtended;
 
-public class AeroDynamicCar extends Car{
-    public AeroDynamicCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, FuelTank tank) {
-        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, tank);
+public class AeroDynamicCar extends Car {
+    public AeroDynamicCar(String hersteller, String modell, Engine engine, Tank tank, double verbrauch) {
+        super(hersteller, modell, engine, tank, verbrauch);
     }
 
     @Override
     public boolean drive(int kilometers) {
-        // Temporäre Reduzierung des Verbrauchs um 50% nur für diese Fahrt
-        double originalConsumption = this.verbrauch;
+        // Halbiere den Treibstoffverbrauch für die aerodynamische Effizienz vor der Fahrt
         this.verbrauch *= 0.5;
-        boolean driven = super.drive(kilometers);
-        this.verbrauch = originalConsumption; // Setze den Verbrauch zurück
-        return driven;
+        boolean result = super.drive(kilometers);
+        this.verbrauch *= 2; // Stelle den ursprünglichen Verbrauch wieder her
+        return result;
     }
 }
+
+
+
+

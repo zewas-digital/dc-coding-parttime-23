@@ -1,17 +1,18 @@
 package MichaelReal.week22_CarsimultionExtended;
 
-public class SelfRepairingCar extends Car{
-    public SelfRepairingCar(String hersteller, String modell, int kW, Antriebsart antrieb, double gewicht, double verbrauch, Engine engine, FuelTank tank) {
-        super(hersteller, modell, kW, antrieb, gewicht, verbrauch, engine, tank);
+public class SelfRepairingCar extends Car {
+    public SelfRepairingCar(String hersteller, String modell, Engine engine, Tank tank, double verbrauch) {
+        super(hersteller, modell, engine, tank, verbrauch);
     }
 
     @Override
     public boolean drive(int kilometers) {
-        boolean driven = super.drive(kilometers);
-        if (!engine.isFunctional()) {
-            engine.repair();
-            super.drive(kilometers); // Versuche erneut zu fahren nach der Reparatur
+        if (!isEngineFunctional()) {
+            repairEngine(); // Automatische Reparatur vor der Fahrt
         }
-        return driven;
+        return super.drive(kilometers);
     }
 }
+
+
+
