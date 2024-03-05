@@ -8,9 +8,7 @@ public class Raum {
     public Raum(Kellner k){
         this.kellner = k;
     }
-    public Vector<Tisch> getListeDerTische(){
-        return this.listeDerTische;
-    }
+
     public void tischZufuegen(Tisch t){
         this.listeDerTische.add(t);
         t.setKellner(this.kellner);
@@ -18,5 +16,7 @@ public class Raum {
     public Kellner getKellner(){
         return this.kellner;
     }
-
+    public Vector<Tisch> getListeDerTische(){
+        return this.listeDerTische;
+    }
 }

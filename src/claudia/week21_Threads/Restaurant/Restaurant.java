@@ -4,13 +4,17 @@ import java.util.Vector;
 
 public class Restaurant {
     private final String name;
+
     private Vector<Raum> listeDerRaeume = new Vector<>();
+    public boolean geoeffnet = false;
     public Restaurant(String name){
         this.name = name;
         }
+
     public String getName(){
         return this.name;
     }
+
     @Override
     public String toString(){
         return "Restaurant " + this.name;
@@ -21,4 +25,5 @@ public class Restaurant {
     public void raumHinzufuegen(Raum r){
         this.listeDerRaeume.add(r);
     }
+
 }
