@@ -1,0 +1,57 @@
+classDiagram
+    class Car {
+        manufacturer: String
+        model: String
+        kW: int
+        tankCapacity: double
+        fuelType: FuelType
+        weight: double
+        engine: Engine
+        tank: Tank
+        drive(int kilometers): int
+        refuel(double amount): void
+        getFuelLevel(): double
+        isEngineWorking(): boolean
+        repairEngine(): void
+        replaceEngine(Engine newEngine): void
+        replaceTank(Tank newTank): void
+        calculateFuelConsumption(): double
+    }
+
+    class Engine {
+        working: boolean
+        fuelConsumption: double
+        start(int kilometers, Car car): double
+        stop(): void
+        isWorking(): boolean
+        repair(): void
+        breakDown(): void
+        getFuelConsumption(): double
+    }
+
+    class Tank {
+        fuelLevel: double
+        refuel(double amount): void
+        consumeFuel(double amount): void
+        getFuelLevel(): double
+    }
+
+    class FuelTank {
+        // inherits from Tank
+    }
+
+    class Battery {
+        // inherits from Tank
+    }
+
+    class FuelType {
+        BENZIN
+        DIESEL
+        GAS
+        STROM
+    }
+
+    Car <-- Engine
+    Car <-- Tank
+    Tank <|-- FuelTank
+    Tank <|-- Battery

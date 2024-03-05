@@ -15,6 +15,9 @@ public class Tisch {
     public boolean istFrei(){
         return this.frei;
     }
+    public void freigeben(){
+        this.frei = true;
+    }
     public void changeStatus(){
         this.frei = !this.frei;
     }
