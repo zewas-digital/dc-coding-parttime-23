@@ -4,11 +4,12 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Vector;
 
-public class RestaurantHilfe {
-    public static Oberkellner erstelleRestaurant(){
+public class Restaurantbuilder {
+
+
+    public static Oberkellner erstelleOberkellner(){
         Restaurant restaurant = new Restaurant("Hinterm Ofen");
         Oberkellner ok = new Oberkellner("Hansi", restaurant);
-
 
         for (int i = 0; i < 4; i++){
             restaurant.raumHinzufuegen(new Raum(new Kellner("Kellner " + i)));
@@ -20,8 +21,6 @@ public class RestaurantHilfe {
             }
 
         }
-
-        
 
         System.out.println("\nRestaurant \"" + restaurant + "\" eröffnet.");
         System.out.println("Es gibt folgende Tische in verschiedenen Räumen: ");
