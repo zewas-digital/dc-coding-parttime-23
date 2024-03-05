@@ -1,5 +1,7 @@
 package Alpi.week18_PfelgeraufgabeNeu;
 
+import java.util.ArrayList;
+
 public class ZooSimulationMAIN {
 
     public static void main(String[] args) {
@@ -16,6 +18,18 @@ public class ZooSimulationMAIN {
         gehegeAlpen.setBearbeitet(true);
         gehegeSavanne.setBearbeitet(true);
         gehegeAquarium.setBearbeitet(false);
+
+
+
+        pflegerHans.setGehegeZustaendigkeitArrayList(pflegerHans.getGehegeZustaendigkeitArrayList());
+        System.out.println("Für Gehege 1 ist: " + pflegerBernd + " zuständig" );
+
+        gehegeAlpen.setTiereImGehege(new ArrayList<>());
+
+
+
+
+
 
 
 
