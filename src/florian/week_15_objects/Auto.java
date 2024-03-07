@@ -13,7 +13,7 @@ public class Auto extends Object {
     public double literproKm;
     public int tankinhalt;
 
-    public Auto(String Marke,String Modell,int Baujahr,int kmStand,int tankvolumen,int tankinhalt, double literproKm){
+    public Auto(String Marke, String Modell, int Baujahr, int kmStand, int tankvolumen, int tankinhalt, double literproKm) {
         this.marke = Marke;
         this.modell = Modell;
         this.baujahr = Baujahr;
@@ -23,29 +23,26 @@ public class Auto extends Object {
         this.literproKm = literproKm;
     }
 
-   public int fahren (int zufahrendeStrecke){
+    public int fahren(int zufahrendeStrecke) {
 
         this.kmStand += zufahrendeStrecke;
 
+        return this.kmStand;
+    }
 
+    public int volltanken() {
 
-
-        return  this.kmStand;
-   }
-
-   public int volltanken (){
-
-        while (tankinhalt < tankvolumen){
+        while (tankinhalt < tankvolumen) {
             tankinhalt++;
         }
 
-       return this.tankinhalt ;
-   }
+        return this.tankinhalt;
+    }
 
-   public int verbrauchproKm(){
+    public int verbrauchproKm() {
 
-        while (kmStand * (int) literproKm - tankinhalt == 0 ){
-            if (tankinhalt == 5 ){
+        while (kmStand * (int) literproKm - tankinhalt == 0) {
+            if (tankinhalt == 5) {
                 System.out.println("Bitte Tanken, es sind nur noch 5 Liter im Tank");
             } else if (tankinhalt == 0) {
                 System.out.println("Tank ist leer");
@@ -53,10 +50,8 @@ public class Auto extends Object {
         }
 
 
-
-       return tankinhalt;
-   }
-
+        return tankinhalt;
+    }
 
 
     public String toString() {
@@ -69,7 +64,6 @@ public class Auto extends Object {
                 ", Tankinhalt: " + tankinhalt +
                 ", literproKm: " + literproKm;
     }
-
 
 
 }

@@ -28,4 +28,28 @@ Wunsch: Die Methoden sollen zu ihrer eigentlichen Funktion auch eine schöne Aus
  */
 
 public class Main_Carsimulation {
+    public static void main(String[] args) {
+
+
+        Auto golf = new Auto("VW", "Golf", 50, 0, 80, 0.02, 0);
+
+
+        golf.volltanken();
+
+        golf.drive(1000);
+        golf.drive(1000);
+        golf.drive(1000);
+        golf.drive(1000);
+        golf.drive(1000);
+        golf.drive(1000);
+        golf.drive(1000);
+
+
+
+        System.out.println(golf);
+
+
+
+
+    }
 }
