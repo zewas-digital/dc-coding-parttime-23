@@ -26,7 +26,7 @@ public class RestaurantMain {
         //TODO Anzahl der Gruppen stimmt nicht mehr (?)
         //TODO gegenseitige Abhängigkeiten reduzieren/aufräumen
         //TODO Oberkellner.restaurantschließen beendet nicht main
-        //TODO Ist hier das PRoblem, dass die Threads laufen? Bei nur 3 Sek. funktioniert es.
+        //TODO Ist hier das Problem, dass die Threads laufen? Bei nur 3 Sek. funktioniert es.
 
         Timer oeffnungszeit = new Timer();
         oeffnungszeit.schedule(new TimerTask() {
@@ -48,9 +48,9 @@ public class RestaurantMain {
                     }
                 }
                 this.cancel();
-                System.exit(13); //beendet die main-Methode
+                System.exit(0); //beendet die main-Methode
             }
-        }, 10000); //30 Sekunden
+        }, 30000); //30 Sekunden
 
 
         while (oberkellner.getRestaurant().geoeffnet){

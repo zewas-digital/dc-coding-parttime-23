@@ -4,26 +4,42 @@ import java.util.List;
 
 public class CarSimulation {
 
-    public void simulateDrive(List<Car> cars, int totalDistance) {
+    public static void simulateDrive(List<Car> cars, int totalDistance) {
         for (Car car : cars) {
-            int traveledDistance = 0;
-            while (traveledDistance < totalDistance && car.getEngine().isFunctional()) {
-                boolean driven = car.drive((int)Math.min(car.getTank().calculatePossibleDistance(car.getVerbrauch()), totalDistance - traveledDistance));
-                if (!driven) {
-                    // Aufladen oder Betanken basierend auf dem Tanktyp
-                    if (car.getTank() instanceof Battery) {
-                        ChargeStation.charge(car); // Angenommen, diese Methode ist korrekt implementiert
-                    } else if (car.getTank() instanceof FuelTank) {
-                        GasStation.refuel((FuelTank) car.getTank());
-                    }
-                    // Motor reparieren, falls notwendig
-                    if (!car.getEngine().isFunctional()) {
-                        RepairStation.repair(car.getEngine()); // Angenommen, diese Methode ist korrekt implementiert
-                    }
+            System.out.println("\n🛣️Starte Simulation für: " + car.getModell() + " von " + car.getHersteller() + "🛣️");
+
+            int remainingDistance = totalDistance;
+            int repairAttempts = 0;
+            int maxRepairAttempts = 3; // Limit für Reparaturversuche
+
+            while (remainingDistance > 0) {
+                if (car.drive(remainingDistance)) {
+                    System.out.println(car.getModell() + " hat die Zieldestination nach insgesamt " + (totalDistance - remainingDistance) + " km erreicht. 🏁");
+                    break;
                 }
-                traveledDistance += driven ? Math.min(car.getTank().calculatePossibleDistance(car.getVerbrauch()), totalDistance - traveledDistance) : 0;
+
+                if (!car.isEngineFunctional() && repairAttempts < maxRepairAttempts) {
+                    System.out.println(car.getModell() + ": Motor defekt. Eine Reparatur wird durchgeführt.");
+                    car.repairEngine();
+                    repairAttempts++;
+                } else if (car.getFuelLevel() <= 0) {
+                    System.out.println(car.getModell() + ": Tank leer. Wird aufgetankt.");
+                    car.refill();
+                } else {
+                    System.out.println(car.getModell() + ": Kann nicht weiterfahren.");
+                    break; // Beendet die Schleife, falls das Auto nicht fahren kann und die max. Reparaturversuche erreicht sind.
+                }
             }
-            System.out.println(car.getModell() + " hat " + traveledDistance + " km von " + totalDistance + " km zurückgelegt.");
+
+            if (remainingDistance > 0 && repairAttempts >= maxRepairAttempts) {
+                System.out.println(car.getModell() + " konnte die Zieldestination nicht erreichen aufgrund wiederholter Motordefekte.");
+            }
         }
     }
 }
+
+
+
+
+
+

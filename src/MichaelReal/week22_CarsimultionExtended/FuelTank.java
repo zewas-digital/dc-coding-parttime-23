@@ -1,15 +1,12 @@
 package MichaelReal.week22_CarsimultionExtended;
 
 public class FuelTank extends Tank {
-
-    private int capacity;
-
-    public FuelTank(int capacity) {
-        this.capacity = capacity;
+    public FuelTank(double capacity) {
+        super(capacity);
     }
 
     @Override
     public void refill() {
-        this.currentLevel = this.capacity;
+        setCurrentLevel(capacity); // Füllt den Treibstofftank vollständig
     }
 }
