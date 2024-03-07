@@ -2,7 +2,7 @@ package Alpi.week17_Zoo;
 
 
 
-import Alpi.week18_Zoo.Tiere;
+import Alpi.week18_PfelgeraufgabeNeu.week18_Zoo.Tiere;
 
 import java.util.ArrayList;
 

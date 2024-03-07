@@ -1,4 +1,8 @@
 package MichaelReal.week22_CarsimultionExtended;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Aufgabe: Carsimulation Extended
 ---------------------------------------------------------
@@ -45,6 +49,17 @@ Diese kann dann in den Subklassen überschrieben werden.
 -------------------
 8/
 Teste deine Autosimulation ausgiebig.
+
+währe toll wenn es so aussieht
+zum beispiel so
+
+🛣️Starte Simulation für: 320d von BMW🛣️
+320d fährt 1266 km, verbleibender Tankinhalt: 0.03 Liter.
+320d fuhr 1266 km, verbleibende Distanz: 1234 km.
+320d betankt: Aktueller Tankinhalt ist jetzt 57.0 Liter.
+320d fährt 1234 km, verbleibender Tankinhalt: 1.47 Liter.
+320d fuhr 1234 km, verbleibende Distanz: 0 km.
+🏁320d hat die Gesamtdistanz von 2500 km erreicht.🏁
 -------------------
 9/
 Bonusoption: Verwende Threads für deine Simulation

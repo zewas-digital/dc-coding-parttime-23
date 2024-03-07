@@ -14,15 +14,48 @@ Was war die beliebteste Speise?
 Was war das beliebteste Getränk?
  */
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class RestaurantMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        Oberkellner oberkellner = RestaurantHilfe.erstelleRestaurant();
+        Oberkellner oberkellner = Restaurantbuilder.erstelleOberkellner();
+        oberkellner.getRestaurant().geoeffnet = true;
+
+        //TODO Anzahl der Gruppen stimmt nicht mehr (?)
+        //TODO gegenseitige Abhängigkeiten reduzieren/aufräumen
+        //TODO Oberkellner.restaurantschließen beendet nicht main
+        //TODO Ist hier das Problem, dass die Threads laufen? Bei nur 3 Sek. funktioniert es.
+
+        Timer oeffnungszeit = new Timer();
+        oeffnungszeit.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("\n\nDas Restaurant schließt jetzt, auf Wiedersehen!");
+/*
+                try {
+                    oberkellner.restaurantSchliessen();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                */
+
+                for (Raum raum : oberkellner.getRestaurant().getListeDerRaeume()) {
+                    System.out.println("* - ".repeat(10) + "*" );
+                    for (Tisch t : raum.getListeDerTische()) {
+                        System.out.println(t.getSitzplaetze() + " Sitzplätze;\t\t\t frei? " + t.istFrei() );
+                    }
+                }
+                this.cancel();
+                System.exit(0); //beendet die main-Methode
+            }
+        }, 30000); //30 Sekunden
 
 
-        for (int i = 0; i < 10; i++) {
+        while (oberkellner.getRestaurant().geoeffnet){
             oberkellner.gruppeZuweisen();
-
+            System.out.println("anwesende Gruppen: " + oberkellner.getListeDerGruppen().size());
         }
 
         for (Raum raum : oberkellner.getRestaurant().getListeDerRaeume()) {
@@ -30,7 +63,6 @@ public class RestaurantMain {
             for (Tisch t : raum.getListeDerTische()) {
                 System.out.println(t.getSitzplaetze() + " Sitzplätze;\t\t\t frei? " + t.istFrei() );
             }
-
         }
     }
 }

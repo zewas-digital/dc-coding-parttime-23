@@ -23,6 +23,8 @@ public class Triangle extends Geometry {
         this.circumference = getCircumference();
     }
 
+    public double getLength(){return this.length;}
+
     // https://www.mathespass.at/formeln/gleichseitiges-dreieck-formeln-und-eigenschaften
     @Override
     public double getArea() {return (Math.sqrt(3) * Math.pow(this.length,2))/4;}
