@@ -16,6 +16,7 @@ public class Car {
     private Engine engine;
     private Tank tank;
     private int kmStand;
+    private int kilometer;
 
 
     // Konstruktoren
@@ -65,4 +66,6 @@ public class Car {
     public void setKmStand(int kmStand) {
         this.kmStand = kmStand;
     }
+
+    public int drive(int kilometer)
 }
