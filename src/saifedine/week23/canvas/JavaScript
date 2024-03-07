@@ -1,0 +1,24 @@
+var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Zeichne das Gebäude (Rechteck)
+        ctx.fillStyle = "#FF0000"; // Rot
+        ctx.fillRect(100, 200, 200, 150); // x, y, width, height
+
+        // Zeichne das Dach (Dreieck)
+        ctx.beginPath();
+        ctx.moveTo(100, 200); // Startpunkt unten links
+        ctx.lineTo(200, 100); // Spitze des Dachs
+        ctx.lineTo(300, 200); // Endpunkt unten rechts
+        ctx.closePath();
+        ctx.fillStyle = "#008000"; // Grün
+        ctx.fill();
+
+        // Zeichne Fenster
+        ctx.fillStyle = "#0000FF"; // Blau
+        ctx.fillRect(130, 230, 40, 40); // Fenster links
+        ctx.fillRect(230, 230, 40, 40); // Fenster rechts
+
+        // Zeichne Tür
+        ctx.fillStyle = "#A52A2A"; // Braun
+        ctx.fillRect(190, 290, 40, 60); // Tür

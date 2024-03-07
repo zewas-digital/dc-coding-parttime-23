@@ -1,4 +1,8 @@
 package MichaelReal.week22_CarsimultionExtended;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Aufgabe: Carsimulation Extended
 ---------------------------------------------------------
@@ -50,4 +54,13 @@ Teste deine Autosimulation ausgiebig.
 Bonusoption: Verwende Threads für deine Simulation
  */
 public class Main_CarsimulationExtended {
+    public static void main(String[] args) {
+        List<Car> cars = List.of(
+                        new SelfRepairingCar("Marke A", "Selbstreparierendes Auto", new Engine(120), new FuelTank(50), 5),
+                        new AeroDynamicCar("Marke B", "Aerodynamisches Auto", new Engine(150), new FuelTank(60), 4),
+                        new CrapCar("Marke C", "Anfälliges Auto", new Engine(100), new FuelTank(40), 6)
+                );
+
+        CarSimulation.simulateDrive(cars, 500); // Führe eine Simulation über 500 km aus.
+    }
 }

@@ -10,12 +10,14 @@ wofür der Pfleger zuständig ist. Erweitere die Klasse Zoo, dass die eine Liste
 Erweitere den Struktur-Ausdruck um die neu eingeführten Pfleger.
  */
 
+import Alpi.week18_PfelgeraufgabeNeu.week18_Zoo.Gehege;
+
 public class Objekt_9_Pfleger_Main {
 
     public static void main(String[] args) {
         // Zoo erstellen
-        Zoo tierpark = new Zoo("Doppelmayerzoo", 1980);
-        Zoo tierpark1 = new Zoo("Waldbrand" , 1855);
+        Zoo tierpark = new Zoo("Doppelmayerzoo", 1987);
+        Zoo tierpark1 = new Zoo("Waldbrand" , 1967);
 
         //Pfleger erstellen
         Pfleger PflegerDaniel = new Pfleger("Franz");
@@ -23,8 +25,10 @@ public class Objekt_9_Pfleger_Main {
 
         //Pfleger Zoo zuweisen
 
+        Gehege gehege1 = new Gehege("Savanne");
+        Gehege gehege2 = new Gehege("alpenwiese");
 
-
+        Volkan.verantwortlichfuerGehege(tierpark1.gehegeArrayList.get(2884787));
 
 
 

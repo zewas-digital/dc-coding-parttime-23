@@ -27,20 +27,21 @@ Erstelle nun eine Carsimulation welche eine gewisse Anzahl von Autoinstanzen ers
 Wunsch: Die Methoden sollen zu ihrer eigentlichen Funktion auch eine schöne Ausgabe erstellen
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main_Carsimulation {
     public static void main(String[] args) {
-        ElectricCar tesla = new ElectricCar("Tesla", "Model S", 500, 100, 2000, 0.2, 100); // Angenommen, 0.2 Liter pro km (oder entsprechend für Elektroautos)
 
-        // Versuche, 500 km zu fahren
-        int gefahreneKilometer = tesla.drive(500);
-        System.out.println("Gefahrene Kilometer: " + gefahreneKilometer);
+        List<Car> cars = new ArrayList<>();
+        cars.add(new ElectricCar("Tesla", "Model S", 386, 2000, 18.5, 100, 100));
+        cars.add(new DieselCar("BMW", "320d", 140, 1500, 4.5, 57, 57));
 
-        // Tankinhalt überprüfen und Auto auftanken
-        System.out.println("Tank wird aufgefüllt...");
-        tesla.refuel(50); // Füge 50 Liter hinzu
+        cars.add(new PetrolCar("Volkswagen", "Golf", 110, 1370, 5.2, 50, 50));
+        cars.add(new GasCar("Fiat", "Panda Natural Power", 51, 1020, 3.1, 30, 30));
 
-        // Versuche, weitere 300 km zu fahren
-        int weitereKilometer = tesla.drive(300);
-        System.out.println("Weitere gefahrene Kilometer: " + weitereKilometer);
+
+        CarSimulation.simulateCars(cars, 2500);
+
     }
 }
