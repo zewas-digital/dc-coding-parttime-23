@@ -49,18 +49,20 @@ Diese kann dann in den Subklassen überschrieben werden.
 -------------------
 8/
 Teste deine Autosimulation ausgiebig.
+
+währe toll wenn es so aussieht
+zum beispiel so
+
+🛣️Starte Simulation für: 320d von BMW🛣️
+320d fährt 1266 km, verbleibender Tankinhalt: 0.03 Liter.
+320d fuhr 1266 km, verbleibende Distanz: 1234 km.
+320d betankt: Aktueller Tankinhalt ist jetzt 57.0 Liter.
+320d fährt 1234 km, verbleibender Tankinhalt: 1.47 Liter.
+320d fuhr 1234 km, verbleibende Distanz: 0 km.
+🏁320d hat die Gesamtdistanz von 2500 km erreicht.🏁
 -------------------
 9/
 Bonusoption: Verwende Threads für deine Simulation
  */
 public class Main_CarsimulationExtended {
-    public static void main(String[] args) {
-        List<Car> cars = List.of(
-                        new SelfRepairingCar("Marke A", "Selbstreparierendes Auto", new Engine(120), new FuelTank(50), 5),
-                        new AeroDynamicCar("Marke B", "Aerodynamisches Auto", new Engine(150), new FuelTank(60), 4),
-                        new CrapCar("Marke C", "Anfälliges Auto", new Engine(100), new FuelTank(40), 6)
-                );
-
-        CarSimulation.simulateDrive(cars, 500); // Führe eine Simulation über 500 km aus.
-    }
 }
