@@ -64,7 +64,7 @@ public class Main_Carsimulation {
         printList( CarList );
             for (Car c:CarList) {
                 // jedes Auto fährt 10 km
-                    for (int i = 0; i < 5000; i++) {
+                    for (int i = 0; i < 5000; i++) { // For Schleife im Theard auslagern und mit der Repairstation veralgern
                         System.out.println("Ziel: " + c + " hat " +  i +"Kilometer" );
                         c.drive( i );
                         if ( 5>=c.getTank().getFillLevel()) {
