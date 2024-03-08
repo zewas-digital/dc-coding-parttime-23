@@ -1,4 +1,4 @@
-package eslem.weekend2;
+package eslem.weekendCalendar;
 
 /*
 
@@ -26,9 +26,6 @@ Die Ausgabe sollte wie folgt sein:
 
  */
 
-import Matthias.week100_UsefullMethods.UserInput;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 public class Calendar_5_Calendar {

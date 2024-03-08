@@ -1,4 +1,4 @@
-package eslem.week15_objects;
+package eslem.week15objects;
 
 /*
 Aufgabe: Fotoapparat & Objektiv & Speicherkarte

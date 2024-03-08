@@ -1,4 +1,4 @@
-package eslem.weekend2;
+package eslem.weekendCalendar;
 
 import java.util.Calendar;
 import java.util.Date;
