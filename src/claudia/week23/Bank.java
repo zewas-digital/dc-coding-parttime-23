@@ -20,14 +20,31 @@ Erstelle Unit Tests für deine Banksimulation.
        */
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bank {
 
     private int aktuelleAnzahlDerKunden;
+    private List<AnzahlDerKundenObserver> observers = new ArrayList<>();
     private String nameDerBank;
 
     public Bank(String nameDerBank){
         this.nameDerBank = nameDerBank;
         this.aktuelleAnzahlDerKunden = 0;
+    }
+
+    public void addObserver(AnzahlDerKundenObserver observer){
+        observers.add(observer);
+    }
+    public void removeObserver(AnzahlDerKundenObserver observer){
+        observers.remove(observer);
+    }
+    //notify observers
+    public void notifyObservers(){
+        for (AnzahlDerKundenObserver ko : observers) {
+            ko.update(this.aktuelleAnzahlDerKunden);
+        }
     }
 
     public int getAktuelleAnzahlDerKunden() {
