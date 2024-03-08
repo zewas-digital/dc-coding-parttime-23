@@ -8,17 +8,21 @@
         min-height: 100vh;
     }
 
+   
+
     .container {
-        background-color: green;
+        background-color: transparent;
     }
 
     .heading {
-        
+
     }
 
     #zubreitung {
 
     }
+
+
     
     .box {
         width: 200px;
@@ -28,7 +32,6 @@
         margin: 20px;
         background-color: #f0f0f0;
         background-color: red;
-       /* outline: 3px solid yellow; */
     }
 
     
