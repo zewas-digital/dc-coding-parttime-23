@@ -14,41 +14,33 @@ import java.util.ArrayList;
 
 public class Main_Geometry {
     static ArrayList<Geometry> geometryObjects = new ArrayList<>();
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
 
 
         Square square = new Square(10);
         geometryObjects.add(square);
-        System.out.print("Square: " + square + "\n");
+        System.out.print("Square: " + "\n" + square + "\n");
 
         Rectangle rectangle = new Rectangle(10, 10);
         geometryObjects.add(rectangle);
-        System.out.print("Rectangle: " + rectangle + "\n");
+        System.out.print("Rectangle: " + "\n" + rectangle + "\n");
 
         Circle circle = new Circle(10);
         geometryObjects.add(circle);
-        System.out.print("Circle: " + circle + "\n");
+        System.out.print("Circle: " + "\n" + circle + "\n");
 
         Triangle triangle = new Triangle(10);
         geometryObjects.add(triangle);
-        System.out.print("Triangle: " + triangle + "\n");
+        System.out.print("Triangle: " + "\n" + triangle + "-".repeat(50) + "\n");
 
 
-        for (Geometry g : geometryObjects){
+        for (Geometry g : geometryObjects) {
             System.out.println("Gesamtsummen: " + "\n" + g);
         }
 
 
-
     }
-
-
-
-
-
-
-
 
 
 }
