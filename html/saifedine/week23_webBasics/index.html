@@ -1,0 +1,79 @@
+<!--nützliche links:
+Link zum Testen im Browser:
+http://localhost:63342/dc-coding-parttime-23/html/saifedine/week23_webBasics/
+Link über html Tags:
+https://www.mediaevent.de/html/html5-tags.html
+-->
+
+
+<!DOCTYPE html>
+<!-- lang="en":
+Kurs:
+Sprache für Screenreader oder automatische Übersetzung
+Website:
+https://www.mediaevent.de/tutorial/sprachcodes.html
+Sprachcodes (Language Codes) für Webseiten bestimmen die gesprochene Sprache des HTML-Dokuments, sind im ISO Standards 639-1 festgelegt und bestehen aus zwei Kleinbuchstaben.
+-->
+<html lang="en">
+
+<!-- head:
+Kurs:
+nicht dargestellt in Webseite, Infos und Daten die zuerst geladen/interpretiert werden,
+e.g. beim Teilen über WhatsApp wird hier das "kleine" Foto codiert und geladen!
+Website:
+Informationen, die nicht im Browserfenster dargestellt werden
+https://www.mediaevent.de/html/head.html
+Unter HTML head liegen die Metadaten (title, meta und base), die Informationen zur Seite liefern, die Darstellung steuern und über die Beziehungen zu anderen Dateien (style, link, script) und HTML-Seiten informieren.
+-->
+<head>
+    <!-- charset: character Sets = Zeichenkodierung -->
+    <meta charset="UTF-8">
+    <!--  Browsertab-Anzeige  -->
+    <title>Titel</title>
+</head>
+
+<!-- body: dargestellte Webseite -->
+<body>
+
+<!-- header: Kopfzeile -->
+<header>
+    Logo
+
+    <nav>
+        <!-- &nbsp;: HTML-Entity -->
+        <a href="ueberuns.html">Über uns (html-Datei)</a> &nbsp;
+        <a href="ueberuns.html">Über uns (html-Datei)</a>
+    </nav>
+</header>
+<main>
+
+    <!-- <tag attribut="wert">text oder tags</tag> -->
+    <h1>HTML-Basics</h1>
+    Das &lt;a Tag wird verwendet...
+    <h2>Bilder</h2>
+    //**
+    Hello*****
+    <img src="https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_960_720.jpg" width="32" height="24"/>
+    <img src="cat.jpg" width="32" height="24" alt="Katze" title="eine Katze"/>
+    <br/><br/>
+
+    <h2>Links</h2>
+    <a href="ueberuns.html">Über uns (html-Datei)</a>
+    <a href="ueberuns">Über uns (Verzeichnis)</a>
+
+    <h3>Links auf Verzeichnisse</h3>
+    <a href="/">Root-Verzeichnis</a><br/>
+    <a href="/dc-coding-parttime-23/html/oliver/week23_webBasics/">Home (Pfad)</a>
+    <a href="./">Home (Relativ)</a><br/>
+    <br/>
+    <a href="./ueberuns">Über uns (Verzeichnis)</a><br/>
+    <br/>
+    <a href="../">ein Verzeichnis höher (oliver/)</a><br/>
+    <a href="../../">zwei Verzeichnisse höher (html/)</a>
+    <p>Absatz 1</p>
+    <p>Absatz 2</p>
+</main>
+<footer>Footer</footer>
+
+</body>
+</html>

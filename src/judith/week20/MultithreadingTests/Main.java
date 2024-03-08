@@ -12,7 +12,7 @@ public class Main {
         thread.start();
         thread2.start();
         for (int i = 0; i < 5; i++) {
-            System.out.println(i + "from Main");
+            System.out.println(i + " from Main");
             try {
                 Thread.sleep(400);
             } catch (InterruptedException e) {
@@ -20,5 +20,8 @@ public class Main {
             }
 
         }
+
+        //Thread.jon(); wenn mehrere gestartet werden warten sie bis alle fertig sind - siehe ThreadSample von Oli
+
     }
 }

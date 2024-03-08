@@ -1,8 +1,10 @@
 package claudia.week23;
 
 public interface AnzahlDerKundenObserver {
+    void update(int anzahlDerKunden);
     /*
-    In Java können Sie eine Instanz einer Klasse beobachten, indem Sie das Observer Pattern verwenden. Dieses Muster ermöglicht es, Änderungen in einem Objekt zu verfolgen und andere Objekte darüber zu benachrichtigen. Hier ist, wie Sie es umsetzen können:
+    In Java können Sie eine Instanz einer Klasse beobachten, indem Sie das Observer Pattern verwenden. Dieses Muster ermöglicht es,
+    Änderungen in einem Objekt zu verfolgen und andere Objekte darüber zu benachrichtigen. Hier ist, wie Sie es umsetzen können:
 
 Das Observer Pattern:
 Das Observer Pattern ist ein Verhaltensmuster, das eine one-to-many-Beziehung zwischen Objekten herstellt.
