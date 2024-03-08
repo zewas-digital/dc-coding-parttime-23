@@ -2,7 +2,7 @@ package claudia.week23;
 
 import java.util.HashMap;
 
-public class Schalter {
+public class Schalter implements AnzahlDerKundenObserver{
     private int lfdNr;
     private Bank bank;
     public boolean frei;
@@ -23,6 +23,12 @@ public class Schalter {
         //lang: Dauer von drei Kunden, die Bank betreten und verlassen haben (nach jedem Kunden mit Wahrscheinlichkeit von 20%)
         //nicht lang: Dauer von einem Kunden (beim "Auffüllen")
         int anzahlDerKunden = this.bank.getAktuelleAnzahlDerKunden();
+
+    }
+
+
+
+    public void update(int anzahlDerKunden){
 
     }
 }
