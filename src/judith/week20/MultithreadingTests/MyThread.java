@@ -22,7 +22,7 @@ public class MyThread extends Thread{
         */
 
         for (int i = 0; i < 5; i++) {
-            System.out.println(i + "from MyThread");
+            System.out.println(i + " from MyThread");
             try {
                 Thread.sleep(400);
             } catch (InterruptedException e) {
