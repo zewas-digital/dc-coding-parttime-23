@@ -1,0 +1,42 @@
+.body {
+    margin: 0px;
+}
+
+.container {
+   
+    background-color: black;
+    width: 800px;
+    height: 800px;
+
+    border: 10px white ridge;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.box {
+    color: white;
+    width: 100%;
+    height: 53.4px;
+
+    font-size: 40px;
+
+}
+.container .box:nth-child(1n) {
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 50px;
+}
+
+
+
+.container .box:nth-child(2n){
+    background-color: white;
+    color: #000;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    
+}
