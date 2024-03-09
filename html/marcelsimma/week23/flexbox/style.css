@@ -42,3 +42,7 @@ body {
 
 
 }
+
+.container .box:nth-child(2n) {
+    background-color: green;
+}

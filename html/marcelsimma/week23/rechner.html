@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menuBar {
+            flex: none;
+            padding: 8px;
+            gap: 8px;
+        }
+
+        .menuBar button {
+            color: black;
+        }
+
+        #closeButton {
+            transform: rotate(45deg);
+            border: 1px solid black;
+            background-color: red;
+            font-size: 15px;
+        }
+
+        #minButton {
+            background-color: yellow;
+        }
+
+        #maxButton {
+            background-color: lightgreen !important;
+        }
+
+        .calculatorContainer {
+            width: 400px;
+            height: 500px;
+            gap: 2px;
+            display: flex;
+            flex-flow: column;
+            border: 2px solid gray;
+            background-color: #333;
+            border-radius: 15px;
+        }
+
+        button {
+            flex: 1;
+            font-size: 15px;
+            border: 0px solid transparent;
+            background-color: #666;
+            color: white;
+            font-size: 15px;
+        }
+
+        .menuButton {
+            height: 20px;
+            max-width: 20px;
+            border-radius: 100%;
+            padding: 0px;
+            border: 1px solid black;
+            font-size: 15px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            text-align: right;
+            padding: 10px;
+            font-size: 35px;
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+
+        row {
+            flex: 1;
+            display: flex;
+            flex-flow: row;
+            gap: 2px;
+        }
+
+        row:nth-child(3) button {
+            background-color: #555;
+        }
+
+        row button:last-child {
+            background-color: orange !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculatorContainer">
+        <row class="menuBar">
+            <button id="closeButton" class="menuButton">+</button>
+            <button id="minButton" class="menuButton">-</button>
+            <button id="maxButton" class="menuButton"></button>
+        </row>
+        <row>
+            <input type="text" placeholder="0">
+        </row>
+        <row>
+            <button>AC</button>
+            <button>+/-</button>
+            <button>%</button>
+            <button>/</button>
+        </row>
+        <row>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+        </row>
+        <row>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+        </row>
+        <row>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+        </row>
+        <row>
+            <button style="min-width: calc(50% - 1px); border-bottom-left-radius: 12px;">0</button>
+            <button>,</button>
+            <button style="border-bottom-right-radius: 12px;">=</button>
+        </row>
+    </div>
+</body>
+</html>
