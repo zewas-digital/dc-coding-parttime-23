@@ -1,0 +1,107 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 50px 0px;
+    background-color: #ff65d85e;
+    color: #333;
+}
+
+h1, h2 {
+    color: #d35400;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+p, li {
+    line-height: 1.6;
+}
+
+ul {
+    margin: 20px 0;
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+#Zutaten, #Zubereitung, #Nährwerte, #Serviervorschlag {
+    padding: 20px;
+    background-color: #ff91e7cb;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    display: center;
+    max-width: 640px;
+    text-align: center;
+    width: 100%;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.image-border {
+    border: 15px solid #fcfcfc88; /* Ändere '#000' zu deiner bevorzugten Rahmenfarbe */
+    /* Optional kannst du den Stil des Rahmens anpassen */
+    /* Zum Beispiel für einen gerundeten Rahmen: border-radius: 8px; */
+}
+
+.block-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.block {
+    width: 100%;
+    max-width: 640px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #ff91e7cb;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2.center-text {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
