@@ -4,11 +4,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: rgb(96, 116, 177);
+    background-color: rgb(199, 209, 224);
+    font-family: 'Roboto', sans-serif;
 }
 
 .calculator {
-    background-color: rgba(51, 61, 90, 0.801);
+    background-color: rgba(51, 61, 90, 0.767);
     border-radius: 10px;
     padding: 1px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -37,7 +38,7 @@ body {
     align-items: center;
     padding: 20px;
     border-radius: 0px;
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 .orange-operator {
