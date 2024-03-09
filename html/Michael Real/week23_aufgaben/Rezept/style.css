@@ -77,7 +77,7 @@ img {
 }
 
 .image-border {
-    border: 15px solid #000; /* Ändere '#000' zu deiner bevorzugten Rahmenfarbe */
+    border: 15px solid #fcfcfc88; /* Ändere '#000' zu deiner bevorzugten Rahmenfarbe */
     /* Optional kannst du den Stil des Rahmens anpassen */
     /* Zum Beispiel für einen gerundeten Rahmen: border-radius: 8px; */
 }
