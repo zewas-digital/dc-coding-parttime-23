@@ -1,0 +1,38 @@
+
+body{
+    background-color: rgb(238, 236, 245);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11;
+    padding: 50px;
+    margin: auto;
+    
+    
+   
+}
+
+
+
+
+
+h1{
+    color: rgb(63, 63, 228);
+}
+
+#zube{
+text-align: justify;
+}
+
+.sprungmar{
+
+    font-weight: bold;
+}
+
+.bild {
+    max-width: 100%;
+    height: auto;
+}
+
+ul{
+    list-style-type: disc;
+    cursor:pointer;
+}
