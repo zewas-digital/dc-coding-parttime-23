@@ -1,0 +1,74 @@
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+        /* als erstes wird Arial versucht zu verwenden. Ist diese Schrift nicht vorhanden, wird Helvetia verwendet. Ist diese Schrift auch nicht vorhanden, wird eine standard sans-serif Schrift ausgewählt. */
+    }
+
+    h1, h2, h3 {
+        color: #36b862; 
+        /* Variante 1: blue; Variante 2: rgb(100, 100, 100), Variante 3: rgba(100, 100, 100, 0.4); Variante 4: #FFF */
+        cursor: crosshair;
+        transition: 0.5s ease;
+    }
+
+    h1:hover {
+        color: red;
+        border: 2px solid black;
+
+    }
+    
+    div {
+        /* px für absolute Angaben; vw und % für relative Angaben; vw bezieht sich auf die Breite meines Browserelementes; % bezieht sich auf die Breite des Elternelementes */
+        background-color: rgba(255, 192, 203, 0.21);
+    }
+    
+    p {
+        text-align: justify;
+    }
+    
+    #tableWrapper {
+        padding: 10px;
+        background: blue;
+        overflow-x: auto;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+    }
+
+    button:hover {
+        color: grey;
+        border: 2px solid grey;
+        border-radius: 3px;
+        cursor: pointer;
+        background-color: yellow;
+    }
+    
+    ol, ul {
+        list-style-position: inside;
+        text-align: left;
+        background-color: red;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    li {
+        background-color: green;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+
+
+    table {
+        border-collapse: collapse;
+        
+        border: 1px solid red;
+    }
+
+    td {
+        padding: 5px 10px;
+    }
