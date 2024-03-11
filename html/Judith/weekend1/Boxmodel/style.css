@@ -1,0 +1,49 @@
+body {
+    margin: 0px;
+  
+}
+
+.container {
+    background-color: cadetblue;
+    width: 800px;
+    height: 700px;
+
+    margin: 10px 20px 30px 40px;
+    border: 5px solid black;
+
+    padding: 30px;
+
+
+    display: flex;
+    flex-flow: column;
+    justify-content:space-around; 
+
+}
+
+.box {
+  
+    background-color: darkgray;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid black;
+
+    /* Diese Werte sind notwendig damit der Inhalt in der kleinen box (hier zahlen) zentriert dynamisch zentriert werden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   
+}
+
+p{
+    margin: 0;
+    padding: 0;
+  
+
+}
+
+/* So kann definiert werden das jedes zweite Element eine andere Farbe hat. */
+.container .box:nth-child(2n) {
+    background-color: coral;
+}
