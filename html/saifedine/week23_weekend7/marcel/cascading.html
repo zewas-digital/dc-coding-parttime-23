@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Cascading Hierarchie
+
+        von wichtig bis unwichtig.
+
+        1. inline styles
+        2. styles, die über die ID definiert werden
+        3. styles, die über die Class definiert werden
+        4. styles, die über den Tag definiert werden
+
+        5. !important wirft alles über den Haufen.
+
+        Grundsatz: Je spezifischer ein Selektor ist, umso wichtiger ist er. 
+
+    -->
+    <style>
+        .myClass {
+            background-color: green;
+        }
+       
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: red !important;
+            background-color: aliceblue !important;
+            color: red;
+            font-weight: bold;
+            font-family:'Courier New', Courier, monospace;
+            border: 1px solid black;
+        }
+      
+        #myId {
+            background-color: yellow;
+        }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+
+    </style>
+    außerhalb des Div
+    <div class="myClass" id="myId" style="background-color: black;">
+        Beispiel
+        <p class="text">
+            Beispieltext
+        </p>
+    </div>
+</body>
+</html>
