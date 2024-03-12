@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Click</title>
+</head>
+<body>
+    <h1>Calculator Basics</h1>
+
+    <p id="ausgabe">10</p>
+
+    <button onclick="setzeZeichen(1)">1</button>
+    <button onclick="setzeZeichen('+')">+</button>
+    <button onclick="setzeZeichen(2)">2</button>
+    <button onclick="setzeZeichen(1)">1</button>
+    <button onclick="addiere()">Addiere</button>
+    <button onmousedown="multipliziere()">Multipliziere</button>
+
+    <script>
+        var ausgabeElement = document.getElementById('ausgabe');
+
+        function setzeZeichen(zeichen) {
+            ausgabeElement.textContent += zeichen;
+        }
+
+        function addiere() {
+            var result = parseInt(ausgabeElement.textContent) + parseInt(ausgabeElement.textContent);
+            console.log('1 + 1 = ' + Math.round(result));
+        }
+    </script>
+</body>
+</html>
