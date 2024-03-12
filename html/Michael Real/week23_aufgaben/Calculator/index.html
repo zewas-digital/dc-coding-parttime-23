@@ -38,7 +38,21 @@
         </div>
     </div>
 <script>
-    document.addEventListener
+    document.addEventListener('DOMContent-Loaded', (event) => {
+        const display = document.query-Selector('.display');
+
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+
+                if (value === 'AC') {
+                    display.textContent = '🤯';
+                } else {
+                    display.textContent += value;
+                }
+            });
+        });
+    });
 </script>    
 </body>
 </html>
