@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Taschenrechner</title>
+    <meta>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container1">
+
+
+        <div style="display: flex; justify-content: flex-start; gap: 5px; padding: 4px;">
+
+        <button class="dot1">x</button>
+        <button class="dot2">-</button>
+        <button class="dot3"></button>
+
+        </div>
+
+        <div id="display" style="width: 10; border: 2px solid rgb(92, 92, 95); padding: 15px; text-align: right">
+            0
+        </div>
+
+    
+
+
+        
+        <table class="box">
+
+
+            <tr>
+                <td><button onclick= "reset('AC')">AC</button></td>
+                <td><button onclick= "operator('+/-')">+/-</button></td>
+                <td><button onclick= "operator('%')" >%</button></td>
+                <td><button onclick= "operator('/')" style="background-color: orange;">/</button></td>
+
+            </tr>
+            <tr>
+                <td><button onclick="setzezeichen(7)">7</button></td>
+                <td><button onclick="setzezeichen(8)">8</button></td>
+                <td><button onclick="setzezeichen(9)">9</button></td>
+                <td><button onclick="operator ('*')" style="background-color: orange;">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="setzezeichen('4')">4</button></td>
+                <td><button onclick="setzezeichen('5')">5</button></td>
+                <td><button onclick="setzezeichen('6')">6</button></td>
+                <td><button onclick ="operator('-')" style= "background-color: orange;">-</button> </button></td>
+
+            </tr>
+            <tr>
+                <td><button onclick="setzezeichen(1)">1</button></td>
+                <td><button onclick="setzezeichen(2)">2</button></td>
+                <td><button onclick="setzezeichen(3)">3</button></td>
+                <td><button onclick="operator('+')"  style="background-color: orange;">+</button></td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" ><button onclick= "setzezeichen(0)" style="border-bottom-left-radius: 10px;">0</button></td>
+                <td><button>,</button></td>
+                <td><button onclick="ergebniss()" style="background-color: orange; border-bottom-right-radius: 10px;">=</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+
+        //aktuelle Nummer
+        let currentNumber = "";
+        //vorherige Nummer
+        let previousNumber = "";
+        
+        let operation = "";
+    
+        function setzezeichen(number) {
+          currentNumber += number;
+          document.getElementById("display").innerText = currentNumber;
+        }
+    
+        function operator(op) {
+          previousNumber = currentNumber;
+          currentNumber = "";
+          operation = op;
+        }
+    
+        function reset(action) {
+          if (action === "AC") {
+            currentNumber = "";
+            previousNumber = "";
+            operation = "";
+          }
+          document.getElementById("display").innerText = "0";
+        }
+    
+        function ergebniss() {
+          let num1 = parseFloat(previousNumber);
+          let num2 = parseFloat(currentNumber);
+          let result = "";
+    
+          switch (operation) {
+            case "+":
+              result = num1 + num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+            case "/":
+              if (num2 === 0) {
+                result = "Error: Division by zero";
+              } else {
+                result = num1 / num2;
+              }
+              break;
+            default:
+              result = "Error";
+          }
+    
+          currentNumber = result.toString();
+          previousNumber = "";
+          operation = "";
+          document.getElementById("display").innerText = currentNumber;
+        }
+      </script>
+
+
+
+
+
+</body>
+
+</html>

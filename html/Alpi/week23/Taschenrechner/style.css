@@ -1,0 +1,78 @@
+.container1{
+
+    
+    background-color: rgb(92, 92, 95);
+
+    border-radius: 10px;
+
+    width: 300px;
+    height: auto;
+    color: rgb(182, 175, 175);
+    
+    
+    
+
+}
+
+
+button {
+    height: 40px;
+    width: 100%;
+    color: white;
+    background-color: rgb(162, 155, 155);
+}
+
+
+table{
+
+background-color: rgb(162, 155, 155);
+width: 300px;
+
+border-radius: 0px 0px 10px 10px;
+
+
+
+}
+
+.dot1 {
+    height: 12px;
+    width: 12px;
+    border: 2px;
+    font-size: 7px;
+    color: black;
+    display: flex ;
+    justify-content:center;
+    align-items: center;
+    background-color: #f00c0c;
+    border-radius: 50%;
+    
+
+  }
+
+
+  .dot2{
+
+    height: 12px;
+    width: 12px;
+    border: 2px;
+    font-size: 10px;
+    color: black;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: #fdec01;
+    border-radius: 50%;
+
+
+
+  }
+
+
+
+.dot3{
+    height: 12px;
+    width: 12px;
+    border: 2px;
+    background-color: #12eb3d;
+    border-radius: 50%;
+  }
