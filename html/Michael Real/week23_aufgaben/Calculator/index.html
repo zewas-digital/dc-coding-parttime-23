@@ -38,68 +38,169 @@
         </div>
     </div>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const display = document.querySelector('.display');
-
-    // Funktion zum Zurücksetzen des Taschenrechners
-    function resetCalculator() {
-        display.textContent = '🤯'; // Zurücksetzen auf das Ausgangssymbol oder leeren String setzen
-    }
-
-    // Handler für die Zahleneingabe
-    function handleNumber(number) {
-        if (display.textContent === '🤯') {
-            display.textContent = number;
-        } else {
-            display.textContent += number;
-        }
-    }
-
-    // Handler für die Operatoren
-    function handleOperator(operator) {
-        if (operator === '÷' || operator === 'x' || operator === '+' || operator === '-') {
-            display.textContent += ` ${operator} `;
-        }
-    }
-
-    // Funktion zum Berechnen des Ausdrucks
-    function calculate() {
-        if (display.textContent.includes('÷ 0')) {
-            alert('💣ERROR🔥 durch Null teilen? Ernsthaft? Versuchs nochmal😏');
-            display.textContent = '🔥💣DOPPEL ERROR💣🔥';
-            return;
-        }
-        // Ersetze das x und ÷ durch die JavaScript-Operatoren
-        const expression = display.textContent.replace(/x/g, '*').replace(/÷/g, '/');
-        try {
-            // Sicherheitsbedenken bei `eval` beachten:
-            const result = eval(expression);
-            display.textContent = result;
-        } catch (error) {
-            display.textContent = 'Error';
-        }
-    }
-
-    // EventListener für alle Buttons
-    document.querySelectorAll('.button').forEach(button => {
-        button.addEventListener('click', () => {
-            if (button.classList.contains('dark-operator')) {
-                if (button.textContent === 'AC') {
-                    resetCalculator();
+        document.addEventListener('DOMContentLoaded', () => {
+            const display = document.querySelector('.display');
+            let firstOperand = null;
+            let secondOperand = null;
+            let currentOperator = null;
+            let resetDisplay = true;
+        
+            document.querySelectorAll('.button').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (button.classList.contains('dark-operator')) {
+                        handleDarkOperator(button.textContent);
+                    } else if (button.classList.contains('orange-operator')) {
+                        handleOperator(button.textContent);
+                    } else {
+                        handleNumber(button.textContent);
+                    }
+                });
+            });
+        
+            function resetCalculator() {
+                display.textContent = '🤯';
+                firstOperand = null;
+                secondOperand = null;
+                currentOperator = null;
+                resetDisplay = false;
+            }
+        
+            function handleNumber(number) {
+                if (resetDisplay || display.textContent === '0' || display.textContent === '🤯') {
+                    display.textContent = number;
+                    resetDisplay = false;
+                } else {
+                    display.textContent += number;
                 }
-            } else if (button.classList.contains('orange-operator')) {
-                if (button.textContent === '=') {
+            }
+        
+            function handleOperator(operator) {
+                if (currentOperator && !resetDisplay) {
                     calculate();
                 } else {
-                    handleOperator(button.textContent);
+                    firstOperand = parseFloat(display.textContent);
                 }
-            } else {
-                handleNumber(button.textContent);
+                currentOperator = operator;
+                resetDisplay = true;
             }
-        });
+        
+            function handleDarkOperator(text) {
+                if (text === 'AC') {
+                    resetCalculator();
+                } else if (text === '+/-') {
+                    display.textContent = parseFloat(display.textContent) * -1;
+                } else if (text === '%') {
+                    display.textContent = parseFloat(display.textContent) / 100;
+                }
+            }
+        
+            function calculate() {
+                if (!currentOperator || resetDisplay) return;
+        
+                secondOperand = parseFloat(display.textContent);
+                let result;
+        
+                switch (currentOperator) {
+                    case '+':
+                        result = firstOperand + secondOperand;
+                        break;
+                    case '-':
+                        result = firstOperand - secondOperand;
+                        break;
+                    case 'x':
+                        result = firstOperand * secondOperand;
+                        break;
+                    case '÷':
+                        if (secondOperand === 0) {
+                            alert('💣ERROR🔥 durch Null teilen? Ernsthaft? Versuchs nochmal😏');
+                            display.textContent = '🔥💣DOPPEL ERROR💣🔥';
+                            return;
+                        } else {
+                            result = firstOperand / secondOperand;
+                        }
+                        break;
+                    default:
+                        return;
+                }
+        
+                display.textContent = result.toString();
+                firstOperand = result;
+                resetDisplay = true;
+                currentOperator = null;
+            }
+        
+            // Bind the calculate function to the equals button
+            document.querySelector('.equal').addEventListener('click', calculate);
+
+            /*
+EINE MÖGLICHKEIT MIT DER VERWENDUNG VON EVAL()
+
+// Sicheres laden der html 
+document.addEventListener('DOMContentLoaded', () => {
+const display = document.querySelector('.display');
+
+// Funktion zum Zurücksetzen des Taschenrechners
+function resetCalculator() {
+    display.textContent = '🤯'; // Zurücksetzen auf das Ausgangssymbol
+}
+
+// Handler für die Zahleneingabe
+function handleNumber(number) {
+    if (display.textContent === '🤯') {
+        display.textContent = number;
+    } else {
+        display.textContent += number;
+    }
+}
+
+// Handler für die Operatoren
+function handleOperator(operator) {
+    if (operator === '÷' || operator === 'x' || operator === '+' || operator === '-') {
+        display.textContent += ` ${operator} `;
+    }
+}
+
+// Funktion zum Berechnen des Ausdrucks
+function calculate() {
+    if (display.textContent.includes('÷ 0')) {
+        alert('💣ERROR🔥 durch Null teilen? Ernsthaft? Versuchs nochmal😏');
+        display.textContent = '🔥💣DOPPEL ERROR💣🔥';
+        return;
+    }
+    // Ersetze das x und ÷ durch die JavaScript-Operatoren
+    const expression = display.textContent.replace(/x/g, '*').replace(/÷/g, '/');
+    try {
+        // Sicherheitsbedenken bei `eval` beachten:
+        const result = eval(expression);
+        display.textContent = result;
+    } catch (error) {
+        display.textContent = 'Error';
+    }
+}
+
+// EventListener für alle Buttons
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.classList.contains('dark-operator')) {
+            if (button.textContent === 'AC') {
+                resetCalculator();
+            }
+        } else if (button.classList.contains('orange-operator')) {
+            if (button.textContent === '=') {
+                calculate();
+            } else {
+                handleOperator(button.textContent);
+            }
+        } else {
+            handleNumber(button.textContent);
+        }
     });
 });
-
+});
+*/
+        });
         </script>
+        
+        
 </body>
 </html>
