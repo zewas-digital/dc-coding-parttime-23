@@ -1,0 +1,106 @@
+body {
+    margin: 10px;
+}
+
+.background {
+    width: 400px;
+    height: 600px;
+    background-color: rgb(72, 75, 75);
+    display: flex;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+}
+
+.anzeige{
+    width: 400px;
+    height: 100px;
+    margin-top: 20ps;
+    text-align: right;
+    border: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif white;
+    font-size:x-large;
+    
+}
+
+
+.umschalttaste{
+   
+    width: 295px;
+    border: 2px solid black;
+
+}
+
+.buttonumschalt{
+    background-color: rgb(63, 62, 62);
+}
+
+.nummern{
+    
+    width: 295px;
+    border: 2px solid black;
+
+}
+
+.buttonnumer{
+    background-color: gray;
+}
+
+#null{
+    width: 194px;
+}
+
+.operatoren{
+
+    
+    width: 95px;
+    border: 2px solid black;
+    display:flex;
+    flex-flow: column;
+    margin-left: auto;
+    
+}
+
+.buttonoperator{
+    background-color: orange;
+}
+
+
+.box {
+
+    background-color: blue;
+    padding: 10px;
+    border: 1px solid black;
+
+    /* Diese Werte sind notwendig damit der Inhalt in der kleinen box (hier zahlen) zentriert dynamisch zentriert werden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxmenue {
+    width: 40px;
+    justify-content:space-around;
+    padding: 10px;
+    display: flex;
+    
+}
+
+.buttonrund {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    border: 2px solid black;
+
+}
+
+button {
+    width: 95px;
+    height: 83px;
+}
