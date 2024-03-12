@@ -1,0 +1,26 @@
+body{
+    background-color: aqua;
+}
+div{
+    
+    
+}
+
+.flex-container{
+    display: flex;
+    height: 200px;
+    width: 200px;
+    flex-wrap: wrap;
+}
+
+.first{
+    width: 25px;
+    height: 25px;
+    background-color: black;
+}
+
+.second{
+    width: 25px;
+    height: 25px;
+    background-color: white;
+}

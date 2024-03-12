@@ -1,22 +1,17 @@
 <!DOCTYPE html>
+ <!--
+Aufgabe:
+Selektoren: Tags, Klassen, IDs
+Befehle: font-family, font-size, color, text-align, background-color, 
+-->
+
 <html>
 
 <head>
     <meata charset="uft-8">
         <title>Bregenzerwälder Käsknöpfle</title>
-        <style>
-            table {
-                width: 100%;
-                border-collapse: collapse;
-            }
+        <link rel="stylesheet" href="assets/style.css">
 
-            th,
-            td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
-            }
-        </style>
 </head>
 
 <body>
@@ -27,17 +22,17 @@
     </hr>
 
     <!-- Inhaltsverzeichnis -->
-    <h2>Inhaltsverzeichnis</h2>
+    <h2 class="header">Inhaltsverzeichnis</h2>
     <ol>
         <li><a href="#Zutaten">Zutaten</a></li>
         <li><a href="#Zubereitung">Zubereitung</a></li>
-        <li><a href="#Nährwerte">Nährwerte und Allergene</a></li>
+        <li><a href="#Naehrwerte">Nährwerte und Allergene</a></li>
         <li><a href="#Serviervorschlag">Serviervorschlag</a></li>
     </ol>
     <hr>
     </hr>
     <!-- Rezept: Zutaten -->
-    <h2 id="Zutaten">Zutaten für 4 Personen</h2>
+    <h2 class="header" id="Zutaten">Zutaten für 4 Personen</h2>
     <ul>
         <li>5 Eeier</li>
         <li>500g griffiges Mehl</li>
@@ -52,14 +47,17 @@
     </ul>
     <hr>
     </hr>
-    <h2 id="Zubereitung">Zutaten für 4 Personen</h2>
-    <p>Mehl, Eier und Milch in einer Schüssel vermengen (der Teig sollte zähflüssig sein).
-        Salz, Pfeffer und Muskatnuss hinzufügen und den Teig 10 Minuten ruhen lassen.
-        Zwiebel schälen, in Ringe schneiden und goldbraun braten.
-        Spätzle im kochenden Salzwasser garen, abseihen und in eine Schüssel geben.
-        Geriebenen Käse hinzufügen und gut vermischen, damit der Käse schmilzt.
-        Mit den gebratenen Zwiebeln und gehacktem Schnittlauch garnieren1.</p>
-    <h2 id="Nährwerte">Nährwerte un Allergene</h2>
+    <h2 class="header" id="Zubereitung">Zutaten für 4 Personen</h2>
+        <div>
+            <p>Mehl, Eier und Milch in einer Schüssel vermengen (der Teig sollte zähflüssig sein).
+                Salz, Pfeffer und Muskatnuss hinzufügen und den Teig 10 Minuten ruhen lassen.
+                Zwiebel schälen, in Ringe schneiden und goldbraun braten.
+                Spätzle im kochenden Salzwasser garen, abseihen und in eine Schüssel geben.
+                Geriebenen Käse hinzufügen und gut vermischen, damit der Käse schmilzt.
+                Mit den gebratenen Zwiebeln und gehacktem Schnittlauch garnieren1.
+            </p>
+        </div>
+    <h2 class="header" id="Naehrwerte">Nährwerte un Allergene</h2>
     <table>
         <tr>
             <th>Kalorien</th>
@@ -82,7 +80,7 @@
             <td>93g</td>
         </tr>
     </table>
-    <h2 id="Serviervorschlag">Serviervorschlag</h2>
+    <h2 class="header" id="Serviervorschlag">Serviervorschlag</h2>
     <img src="R.jpeg" alt="Käsknöpfle" width="=200px" height="250">
     <p>Zitat:</p>
     <blockquote>
