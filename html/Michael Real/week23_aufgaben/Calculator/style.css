@@ -39,6 +39,7 @@ body {
     padding: 20px;
     border-radius: 0px;
     font-size: 1.8em;
+    cursor: pointer;
 }
 
 .orange-operator {
