@@ -71,10 +71,10 @@
                     var operand2 = '';
 
                     function setzezeichen(zeichen) {
-                        if (parseInt(ausgabeElement.textContent) > 0) {
-                            ausgabeElement.textContent += zeichen
-                        }
-                        else (ausgabeElement.textContent = zeichen)
+                       if(parseInt(ausgabeElement.textContent) > 0 ){
+                        ausgabeElement.textContent += zeichen
+                       }
+                       else(ausgabeElement.textContent = zeichen)
                     }
 
                     function setzeOperator(op) { //prüft???
@@ -103,18 +103,18 @@
                                 break;
                             case '-':
                                 operand1 = operand1 - operand2;
+                                break;
                             case '*':
                                 operand1 = operand1 * operand2;
+                                break;
                             case '/':
                                 operand1 = operand1 / operand2;
-                            case '=':
-                                berechneErgebnis();
-                                operator = '';
                                 break;
-                        }
+                                
 
-                    }
-                    ausgabeElement.textContent = operand1;
+                        }
+                        ausgabeElement.textContent = operand1;
+                        //hier gibte es noch ein Problem wenn das Ergebniss angezeigt ist dan können aber weitere zahlen eingegeben und somit die Summe manipuliert werden
                     }
 
                     function loeschen() {
