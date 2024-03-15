@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+     
     <div class="container">
 
         <div class="icons">
@@ -19,42 +19,59 @@
         </div>
         
 
-        <div class="ausgabe">0</div>
+        <div id="ausgabe">0</div>
 
         <div class="row">
-            <button class="oben">AC</button>
-            <button class="oben">+/-</button>
-            <button class="oben">%</button>
-            <button class="symbole">/</button>
+            <button class="oben" onclick="zeichenoben('AC')">AC</button>
+            <button class="oben" onclick="zeichenoben('+/-')">+/-</button>
+            <button class="oben" onclick="zeichenoben('%')">%</button>
+            <button class="symbole" onclick="symbole('/')">/</button>
         </div>
 
         <div class="row">
-            <button class="zahlen">7</button>
-            <button class="zahlen">8</button>
-            <button class="zahlen">9</button>
-            <button class="symbole">*</button>
+            <button class="zahlen" onclick="zahlen(7)">7</button>
+            <button class="zahlen" onclick="zahlen(8)">8</button>
+            <button class="zahlen" onclick="zahlen(9)">9</button>
+            <button class="symbole" onclick="symbole('*')">*</button>
         </div>
         <div class="row">
-            <button class="zahlen">4</button>
-            <button class="zahlen">5</button>
-            <button class="zahlen">6</button>
-            <button class="symbole">-</button>
+            <button class="zahlen" onclick="zahlen(4)">4</button>
+            <button class="zahlen" onclick="zahlen(5)">5</button>
+            <button class="zahlen" onclick="zahlen(6)">6</button>
+            <button class="symbole" onclick="symbole('-')">-</button>
         </div>
         <div class="row">
 
-            <button class="zahlen">1</button>
-            <button class="zahlen">2</button>
-            <button class="zahlen">3</button>
-            <button class="symbole">+</button>
+            <button class="zahlen" onclick="zahlen(1)">1</button>
+            <button class="zahlen" onclick="zahlen(2)">2</button>
+            <button class="zahlen" onclick="zahlen(3)">3</button>
+            <button class="symbole" onclick="symbole('+')">+</button>
         </div>
 
         <div class="row">
-            <button class="zahlen" style="flex: 2.15">0</button>
-            <button class="zahlen">,</button>
-            <button class="symbole">=</button>
+            <button class="zahlen" style="flex: 2.15" onclick="zahlen(0)">0</button>
+            <button class="zahlen" onclick="symbole(',')">,</button>
+            <button class="symbole" onclick="symbole('=')">=</button>
         </div>
 
-    </div>
+    </div> 
+
+    <script>
+
+        var ausgabe = document.getElementsByid(zahlen)
+
+        function zahlen(){
+            ausgabe.getElementsByid (zahlen)
+        }
+        
+        
+
+
+
+
+
+
+    </script>
 
 
 

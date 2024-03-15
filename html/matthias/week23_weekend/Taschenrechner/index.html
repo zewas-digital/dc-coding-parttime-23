@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Taschenrechner</title>
+    <style>
+        body{ 
+            display: flex;
+            border-radius: 5px;
+            border: solid 15px;
+            margin: 0px; 
+        }
+        div{
+            background-color: black;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 25vw);
+        }
+        button {
+            width: auto;
+            height: auto;
+            font-size: 5vw;
+            background-color: #425062;
+            color: white;
+            border: none;
+        }
+        .operator {
+            background-color: orange;
+        }
+        .menu-display{
+            display: flex;
+            justify-content: start;    
+        }
+        .menu-button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: none;
+            color: black;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            font-size: 1.5vw;
+        }
+       .calculator-screen{
+        text-align: right;
+        background: black;
+        color: white;
+        font-size: 5vw;
+       }
+       .zero{
+        grid-column: span 2;
+       }
+       
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="menu-display">
+            <button class="menu-button"  style="background-color: red;" >x</button>
+            <button class="menu-button"  style="background-color: yellow;">-</button>
+            <button class="menu-button"  style="background-color: green;">+</button>
+        </div>
+            <input id="input" type="text"   class="calculator-screen" value="0" disabled />
+                <div class="grid-container">
+                    <button onclick="setText('AC')" type="button" class="grid-item">AC</button>
+                    <button onclick="setText(-1)" type="button" class="grid-item">+/-</button>
+                    <button onclick="setText('%')" type="button" class="grid-item">&percnt;</button>
+                    <button onclick="setText('/')" type="button" class="operator grid-item">&divide;</button>
+                    <button onclick="setText(7)" type="button" class="grid-item">7</button>
+                    <button onclick="setText(8)" type="button" class="grid-item">8</button>
+                    <button onclick="setText(9)" type="button" class="grid-item">9</button>
+                    <button onclick="setText('-')" type="button" class="operator grid-item">-</button>
+
+                    <button onclick="setText(4)" type="button" class="grid-item">4</button>
+                    <button onclick="setText(5)" type="button" class="grid-item">5</button>
+                    <button onclick="setText(6)" type="button" class="grid-item">6</button>
+                    <button onclick="setText('*')" type="button" class="operator grid-item">&times;</button>
+
+                    <button onclick="setText(1)" type="button" class="grid-item">1</button>
+                    <button onclick="setText(2)" type="button" class="grid-item">2</button>
+                    <button onclick="setText(3)" type="button" class="grid-item">3</button>
+
+                    <button onclick="add()" type="button" class="operator grid-item">+</button>
+
+                    <button onclick="setText(0)" type="button" class="grid-item zero">0</button>
+                    <button onclick="setText(',')" type="button" class="grid-item">,</button>
+                    <button onclick="setText('=')" type="button" class="operator grid-item">=</button>
+                </div>
+    </div>
+    <script>
+            var inputText=document.getElementById('input');
+            var actValue=parseInt(inputText.value);
+            function setText(text){
+                inputText.value +=text;
+                console.log("Click");
+            }
+            
+            function add(){
+                var result=actValue+ parseInt(inputText.value);
+                inputText.value=result;
+                console.log(result);
+            }
+
+    </script>
+</body>
+</html>

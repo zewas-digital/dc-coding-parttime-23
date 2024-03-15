@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Listener</title>
+    <style>
+        button {
+            padding: 5px 12px;
+            border:0;
+            width: 33%;
+        }
+        #ziffern {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1px;
+        }
+        #ziffern button {
+            background-color: lightblue;
+        }
+        .green {
+            background-color: green;
+            font-size: 30px;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Listener via QuerySelector</h1>
+
+    <div id="ziffern">
+        <script>
+            var ziffern = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0, ','];
+            for (var ziffer of ziffern) { // for each
+                document.write('<button>' + ziffer + '</button>');
+            }
+        </script>
+    </div>
+    <div id="operatoren">
+        <button>+</button>
+        <button>-</button>
+        <button>=</button>
+        <button>AC</button>
+    </div>
+
+    <script>
+        var buttons = document.querySelectorAll("button");
+
+        for(var button of buttons) {
+            button.addEventListener("click", buttonClicked);
+        }
+        // for(var i in buttons) {
+        //     console.log(i, buttons[i]);
+        //     buttons[i].addEventListener("click", buttonClicked);
+        // }
+        // for (var i = 0; i < buttons.length; i++) {
+        //     var button = buttons[i];
+        //     button.addEventListener("click", buttonClicked);
+        //     console.log(i, buttons[i]);
+        // }
+
+        function buttonClicked(event) {
+            var button = event.target;
+            console.log("Button clicked", button.textContent);
+
+            button.className = button.className == 'red' ? 'green' : 'red';
+        }
+    </script>
+</body>
+
+</html>

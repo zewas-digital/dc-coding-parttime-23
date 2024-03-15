@@ -1,0 +1,97 @@
+.container {
+    background-color: grey;
+    width: 400px;
+    height: 600px;
+}
+
+.menuBar{
+    display: flex;
+    flex-direction: row;
+}
+
+.roundButton{
+    border: none;
+    padding: 11px;
+    text-decoration: none;
+    font-size: 10px;
+    margin: 4px 2px;
+    border-radius: 50%;
+    width: 0.5px;
+    height: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+#schliessenRot{
+    background-color: red;
+}
+
+#maximierenGelb{
+    background-color: yellow;
+}
+
+#minimierenGruen {
+    background-color: green;
+}
+
+.ausgabe{
+    height: 70px;
+    font-size: 50px;
+    text-align: right;
+    padding: 0 10px;
+}
+
+.taste{
+    width: 100px;
+    height: 100px;
+}
+
+#topFunktionen {
+    display: flex;
+    flex-flow: row;
+}
+
+#topFunktionen button {
+    background-color: #444;
+
+}
+
+#sideFunktionen button {
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+#numbers button{
+    background-color: #616161;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#numbers {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+button {
+    color: white;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+.tasteGross{
+    width: 200px;
+    height: 100px;
+}
+
+
+
+
+
+

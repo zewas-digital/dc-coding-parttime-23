@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="calculator.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="menuBar">
+            <button class="roundButton" id="schliessenRot">x</button>
+            <button class="roundButton" id="maximierenGelb">-</button>
+            <button class="roundButton" id="minimierenGruen"></button>
+        </div>
+
+        <div class="ausgabe" id="ausgabe">0</div>
+        <!--  -->
+        <div style="display: flex;">
+            <div>
+                <div id="topFunktionen">
+                    <button class="taste" onclick="setzeZeichen('AC')">AC</button>
+                    <button class="taste" onclick="setzeZeichen('+/-')">+/-</button>
+                    <button class="taste" onclick="setzeZeichen('%')">%</button>
+                </div>
+
+                <div id="numbers">
+                    <button class="taste" onclick="setzeZeichen(7)">7</button>
+                    <button class="taste" onclick="setzeZeichen(8)">8</button>
+                    <button class="taste" onclick="setzeZeichen(9)">9</button>
+                    <button class="taste" onclick="setzeZeichen(4)">4</button>
+                    <button class="taste" onclick="setzeZeichen(5)">5</button>
+                    <button class="taste" onclick="setzeZeichen(6)">6</button>
+                    <button class="taste" onclick="setzeZeichen(1)">1</button>
+                    <button class="taste" onclick="setzeZeichen(2)">2</button>
+                    <button class="taste" onclick="setzeZeichen(3)">3</button>
+                    <button class="tasteGross" onclick="setzeZeichen(0)">0</button>
+                    <button class="taste" onclick="setzeZeichen(',')">,</button>
+                </div>
+
+            </div>
+
+            <div id="sideFunktionen">
+                <button class="taste" onclick="setzeZeichen('/')">/</button>
+                <button class="taste" onclick="setzeZeichen('*')">*</button>
+                <button class="taste" onclick="setzeZeichen('-')">-</button>
+                <button class="taste" onclick="setzeZeichen('+')">+</button>
+                <button class="taste" onclick="setzeZeichen('=')">=</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var ausgabeElement = document.getElementById('ausgabe')
+        var operator = '';
+        var eingabe1 = '';
+        var eingabe2 = '';
+
+        function setzeZeichen(zeichen){
+            ausgabeElement.textContent = zeichen;
+        }
+
+ 
+        function addiere(){
+            var result = parseInt(setzeZeichen) + parseInt(setzeZeichen);
+            console.log('Addiere ' + '(setzeZeichen) ' + '+' + ' (setzeZeichen)' + Math.round(result))
+        }
+
+        function subtrahiere(){
+            var result = parseInt(setzeZeichen) - parseInt(setzeZeichen);
+            console.log('Subtrahiere ' + '(setzeZeichen) ' + '-' + ' (setzeZeichen)' + Math.round(result))
+        }
+
+        function multipliziere(){
+            var result = parseInt(setzeZeichen) * parseInt(setzeZeichen);
+            console.log('Multipliziere ' + '(setzeZeichen) ' + '*' + ' (setzeZeichen)' + Math.round(result))
+        }
+
+        function dividiere(){
+            var result = parseInt(setzeZeichen) / parseInt(setzeZeichen);
+            console.log('Dividiere ' + '(setzeZeichen) ' + '*' + ' (setzeZeichen)' + Math.round(result))
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

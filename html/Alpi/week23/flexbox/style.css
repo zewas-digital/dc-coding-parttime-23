@@ -1,0 +1,59 @@
+body {
+
+margin: 0px;
+
+
+
+
+
+}
+
+
+
+.container{
+
+    display: inline-block;
+
+    background-color: blue;
+    width: 400px;
+    height: 400px;
+
+    /* Möglichkeiten, margin für verschiedene Seiten zu definieren. */
+
+    margin-left: 20px;
+    margin-top: 20px;
+    margin: 10px 20px 30px 40px;
+    margin: 20px;
+    margin: 20px 40px;
+
+
+     /* border: https://developer.mozilla.org/en-US/docs/Web/CSS/border-style */
+
+
+     border-style:  inset color black;
+     padding: 30px;
+
+     /* flex box */
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     flex-flow: row wrap; /* flex flow kombiniert flex-direction und flex-wrap; flex-flow: <flex-direction> <flex-wrap>; */
+     justify-content:space-between;
+     align-items:center;
+
+
+}
+
+.box{
+    background-color: yellow;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box:nth-child(2n){
+    background-color: green;
+}
