@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="taschenrechner.css">
+    <title>Taschenrechner</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <div>
+            <div id="erstereihe">
+                <button class="kreis" style="background-color:red">
+                    ×
+                </button>
+                <button class="kreis" style="background-color: rgb(255, 217, 0)">
+                    -
+                </button>
+                <button class="kreis" style="background-color: green">
+                    +
+                </button>
+            </div>
+            <div id="anzeige">
+                <p id="ausgabe">
+                    0
+                </p>
+            </div>
+        </div>
+
+
+        <div class="tastenfeld">
+            <div class="reihe1">
+                <button onclick="loesche()">AC</button>
+                <button>+/-</button>
+                <button onclick="rechnenVorbereiten('%')">%</button>
+                <button onclick="rechnenVorbereiten('/')">/</button>
+            </div>
+
+            <div class="reihe">
+                <button onclick="schreibe(7)">7</button>
+                <button onclick="schreibe(8)">8</button>
+                <button onclick="schreibe(9)">9</button>
+                <button onclick="rechnenVorbereiten('×')">×</button>
+            </div>
+
+            <div class="reihe">
+                <button onclick="schreibe(4)">4</button>
+                <button onclick="schreibe(5)">5</button>
+                <button onclick="schreibe(6)">6</button>
+                <button onclick="rechnenVorbereiten('-')">-</button>
+            </div>
+
+            <div class="reihe">
+                <button onclick="schreibe(1)">1</button>
+                <button onclick="schreibe(2)">2</button>
+                <button onclick="schreibe(3)">3</button>
+                <button onclick="rechnenVorbereiten('+')">+</button>
+            </div>
+
+            <div class="reihe">
+                <button id="null" onclick="schreibe(0)">0</button>
+                <button>,</button>
+                <button onclick="rechnen()">=</button>
+            </div>
+
+            <script>
+                var ausgabeElement = document.getElementById('ausgabe');
+                var operator = '?';
+                var operand1;
+                var operand2;
+
+                function loesche() {
+
+                    ausgabeElement.textContent = "0";
+                }
+
+                function schreibe(zeichen) {
+                    if (parseFloat(ausgabeElement.textContent) == 0.0) {
+                        ausgabeElement.textContent = zeichen;
+                    }
+                    else {
+                        ausgabeElement.textContent += zeichen;
+                    }
+                }
+
+                function rechnenVorbereiten(zeichen) {
+                    
+                    operand1 = parseFloat(ausgabeElement.textContent);
+                    operator = zeichen;
+                    ausgabeElement.textContent = operator;
+                    console.log(operand1 + operator);
+                    loesche();
+                }
+
+                function rechnen() {
+                    operand2 = parseFloat(ausgabeElement.textContent);
+                    console.log(operand2);
+                    switch (operator) {
+
+                        case '+':
+                            ausgabeElement.textContent = operand1 + operand2;
+                            break;
+                        case '-':
+                            ausgabeElement.textContent = operand1 - operand2;
+                            break;
+                        case '×':
+                            ausgabeElement.textContent = operand1 * operand2;
+                            break;
+                        case '/':
+                            ausgabeElement.textContent = operand1 / operand2;
+                            break;
+                        case '%':
+                            ausgabeElement.textContent = operand1 * operand2 / 100;
+                            break;
+                        default: ausgabeElement.textContent = '???';
+                    }
+
+                }
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
