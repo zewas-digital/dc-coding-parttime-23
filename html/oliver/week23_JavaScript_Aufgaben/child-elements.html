@@ -11,5 +11,27 @@
     Wird auf den Button geklickt so soll je ein Button in den Container hinzugefügt werden. 
     Wird auf einen Button im Container geklickt so soll dieser Button aus dem Container entfernt werden.
     </p>
+    <div id="Container">
+    <button onclick="add()">+</button>
+    <button onclick="de()">-</button>
+    </div>
 </body>
+<script>
+    var counter=0;
+    function add(){
+        console.log("cklick")
+
+        const newButton= document.createElement("button");
+        newButton.setAttribute("id", counter)
+        document.getElementById("Container").appendChild(newButton);
+        counter++;
+    }
+    function de(){
+        
+    const list = document.getElementById("Container");
+        if (list.hasChildNodes()) {
+            list.removeChild(list.children[list.ariaSetSize()]);
+        }
+    }
+</script>
 </html>
