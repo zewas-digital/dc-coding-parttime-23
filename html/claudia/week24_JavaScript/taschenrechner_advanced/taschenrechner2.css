@@ -20,6 +20,7 @@
     
     height: 20%;
     color: white;
+    background-color: rgb(32, 32, 90)
 }
 
 .keypad{
@@ -29,6 +30,18 @@
 
 .keypad :nth-last-child(3){
     width: 50%;
+}
+
+.keypad :nth-child(4n + 1){
+    background-color: orange;
+}
+
+.keypad :nth-child(-n+4){
+    background-color: rgb(100, 91, 91)
+}
+
+.keypad :nth-last-child(1){
+    background-color: orange;
 }
     
     /* margin-top: 20px; */
@@ -62,15 +75,8 @@
 
 
 
-
-
-
-
-
-
-
 button {
-    background-color: darkgrey;
+    background-color: rgb(111, 122, 128);
     color: white;
     padding: 0 ;
     text-align: center;
@@ -117,7 +123,7 @@ p {
     display: flex;
     justify-content: space-around;
 
-} */ *
+} */ 
 
 
 /* 
@@ -145,5 +151,4 @@ button:hover {
 /*alle Reihen, letztes Element orange */
 /* .reihe :nth-last-child(-n+1),
 .reihe1 :nth-last-child(-n+1){
-    background-color: orange;
-} */ 
+    background-color: orange;}*/
