@@ -1,0 +1,32 @@
+body {
+    background-color: rgba(250, 235, 215, 0.719);
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4{
+color: rgba(145, 122, 45, 0.692);
+}
+
+.Text{
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 145, 0);
+}
+table, th, td {
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+#Serviervorschlag{
+    width: 400px;
+    padding-right: 20px;
+    float:right;
+}
+div{
+   max-width: 100%;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}

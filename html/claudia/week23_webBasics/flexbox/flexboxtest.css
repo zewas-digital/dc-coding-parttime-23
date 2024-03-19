@@ -1,0 +1,50 @@
+body {
+    margin: 0px;
+}
+
+
+
+.container {
+    height: 500px;
+    width: 500px;
+
+    background-color: red;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    
+    
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: yellow;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border: 5px blue dotted;
+    padding: 10px;
+}
+
+.kleinebox {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+    
+}
+
+.container .box:nth-child(2n){
+    border: dashed;
+}
+
+.box .kleinebox:nth-child(3n) {
+    background-color: white;
+}
+.box .kleinebox:nth-child(4n) {
+    background-color: green;
+}

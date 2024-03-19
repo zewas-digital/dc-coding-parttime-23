@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Listener</title>
+    <style>
+        /* allgemeine Formatierung für die Buttons */
+        button {
+            padding: 5px 12px;
+            border: 0;
+            width: 33%;
+        }
+
+        /* mit #ziffern wird das komplette DIV formatiert  */
+        #ziffern {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1px;
+        }
+
+        /* mit #ziffern button werden nur die Buttons die in dem DIV mit der ID="ziffern" enthalten sind formatiert  */
+        #ziffern button {
+            background-color: lightblue;
+        }
+
+        /* Die Klassen green und red werden benötigt damit die Codeeile "button.className = button.className == 'red' ? 'green' : 'red';" in der Funktion "buttonClicked" funktioniert  */
+        .green {
+            background-color: green;
+            font-size: 30px;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Listener via QuerySelector</h1>
+
+    <!-- mit Hilfe dieser ID im Div können die Objekte darin formatiert werden - siehe #ziffern  + #ziffer button-->
+    <div id="ziffern">
+        <script>
+            // Hier wird mit Hilfe einer "for each" die Erstellung der Buttons verkürzt.
+            // mit der Zeile var ziffern--- wird ein Array angelegt das den "Inhalt" der Buttons deefiniert
+            var ziffern = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0, ','];
+            for (var ziffer of ziffern) { // for each
+                document.write('<button>' + ziffer + '</button>');
+            }
+        </script>
+    </div>
+    <div id="operatoren">
+        <button>+</button>
+        <button>-</button>
+        <button>=</button>
+        <button>AC</button>
+    </div>
+
+    <script>
+        // ???
+        var buttons = document.querySelectorAll("button");
+
+        // Hier wird jedem einzelnen Button die Funktion "buttonClicked" hinzugefügt
+        for (var button of buttons) {
+            button1.addEventListener("click", buttonClicked);
+        }
+
+        //fori kurze und lange Version als Beispiel
+
+        // for(var i in buttons) {
+        //     console.log(i, buttons[i]);
+        //     buttons[i].addEventListener("click", buttonClicked);
+        // }
+        // for (var i = 0; i < buttons.length; i++) {
+        //     var button = buttons[i];
+        //     button.addEventListener("click", buttonClicked);
+        //     console.log(i, buttons[i]);
+        // }
+
+
+        //  "event" ist hier nur eine Variable die das Objekt von der die Funktion aufgefuren wird "darstellt"
+        function buttonClicked(event) {
+            var button = event.target;
+            console.log("Button clicked", button.textContent);
+
+            button.className = button.className == 'red' ? 'green' : 'red';
+        }
+
+    </script>
+</body>
+
+</html>
