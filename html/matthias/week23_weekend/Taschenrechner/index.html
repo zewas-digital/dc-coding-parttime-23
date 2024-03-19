@@ -62,47 +62,122 @@
             <button class="menu-button"  style="background-color: yellow;">-</button>
             <button class="menu-button"  style="background-color: green;">+</button>
         </div>
-            <input id="input" type="text"   class="calculator-screen" value="0" disabled />
+            <input id="input" type="text"   class="calculator-screen" value="" disabled />
                 <div class="grid-container">
-                    <button onclick="setText('AC')" type="button" class="grid-item">AC</button>
-                    <button onclick="setText(-1)" type="button" class="grid-item">+/-</button>
-                    <button onclick="setText('%')" type="button" class="grid-item">&percnt;</button>
-                    <button onclick="setText('/')" type="button" class="operator grid-item">&divide;</button>
-                    <button onclick="setText(7)" type="button" class="grid-item">7</button>
-                    <button onclick="setText(8)" type="button" class="grid-item">8</button>
-                    <button onclick="setText(9)" type="button" class="grid-item">9</button>
-                    <button onclick="setText('-')" type="button" class="operator grid-item">-</button>
+                    <button onclick="setOp('AC')" class="grid-item">AC</button>
+                    <button onclick="setText(-1)" class="grid-item">+/-</button>
+                    <button onclick="setOp('%')"  class="grid-item">&percnt;</button>
+                    <button onclick="setOp('/')"  class="operator grid-item">&divide;</button>
+                    <button onclick="setText(7)"  class="grid-item">7</button>
+                    <button onclick="setText(8)"  class="grid-item">8</button>
+                    <button onclick="setText(9)"  class="grid-item">9</button>
+                    <button onclick="setOp('-')"  class="operator grid-item">-</button>
 
-                    <button onclick="setText(4)" type="button" class="grid-item">4</button>
-                    <button onclick="setText(5)" type="button" class="grid-item">5</button>
-                    <button onclick="setText(6)" type="button" class="grid-item">6</button>
-                    <button onclick="setText('*')" type="button" class="operator grid-item">&times;</button>
+                    <button onclick="setText(4)"  class="grid-item">4</button>
+                    <button onclick="setText(5)"  class="grid-item">5</button>
+                    <button onclick="setText(6)"  class="grid-item">6</button>
+                    <button onclick="setOp('*')"  class="operator grid-item">&times;</button>
 
-                    <button onclick="setText(1)" type="button" class="grid-item">1</button>
-                    <button onclick="setText(2)" type="button" class="grid-item">2</button>
-                    <button onclick="setText(3)" type="button" class="grid-item">3</button>
+                    <button onclick="setText(1)"  class="grid-item">1</button>
+                    <button onclick="setText(2)"  class="grid-item">2</button>
+                    <button onclick="setText(3)"  class="grid-item">3</button>
 
-                    <button onclick="add()" type="button" class="operator grid-item">+</button>
+                    <button onclick="setOp('+')" type="button" class="operator grid-item">+</button>
 
                     <button onclick="setText(0)" type="button" class="grid-item zero">0</button>
                     <button onclick="setText(',')" type="button" class="grid-item">,</button>
-                    <button onclick="setText('=')" type="button" class="operator grid-item">=</button>
+                    <button onclick="setOp('=')" type="button" class="operator grid-item">=</button>
                 </div>
     </div>
     <script>
             var inputText=document.getElementById('input');
-            var actValue=parseInt(inputText.value);
+            var operator = '';
+            var operand1 = '';
+            var operand2 = '';
+        
+            
             function setText(text){
                 inputText.value +=text;
                 console.log("Click");
             }
+
+            function setOp(op) {
+                switch(op) {
+                    case '+': // Set Operation
+                        operand1 = parseInt(inputText.value);
+                        inputText.value = '';
+                        operator = op;
+                        console.log("add");
+                        break;
+                    case '-':
+                        operand1 = parseInt(inputText.value);
+                        inputText.value = '';
+                        operator = op;
+                        break;
+                    case '=':
+                        console.log("=");
+                        calculateResult();
+                        operator = '';
+                        break;
+                    case '/':
+                        operand1 = parseInt(inputText.value);
+                        inputText.value = '';
+                        operator = op;
+                        break;
+                    case '*':
+                        operand1 = parseInt(inputText.value);
+                        inputText.value = '';
+                        operator = op;
+                        break;
+                    case '+/-':
+                        operand1 = parseInt(inputText.value);
+                        inputText.value = '';
+                        operator = op;
+                        break;    
+                    case '%':
+                        calculateResult();
+                        break;        
+
+                }
+            }
+
+            function calculateResult() {
+                operand2 = parseInt(inputText.value);
+                switch(operator) {
+                    case '+':
+                        operand1 = operand1 + operand2;
+                        console.log(operand1);
+                        break;
+                    case '-':
+                        operand1 = operand1 - operand2;
+                        break;
+                    case '/':
+                        operand1 = operand1 / operand2;
+                        break;
+                    case '*':
+                        operand1 = operand1 * operand2;
+                        break;
+                    case '+/-':
+                        operand2= (-1)* operand2 ;
+                        break;
+                    case '%':
+                        operand2= - operand2 ;
+                        break;                   
+                }
+
+            inputText.value = operand1;
+            }
+
+        
             
-            function add(){
-                var result=actValue+ parseInt(inputText.value);
+        function add(){
+                var result=parseInt(inputText.value)+ parseInt(inputText.value);
                 inputText.value=result;
                 console.log(result);
             }
 
+        function returnInput() {
+            inputText.value = '';
+        }
     </script>
 </body>
-</html>
