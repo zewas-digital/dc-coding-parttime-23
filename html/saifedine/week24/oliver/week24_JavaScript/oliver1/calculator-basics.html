@@ -42,11 +42,9 @@
             switch(op) {
                 case '+':
                 case '-':
-                    // Zwischenspeichern des ersten Operanden und Operators
                     operand1 = parseInt(ausgabeElement.textContent);
-                    operator = op;
-                    // Löschen der Ausgabe
                     ausgabeElement.textContent = '';
+                    operator = op;
                     break;
                 case '=':
                     berechneErgebnis();

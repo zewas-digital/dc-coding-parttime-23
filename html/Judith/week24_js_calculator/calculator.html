@@ -25,47 +25,108 @@
             </div>
             <div class="anzeige">
                 <!-- ergebniss -->
-                <p>0</p>
+                <p id="anzeige"></p>
             </div>
             <div style="display: flex; ">
                 <div>
                     <div class="umschalttaste">
                         <!-- umschalttasten -->
-                        <button class="buttonumschalt">AC</button>
-                        <button class="buttonumschalt">+/-</button>
-                        <button class="buttonumschalt">%</button>
-        
-        
+                        <button onclick="loeschen()" class="buttonumschalt">AC</button>
+                        <button onclick="" class="buttonumschalt">+/-</button>
+                        <button onclick="" class="buttonumschalt">%</button>
+
+
                     </div>
                     <div class="nummern">
                         <!-- nummern -->
-                        <button class="buttonnumer">7</button>
-                        <button class="buttonnumer">8</button>
-                        <button class="buttonnumer">9</button>
-                        <button class="buttonnumer">4</button>
-                        <button class="buttonnumer">5</button>
-                        <button class="buttonnumer">6</button>
-                        <button class="buttonnumer">1</button>
-                        <button class="buttonnumer">2</button>
-                        <button class="buttonnumer">3</button>
-                        <button class="buttonnumer" id="null">0</button>
-                        <button class="buttonnumer">,</button>
+                        <button onclick="setzezeichen(7)" class="buttonnumer">7</button>
+                        <button onclick="setzezeichen(8)" class="buttonnumer">8</button>
+                        <button onclick="setzezeichen(9)" class="buttonnumer">9</button>
+                        <button onclick="setzezeichen(4)" class="buttonnumer">4</button>
+                        <button onclick="setzezeichen(5)" class="buttonnumer">5</button>
+                        <button onclick="setzezeichen(6)" class="buttonnumer">6</button>
+                        <button onclick="setzezeichen(1)" class="buttonnumer">1</button>
+                        <button onclick="setzezeichen(2)" class="buttonnumer">2</button>
+                        <button onclick="setzezeichen(3)" class="buttonnumer">3</button>
+                        <button onclick="setzezeichen(0)" class="buttonnumer" id="null">0</button>
+                        <button onclick="" class="buttonnumer">,</button>
                     </div>
-    
                 </div>
-                
+
                 <div class="operatoren">
                     <!-- operatoren -->
-                    <button class="buttonoperator">/</button>
-                    <button class="buttonoperator">*</button>
-                    <button class="buttonoperator">-</button>
-                    <button class="buttonoperator">+</button>
-                    <button class="buttonoperator">=</button>
-    
-    
+                    <button onclick="setzeOperator('/')" class="buttonoperator">/</button>
+                    <button onclick="setzeOperator('*')" class="buttonoperator">*</button>
+                    <button onclick="setzeOperator('-') " class="buttonoperator">-</button>
+                    <button onclick="setzeOperator('+')" class="buttonoperator">+</button>
+                    <button onclick="setzeOperator('=')" class="buttonoperator">=</button>
+
                 </div>
+
+                <script>
+
+                    var ausgabeElement = document.getElementById('anzeige');
+                    var operator = '';
+                    var operand1 = '';
+                    var operand2 = '';
+
+                    function setzezeichen(zeichen) {
+                       if(parseInt(ausgabeElement.textContent) > 0 ){
+                        ausgabeElement.textContent += zeichen
+                       }
+                       else(ausgabeElement.textContent = zeichen)
+                    }
+
+                    function setzeOperator(op) { //prüft???
+                        switch (op) {
+                            case '+':
+                            case '-':
+                            case '*':
+                            case '/':
+                                operand1 = parseInt(ausgabeElement.textContent);
+                                ausgabeElement.textContent = op;
+                                operator = op;
+                                break;
+                            case '=':
+                                berechneErgebnis();
+                                operator = '';
+                                break;
+                        }
+                    }
+
+                    function berechneErgebnis() {
+                        operand2 = parseInt(ausgabeElement.textContent);
+
+                        switch (operator) {
+                            case '+':
+                                operand1 = operand1 + operand2; // da das Ergebniss in den operand1 gespeichert wird kann danach auch weiter grechnet werden
+                                break;
+                            case '-':
+                                operand1 = operand1 - operand2;
+                                break;
+                            case '*':
+                                operand1 = operand1 * operand2;
+                                break;
+                            case '/':
+                                operand1 = operand1 / operand2;
+                                break;
+                                
+
+                        }
+                        ausgabeElement.textContent = operand1;
+                        //hier gibte es noch ein Problem wenn das Ergebniss angezeigt ist dan können aber weitere zahlen eingegeben und somit die Summe manipuliert werden
+                    }
+
+                    function loeschen() {
+                        ausgabeElement.textContent = '';
+                    }
+
+
+
+                </script>
+
             </div>
-            
+
         </div>
 
     </div>
