@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Listener</title>
+    <style>
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+        #button1 {
+            background-color: red;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Event Listener</h1>
+
+    <button id="button1" type="">+</button>
+    <button id="button2" class="green">-</button>
+    <button>3</button>
+    
+    <script>
+        var button1 = document.getElementById("button1");
+        var button2 = document.getElementById("button2");
+            // console.log("Button", button1);
+            // console.dir(form1);
+            // console.dir(button1);
+
+        button1.addEventListener("click", buttonClicked);
+        button2.addEventListener("click", buttonClicked);
+
+        function buttonClicked(event) {
+            console.log("Button clicked", event.target.textContent);
+            // console.log("Event:", event);
+            // console.log("Event.target:", event.target);
+            // console.dir(event.target);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
