@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taschenrechner</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div id="main">
+        <div class="menüleiste">
+            <button  id="schließen">x</button>
+            <button id="minimieren">-</button>
+            <button id="maximieren">x</button>
+        </div>
+        <div class="anzeige">
+            
+            <p id="buffer">0</p>
+            <div class="eingabe">
+                <p id="input">0</p>
+                <p id="operant"></p>
+                
+            </div>
+            
+        </div>
+        <div class="buttonRow">
+            <button onclick="reset()" class="funktion">AC</button>
+            <button onclick="changeAccidentals()" class="funktion">+/-</button>
+            <button onclick="percent()" class="funktion">%</button>
+            <button onclick= "arithmetik('/')" class="zeichen">/</button>
+        </div>
+        <div class="buttonRow">
+            <button onclick= "number('7')" class="ziffer">7</button>
+            <button onclick= "number('8')" class="ziffer">8</button>
+            <button onclick= "number('9')" class="ziffer">9</button>
+            <button onclick= "arithmetik('*')" class="zeichen">x</button>
+        </div>
+        <div class="buttonRow">
+            <button onclick= "number('4')" class="ziffer">4</button>
+            <button onclick= "number('5')" class="ziffer">5</button>
+            <button onclick= "number('6')" class="ziffer">6</button>
+            <button onclick= "arithmetik('-')" class="zeichen">-</button>
+        </div>
+        <div class="buttonRow">
+            <button onclick= "number('1')" class="ziffer">1</button>
+            <button onclick= "number('2')" class="ziffer">2</button>
+            <button onclick= "number('3')" class="ziffer">3</button>
+            <button onclick= "arithmetik('+')" class="zeichen">+</button>
+        </div>
+        <div class="buttonRow">
+            <button onclick= "number('0')" class="ziffer0">0</button>
+            <button onclick= "number('.')" class="ziffer">,</button>
+            <button onclick ="arithmetik('')" class="zeichen" style="border-bottom-right-radius: 10px;">=</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        function number (n1){
+            var element = document.getElementById("input");
+            if (element.textContent == '0'){
+                element.textContent = '';
+            }
+            element.textContent += n1;
+        }
+        function reset(){
+            var xxx = document.getElementById("input");
+            var yyy = document.getElementById("buffer");
+            var zzz = document.getElementById("operant");
+
+            xxx.textContent = '0';
+            yyy.textContent = '0';
+            zzz.textContent = '';
+        }
+        function changeAccidentals(){
+            var element = document.getElementById("input");
+
+            if(Array.from(element.textContent)[0] != '-'){
+                element.textContent =  '-' + element.textContent;
+            }else{
+                element.textContent = element.textContent.replace("-", "");
+            }
+        }
+        function arithmetik (a1){
+
+            var xxx = document.getElementById("input");
+            var yyy = document.getElementById("buffer");
+            var zzz = document.getElementById("operant");
+
+            if(zzz.textContent != ''){
+
+                switch(zzz.textContent){
+                    case "+":
+                        var x = parseFloat(xxx.textContent);
+                        var y = parseFloat(yyy.textContent);
+                        var z = y+x;
+                        yyy.textContent = z;
+                        break;
+                    case "-":
+                        var x = parseFloat(xxx.textContent);
+                        var y = parseFloat(yyy.textContent);
+                        var z = y-x;
+                        yyy.textContent = z;
+                        break; 
+                    case "*":
+                        var x = parseFloat(xxx.textContent);
+                        var y = parseFloat(yyy.textContent);
+                        var z = y*x;
+                        yyy.textContent = z;
+                        break; 
+                    case "/":
+                        var x = parseFloat(xxx.textContent);
+                        var y = parseFloat(yyy.textContent);
+                        var z = y/x;
+                        yyy.textContent = z;
+                        break;      
+                }
+                    
+
+            }else{
+
+                if(yyy.textContent == '0'){
+                    yyy.textContent = xxx.textContent; 
+                }else{
+                    zzz.textContent = a1;
+                }
+            }
+
+            zzz.textContent = a1;
+            xxx.textContent = '0';
+
+        }
+        function percent(){
+            var xxx = document.getElementById("input");
+            var yyy = document.getElementById("buffer");
+            var zzz = document.getElementById("operant");
+
+            if(zzz.textContent != ''){
+                var x = parseFloat(xxx.textContent);
+                var y = parseFloat(yyy.textContent);
+                var z = y + (y*x/100);
+                yyy.textContent = z;
+            }else{
+                yyy.textContent = xxx.textContent; 
+            }
+
+            zzz.textContent = '';
+            xxx.textContent = '0';
+        }
+
+    </script>
+</body>
+</html>
