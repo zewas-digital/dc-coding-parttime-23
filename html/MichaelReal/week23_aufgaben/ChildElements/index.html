@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Beispiel</title>
+<style>
+  #plusButton {
+    background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #plusButton:hover {
+    opacity: 0.9;
+  }
+
+  #container {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<button id="plusButton">😏Klick mich dann erstelle ich was tolles 😏</button>
+<div id="container"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const plusButton = document.getElementById('plusButton');
+    const container = document.getElementById('container');
+    const colors = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange','red'];
+    let colorIndex = 0;
+
+    plusButton.addEventListener('click', function () {
+      const newButton = document.createElement('button');
+      newButton.textContent = '☁️Klick mich dann bin ich weg☁️';
+      newButton.addEventListener('click', function () {
+        container.removeChild(newButton);
+      });
+      container.appendChild(newButton);
+    });
+  });
+</script>
+
+</body>
+</html>
