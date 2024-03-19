@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript Child-Elements</title>
+
+    <title>Plus Button und container</title>
 </head>
+
 <body>
-    <h1>JavaScript Child-Elements</h1>
-    <p>
-    Erstelle einen Plus-Button und einen leeren Container.<br/>
-    Wird auf den Button geklickt so soll je ein Button in den Container hinzugefügt werden. 
-    Wird auf einen Button im Container geklickt so soll dieser Button aus dem Container entfernt werden.
-    </p>
+
+    <button id="plus-button">+</button>
+    <div id="container"></div>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        const plusButton = document.getElementById("plus-button");
+        const container = document.getElementById("container");
+
+        // Funktion zum Erstellen eines neuen Buttons
+        function createButton() {
+            const button = document.createElement("button");
+            button.textContent = "+";
+            button.addEventListener("click", removeButton);
+            container.appendChild(button);
+        }
+
+        // Funktion zum Entfernen eines Buttons
+        function removeButton(event) {
+            const button = event.target;
+            button.parentNode.removeChild(button);
+        }
+
+        // Event-Listener für den Plus-Button
+        plusButton.addEventListener("click", createButton);
+
+    </script>
+
 </body>
+
 </html>
