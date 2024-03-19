@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Formular Basics</title>
+</head>
+<body>
+    <h1>JavaScript Formular Basics</h1>
+
+    <form action="object-basics.html" onsubmit="return submitedForm()">
+        <p>
+            <label for="name">Vorname:</label>
+            <input type="text" id="id-vorname" name="nameAttribut-vorname" value="Vorschlag" required>
+        </p>
+        <p>
+            <label for="name">Nachname:</label>
+            <input type="text" id="id-nachname" name="nameAttribut-nachname" placeholder="Platzhalter" required>
+        </p>
+        <p>
+            <label>Länder</label>
+            <select id="land" name="land" required>
+                <option value="">Bitte wählen</option>
+                <option value="at">Österreich</option>
+                <option value="de">Deutschland</option>
+                <option value="ch">Schweiz</option>
+            </select>
+        </p>
+
+        <button>Senden</button>
+    </form>
+
+    <script>
+        function submitedForm() {
+            // Ausgabe Eingabefeld und Formularverarbeitung abbrechen (nicht absenden)
+            var vorname = document.getElementById('id-vorname');
+            console.log('Eingabe im Feld Vorname:', vorname.value);
+            return false;
+
+            // Alert-Ausgabe und Formular an form action senden
+            alert('submitted form');
+            return true;
+
+            // weiterleitung auf variablen.html und Formularverarbeitung abbrechen
+            document.location.href = './variablen.html';
+            return false;
+        }
+    </script>
+</body>
+</html>

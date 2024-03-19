@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taschenrechner</title>
+    <link rel="stylesheet" href="taschenrechner.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="icons">
+            <button class="schließen">X</button>
+            <button class="maximieren">#</button>
+            <button class="minimieren">-</button>
+        </div>
+
+
+        <div id="ausgabe"></div>
+
+        <div class="row">
+            <button class="oben" onclick="zeichenlöschen('AC')">AC</button>
+            <button class="oben" onclick="setzeOperator('+/-')">+/-</button>
+            <button class="oben" onclick="setzeOperator('%')">%</button>
+            <button class="symbole" onclick="setzeOperator('/')">/</button>
+        </div>
+
+        <div class="row">
+            <button class="zahlen" onclick="zeichen(7)">7</button>
+            <button class="zahlen" onclick="zeichen(8)">8</button>
+            <button class="zahlen" onclick="zeichen(9)">9</button>
+            <button class="symbole" onclick="setzeOperator('*')">*</button>
+        </div>
+        <div class="row">
+            <button class="zahlen" onclick="zeichen(4)">4</button>
+            <button class="zahlen" onclick="zeichen(5)">5</button>
+            <button class="zahlen" onclick="zeichen(6)">6</button>
+            <button class="symbole" onclick="setzeOperator('-')">-</button>
+        </div>
+        <div class="row">
+
+            <button class="zahlen" onclick="zeichen(1)">1</button>
+            <button class="zahlen" onclick="zeichen(2)">2</button>
+            <button class="zahlen" onclick="zeichen(3)">3</button>
+            <button class="symbole" onclick="setzeOperator('+')">+</button>
+        </div>
+
+        <div class="row">
+            <button class="zahlen" style="flex: 2.15" onclick="zeichen(0)">0</button>
+            <button class="zahlen" onclick="setzeOperator(',')">,</button>
+            <button class="symbole" onclick="setzeOperator('=')">=</button>
+        </div>
+
+    </div>
+
+    <script>
+
+        var ausgabe = document.getElementById("ausgabe");
+        var zahl1 = "";
+        var zahl2 = "";
+        var symbole = "";
+
+
+        function zeichen(zeichen) {
+            ausgabe.textContent += zeichen;
+        }
+
+        function setzeOperator(op) {
+            switch (op) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    zahl1 = parseInt(ausgabe.textContent);
+                    ausgabe.textContent = '';
+                    symbole = op;
+                    break;
+                case "=":
+                    rechnen();
+                    symbole = "";
+                    break;
+            }
+
+        }
+
+        function rechnen() {
+            zahl2 = parseInt(ausgabe.textContent);
+
+
+            if (symbole == '+') {
+                zahl1 = zahl1 + zahl2
+            } else if (symbole == '-') {
+                zahl1 = zahl1 - zahl2
+            } else if (symbole == '*') {
+                zahl1 = zahl1 * zahl2
+            } else if (symbole == '/') {
+                zahl1 = zahl1 / zahl2
+            }
+
+            ausgabe.textContent = zahl1;
+
+        }
+
+
+
+
+
+        function zeichenlöschen() {
+            ausgabe.textContent = '';
+        }
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

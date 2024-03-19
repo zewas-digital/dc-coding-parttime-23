@@ -11,5 +11,42 @@
     Wird auf den Button geklickt so soll je ein Button in den Container hinzugefügt werden. 
     Wird auf einen Button im Container geklickt so soll dieser Button aus dem Container entfernt werden.
     </p>
+
+    <button onclick="addButton()">+</button>
+    <button onclick="addButtonVariante2()">+ (v2)</button>
+    
+    <div id="buttons">
+        <!-- Hier werden die Buttons hinzugefügt -->
+    </div>
+
+    <script>
+        var buttonsContainer = document.getElementById('buttons');
+        var count = 1;
+
+        function addButton() {
+            buttonsContainer.innerHTML += '<button onclick="removeButton(this)">'+count+' -</button>';
+            count++;
+        }
+
+        function removeButton(button) {
+            console.log('remove button', button);
+            // https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+            buttonsContainer.removeChild(button);
+        }
+
+        function addButtonVariante2() {
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+            var button = document.createElement('button');
+            console.dir(button);
+
+            button.innerHTML = count +' -';
+            button.onclick = function() {
+                // https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+                buttonsContainer.removeChild(button);
+            }
+            buttonsContainer.appendChild(button);
+            count++;
+        }
+    </script>
 </body>
 </html>
