@@ -76,6 +76,7 @@
                        }
                        else(ausgabeElement.textContent = zeichen)
                     }
+                    // ToDo: Wenn ein Ergebniss berechnet wurde kann mit Zahlen eingabe der Wert manipuliert werden. Dieser Fehler muss in der Funktion "setzezeichen" korrigiert / abgefanngen werden 
 
                     function setzeOperator(op) { //prüft???
                         switch (op) {
@@ -114,7 +115,7 @@
 
                         }
                         ausgabeElement.textContent = operand1;
-                        //hier gibte es noch ein Problem wenn das Ergebniss angezeigt ist dan können aber weitere zahlen eingegeben und somit die Summe manipuliert werden
+                        //hier gibte es noch ein Problem wenn das Ergebniss angezeigt ist dann können aber weitere Zahlen eingegeben und somit die Summe manipuliert werden
                     }
 
                     function loeschen() {

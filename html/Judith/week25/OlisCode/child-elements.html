@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Child-Elements</title>
+</head>
+
+<body>
+    <h1>JavaScript Child-Elements</h1>
+    <p>
+        Erstelle einen Plus-Button und einen leeren Container.<br />
+        Wird auf den Button geklickt so soll je ein Button in den Container hinzugefügt werden.
+        Wird auf einen Button im Container geklickt so soll dieser Button aus dem Container entfernt werden.
+    </p>
+    <!-- Hier werden zwei verschiedene Buttons angelegt -->
+    <button onclick="addButton()">+</button>
+    <button onclick="addButtonVariante2()">+ (v2)</button>
+
+    <div id="buttons">
+        <!-- Hier werden die Buttons die durch klicken erstellt werden hinzugefügt -->
+    </div>
+
+    <script>
+        var buttonsContainer = document.getElementById('buttons'); //???????? was macht diese Zeile genau?? 
+        var count = 1;
+
+        // mit der addButton Funktion wir der Button nach dem klicken mit hilfe vom ".innerHTML" direkt als HTML Element inkl. der Funktion "removeButton(this)" angelegt.
+        // mit dem "this" in der Klammer wird definiert das der Button sich selbst an die Funktion übergibt, und somit wird auch er selbst wieder aus der Datei gelöscht
+        function addButton() {
+            buttonsContainer.innerHTML += '<button onclick="removeButton(this)">' + count + ' -</button>';
+            count++;
+        }
+
+
+        // mit dieser Funktion wird der durch klicken gewählte Button wieder entfernt. hier wird die sogenannte ".removeChild" Funktion verwendet. Die Buttons sind hier Child Elemente vom DIV Container
+        function removeButton(button) {
+            console.log('remove button', button);
+            // https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+            buttonsContainer.removeChild(button);
+        }
+
+
+        // diese Funktion macht eig. das gleiche wie die "addButton" Funktion aber mit deutlich mehr Code.
+        // Der Unterschied ist allerdings das hier JS Code für die Buttons verwendet wird und nicht direkt ins HTML Dokument geschrieben wird.????? Stimmt das so?????
+        function addButtonVariante2() {
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+            var button = document.createElement('button');
+            console.dir(button);
+
+            button.innerHTML = count + ' -';
+            button.onclick = function () {
+                // https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+                buttonsContainer.removeChild(button);
+            }
+            buttonsContainer.appendChild(button);
+            count++;
+        }
+    </script>
+</body>
+
+</html>

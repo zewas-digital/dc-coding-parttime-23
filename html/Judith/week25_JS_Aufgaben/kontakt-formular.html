@@ -1,0 +1,67 @@
+<!-- 
+Aufgabe: Kontaktformular
+1/ Erstelle ein Kontaktformular mit den Feldern: 
+Name, Email, Nachricht und einem Senden-Button. 
+2/ Speichere die Eingaben in einem JavaScript-Objekt
+und gib das Objekt in der Konsole aus.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Kontaktformular</title>
+</head>
+
+<body>
+    <h1>Kontaktformular</h1>
+    <form name="contact" action="">
+        <p>
+            <label for="contact-fname">Vorname:</label>
+            <input type="text" id="contact-fname" name="contact-fname" placeholder="Vorname" required>
+
+        </p>
+
+        <p>
+            <label for="contact-lname">Nachname:</label>
+            <input type="text" id="contact-lname" name="contact-lname" placeholder="Nachname" required>
+            <!-- Die Variabel die unter "for= .." definiert wurde muss dann auch für die ID und name verwendet werden -->
+        </p>
+
+        <p>
+            <label for="contact-email">Vorname:</label>
+            <input type="text" id="contact-email" name="contact-email" placeholder="max.mustermann@blabla.com" required>
+            <!-- Feld größen Anpassung wie? -->
+        </p>
+
+
+        <!-- https://www.mediaevent.de/html/textarea.html -->
+        <p>
+            <textarea cols="35" rows="4">
+                Ihre Nachricht
+             </textarea>
+
+        </p>
+
+        <button>Senden</button>
+
+
+        <!-- Daten müssen noch in ein Objekt gespeichert werden. -->
+
+        
+    </form>
+    
+    <script>
+        // Object
+        var contactPerson = {
+            vorname: "vorname",
+            nachname: "Nachname",
+            email: "Mail",
+            nachricht: "Nachricht"
+        };
+    </script>
+
+</body>
+
+</html>

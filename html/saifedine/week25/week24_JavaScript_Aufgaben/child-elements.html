@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Child-Elements</title>
+  </head>
+  <body>
+    <h1>JavaScript Child-Elements</h1>
+    <p>
+      Erstelle einen Plus-Button und einen leeren Container.<br />
+      Wird auf den Button geklickt so soll je ein Button in den Container
+      hinzugefügt werden. Wird auf einen Button im Container geklickt so soll
+      dieser Button aus dem Container entfernt werden.
+    </p>
+
+    <button id="buttonAdd">+</button>
+
+    <div id="buttonAdded">
+      <script>
+        var buttonAdded = document.getElementById("buttonAdd");
+
+        buttonAdd.addEventListener("click", buttonAdded);
+
+        function buttonAdded(event) {
+          document.write("<button>" + -+"</button>");
+        }
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+Hier ist ein einfaches HTML-Dokument mit einem Canvas-Element, das ein Quadrat zeigt, das 20 % der Canvasfläche dynamisch ausfüllt:
+
+html
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Quadrat</title>
+<style>
+    canvas {
+        border: 1px solid black; /* Eine schwarze Umrandung hinzufügen */
+        width: 50vw;
+        height: 50vh;
+    }
+</style>
+</head>
+<body>
+<canvas id="meinCanvas"></canvas>
+<script>
+    var canvas = document.getElementById('meinCanvas');
+    var context = canvas.getContext('2d');
+
+    // Die Größe des Canvas an die des Elternelements anpassen
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+
+    // Quadrat zeichnen, das 20 % der Canvasfläche einnimmt
+    var squareSize = Math.min(canvas.width, canvas.height) * 0.2; // 20 % der kleineren Seitenlänge
+    var x = (canvas.width - squareSize) / 2; // X-Position zentriert
+    var y = (canvas.height - squareSize) / 2; // Y-Position zentriert
+    context.fillStyle = 'blue'; // Farbe des Quadrats
+    context.fillRect(x, y, squareSize, squareSize); // Quadrat zeichnen
+</script>
+</body>
+</html>
