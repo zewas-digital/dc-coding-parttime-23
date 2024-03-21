@@ -5,3 +5,43 @@ Name, Email, Nachricht und einem Senden-Button.
 2/ Speichere die Eingaben in einem JavaScript-Objekt
 und gib das Objekt in der Konsole aus.
 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Formular Basics</title>
+</head>
+
+<body>
+    <form action="object-basics.html" onsubmit="return submitedForm()">
+        <p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="id-vorname" name="nameAttribut-vorname"  placeholder="Name" required>
+        </p>
+        <p>
+            <label for="name">Email:</label><br>
+            <input type="text" id="id-email" name="nameAttribut-nachname" placeholder="Email" required>
+        </p>
+        <p>
+            <label for="name">Text:</label><br>
+            <textarea type="text" id="id-text" name="lname" placeholder="Textfeld"></textarea>
+        </p>
+        <button>Senden</button>
+    </form>
+    <script>
+        function submitedForm() {
+            // Ausgabe Eingabefeld und Formularverarbeitung abbrechen (nicht absenden)
+            var address = {
+                name: document.getElementById('id-vorname').value,
+                email:document.getElementById('id-email').value,
+                text: document.getElementById('id-text').value,
+            };
+            console.log(address);
+            return false;
+        }
+    
+    </script>
+</body>
+
+</html>
