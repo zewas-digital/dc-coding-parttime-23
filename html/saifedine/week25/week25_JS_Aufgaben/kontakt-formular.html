@@ -16,22 +16,48 @@ und gib das Objekt in der Konsole aus.
     <form action="" onsubmit="return submitedForm()">
       <p>
         <label for="firstname">Vorname:</label>
-        <input type="text" id="firstname" name="firstname" required />
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Max"
+          required
+        />
       </p>
 
       <p>
         <label for="lastname">Nachname:</label>
-        <input type="text" id="lastname" name="lastname" required />
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Mustermann"
+          required
+        />
       </p>
 
       <p>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          size="30"
+          placeholder="m.mustermann@gmail.com"
+          required
+        />
       </p>
 
       <p>
         <label for="nachricht">Nachricht:</label>
-        <input type="text" id="nachricht" name="nachricht" required />
+        <textarea
+          id="nachricht"
+          name="nachricht"
+          cols="35"
+          rows="4"
+          placeholder="Ihre Nachricht"
+          required
+        ></textarea>
       </p>
 
       <button>Senden</button>
@@ -45,6 +71,8 @@ und gib das Objekt in der Konsole aus.
           email: document.getElementById("email").value,
           nachricht: document.getElementById("nachricht").value,
         };
+        console.log("User Input:", userinput);
+        return false;
       }
     </script>
   </body>
