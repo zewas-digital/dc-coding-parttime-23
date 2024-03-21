@@ -13,10 +13,10 @@ und gib das Objekt in der Konsole aus.
 </head>
 <body>
     <h1>Kontaktformular</h1>
-    <form action="" onsubmit="return sumbitedForm()">
+    <form id = "contactForm">
         <p>
             <label for="name">Name:</label>
-            <input type="text" id="id-nachname" name="nameAttribut-name" placeholder="Max" required>
+            <input type="text" id="id-name" name="nameAttribut-name" placeholder="Max" required>
         </p>
         <p>>
             <label for="email">Email:</label>
@@ -24,21 +24,22 @@ und gib das Objekt in der Konsole aus.
         </p>
         <p>
             <label for="nachricht">Nachricht:</label>
-            <textarea type="text" id="id-nachricht" name="nachrichtAttribut" required></textarea>
+            <input type="text" id="id-nachricht" name="nachrichtAttribut" required>
         </p>
-        <button>Senden</button>
+        <button type="submit">Senden</button>
     </form>
     
     <script>
-        function submitedForm(){
-            var contact = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            nachricht: document.getElementById("nachricht").value
-        }
-        }
-        console.log(contact);
+         document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
+            var contact = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                nachricht: document.getElementById('nachricht').value
+            };
+            });
     </script>
+
 </body>
 </html>
