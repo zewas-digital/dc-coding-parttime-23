@@ -19,8 +19,7 @@ function senden() {
     // Objekt in der Konsole ausgeben
     console.log(daten);
 
-    // Hier müsste jetzt der Code zum Versenden der Daten 
-    // an den Server stehen (z.B. mit AJAX)
+    
 
     // Formular zurücksetzen
     document.getElementById("name").value = "";
