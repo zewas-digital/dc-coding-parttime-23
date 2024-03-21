@@ -39,10 +39,18 @@
     plusButton.addEventListener('click', function () {
       const newButton = document.createElement('button');
       newButton.textContent = '☁️Klick mich dann bin ich weg☁️';
+      newButton.style.backgroundColor = colors[colorIndex];
+      newButton.style.color = 'white';
+      newButton.style.border = 'none';
+      newButton.style.padding = '10px';
+      newButton.style.margin = '5px';
+
       newButton.addEventListener('click', function () {
         container.removeChild(newButton);
       });
       container.appendChild(newButton);
+
+      colorIndex = (colorIndex + 1) % colors.length;
     });
   });
 </script>

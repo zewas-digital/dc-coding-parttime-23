@@ -1,0 +1,64 @@
+<!-- 
+Aufgabe: Kontaktformular
+1/ Erstelle ein Kontaktformular mit den Feldern: 
+Name, Email, Nachricht und einem Senden-Button. 
+2/ Speichere die Eingaben in einem JavaScript-Objekt
+und gib das Objekt in der Konsole aus.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+    <h1>Kontaktformular</h1>
+
+
+    <form action="kontakt-formular.html" onsubmit="submitedform()">
+
+        <p>
+
+            <label for="name">Name:</label>
+            <input type="text" id="id-vorname" name="nameAttribut-vorname" value="" required>
+
+
+        </p>
+
+        <p>
+
+            <label for="Email">Email:</label>
+            <input type="text" id="id-email" email="emailAttribut" value="" required>
+
+        </p>
+
+        <p>
+
+            <label for="Nachricht">Nachricht:</label>
+            <input type="text" id="id-nachricht" email="nachrichtAttribut" value="" required>
+
+        </p>
+
+
+
+
+
+        <button>Senden</button>
+
+    </form>
+
+    
+    <script src="kontaktformular.js"></script>
+
+   
+
+</body>
+
+</html>
