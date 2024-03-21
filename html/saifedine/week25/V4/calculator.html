@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link href="calculator.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="menuBar">
+        <button class="roundButton" id="schliessenRot">x</button>
+        <button class="roundButton" id="maximierenGelb">-</button>
+        <button class="roundButton" id="minimierenGruen"></button>
+      </div>
+
+      <div class="ausgabe" id="ausgabe"></div>
+      <!--  -->
+      <div style="display: flex">
+        <div>
+          <div id="topFunktionen">
+            <button class="taste" onclick="ausgabeZuruecksetzen()">AC</button>
+            <button class="taste" onclick="setzeZeichen('+/-')">+/-</button>
+            <button class="taste" onclick="setzeZeichen('%')">%</button>
+          </div>
+
+          <div id="numbers">
+            <div>
+              <script>
+                var numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3];
+                for (var number of numbers) {
+                  // for each
+                  document.write(
+                    '<button class="taste" onclick="setzeZeichen(' +
+                      number +
+                      ')">' +
+                      number +
+                      "</button>"
+                  );
+                }
+              </script>
+            </div>
+
+            <div>
+              <button class="tasteGross" onclick="setzeZeichen(0)">0</button>
+              <button class="taste" onclick="setzeZeichen(',')">,</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sideFunktionen">
+          <button class="taste" onclick="setzeOperator('/')">/</button>
+          <button class="taste" onclick="setzeOperator('*')">*</button>
+          <button class="taste" onclick="setzeOperator('-')">-</button>
+          <button class="taste" onclick="setzeOperator('+')">+</button>
+          <button class="taste" onclick="setzeOperator('=')">=</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var ausgabeElement = document.getElementById("ausgabe");
+      var operator = "";
+      var eingabe1 = "";
+      var eingabe2 = "";
+
+      function setzeZeichen(zeichen) {
+        ausgabeElement.textContent += zeichen;
+      }
+
+      function setzeOperator(op) {
+        switch (op) {
+          case "+":
+          case "-":
+          case "*":
+          case "/":
+            eingabe1 = parseFloat(ausgabeElement.textContent);
+            ausgabeElement.textContent = "";
+            operator = op;
+            break;
+          case "=":
+            berechneErgebnis();
+            operator = "";
+            break;
+        }
+      }
+
+      function berechneErgebnis() {
+        eingabe2 = parseFloat(ausgabeElement.textContent);
+
+        switch (operator) {
+          case "+":
+            addiere();
+            break;
+          case "-":
+            subtrahiere();
+            break;
+          case "*":
+            multipliziere();
+            break;
+          case "/":
+            dividiere();
+            break;
+        }
+
+        ausgabeElement.textContent = eingabe1;
+      }
+
+      function addiere() {
+        ausgabeElement.textContent =
+          parseFloat(eingabe1) + parseFloat(eingabe2);
+        console.log(
+          "Addiere " +
+            "(setzeZeichen) " +
+            "+" +
+            " (setzeZeichen)" +
+            Math.round(result)
+        );
+      }
+
+      function subtrahiere() {
+        ausgabeElement.textContent =
+          parseFloat(eingabe1) - parseFloat(eingabe2);
+        console.log(
+          "Subtrahiere " +
+            "(setzeZeichen) " +
+            "-" +
+            " (setzeZeichen)" +
+            Math.round(result)
+        );
+      }
+
+      function multipliziere() {
+        ausgabeElement.textContent =
+          parseFloat(eingabe1) * parseFloat(eingabe2);
+        console.log(
+          "Multipliziere " +
+            "(setzeZeichen) " +
+            "*" +
+            " (setzeZeichen)" +
+            Math.round(result)
+        );
+      }
+
+      function dividiere() {
+        ausgabeElement.textContent =
+          parseFloat(eingabe1) / parseFloat(eingabe2);
+        console.log(
+          "Dividiere " +
+            "(setzeZeichen) " +
+            "/" +
+            " (setzeZeichen)" +
+            Math.round(result)
+        );
+      }
+
+      function ausgabeZuruecksetzen() {
+        ausgabeElement.textContent = "";
+      }
+    </script>
+  </body>
+</html>
