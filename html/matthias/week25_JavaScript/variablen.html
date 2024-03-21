@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-Variablen</title>
+</head>
+<body>
+    <h1>JS-Variablen</h1>
+    <button onclick="address.plz = 1234">change PLZ to 1234</button>
+
+    <script>
+        // Primitive Datentypen
+        var name = "Thomas";
+        var age = 30;
+        var isMarried = true;
+        var wife = "Hanna";
+
+        // Array - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+        var children = ["Anna", "Tom", 3];
+            children.push("Tim");
+
+            console.log(children[0]);
+            children[0] = "Hanna";
+
+        // Object
+        var address = {
+            street: "Musterstraße",
+            number: 123,
+            city: "Musterstadt",
+            plz: getPLZDornbirn()
+        };
+
+        console.log('PLZ Dornbirn im Objekt', address);
+        console.log('PLZ Dornbirn im Objekt', address.toString());
+        console.log('PLZ Dornbirn im Objekt', JSON.stringify(address));
+
+        address.plz = getPLZFeldkirch();
+
+        function getPLZDornbirn() {
+            console.log('Funktionsaufruf getPLZDornbirn');
+            return 6850;
+        }
+        function getPLZFeldkirch() {
+            console.log('Funktionsaufruf getPLZFeldkirch');
+            return "6800";
+        }
+
+        console.log('PLZ Feldkirch im Objekt', address);
+
+
+    </script>
+    
+</body>
+</html>

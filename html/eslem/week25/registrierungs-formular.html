@@ -6,3 +6,103 @@ Name, Email, Passwort und einem Registrieren-Button.
 wenn die Eingaben nicht korrekt sind.
 3/ Bonus: Validiere
 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Formular Basics</title>
+    <style>
+        .password-input {
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 14px;
+          padding: 8px;
+          border: 1px solid #8b8383;
+          border-radius: 4px;
+        }
+      
+        .password-input-masked {
+          -webkit-input-security: disc; 
+          input-security: disc;
+        }
+      </style>
+</head>
+<body>
+    <h1>Registrierungsformular</h1>
+
+    <form>
+        <div>
+        <label for="name">Vorname:</label>
+        <input type="text" id="id-vorname" name="vornameAttribut" placeholder="Max" required>
+        <span id="nameError" class="error"></span>
+        </div>
+
+        <div>
+        <label for="surname">Nachname:</label>
+        <input type="text" id="id-nachname" name="nachnameAttribut" placeholder="Mustermann" required>
+        <span id="surnameError" class="error"></span>
+        </div>
+        
+        <div>
+        <label for="email">Email:</label>
+        <input type="text" id="id-email" name="emailAttribut" required>
+        <span id="emailError" class="error"></span>
+        </div>
+
+        <div>
+        <label for="password">Passwort:</label>
+        <input type="text" id="id-passwort" name="Attribut" placeholder="" required>
+        <span id="passwordError" class="error"></span>
+        </div>
+
+        <button type="submit">Registrieren</button>
+    </form>
+
+    <script>
+        function validateForm() {
+        var name = document.getElementById('name').value.trim();
+        var surname = document.getElementById('surname').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value.trim();
+
+        var nameError = document.getElementById('nameError');
+        var surnameError = document.getElementById('surnameError');
+        var emailError = document.getElementById('emailError');
+        var passwordError = document.getElementById('passwordError');
+
+        var isValid = true;
+        if (name === ''){
+            nameError.textContent = 'Bitte geben Sie Ihren Namen richtig ein.';
+            isValid = false;
+        } else {
+            nameError.textContent = '';
+        }
+
+        var isValid = true;
+        if (surname === ''){
+            surnameError.textContent = 'Bitte geben Sie Ihren Nachnamen richtig ein.';
+            isValid = false;
+        } else {
+            surnameError.textContent = '';
+        }
+
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.match(emailPattern)) {
+            emailError.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+            isValid = false;
+        } else {
+            emailError.textContent = '';
+        }
+
+        if (password.length < 8) {
+            passwordError.textContent = 'Ihr Passwort muss mindestens 8 Zeichen lang sein.';
+    
+        isValid = false;
+        } else {
+            passwordError.textContent = '';
+        }
+
+        return isValid;
+    }
+    
+    </script>
+</body>
