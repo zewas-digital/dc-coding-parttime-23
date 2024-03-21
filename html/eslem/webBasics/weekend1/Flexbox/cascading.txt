@@ -1,0 +1,20 @@
+"Cascading" bezieht sich auf die Art und Weise, wie CSS-Regeln angewendet und priorisiert werden, wenn sie auf ein HTML-Dokument angewendet werden. Das Akronym CSS steht für "Cascading Style Sheets", und die "Cascading"-Natur bezieht sich auf die Tatsache, dass mehrere Regeln auf ein Element angewendet werden können und dass diese Regeln eine Priorität haben können, um zu bestimmen, wie das Element letztendlich gestylt wird.
+
+Es gibt drei Hauptprinzipien des Cascading in CSS:
+
+1. Vererbung: Einige CSS-Eigenschaften werden von Elternelementen an ihre Kinderlemente vererbt. Zum Beispiel wird die Schriftart eines Elternelements standardmäßig auf die Kinder übertragen, es sei denn, es wird explizit eine andere Schriftart für das Kind definiert.
+2. Spezifität: Wenn mehrere CSS-Regeln auf dasselbe Element angewendet werden, wird die spezifischste Regel angewendet. Die Spezifität einer Regel wird anhand der Anzahl der Selektoren und ihrer Art berechnet. Zum Beispiel hat eine Regel mit einer ID-Selektion eine höhere Spezifität als eine Regel mit einer Klassen- oder Elementselektion.
+3. Reihenfolge: Wenn zwei Regeln die gleiche Spezifität haben, wird die zuletzt deklarierte Regel angewendet. Dies bedeutet, dass die Reihenfolge, in der die Regeln im CSS-Code erscheinen, wichtig ist. Regeln, die später im Code erscheinen, haben Vorrang vor früheren Regeln.
+
+
+
+In CSS bestimmt die Spezifität, welche Stile auf ein Element angewendet werden, wenn mehrere Regeln auf dasselbe Element treffen. Die Spezifität einer Selektion wird normalerweise durch die Anzahl und Art der Selektoren bestimmt. Hier ist die Hierarchie der Spezifität von CSS-Selektoren, von am wenigsten spezifisch bis am spezifischsten:
+
+1. Elementselektoren: Diese haben die niedrigste Spezifität. Sie wählen alle Instanzen eines bestimmten HTML-Elements aus. Beispiel: p { color: red; }.
+2. Klassenselektoren, Attributselektoren und Pseudoklassen: Diese haben eine höhere Spezifität als Elementselektoren. Sie wählen Elemente aus, die eine bestimmte Klasse haben, ein bestimmtes Attribut aufweisen oder sich in einem bestimmten Zustand befinden. Beispiel: .classname { color: blue; }.
+3. ID-Selektoren: Diese haben eine höhere Spezifität als Klassenselektoren und Attributselektoren. Sie wählen ein Element mit einer bestimmten ID aus. Beispiel: #uniqueid { color: green; }.
+4. Inline-Stile: Inline-Stile haben die höchste Spezifität und überschreiben normalerweise alle anderen Stile. Sie werden direkt im HTML-Element definiert und haben die Form von Attributen wie style="...". Beispiel: <p style="color: orange;">.
+
+Wenn zwei Regeln mit der gleichen Spezifität auf dasselbe Element treffen, wird die zuletzt deklarierte Regel angewendet (Reihenfolge). Wenn die Regeln innerhalb derselben Selektortypen sind, wird die letzte im Stylesheet deklarierte Regel angewendet.
+
+Die !important-Regel in CSS wird verwendet, um die Spezifität von CSS-Regeln zu erhöhen und sicherzustellen, dass eine bestimmte Regel Vorrang vor anderen Regeln hat, unabhängig von ihrer Spezifität oder Reihenfolge im Stylesheet. Wenn eine CSS-Eigenschaft mit !important deklariert wird, wird diese Eigenschaft immer angewendet, selbst wenn es Konflikte mit anderen Regeln gibt. Sie genießt Vorrang gegenüber den obenstehenden Hierarchieebenen. 

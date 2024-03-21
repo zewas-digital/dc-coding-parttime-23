@@ -1,0 +1,48 @@
+body {
+    margin: 0px;
+}
+
+.container {
+
+    display: inline-block;
+
+    background-color: red;
+    width: 800px;
+    height: 800px;
+
+    /* Möglichkeiten, margin für verschiedene Seiten zu definieren. */
+    margin-left: 20px;
+    margin-top: 20px;
+    margin: 10px 20px 30px 40px;
+    margin: 20px;
+    margin: 20px 40px;
+
+    /* border: https://developer.mozilla.org/en-US/docs/Web/CSS/border-style */
+    border: 10px solid black;
+
+    padding: 30px;
+
+    /* flex box */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row wrap; /* flex flow kombiniert flex-direction und flex-wrap; flex-flow: <flex-direction> <flex-wrap>; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+
+
+    font-size: 40px;
+
+
+
+}
+
+.container .box:nth-child(2n) {
+    background-color: green;
+}
