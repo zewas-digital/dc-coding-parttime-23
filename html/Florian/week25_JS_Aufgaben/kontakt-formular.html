@@ -5,3 +5,52 @@ Name, Email, Nachricht und einem Senden-Button.
 2/ Speichere die Eingaben in einem JavaScript-Objekt
 und gib das Objekt in der Konsole aus.
 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktformular</title>
+</head>
+
+<body>
+    <h1>Kontaktformular</h1>
+
+    <form action="kontakt-formular.html" id="kontaktformular" onsubmit="return onsubmit">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </p>
+        <p>
+            <label for="e-mail">E-Mail:</label>
+            <input type="text" id="email" name="email" required>
+        </p>
+        <p>
+            <label for="nachricht">Nachricht:</label>
+            <input type="text" id="nachricht" name="nachricht" required>
+        </p>
+
+        <button>Senden</button>
+    </form>
+
+    <script>
+
+        function submitedForm() {
+        
+
+            
+        }
+
+
+
+    </script>
+
+
+
+
+
+</body>
+<!-- http://127.0.0.1:5500/html/Florian/week25_JS_Aufgaben/kontakt-formular.html?vorname=Florian&nachname=Fink&e-mail=fink.flo%40live.at&nachricht=hallo -->
+</html>
