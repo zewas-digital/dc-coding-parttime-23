@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    "<meta charset="UTF-8">
-    <title>JavaScript Formular Basics</title>"
+    <meta charset="UTF-8">
+    <title>JavaScript Formular Basics</title>
 </head>
 <body>
     <h1>JavaScript Formular Basics</h1>
@@ -10,11 +10,14 @@
     <form action="object-basics.html" onsubmit="return submitedForm()">
         <p>
             <label for="name">Vorname:</label>
-            <input type="text" id="id-vorname" name="nameAttribut-vorname" value="Vorschlag" required>
+            <input type="text" id="vorname" name="nameAttribut-vorname" value="Vorschlag" required>
+            <!-- hier haben wir mit "value="Vorschlag" " schon einen Wert fix eingebunden der auch für die
+             Pflichtfeld prüfung akzeptiert wird - somit könnte das Formular gesendet werden auch wenn dieser
+             Wert nicht geändert wurde" -->
         </p>
         <p>
             <label for="name">Nachname:</label>
-            <input type="text" id="id-nachname" name="nameAttribut-nachname" placeholder="Platzhalter" required>
+            <input type="text" id="nachname" name="nameAttribut-nachname" placeholder="Platzhalter" required>
         </p>
         <p>
             <label>Länder</label>

@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#taskForm {
+    margin-bottom: 20px;
+}
+
+#taskForm input, #taskForm button {
+    margin-right: 10px;
+}
+
+#taskList li {
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.edit, .delete {
+    margin-left: 10px;
+    cursor: pointer;
+}
