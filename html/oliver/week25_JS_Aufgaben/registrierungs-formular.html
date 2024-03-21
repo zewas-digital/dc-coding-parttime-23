@@ -1,9 +1,98 @@
-<!-- 
-Aufgabe: Registrierungsformular
-1/ Erstelle ein Registrierungsformular mit den Feldern:
-Name, Email, Passwort und einem Registrieren-Button.
-2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
-wenn die Eingaben nicht korrekt sind.
-3/ Bonus: Validiere die E-Mail-Adresse mit einer RegEx und 
-das Passwort auf Länge und Zeichen.
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Formular Basics</title>
+</head>
+<body>
+    <!-- 
+    Aufgabe: Registrierungsformular
+    1/ Erstelle ein Registrierungsformular mit den Feldern:
+    Name, Email, Passwort und einem Registrieren-Button.
+    2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
+    wenn die Eingaben nicht korrekt sind.
+    3/ Bonus: Validiere die E-Mail-Adresse mit einer RegEx und 
+    das Passwort auf Länge und Zeichen.
+    -->
+    <form>
+        <input type="text" name="name" onchange="changedField(this)" required>
+        <input type="email" name="email" onchange="changedField(this)">
+        <input type="password" name="password" onchange="changedField(this)">
+        <input type="number" name="pin" onchange="changedField(this)" onkeyup="validateNumber(this)" required>
+        <button id="submitButton">submit</button>
+    </form>
+    <script>
+        var submitButton = document.querySelector("#submitButton");
+            submitButton.addEventListener("click", function(event) {
+                event.preventDefault(); // unterbinde submit des Formulars
+                submitForm(); // eigene submitForm Funktion
+            });
+        
+        function submitForm() {
+            console.log("submitForm");
+            var name = document.querySelector("input[name='name']").value;
+            var email = document.querySelector("input[name='email']").value;
+            var password = document.querySelector("input[name='password']").value;
+            var pin = document.querySelector("input[name='pin']").value;
+
+            console.log("Name:", name);
+            console.log("Email:", email);
+            console.log("Password:", password);
+            console.log("PIN:", pin);
+
+            // send to API
+        }
+        
+        function changedField(inputField) {
+            console.log("changed Field", inputField.type);
+
+            var value = inputField.value;            
+
+            switch (inputField.type) {
+                case "number":
+                    if (isNaN(parseInt(value))) {
+                        console.log("Not a number on field "+ inputField.name);
+                    } else {
+                        console.log("Is a number");
+                    }
+                    break;
+                case "text":
+                    console.log("Name:", inputField.value);
+                    break;
+                case "email":
+                    console.log("Email:", inputField.value);
+                    var validRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/;
+
+                    if (inputField.value.match(validRegex)) {
+                        console.log("Valid email");
+                    } else {
+                        console.log("Invalid email");
+                    }
+
+                    break;
+                case "password":
+                    console.log("Password:", inputField.value);
+                    break;
+                default:
+                    console.log("Unknown field type");
+            }
+
+        }
+        function validateNumber(inputField) {
+            console.log("validateNumber", inputField.value);
+            
+            if (isNaN(parseInt(inputField.value))) {
+                alert("Not a number");
+            } else {
+                console.log("Is a number", parseInt(inputField.value));
+                //console.log("Length:", inputField.value.length, parseInt(inputField.value).toString().length);
+
+                if (inputField.value.length !== parseInt(inputField.value).toString().length) {
+                    alert("Keine gültige Eingabe. Ungültige Zeichen werden entfernt.");
+                }
+                inputField.value = parseInt(inputField.value);
+            }
+        }
+    </script>
+</body>
+</html>
