@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Basics</title>
+</head>
+<body>
+    <h1>Object Basics</h1>
+
+    <script>
+        // Object mit Properties und eine Methode
+        var address = {
+            street: "Musterstraße",
+            number: 123,
+            location: "Rohrbach",
+            city: "Dornbirn",
+            coordinates: [47.412, 9.741],
+            plz: 6850,
+            addressString: function() {
+                return "++ "+ this.street + " " + this.number + ", " + this.plz + " " + this.city;
+            }
+        };
+        console.log("address.addressString() 1/ ", address.addressString(), address.location);
+        //console.dir(address);
+        //console.dir(address.addressString);
+
+
+
+        function returnAddressString(address) {
+            return "** "+ address.street + " " + address.number + ", " + address.plz + " " + address.city;
+        }
+        //console.log("returnAddressString(address)", returnAddressString(address));
+        //console.dir(returnAddressString)
+
+        // schreibe Ergebnis der Funktion in die Property addressString:
+        address.addressString = returnAddressString(address);
+        console.log("address.addressString 2/ ", address.addressString);
+        //console.dir(address);
+
+        // schreibe Funktion in die Property addressString:
+        address.addressString = returnAddressString;
+        console.log("address.addressString 3/ ", address.addressString(address));
+        address.persistantAddress = returnAddressString(address);
+        console.log("address.persistantAddress 4/ ", address.persistantAddress);
+        //console.dir(address);
+
+        address.city = "Hohenems";
+        address.addressString = function() {
+            return "-- "+ this.street + " " + this.number + ", " + this.plz + " " + this.city;
+        };
+        console.log("address.addressString() 5/ ", address.addressString());
+        console.dir(address);
+
+
+        var array = [1, 2, 3, "vier", 5, address];
+        console.dir(array);
+        console.log("array[5].addressString() 6/ ", array[5].addressString());
+        array[5].city = "Lustenau";
+        console.log("address.addressString() 7/ ", address.addressString());
+    </script>
+    
+</body>
+</html>
