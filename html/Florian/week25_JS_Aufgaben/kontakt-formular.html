@@ -24,8 +24,8 @@ und gib das Objekt in der Konsole aus.
             <input type="text" id="name" name="name" required>
         </p>
         <p>
-            <label for="e-mail">E-Mail:</label>
-            <input type="text" id="email" name="email" required>
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
         </p>
         <p>
             <label for="nachricht">Nachricht:</label>
@@ -36,14 +36,15 @@ und gib das Objekt in der Konsole aus.
     </form>
 
     <script>
-
-        function submitedForm() {
+       
+       var daten = {
+        name: document.getElementById("name"),
+        email: document.getElementById("email"),
+        nachricht: document.getElementById("nachricht"),
         
+       }
 
-            
-        }
-
-
+       console.log(daten)
 
     </script>
 
