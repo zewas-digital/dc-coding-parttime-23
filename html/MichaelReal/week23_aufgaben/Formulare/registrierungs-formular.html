@@ -6,3 +6,40 @@ Name, Email, Passwort und einem Registrieren-Button.
 wenn die Eingaben nicht korrekt sind.
 3/ Bonus: Validiere
 -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrierungsformular</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required>
+            <div class="error" id="nameError"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="emailError"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required>
+            <div class="error" id="passwordError"></div>
+        </div>
+        <button type="submit">Registrieren</button>
+    </form>
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
