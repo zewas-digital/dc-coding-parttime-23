@@ -1,4 +1,4 @@
 {
     "livePreview.defaultPreviewPath": "/html/eslem/webBasics/weekend1/Calculator/calculator.html",
-    "liveServer.settings.CustomBrowser": "chrome"
+    "liveServer.settings.NoBrowser": true
 }
