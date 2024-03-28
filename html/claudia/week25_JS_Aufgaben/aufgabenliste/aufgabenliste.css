@@ -1,0 +1,31 @@
+.aufgabe {
+    margin: 5px;
+    width: 60vw;
+    height: 50px;
+    background-color: lightgreen;
+   
+
+}
+
+.datum {
+    margin: 5px;
+    width: 30vw;
+    height: 50px;
+    background-color: lightpink;
+}
+
+button {
+    margin: 5px;
+}
+
+form {
+    margin: 5px;
+}
+
+/* #ToDos {
+    display: flex;
+} */
+
+.done {
+    background-color: gray;
+}
