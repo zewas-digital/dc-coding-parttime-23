@@ -28,10 +28,9 @@ wenn die Eingaben nicht korrekt sind.
       </style>
 </head>
     <body>
-        
         <h1 style="color: rgb(60, 134, 70);">Registrierungsformular</h1>
         
-        <form onsubmit="return submitedForm()">
+        <form id="form1" action="registrierungs-formular.html">
 
           <p>
             <label for="firstname">Vorname:</label>
@@ -57,48 +56,52 @@ wenn die Eingaben nicht korrekt sind.
         </form>
     
         <script>
+          document.getElementById('form1').addEventListener('submit', function (event) {
+            event.preventDefault();
+            submitedForm()
+          } )
           function submitedForm() {
-            validateFirstName();
-            validateLastName();
-            validateEmail();
-            validatePassword();
-    
+            
             var userinput = {
               vorname: document.getElementById("firstname").value,
               nachname: document.getElementById("lastname").value,
               email: document.getElementById("email").value,
               passwort: document.getElementById("password").value,
             };
+            validateFirstName(userinput);
+            validateLastName(userinput);
+            validateEmail(userinput);
+            validatePassword(userinput);
 
             console.log("USER:", userinput);
+            return false;
             return userinput.vorname && userinput.nachname && userinput.email && userinput.passwort;
           }
-          function validateFirstName() {
+          function validateFirstName(userinput) {
             if (userinput.vorname.length == 0) {
               alert("Fehler!");
               return false;
             }
           }
-          function validateLastName() {
+          function validateLastName(userinput) {
             if (userinput.nachname.length == 0) {
               alert("Fehler!");
               return false;
             }
           }
-          function validateEmail(){
+          function validateEmail(userinput){
             if(userinput.email.length == 0){
               alert('Bitte geben sie Ihre richtige Email adresse an!');
               return false;
             }
           }
 
-          function validatePassword(){
+          function validatePassword(userinput){
             if (userinput.passwort.length < 6) {
               alert('Das Passwort muss mindestens 6 Zeichen haben!');
               return false;
             }
           }
-
         </script>
       </body>
     </html>
