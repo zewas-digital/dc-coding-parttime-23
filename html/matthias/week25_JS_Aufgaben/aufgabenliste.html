@@ -40,29 +40,29 @@ Aufgabe, Datum und einem Hinzufügen-Button.
     }
 
     // Funktion zum Aktualisieren der Aufgaben im DOM
-    aufgaben.forEach(function(aufgabe, index) {
-        const li = document.createElement("li");
-        li.textContent = aufgabe.aufgabe + " (fällig am " + aufgabe.datum + ")";
+    function aktualisiereAufgaben() {
+        const aufgabenListe = document.getElementById("aufgabenListe");
+        aufgabenListe.innerHTML = "";
 
-        // Button zum Bearbeiten
-        const bearbeitenButton = document.createElement("button");
-        bearbeitenButton.textContent = "Bearbeiten";
-        bearbeitenButton.onclick = function() {
-            aufgabeBearbeiten(index);
-        };
-        li.appendChild(bearbeitenButton);
+        aufgaben.forEach((aufgabe, index) => {
+            const li = document.createElement("li");
+            li.textContent = aufgabe.aufgabe + " (fällig am " + aufgabe.datum + ")";
 
-        // Button zum Löschen
-        const loeschenButton = document.createElement("button");
-        loeschenButton.textContent = "Löschen";
-        loeschenButton.onclick = function() {
-            aufgabeLoeschen(index);
-        };
-        li.appendChild(loeschenButton);
+            // Button zum Bearbeiten
+            const bearbeitenButton = document.createElement("button");
+            bearbeitenButton.textContent = "Bearbeiten";
+            bearbeitenButton.onclick = () => aufgabeBearbeiten(index);
+            li.appendChild(bearbeitenButton);
 
-        aufgabenListe.appendChild(li);
-    });
+            // Button zum Löschen
+            const loeschenButton = document.createElement("button");
+            loeschenButton.textContent = "Löschen";
+            loeschenButton.onclick = () => aufgabeLoeschen(index);
+            li.appendChild(loeschenButton);
 
+            aufgabenListe.appendChild(li);
+        });
+    }
 
     // Funktion zum Bearbeiten einer Aufgabe
     function aufgabeBearbeiten(index) {
