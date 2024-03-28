@@ -1,0 +1,30 @@
+body {
+    background-color: aqua;
+    height: vh;
+    width: vw;
+    padding: 20px;
+}
+
+div {
+    border: 2px solid;
+    border-color: red;
+    border-radius: 10px;
+    min-height: 25%;
+    font-size: large;
+    padding: 20px;
+}
+
+button {
+    padding: 5px;
+    min-height: 50px;
+    min-width: 50px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    font-size: 25px;
+}
+
+#buttonbox {
+    display: flex;
+    justify-content: space-around;
+}
