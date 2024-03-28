@@ -1,0 +1,160 @@
+<!-- Hallo, bitte verwende die gegebene Formel 1 API und gibt die Rennresultate der
+heurigen Rennen aus. Das Ganze soll so funktionieren, dass ich auf die
+Startseite komme und dann alle Rennen der heurigen Saison sehe und mittels einem
+Klick auf einen Eintrag werden darunter das Rennresultat angezeigt. Falls das
+Rennen noch nicht stattgefunden hat soll einfach der Text "Noch keine Ergebnisse
+vorhanden" dargestellt werden. 
+
+Endpunkt für alle Rennen diese Saison: http://ergast.com/api/f1/2024.json
+
+Enpunkt für die Rennergebnisse des ersten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/1/results.json
+
+Enpunkt für die Rennergebnisse des zweiten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/2/results.json
+
+Bonusaufgabe: Erstelle ein Anmeldeformular und
+zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
+Benutzer angemeldet hat. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formel 1 Ergebnisse</title>
+  </head>
+  <body>
+    <h1>Alle F1 Rennen 2024</h1>
+
+    <div id="rennen"></div>
+
+    <h2>Alle Resultate der einzelnen Rennen 2024</h2>
+
+    <div id="resultate"></div>
+
+    <script>
+      var race = "1";
+      fetch("http://ergast.com/api/f1/2024.json")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Netzwerkfehler");
+          }
+          //console.log (response)
+          return response.json();
+        })
+        .then((data) => {
+          console
+            .log
+            //"Daten vom Server erhalten: "
+            //data.MRData.RaceTable.Races
+            ();
+          raceOutput(data);
+        })
+        .catch(function (error) {
+          console.error("Fehler beim Abrufen der Daten:", error);
+        });
+
+      function raceOutput(data) {
+        for (let i = 0; i < data.MRData.RaceTable.Races.length; i++) {
+          const race = data.MRData.RaceTable.Races[i];
+          //console.log(race.raceName);
+
+          var round = document.createElement("p");
+          round.textContent = race.round;
+
+          var raceName = document.createElement("p");
+          raceName.textContent = race.raceName;
+
+          var circuitName = document.createElement("p");
+          circuitName.textContent = race.Circuit.circuitName;
+
+          var date = document.createElement("p");
+          date.textContent = race.date;
+
+          var raceLine = document.createElement("div");
+          //raceLine.style = "display: flex;";
+          raceLine.className = "raceLine";
+          //console.log(race.round);
+          raceLine.onclick = () => {
+            getRaceResults(race.round);
+          };
+
+          //raceLine.append(round);
+          //raceLine.append(raceName);
+          //raceLine.append(circuitName)
+          raceLine.append(round, raceName, circuitName, date);
+
+          document.getElementById("rennen").append(raceLine);
+        }
+      }
+
+      function getRaceResults(round) {
+        fetch("http://ergast.com/api/f1/2024/" + round + "/results.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Netzwerkfehler");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data, round);
+            //"Daten vom Server erhalten: ",
+            //data.MRData.RaceTable.Races[0].Results
+
+            rankingOutput(data);
+          })
+          .catch((error) => {
+            console.error("Fehler beim Abrufen der Daten:", error);
+          });
+      }
+
+      function rankingOutput(data) {
+        document.getElementById("resultate").innerHTML = "";
+
+        if (data.MRData.RaceTable.Races.length === 0) {
+          document.getElementById("resultate").innerHTML =
+            "Keine Ergebnisse gefunden!";
+          return;
+        }
+        for (
+          var i = 0;
+          i < data.MRData.RaceTable.Races[0].Results.length;
+          i++
+        ) {
+          var ranking = data.MRData.RaceTable.Races[0].Results[i];
+          //console.log("Resultat: ", ranking);
+
+          var rank = document.createElement("p");
+          rank.textContent = ranking.positionText;
+
+          var driver = document.createElement("p");
+          driver.textContent =
+            ranking.Driver.givenName + " " + ranking.Driver.familyName;
+
+          var team = document.createElement("p");
+          team.textContent = ranking.Constructor.name;
+
+          var points = document.createElement("p");
+          points.textContent = ranking.points;
+
+          var rankingLine = document.createElement("div");
+          rankingLine.append(rank, driver, team, points);
+
+          document.getElementById("resultate").append(rankingLine);
+          rankingLine.className = "rankingLine";
+        }
+      }
+
+      //getRaceResults("1");
+    </script>
+
+    <style>
+      .raceLine {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .rankingLine {
+        display: flex;
+        justify-content: space-evenly;
+      }
+    </style>
+  </body>
+</html>

@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Html Css Js Basics</title>
     <style>
-        body {
-            text-align:center;
-        }
-        h1 { /* gültig für alle h1-tags */
-            color: purple!important;
-            margin-bottom:6px;
-            margin-top:6px;
-        }
-        #headlineH2 {
-            color: green;
-        }
-        h2 {
-            text-align:left;
-        }
-        h2,p,.blue {
-            color: blue;
-            /*text-align:right;*/
-        }
-        .brown { /* Klasse */
-            color:brown;
-        }
-        .small-text {
-            font-size:9px;
-        }
+      body {
+        /* alle Text-Elemente im body sind zentriert */
+        text-align: center;
+      }
+      h1 {
+        /* gültig für alle h1-tags */
+        color: purple !important; /* !important setzt das Cascading außer Kraft und gibt einer CSS-Regel so ein hohes GEwicht, dass sie auch durch später folgende Regeln nicht überschrieben wird */
+        margin-bottom: 6px;
+        margin-top: 6px;
+      }
+      #headlineH2 {
+        color: green;
+      }
+      h2 {
+        text-align: left;
+      }
+      h2,
+      p,
+      .blue {
+        color: blue;
+        /*text-align:right;*/
+      }
+      .brown {
+        /* Klasse */
+        color: brown;
+      }
+      .small-text {
+        font-size: 9px;
+      }
     </style>
-</head>
-<body>
-    <h1 id="headlineH1" style="font-size:120px;color:red;">hello</h1>
+  </head>
+  <body>
+    <h1 id="headlineH1" style="font-size: 120px; color: red">hello</h1>
     <!-- style-Attribut gilt für dieses Element -->
     <h1>there!</h1>
     <p class="brown small-text">Beispieltext mit CSS-Klasse</p>
@@ -39,7 +44,7 @@
     <p>Beispieltext 2</p>
     <p>Beispieltext 3</p>
 
-    <h2 id="headlineH2" class="brown" style="color:red">Hi?</h2>
+    <h2 id="headlineH2" class="brown" style="color: red">Hi?</h2>
     <h2>There?</h2>
     <div class="blue">Div-Text</div>
 
@@ -48,14 +53,14 @@
     <p id="answere"></p>
 
     <script>
-        var name = "Thomas"
+      var name = "Thomas";
 
-        function sayHello() {
-            alert('hello '+ name)
+      function sayHello() {
+        alert("hello " + name);
 
-            var element = document.getElementById('answere')
-            element.textContent = "Nice to meet you!"
-        }
+        var element = document.getElementById("answere");
+        element.textContent = "Nice to meet you!";
+      }
     </script>
-</body>
+  </body>
 </html>
