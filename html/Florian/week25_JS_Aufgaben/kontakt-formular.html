@@ -18,7 +18,7 @@ und gib das Objekt in der Konsole aus.
 <body>
     <h1>Kontaktformular</h1>
 
-    <form action="kontakt-formular.html" id="kontaktformular" onsubmit="return onsubmit">
+    <form id="kontaktformular" action="kontakt-formular.html" onsubmit="return submitedForm()">
         <p>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -36,16 +36,18 @@ und gib das Objekt in der Konsole aus.
     </form>
 
     <script>
-       
-       var daten = {
-        name: document.getElementById("name"),
-        email: document.getElementById("email"),
-        nachricht: document.getElementById("nachricht"),
-        
-       }
+        function submitedForm(e) {
 
-       console.log(daten)
+            var daten = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                nachricht: document.getElementById("nachricht").value,
 
+            }
+
+            console.log(daten)
+            return false
+        }
     </script>
 
 
@@ -54,4 +56,5 @@ und gib das Objekt in der Konsole aus.
 
 </body>
 <!-- http://127.0.0.1:5500/html/Florian/week25_JS_Aufgaben/kontakt-formular.html?vorname=Florian&nachname=Fink&e-mail=fink.flo%40live.at&nachricht=hallo -->
+
 </html>
