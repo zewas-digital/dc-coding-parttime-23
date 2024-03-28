@@ -25,11 +25,11 @@ wenn die Eingaben nicht korrekt sind.
     </p>
     <p>
         <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email">
     </p>
     <p>
         <label for="passwort">Passwort:</label>
-        <input type="password" id="passwort" name="passwort" required>
+        <input type="password" id="passwort" name="passwort">
     </p>
 
 
@@ -37,6 +37,7 @@ wenn die Eingaben nicht korrekt sind.
 </form>
 
 <script>
+    
 
     function submitedForm(){
          var daten = {
@@ -44,13 +45,18 @@ wenn die Eingaben nicht korrekt sind.
             email: document.getElementById("email").value,
             passwort: document.getElementById("passwort").value
         }
+
+        if(name == /^[A-Z]$/){
+            alert ("Bitte nur Buchstaben")
+            
+        }
         
         console.log(daten)
-        return false
+       
+       return false
     }
       
-    
-  
+   
 
 
 
