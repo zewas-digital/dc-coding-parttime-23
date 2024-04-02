@@ -1,0 +1,114 @@
+<!-- Hallo, bitte verwende die gegebene Formel 1 API und gibt die Rennresultate der
+heurigen Rennen aus. Das Ganze soll so funktionieren, dass ich auf die
+Startseite komme und dann alle Rennen der heurigen Saison sehe und mittels einem
+Klick auf einen Eintrag werden darunter das Rennresultat angezeigt. Falls das
+Rennen noch nicht stattgefunden hat soll einfach der Text "Noch keine Ergebnisse
+vorhanden" dargestellt werden. 
+
+Endpunkt für alle Rennen diese Saison: http://ergast.com/api/f1/2024.json
+
+Enpunkt für die Rennergebnisse des ersten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/1/results.json
+
+Enpunkt für die Rennergebnisse des zweiten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/2/results.json
+
+Dokumentation der API: http://ergast.com/mrd/methods/schedule/ 
+
+Bonusaufgabe: Erstelle ein Anmeldeformular und
+zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
+Benutzer angemeldet hat. -->
+
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h1>Formel 1 Dashboard</h1>
+    <h2>Rennkalender 2024</h2>
+    <div id="races"></div>
+    <h2>Rennergebnis</h2>
+    <div id="standings"></div>
+    <script>
+      fetch("http://ergast.com/api/f1/2024.json").then(async (response) => {
+        // console.log({ body: response.body });
+        const json = await response.json();
+
+        // .then((json) => {
+        for (let i = 0; i < json.MRData.RaceTable.Races.length; i++) {
+          let x = json.MRData.RaceTable.Races[i];
+          const para = document.createElement("div");
+          para.onclick = () => loadStandings(x.round);
+          para.className = "race";
+          const number = document.createElement("p");
+          number.textContent = x.round;
+          const grandPrix = document.createElement("p");
+          grandPrix.textContent = x.raceName;
+          const circuit = document.createElement("p");
+          circuit.textContent = x.Circuit.circuitName;
+          const date = document.createElement("p");
+          date.textContent = x.date;
+          para.appendChild(number);
+          para.append(grandPrix, circuit, date);
+          document.getElementById("races").appendChild(para);
+        }
+        // });
+      });
+
+      function loadStandings(raceNumber) {
+        document.getElementById("standings").innerHTML = "";
+        // if (raceNumber > 5) {
+        //   const para = document.createElement("div");
+        //   para.textContent = "Noch keine Ergebnisse vorhanden!";
+        //   document.getElementById("standings").appendChild(para);
+        //   return;
+        // }
+        fetch(
+          "http://ergast.com/api/f1/2024/" + raceNumber + "/results.json"
+        ).then(async (response) => {
+          // console.log({ body: response.body });
+          const json = await response.json();
+
+          // .then((json) => {
+          console.log({ test: json.MRData.RaceTable.Races.length === 0 });
+          if (json.MRData.RaceTable.Races.length === 0) {
+            const para = document.createElement("div");
+            para.textContent = "Noch keine Ergebnisse vorhanden!";
+            document.getElementById("standings").appendChild(para);
+            return;
+          }
+          for (let x of json.MRData.RaceTable.Races[0].Results) {
+            const para = document.createElement("div");
+
+            para.className = "driver";
+            const number = document.createElement("p");
+            number.textContent = x.positionText;
+            const driverName = document.createElement("p");
+            driverName.textContent =
+              x.Driver.givenName + " " + x.Driver.familyName;
+            const team = document.createElement("p");
+            team.textContent = x.Constructor.name;
+            const points = document.createElement("p");
+            points.textContent = x.points;
+            para.appendChild(number);
+            para.append(driverName, team, points);
+            document.getElementById("standings").appendChild(para);
+          }
+          // });
+        });
+      }
+    </script>
+    <style>
+      .race {
+        display: flex;
+        gap: 20px;
+        cursor: pointer;
+        justify-content: space-between;
+        margin: 0px 20px;
+      }
+      .driver {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        margin: 0px 20px;
+      }
+    </style>
+  </body>
+</html>
