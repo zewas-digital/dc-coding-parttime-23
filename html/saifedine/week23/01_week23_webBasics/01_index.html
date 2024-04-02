@@ -1,0 +1,93 @@
+<!-- Link über html Tags: https://www.mediaevent.de/html/html5-tags.html & https://www.ionos.at/digitalguide/websites/web-entwicklung/html-tags/ -->
+
+<!DOCTYPE html>
+
+<!-- lang="en":
+Kurs: Sprache für Screenreader oder automatische Übersetzung
+Website: Sprachcodes (Language Codes) für Webseiten bestimmen die gesprochene Sprache des HTML-Dokuments, sind im ISO Standards 639-1 festgelegt und bestehen aus zwei Kleinbuchstaben. -->
+<html lang="en">
+  <!-- head:
+Kurs: nicht dargestellt in Webseite, Infos und Daten die zuerst geladen/interpretiert werden, z.B. beim Teilen über WhatsApp wird hier das "kleine" Foto codiert und geladen!
+Website: Informationen, die nicht im Browserfenster dargestellt werden. Unter HTML head liegen die Metadaten (title, meta und base), die Informationen zur Seite liefern,
+die Darstellung steuern und über die Beziehungen zu anderen Dateien (style, link, script) und HTML-Seiten informieren. -->
+  <head>
+    <!-- charset: character Sets = Zeichenkodierung -->
+    <meta charset="UTF-8" />
+    <!--  Browsertab-Anzeige  -->
+    <title>Titel</title>
+  </head>
+
+  <!-- body:
+Kurs: dargestellte Webseite
+Website: body kennzeichnet den Anfang und das Ende des sichtbaren Inhalts der Webseite: Hier sitzen alle HTML-Tags für den Inhalt der Seite. -->
+  <body>
+    <!-- header:
+Kurs: Kopfzeile
+Website: definiert den Kopfbereich einer Seite oder eines Abschnitts. -->
+    <header>
+      Logo
+
+      <!-- nav:
+Website: Das nav-Tag ist für Links zu anderen Seiten und zu Bereichen innerhalb derselben Seite reserviert.
+Das nav-Element soll nur für die Haupt-Navigation der Seite benutzt werden und nicht für beiläufige Links einer Seite. -->
+      <nav>
+        <!-- a: 
+        Website: Das HTML a-Tag wird mit dem href-Attribut benutzt, um einen Hyperlink – auch als Link oder Anker bezeichnet – zu erzeugen. -->
+        <!-- href:
+        Website: legt die Ziel-URL für den Link fest. Das href-Attribut kann auch einen Präfix haben: tel für eine klickbare Telefonnummer oder mailto. -->
+        <!-- "&nbsp;": HTML-Entity: Leerschritt ohne Zeilenumbruch (Engl.: Non-Breaking Space) -->
+        <a href="ueberuns.html">Über uns (html-Datei)</a> &nbsp;
+        <a href="ueberuns.html">Über uns (html-Datei)</a>
+      </nav>
+    </header>
+
+    <!-- main:
+    Website: main stellt den Hauptinhalt der Webseite dar. Das main-Element soll nur einmal im Dokument vorkommen und weder innerhalb eines header, footer oder article-Tags noch eines section-Tags sitzen. -->
+    <main>
+      <!-- <tag attribut="wert">text oder tags</tag> -->
+
+      <!-- h1: Header, Überschrift -->
+      <h1>HTML-Basics</h1>
+      <!-- Text auf der Homepage, "&lt;": HTML-Entity: < "Kleiner als ..." -->
+      Das &lt;a Tag wird verwendet...
+
+      <!-- h2: Header, Überschrift -->
+      <h2>Bilder</h2>
+
+      <!-- Text auf der Homepage-->
+      //** Hello*****
+      <img
+        src="https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_960_720.jpg"
+        width="32"
+        height="24"
+      />
+      <img
+        src="cat.jpg"
+        width="32"
+        height="24"
+        alt="Katze"
+        title="eine Katze"
+      />
+      <br /><br />
+
+      <h2>Links</h2>
+      <a href="ueberuns.html">Über uns (html-Datei)</a>
+      <a href="ueberuns">Über uns (Verzeichnis)</a>
+
+      <h3>Links auf Verzeichnisse</h3>
+      <a href="/">Root-Verzeichnis</a><br />
+      <a href="/dc-coding-parttime-23/html/oliver/week23_webBasics/"
+        >Home (Pfad)</a
+      >
+      <a href="">Home (Relativ)</a><br />
+      <br />
+      <a href="ueberuns">Über uns (Verzeichnis)</a><br />
+      <br />
+      <a href="../..">ein Verzeichnis höher (oliver/)</a><br />
+      <a href="../../..">zwei Verzeichnisse höher (html/)</a>
+      <p>Absatz 1</p>
+      <p>Absatz 2</p>
+    </main>
+    <footer>Footer</footer>
+  </body>
+</html>
