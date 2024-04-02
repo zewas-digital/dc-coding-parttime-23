@@ -56,11 +56,18 @@ Das nav-Element soll nur für die Haupt-Navigation der Seite benutzt werden und 
 
       <!-- Text auf der Homepage-->
       //** Hello*****
+
+      <!-- img & src:
+      Website: HTML img fügt ein Bild oder eine Grafik in HTML-Seiten ein. Nur zwei Attribute werden gebraucht: src, der Pfad zum Bild und alt, ein alternativer Text für Browser ohne Bilddarstellung.
+      Website: src ist die URL der Bilddatei und muss immer gesetzt werden. Die URL muss den Dateinamen enthalten und ist ein relativer oder absoluter Pfad zur Bilddatei. -->
       <img
         src="https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_960_720.jpg"
         width="32"
         height="24"
       />
+      <!-- alt & title:
+      Website: In diesem HTML-Befehl wird der Titel des Dokuments hinterlegt, der auch in der Titelleiste des Browsers angezeigt wird. 
+      Website: Wenn Sie einen Medieninhalt einbauen möchten, müssen Sie zusätzlich die HTML-Attribute src für die Quelle und alt für den Alternativtext einsetzen, alt beinhaltet die Beschreibung des Bildes-->
       <img
         src="cat.jpg"
         width="32"
@@ -68,26 +75,43 @@ Das nav-Element soll nur für die Haupt-Navigation der Seite benutzt werden und 
         alt="Katze"
         title="eine Katze"
       />
+      <!-- br:
+      Website: Mit dem HTML-Tag <br> wird ein Zeilenumbruch erzwungen. -->
       <br /><br />
 
       <h2>Links</h2>
-      <a href="ueberuns.html">Über uns (html-Datei)</a>
-      <a href="ueberuns">Über uns (Verzeichnis)</a>
+      <!-- href: selber: man kann ein HTML-Datei aufrufen-->
+      <a href="02_ueberuns.html">Über uns (html-Datei)</a><br />
+      <!-- href: selber: man kann ein Verzeichniss "uberuns" aufrufen, dann wird automatisch die index.html-Datei geöffnet -->
+      <a href="ueberuns">Über uns (Verzeichnis)</a><br />
+      <!-- href: selber: man kann auch eine andere HTML-Datei direkt aufrufen!! -->
+      <a href="ueberuns/03_index.html">Über uns (Verzeichnis)</a>
 
+      <!-- h3: Header, Überschrift -->
       <h3>Links auf Verzeichnisse</h3>
+
+      <!-- href="/" führt zum Root Verzeichniss -->
       <a href="/">Root-Verzeichnis</a><br />
-      <a href="/dc-coding-parttime-23/html/oliver/week23_webBasics/"
+      <!-- href führt zu einer HTML-Datei -->
+      <a href="/html/saifedine/week23/01_week23_webBasics/01_index.html"
         >Home (Pfad)</a
-      >
+      ><br />
+      <!-- Ein leeres href-Attribut erzwingt ein Neuladen der Seite. -->
       <a href="">Home (Relativ)</a><br />
       <br />
       <a href="ueberuns">Über uns (Verzeichnis)</a><br />
       <br />
-      <a href="../..">ein Verzeichnis höher (oliver/)</a><br />
+
+      <a href="../..">ein Verzeichnis höher (saifedine/)</a><br />
       <a href="../../..">zwei Verzeichnisse höher (html/)</a>
+
+      <!-- p: Paragraph, Textabsatz-->
       <p>Absatz 1</p>
       <p>Absatz 2</p>
     </main>
+
+    <!-- footer:
+    Website: Über <footer> wird der Fußbereich einer Seite oder eines Abschnitts definiert. -->
     <footer>Footer</footer>
   </body>
 </html>
