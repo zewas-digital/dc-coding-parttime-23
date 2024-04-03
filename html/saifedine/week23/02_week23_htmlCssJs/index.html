@@ -91,16 +91,13 @@ Website: body kennzeichnet den Anfang und das Ende des sichtbaren Inhalts der We
 
       /* Funktion sayHello() ruft die Funktion alert*/
       function sayHello() {
-        alert(
-          "hello " + name
-        ); /* Funktion alert öffnet Dialogbox mit dem Inhalt "hello Thomas" */
+
+        alert("hello " + name); /* Funktion alert öffnet Dialogbox mit dem Inhalt "hello Thomas" */
+
         /* nach der Bestätigung der Dialogbox kommt der nächste Abschnitt" */
-        var element =
-          document.getElementById(
-            "answere"
-          ); /* Deklaration von "element" als Variable und dessen Zuweisung als HTML-Element mit der id "answere" */
-        element.textContent =
-          "Nice to meet you!"; /* textContent gibt den Inhalt eines Elements zurück oder setzt den Inhalt eines Elements */
+        
+        var element = document.getElementById("answere"); /* Deklaration von "element" als Variable und dessen Zuweisung als HTML-Element mit der id "answere" */
+        element.textContent = "Nice to meet you!"; /* textContent gibt den Inhalt eines Elements zurück oder setzt den Inhalt eines Elements */
       }
     </script>
   </body>
