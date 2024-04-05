@@ -1,0 +1,83 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabenliste</title>
+</head>
+<h1>Meine Aufgabenliste</h1>
+<input type="text" id="aufgabe" placeholder="Aufgabe eingeben">
+<input type="date" id="datum">
+<button onclick="aufgabeHinzufuegen()">Hinzufügen</button>
+<ul id="aufgabenListe"></ul>
+
+<script>
+    // Funktion zum Hinzufügen einer Aufgabe
+    function aufgabeHinzufuegen() {
+        const aufgabeInput = document.getElementById("aufgabe");
+        const datumInput = document.getElementById("datum");
+        const aufgabe = aufgabeInput.value;
+        const datum = datumInput.value;
+
+        if (aufgabe && datum) {
+            window.localStorage.setItem(aufgabe, datum);
+            aufgabeInput.value = "";
+            datumInput.value = "";
+            aktualisiereAufgaben();
+        }
+    }
+
+    // Funktion zum Aktualisieren der Aufgaben im DOM
+    function aktualisiereAufgaben() {
+        const aufgabenListe = document.getElementById("aufgabenListe");
+        aufgabenListe.innerHTML = "";
+            let keys = Object.keys(localStorage);
+            keys.forEach(function(key){
+                console.log(key + " : " + localStorage.getItem(key));
+                    const li = document.createElement("li");
+                    li.textContent = key + " (fällig am " + localStorage.getItem(key)  + ")";
+                    // Button zum Bearbeiten
+                    const bearbeitenButton = document.createElement("button");
+                    bearbeitenButton.textContent = "Bearbeiten";
+                    bearbeitenButton.onclick = () => aufgabeBearbeiten(key);
+                    li.appendChild(bearbeitenButton);
+                    // Button zum Löschen
+                    const loeschenButton = document.createElement("button");
+                    loeschenButton.textContent = "Löschen";
+                    loeschenButton.onclick = () => aufgabeLoeschen(key);
+                    li.appendChild(loeschenButton);
+
+                    aufgabenListe.appendChild(li);
+            });
+        }
+
+    // Funktion zum Bearbeiten einer Aufgabe
+    function aufgabeBearbeiten(key) {
+        if (!isNaN(document.getElementById("aufgabe").textContent)) {
+            document.getElementById("aufgabe").value=key;
+            document.getElementById("datum").value=localStorage.getItem(key);
+            var aufgabe = document.getElementById("aufgabe").value;
+            var datum = document.getElementById("datum").value;
+            localStorage.setItem(aufgabe, datum);
+            aufgabeLoeschen(key);
+        }
+    }
+
+    // Funktion zum Löschen einer Aufgabe
+    function aufgabeLoeschen(key) {
+        localStorage.removeItem(key);
+        aktualisiereAufgaben();
+    }
+</script>
+</body>
+</html
+
