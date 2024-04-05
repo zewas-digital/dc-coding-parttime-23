@@ -1,0 +1,70 @@
+<!-- 
+Aufgabe: Registrierungsformular
+1/ Erstelle ein Registrierungsformular mit den Feldern:
+Name, Email, Passwort und einem Registrieren-Button.
+2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
+wenn die Eingaben nicht korrekt sind.
+3/ Bonus: Validiere
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierungsformular</title>
+</head>
+<body>
+<h1>Registrierungsformular</h1>    
+
+<form action="registrierungs-formular.html" id="registrierungs-formular" onsubmit="return submitedForm()">
+
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </p>
+    <p>
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email">
+    </p>
+    <p>
+        <label for="passwort">Passwort:</label>
+        <input type="password" id="passwort" name="passwort">
+    </p>
+
+
+    <button>Registrieren</button>
+</form>
+
+<script>
+    
+
+    function submitedForm(){
+         var daten = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            passwort: document.getElementById("passwort").value
+        }
+
+        if(name == /^[A-Z]$/){
+            alert ("Bitte nur Buchstaben")
+            
+        }
+        
+        console.log(daten)
+       
+       return false
+    }
+      
+   
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

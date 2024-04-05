@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Clicker</title>
+  </head>
+  <body>
+    <p>
+      Aufgabe: Javascript Clicker<br />
+      Erstelle eine simple Website, wird auf den Button geklickt so soll in
+      einem Text angezeigt werden wie oft der Button geklickt wurde.
+    </p>
+
+    <button onclick="clickCounter()">Click Button</button>
+
+    <p id="answer"></p>
+
+    <script>
+      var count = 0;
+
+      function clickCounter() {
+        count++;
+        //console.log(count);
+        printCounter();
+      }
+
+      function printCounter() {
+        var element = document.getElementById("answer");
+
+        element.textContent = count;
+      }
+    </script>
+  </body>
+</html>

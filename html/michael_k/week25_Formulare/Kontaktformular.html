@@ -1,0 +1,65 @@
+<!-- 
+Aufgabe: Kontaktformular
+1/ Erstelle ein Kontaktformular mit den Feldern: 
+Name, Email, Nachricht und einem Senden-Button. 
+2/ Speichere die Eingaben in einem JavaScript-Objekt
+und gib das Objekt in der Konsole aus.
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+    
+    <head>
+
+        <title>Kontaktformular</title>
+        <meta content="text/html; charset=utf-8" />
+
+    </head>
+    <body>
+
+        <h1>Kontaktformular</h1>
+
+        <form action="" id="kontakt" onsubmit="crateObjekt(); return false;" >
+           
+            <p>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </p>
+            <p>
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email">
+            </p>    
+            <p>
+                <label for="nachricht">Nachricht</label>
+                <textarea name="nachricht" id="nachricht" cols="30" rows="10"></textarea>
+            </p>  
+
+            <button type="submit">Senden</button>
+
+        </form>
+
+
+        <script>
+
+            function crateObjekt(){
+                let form = document.getElementById('kontakt');
+
+                let name = form.elements['name'];
+                let email = form.elements['email'];
+                let nachricht = form.elements['nachricht'];
+                
+
+                var objekt = {
+                name: name.value,
+                email: email.value,
+                nachricht: nachricht.value,
+                };
+                
+                console.log(objekt)
+            }
+            
+        </script>
+
+    </body>
+
+</html>

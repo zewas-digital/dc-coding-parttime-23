@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Click</title>
+    <style>
+        #ausgabe {
+            border: 1px solid black;
+            padding: 10px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator Basics</h1>
+
+    <p id="ausgabe"></p>
+
+    <script>
+        for(var i = 9; i >= 0; i--) {
+            document.write('<button onclick="setzeZeichen(' + i + ')">' + i + '</button>');
+            // generiere buttons: <button onclick="setzeZeichen(9)">9</button>
+        }
+    </script>
+    
+    <button onclick="setzeOperator('+')">+</button>
+    <button onmousedown="setzeOperator('-')">-</button>
+    <button onmousedown="setzeOperator('=')">=</button>
+    <button onmousedown="ausgabeZuruecksetzen()">AC</button>
+
+    <script>
+        var ausgabeElement = document.getElementById('ausgabe');
+        var operator = '';
+        var operand1 = '';
+        var operand2 = '';
+
+        function setzeZeichen(zeichen) {
+            ausgabeElement.textContent += zeichen;
+        }
+
+        function setzeOperator(op) {
+            switch(op) {
+                case '+':
+                case '-':
+                    // Zwischenspeichern des ersten Operanden und Operators
+                    operand1 = parseInt(ausgabeElement.textContent);
+                    operator = op;
+                    // Löschen der Ausgabe
+                    ausgabeElement.textContent = '';
+                    break;
+                case '=':
+                    berechneErgebnis();
+                    operator = '';
+                    break;
+            }
+        }
+
+        function berechneErgebnis() {
+            operand2 = parseInt(ausgabeElement.textContent);
+
+            switch(operator) {
+                case '+':
+                    operand1 = operand1 + operand2;
+                    break;
+                case '-':
+                    operand1 = operand1 - operand2;
+                    break;
+            }
+
+            ausgabeElement.textContent = operand1;
+        }
+
+        function ausgabeZuruecksetzen() {
+            ausgabeElement.textContent = '';
+        }
+    </script>
+    
+</body>
+</html>

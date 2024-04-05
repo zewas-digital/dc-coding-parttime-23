@@ -1,0 +1,107 @@
+<!-- 
+Aufgabe: Registrierungsformular
+1/ Erstelle ein Registrierungsformular mit den Feldern:
+Name, Email, Passwort und einem Registrieren-Button.
+2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
+wenn die Eingaben nicht korrekt sind.
+3/ Bonus: Validiere
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Formular Basics</title>
+    <style>
+        .password-input {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          padding: 8px;
+          border: 1px solid #8b8383;
+          border-radius: 4px;
+        }
+      
+        .password-input-masked {
+          -webkit-input-security: disc; 
+          input-security: disc;
+        }
+        
+      </style>
+</head>
+    <body>
+        <h1 style="color: rgb(60, 134, 70);">Registrierungsformular</h1>
+        
+        <form id="form1" action="registrierungs-formular.html">
+
+          <p>
+            <label for="firstname">Vorname:</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Max" />
+          </p>
+    
+          <p>
+            <label for="lastname">Nachname:</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Mustermann" required/>
+          </p>
+    
+          <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="max.mustermann02@gmail.com" required/>
+          </p>
+    
+          <p>
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" required/>
+          </p>
+    
+          <button type="submit">Registrieren</button>
+        </form>
+    
+        <script>
+          document.getElementById('form1').addEventListener('submit', function (event) {
+            event.preventDefault();
+            submitedForm()
+          } )
+          function submitedForm() {
+            
+            var userinput = {
+              vorname: document.getElementById("firstname").value,
+              nachname: document.getElementById("lastname").value,
+              email: document.getElementById("email").value,
+              passwort: document.getElementById("password").value,
+            };
+            validateFirstName(userinput);
+            validateLastName(userinput);
+            validateEmail(userinput);
+            validatePassword(userinput);
+
+            console.log("USER:", userinput);
+            return false;
+            return userinput.vorname && userinput.nachname && userinput.email && userinput.passwort;
+          }
+          function validateFirstName(userinput) {
+            if (userinput.vorname.length == 0) {
+              alert("Fehler!");
+              return false;
+            }
+          }
+          function validateLastName(userinput) {
+            if (userinput.nachname.length == 0) {
+              alert("Fehler!");
+              return false;
+            }
+          }
+          function validateEmail(userinput){
+            if(userinput.email.length == 0){
+              alert('Bitte geben sie Ihre richtige Email adresse an!');
+              return false;
+            }
+          }
+
+          function validatePassword(userinput){
+            if (userinput.passwort.length < 6) {
+              alert('Das Passwort muss mindestens 6 Zeichen haben!');
+              return false;
+            }
+          }
+        </script>
+      </body>
+    </html>
