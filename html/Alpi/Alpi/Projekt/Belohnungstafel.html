@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belohnungstafel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- alter Format war ohne Table und thead tr und th in der Name wird nicht benötigt -->
+
+    <h1>Belohnungstafel</h1>
+
+    <p>Name: <span id="name">Alpi</span></p>
+    <!-- <th>Name: <span id="name">Alpi</span></th>  Name wird in einem Rahmen dargestellt da th umrahmt wird im css -->
+    <p>Ziel: <span id="ziel">40 Punkte</span></p>
+    <p>Belohnung: <span id="Belohnung">10€</span></p>
+    <p>Punkte: <span id="punkte"></span></p>
+
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Aufgaben</th>
+                <th>Mo</th>
+                <th>Di</th>
+                <th>Mi</th>
+                <th>Do</th>
+                <th>Fr</th>
+                <th>Sa</th>
+                <th>So</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pünktlich für die Schule fertigmachen</td>
+                <td id="mo1"></td>
+                <td id="di1"></td>
+                <td id="mi1"></td>
+                <td id="do1"></td>
+                <td id="fr1"></td>
+                <td id="sa1"></td>
+                <td id="so1"></td>
+            </tr>
+            <tr>
+                <td>Sich waschen und Zähne Putzen</td>
+                <td id="mo2"></td>
+                <td id="di2"></td>
+                <td id="mi2"></td>
+                <td id="do2"></td>
+                <td id="fr2"></td>
+                <td id="sa2"></td>
+                <td id="so2"></td>
+            </tr>
+            <tr>
+                <td>Mein Bett machen</td>
+                <td id="mo3"></td>
+                <td id="di3"></td>
+                <td id="mi3"></td>
+                <td id="do3"></td>
+                <td id="fr3"></td>
+                <td id="sa3"></td>
+                <td id="so3"></td>
+            </tr>
+            <tr>
+                <td>Den Tisch abräumen</td>
+                <td id="mo4"></td>
+                <td id="di4"></td>
+                <td id="mi4"></td>
+                <td id="do4"></td>
+                <td id="fr4"></td>
+                <td id="sa4"></td>
+                <td id="so4"></td>
+            </tr>
+            <tr>
+                <td>Lesen und Vorlesen</td>
+                <td id="mo5"></td>
+                <td id="di5"></td>
+                <td id="mi5"></td>
+                <td id="do5"></td>
+                <td id="fr5"></td>
+                <td id="sa5"></td>
+                <td id="so5"></td>
+            </tr>
+            <tr>
+                <td>Meine Tasche packen</td>
+                <td id="mo6"></td>
+                <td id="di6"></td>
+                <td id="mi6"></td>
+                <td id="do6"></td>
+                <td id="fr6"></td>
+                <td id="sa6"></td>
+                <td id="so6"></td>
+            </tr>
+            <tr>
+                <td>Meine Spielsachen wegräumen</td>
+                <td id="mo7"></td>
+                <td id="di7"></td>
+                <td id="mi7"></td>
+                <td id="do7"></td>
+                <td id="fr7"></td>
+                <td id="sa7"></td>
+                <td id="so7"></td>
+            </tr>
+            <tr>
+                <td>Hausaufgaben machen</td>
+                <td id="mo8"></td>
+                <td id="di8"></td>
+                <td id="mi8"></td>
+                <td id="do8"></td>
+                <td id="fr8"></td>
+                <td id="sa8"></td>
+                <td id="so8"></td>
+            </tr>
+
+            <tr>
+                <td>Mein Gemüse aufessen</td>
+                <td id="mo9"></td>
+                <td id="di9"></td>
+                <td id="mi9"></td>
+                <td id="do9"></td>
+                <td id="fr9"></td>
+                <td id="sa9"></td>
+                <td id="so9"></td>
+            </tr>
+
+            <tr>
+                <td>Respekt zeigen alt</td>
+                <td id="mo10"></td>
+                <td id="di10"></td>
+                <td id="mi10"></td>
+                <td id="do10"></td>
+                <td id="fr10"></td>
+                <td id="sa10"></td>
+                <td id="so10"></td>
+            </tr>
+
+
+            <!-- Für die Checkboxen diese Methode verwenden -->
+
+            <tr>
+                <td><label for="aufgabe1">Respekt zeigen neu</label></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+                <td><input type="checkbox" id="aufgabe1" name="aufgabe1"></td>
+            </tr>
+
+    </table>
+    <button id="speichern">Speichern</button>
+    
+
+</body>
