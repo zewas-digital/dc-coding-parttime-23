@@ -1,0 +1,48 @@
+<!-- 
+Aufgabe: Registrierungsformular
+1/ Erstelle ein Registrierungsformular mit den Feldern:
+Name, Email, Passwort und einem Registrieren-Button.
+2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
+wenn die Eingaben nicht korrekt sind.
+3/ Bonus: Validiere
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registrierungs-formular.css">
+    <script src="registrierungs-formular.js"></script>
+    <title>Registrierungsformular</title>
+</head>
+
+<body>
+    <h1>Registrierungsformular</h1>
+
+    <!-- <form action="" onsubmit="validate(this); return false"> -->
+    <form id="meinFormular">
+        <p class="formular">
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" placeholder="Username">
+        </p>
+        <br>
+        <p class="formular">
+            <label for="email">Email-Adresse:</label>
+            <input type="email" id="email" name="email" pattern="[A-Za-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                placeholder="Deine Mailadresse" required>
+        </p>
+        <br>
+        <p class="formular">
+            <label for="password">Passwort</label>
+            <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                placeholder="mind eine Zahl, ein Groß- und ein Kleinbuchstabe, mind 8 Buchstaben" required>
+        </p>
+        <br>
+
+        <button onclick="validate(document.getElementById('meinFormular'));">Registrieren!</button>
+
+    </form>
+</body>
+
+</html>
