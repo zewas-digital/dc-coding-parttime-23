@@ -1,0 +1,44 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aufgabenliste.css">
+
+    <title>Aufgabenliste</title>
+</head>
+
+<body>
+    <h1>Aufgabenliste</h1>
+    
+
+    <form>
+        <input type="text" name="title" required>
+        <input type="date" name="date" required>
+
+        <button>Aufgabe hinzufügen</button>
+    </form>
+
+<table>
+    <tr>
+        <th class="aufgabe">offene Aufgaben</th>
+        <th class="datum">Fälligkeit</th>
+        <th>Erledigt?</th>
+    </tr>
+    <tbody id="ToDos"></tbody></table>
+ 
+
+    <script src="aufgabenliste.js"></script>
+</body>
+
+</html>
