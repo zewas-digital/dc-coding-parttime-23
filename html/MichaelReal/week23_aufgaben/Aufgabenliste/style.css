@@ -72,7 +72,6 @@ body {
     margin-right: 15px;
 }
 
-/* Für ein wenig Spaß und Abstraktion: */
 body::before {
     content: "";
     position: fixed;
