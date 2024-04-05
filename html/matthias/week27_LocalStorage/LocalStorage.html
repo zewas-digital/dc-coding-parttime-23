@@ -15,15 +15,16 @@
     <script>
         function saveData(){
             var text = document.getElementById('inputData').value;
-            console.log(text);
+            //console.log(text);
             window.localStorage.setItem('data',text);
             console.log(window.localStorage);
 
         }
         function readData(){
-            console.log( window.localStorage.getItem('data'));
+           console.log( window.localStorage.getItem('data'));
            document.getElementById('inputData').value= window.localStorage.getItem('data');
         }
+
         function clearData(){
           
             window.localStorage.removeItem('data');

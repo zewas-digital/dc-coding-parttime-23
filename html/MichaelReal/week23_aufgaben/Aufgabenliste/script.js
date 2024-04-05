@@ -2,6 +2,8 @@ const tasks = [];
 const colors = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red']; // Regenbogenfarben
 let colorIndex = 0; // Startindex für Regenbogenfarben
 
+document.addEventListener('DOMContentLoaded', loadTasksFromLocalStorage);
+
 document.getElementById('addTaskButton').addEventListener('click', function() {
     const taskInput = document.getElementById('taskInput');
     const dateInput = document.getElementById('dateInput');
@@ -15,12 +17,25 @@ document.getElementById('addTaskButton').addEventListener('click', function() {
         };
         tasks.push(task);
         addTaskToDOM(task);
+        saveTasksToLocalStorage();
         taskInput.value = ''; // Eingabefeld zurücksetzen
         dateInput.value = ''; // Datumsfeld zurücksetzen
 
         colorIndex = (colorIndex + 1) % colors.length; // Nächste Farbe für die folgende Aufgabe
     }
 });
+
+function saveTasksToLocalStorage() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasksFromLocalStorage() {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (storedTasks) {
+        tasks.push(...storedTasks);
+        tasks.forEach(addTaskToDOM)
+    }
+}
 
 function formatDate(isoString) {
     const date = new Date(isoString);
@@ -46,11 +61,18 @@ function addEventListeners(li, task) {
 
     editButton.addEventListener('click', function() {
         const newName = prompt('Aufgabe bearbeiten:', task.name);
+        let newDate = task.date;
         if (newName) {
+            const dateString = prompt('Aufgabe bearbeiten: Datum (JJJJ-MM-TT)', newDate);
+            if (dateString) {
+                newDate = dateString;
+            }
             task.name = newName;
+            task.date = newDate;
             li.innerHTML = `${task.name} (Fällig am: ${formatDate(task.date)}) <span class="edit">Bearbeiten</span> <span class="delete">Löschen</span>`;
             li.style.backgroundColor = task.color; // Stelle sicher, dass die Farbe beibehalten wird
             addEventListeners(li, task); // Event Listener erneut hinzufügen
+            saveTasksToLocalStorage(); // Speichern nach Bearbeitung
         }
     });
 
@@ -59,6 +81,7 @@ function addEventListeners(li, task) {
         if (confirmDelete) {
             tasks.splice(tasks.findIndex(t => t.id === task.id), 1);
             li.parentNode.removeChild(li);
+            saveTasksToLocalStorage(); // Speichern nach Löschung
         }
     });
 }
