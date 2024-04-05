@@ -21,12 +21,13 @@ Aufgabe, Datum und einem Hinzufügen-Button.
     <input type="text" id="aufgabe" placeholder="Enter task" />
     <input type="date" id="kalender" />
     <button onclick="saveTask()">Add task</button>
+    <button onclick="changeTask()">Change task</button>
+    <button onclick="deleteTask()">Delete task</button>
 
-    <div id="taskList"></div>
-
-    <p></p>
+    <ol id="tasklist"></ol>
 
     <script>
+      var taskContainer = document.getElementById("tasklist");
       var count = 0;
 
       function saveTask() {
@@ -34,25 +35,52 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         var kalender = document.getElementById("kalender").value;
 
         const array = [task, kalender];
+        count++;
+
         // Variante 1:
         console.log(
-          "JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1]
+          "JavaScript-Array: " +
+            "Task " +
+            array[0] +
+            " Fällig " +
+            array[1] +
+            " " +
+            count
         );
+
         // Variante 2:
         console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
 
-        sessionStorage.setItem("aufgabe1", array);
+        sessionStorage.setItem(count, array);
         console.log("Aufgaben-Array: " + array);
-        count++;
+
+        addToDom(array);
+        clearInput(array);
       }
 
       function addToDom(array) {
-        var element = document.getElementById("tasklist");
+        taskContainer.innerHTML +=
+          '<li><input onclick="addToInput()" type="checkbox" name="select" /> Aufgabe: ' +
+          " " +
+          array[0] +
+          ", Fälligkeit bis: " +
+          array[1] +
+          "</li>";
 
-        element.innerHTML = "<p>Aufgabe" + array + "</p>";
-
-        element.appendChild(element);
+        array.textContent = "";
       }
+
+      function clearInput(array) {
+        array.value = "";
+      }
+
+      function addToInput() {
+        let data = sessionStorage.getItem(count);
+
+        console.log("Task change: " + data);
+      }
+
+      function changeTask(array) {}
     </script>
   </body>
 </html>
