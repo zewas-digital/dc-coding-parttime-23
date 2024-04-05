@@ -16,11 +16,103 @@ zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
 Benutzer angemeldet hat. -->
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Api</title>
+    <title>Api-Beispiel</title>
+    <style>
+        .raceRow {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;   
+        }
+        .raceRow {
+            background-color: goldenrod;
+            padding: 10px;
+        }
+
+        .raceRow p {
+            font-size: 16px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>My First Heading</h1>
-    <p>This is my first paragraph.</p>
+    <h1>Formel 1 Liste</h1>
+    <div id="rennTabelle">
+        <h1>
+            RaceName
+        </h1>
+    </div>
+    <div id="roundTabelle">
+        <h1>
+            RaceName
+        </h1>
+    </div>
+
+
+
+    <script>
+        fetch(" http://ergast.com/api/f1/2024.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Netzwerkfehler");
+                }
+                return response.json(); // Konvertiert die Antwort in JSON-Format
+            })
+            .then(function (data) {
+                console.log("Daten vom Server erhalten:", data.MRData.RaceTable.Races[0]);
+                for (let x of data.MRData.RaceTable.Races) {
+                    var raceRow = document.createElement("div");
+                    raceRow.className = "raceRow";
+
+                    var round = document.createElement("p");
+                    round.textContent = x.round;
+
+                    var raceName = document.createElement("p");
+                    raceName.textContent = x.raceName;
+
+                    var racedate = document.createElement("p");
+                    racedate.textContent = x.date;
+
+                    var circut = document.createElement("p");
+                    circut.textContent = x.Circuit.circuitName;
+                    
+                    raceRow.onclick=()=>races(round.textContent);
+                    raceRow.append(round, raceName,circut,racedate);
+
+                    document.getElementById("rennTabelle").append(raceRow);
+
+                }
+            })
+            .catch((error) => {
+                console.error("Fehler beim Abrufen der Daten:", error);
+            });
+
+        function races(indexSesionRun){
+            fetch(" http://ergast.com/api/f1/" + indexSesionRun + "/2024.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Netzwerkfehler");
+                }
+                return response.json(); // Konvertiert die Antwort in JSON-Format
+            })
+            .then(function (data) {
+                console.log("Daten vom Server erhalten:", data.MRData);
+                for (let x of data.MRData.RaceTable.Races) {
+                    console.log(x);
+
+                }
+            })
+            .catch((error) => {
+                console.error("Fehler beim Abrufen der Daten:", error);
+            });
+        }
+
+
+
+    </script>
+
 </body>
+
 </html>
