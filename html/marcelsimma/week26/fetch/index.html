@@ -7,29 +7,24 @@
 
     </ul>
     <script>
-        loadData(greet);
+        console.log(1);
+        setTimeout(() => {
+            console.log(2);
+        }, 2000);
+        console.log(3);
 
-        async function loadData(callback) {
-            let data = await fetch("http://ergast.com/api/f1/2024.json").then(async (response) => {
-                let list = document.querySelector("#liste");
-                const json = await response.json();
-                console.log(response);
-                json.MRData.RaceTable.Races.forEach(element => {
-                    let tag = document.createElement('li');
-                    tag.textContent = element.raceName;
-                    list.appendChild(tag)
-                });
-                console.log("test");
+        getData();
+
+        async function getData() {
+            await fetch("http://ergast.com/api/f1/2023.json").then(async (response) => {
+                let data = await response.json();
+                console.log(data);
             })
-
-            console.log("Fertig!");
-            callback();
+            console.log(5);
         }
 
+        console.log(4);
 
-        function greet() {
-            console.log("Hallo");
-        }
     </script>
 </body>
 
