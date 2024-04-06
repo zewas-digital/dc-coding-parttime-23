@@ -1,0 +1,117 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabenliste</title>
+</head>
+
+<body>
+
+    <div id="inputfield">
+        <p>
+            <label for="date">Deadlline</label>
+            <input type="date" name="date" id="date">
+        </p>
+        <p>
+            <label for="task">Aufgabe</label>
+            <textarea name="task" id="task" cols="30" rows="10"></textarea>
+        </p>
+        <button id="addTask"> Aufgabe hinzufügen</button>
+    </div>
+    <div id="tasklist">
+
+
+    </div>
+
+    <script>
+
+        let taskArrayTmp = window.localStorage.getItem('LocalTaskList');
+
+        let taskArray;
+        if (taskArrayTmp == null) {
+            taskArray = [];
+        } else {
+            taskArray = JSON.parse(taskArrayTmp);
+        }
+
+        var task = document.getElementById('addTask');
+        task.addEventListener('click', createTaskOjekt);
+        addToDOM();
+
+        function addToDOM() {
+
+            let numberOfTasks = taskArray.length;
+            let taskList = document.getElementById('tasklist');
+            taskList.innerHTML = '';
+
+            for (var i = 0; i < numberOfTasks; i++) {
+
+                let task = taskArray[i];
+                let taskDiv = document.createElement('div');
+
+                let taskDate = document.createElement('p');
+                taskDate.innerHTML = task.date;
+                let taskText = document.createElement('p');
+                taskText.innerHTML = task.task;
+
+
+                taskDiv.innerHTML += '<hr>'
+                taskDiv.appendChild(taskDate);
+                taskDiv.appendChild(taskText);
+                taskDiv.innerHTML += '<button onclick="removeTask(' + i + ')">Löschen</button>';
+                taskDiv.innerHTML += '<button onclick="changeTask(' + i + ')">Bearbeiten</button>';
+                taskList.appendChild(taskDiv);
+            }
+        }
+
+        function createTaskOjekt(event) {
+            let date = document.getElementById('date').value;
+            let task = document.getElementById('task').value;
+
+            const taskObject = {
+                date: date,
+                task: task
+            };
+
+            taskArray.push(taskObject);
+            console.log(taskArray);
+            localStorage.setItem('LocalTaskList', JSON.stringify(taskArray));
+
+            document.getElementById('task').value = '';
+            addToDOM()
+
+        }
+
+        function removeTask(index) {
+            taskArray.splice(index, 1);
+            localStorage.setItem('LocalTaskList', JSON.stringify(taskArray));
+            addToDOM();
+        }
+
+        function changeTask(index) {
+            let task = taskArray[index].task;
+            console.log(task);
+            
+            document.getElementById('task').value = task;
+            console.log(document.getElementById('task'));
+            removeTask(index);
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
