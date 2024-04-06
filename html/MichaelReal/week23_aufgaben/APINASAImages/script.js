@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Great Wall of China, China": { lat: 40.4319, lon: 116.5704 },
         "Galapagos-Inseln, Ecuador": { lat: -0.9538, lon: -90.9656 },
         "Aurora Borealis (für beste Sichtbarkeit), Tromsø, Norwegen": { lat: 69.6492, lon: 18.9553 },
-
+        "Area 51": { lat: 37.242, lon: -115.8191 },
         // Fügen Sie hier weitere Orte hinzu...
     };
 
