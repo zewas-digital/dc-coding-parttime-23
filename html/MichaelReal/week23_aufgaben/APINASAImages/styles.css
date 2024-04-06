@@ -41,6 +41,7 @@ input[type="text"] {
     border-radius: 4px;
     background-color: #2d2d2d;
     color: #ffffff;
+    text-align: center;
 }
 
 /* Stilisiert den "Bild laden" Button */
@@ -73,6 +74,7 @@ button:hover {
 .image-container img {
     max-width: 100%; 
     height: auto; 
+    object-fit: contain;
     margin: 10px 0; 
     border-radius: 4px; 
 }
