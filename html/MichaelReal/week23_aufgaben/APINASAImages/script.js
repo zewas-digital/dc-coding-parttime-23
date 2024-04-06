@@ -4,7 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
         "Grand Canyon, USA": { lat: 36.1069, lon: -112.1129 },
         "Great Barrier Reef, Australien": { lat: -18.2871, lon: 147.6992 },
         "Mount Everest, Nepal/China": { lat: 27.9881, lon: 86.9250 },
-        "Pyramiden von Gizeh, Ägypten": { lat: 29.9792, lon: 31.1342},
+        "Pyramiden von Gizeh, Ägypten": { lat: 29.9792, lon: 31.1342 },
+        "Amazonas-Regenwald, Brasilien": { lat: -3.4653, lon: -62.2159 },
+        "Antarktis": { lat: -82.8628, lon: 135.0000 },
+        "Serengeti, Tansania": { lat: -2.3328, lon: 34.5665 },
+        "Great Wall of China, China": { lat: 40.4319, lon: 116.5704 },
+        "Galapagos-Inseln, Ecuador": { lat: -0.9538, lon: -90.9656 },
+        "Aurora Borealis (für beste Sichtbarkeit), Tromsø, Norwegen": { lat: 69.6492, lon: 18.9553 },
+
         // Fügen Sie hier weitere Orte hinzu...
     };
 
@@ -22,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const lon = document.getElementById('longitude').value;
         const date = document.getElementById('date').value;
         const dim = document.getElementById('dimension').value;
-        const apiKey = 'IHR_API_KEY_HIER';
+        const apiKey = 'Wn9AUB3KvC8xz9emlSPGsANchoPXmPa9vM2KdYS8';
 
         const imageUrl = `https://api.nasa.gov/planetary/earth/imagery?lon=${lon}&lat=${lat}&date=${date}&dim=${dim}&api_key=${apiKey}`;
 
