@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+
+        const person = {
+            name: "John",
+            age: 23,
+            plz: "6863",
+            street: "Straße"
+        }
+
+        function add(a, b, c) {
+            return a + b + c;
+        }
+
+        const add2 = (a, b, c) => {
+            return a + b + c;
+        }
+
+        const add3 = (a, b, c) => a + b + c;
+   
+        const print = (name) => console.log(name);
+        const print2 = name => console.log(name);
+
+        const print3 = (name, age, plz) => console.log(`Das ist ${name}. Er ist ${age} Jahre alt.`)
+        const print4 = ({name, age, plz}) => console.log(`Das ist ${name}. Er ist ${age} Jahre alt.`)
+
+        console.log(add(1,2,3))
+        console.log(add2(1, 2, 3))
+        print("John")
+        print3(person.name, person.age, person.plz)
+        print4(person)
+  
+   
+
+
+
+
+
+
+        /*
+        const obj2 = {
+            name: "John",
+            age: 23,
+            street: "Rosenweg"
+        }
+
+        function print({ name, age, street }) {
+            console.log(`This is ${name}. He is ${age} years old.`);
+        }
+
+        function func1(a, b) {
+            return a + b;
+        }
+
+        const func2 = (a, b) => a + b;
+
+        console.log(func1(3, 4));
+        console.log(func2(3, 4));
+        console.log(print(obj2));
+        */
+    </script>
+</body>
+
+</html>
