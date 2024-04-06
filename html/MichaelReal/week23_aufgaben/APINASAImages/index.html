@@ -12,17 +12,17 @@
 <body>
     <h2>Landsat 8 Satellitenbilder</h2>
     <label for="latitude">Breite (Latitude):</label>
-    <input type="text" id="latitude" placeholder="-90 bis 90 (zB. 1.5)"><br><br>
+    <input type="text" id="latitude" placeholder="-90 bis 90 (zB. 42.42937)"><br><br>
     <label for="longitude">Länge (Longitude):</label>
-    <input type="text" id="longitude" placeholder="-180 bis 180 (zB. 100.75)"><br><br>
+    <input type="text" id="longitude" placeholder="-180 bis 180 (zB. -431.06781)"><br><br>
     <label for="date">Datum (JJJJ-MM-TT):</label>
-    <input type="text" id="date" placeholder="z.B. 2014-02-01"><br><br>
+    <input type="text" id="date" value="2017-02-01" placeholder="z.B. 2014-02-01"><br><br>
     <label for="dimension">Bildgröße (Dim):</label>
-    <input type="text" id="dimension" value="0.10" placeholder="z.B. 0.10"><br><br>
+    <input type="text" id="dimension" value="0.2" placeholder="z.B. 0.2"><br><br>
     <button id="loadImage">Bild laden</button>
 
     <div class="image-container">
-        <img id="satelliteImage" src="" alt="" style="max-width: 1000px; margin-top: 20px;">
+        <img id="satelliteImage" src="" alt="" style="max-width: 100%; margin-top: 20px;">
     </div>
 
     <div id="mapid" style="height: 400px;"></div>
