@@ -54,4 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Fehler beim Laden des Bildes. Bitte versuchen Sie es später erneut.');
         });
     });
+
+    // Initialisieren der Karte
+    var mymap = L.map('mapid').setView([51.505, -0.09], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mymap);
+
+    // Hinzufügen eines Klick-Event-Listeners zur Karte
+    mymap.on('click', function(e) {
+        var coord = e.latlng;
+        var lat = coord.lat;
+        var lng = coord.lng;
+
+    // Setzen der Koordinaten in die Eingabefelder
+    document.getElementById('latitude').value = lat.toFixed(5);
+    document.getElementById('longitude').value = lng.toFixed(5);
+    });
+
+    // Hinzufügen von Markern basierend auf den Orten
+    Object.entries(places).forEach(([name, coords]) => {
+        L.marker([coords.lat, coords.lon]).addTo(mymap)
+            .bindPopup(name);
+    });
 });

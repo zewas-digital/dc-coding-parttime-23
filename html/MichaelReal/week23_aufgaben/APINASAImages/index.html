@@ -6,10 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landsat 8 Satellitenbilder</title>
-    <style>
-        body { font-family: Arial, Helvetica, sans-serif; padding: 20px; }
-        .image-container { margin-top: 20px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 </head>
 <body>
     <h2>Landsat 8 Satellitenbilder</h2>
@@ -24,11 +22,15 @@
     <button id="loadImage">Bild laden</button>
 
     <div class="image-container">
-        <img id="satelliteImage" src="" alt="" style="max-width: 100%; margin-top: 20px;">
+        <img id="satelliteImage" src="" alt="" style="max-width: 1000px; margin-top: 20px;">
     </div>
+
+    <div id="mapid" style="height: 400px;"></div>
+
     <div id="placesList"></div>
 
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </body>
 </html>
