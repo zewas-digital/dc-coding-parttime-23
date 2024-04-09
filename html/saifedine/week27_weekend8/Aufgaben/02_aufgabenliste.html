@@ -32,34 +32,50 @@ Aufgabe, Datum und einem Hinzufügen-Button.
   <script>
     'use strict'
 
+
     var taskContainer = document.getElementById("tasklist");
     var count = 0;
     var editIndex;
 
+    // Funktion zum Speichern der angelegten Aufgaben inkl. Datum
     function saveTask() {
+
+      // angelegte Variablen (task, kalender), wo der Wert im Input-Feld gespeichert wird.
       var task = document.getElementById("aufgabe").value;
       var kalender = document.getElementById("kalender").value;
 
+      // jedes mal wenn eine Aufgabe angelegt wird, erhöht sich der count
       count++;
+
+      // Array, die alle Informationen zur Aufgabe beinhaltet
       const array = [task, kalender, count];
 
-      // Variante 1:
-      console.log(
-        "JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
+      // Testausgabe 1 - eigene:
+      console.log("JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
 
-      // Variante 2:
+      // Testausgabe 2 - Marcel:
       console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
 
+      // speichert, den Key (count) mit dem Wert (array) in die Session Storage
       sessionStorage.setItem(count, array);
+
+      // Testausgabe:
       console.log("Aufgaben-Array: " + array);
 
+      // Funktion, die das Aufgaben-Element zur DOM hinzufügt
       addToDom(array);
+
+      // Funktion, die die Input-Felder (aufgabe & kalender) beim Speichern löscht
       clearInput(array);
     }
 
+    // Funktion, die das Aufgaben-Element zur DOM hinzufügt
     function addToDom(array) {
+
+      // beim Anlegen und speichern einer neuen Aufgabe, wird dynamisch ein Aufgaben-Element zur DOM hinzugefügt
       taskContainer.innerHTML += '<li><input onchange="addToInput(' + count + ')" type="checkbox" id="selection' + count + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
     }
+
 
     function clearInput() {
 
@@ -81,6 +97,11 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         console.log("Checkbox ist ausgewählt2: " + data);
       } else {
         console.log("Du kommst do ned rein");
+      }
+
+      // to Do - funktioniert noch nicht !!!!!!!!!!
+      if (!checkboxChecked) {
+        clearInput();
       }
 
       let tmp = data.split(",");
@@ -106,6 +127,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
       deleteTask();
       saveTask();
+
 
     }
 
