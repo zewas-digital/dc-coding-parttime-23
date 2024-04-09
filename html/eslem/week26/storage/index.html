@@ -16,11 +16,18 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 </head>
 
 <body>
-<h1>Aufgabenliste</h1>
-<input type="text" id="inputData" placeholder="Enter data">
-<button onclick="saveData()">Save Data</button>
-<button onclick="readData()">Read Data</button>
-<button onclick="clearData()">Clear Data</button>
+<h1 style="color: rgb(221, 155, 194);">Task List</h1>
+<div class="container">
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Aufgabe">
+        <input type="date" id="dateInput">
+        <button type="submit">Hinzufügen</button>
+        <button type="button" onclick="saveToDo()" >Speichern</button>
+        <ul id="taskList"></ul>
+    </form>
+</div>
+
+
 
 <script src="script.js"></script>
 </body>
