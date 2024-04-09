@@ -1,0 +1,36 @@
+<!-- API-KEY: Wn9AUB3KvC8xz9emlSPGsANchoPXmPa9vM2KdYS8 -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landsat 8 Satellitenbilder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+</head>
+<body>
+    <h2>Landsat 8 Satellitenbilder</h2>
+    <label for="latitude">Breite (Latitude):</label>
+    <input type="text" id="latitude" placeholder="-90 bis 90 (zB. 42.42937)"><br><br>
+    <label for="longitude">Länge (Longitude):</label>
+    <input type="text" id="longitude" placeholder="-180 bis 180 (zB. -431.06781)"><br><br>
+    <label for="date">Datum (JJJJ-MM-TT):</label>
+    <input type="text" id="date" value="2017-02-01" placeholder="z.B. 2014-02-01"><br><br>
+    <label for="dimension">Bildgröße (Dim):</label>
+    <input type="text" id="dimension" value="0.2" placeholder="z.B. 0.2"><br><br>
+    <button id="loadImage">Bild laden</button>
+
+    <div class="image-container">
+        <img id="satelliteImage" src="" alt="" style="max-width: 100%; margin-top: 20px;">
+    </div>
+
+    <div id="mapid" style="height: 400px;"></div>
+
+    <div id="placesList"></div>
+
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>

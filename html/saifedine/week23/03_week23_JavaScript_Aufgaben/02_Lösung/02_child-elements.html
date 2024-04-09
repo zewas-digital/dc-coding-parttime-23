@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Child-Elements</title>
+</head>
+
+<body>
+    <h1>JavaScript Child-Elements</h1>
+    <p>
+        Erstelle einen Plus-Button und einen leeren Container.<br />
+        Wird auf den Button geklickt so soll je ein Button in den Container hinzugefügt werden.
+        Wird auf einen Button im Container geklickt so soll dieser Button aus dem Container entfernt werden.
+    </p>
+
+    <button onclick="addButton()">Click to add Button v1</button>
+    <button onclick="addButtonAndRemoveButton()">Click to add Button v2</button>
+
+    <p>
+    <div id="container">
+
+    </div>
+    </p>
+
+
+
+    <script>
+
+        var buttonContainer = document.getElementById("container");
+        var count = 1;
+
+        // Lösung 1:
+
+        // Add button function:
+        function addButton() {
+
+            buttonContainer.innerHTML += '<button onclick="removeButton(this)">Nr. ' + count + ' (v1)</button>';
+            count++;
+
+        }
+
+        // Remove button function:
+        function removeButton(button) {
+
+            buttonContainer.removeChild(button);
+        }
+
+        // Lösung 2:
+
+        function addButtonAndRemoveButton() {
+
+            // Add button function:
+            var button = document.createElement("button");
+
+            buttonContainer.appendChild(button);
+
+            button.innerHTML = "Nr. " + count + " (v2)";
+            count++;
+
+            // Remove button function:
+            button.onclick = function () {
+
+                buttonContainer.removeChild(button);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

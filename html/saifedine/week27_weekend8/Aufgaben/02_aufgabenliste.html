@@ -1,0 +1,113 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aufgabenliste</title>
+  </head>
+  <body>
+    <h1>Aufgabenliste</h1>
+
+    <input type="text" id="aufgabe" placeholder="Enter task" />
+    <input type="date" id="kalender" />
+    <button onclick="saveTask()">Add task</button>
+    <button onclick="changeTask()">Change task</button>
+    <button onclick="deleteTask()">Delete task</button>
+
+
+    <ol id="tasklist"></ol>
+
+    <script>
+      'use strict'
+
+      var taskContainer = document.getElementById("tasklist");
+      var count = 0;
+
+      function saveTask() {
+        var task = document.getElementById("aufgabe").value;
+        var kalender = document.getElementById("kalender").value;
+
+        count++;
+        const array = [task, kalender, count];
+
+        // Variante 1:
+        console.log(
+          "JavaScript-Array: " +
+            "Task " +
+            array[0] +
+            " Fällig " +
+            array[1] +
+            " " +
+            count
+        );
+
+        // Variante 2:
+        console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
+
+        sessionStorage.setItem(count, array);
+        console.log("Aufgaben-Array: " + array);
+
+        addToDom(array);
+        clearInput(array);
+      }
+
+      function addToDom(array) {
+        taskContainer.innerHTML += '<li><input onchange="addToInput(' + count + ')" type="checkbox" id="selection' + count + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
+      }
+
+      function clearInput() {
+        
+        document.getElementById("aufgabe").value = "";
+        document.getElementById("kalender").value = "";
+      }
+
+      function addToInput(count) {
+
+        let data = sessionStorage.getItem(count);
+
+        var checkboxChecked = document.getElementById('selection' + count).checked;
+
+        //console.log("Checkbox ist ausgewählt1: " + data);
+      
+        if (checkboxChecked) {
+          console.log("Checkbox ist ausgewählt2: " + data);
+        } else {
+          console.log("Du kommst do ned rein")
+        }
+
+        let tmp = data.split(",");
+        console.log(tmp);
+        
+
+        var toDo = document.getElementById("aufgabe");
+        // es macht ein unterschied ob , oder + in der Ausgabe in der Console!!!!!!!!!!!!!!!!!!!
+        console.log("Task: ", toDo);
+        toDo.value = tmp[0];
+        console.log("gewählte Aufgabe: " + toDo.value);
+        //toDo.innerHTML = toDo;
+
+
+        // var kalender = document.getElementById("kalender");
+        // console.log("Task: ", kalender);
+        // kalender.textContent = tmp[1];
+        // console.log("gewählte Datum: " + kalender.textContent);
+
+
+
+
+      }
+
+      function changeTask(array) {}
+    </script>
+  </body>
+</html>

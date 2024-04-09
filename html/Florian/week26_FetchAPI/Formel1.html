@@ -1,0 +1,56 @@
+<!-- Hallo, bitte verwende die gegebene Formel 1 API und gibt die Rennresultate der
+heurigen Rennen aus. Das Ganze soll so funktionieren, dass ich auf die
+Startseite komme und dann alle Rennen der heurigen Saison sehe und mittels einem
+Klick auf einen Eintrag werden darunter das Rennresultat angezeigt. Falls das
+Rennen noch nicht stattgefunden hat soll einfach der Text "Noch keine Ergebnisse
+vorhanden" dargestellt werden. 
+
+Endpunkt für alle Rennen diese Saison: http://ergast.com/api/f1/2024.json
+
+Enpunkt für die Rennergebnisse des ersten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/1/results.json
+
+Enpunkt für die Rennergebnisse des zweiten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/2/results.json
+
+Bonusaufgabe: Erstelle ein Anmeldeformular und
+zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
+Benutzer angemeldet hat. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rennresultate</title>
+</head>
+<body>
+    
+    <h1>Rennergebnisse</h1>
+
+    <div id="rennen"></div>
+
+
+    <script>
+
+       fetch("https://google.com")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Netzwerkfehler");
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                console.log("Daten vom Server erhalten:", data);
+            })
+            .catch((error) => {
+                console.error("Fehler beim Abrufen der Daten:", error);
+            });
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
