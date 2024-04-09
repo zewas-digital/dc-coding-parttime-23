@@ -1,0 +1,155 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aufgabenliste</title>
+</head>
+
+<body>
+  <h1>Aufgabenliste</h1>
+
+  <input type="text" id="aufgabe" placeholder="Enter task" />
+  <input type="date" id="kalender" />
+  <button onclick="saveTask()">Add task</button>
+  <button onclick="changeTask()">Change task</button>
+  <button onclick="deleteTask()">Delete task</button>
+
+
+  <ol id="tasklist"></ol>
+
+  <script>
+    'use strict'
+
+
+    var taskContainer = document.getElementById("tasklist");
+    var count = 0;
+    var editIndex;
+
+    // Funktion zum Speichern der angelegten Aufgaben inkl. Datum
+    function saveTask() {
+
+      // angelegte Variablen (task, kalender), wo der Wert im Input-Feld gespeichert wird.
+      var task = document.getElementById("aufgabe").value;
+      var kalender = document.getElementById("kalender").value;
+
+      // jedes mal wenn eine Aufgabe angelegt wird, erhöht sich der count
+      count++;
+
+      // Array, die alle Informationen zur Aufgabe beinhaltet
+      const array = [task, kalender, count];
+
+      // Testausgabe 1 - eigene:
+      console.log("JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
+
+      // Testausgabe 2 - Marcel:
+      console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
+
+      // speichert, den Key (count) mit dem Wert (array) in die Session Storage
+      sessionStorage.setItem(count, array);
+
+      // Testausgabe:
+      console.log("Aufgaben-Array: " + array);
+
+      // Funktion, die das Aufgaben-Element zur DOM hinzufügt
+      addToDom(array);
+
+      // Funktion, die die Input-Felder (aufgabe & kalender) beim Speichern löscht
+      clearInput(array);
+    }
+
+    // Funktion, die das Aufgaben-Element zur DOM hinzufügt
+    function addToDom(array) {
+
+      // beim Anlegen und speichern einer neuen Aufgabe, wird dynamisch ein Aufgaben-Element zur DOM hinzugefügt
+      taskContainer.innerHTML += '<li><input onchange="addToInput(' + count + ')" type="checkbox" id="selection' + count + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
+    }
+
+
+    function clearInput() {
+
+      document.getElementById("aufgabe").value = "";
+      document.getElementById("kalender").value = "";
+    }
+
+    function addToInput(count) {
+
+      editIndex = count;
+
+      let data = sessionStorage.getItem(count);
+
+      var checkboxChecked = document.getElementById('selection' + count).checked;
+
+      //console.log("Checkbox ist ausgewählt1: " + data);
+
+      if (checkboxChecked) {
+        console.log("Checkbox ist ausgewählt2: " + data);
+      } else {
+        console.log("Du kommst do ned rein");
+      }
+
+      // to Do - funktioniert noch nicht !!!!!!!!!!
+      if (!checkboxChecked) {
+        clearInput();
+      }
+
+      let tmp = data.split(",");
+
+      console.log("Was ist tmp: ", tmp);
+      console.log("Type: ", typeof tmp);
+
+
+      // Aufgabe-Text in Input-Feld:
+      var toDo = document.getElementById("aufgabe");
+      // es macht ein unterschied ob , oder + in der Ausgabe in der Console!!!!!!!!!!!!!!!!!!!
+      console.log("Task: ", toDo);
+      toDo.value = tmp[0];
+      console.log("gewählte Aufgabe: " + toDo.value);
+
+      var kalender = document.getElementById("kalender");
+      kalender.value = tmp[1];
+      console.log("Type: ", typeof kalender, "Datum: ", kalender.value);
+
+    }
+
+    function changeTask(array) {
+
+      deleteTask();
+      saveTask();
+
+
+    }
+
+
+    function deleteTask(array) {
+
+      sessionStorage.removeItem(editIndex);
+
+      var domElement = document.getElementById('selection' + editIndex).parentElement;
+
+      console.dir(domElement);
+
+      domElement.remove();
+
+      console.dir(domElement);
+
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>
