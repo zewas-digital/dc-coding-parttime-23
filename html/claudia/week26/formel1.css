@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+}
+
+div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#headline {
+    font-weight: bold;
+  }
+
+.round {
+    min-width: 10vw;
+       
+} 
+
+.racename {
+    min-width: 30vw;
+    
+}
+
+.circuit{
+    min-width: 30vw;
+}
+
+.date {
+    min-width: 20vw;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="minesweeper.css">
+
+    <title>Minesweeper</title>
+</head>
+
+<body>
+
+    <section>
+        <article>Bomben übrig</article>
+        <article id="counter">??</article>
+
+
+        <button id="reset">Neu beginnen?</button>
+    </section>
+    <section id="game">
+
+    </section>
+
+    <select id="dropdown">
+        <option value="5">klein</option>
+        <option value="8" selected>mittel</option>
+        <option value="10">groß</option>
+    </select>
+    <select id="difficulty">
+        <option value="easy" selected>einfach</option>
+        <option value="middle">mittel</option>
+        <option value="difficult">schwierig</option>
+    </select>
+    <script src="minesweeper.js"></script>
+</body>
+
+</html>
