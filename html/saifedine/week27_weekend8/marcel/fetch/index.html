@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <ul id="liste">
+
+    </ul>
+    <script>
+        console.log(1);
+        setTimeout(() => {
+            console.log(2);
+        }, 2000);
+        console.log(3);
+
+        getData();
+
+        async function getData() {
+            await fetch("http://ergast.com/api/f1/2023.json").then(async (response) => {
+                let data = await response.json();
+                console.log(data);
+            })
+            console.log(5);
+        }
+
+        console.log(4);
+
+    </script>
+</body>
+
+</html>

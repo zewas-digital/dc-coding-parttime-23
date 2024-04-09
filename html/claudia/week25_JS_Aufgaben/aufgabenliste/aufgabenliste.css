@@ -1,6 +1,6 @@
 .aufgabe {
     margin: 5px;
-    width: 60vw;
+    width: 80vw;
     height: 50px;
     background-color: lightgreen;
    
@@ -9,10 +9,14 @@
 
 .datum {
     margin: 5px;
-    width: 30vw;
+    width: 20vw;
     height: 50px;
     background-color: lightpink;
 }
+
+/* .lfdnr {
+
+} */
 
 button {
     margin: 5px;

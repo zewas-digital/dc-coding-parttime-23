@@ -1,11 +1,12 @@
 <!-- 
-Aufgabe: Registrierungsformular
-1/ Erstelle ein Registrierungsformular mit den Feldern:
-Name, Email, Passwort und einem Registrieren-Button.
-2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
-wenn die Eingaben nicht korrekt sind.
-3/ Bonus: Validiere
--->
+    Aufgabe: Registrierungsformular
+    1/ Erstelle ein Registrierungsformular mit den Feldern:
+    Name, Email, Passwort und einem Registrieren-Button.
+    2/ Validiere die Eingaben und gib eine Fehlermeldung aus,
+    wenn die Eingaben nicht korrekt sind.
+    3/ Bonus: Validiere die E-Mail-Adresse mit einer RegEx und 
+    das Passwort auf Länge und Zeichen.
+    -->
 <!DOCTYPE html>
 <html lang="de">
     
@@ -50,13 +51,13 @@ wenn die Eingaben nicht korrekt sind.
             var passwort2 = document.getElementById('passwort2');
 
             function validateEmail() {
-            const res = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,10}$/;
-            if (res.test(String(email).toLowerCase())) {
+            const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!res.test(email) ){
                     email.setCustomValidity('email ist nicht korrekt');
-                    console.log('hello');
+                    console.log('email inkorrekt');
                 } else {
                     email.setCustomValidity('');
-                    console.log('bye');
+                    console.log('email korrekt');
                 }  
             }
 

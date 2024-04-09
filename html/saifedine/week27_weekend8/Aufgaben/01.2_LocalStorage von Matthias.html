@@ -6,6 +6,9 @@
     <title>Local Storage</title>
 </head>
 <body>
+    <!-- Local Storage:
+    Website: Local Storage stellt Speicher ohne Ablaufdatum im Browser des Benutzers zur Verfügung – z.B. um ein einfaches Umschalten der Sprache bei mehrsprachigen Seiten zu realisieren.
+    Wie persistent – also wie dauerhaft – Local Storage tatsächlich ausfällt, lässt sich nicht voraussagen. -->
     <h1>Local Storage Example</h1>
     <input type="text" id="inputData" placeholder="Daten">
     <button onclick="saveData()">Save Data</button>  
@@ -13,27 +16,30 @@
     <button onclick="clearData()">Clear Data</button>
 
     <script>
-        function saveData(){
-            var text = document.getElementById('inputData').value;
-            //console.log(text);
-            window.localStorage.setItem('data',text);
-            console.log(window.localStorage);
 
+        function saveData(){
+
+            var text = document.getElementById('inputData').value;
+
+            localStorage.setItem('data',text);
+
+            console.log("Ausgabe1:", window.localStorage);
         }
+
         function readData(){
-           console.log( window.localStorage.getItem('data'));
-           document.getElementById('inputData').value= window.localStorage.getItem('data');
+
+           console.log("Ausgabe2: " + window.localStorage.getItem('data'));
+
+           // Achtung "Ausgabe 3: " gibt kein Wert mehr aus, wenn das input-Element oben leer ist!!!!
+           console.log("Ausgabe3: " + document.getElementById('inputData').value);
         }
 
         function clearData(){
           
             window.localStorage.removeItem('data');
+
             console.log(window.localStorage);
         }
-        // local Storage und sessionStorage unterscheidne sich von der 
-        //Lebensdauer und von dem Geltungsbreich
-        // der permante gespeichert 
-        // 
     </script>
 
 </body>
