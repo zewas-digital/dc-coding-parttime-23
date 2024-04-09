@@ -1,12 +1,3 @@
-<!-- 
-Aufgabe: Aufgabenliste
-1/ Erstelle eine Aufgabenliste mit den Feldern:
-Aufgabe, Datum und einem Hinzufügen-Button.
-2/ Speichere die Eingaben in einem JavaScript-Array.
-3/ Ergänze die Aufgaben im DOM.
-4/ Mach es möglich, Aufgaben zu bearbeiten.
-5/ Mach es möglich Aufgaben zu löschen.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +5,12 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Storage Example</title>
 </head>
-
 <body>
-<h1 style="color: rgb(221, 155, 194);">Task List</h1>
-<div class="container">
-    <form id="taskForm">
-        <input type="text" id="taskInput" placeholder="Aufgabe">
-        <input type="date" id="dateInput">
-        <button type="submit">Hinzufügen</button>
-        <button type="button" onclick="saveToDo()" >Speichern</button>
-        <ul id="taskList"></ul>
-    </form>
-</div>
-
-
+<h1>Local Storage Example</h1>
+<input type="text" id="inputData" placeholder="Enter data">
+<button onclick="saveData()">Save Data</button>
+<button onclick="readData()">Read Data</button>
+<button onclick="clearData()">Clear Data</button>
 
 <script src="script.js"></script>
 </body>
