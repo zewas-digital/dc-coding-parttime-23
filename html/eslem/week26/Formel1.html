@@ -1,0 +1,78 @@
+<!-- Hallo, bitte verwende die gegebene Formel 1 API und gibt die Rennresultate der
+heurigen Rennen aus. Das Ganze soll so funktionieren, dass ich auf die
+Startseite komme und dann alle Rennen der heurigen Saison sehe und mittels einem
+Klick auf einen Eintrag werden darunter das Rennresultat angezeigt. Falls das
+Rennen noch nicht stattgefunden hat soll einfach der Text "Noch keine Ergebnisse
+vorhanden" dargestellt werden. 
+
+Endpunkt für alle Rennen diese Saison: http://ergast.com/api/f1/2024.json
+
+Enpunkt für die Rennergebnisse des ersten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/1/results.json
+
+Enpunkt für die Rennergebnisse des zweiten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/2/results.json
+
+Bonusaufgabe: Erstelle ein Anmeldeformular und
+zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
+Benutzer angemeldet hat. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formel 1 Rennkalender</title>
+</head>
+<style>
+    body {
+        background-color: rgb(236, 236, 229);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+        .raceline{
+            display:flex;
+            justify-content: space-between;
+        }
+
+</style>
+<body>
+    <h1 style="color: rgb(90, 90, 196);">Formel 1</h1>
+    <h2 style="color: rgb(143, 143, 196);">Rennkalender 2024</h2>
+    <div id="races"></div>
+    <h3 style="color: rgb(169, 169, 207);">Ergebnisse</h3>
+    <div id="rankings"></div>
+
+    <script>
+        fetch("http://ergast.com/api/f1/2024.json")
+        .then(async (response) => {
+            var data = await response.json();
+            for (var i = 0; i < data.MRData.RaceTable.Races.length; i++){
+            //console.log(data.MRData.RaceTable);
+            var x = data.MRData.RaceTable.Races[i];
+            var raceline = document.createElement("div");
+            raceline.className = "raceline";
+            var round = document.createElement("p");
+            round.textContent = x.round;
+            //raceline.append(round);
+            //document.getElementById("races").append(raceline);
+            //parameter.onclick = 
+            var raceName = document.createElement("p");
+            raceName.textContent = x.raceName;
+            var circuitName = document.createElement("p");
+            circuitName.textContent = x.Circuit.circuitName;
+            var date = document.createElement("p");
+            date.textContent = x.date;
+            raceline.append(round, raceName, circuitName, date)
+            document.getElementById("races").append(raceline);
+        }
+        })
+
+        function getRaceStandings(round){
+        fetch("http://ergast.com/api/f1/2024/"+round+"/results.json");
+        .then(async (response) => {
+            var data = await response.json();
+        for(var i = 0; i < data.MRData.RaceTable.Results.length; i++){
+            
+        }
+            })
+        }
+
+    </script>
+</body>
+</html>
