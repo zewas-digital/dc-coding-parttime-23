@@ -17,7 +17,7 @@
 
         //Vorlage Cookie: document.cookie = "username=john; expires=Sat, 13 Apr 2024 00:00:00 UTC; path=/;";
 
-        const setCookie = (ckey, cvalue, expDays) => {
+        const setCookie = (ckey, cvalue, expDays, count) => {
 
             // Alternative a:
             let date = addDays(Date.now(), 20);
@@ -28,7 +28,7 @@
             // Alternative c:
             // date.setUTCMilliseconds(date.getMilliseconds() + expDays * 24 * 60*60*1000);
 
-            let result = `${ckey}=${cvalue}; expires=${date}; path=/;`;
+            let result = `${ckey}=${cvalue}; expires=${date}; path=/;${count};`;
 
             console.log("Ausgabe1: ", result);
 
@@ -36,7 +36,13 @@
 
             let cookieStorage = document.getElementById("liste");
 
-            //cookieStorage.innerHTML = '<li>Cookies: ' + </li>';
+            for (let i = 1; i < 5; i++) {
+
+                cookieStorage.innerHTML = '<li>Cookies-Result: '+ result + '</li>';
+            
+            }
+
+            
 
         }
 
@@ -49,10 +55,10 @@
             return result;
         }
 
-        setCookie("name", "John", 20)
-        setCookie("nachname", "Cena", 20)
-        setCookie("strasse", "Ringweg", 20)
-        setCookie("plz", "6850", 20)
+        setCookie("name", "John", 20, 1)
+        setCookie("nachname", "Cena", 20, 2)
+        setCookie("strasse", "Ringweg", 20, 3)
+        setCookie("plz", "6850", 20, 4)
 
         const getCookie = (ckey) => {
 
@@ -65,21 +71,16 @@
 
             tmp2.find(elem => {
                 if (elem[0] == ckey) {
-                    console.log(elem[1])
+                    console.log("Ausgabe3: ", elem[1])
                 } 
             })
 
         }
 
-
-
-        
-
-
         // Cookie löschen, indem expire date in der Vergangenheit liegt;
         //setCookie("nachname", "John", 0)
 
-        console.log(document.cookie)
+        console.log("Ausgabe2: ", document.cookie);
 
         getCookie("plz");
 
