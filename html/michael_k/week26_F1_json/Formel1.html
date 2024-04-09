@@ -1,0 +1,151 @@
+<!-- Hallo, bitte verwende die gegebene Formel 1 API und gibt die Rennresultate der
+heurigen Rennen aus. Das Ganze soll so funktionieren, dass ich auf die
+Startseite komme und dann alle Rennen der heurigen Saison sehe und mittels einem
+Klick auf einen Eintrag werden darunter das Rennresultat angezeigt. Falls das
+Rennen noch nicht stattgefunden hat soll einfach der Text "Noch keine Ergebnisse
+vorhanden" dargestellt werden. 
+
+Endpunkt für alle Rennen diese Saison: http://ergast.com/api/f1/2024.json
+
+Enpunkt für die Rennergebnisse des ersten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/1/results.json
+
+Enpunkt für die Rennergebnisse des zweiten Rennens der heurigen Saison: http://ergast.com/api/f1/2024/2/results.json
+
+Bonusaufgabe: Erstelle ein Anmeldeformular und
+zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
+Benutzer angemeldet hat. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #circuit {
+            display: flex;
+
+        }
+
+        #result {
+            display: flex;
+
+        }
+
+        p {
+            margin-top: 10px;
+            margin-right: 30px;
+        }
+        #circuit:hover{
+            background-color: rgba(66, 44, 11, 0.151);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Formel1 Übersicht</h1>
+    <hr>
+    <div id="circuits"></div>
+    <hr>
+    <h1>Ergebnis</h1>
+    <div id="raceresults">
+
+    </div>
+
+    <script>
+
+        var object;
+
+        fetch("http://ergast.com/api/f1/2024.json")
+            .then(function (response) {
+    
+                return response.json();
+            })
+            .then(function (data) {
+
+                for (var i = 0; i < data.MRData.RaceTable.Races.length; i++) {
+                    let x = data.MRData.RaceTable.Races[i];
+
+                    var racename = document.createElement("p");
+                    racename.innerHTML = x.raceName;
+
+                    var date = document.createElement("p");
+                    date.innerHTML = x.date;
+
+                    var round = document.createElement("p");
+                    round.innerHTML = x.round;
+
+                    var circuit = document.createElement("div");
+                    circuit.id = "circuit";
+                    circuit.onclick = function () {
+                        getRaceresults(x.round);
+                    };
+                    circuit.appendChild(racename);
+                    circuit.appendChild(round);
+                    circuit.appendChild(date);
+
+                    var circuitDiv = document.getElementById("circuits");
+                    circuitDiv.appendChild(circuit);
+                }
+
+            });
+
+
+        function getRaceresults(round) {
+
+            var resultDiv = document.getElementById("raceresults");
+            resultDiv.innerHTML = "";
+
+            fetch("http://ergast.com/api/f1/2024/" + round + "/results.json")
+                .then(function (response) {
+                    
+                    return response.json();
+                })
+                .then(function (data) {
+                    var resultDiv = document.getElementById("raceresults");
+                    if (data.MRData.total < 1) {
+                        resultDiv.textContent = "Keine Ergebnisse";
+                    } else {
+
+                        for (var i = 0; i < data.MRData.RaceTable.Races[0].Results.length; i++) {
+                            let x = data.MRData.RaceTable.Races[0].Results[i];
+
+                            var position = document.createElement("p");
+                            position.innerHTML = x.positionText;
+
+                            var driver = document.createElement("p");
+                            driver.innerHTML = x.Driver.familyName;
+
+                            var constructor = document.createElement("p");
+                            constructor.innerHTML = x.Constructor.name;
+
+                            var points = document.createElement("p");
+                            points.innerHTML = x.points;
+
+                            var result = document.createElement("div");
+                            result.id = "result";
+                            result.appendChild(position);
+                            result.appendChild(driver);
+                            result.appendChild(constructor);
+                            result.appendChild(points);
+                           
+                            resultDiv.appendChild(result);
+                        }
+                    }
+                })
+
+        };
+
+        function showResult(result) {
+            console.log('javascript ist cool');
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

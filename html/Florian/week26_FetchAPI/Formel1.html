@@ -14,3 +14,43 @@ Enpunkt für die Rennergebnisse des zweiten Rennens der heurigen Saison: http://
 Bonusaufgabe: Erstelle ein Anmeldeformular und
 zeige die Rennresultate nur an falls der Benutzer sich mit dem richtigen
 Benutzer angemeldet hat. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rennresultate</title>
+</head>
+<body>
+    
+    <h1>Rennergebnisse</h1>
+
+    <div id="rennen"></div>
+
+
+    <script>
+
+       fetch("https://google.com")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Netzwerkfehler");
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                console.log("Daten vom Server erhalten:", data);
+            })
+            .catch((error) => {
+                console.error("Fehler beim Abrufen der Daten:", error);
+            });
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

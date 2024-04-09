@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Html Css Js Basics</title>
+
+    <!-- style:
+    Website: Mit dem HTML-Tag <style> setzen Sie CSS-Codes ein, die das Aussehen Ihrer Website definieren. -->
+    <style>
+      /* alle Text-Elemente im body sind zentriert */
+      body {
+        text-align: center;
+      }
+
+      /* gültig für alle h1-tags */
+      h1 {
+        color: purple !important; /* !important setzt das Cascading außer Kraft und gibt einer CSS-Regel so ein hohes Gewicht, dass sie auch durch später folgende Regeln nicht überschrieben wird */
+        margin-bottom: 6px; /* margin, der äußere Rand, bildet den Abstand des Elements gegen den umgebenden und benachbarten bzw. folgenden Block */
+        margin-top: 6px;
+      }
+
+      /* gültig für id="HeadlineH2" */
+      #headlineH2 {
+        color: green; /* wird überschrieben durch style="color: red;" im HTML - Element */
+      }
+
+      h2 {
+        text-align: left; /* text-align richtet den Text aus */
+      }
+
+      /* gilt sowohl für h2- & p-tags als auch für Klasse .blue */
+      h2,
+      p,
+      .blue {
+        color: blue;
+        /*text-align:right;*/
+      }
+
+      /* gilt für Klasse .brown */
+      .brown {
+        color: brown;
+      }
+
+      /* gilt für Klasse .small-text */
+      .small-text {
+        font-size: 9px;
+      }
+    </style>
+  </head>
+
+  <!-- body:
+Kurs: dargestellte Webseite
+Website: body kennzeichnet den Anfang und das Ende des sichtbaren Inhalts der Webseite: Hier sitzen alle HTML-Tags für den Inhalt der Seite. -->
+  <body>
+    <!-- h1: Header, Überschrift -->
+    <!-- siehe Style-Definitionen von h1-tag oben -->
+    <!-- style-Attribut gilt für dieses Element -->
+    <h1 style="font-size: 120px; color: red">hello</h1>
+    <!-- es können mehrere style-Attribute pro HTML-Element definiert werden - mit Trennung, ";", Farbe wird überstimmt durch !important im CSS -->
+    <h1>there!</h1>
+
+    <!-- p: Paragraph, Textabsatz-->
+    <!-- siehe Style-Definitionen von oben -->
+    <!-- Schriftgröße (.small-text)-->
+    <p class="brown small-text">Beispieltext mit CSS-Klasse</p>
+    <!-- es können mehrere Klassen pro HTML-Element definiert werden - ohne Trennung, nur Abstand -->
+    <p>Beispieltext 1</p>
+    <p>Beispieltext 2</p>
+    <p>Beispieltext 3</p>
+
+    <!-- h2: Header, Überschrift -->
+    <!-- siehe Style-Definitionen von oben -->
+    <h2 id="headlineH2" class="brown" style="color: red">Hi?</h2>
+    <!-- Style-Farben-Definition (#headlineH2 & .brown) von oben werden durch style-Attribut im HTML-Element überschrieben -->
+    <h2>There?</h2>
+
+    <!-- div: Division (Bereiche), Behälter/Container zum Gruppieren von HTML-Tags -->
+    <!-- siehe Style-Definitionen von oben -->
+    <div class="blue">Div-Text</div>
+
+    <!-- button: Schaltfläche -->
+    <button onclick="sayHello()">say hello</button>
+    <!-- mit dem onclick wird eine Funktion ("sayHello()") aufgerufen -->
+
+    <p id="answere"></p>
+
+    <!-- script:
+    Website: Im script-Element können Script-Anweisungen direkt eingesetzt werden, aber script kann auch eine externe Script-Datei mittels scr-Attribut laden.-->
+    <script>
+      var name = "Thomas";
+
+      /* Funktion sayHello() ruft die Funktion alert*/
+      function sayHello() {
+
+        alert("hello " + name); /* Funktion alert öffnet Dialogbox mit dem Inhalt "hello Thomas" */
+
+        /* nach der Bestätigung der Dialogbox kommt der nächste Abschnitt" */
+        
+        var element = document.getElementById("answere"); /* Deklaration von "element" als Variable und dessen Zuweisung als HTML-Element mit der id "answere" */
+        element.textContent = "Nice to meet you!"; /* textContent gibt den Inhalt eines Elements zurück oder setzt den Inhalt eines Elements */
+      }
+    </script>
+  </body>
+</html>

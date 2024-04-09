@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Session Storage:
+    Website: Session Storage speichert Daten im Browser des Benutzers – genauso wie Local Storage – überlebt ein Reload und ein Restore der Seite, gilt aber nur, solange die Seite geöffnet ist.-->
+    <h1>Session Storage Example</h1>
+    <input type="text" id="inputData" placeholder="Enter Data" />
+
+    <button onclick="saveData()">Save Data</button>
+    <button onclick="readData()">Read Data</button>
+    <button onclick="clearData()">Clear Data</button>
+
+    <script>
+      function saveData() {
+        var userinput = document.getElementById("inputData").value;
+
+        console.log("Ausgabe: " + userinput);
+        sessionStorage.setItem("userinput", userinput);
+      }
+
+      function readData() {
+        let data = sessionStorage.getItem("userinput");
+        console.log("Sessionspeicher: ", data);
+      }
+
+      function clearData() {
+        sessionStorage.clear();
+      }
+    </script>
+  </body>
+</html>

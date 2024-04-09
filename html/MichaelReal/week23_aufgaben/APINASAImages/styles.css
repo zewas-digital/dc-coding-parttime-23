@@ -1,0 +1,111 @@
+/* Setzt allgemeine Schriftarten und Farben für die ganze Seite */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Gestaltet den Header */
+h2 {
+    text-align: center;
+    color: #4db8ff;
+}
+
+/* Stilisierung des Formulars */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Verbessert die visuelle Trennung von Labels und Eingabefeldern */
+label {
+    text-align: left;
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: calc(100% - 50%);
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Stilisiert den "Bild laden" Button */
+button {
+    width: calc(100% - 50%);
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4db8ff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #66ccff;
+}
+
+/* Stilisierung der Bilder- und Orte-Container */
+.image-container, #placesList, #mapid {
+    width: calc(100% - 50%);
+    margin-top: 30px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Verbesserung der Bildanzeige im Container */
+.image-container img {
+    max-width: 100%; 
+    height: auto; 
+    object-fit: contain;
+    margin: 10px 0; 
+    border-radius: 4px; 
+}
+
+/* Listet die Orte in einer stilvollen Weise auf */
+#placesList ul {
+    list-style: none; /* Entfernt Bullet Points */
+    padding: 0;
+}
+
+#placesList li {
+    padding: 5px 0; /* Setzt Abstände innerhalb der Liste */
+    border-bottom: 1px solid #333; /* Fügt eine Trennlinie hinzu */
+}
+
+#placesList li:last-child {
+    border-bottom: none; /* Entfernt die Trennlinie vom letzten Listenelement */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    input[type="text"], button {
+        width: 100%; /* Sorgt dafür, dass Eingabefelder und Button auf kleinen Bildschirmen richtig dargestellt werden */
+    }
+}
+
+#mapid {
+    margin-top: 20px;
+    border-radius: 8px;
+}

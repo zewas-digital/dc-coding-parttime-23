@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Storage</title>
+</head>
+
+<body>
+    <ul id="liste">
+        <li></li>
+
+    </ul>
+    <script>
+
+
+        //Vorlage Cookie: document.cookie = "username=john; expires=Sat, 13 Apr 2024 00:00:00 UTC; path=/;";
+
+        const setCookie = (ckey, cvalue, expDays, count) => {
+
+            // Alternative a:
+            let date = addDays(Date.now(), 20);
+
+            // Alternative b:
+            // let date = new Date(Date.now() + expDays * 24 * 60 * 60 * 1000);
+            
+            // Alternative c:
+            // date.setUTCMilliseconds(date.getMilliseconds() + expDays * 24 * 60*60*1000);
+
+            let result = `${ckey}=${cvalue}; expires=${date}; path=/;${count};`;
+
+            console.log("Ausgabe1: ", result);
+
+            document.cookie = result;
+
+            let cookieStorage = document.getElementById("liste");
+
+            for (let i = 1; i < 5; i++) {
+
+                cookieStorage.innerHTML = '<li>Cookies-Result: '+ result + '</li>';
+            
+            }
+
+            
+
+        }
+
+        function addDays(date, days) {
+
+            var result = new Date(date);
+
+            result.setDate(result.getDate() + days);
+
+            return result;
+        }
+
+        setCookie("name", "John", 20, 1)
+        setCookie("nachname", "Cena", 20, 2)
+        setCookie("strasse", "Ringweg", 20, 3)
+        setCookie("plz", "6850", 20, 4)
+
+        const getCookie = (ckey) => {
+
+            let tmp = document.cookie.split("; ");
+
+            let tmp2 = [];
+            tmp.forEach(element => {
+                tmp2.push(element.split("="))
+            })
+
+            tmp2.find(elem => {
+                if (elem[0] == ckey) {
+                    console.log("Ausgabe3: ", elem[1])
+                } 
+            })
+
+        }
+
+        // Cookie löschen, indem expire date in der Vergangenheit liegt;
+        //setCookie("nachname", "John", 0)
+
+        console.log("Ausgabe2: ", document.cookie);
+
+        getCookie("plz");
+
+    </script>
+</body>
+
+</html>
