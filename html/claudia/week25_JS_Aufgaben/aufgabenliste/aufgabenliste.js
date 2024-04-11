@@ -1,6 +1,6 @@
 // localStorage.clear();
 
-
+//Idee: eindeutige ID, automatisch vergeben, aus Datum + lfdNr?
 //JSON.stringify wandelt json in String um, umgekehrt JSON.parse
 //VAlidierung: leere Eingaben, komische Formate
 //Tabelle nach Fälligkeit sortieren
@@ -12,6 +12,10 @@
 
 //const toDoArray = [];
 //Retrieve Data from Local Storage
+//Bonus: Mehrfachauswahl? Checkboxen, mehrere gleichzeitig löschen oder ändern; 
+//evtl. nur einzelne Felder, z.B. nur Datum
+// z.B. auch Menüpunkt neue Aufgabe: ausblenden am Anfang, z.B. wenn selten neue Aufgaben erzeugt werden
+//2D-Array durch Array von Objekten ersetzten, gesamtes in Storage 
 
 
 var myButton = document.querySelector("button");
@@ -26,28 +30,38 @@ const toDoArray = localStorageToArray();
 console.log("ToDoArray beim Laden der Seite ", toDoArray);
 buildList();
 
+
+
+
+
+
+
+
 function addToDo() {
 
     const what = document.querySelector("input[name='title']").value;
-    const when = document.querySelector("input[name='date']").value;
+    const dateInput = document.querySelector("input[name='date']").value;
+    const when = formatDate(dateInput);
 
-    if (what !== "" && when !== "") {
+    if (what !== "" && isValidDate(when)) {
         toDoArray.push([what, when]);
+    }
+    else {
+        alert("Schrott eingegeben!")
     }
 
     console.log(toDoArray);
     buildList();
     arrayToLocalStorage(toDoArray);
 
-    
 }
 
 function buildList() {
 
-    let todoList = document.querySelector("#ToDos");
+    const todoList = document.querySelector("#ToDos");
     todoList.innerHTML = ""; //remove old table
-    let numberOfTasks = toDoArray.length;
-    
+    const numberOfTasks = toDoArray.length;
+
     for (let i = 0; i < numberOfTasks; i++) {
 
         let task = document.createElement("tr");
@@ -56,7 +70,7 @@ function buildList() {
         what.textContent = toDoArray[i][0];
         // console.log(what.textContent);
         what.classList.add("aufgabe");
-        what.addEventListener("click", changeTask);
+        what.addEventListener("click", changeTask2);
 
         const when = document.createElement("td");
         when.textContent = toDoArray[i][1];
@@ -72,13 +86,10 @@ function buildList() {
         // checkbox.addEventListener("change", removeTask);
         // box.appendChild(checkbox);
 
-
         const box = document.createElement("td");
         box.textContent = "🔨";
         box.classList.add("clear");
         box.addEventListener("click", removeTask);
-        
-
 
         // task.append(nr, what, when, box);
         task.append(what, when, box);
@@ -87,11 +98,11 @@ function buildList() {
 }
 
 function localStorageToArray() {
-    var matrix = [];
-    var keys = Object.keys(localStorage);
-    for (var i = 0; i < keys.length; i++) {
-        var taskString = localStorage.getItem(i);
-        var separateStrings = taskString.trim().split(","); //remove blanks, split by comma
+    let matrix = [];
+    const keys = Object.keys(localStorage);
+    for (let i = 0; i < keys.length; i++) {
+        let taskString = localStorage.getItem(i);
+        let separateStrings = taskString.trim().split(","); //remove blanks, split by comma
         // matrix.push([separateStrings[0], separateStrings[1], separateStrings[2]]);
         matrix.push([separateStrings[0], separateStrings[1]]);
     }
@@ -100,41 +111,46 @@ function localStorageToArray() {
 
 function arrayToLocalStorage(matrix) {
     localStorage.clear();
-    for (var i = 0; i < matrix.length; i++) {
+    for (let i = 0; i < matrix.length; i++) {
         // var trueOrFalse = matrix[i][2];
         // var rowToString = matrix[i][0].toString() + "," + matrix[i][1].toString() + "," + trueOrFalse;
-        var rowToString = matrix[i][0].toString() + "," + matrix[i][1].toString();
+        const rowToString = matrix[i][0].toString() + "," + matrix[i][1].toString();
         localStorage.setItem(i, rowToString);
-
     }
-    
 }
-function changeDate(event){
-    let taskRow = event.target.closest("tr");
+function changeDate() {
+    const taskRow = this.closest("tr");
     const parent = taskRow.parentNode;
     const allChildren = parent.childNodes;
-    let index = Array.prototype.indexOf.call(allChildren, taskRow);
+    const index = Array.prototype.indexOf.call(allChildren, taskRow);
 
-    let pattern =/[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+    // const newDate = prompt("Bitte geben Sie das neue Datum ein:").match(pattern);
 
-    let newDate = prompt("Bitte geben Sie das neue Datum ein:").match(pattern);
-    toDoArray[index][1] = newDate;
+    const newDate = prompt("Bitte geben Sie das neue Datum ein:");
+
+    if (isValidDate(newDate)) {
+        toDoArray[index][1] = newDate;
+    }
+    else {
+        alert("Schrott eingegeben!")
+    }
 
     buildList();
     arrayToLocalStorage(toDoArray);
 }
 
-function changeTask(event){
-   
-    let taskRow = event.target.closest("tr");
+function changeTask() {
+    // console.log(this, "this");
+    const taskRow = this.closest("tr");
     const parent = taskRow.parentNode;
     const allChildren = parent.childNodes;
-    let index = Array.prototype.indexOf.call(allChildren, taskRow);
-    console.log(toDoArray[index], "ändern");
+    const index = Array.prototype.indexOf.call(allChildren, taskRow);
+    // console.log(toDoArray[index], "ändern");
 
-
-    let newText = prompt("Bitte geben Sie die neue Aufgabe ein:", toDoArray[index][0]);
+    const newText = prompt("Bitte geben Sie die neue Aufgabe ein:", toDoArray[index][0]);
     toDoArray[index][0] = newText;
+
+
    
     buildList();
     arrayToLocalStorage(toDoArray);
@@ -150,30 +166,92 @@ function changeTask(event){
     // inputElement.addEventListener("blur", function() {
     //     // Get the new value entered by the user
     //     const newValue = inputElement.value;
-    
+
     //     // Replace the input element with the new value in the cell
     //     itemToChange.innerText = newValue;
     //   });
 
-
-    // console.log("Ändern", itemToChange);
 }
 
-function removeTask(event) {
-    if (confirm("Sicher?")){
-   
-    // Get the row that contains the target element (the element that triggered the event)
-    let taskRow = event.target.closest("tr");
-    // console.log(taskRow, "geklickte Zeile");
+function changeTask2(){
+    // console.log("Change2");
+    const taskRow = this.closest("tr");
     const parent = taskRow.parentNode;
     const allChildren = parent.childNodes;
-    let index = Array.prototype.indexOf.call(allChildren, taskRow);
-    // console.log(index, "Nr. der Zeile (?)");
-    // console.log(toDoArray, "Todo-Array");
-    toDoArray.splice(index, 1); //1 Reihe löschen
+    const index = Array.prototype.indexOf.call(allChildren, taskRow);
+    //original Text:
+    const originalText = this.textContent;
+    //create new input-element:
+    const inputElement = document.createElement("input");
+    inputElement.type = "text";
+    inputElement.value = originalText; //write old text into new element as placeholder
 
+    const thisthis = this;
+    //when inputElement looses focus, do the following:
+    inputElement.addEventListener("blur", function() {
+        const newText = inputElement.value;
+        console.log(newText, "newText");
+        thisthis.innerText = newText;
+        taskRow.replaceChild(thisthis, inputElement);
+        toDoArray[index][0] = newText;
+    })
+
+    console.log(this.textContent, "alter Wert?");
+    this.textContent = "";
+    console.log(this.textContent, "ersetzt");
+    taskRow.replaceChild(inputElement, thisthis);
+    inputElement.focus();
+
+    
+
+/*
+To address this issue, you correctly stored a reference to the original this 
+in the variable thisthis. However, when you attempt to replace the inputElement 
+with thisthis, you are effectively trying to replace the inputElement with the same element (this) 
+which it was replaced by originally. This can lead to unexpected behavior.
+
+To resolve this issue, you should use the thisthis variable to replace the inputElement 
+with the original element in the blur event listener, and vice versa.
+*/
+
+
+
+    // toDoArray[index][0] = newText;
     buildList();
     arrayToLocalStorage(toDoArray);
-    }
+}
 
+
+
+
+function removeTask(event) {
+    if (confirm("Sicher?")) {
+
+        // Get the row that contains the target element (the element that triggered the event)
+        const taskRow = event.target.closest("tr");
+        // console.log(taskRow, "geklickte Zeile");
+        const parent = taskRow.parentNode;
+        const allChildren = parent.childNodes;
+        const index = Array.prototype.indexOf.call(allChildren, taskRow);
+        // console.log(index, "Nr. der Zeile (?)");
+        // console.log(toDoArray, "Todo-Array");
+        toDoArray.splice(index, 1); //1 Reihe löschen
+
+        buildList();
+        arrayToLocalStorage(toDoArray);
+    }
+}
+function formatDate(inputDate) {
+    // Parse the input date
+    const parsedDate = new Date(inputDate);
+    // Format the date into dd.mm.yyyy, template literal
+    //                                  Tag            Monat (Januar = 0)                          Jahr
+    const formattedDate = `${parsedDate.getDate()}.${parsedDate.getMonth() + 1}.${parsedDate.getFullYear()}`;
+    return formattedDate;
+}
+
+function isValidDate(dateString) {
+    // Regular expression to validate date format (dd.mm.yyyy)
+    const datePattern = /^(0?[1-9]|[12][0-9]|3[01])\.(0?[1-9]|1[012])\.\d{4}$/;
+    return datePattern.test(dateString);
 }
