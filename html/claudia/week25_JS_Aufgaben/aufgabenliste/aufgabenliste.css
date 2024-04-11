@@ -2,7 +2,7 @@
     margin: 5px;
     width: 80vw;
     height: 50px;
-    background-color: lightgreen;
+    background-color: rgb(144, 177, 238);
    
 
 }
@@ -11,12 +11,13 @@
     margin: 5px;
     width: 20vw;
     height: 50px;
-    background-color: lightpink;
+    background-color: rgb(182, 193, 255);
 }
 
-/* .lfdnr {
+.datum:hover:not(th), .aufgabe:hover:not(th), .clear:hover:not(th){
+    cursor: pointer;
+}
 
-} */
 
 button {
     margin: 5px;
@@ -26,9 +27,6 @@ form {
     margin: 5px;
 }
 
-/* #ToDos {
-    display: flex;
-} */
 
 .done {
     background-color: gray;

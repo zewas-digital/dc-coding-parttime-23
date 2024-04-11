@@ -100,16 +100,25 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         }
 
         function changeTask(index) {
+            let htmlContent = "<p><label for=\"date\">Deadlline</label><input type=\"date\" name=\"date\" id=\"date\"></p><p><label for=\"task\">Aufgabe</label><textarea name=\"task\" id=\"task\" cols=\"30\" rows=\"10\"></textarea></p><button id=\"editTask\" onclick = \"edit(" + index +")\"> Aufgabe ändern</button>";
+            document.getElementById('inputfield').innerHTML = htmlContent;
+
             let task = taskArray[index].task;
             console.log(task);
             
             document.getElementById('task').value = task;
             console.log(document.getElementById('task'));
-            removeTask(index);
-
+            
         }
-
-
+        function edit(index) {
+           
+            taskArray[index].task = document.getElementById('task').value;
+            taskArray[index].date = document.getElementById('date').value;
+        
+            document.getElementById('inputfield').innerHTML = '<p><label for="date">Deadlline</label><input type="date" name="date" id="date"></p><p><label for="task">Aufgabe</label><textarea name="task" id="task" cols="30" rows="10"></textarea></p><button id="addTask"> Aufgabe hinzufügen</button>';
+            addToDOM();
+        }
+        
     </script>
 
 </body>

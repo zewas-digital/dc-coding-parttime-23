@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <ul id="liste">
+
+    </ul>
+    <script>
+        loadData(greet);
+
+        async function loadData(callback) {
+            let data = await fetch("http://ergast.com/api/f1/2024.json").then(async (response) => {
+                let list = document.querySelector("#liste");
+                const json = await response.json();
+                console.log(response);
+                json.MRData.RaceTable.Races.forEach(element => {
+                    let tag = document.createElement('li');
+                    tag.textContent = element.raceName;
+                    list.appendChild(tag)
+                });
+                console.log("test");
+            })
+
+            console.log("Fertig!");
+            callback();
+        }
+
+
+        function greet() {
+            console.log("Hallo");
+        }
+    </script>
+</body>
+
+</html>
