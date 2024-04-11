@@ -103,8 +103,9 @@ function localStorageToArray() {
 function arrayToLocalStorage(matrix) {
     localStorage.clear();
     for (var i = 0; i < matrix.length; i++) {
-        var trueOrFalse = matrix[i][2];
-        var rowToString = matrix[i][0].toString() + "," + matrix[i][1].toString() + "," + trueOrFalse;
+        // var trueOrFalse = matrix[i][2];
+        // var rowToString = matrix[i][0].toString() + "," + matrix[i][1].toString() + "," + trueOrFalse;
+        var rowToString = matrix[i][0].toString() + "," + matrix[i][1].toString();
         localStorage.setItem(i, rowToString);
 
     }
