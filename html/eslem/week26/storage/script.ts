@@ -21,12 +21,3 @@ function clearData() {
     localStorage.removeItem('data');
     console.log('Data cleared from local storage.');
 }
-function saveToDo() {
-    var todo = document.getElementById("aufgabe").value;
-    var kalender = document.getElementById("kalender").value;
-
-    const toDoList = [todo, kalender];
-    console.log(toDoList);
-
-    
-}
