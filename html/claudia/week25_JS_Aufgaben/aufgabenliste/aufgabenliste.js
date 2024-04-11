@@ -1,17 +1,14 @@
 // localStorage.clear();
-//TODO: Daten aus LocalStorage auslesen, Aufgabenliste neu erzeugen, lfdNr setzen
-//ARray erzeugen - in LocalStorage einlesen
+
+
 //JSON.stringify wandelt json in String um, umgekehrt JSON.parse
-//falls Text leer oder Datum ungültig -> kein Einlesen!
 //VAlidierung: leere Eingaben, komische Formate
 //Tabelle nach Fälligkeit sortieren
-
 
 // var lfdNr = 1;
 
 //hier nur zum Testen; eigentlich sollten die Aufgaben gespeichert bleiben
 //window.localStorage.clear();
-
 
 //const toDoArray = [];
 //Retrieve Data from Local Storage
@@ -95,7 +92,8 @@ function localStorageToArray() {
     for (var i = 0; i < keys.length; i++) {
         var taskString = localStorage.getItem(i);
         var separateStrings = taskString.trim().split(","); //remove blanks, split by comma
-        matrix.push([separateStrings[0], separateStrings[1], separateStrings[2]]);
+        // matrix.push([separateStrings[0], separateStrings[1], separateStrings[2]]);
+        matrix.push([separateStrings[0], separateStrings[1]]);
     }
     return matrix;
 }
