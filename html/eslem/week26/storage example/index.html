@@ -1,0 +1,105 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Storage Example</title>
+</head>
+
+<body>
+<h1 style="color: rgb(221, 155, 194);">Task List</h1>
+
+    <input type="text" id="task" placeholder="Enter task" />
+    <input type="date" id="kalender" />
+    <button onclick="saveTask()">Add task</button>
+    <button onclick="changeTask()">Change task</button>
+    <button onclick="deleteTask()">Delete task</button>
+
+<ol id="tasklist"></ol>
+
+<script>
+'use strict'
+var container = document.getElementById("tasklist");
+    var count = 0;
+    var editIndex;
+
+function saveTask() {
+      var task = document.getElementById("aufgabe").value;
+      var kalender = document.getElementById("kalender").value;
+      count++;
+      const array = [task, kalender, count];
+      console.log(
+        "JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
+
+      console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
+
+    sessionStorage.setItem(count, array);
+    console.log("Aufgaben-Array: " + array);
+
+    addDom(array);
+    clearInput(array);
+    }
+
+    function addDom(array) {
+      container.innerHTML += '<li><input onchange="addInput(' + count + ')" type="checkbox" id="selection' + count + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
+    }
+    function clearInput() {
+
+    document.getElementById("aufgabe").value = "";
+    document.getElementById("kalender").value = "";
+    }
+
+    function addInput(count) {
+    editIndex = count;
+
+    let data = sessionStorage.getItem(count);
+    var checkboxChecked = document.getElementById('selection' + count).checked;
+
+    if (checkboxChecked) {
+        console.log("Checkbox wurde ausgewählt: " + data);
+      } else {
+        console.log("Fehler!");
+      }
+
+      let tmp = data.split(",");
+
+      console.log(tmp);
+      console.log("Type: ", typeof tmp);
+
+      var toDo = document.getElementById("aufgabe");
+
+      console.log("Task: ", toDo);
+      toDo.value = tmp[0];
+      console.log("gewählte Aufgabe: " + toDo.value);
+
+      var kalender = document.getElementById("kalender");
+      kalender.value = tmp[1];
+      console.log("Type: ", typeof kalender, "Datum: ", kalender.value);
+
+    }
+    function changeTask(array) {
+    deleteTask();
+    saveTask();
+    }
+
+    function deleteTask(array) {
+      sessionStorage.removeItem(editIndex);
+      var domElement = document.getElementById('selection' + editIndex).parentElement;
+      console.dir(domElement);
+      domElement.remove();
+      console.dir(domElement);
+    }
+
+</script>
+</body>
+</html>
+
