@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabenliste</title>
+    <link rel="stylesheet" href="aufgabenliste.css">
+</head>
+
+<body>
+
+    <div id="inputfield">
+        <p>
+            <label for="date">Deadlline</label>
+            <input type="date" name="date" id="date">
+        </p>
+        <p>
+            <label for="task">Aufgabe</label>
+            <textarea name="task" id="task" cols="50" rows="10"></textarea>
+        </p>
+        <button id="addTask"> Aufgabe hinzufügen</button>
+    </div>
+    <div id="tasks">
+
+        <div class="taskColumns">
+            <p class="headertext">Aufgaben</p>
+            <div id="tasklist">
+
+            </div>
+        </div>
+        <div class="taskColumns">
+            <p class="headertext">in Bearbeitung</p>
+            <div id="inProgress">
+
+            </div>
+        </div>
+        <div class="taskColumns">
+            <p class="headertext">Erledigt</p>
+            <div id="done">
+
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="app.js"></script>
+    </body>
+    </html>
