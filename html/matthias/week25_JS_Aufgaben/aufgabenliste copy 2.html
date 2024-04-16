@@ -20,23 +20,21 @@ Aufgabe, Datum und einem Hinzufügen-Button.
     <input type="text" id="aufgabe" placeholder="Aufgabe eingeben">
     <input type="date" id="datum">
     <button id="hinzuf"     	onclick="aufgabeHinzufuegen()">Hinzufügen</button>
-    <button id="speichern"      oncklick="speichern()">Speichern</button>
+    <button id="speichern"      onclick="speichern()">Speichern</button>
 </div>
 <ul id="aufgabenListe"></ul>
 
 <script>
-     var arrayList= new Array();
-     var struct = {
-            
-            Aufgabe: aufgabe, 
-            Datum: datum,
-           
-        } ;
+     var arrayList= JSON.parse(window.localStorage.getItem('Aufgaben'));
+     
+    aktuallisieren();
+
 function aufgabeHinzufuegen() {
     const aufgabeInput = document.getElementById("aufgabe");
     const datumInput = document.getElementById("datum");
     const aufgabe = aufgabeInput.value;
     const datum = datumInput.value;
+    var struct = {Aufgabe: aufgabe, Datum: datum,} ;
     if (aufgabe && datum) {
         struct.Aufgabe=aufgabe;
         struct.Datum=datum;
@@ -54,8 +52,8 @@ function aktuallisieren(){
     document.getElementById("datum").value="";
     console.log("Aufgaben Liste:",arrayList);
     console.log("Aufgaben Liste:",arrayList[0].Aufgabe);
-
         for (var i in arrayList) {
+            console.log(i);
             const li = document.createElement("li");
             li.textContent = arrayList[i].Aufgabe + " (fällig am " + arrayList[i].Datum;
             // Button zum Bearbeiten
@@ -72,21 +70,23 @@ function aktuallisieren(){
         }
 }
 
-function speichern(i){
+function speichern(){
             var aufgabe = document.getElementById("aufgabe").value;
             var datum = document.getElementById("datum").value;
-            struct.Aufgabe=aufgabe;
-            struct.Datum=datum;
-            arrayList.push(struct);
+            arrayList[speicherIndex].Aufgabe=aufgabe;
+            arrayList[speicherIndex].Datum=datum;
             window.localStorage.setItem('Aufgaben', JSON.stringify(arrayList));
-            aufgabeLoeschen(i);
+            aufgabeLoeschen(speicherIndex);
 }
 
+var speicherIndex=0;
 function aufgabeBearbeiten(index) {
+    var temp=index;
+    speicherIndex=index;
     console.log("Index:"+index);
-        if (!isNaN(document.getElementById("aufgabe").textContent)) {
-            document.getElementById("aufgabe").value=arrayList[index].Aufgabe;
-            document.getElementById("datum").value=arrayList[index].Datum;
+        if (!isNaN(document.getElementById("aufgabe").value)) {
+            document.getElementById("aufgabe").value=arrayList[temp].Aufgabe;
+            document.getElementById("datum").value=arrayList[temp].Datum;
         }
     }
 
