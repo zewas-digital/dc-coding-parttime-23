@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Session Storage:
+    Website: Session Storage speichert Daten im Browser des Benutzers – genauso wie Local Storage – überlebt ein Reload und ein Restore der Seite, gilt aber nur, solange die Seite geöffnet ist.-->
+    <h1>Session Storage Example</h1>
+    <input type="text" id="inputData" placeholder="Enter Data" />
+
+    <button onclick="saveData()">Save Data</button>
+    <button onclick="readData()">Read Data</button>
+    <button onclick="clearData()">Clear Data</button>
+
+    <script>
+      // Funktion, die den Input des User speichert:
+      function saveData() {
+        // Wert von "inputData" wird in die Varialble "userinput" gespeichert
+        var userinput = document.getElementById("inputData").value;
+
+        // speichert den Value userinput mit dem Key "userinput" in die Session Storage
+        // sessionStorage.setItem("Key", Value);
+        sessionStorage.setItem("userinput", userinput);
+        // Ausgabe in verschiedene Formen * siehe Informationen
+
+        console.log("Ausgabe1: " + userinput);                                                                                                                          // Resultat = "Test", Typ String
+
+        console.log("Ausgabe2: " + window.sessionStorage.userinput);                                                                                                    // Resultat = "Test", Typ String
+
+        // Achtung "Ausagabe3: " funktioniert nur mit Komma (,)!
+        console.log("Ausgabe3: ", window.sessionStorage);                                                                                                              // Resultat = Storage, Typ object
+
+        // Alternative kann zur Kontrolle der Session Storage --> DevTools --> App/Application --> Sitzungsspeicher/Session Storage oder readData()
+      }
+
+      // Funktion, die die Session Storage ausliest:
+      function readData() {
+        // speichert den Value von Key "userinput" in data
+        let data = sessionStorage.getItem("userinput");
+        // Option 1: Ausgabe von Session Storage Value
+        console.log("Sessionspeicher1: " + data);
+        console.log("Sessionspeicher2: " + sessionStorage.getItem("userinput"));
+        // Option 2: fori:
+        var i;
+        for (i  = 0; i < sessionStorage.length; i++) {
+          console.log(sessionStorage.key(i) + "=[" + sessionStorage.getItem(sessionStorage.key(i)) + "]");
+        }
+      }
+
+      // Funktion, die die Session Storage löscht
+      function clearData() {
+        sessionStorage.clear();
+      }
+
+      // *: Im Screenshot 2024-04-08 16_24_25.png in diesem Ordner, sieht man dass es sich um verschiedene Typen (typeof) handelt "string" / "object" / "string"
+      // https://learn.microsoft.com/de-de/microsoft-edge/devtools-guide-chromium/javascript/
+      // es gibt einen Unterschied bei der Konsolen - Ausgabe mit Plus (+) oder mit Komma (,) --> Chatbot Bard/Gemini fragen nach:
+      // was ist der Unterschied zwischen , und + in consol.log in javascript?
+    </script>
+  </body>
+</html>

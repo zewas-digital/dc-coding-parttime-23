@@ -1,0 +1,220 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aufgabenliste</title>
+</head>
+
+<body>
+  <h1>Aufgabenliste</h1>
+
+  <input type="hidden" id="id" placeholder="id"/>
+  <input type="text" id="aufgabe" placeholder="Enter task" value="Aufgabe x"/>
+  <input type="date" id="kalender" value="2021-07-30"/>
+
+  <button onclick="saveTask()">Add/Edit task</button>
+
+  <button onclick="changeTask()">Change task</button>
+  <button onclick="deleteTask()">Delete task</button>
+
+
+  <ol id="tasklist"></ol>
+
+  <script>
+    'use strict'
+
+    const fixerWert = "bleibt immer gleich"; // wird nicht geändert
+    const taskElement = document.getElementById("aufgabe");
+    const kalenderElement = document.getElementById("kalender");
+
+    let tasklist = JSON.parse(sessionStorage.getItem('tasklist')) || 
+    [
+      {
+        id: 1, // id verwenden, wenn wir sie beibehalten wollen
+        taskname: "Einkaufen",
+        date: "2021-07-30"
+      },
+      {
+        id: 3,
+        taskname: "Lernen",
+        date: "2021-07-31"
+      },
+      {
+        id: 4,
+        taskname: "Sport",
+        date: "2021-08-01"
+      }
+    ];
+    console.log("tasklist: ", tasklist);
+    // Aufgabenliste (DOM) generieren
+
+    var taskContainer = document.getElementById("tasklist");
+    var count = 0;
+    var editIndex; // active task
+
+
+      saveTasklistToSessionStorage();
+
+    // Funktion zum Speichern der angelegten Aufgaben inkl. Datum
+    function saveTask() {
+
+      // angelegte Variablen (task, kalender), wo der Wert im Input-Feld gespeichert wird.
+      var task = taskElement.value;
+      var kalender = kalenderElement.value;
+
+      tasklist.push({taskname: task, date: kalender})
+
+
+
+      // jedes mal wenn eine Aufgabe angelegt wird, erhöht sich der count
+      count++;
+
+      // Array, die alle Informationen zur Aufgabe beinhaltet
+      const array = [task, kalender, count];
+
+      // Testausgabe 1 - eigene:
+      console.log("JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
+
+      // Testausgabe 2 - Marcel:
+      console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
+
+      // speichert, den Key (count) mit dem Wert (array) in die Session Storage
+      // sessionStorage.setItem("task-"+count, array);
+
+      saveTasklistToSessionStorage();
+
+      // Testausgabe:
+      console.log("Aufgaben-Array: " + array);
+
+      // Funktion, die das Aufgaben-Element zur DOM hinzufügt
+      addToDom(array);
+
+      // Funktion, die die Input-Felder (aufgabe & kalender) beim Speichern löscht
+      clearInput(array);
+    }
+
+    function saveTasklistToSessionStorage() {
+      // speichert das tasklist-Array als String in den Session Storage
+      sessionStorage.setItem('tasklist', JSON.stringify(tasklist));
+      // [{"taskname":"Sport","date":"2021-08-01"},{"taskname":"Aufgabe x","date":"2021-07-30"}]
+    }
+
+    // Funktion, die das Aufgaben-Element zur DOM hinzufügt
+    function addToDom(array) {
+      // count entspricht array[2]
+      let id = array[2];
+
+      // beim Anlegen und speichern einer neuen Aufgabe, wird dynamisch ein Aufgaben-Element zur DOM hinzugefügt
+      taskContainer.innerHTML += '<li id="task'+ id +'"><input onchange="addToInput(' + count 
+        + ')" type="checkbox" id="selection' + count 
+        + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
+    }
+
+    function getTaskHtml(id, array) {
+      return '<li id="task'+ id +'"><input onchange="addToInput(' + count 
+        + ')" type="checkbox" id="selection' + count 
+        + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
+    }
+
+    function clearInput() {
+
+      taskElement.value = "Aufgabe y";
+      kalenderElement.value = "2021-07-29";
+    }
+
+    function addToInput(count) {
+
+      editIndex = count;
+
+      let task = tasklist[count-1];
+      // let data = sessionStorage.getItem(count);
+
+      var checkboxChecked = document.getElementById('selection' + count).checked;
+
+      console.log("Checkbox ist ausgewählt1: " + data,checkboxChecked);
+
+      if (!checkboxChecked) {
+        clearInput();
+      } else {
+        taskElement.value = task.taskname;
+        kalenderElement.value = task.date;
+        
+        /*let tmp = data.split(",");
+
+        console.log("Was ist tmp: ", tmp);
+        console.log("Type: ", typeof tmp);
+
+
+        // Aufgabe-Text in Input-Feld:
+        var toDo = document.getElementById("aufgabe");
+        // es macht ein unterschied ob , oder + in der Ausgabe in der Console!!!!!!!!!!!!!!!!!!!
+        console.log("Task: ", toDo);
+        toDo.value = tmp[0];
+        console.log("gewählte Aufgabe: " + toDo.value);
+
+        var kalender = document.getElementById("kalender");
+        kalender.value = tmp[1];
+        console.log("Type: ", typeof kalender, "Datum: ", kalender.value);
+        */
+      }
+    }
+
+    function changeTask(array) {
+      let id = array[2];
+      
+      tasklist[id-1] = {
+        taskname: taskElement.value, 
+        date: kalenderElement.value
+      };
+
+      // dom aktualisieren
+      var liElement = document.getElementById('task' + id);
+      liElement.innerHTML = getTaskHtml(id, tasklist[id-1]);
+
+      saveTasklistToSessionStorage();
+      //sessionStorage.setItem("task-"+count, array);
+      clearInput();
+    }
+
+
+    function deleteTask(array) {
+      let id = array[2];
+      
+      tasklist[id-1] = null;
+
+      // dom aktualisieren
+
+      saveTasklistToSessionStorage();
+      //sessionStorage.removeItem(editIndex);
+
+
+
+      var domElement = document.getElementById('selection' + editIndex).parentElement;
+
+      console.dir(domElement);
+
+      domElement.remove();
+
+      console.dir(domElement);
+
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>

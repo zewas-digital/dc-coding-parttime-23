@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <ul id="liste">
+
+    </ul>
+    <script>
+
+
+        //Vorlage Cookie: document.cookie = "username=john; expires=Sat, 13 Apr 2024 00:00:00 UTC; path=/;";
+
+        const setCookie = (ckey, cvalue, expDays) => {
+            let date = new Date(Date.now() + expDays * 24 * 60 * 60 * 1000); // Alternative a
+            //Alternative b: date.setUTCMilliseconds(date.getMilliseconds() + expDays * 24 * 60*60*1000);
+            //Alternative c: date = addDays(date, 20);
+            let result = `${ckey}=${cvalue}; expires=${date}; path=/;`;
+            document.cookie = result;
+        }
+
+        const getCookie = (ckey) => {
+            let tmp = document.cookie.split("; ");
+
+            let tmp2 = [];
+            tmp.forEach(element => {
+                tmp2.push(element.split("="))
+            })
+
+            tmp2.find(elem => {
+                if (elem[0] == ckey) {
+                    console.log(elem[1])
+                } 
+            })
+
+        }
+
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+
+        
+        setCookie("name", "John", 20)
+        setCookie("nachname", "Cena", 20)
+        setCookie("strasse", "Ringweg", 20)
+        setCookie("plz", "6850", 20)
+
+        // Cookie löschen, indem expire date in der Vergangenheit liegt;
+        //setCookie("nachname", "John", 0)
+
+        console.log(document.cookie)
+
+        getCookie("plz");
+
+    </script>
+</body>
+
+</html>

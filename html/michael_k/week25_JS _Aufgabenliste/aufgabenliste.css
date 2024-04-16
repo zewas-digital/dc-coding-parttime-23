@@ -1,0 +1,17 @@
+#tasks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: antiquewhite;
+    
+}
+.taskColumns{
+    background-color: rgba(224, 213, 150, 0.582);
+    width: 33%;
+    margin: 20px;
+}
+#inputfield{
+    background-color: rgba(209, 112, 20, 0.342);
+    margin-bottom: 10px;
+    padding: 10px;
+}
