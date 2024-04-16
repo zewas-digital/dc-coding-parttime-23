@@ -14,6 +14,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aufgabenliste</title>
+    <link rel="stylesheet" href="aufgabenliste.css">
 </head>
 
 <body>
@@ -29,31 +30,60 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         </p>
         <button id="addTask"> Aufgabe hinzufügen</button>
     </div>
-    <div id="tasklist">
+    <div id="tasks">
 
+        <div class="taskColumns">
+            <p class="headertext">Aufgaben</p>
+            <div id="tasklist">
+
+            </div>
+        </div>
+        <div class="taskColumns">
+            <p class="headertext">in Bearbeitung</p>
+            <div id="inProgress">
+
+            </div>
+        </div>
+        <div class="taskColumns">
+            <p class="headertext">Erledigt</p>
+            <div id="done">
+
+            </div>
+        </div>
 
     </div>
 
     <script>
 
-        let taskArrayTmp = window.localStorage.getItem('LocalTaskList');
+        // let taskArrayTmp = window.localStorage.getItem('LocalTaskArray');
 
-        let taskArray;
-        if (taskArrayTmp == null) {
-            taskArray = [];
-        } else {
-            taskArray = JSON.parse(taskArrayTmp);
-        }
+        let taskArray = JSON.parse(localStorage.getItem('LocalTaskArray')) || [];
+        let taskArrayInProgress = JSON.parse(localStorage.getItem('LocalTaskArrayInProgress')) || [];
+        let taskArrayDone = JSON.parse(localStorage.getItem('LocalTaskArrayDone')) || [];
+
+        // if (taskArrayTmp == null) {
+        //     taskArray = [];
+        // } else {
+        //     taskArray = JSON.parse(taskArrayTmp);
+        // }
 
         var task = document.getElementById('addTask');
         task.addEventListener('click', createTaskOjekt);
         addToDOM();
 
         function addToDOM() {
+            addToDOM_TaskArray();
+            addToDOM_TaskArrayInProgress();
+            addToDOM_TaskArrayDone();
+        }
+
+        function addToDOM_TaskArray() {
 
             let numberOfTasks = taskArray.length;
             let taskList = document.getElementById('tasklist');
             taskList.innerHTML = '';
+
+            bubblesort(taskArray);
 
             for (var i = 0; i < numberOfTasks; i++) {
 
@@ -69,10 +99,191 @@ Aufgabe, Datum und einem Hinzufügen-Button.
                 taskDiv.innerHTML += '<hr>'
                 taskDiv.appendChild(taskDate);
                 taskDiv.appendChild(taskText);
-                taskDiv.innerHTML += '<button onclick="removeTask(' + i + ')">Löschen</button>';
-                taskDiv.innerHTML += '<button onclick="changeTask(' + i + ')">Bearbeiten</button>';
+                taskDiv.innerHTML += '<button onclick=" removeTaskArray(' + i + ')">Löschen</button>';
+                taskDiv.innerHTML += '<button onclick="changeTaskArray(' + i + ')">Bearbeiten</button>';
+                taskDiv.innerHTML += '<button onclick="task_inProgress(' + i + ')">in Bearbeitung</button>';
+                taskDiv.innerHTML += '<button onclick="task_done(' + i + ')">erledigt</button>';
                 taskList.appendChild(taskDiv);
             }
+        }
+
+        function addToDOM_TaskArrayInProgress() {
+
+            let numberOfTasks = taskArrayInProgress.length;
+            let taskList = document.getElementById('inProgress');
+            taskList.innerHTML = '';
+
+            bubblesort(taskArrayInProgress);
+
+            for (var i = 0; i < numberOfTasks; i++) {
+
+                let task = taskArrayInProgress[i];
+                let taskDiv = document.createElement('div');
+
+                let taskDate = document.createElement('p');
+                taskDate.innerHTML = task.date;
+                let taskText = document.createElement('p');
+                taskText.innerHTML = task.task;
+
+
+                taskDiv.innerHTML += '<hr>'
+                taskDiv.appendChild(taskDate);
+                taskDiv.appendChild(taskText);
+                taskDiv.innerHTML += '<button onclick="removeTaskArrayInProgress(' + i + ')">Löschen</button>';
+                taskDiv.innerHTML += '<button onclick="changeTaskArrayInProgress(' + i + ')">Bearbeiten</button>';
+                taskDiv.innerHTML += '<button onclick="inProgress_task(' + i + ')">Reset</button>';
+                taskDiv.innerHTML += '<button onclick="inProgress_done(' + i + ')">erledigt</button>';
+                taskList.appendChild(taskDiv);
+            }
+        }
+
+        function addToDOM_TaskArrayDone() {
+
+            let numberOfTasks = taskArrayDone.length;
+            let taskList = document.getElementById('done');
+            taskList.innerHTML = '';
+
+            bubblesort(taskArrayDone);
+
+            for (var i = 0; i < numberOfTasks; i++) {
+
+                let task = taskArrayDone[i];
+                let taskDiv = document.createElement('div');
+
+                let taskDate = document.createElement('p');
+                taskDate.innerHTML = task.date;
+                let taskText = document.createElement('p');
+                taskText.innerHTML = task.task;
+
+
+                taskDiv.innerHTML += '<hr>'
+                taskDiv.appendChild(taskDate);
+                taskDiv.appendChild(taskText);
+                taskDiv.innerHTML += '<button onclick="removeTaskArrayDone(' + i + ')">Löschen</button>';
+                taskDiv.innerHTML += '<button onclick="changeTaskArrayDone(' + i + ')">Bearbeiten</button>';
+                taskDiv.innerHTML += '<button onclick="done_inProgress(' + i + ')">in Bearbeitung</button>';
+                taskDiv.innerHTML += '<button onclick="done_task(' + i + ')">Reset</button>';
+                taskList.appendChild(taskDiv);
+            }
+        }
+
+        function task_inProgress(index) {
+            const taskObject = {
+                date: taskArray[index].date,
+                task: taskArray[index].task
+            };
+
+            taskArrayInProgress.push(taskObject);
+            taskArray.splice(index, 1);
+
+            localStorage.setItem('LocalTaskArrayInProgress', JSON.stringify(taskArrayInProgress));
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArrayDone));
+            addToDOM();
+        }
+
+        function task_done(index) {
+            const taskObject = {
+                date: taskArray[index].date,
+                task: taskArray[index].task
+            };
+
+            taskArrayDone.push(taskObject);
+            taskArray.splice(index, 1);
+
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArrayInProgress));
+            localStorage.setItem('LocalTaskArrayDone', JSON.stringify(taskArrayDone));
+            addToDOM();
+
+        }
+
+        function done_inProgress(index) {
+
+            const taskObject = {
+                date: taskArrayDone[index].date,
+                task: taskArrayDone[index].task
+            };
+
+            taskArrayInProgress.push(taskObject);
+            taskArrayDone.splice(index, 1);
+
+            localStorage.setItem('LocalTaskArrayInProgress', JSON.stringify(taskArrayInProgress));
+            localStorage.setItem('LocalTaskArrayDone', JSON.stringify(taskArrayDone));
+            addToDOM();
+        }
+
+        function done_task(index) {
+
+            const taskObject = {
+                date: taskArrayDone[index].date,
+                task: taskArrayDone[index].task
+            };
+
+            taskArray.push(taskObject);
+            taskArrayDone.splice(index, 1);
+
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArray));
+            localStorage.setItem('LocalTaskArrayDone', JSON.stringify(taskArrayDone));
+            addToDOM();
+        }
+
+        function inProgress_task(index) {
+
+            const taskObject = {
+                date: taskArrayInProgress[index].date,
+                task: taskArrayInProgress[index].task
+            };
+
+            taskArray.push(taskObject);
+            taskArrayInProgress.splice(index, 1);
+
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArray));
+            localStorage.setItem('LocalTaskArrayInProgress', JSON.stringify(taskArrayInProgress));
+            addToDOM();
+        }
+
+        function inProgress_done(index) {
+
+            const taskObject = {
+                date: taskArrayInProgress[index].date,
+                task: taskArrayInProgress[index].task
+            };
+
+            taskArrayDone.push(taskObject);
+            taskArrayInProgress.splice(index, 1);
+
+            localStorage.setItem('LocalTaskArrayDone', JSON.stringify(taskArrayDone));
+            localStorage.setItem('LocalTaskArrayInProgress', JSON.stringify(taskArrayInProgress));
+            addToDOM();
+        }
+
+        function bubblesort(array) {
+
+            let x;
+            let y;
+
+            for (let i = 0; i < array.length; i++) {
+
+                for (let j = 0; j < array.length - 1; j++) {
+                    let a = array[j].date;
+                    let b = array[j + 1].date;
+
+                    if (a == '') {
+                        a = '1970-01-01';
+                    }
+                    if (b == '') {
+                        b = '1970-01-01';
+                    }
+
+                    if (a > b) {
+                        x = array[j];
+                        y = array[j + 1];
+                        array[j] = y;
+                        array[j + 1] = x;
+                    }
+                }
+
+            }
+            return array;
         }
 
         function createTaskOjekt(event) {
@@ -86,39 +297,111 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
             taskArray.push(taskObject);
             console.log(taskArray);
-            localStorage.setItem('LocalTaskList', JSON.stringify(taskArray));
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArray));
 
             document.getElementById('task').value = '';
+            document.getElementById('date').value = '';
             addToDOM()
+            console.log(taskArray);
 
         }
 
-        function removeTask(index) {
+        function removeTaskArray(index) {
             taskArray.splice(index, 1);
-            localStorage.setItem('LocalTaskList', JSON.stringify(taskArray));
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArray));
             addToDOM();
         }
 
-        function changeTask(index) {
-            let htmlContent = "<p><label for=\"date\">Deadlline</label><input type=\"date\" name=\"date\" id=\"date\"></p><p><label for=\"task\">Aufgabe</label><textarea name=\"task\" id=\"task\" cols=\"30\" rows=\"10\"></textarea></p><button id=\"editTask\" onclick = \"edit(" + index +")\"> Aufgabe ändern</button>";
+        function removeTaskArrayInProgress(index) {
+            taskArrayInProgress.splice(index, 1);
+            localStorage.setItem('LocalTaskArrayInProgress', JSON.stringify(taskArrayInProgress));
+            addToDOM();
+        }
+
+        function removeTaskArrayDone(index) {
+            taskArrayDone.splice(index, 1);
+            localStorage.setItem('LocalTaskArrayDone', JSON.stringify(taskArrayDone));
+            addToDOM();
+        }
+
+        function changeTaskArray(index) {
+            let htmlContent = "<p><label for=\"date\">Deadlline</label><input type=\"date\" name=\"date\" id=\"date\"></p><p><label for=\"task\">Aufgabe</label><textarea name=\"task\" id=\"task\" cols=\"30\" rows=\"10\"></textarea></p><button id=\"editTask\" onclick = \"editTask(" + index + ")\"> Aufgabe ändern</button>";
             document.getElementById('inputfield').innerHTML = htmlContent;
 
             let task = taskArray[index].task;
+            let date = taskArray[index].date;
             console.log(task);
-            
+
             document.getElementById('task').value = task;
+            document.getElementById('date').value = date;
             console.log(document.getElementById('task'));
-            
+
         }
-        function edit(index) {
-           
+
+        function changeTaskArrayInProgress(index) {
+            let htmlContent = "<p><label for=\"date\">Deadlline</label><input type=\"date\" name=\"date\" id=\"date\"></p><p><label for=\"task\">Aufgabe</label><textarea name=\"task\" id=\"task\" cols=\"30\" rows=\"10\"></textarea></p><button id=\"editTask\" onclick = \"editInprogress(" + index + ")\"> Aufgabe ändern</button>";
+            document.getElementById('inputfield').innerHTML = htmlContent;
+
+            let task = taskArrayInProgress[index].task;
+            let date = taskArrayInProgress[index].date;
+            console.log(task);
+
+            document.getElementById('task').value = task;
+            document.getElementById('date').value = date;
+            console.log(document.getElementById('task'));
+
+        }
+
+        function changeTaskArrayDone(index) {
+            let htmlContent = "<p><label for=\"date\">Deadlline</label><input type=\"date\" name=\"date\" id=\"date\"></p><p><label for=\"task\">Aufgabe</label><textarea name=\"task\" id=\"task\" cols=\"30\" rows=\"10\"></textarea></p><button id=\"editTask\" onclick = \"editDone(" + index + ")\"> Aufgabe ändern</button>";
+            document.getElementById('inputfield').innerHTML = htmlContent;
+
+            let task = taskArrayDone[index].task;
+            let date = taskArrayDone[index].date;
+            console.log(task);
+
+            document.getElementById('task').value = task;
+            document.getElementById('date').value = date;
+            console.log(document.getElementById('task'));
+
+        }
+
+        function editTask(index) {
+
             taskArray[index].task = document.getElementById('task').value;
             taskArray[index].date = document.getElementById('date').value;
-        
+
             document.getElementById('inputfield').innerHTML = '<p><label for="date">Deadlline</label><input type="date" name="date" id="date"></p><p><label for="task">Aufgabe</label><textarea name="task" id="task" cols="30" rows="10"></textarea></p><button id="addTask"> Aufgabe hinzufügen</button>';
+            localStorage.setItem('LocalTaskArray', JSON.stringify(taskArray));
             addToDOM();
+            var task = document.getElementById('addTask');
+            task.addEventListener('click', createTaskOjekt);
         }
-        
+
+        function editInprogress(index) {
+
+            taskArrayInProgress[index].task = document.getElementById('task').value;
+            taskArrayInProgress[index].date = document.getElementById('date').value;
+
+            document.getElementById('inputfield').innerHTML = '<p><label for="date">Deadlline</label><input type="date" name="date" id="date"></p><p><label for="task">Aufgabe</label><textarea name="task" id="task" cols="30" rows="10"></textarea></p><button id="addTask"> Aufgabe hinzufügen</button>';
+            localStorage.setItem('LocalTaskArrayInprogress', JSON.stringify(taskArrayInProgress));
+            addToDOM();
+            var task = document.getElementById('addTask');
+            task.addEventListener('click', createTaskOjekt);
+        }
+
+        function editDone(index) {
+
+            taskArrayDone[index].task = document.getElementById('task').value;
+            taskArrayDone[index].date = document.getElementById('date').value;
+
+            document.getElementById('inputfield').innerHTML = '<p><label for="date">Deadlline</label><input type="date" name="date" id="date"></p><p><label for="task">Aufgabe</label><textarea name="task" id="task" cols="30" rows="10"></textarea></p><button id="addTask"> Aufgabe hinzufügen</button>';
+            localStorage.setItem('LocalTaskArrayDone', JSON.stringify(taskArrayDone));
+            addToDOM();
+            var task = document.getElementById('addTask');
+            task.addEventListener('click', createTaskOjekt);
+        }
+
     </script>
 
 </body>
