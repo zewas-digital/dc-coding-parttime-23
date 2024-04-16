@@ -25,7 +25,5 @@ function saveToDo() {
     var kalender = document.getElementById("kalender").value;
 
     const toDoList = [todo, kalender];
-    console.log(toDoList);
-
-    
+    console.log(toDoList); 
 }

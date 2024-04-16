@@ -6,7 +6,35 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 3/ Ergänze die Aufgaben im DOM.
 4/ Mach es möglich, Aufgaben zu bearbeiten.
 5/ Mach es möglich Aufgaben zu löschen.
+
+var (alt) = ersetzt durch let & const
+const = Konstant und wird nicht mehr geändert im Programmablauf (z.B. Geburtstag)
+let (neu) = erstetzt var - Achtung Scope berücksichtigen
+let innerhalb einer Funktion kann nicht global verwendet werden, selbst wenn die gleiche Variable innerhalb und außerhalb der Funktion vorhanden ist.
+
+z.B.
+
+let i = 0;
+
+function () {
+
+  let i = 5;
+}
+
+let i = 0 hat nichts mit let i = 5 zu tun und beide sind unabhängig!
+
+refactorings:
+
+Variablen-Typen neu aufsetzen lt. Beschreibung oben
+Variablen global definieren
+Array-Objekt mit Beispielen implementieren, damit Beispieldaten vorhanden sind. Objekt-id (input-Feld , hidden) implementieren und eindeutige id vergeben.
+Objekt in Session Storage speichern (JSON.stringify & JSON.parse)
+Mehrfachauswahl (Checkbox) und deren Funktionalität berücksichtigen (z.B. mehrfachauswahl für Löschen soll möglich sein....)
+Button disablen, wenn sie nicht verwendet werden sollen
+innerHTML zum Anlegen der Elemente in der DOM ablösen!!!
 -->
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,23 +60,66 @@ Aufgabe, Datum und einem Hinzufügen-Button.
   <script>
     'use strict'
 
+    const taskElement = document.getElementById("aufgabe");
+    const kalenderElement = document.getElementById("kalender");
+    const taskContainer = document.getElementById("tasklist");
 
-    var taskContainer = document.getElementById("tasklist");
-    var count = 0;
-    var editIndex;
+    let count = 0;
+    let editIndex;
+
+    // Beispieldaten
+    let toDoListe = [
+      {
+        iD: 1,
+        taskName: "Einkaufen",
+        taskDate: "2024-04-11"
+      },
+      {
+        iD: 2,
+        taskName: "Lernen",
+        taskDate: "2024-04-12"
+      },
+      {
+        iD: 3,
+        taskName: "Sport",
+        taskDate: "2024-04-13"
+      }
+    ];
+
+    console.log(typeof toDoListe, "Beispieldaten: ", toDoListe);
+
+
+    function saveBeispielDaten() {
+
+      // DOM
+      let liElement = document.createElement("li");
+      taskContainer.appendChild(liElement);
+
+      let inputElement = document.createElement("input");
+      liElement.appendChild(inputElement);
+
+      // Local oder Session Storage 
+    }
+
+
+
+
+
+
+
 
     // Funktion zum Speichern der angelegten Aufgaben inkl. Datum
     function saveTask() {
 
       // angelegte Variablen (task, kalender), wo der Wert im Input-Feld gespeichert wird.
-      var task = document.getElementById("aufgabe").value;
-      var kalender = document.getElementById("kalender").value;
+      let task = taskElement.value;
+      let kalender = kalenderElement.value;
 
       // jedes mal wenn eine Aufgabe angelegt wird, erhöht sich der count
       count++;
 
       // Array, die alle Informationen zur Aufgabe beinhaltet
-      const array = [task, kalender, count];
+      let array = [task, kalender, count];
 
       // Testausgabe 1 - eigene:
       console.log("JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
@@ -79,8 +150,8 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
     function clearInput() {
 
-      document.getElementById("aufgabe").value = "";
-      document.getElementById("kalender").value = "";
+      taskElement.value = "";
+      kalenderElement.value = "";
     }
 
     function addToInput(count) {
@@ -89,7 +160,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
       let data = sessionStorage.getItem(count);
 
-      var checkboxChecked = document.getElementById('selection' + count).checked;
+      let checkboxChecked = document.getElementById('selection' + count).checked;
 
       //console.log("Checkbox ist ausgewählt1: " + data);
 
@@ -99,11 +170,6 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         console.log("Du kommst do ned rein");
       }
 
-      // to Do - funktioniert noch nicht !!!!!!!!!!
-      if (!checkboxChecked) {
-        clearInput();
-      }
-
       let tmp = data.split(",");
 
       console.log("Was ist tmp: ", tmp);
@@ -111,15 +177,20 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
 
       // Aufgabe-Text in Input-Feld:
-      var toDo = document.getElementById("aufgabe");
+      let toDo = taskElement;
       // es macht ein unterschied ob , oder + in der Ausgabe in der Console!!!!!!!!!!!!!!!!!!!
       console.log("Task: ", toDo);
       toDo.value = tmp[0];
       console.log("gewählte Aufgabe: " + toDo.value);
 
-      var kalender = document.getElementById("kalender");
+      let kalender = kalenderElement;
       kalender.value = tmp[1];
       console.log("Type: ", typeof kalender, "Datum: ", kalender.value);
+
+      // to Do - funktioniert noch nicht !!!!!!!!!!
+      if (!checkboxChecked) {
+        clearInput();
+      }
 
     }
 
@@ -136,13 +207,15 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
       sessionStorage.removeItem(editIndex);
 
-      var domElement = document.getElementById('selection' + editIndex).parentElement;
+      let domElement = document.getElementById('selection' + editIndex).parentElement;
 
       console.dir(domElement);
 
       domElement.remove();
 
       console.dir(domElement);
+
+      clearInput();
 
 
     }

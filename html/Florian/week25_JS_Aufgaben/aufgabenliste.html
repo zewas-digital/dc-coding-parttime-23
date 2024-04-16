@@ -1,0 +1,118 @@
+<!-- 
+Aufgabe: Aufgabenliste
+1/ Erstelle eine Aufgabenliste mit den Feldern:
+Aufgabe, Datum und einem Hinzufügen-Button.
+2/ Speichere die Eingaben in einem JavaScript-Array.
+3/ Ergänze die Aufgaben im DOM.
+4/ Mach es möglich, Aufgaben zu bearbeiten.
+5/ Mach es möglich Aufgaben zu löschen.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabenliste</title>
+</head>
+
+<body>
+    <h1>Aufgabenliste</h1>
+
+    <input type="text" id="aufgabeInput" placeholder="Aufgaben">
+    <input type="date" id="datumInput">
+
+    <button onclick="aufgabenListe()">Hinzufügen</button>
+    
+    
+    <ul id="aufgabenliste" >
+
+    </ul>
+
+
+    <script>
+
+        var aufgaben = []
+
+        function aufgabenListe() {
+
+            // Benutzereingabe abrufen
+            var aufgabeInput = document.getElementById("aufgabeInput").value
+            var datumInput = document.getElementById("datumInput").value
+
+            // Aufgaben erstellen
+            var aufgabe = {
+                aufgabe: aufgabeInput,
+                datum: datumInput
+            };
+
+            // Aufgabe dem Array hinzufügen
+            aufgaben.push(aufgabe);
+
+            // Das aufgaben-Array wird in einen JSON-String umgewandelt und in den lokalen Speicher (LocalStorage) gespeichert.
+            let jsonString = JSON.stringify(aufgaben);
+
+
+            // Aufgaben im DOM ergänzen
+            updateaufgabenliste();
+            localStorage.setItem("aufgabe", jsonString); // Speichert die Aufgabe im Local Storage
+            let returnedData = localStorage.getItem("aufgabe"); // liest den gespeicherten Local Storage
+
+            // Gibt den Local Storage in der Konsole aus
+            let json = JSON.parse(returnedData);
+            console.log(json)
+
+           
+
+
+            // Eingabefelder leeren
+            document.getElementById("aufgabeInput").value = "";
+            document.getElementById("datumInput").value = "";
+        }
+
+        function updateaufgabenliste() {
+
+            var aufgabenliste = document.getElementById("aufgabenliste")
+            aufgabenliste.innerHTML = "" // Aufgabenliste leeren
+
+            // erstellt ein listen tag mit der Aufgabe und fügt sie der aufgabenliste im HTML hinzu
+            // Eine Schleife durchläuft das aufgaben-Array  
+            // und für jede Aufgabe wird ein neues Listen-Element erstellt und dem aufgabenliste-Element hinzugefügt.
+
+            aufgaben.forEach(function (aufgabe) {
+                var li = document.createElement("li")
+                var button = ' <button onclick="aufgabeBearbeiten()">Bearbeiten</button>'
+                li.innerHTML = aufgabe.aufgabe + " " + aufgabe.datum + button
+                aufgabenliste.appendChild(li)
+                 
+            })
+
+        }
+
+        function aufgabeBearbeiten (){
+             
+            var aufgabeÄndern = aufgaben
+
+          
+            
+           
+            console.log(aufgabeÄndern)
+
+
+
+           
+
+
+        }
+
+        
+
+    </script>
+
+
+
+</body>
+
+</html>
