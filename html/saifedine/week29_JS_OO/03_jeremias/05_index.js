@@ -1,6 +1,6 @@
-import Arbeitsgeraet from "./Arbeitsgeraet.js";
-import { Klasse, irgendeineVariable } from "./Klasse.js";
-import Person from "./Person.js";
+import Arbeitsgeraet from "./04_Arbeitsgeraet.js";
+import { Klasse, irgendeineVariable } from "./02_Klasse.js";
+import Person from "./03_Person.js";
 
 let klassen = [];
 
