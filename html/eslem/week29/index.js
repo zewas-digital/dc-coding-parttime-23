@@ -1,13 +1,13 @@
-import Arbeitsgeraet from "./Arbeitsgeraet.js";       // mit default kann nur eine Klasse importiert werden
+import Arbeitsgeraet from "./Arbeitsgeraet.js";                  // mit default kann nur eine Klasse importiert werden                              //alle Klassen importieren, Personen erstellen und im HTML aufrufen
 import { Klasse, irgendeineVariable } from "./Klasse.js";       //ohne default könnnen mehrere Klassen importiert werden 
-import Person from "./Person.js";       // mit default kann nur eine Klasse importiert werden
+import Person from "./Person.js";                               // mit default kann nur eine Klasse importiert werden
 
-let klassen = [];             //Klasse global erstellen nicht in der Function, somit kann man sie im rerender aufrufen 
+let klassen = [];             //Klasse außerhalb der function (global) erstellen! nicht in der Function, somit kann man sie in anderen funtions (im rerender) aufrufen!
 
 console.log(irgendeineVariable);
 
 function datenLaden() {
-  let max = new Person("Max", "Mustermann");                                //Person erstellen, Artbeitesgerät hinzufügen mit einem Index
+  let max = new Person("Max", "Mustermann");                                //Person erstellen, Artbeitesgerät hinzufügen + Index
   max.setArbeitsgeraet(new Arbeitsgeraet("Apple", "MacBook Pro", 1));
 
   let erika = new Person("Erika", "Mustermann");
@@ -31,7 +31,7 @@ function datenLaden() {
   klasse1b.addPerson(jenny);
   klasse1b.addPerson(jens);
 
-  klassen.push(klasse1a);                                           //Klasse wird gepusht und einem Array hinzugefügt
+  klassen.push(klasse1a);                                           //Klassen werden gepusht und einem Array hinzugefügt --> let = klassen[];
   klassen.push(klasse1b);
 
   let div = document.getElementById("klassen");         
@@ -49,5 +49,4 @@ export function rerender() {                                      //Aktualisiert
     div.appendChild(klasse.getDomElement());
   }
 }
-
 datenLaden();

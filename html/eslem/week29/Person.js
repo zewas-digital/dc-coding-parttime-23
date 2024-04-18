@@ -6,7 +6,7 @@ export default class Person {       // mit default kann nur eine Klasse aufgeruf
   _arbeitsgeraet;
 
   constructor(vorname, nachname, alter, geschlecht) {
-    this._vorname = vorname;
+    this._vorname = vorname;             // ._ --> simuliert eine "private" Instanzvariable oder Methode, nicht außerhalb der Klasse zugreifbar
     this._nachname = nachname;
     this._alter = alter;
     this._geschlecht = geschlecht;
