@@ -26,7 +26,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         </p>
         <p>
             <label for="task">Aufgabe</label>
-            <textarea name="task" id="task" cols="30" rows="10"></textarea>
+            <textarea name="task" id="task" cols="50" rows="10"></textarea>
         </p>
         <button id="addTask"> Aufgabe hinzufügen</button>
     </div>
@@ -55,17 +55,9 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
     <script>
 
-        // let taskArrayTmp = window.localStorage.getItem('LocalTaskArray');
-
         let taskArray = JSON.parse(localStorage.getItem('LocalTaskArray')) || [];
         let taskArrayInProgress = JSON.parse(localStorage.getItem('LocalTaskArrayInProgress')) || [];
         let taskArrayDone = JSON.parse(localStorage.getItem('LocalTaskArrayDone')) || [];
-
-        // if (taskArrayTmp == null) {
-        //     taskArray = [];
-        // } else {
-        //     taskArray = JSON.parse(taskArrayTmp);
-        // }
 
         var task = document.getElementById('addTask');
         task.addEventListener('click', createTaskOjekt);
@@ -89,7 +81,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
                 let task = taskArray[i];
                 let taskDiv = document.createElement('div');
-
+                taskDiv.className = 'taskDiv';
                 let taskDate = document.createElement('p');
                 taskDate.innerHTML = task.date;
                 let taskText = document.createElement('p');
@@ -119,7 +111,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
                 let task = taskArrayInProgress[i];
                 let taskDiv = document.createElement('div');
-
+                taskDiv.className = 'taskDiv';
                 let taskDate = document.createElement('p');
                 taskDate.innerHTML = task.date;
                 let taskText = document.createElement('p');
@@ -149,7 +141,7 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 
                 let task = taskArrayDone[i];
                 let taskDiv = document.createElement('div');
-
+                taskDiv.className = 'taskDiv';
                 let taskDate = document.createElement('p');
                 taskDate.innerHTML = task.date;
                 let taskText = document.createElement('p');
@@ -403,7 +395,6 @@ Aufgabe, Datum und einem Hinzufügen-Button.
         }
 
     </script>
-
 </body>
 
 </html>
