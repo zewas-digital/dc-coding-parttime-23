@@ -16,61 +16,107 @@ Aufgabe, Datum und einem Hinzufügen-Button.
 </head>
 
 <body>
-<h1 style="color: rgb(221, 155, 194);">Task List</h1>
+<h1>Task List</h1>
 
-    <input type="text" id="task" placeholder="Enter task" />
-    <input type="date" id="kalender" />
+    <input type="text" id="aufgabe" placeholder="Enter task" value="test0"/>
+    <input type="date" id="kalender" value="2024-01-01"/>
     <button onclick="saveTask()">Add task</button>
-    <button onclick="changeTask()">Change task</button>
+    <button onclick="changeTask()">Edit task</button>
     <button onclick="deleteTask()">Delete task</button>
 
 <ol id="tasklist"></ol>
 
 <script>
-'use strict'
-var container = document.getElementById("tasklist");
-    var count = 0;
-    var editIndex;
+  'use strict'
 
-function saveTask() {
-      var task = document.getElementById("aufgabe").value;
-      var kalender = document.getElementById("kalender").value;
-      count++;
-      const array = [task, kalender, count];
-      console.log(
-        "JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);
+    const taskElement = document.getElementById("aufgabe");                   //Element da es DOM hinugefügt wird
+    const kalenderElement = document.getElementById("kalender");             //const sind Werte die ändern sich nicht, fixe Werte
+
+    var allTasks =JSON.parse(sessionStorage.getItem('allTasks')) ||[           //Tasks im Array abspeichern + pushn
+      {
+      taskname: "test",
+      date: "2024-04-11"},
+
+      {
+      taskname: "test2",
+      date: "2005-04-03"},
+      
+     {
+      taskname: "test3",
+      date: "2025-05-20"}
+    ];
+
+      console.log("allTasks: ", allTasks);
+      
+      var container = document.getElementById("allTasks");
+      var count = 0;
+      var editIndex;
+
+      saveallTasksToSessionStorage();
+
+    function saveTask() {             //Speichert die Tasks
+      var task = taskElement.value;
+      var kalender = kalenderElement.value;
+
+      allTasks.push({taskname:task, date:kalender})
+
+      count++;         //Anzahl der Tasks
+      const array = [task, kalender, count]; //Task in einem Array abspeichern, (count oder id verwendbar) 
+      console.log( "JavaScript-Array: " + "Task " + array[0] + " Fällig " + array[1] + " " + count);    //Ausgabe
+       
 
       console.log(`JavaScript-Array: Task ${array[0]} Fällig ${array[1]}`);
 
-    sessionStorage.setItem(count, array);
-    console.log("Aufgaben-Array: " + array);
+      //sessionStorage.setItem('allTasks', JSON.stringify(allTasks));
 
-    addDom(array);
-    clearInput(array);
+      saveallTasksToSessionStorage();
+
+      console.log("Aufgaben-Array: " + array);
+    
+      addToDom(array);      //Task auslöschen
+      clearInput(array);
     }
 
-    function addDom(array) {
-      container.innerHTML += '<li><input onchange="addInput(' + count + ')" type="checkbox" id="selection' + count + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fälligkeit bis: ' + array[1] + ' ' + array[2] + '</li>';
-    }
-    function clearInput() {
-
-    document.getElementById("aufgabe").value = "";
-    document.getElementById("kalender").value = "";
+    function saveallTasksToSessionStorage(){
+      sessionStorage.setItem('allTasks', JSON.stringify(allTasks));
     }
 
-    function addInput(count) {
-    editIndex = count;
+    function addToDom(array) {        //Taks DOM hinzufügen
+      let id = array[2];
+      container.innerHTML += '<li id="task'+ id +'"><input onchange="addToInput(' + count 
+        + ')" type="checkbox" id="selection' + count 
+        + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fällig bis: ' + array[1] + ' ' + array[2] + '</li>';   //Task wird dynamisch in DOM hinzugefügt
+    }
 
-    let data = sessionStorage.getItem(count);
+    function getTaskHtml(id, array) {
+      return '<li id="task'+ id +'"><input onchange="addToInput(' + count 
+        + ')" type="checkbox" id="selection' + count 
+        + '" name="select ' + count + '" + /> Aufgabe: ' + ' ' + array[0] + ', Fällig bis: ' + array[1] + ' ' + array[2] + '</li>';
+    }
+
+    function clearInput() {       
+    taskElement.value = "test4";
+    kalenderElement.value = "2024-12-12";
+    }
+
+    function addToInput(count) {
+       editIndex = count;
+
+       let task = allTasks[count-1];
+    //let data = sessionStorage.getItem(count);          //let lößt var ab!
+
     var checkboxChecked = document.getElementById('selection' + count).checked;
+    console.log('Checkbox wurde gewählt' + data, checkboxChecked);
 
-    if (checkboxChecked) {
-        console.log("Checkbox wurde ausgewählt: " + data);
+    if (!checkboxChecked) {
+        clearInput();
       } else {
-        console.log("Fehler!");
+      taskElement.value = task.taskname;     //von allTasks
+      kalenderElement.value = task.date;
       }
+    }
 
-      let tmp = data.split(",");
+      /*let tmp = data.split(",");
 
       console.log(tmp);
       console.log("Type: ", typeof tmp);
@@ -85,21 +131,36 @@ function saveTask() {
       kalender.value = tmp[1];
       console.log("Type: ", typeof kalender, "Datum: ", kalender.value);
 
-    }
-    function changeTask(array) {
-    deleteTask();
-    saveTask();
+    }*/
+    function changeTask(array) {  
+      let id = array[2];                    //Edit Task 
+
+      allTasks[id-1] = {
+        taskname: taskElement.value,
+        date: kalenderElement.value
+      };          
+         //dom aktulasieren
+                                                                //var domElement = document.getElementById('selection' + editIndex).parentElement;
+         var liElement = document.getElementById('task' + id);
+         liElement.innerHTML = getTaskHtml(id, allTasks[id-1]);
+
+         saveallTasksToSessionStorage();
+         
+         clearInput();
     }
 
     function deleteTask(array) {
-      sessionStorage.removeItem(editIndex);
+      let id = array[2];                    
+      
+      allTasks[id-1] = null; 
+      saveallTasksToSessionStorage();
+
+      //sessionStorage.removeItem(editIndex);
       var domElement = document.getElementById('selection' + editIndex).parentElement;
       console.dir(domElement);
       domElement.remove();
       console.dir(domElement);
     }
-
 </script>
 </body>
 </html>
-

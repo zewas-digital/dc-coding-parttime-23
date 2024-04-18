@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basic OO - Aufgabenliste 2</title>
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="C:\Users\claud\VS-Code\dc-coding-parttime-23\html\claudia\week25_JS_Aufgaben\aufgabenliste\aufgabenliste.css">
+</head>
+<body>
+
+
+
+    <h1>Aufgabenliste</h1>
+
+
+    <form>
+        <input type="text" name="title" required>
+        <input type="date" name="date" placeholder="dd-mm-yyyy" required>
+
+        <button>Aufgabe hinzufügen</button>
+    </form>
+
+    <table>
+        <tr>
+            <th class="aufgabe">offene Aufgaben</th>
+            <th class="datum">Fälligkeit</th>
+            <th>Löschen?</th>
+        </tr>
+        <tbody id="ToDos"></tbody>
+    </table>
+
+
+
+    <script type="module" src="app.js"></script>
+
+
+</body>
+</html>
