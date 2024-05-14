@@ -1,30 +1,32 @@
 <script>
-    import ChildComponent from "./ChildComponent.svelte";
-
-    export let name = "duasfada";
-    let count = 0;
-
-    $: tripled = count * 3;
+    import { onMount } from "svelte";
+    import Login from './routes/Login.svelte';
+    import Start from './routes/Start.svelte';
+    // import Layout from './routes/Layout.svelte';
 
 
-    function increment(){
-        count += 1;
+    let loggedIn = false;
+
+    const login = () => {
+        console.log("Login");
+        loggedIn = true;
     }
-    $: console.log("Tripled", {tripled});
+
+    const logout = () => {
+        console.log("Logout");
+        loggedIn = false;
+    }
+
+    onMount(() => {
+        // Set loggedIn to false initially
+        loggedIn = false;
+    });
 </script>
+<!-- <Layout> -->
+{#if loggedIn}
+    <Start {logout} />
+{:else}
+    <Login {login} />
+{/if}
 
-<style>
-    h1 {
-        color: blue;
-        font-family: "Comic Sans MS"
-    }
-</style>
-
-<h1>Hallo {name.toUpperCase()}!</h1>
-<button on:click={increment}>
-    Clicked {count}{count === 1 ? " Mal" : " Male"}
-</button>   
-<p>
-        {count} * 3 ist {tripled}
-</p>
-<ChildComponent/>
+<!-- </Layout> -->
