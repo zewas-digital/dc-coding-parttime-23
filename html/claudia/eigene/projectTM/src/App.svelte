@@ -1,7 +1,8 @@
 <script>
 	// import ListOfEmails from "./components/ListOfEmails.svelte";
 	// import NewMember from "./components/NewMember.svelte";
-	import Login from "./components/Login.svelte";
+	import Start from "./components/Start.svelte";
+	import NewAccount from "./components/NewAccount.svelte";
 	import Test from "./components/Test.svelte";
 
 	// let emailAdresses = ["a@a.com", "b@b.com"];
@@ -14,6 +15,7 @@
 	const member1 = {
 		email: "a@a.com",
 		password: "aaa",
+		name: "Anna",
 		teams: [
 			{ name: "Team A", isAdmin: true },
 			{ name: "Team B", isAdmin: false },
@@ -23,6 +25,7 @@
 	const member2 = {
 		email: "b@b.com",
 		password: "bbb",
+		name: "Betti",
 		teams: [
 			{ name: "Team A", isAdmin: false },
 			{ name: "Team B", isAdmin: true },
@@ -31,12 +34,25 @@
 	const member3 = {
 		email: "c@c.com",
 		password: "ccc",
+		name: "Conni",
 		teams: [
 			{ name: "Team A", isAdmin: false },
 			{ name: "Team B", isAdmin: false },
+			{ name: "Team C", isAdmin: true },
+			{ name: "Team D", isAdmin: true },
 		],
 	};
-	members.push(member1, member2, member3);
+
+	const member4 = {
+		email: "d@d.com",
+		password: "",
+		name: "",
+		teams: [
+			{name: "Team C", isAdmin: false},
+			{name: "Team D", isAdmin: false},
+		]
+	}
+	members.push(member1, member2, member3, member4);
 	console.log("Testdaten: ", members);
 	members.forEach(member => {localStorage.setItem(member.email, JSON.stringify(member))}); //andersrum: JSON.parse()
 
@@ -61,7 +77,11 @@
 <main>
 	<section>
 		
-		<Login />
+		<Start />
+
+		<!-- <NewAccount /> -->
+
+
 		<!-- <NewMember/>
 
 		<button type="button" on:click|preventDefault={addEmail}
