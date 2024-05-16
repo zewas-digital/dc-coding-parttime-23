@@ -1,102 +1,78 @@
 <script>
-	import ListOfEmails from './ListOfEmails.svelte';
-	// let emailAdresses = ["a@a.com", "b@b.com"];
-	let emailAdresses = [];
-	let newEmail = "";
+	// import ListOfEmails from "./components/ListOfEmails.svelte";
+	// import NewMember from "./components/NewMember.svelte";
+	import Login from "./components/Login.svelte";
+	import Test from "./components/Test.svelte";
 
-	// function submitForm(event) {
-	// 	event.preventDefault();
-	// 	console.log("SUBMIT");
-	// 	// console.log(emailAdresses);
+	// let emailAdresses = ["a@a.com", "b@b.com"];
+	// let emailAdresses = [];
+	// let newEmail = "";
+
+	//TESTDATEN: ////////////////////////////////////////////////////////
+	let members = [];
+
+	const member1 = {
+		email: "a@a.com",
+		password: "aaa",
+		teams: [
+			{ name: "Team A", isAdmin: true },
+			{ name: "Team B", isAdmin: false },
+		],
+	};
+	
+	const member2 = {
+		email: "b@b.com",
+		password: "bbb",
+		teams: [
+			{ name: "Team A", isAdmin: false },
+			{ name: "Team B", isAdmin: true },
+		],
+	};
+	const member3 = {
+		email: "c@c.com",
+		password: "ccc",
+		teams: [
+			{ name: "Team A", isAdmin: false },
+			{ name: "Team B", isAdmin: false },
+		],
+	};
+	members.push(member1, member2, member3);
+	console.log("Testdaten: ", members);
+	members.forEach(member => {localStorage.setItem(member.email, JSON.stringify(member))}); //andersrum: JSON.parse()
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+	const isAdminOfTeamA = member1.teams.find(
+		(team) => team.name === "Team A",
+	)?.isAdmin;
+	console.log(member1.email, " ist Admin von TEam A?", isAdminOfTeamA); // Outputs: true (if admin), undefined (if not admin or not member of Team A)
+
+	// function addEmail() {
+	// 	const newEmail = document.querySelector("#emailInput").value;
+	// 	// console.log("neue Adresse", newEmail);
+	// 	if (!newEmail=="" && !emailAdresses.includes(newEmail)) {
+	// 		emailAdresses = [...emailAdresses, newEmail];
+	// 	} else console.log("schon enthalten oder leerer String!");
 	// }
-	function addEmail() {
-		const newEmail = document.querySelector("#emailInput").value;
-		console.log("neue Adresse", newEmail);
-		if (!newEmail=="" && !emailAdresses.includes(newEmail)) {
-			emailAdresses = [...emailAdresses, newEmail];
-		} else console.log("schon enthalten oder leerer String!");
-	}
 </script>
 
-<!-- 
-<input type="email" bind:value={email} placeholder="Email" />
-    <input type="password" bind:value={password} placeholder="Password" />
-    <button on:click={login}>Login</button> -->
-
 <main>
-	<section id="newMembers">
-	<h2>neue Mitglieder einladen:</h2>
-	<!-- <form> -->
+	<section>
 		
-		<input
-			type="email"
-			id="emailInput"
-			placeholder="name@example.com"
-			bind:value={newEmail}
-			
-		/>
-		<label for="emailInput" class="visually-hidden">neue Emailadresse!</label>
-		<input type="checkbox" id="isAdmin" />
-		<label for="isAdmin">Adminrechte?</label>
+		<Login />
+		<!-- <NewMember/>
+
 		<button type="button" on:click|preventDefault={addEmail}
 			>Erfassen!</button
 		>
 
 		<ListOfEmails emailAdresses={emailAdresses}/>
 
-		<!-- <h2>Liste der Emailadressen:</h2>
-		{#each emailAdresses as email, index (email)}
-			<p>{index + 1} {email}</p>
-		{/each}-->
-		<button type="button">ALLE EINLADEN</button> 
+		<button type="button">ALLE EINLADEN</button>  -->
 	</section>
-	<!-- </form> -->
 </main>
 
-<!-- 
-<script>
-    let email = '';
-    let password = '';
-
-    function login() {
-        // Your login logic here
-        console.log("Logging in with email:", email, "and password:", password);
-    }
-</script>
-
-<div>
-    <input type="email" bind:value={email} placeholder="Email" />
-    <input type="password" bind:value={password} placeholder="Password" />
-    <button on:click={login}>Login</button>
-</div> -->
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-	.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-	/* h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	} */
-
-	/* @media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	} */
 </style>
