@@ -1,37 +1,25 @@
 <script>
     import NewAccount from "./NewAccount.svelte";
+    import ListOfTeams from "./ListOfTeams.svelte";
 
-    //TODO
     let email = "";
-    let userExists = localStorage.getItem(email) !== null;
+    // let userExists = localStorage.getItem(email) !== null;
+    let userExists = false;
+
     $: started = false;
     $: actualUser = userExists ? JSON.parse(localStorage.getItem(email)) : null;
+
     // actualUser will be updated whenever userExists changes. You can use actualUser directly in your code without prepending $.
 
     $: allTeams = actualUser ? actualUser.teams : null;
     $: showComponentNewAccount = false;
 
-    // console.log("aktueller User",localStorage.getItem(email));
-    // console.log("aktueller User geparst",JSON.parse(localStorage.getItem(email)));
-
-    // $: allTeams = email !== "" ? JSON.parse(localStorage.getItem(email)).teams : null;
-    // $: console.log(allTeams, "Teams am Anfang");
-
-    // Retrieve members from localStorage
-    // let retrievedMembers = [];
-
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     let key = localStorage.key(i);
-    //     let member = JSON.parse(localStorage.getItem(key));
-    //     retrievedMembers.push(member);
-    // }
-    // console.log(retrievedMembers);
-
     function start() {
         started = true;
-        const actualUser = JSON.parse(localStorage.getItem(email));
         userExists = localStorage.getItem(email) !== null;
-        const allTeams = email !== "" ? actualUser.teams : null;
+        actualUser = JSON.parse(localStorage.getItem(email));
+        
+        // const allTeams = email !== "" ? actualUser.teams : null;
         // console.log(actualUser, "actualUser, start");
         {
             if (userExists) {
@@ -48,17 +36,17 @@
     //     }
     // }
 
-    function handleTeamClick(team) {
-        // Handle click logic here
-        console.log("Clicked on team:", team);
-    }
+    // function handleTeamClick(team) {
+    //     // Handle click logic here
+    //     console.log("Clicked on team:", team);
+    // }
 
     function newAccount() {
-        console.log(showComponentNewAccount);
+        // console.log(showComponentNewAccount);
 
         console.log("new Account");
         showComponentNewAccount = true;
-        console.log(showComponentNewAccount);
+        // console.log(showComponentNewAccount);
     }
 
     function newTeam() {
@@ -66,23 +54,22 @@
     }
 
     function emailTyped() {
-        console.log("neue Mail, started true?", started);
+        // console.log("neue Mail, started true?", started);
         started = false;
-        console.log("neue Mail, started false?", started);
+        // console.log("neue Mail, started false?", started);
     }
 </script>
 
 <div>
     {#if actualUser}
-        <h1>Hallo {actualUser.name}!</h1>
+        <h1>Hallo {actualUser.userName}!</h1>
     {:else}
         <h1>Hallo neuer Nutzer!</h1>
     {/if}
 
     <p>
-        Idee: bereits vorhandene oder aufgeforderte User können sich einloggen;
-        wenn sie schon einen Account angelegt haben, gibt es schon ein PW, sonst
-        nicht
+        Idee: bereits vorhandene User können sich einloggen; aufgeforderte
+        Nutzer müssen erst einen Account anlegen. Unterschied: kein PW vorhanden
     </p>
     <input
         type="email"
@@ -96,32 +83,33 @@
     <button on:click={start} on:keypress:enter={start}>LOS!</button>
 
     {#if email !== "" && started}
-        {#if !userExists || actualUser.name === ""}
+        {#if !userExists || actualUser.userName === ""}
             <p>
                 {#if !showComponentNewAccount}
-                User noch nicht registriert: <button
-                    on:click={() => newAccount()}>Account anlegen</button
-                >
+                    User noch nicht registriert: <button
+                        on:click={() => newAccount()}>Account anlegen</button
+                    >
                 {/if}
                 <!-- <button on:click={() => newTeam()}>Team anlegen???????</button> -->
                 {#if showComponentNewAccount}
-                <p>Hier übergeben wir die Mailadresse {email}</p>
+                    <p>Hier an Child übergeben: Mailadresse {email}; besser mit Context-API?</p>
                     <NewAccount {email} />
                 {/if}
             </p>
         {:else}
             <p>Du bist für folgende Teams registriert:</p>
-            {#if allTeams}
+            <!--TODO: User übergeben statt allTeams? Oder Context-API?-->
+            {#if allTeams} <!--TODO if userExists??-->
                 <br />
-                {#each allTeams as team, index}
-                    <button on:click={() => handleTeamClick(team)}
-                        >{team.name}</button
-                    >{/each}
-                    <button on:click={() => newTeam()}>Team anlegen</button>
-                    <!-- <h2>{index + 1}: {team.name}</h2> -->
+                <ListOfTeams {allTeams}/>
+
                 
+                <button on:click={() => newTeam()}>Team anlegen</button>
+                <!-- <h2>{index + 1}: {team.name}</h2> -->
+
                 <!-- {:else}
                 <p>Keine Teams gefunden.</p> -->
+
             {/if}
         {/if}
     {/if}
