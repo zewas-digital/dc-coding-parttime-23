@@ -1,0 +1,119 @@
+1. Create User Store
+2. Initialize Store with User Data in Start Component
+3. User Store in other Components
+
+
+Reactivity in Svelte is based on variable assignments and changes within the component itself. If you're updating your object in local storage from another component, the reactive properties in your main component won't automatically detect those changes because local storage updates don't inherently trigger Svelte's reactivity system.
+
+To ensure that your main component's reactive properties update when local storage changes, you can use a custom store or manually trigger updates. Here's how you can handle this:
+
+### Using a Custom Store
+
+1. **Create a Writable Store:**
+   Create a custom store to manage the user object. This store will handle both the local storage updates and reactivity.
+
+   ```javascript
+   // userStore.js
+   import { writable } from 'svelte/store';
+
+   const storedUser = JSON.parse(localStorage.getItem('actualUser')) || { email: "", name: "", loggedIn: false };
+   export const userStore = writable(storedUser);
+
+   userStore.subscribe(value => {
+       localStorage.setItem('actualUser', JSON.stringify(value));
+   });
+   ```
+
+2. **Use the Store in Your Components:**
+   Use this store in your main component and any other components that need to update the user object.
+
+   ```svelte
+   <!-- MainComponent.svelte -->
+   <script>
+       import { userStore } from './userStore.js';
+       import { onMount } from 'svelte';
+
+       let actualUser;
+       $: loggedIn = actualUser?.loggedIn ?? false;
+
+       const unsubscribe = userStore.subscribe(value => {
+           actualUser = value;
+       });
+
+       onDestroy(() => {
+           unsubscribe();
+       });
+
+       function logIn() {
+           userStore.update(user => ({ ...user, loggedIn: true }));
+       }
+
+       function logOut() {
+           userStore.update(user => ({ ...user, loggedIn: false }));
+       }
+   </script>
+
+   <button on:click={logIn}>Log In</button>
+   <button on:click={logOut}>Log Out</button>
+
+   <p>User is {loggedIn ? 'logged in' : 'logged out'}</p>
+   <p>Email: {actualUser.email}</p>
+   <p>Name: {actualUser.name}</p>
+   ```
+
+   ```svelte
+   <!-- AnotherComponent.svelte -->
+   <script>
+       import { userStore } from './userStore.js';
+
+       function updateUser(newUser) {
+           userStore.set(newUser);
+       }
+   </script>
+   ```
+
+### Manually Triggering Updates
+
+If you prefer not to use stores, you need to manually trigger updates in your main component when local storage changes.
+
+1. **Listen for Storage Events:**
+   Add an event listener for the `storage` event to detect changes made to local storage by other components or tabs.
+
+   ```svelte
+   <script>
+       let actualUser = JSON.parse(localStorage.getItem('actualUser')) || { email: "", name: "", loggedIn: false };
+
+       $: loggedIn = actualUser?.loggedIn ?? false;
+
+       function logIn() {
+           actualUser = { ...actualUser, loggedIn: true };
+           localStorage.setItem('actualUser', JSON.stringify(actualUser));
+       }
+
+       function logOut() {
+           actualUser = { ...actualUser, loggedIn: false };
+           localStorage.setItem('actualUser', JSON.stringify(actualUser));
+       }
+
+       window.addEventListener('storage', (event) => {
+           if (event.key === 'actualUser') {
+               actualUser = JSON.parse(event.newValue) || { email: "", name: "", loggedIn: false };
+           }
+       });
+   </script>
+
+   <button on:click={logIn}>Log In</button>
+   <button on:click={logOut}>Log Out</button>
+
+   <p>User is {loggedIn ? 'logged in' : 'logged out'}</p>
+   <p>Email: {actualUser.email}</p>
+   <p>Name: {actualUser.name}</p>
+   ```
+
+### Explanation
+
+1. **Using a Custom Store:** This approach centralizes state management and ensures all components stay in sync. The `userStore` manages both local storage and Svelte's reactivity system.
+
+2. **Manually Triggering Updates:** Adding an event listener for the `storage` event allows your component to detect changes to local storage made from other parts of your application or different browser tabs, ensuring `actualUser` and reactive properties like `loggedIn` stay updated.
+
+Choose the approach that best fits your application structure and state management preferences.

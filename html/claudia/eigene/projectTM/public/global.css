@@ -12,6 +12,10 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+h2 {
+	color: maroon;
+}
+
 a {
 	color: rgb(0,100,200);
 	text-decoration: none;
@@ -61,3 +65,53 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+
+/* 
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  } */
+
+  label {
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  /* button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  } */
+
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+
+  .success {
+    color: green;
+    margin-top: 10px;
+  }
