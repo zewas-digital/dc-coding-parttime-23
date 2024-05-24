@@ -2,7 +2,9 @@
 	// import ListOfEmails from "./components/ListOfEmails.svelte";
 	// import NewMember from "./components/NewMember.svelte";
 	import Start from "./components/Start.svelte";
+	// import Start2 from "./components/Start2.svelte";
 	import { setTestData } from "./utils/testdata.js";
+	export let appName;
 	// import NewAccount from "./components/NewAccount.svelte";
 	// import Test from "./components/Test.svelte";
 
@@ -38,9 +40,11 @@
 </script>
 
 <main>
+	<h1>Welcome to {appName}!</h1>
 	<section>
 		
 		<Start />
+		<!-- <Start2 /> -->
 
 		<!-- <NewAccount /> -->
 

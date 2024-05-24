@@ -3,6 +3,13 @@
 3. User Store in other Components
 
 
+ // This will trigger reactivity
+    // actualUser = { loggedIn: true };
+
+    // // This will NOT trigger reactivity
+    // actualUser.loggedIn = true;
+
+
 Reactivity in Svelte is based on variable assignments and changes within the component itself. If you're updating your object in local storage from another component, the reactive properties in your main component won't automatically detect those changes because local storage updates don't inherently trigger Svelte's reactivity system.
 
 To ensure that your main component's reactive properties update when local storage changes, you can use a custom store or manually trigger updates. Here's how you can handle this:

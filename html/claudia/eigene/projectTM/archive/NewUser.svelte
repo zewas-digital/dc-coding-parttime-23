@@ -10,6 +10,8 @@
         showMessage = value;
     }
 
+ //user doesn't exist, i.e. no such email in local storage -> no data at all
+
   
     let password;
     let userName;
@@ -33,6 +35,7 @@
         userCreated = true;
         actualUser.set(newUser);
         
+
         showTemporaryMessage(setShowMessage, duration);
     }
 

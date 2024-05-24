@@ -41,22 +41,11 @@ loggedIn: false,
     ],
 };
 
-// const member4 = {
-// 	email: "d@d.com",
-// accountCreated: false,
-// loggedIn: false,
-// 	password: "",
-// 	userName: "",
-// 	teams: [
-// 		{teamName: "Team C", isAdmin: false},
-// 		{teamName: "Team D", isAdmin: false},
-// 	]
-// }
+
 members.push(member1, member2, member3);
 // console.log("Testdaten: ", members);
 members.forEach(member => {localStorage.setItem(member.email, JSON.stringify(member))}); //andersrum: JSON.parse()
-// console.log("Finde den Fehler", members[0].userName, members[1].teams);
-// console.log("Teamname: ", members[2].teams[0].teamName)
+
 
 //get all users from local storage:
 let allUsers = [];
@@ -76,8 +65,10 @@ localStorage.setItem(member4.email, JSON.stringify(member4));
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     let user = JSON.parse(localStorage.getItem(key));
+    // console.log("Key: ", key, "VAlue: ", user);
     allUsers.push(user);
 }
 
 console.log("Local Storage am Anfang: ", allUsers);
+
 }

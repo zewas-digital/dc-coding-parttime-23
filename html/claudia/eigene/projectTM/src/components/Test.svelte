@@ -1,36 +1,91 @@
-<script>
-    import { onMount } from 'svelte';
-    import { createEventDispatcher } from 'svelte';
-
-    const dispatcher = createEventDispatcher();
-    //reactive variables: 
+<!-- <script>
+    import NewAccount from "./NewAccount.svelte";
+    import ListOfTeams from "./ListOfTeams.svelte";
+    import NewUser from "./NewUser.svelte";
+    import Login from "./Login.svelte";
+    import { actualUser } from "../stores/userStore.js";
+    import { started } from "../stores/userStore.js"; // Import the store
+  
     let email = "";
-    let userExists = false;
-
-    function checkUserExists() {
-        userExists = localStorage.getItem(email) !== null;
+  
+    $: console.log("Email changed! ", email);
+  
+    $: userExists = !(actualUser.email === "" || actualUser.email === undefined || actualUser.email === null);
+  
+    $: console.log("started geändert ", $started); // Use $started to log the store's value
+  
+    $: allTeams = actualUser ? actualUser.teams : null;
+  
+    let showComponentNewAccount = false;
+    let showComponentNewUser = false;
+  
+    $: loggedIn = $actualUser?.loggedIn ?? false; // Optional chaining, default value
+  
+    $: console.log("actualUser geändert: ", actualUser);
+  
+    function start() {
+      initializeUser();
+  
+      started.set(true); // Use .set() to update the store
+      userExists = localStorage.getItem(email) !== null;
+  
+      if (userExists && !$actualUser.loggedIn) {
+        if ($actualUser.accountCreated) {
+          showComponentLogin = true;
+        } else {
+          showComponentNewAccount = true;
+        }
+      }
+  
+      if (!userExists && email !== "") {
+        showComponentNewUser = true;
+      }
     }
-
-    function login() {
-        dispatcher.dispatch("login", { email });
+  
+    async function initializeUser() {
+      const userData = JSON.parse(localStorage.getItem(email));
+      if (userData) {
+        actualUser.set({ ...userData, loggedIn: false }); // Set loggedIn within set
+      }
     }
-
-    onMount(() => {
-        // Check if user exists in localStorage on page load
-        checkUserExists();
-    });
-</script>
-
-<div>
-    <input type="email" bind:value={email} placeholder="Email" />
-    <button on:click={login}>Login</button>
-
-    {#if userExists}
-        <p>User already exists in localStorage</p>
-    {:else}
-        <p>User does not exist in localStorage</p>
+  
+    function emailTyped(event) {
+      email = event.target.value;
+      started.set(false); // Use .set() to update the store
+      showComponentLogin = false;
+      showComponentNewAccount = false;
+      showComponentNewUser = false;
+    }
+  </script>
+  
+  <div>
+    <input
+      type="email"
+      bind:value={email}
+      placeholder="Email"
+      on:input={emailTyped}
+    />
+  
+    {#if !$started} <button on:click={start} on:keypress:enter={start}>LOS!</button>
     {/if}
-</div>
+  
+    {#if showComponentNewUser}
+      <NewUser {email} />
+    {/if}
+  
+    {#if showComponentNewAccount}
+      <NewAccount {email} />
+    {/if}
+  
+    {#if showComponentLogin}
+      <Login {email} />
+    {/if}
+  
+    <p>TEST: loggedIn? {$actualUser.loggedIn}</p>
+    <p>TEST: started? {$started}</p>
+  
+    {#if $actualUser.loggedIn}
+      
+  
 
-
-
+ -->
