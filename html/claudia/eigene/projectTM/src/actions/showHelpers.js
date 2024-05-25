@@ -1,6 +1,6 @@
 /**
  * 
- * @param {Function} setShowMessage - Function to update state of message visibility
+ * @param {Function} ShowTemporaryMessage - Function to update state of message visibility
  * @param {number} duration - Duration in milliseconds to show the message 
  */
 let showMessage = false; //to display message
@@ -10,10 +10,6 @@ function setShowMessage(value) { //boolean value
 }
 
 export function showTemporaryMessage(setShowMessage, duration) {
-
-
-
-
 
 
     setShowMessage(true);

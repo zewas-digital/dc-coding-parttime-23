@@ -1,6 +1,7 @@
 <script>
     export let email;
-    import { showTemporaryMessage } from "../actions/teamHelpers.js";
+    // import { writable } from "svelte/store";
+    import { showTemporaryMessage } from "../actions/showHelpers.js";
     import { actualUser } from "../stores/userStore.js"
     
     let password = "";
@@ -17,12 +18,30 @@
     function handleLogin(email, password) {
 
         if ($actualUser.password === password) {
-            console.log("Login successful!");
+            console.log("Login successful, actualUser:", $actualUser);
             const newUserData = { ...$actualUser, loggedIn: true };
             actualUser.set(newUserData);
+            // console.log("newUserDAta im Store: ", newUserData);
+            // console.log("aus Storage, ALT: ", localStorage.getItem(email));
+//             const enabled = writable<actualUser>(JSON.parse(localStorage.getItem('email')));
 
-            localStorage.setItem(email, JSON.stringify(actualUser));
-            console.log("actualUser in Login: ", $actualUser);
+// enabled.subscribe((value) => localStorage.actualUser = JSON.stringify(value))
+// localStorage.setItem("hallo", "1234");
+// console.log("Local Storage im Login: ");
+// for (let i = 0; i < localStorage.length; i++) {
+//     let key = localStorage.key(i);
+//     let user = JSON.parse(localStorage.getItem(key));
+//     console.log("Key: ", key, "VAlue: ", user);
+// }
+
+            //Fehler beim Speichern! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // localStorage.setItem("3456", JSON.stringify(actualUser));
+            localStorage.setItem(email, JSON.stringify(newUserData));
+            // members.forEach(member => {localStorage.setItem(member.email, JSON.stringify(member))});
+
+
+            // console.log("actualUser in Login: ", $actualUser);
+            // console.log("aus Storage, NEU: ", localStorage.getItem(email));
             return true;
         } else {
             console.error("Incorrect password.");
@@ -47,7 +66,6 @@
 {#if !actualUser.loggedIn}
     <h2>Login</h2>
     <form on:submit={handleSubmit}>
-     
         <label>
             Password:
             <!-- TODO: Password-Type korrigieren! -->
@@ -56,11 +74,9 @@
 
         <button type="submit">Login</button>
     </form>
-   
-   
 {/if}
- {#if errorMessage}
-        <p class="error">{errorMessage}</p>
-    {:else if loginSuccessful}
-        <p class="success">Login successful!</p>
-    {/if}
+{#if errorMessage}
+    <p class="error">{errorMessage}</p>
+{:else if loginSuccessful}
+    <p class="success">Login successful!</p>
+{/if}

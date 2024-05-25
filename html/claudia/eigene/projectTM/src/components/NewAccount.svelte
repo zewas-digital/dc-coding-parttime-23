@@ -1,9 +1,9 @@
 <script>
     export let email;
-    import { showTemporaryMessage } from "../actions/teamHelpers.js";
+    import { showTemporaryMessage } from "../actions/showHelpers.js";
     import { actualUser } from "../stores/userStore.js"
  
-
+    // console.log("NewAccount, actualUser am Anfang: ", $actualUser);
     let showMessage = false; //to display message
     const duration = 3000; //in milliseconds
 
@@ -11,9 +11,11 @@
         showMessage = value;
     }
 
-     const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
-  
-    const allTeams = userExists ? actualUser.teams : null;
+    // const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
+    const userExists = $actualUser.email !== null;
+    // console.log("NewAccount, userExists?, email ", userExists, email);
+    const allTeams = userExists ? $actualUser.teams : [];
+    // console.log("NewAccount, allTeams: ", allTeams);
     let accountCreated = false;
     
     let password;
@@ -30,7 +32,7 @@
             userName: userName,
             allTeams: allTeams,
         };
-        console.log("Neuer Nutzer in NewAccount: ", newUser);
+        // console.log("Neuer Nutzer in NewAccount: ", newUser);
         localStorage.setItem(email, JSON.stringify(newUser));
       
         actualUser.set(newUser);

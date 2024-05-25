@@ -1,6 +1,6 @@
 <script>
     export let email;
-    import { showTemporaryMessage } from "../actions/teamHelpers.js";
+    import { showTemporaryMessage } from "../actions/showHelpers.js";
     import { actualUser } from "../stores/userStore.js";
 
     let showMessage = false; //to display message
@@ -28,7 +28,7 @@
             allTeams: [],
         };
         
-        console.log("Neuer Nutzer in NewUser ", newUser);
+        // console.log("Neuer Nutzer in NewUser ", newUser);
         localStorage.setItem(email, JSON.stringify(newUser));
         userCreated = true;
         actualUser.set(newUser);
