@@ -2,7 +2,8 @@
     export let email;
     // import { writable } from "svelte/store";
     import { showTemporaryMessage } from "../actions/showHelpers.js";
-    import { actualUser } from "../stores/userStore.js"
+    import { currentUser } from "../stores/userStore.js"
+    import { updateUser } from "../actions/userHelpers.js";
     
     let password = "";
     let loginSuccessful = false;
@@ -17,30 +18,26 @@
 
     function handleLogin(email, password) {
 
-        if ($actualUser.password === password) {
-            console.log("Login successful, actualUser:", $actualUser);
-            const newUserData = { ...$actualUser, loggedIn: true };
-            actualUser.set(newUserData);
-            // console.log("newUserDAta im Store: ", newUserData);
-            // console.log("aus Storage, ALT: ", localStorage.getItem(email));
-//             const enabled = writable<actualUser>(JSON.parse(localStorage.getItem('email')));
+        if ($currentUser.password === password) {
+            console.log("Login successful, currentUser:", $currentUser);
+           
+            // const newUserData = { ...$currentUser, loggedIn: true };
+            // currentUser.set(newUserData);
+            const updates = {loggedIn: true};
+            console.log("Updates: ", updates);
+            updateUser(updates);
 
-// enabled.subscribe((value) => localStorage.actualUser = JSON.stringify(value))
-// localStorage.setItem("hallo", "1234");
-// console.log("Local Storage im Login: ");
-// for (let i = 0; i < localStorage.length; i++) {
-//     let key = localStorage.key(i);
-//     let user = JSON.parse(localStorage.getItem(key));
-//     console.log("Key: ", key, "VAlue: ", user);
-// }
+            console.log("currentUser im Store: ", $currentUser);
+            console.log("aus Storage, ALT: ", localStorage.getItem(email));
+//
 
             //Fehler beim Speichern! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // localStorage.setItem("3456", JSON.stringify(actualUser));
-            localStorage.setItem(email, JSON.stringify(newUserData));
+            // localStorage.setItem("3456", JSON.stringify(currentUser));
+            // localStorage.setItem(email, JSON.stringify(newUserData));
             // members.forEach(member => {localStorage.setItem(member.email, JSON.stringify(member))});
 
 
-            // console.log("actualUser in Login: ", $actualUser);
+            // console.log("currentUser in Login: ", $currentUser);
             // console.log("aus Storage, NEU: ", localStorage.getItem(email));
             return true;
         } else {
@@ -63,7 +60,7 @@
     }
 </script>
 
-{#if !actualUser.loggedIn}
+{#if !currentUser.loggedIn}
     <h2>Login</h2>
     <form on:submit={handleSubmit}>
         <label>

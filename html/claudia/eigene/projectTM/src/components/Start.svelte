@@ -4,41 +4,51 @@
   import NewUser from "./NewUser.svelte";
   import Login from "./Login.svelte";
   import LogOutButton from "./LogOutButton.svelte";
-  import { actualUser } from "../stores/userStore.js";
+  import { currentUser } from "../stores/userStore.js";
   import { started } from "../stores/userStore.js"; // Import the store
   import { initializeUser } from "../actions/userHelpers";
+  import { updateUser } from "../actions/userHelpers";
 
   let email = "";
   $: console.log("Email changed! ", email);
 
+
+  // Local reactive variable to hold the current user data
+  //TODO: user verwenden?
+  let user;
+    currentUser.subscribe(value => {
+        user = value;
+    });
+
+
   $: userExists = !(
-    actualUser.email === "" ||
-    actualUser.email === undefined ||
-    actualUser.email === null
+    currentUser.email === "" ||
+    currentUser.email === undefined ||
+    currentUser.email === null
   );
 
   // $: console.log("started geändert ", $started); // Use $started to log the store's value
 
-  $: allTeams = actualUser ? actualUser.teams : null;
+  $: allTeams = currentUser ? currentUser.teams : null;
   let showComponentNewAccount = false;
   let showComponentNewUser = false;
-  // $: loggedIn = $actualUser?.loggedIn ?? false; // Optional chaining, default value
-  $: console.log("actualUser geändert: ", $actualUser);
-  $: console.log("loggedIn geändert ", actualUser.loggedIn);
+  // $: loggedIn = $currentUser?.loggedIn ?? false; // Optional chaining, default value
+  $: console.log("currentUser geändert: ", $currentUser);
+  $: console.log("loggedIn geändert ", currentUser.loggedIn);
   // $: console.log("userExists geändert", userExists);
-  // $: showComponentLogin = (!$actualUser?.loggedIn ?? false) && userExists && ($actualUser?.accountCreated ?? false);
+  // $: showComponentLogin = (!$currentUser?.loggedIn ?? false) && userExists && ($currentUser?.accountCreated ?? false);
   $: showComponentLogin =
-    !$actualUser?.loggedIn && userExists && $actualUser?.accountCreated;
+    !$currentUser?.loggedIn && userExists && $currentUser?.accountCreated;
   function start() {
     console.log("Start, vor initialize, email: ", email);
     initializeUser(email);
-    // console.log("function started, nach initialize, actualUser ", $actualUser );
+    // console.log("function started, nach initialize, currentUser ", $currentUser );
     started.set(true); // Use .set() to update the store
     userExists = localStorage.getItem(email) !== null;
-    // console.log("function started, actualUser", $actualUser);
+    // console.log("function started, currentUser", $currentUser);
 
-    if (userExists && !$actualUser.loggedIn) {
-      if ($actualUser.accountCreated) {
+    if (userExists && !$currentUser.loggedIn) {
+      if ($currentUser.accountCreated) {
         showComponentLogin = true;
       } else {
         showComponentNewAccount = true;
@@ -55,15 +65,15 @@
   //   // console.log("Email:; ", email);
   //   const userData = JSON.parse(localStorage.getItem(email));
   //   if (userData) {
-  //     actualUser.set({ ...userData, loggedIn: false }); // Set loggedIn within set
+  //     currentUser.set({ ...userData, loggedIn: false }); // Set loggedIn within set
   //   }
-  //   // console.log("actualUser: ", $actualUser);
+  //   // console.log("currentUser: ", $currentUser);
   //   // console.log("Initialize fertig! ------------------------");
   // }
 
   function emailTyped(event) {
     email = event.target.value;
-    // actualUser.set(null); //TODO ?????????????????
+    // currentUser.set(null); //TODO ?????????????????
     // console.log("emailTyped! *********************");
     // const emptyUser = {
     //   email: "",
@@ -73,14 +83,14 @@
     //   userName: "",
     //   teams: [],
     // };
-    // actualUser.set(emptyUser);
+    // currentUser.set(emptyUser);
 
     //TODO: aktuellen User ausloggen!
     initializeUser("");
 
     started.set(false); // Use .set() to update the store
     //   loggedIn = false;
-    //     actualUser.set({
+    //     currentUser.set({
     //     ...userData, // Spread existing user data
     //     loggedIn: false, // Set loggedIn to false
     //   });
@@ -116,15 +126,15 @@
     <Login {email} />
   {/if}
 
-  {#if $actualUser}
-    <p>TEST: loggedIn? {$actualUser.loggedIn}</p>
-    {#if $actualUser.loggedIn}
-      <h2>Hallo {$actualUser.userName}</h2>
+  {#if $currentUser}
+    <p>TEST: loggedIn? {$currentUser.loggedIn}</p>
+    {#if $currentUser.loggedIn}
+      <h2>Hallo {$currentUser.userName}</h2>
       <LogOutButton />
     {/if}
 
-    <!-- {#if $actualUser.loggedIn}
-      <h1>Hallo {actualUser.userName}!</h1>
+    <!-- {#if $currentUser.loggedIn}
+      <h1>Hallo {currentUser.userName}!</h1>
       <ListOfTeams {allTeams} />
     {/if} -->
   {/if}
