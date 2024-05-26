@@ -2,7 +2,8 @@
     export let email;
     import { showTemporaryMessage } from "../actions/showHelpers.js";
     import { currentUser } from "../stores/userStore.js"
- 
+    import { updateUser } from "../actions/userHelpers.js";
+
     // console.log("NewAccount, currentUser am Anfang: ", $currentUser);
     let showMessage = false; //to display message
     const duration = 3000; //in milliseconds
@@ -16,7 +17,7 @@
     // console.log("NewAccount, userExists?, email ", userExists, email);
     const allTeams = userExists ? $currentUser.teams : [];
     // console.log("NewAccount, allTeams: ", allTeams);
-    let accountCreated = false;
+    let accountCreated = false; //???
     
     let password;
     let userName;
@@ -24,7 +25,7 @@
     function handleSubmit(event) {
         event.preventDefault();
 
-        const newUser = {
+        const newAccount = {
             email: email,
             accountCreated: true,
             loggedIn: true,
@@ -32,12 +33,14 @@
             userName: userName,
             allTeams: allTeams,
         };
-        // console.log("Neuer Nutzer in NewAccount: ", newUser);
-        localStorage.setItem(email, JSON.stringify(newUser));
-      
-        currentUser.set(newUser);
+        updateUser(newAccount);
 
-        accountCreated = true;
+        // console.log("Neuer Nutzer in NewAccount: ", newUser);
+        // localStorage.setItem(email, JSON.stringify(newUser));
+      
+        // currentUser.set(newUser);
+
+        accountCreated = true; //???
         showTemporaryMessage(setShowMessage, duration);
     }
 

@@ -2,6 +2,7 @@
     export let email;
     import { showTemporaryMessage } from "../actions/showHelpers.js";
     import { currentUser } from "../stores/userStore.js";
+    import { updateUser } from "../actions/userHelpers.js";
 
     let showMessage = false; //to display message
     const duration = 3000; //in milliseconds
@@ -29,10 +30,11 @@
         };
         
         // console.log("Neuer Nutzer in NewUser ", newUser);
-        localStorage.setItem(email, JSON.stringify(newUser));
+        // localStorage.setItem(email, JSON.stringify(newUser));
+        // currentUser.set(newUser);
+        updateUser(newUser);
+
         userCreated = true;
-        currentUser.set(newUser);
-        
         showTemporaryMessage(setShowMessage, duration);
     }
 

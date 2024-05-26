@@ -10,15 +10,15 @@
   import { updateUser } from "../actions/userHelpers";
 
   let email = "";
-  $: console.log("Email changed! ", email);
+  // $: console.log("Email changed! ", email);
 
 
   // Local reactive variable to hold the current user data
   //TODO: user verwenden?
-  let user;
-    currentUser.subscribe(value => {
-        user = value;
-    });
+  // let user;
+  //   currentUser.subscribe(value => {
+  //       user = value;
+  //   });
 
 
   $: userExists = !(
@@ -29,18 +29,19 @@
 
   // $: console.log("started geändert ", $started); // Use $started to log the store's value
 
-  $: allTeams = currentUser ? currentUser.teams : null;
+  $: allTeams = userExists ? $currentUser.teams : [];
+  $: console.log("allTeams: ", allTeams);
   let showComponentNewAccount = false;
   let showComponentNewUser = false;
   // $: loggedIn = $currentUser?.loggedIn ?? false; // Optional chaining, default value
-  $: console.log("currentUser geändert: ", $currentUser);
-  $: console.log("loggedIn geändert ", currentUser.loggedIn);
+  // $: console.log("currentUser geändert: ", $currentUser);
+  // $: console.log("loggedIn geändert ", currentUser.loggedIn);
   // $: console.log("userExists geändert", userExists);
   // $: showComponentLogin = (!$currentUser?.loggedIn ?? false) && userExists && ($currentUser?.accountCreated ?? false);
   $: showComponentLogin =
     !$currentUser?.loggedIn && userExists && $currentUser?.accountCreated;
   function start() {
-    console.log("Start, vor initialize, email: ", email);
+    // console.log("Start, vor initialize, email: ", email);
     initializeUser(email);
     // console.log("function started, nach initialize, currentUser ", $currentUser );
     started.set(true); // Use .set() to update the store
@@ -133,10 +134,10 @@
       <LogOutButton />
     {/if}
 
-    <!-- {#if $currentUser.loggedIn}
+    {#if $currentUser.loggedIn}
       <h1>Hallo {currentUser.userName}!</h1>
       <ListOfTeams {allTeams} />
-    {/if} -->
+    {/if}
   {/if}
   <p>TEST: started? {$started}</p>
 </div>

@@ -19,16 +19,16 @@
     function handleLogin(email, password) {
 
         if ($currentUser.password === password) {
-            console.log("Login successful, currentUser:", $currentUser);
+            // console.log("Login successful, currentUser:", $currentUser);
            
             // const newUserData = { ...$currentUser, loggedIn: true };
             // currentUser.set(newUserData);
             const updates = {loggedIn: true};
-            console.log("Updates: ", updates);
+            // console.log("Updates: ", updates);
             updateUser(updates);
 
-            console.log("currentUser im Store: ", $currentUser);
-            console.log("aus Storage, ALT: ", localStorage.getItem(email));
+            // console.log("currentUser im Store: ", $currentUser);
+            // console.log("aus Storage, ALT: ", localStorage.getItem(email));
 //
 
             //Fehler beim Speichern! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

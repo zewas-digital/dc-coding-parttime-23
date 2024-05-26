@@ -2,6 +2,7 @@ import { currentUser } from "../stores/userStore.js";
 
 // Function to update the user
 export function updateUser(updates) {
+    // console.log("function updateUser, updates: ", updates);
     let user;
 
     // Use a subscription to get the current user value
@@ -16,13 +17,14 @@ export function updateUser(updates) {
     const updatedUser = { ...user, ...updates };
 
     // Save the updated user object to localStorage
+    console.log("****** UpdateUser schreibt in Local Storage! **************");
     localStorage.setItem(user.email, JSON.stringify(updatedUser));
 
     // Update the Svelte store with the new user object
     currentUser.set(updatedUser);
 
     // Log the updated user for debugging purposes
-    console.log("UpdateUser, updatedUser: ", updatedUser);
+    // console.log("UpdateUser beendet, updatedUser: ", updatedUser);
 
     return updatedUser;
 }
@@ -81,9 +83,9 @@ export function updateUser(updates) {
 // }
 
 export async function initializeUser(email) {
-    console.log("Initialize USER! ---------------");
-    console.log("currentUser ", currentUser);
-    console.log("Email:; ", email);
+    // console.log("Initialize USER! ---------------");
+    // console.log("currentUser ", currentUser);
+    // console.log("Email:; ", email);
 
     
     const userData = JSON.parse(localStorage.getItem(email));
@@ -92,7 +94,7 @@ export async function initializeUser(email) {
     }
     else {
         const emptyUser = {
-            email: "",
+            email: email,
             accountCreated: false,
             loggedIn: false,
             password: "",
@@ -101,7 +103,7 @@ export async function initializeUser(email) {
           };
           currentUser.set(emptyUser);
     }
-    console.log("currentUser: ", currentUser);
+    // console.log("currentUser: ", currentUser);
     // console.log("Initialize fertig! ------------------------");
   }
 
