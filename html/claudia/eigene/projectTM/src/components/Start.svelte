@@ -12,14 +12,12 @@
   let email = "";
   // $: console.log("Email changed! ", email);
 
-
   // Local reactive variable to hold the current user data
   //TODO: user verwenden?
   // let user;
   //   currentUser.subscribe(value => {
   //       user = value;
   //   });
-
 
   $: userExists = !(
     currentUser.email === "" ||
@@ -127,17 +125,15 @@
     <Login {email} />
   {/if}
 
-  {#if $currentUser}
-    <p>TEST: loggedIn? {$currentUser.loggedIn}</p>
-    {#if $currentUser.loggedIn}
-      <h2>Hallo {$currentUser.userName}</h2>
-      <LogOutButton />
-    {/if}
-
-    {#if $currentUser.loggedIn}
-      <h1>Hallo {currentUser.userName}!</h1>
-      <ListOfTeams {allTeams} />
-    {/if}
+  <!-- {#if $currentUser}
+    <p>TEST: loggedIn? {$currentUser.loggedIn}</p> -->
+  {#if $currentUser && $currentUser.loggedIn}
+    <h2>Hallo {$currentUser.userName}!</h2>
+    <LogOutButton />
+    <ListOfTeams />
   {/if}
-  <p>TEST: started? {$started}</p>
+
+ 
+  <!-- {/if} -->
+  <!-- <p>TEST: started? {$started}</p> -->
 </div>

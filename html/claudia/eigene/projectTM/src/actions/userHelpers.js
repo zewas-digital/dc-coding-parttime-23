@@ -15,6 +15,7 @@ export function updateUser(updates) {
 
     // Create a new updated user object
     const updatedUser = { ...user, ...updates };
+    
 
     // Save the updated user object to localStorage
     console.log("****** UpdateUser schreibt in Local Storage! **************");
