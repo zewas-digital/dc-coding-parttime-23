@@ -13,4 +13,4 @@
     <button on:click={() => handleTeamClick(team)}>{team.teamName}</button
         
     >{/each}
-<NewTeamButton />
+<!-- <NewTeamButton /> -->

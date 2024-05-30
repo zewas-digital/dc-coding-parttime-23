@@ -1,5 +1,5 @@
 <script>
-    export let email;
+    // export let email;
     // import { writable } from "svelte/store";
     import { showTemporaryMessage } from "../actions/showHelpers.js";
     import { currentUser } from "../stores/userStore.js"
@@ -16,8 +16,8 @@
         showMessage = value;
     }
 
-    function handleLogin(email, password) {
-
+    // function handleLogin(email, password) {
+        function handleLogin(password) {
         if ($currentUser.password === password) {
             // console.log("Login successful, currentUser:", $currentUser);
            
@@ -50,7 +50,9 @@
     function handleSubmit(event) {
         event.preventDefault();
 
-        if (handleLogin(email, password)) {
+        // if (handleLogin(email, password)) {
+            if (handleLogin(password)) {
+
             loginSuccessful = true;
             errorMessage = "";
         } else {

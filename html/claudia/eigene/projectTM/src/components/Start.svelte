@@ -8,10 +8,18 @@
   import { started } from "../stores/userStore.js"; // Import the store
   import { initializeUser } from "../actions/userHelpers";
   import { updateUser } from "../actions/userHelpers";
+  import { onMount } from "svelte";
 
   let email = "";
   // $: console.log("Email changed! ", email);
 
+  $: showComponentEmailInput = $currentUser === null || !$currentUser.loggedIn;
+
+
+
+  onMount(() => {
+    if (showComponentEmailInput) email.focus();
+  });
   // Local reactive variable to hold the current user data
   //TODO: user verwenden?
   // let user;
@@ -28,11 +36,12 @@
   // $: console.log("started geändert ", $started); // Use $started to log the store's value
 
   $: allTeams = userExists ? $currentUser.teams : [];
-  $: console.log("allTeams: ", allTeams);
+  // $: console.log("allTeams: ", allTeams);
   let showComponentNewAccount = false;
   let showComponentNewUser = false;
+
   // $: loggedIn = $currentUser?.loggedIn ?? false; // Optional chaining, default value
-  // $: console.log("currentUser geändert: ", $currentUser);
+  $: console.log("currentUser geändert: ", $currentUser);
   // $: console.log("loggedIn geändert ", currentUser.loggedIn);
   // $: console.log("userExists geändert", userExists);
   // $: showComponentLogin = (!$currentUser?.loggedIn ?? false) && userExists && ($currentUser?.accountCreated ?? false);
@@ -59,40 +68,13 @@
     }
   }
 
-  // async function initializeUser() {
-  //   // console.log("Initialize USER! ---------------");
-  //   // console.log("Email:; ", email);
-  //   const userData = JSON.parse(localStorage.getItem(email));
-  //   if (userData) {
-  //     currentUser.set({ ...userData, loggedIn: false }); // Set loggedIn within set
-  //   }
-  //   // console.log("currentUser: ", $currentUser);
-  //   // console.log("Initialize fertig! ------------------------");
-  // }
-
   function emailTyped(event) {
     email = event.target.value;
-    // currentUser.set(null); //TODO ?????????????????
-    // console.log("emailTyped! *********************");
-    // const emptyUser = {
-    //   email: "",
-    //   accountCreated: false,
-    //   loggedIn: false,
-    //   password: "",
-    //   userName: "",
-    //   teams: [],
-    // };
-    // currentUser.set(emptyUser);
 
-    //TODO: aktuellen User ausloggen!
     initializeUser("");
 
     started.set(false); // Use .set() to update the store
-    //   loggedIn = false;
-    //     currentUser.set({
-    //     ...userData, // Spread existing user data
-    //     loggedIn: false, // Set loggedIn to false
-    //   });
+
     showComponentLogin = false;
     showComponentNewAccount = false;
     showComponentNewUser = false;
@@ -101,12 +83,18 @@
 </script>
 
 <div>
-  <input
-    type="email"
-    bind:value={email}
-    placeholder="Email"
-    on:input={emailTyped}
-  />
+  {#if showComponentEmailInput}
+    <input
+      type="email"
+      bind:this={email}
+      placeholder="Email"
+      on:input={emailTyped}
+    />
+  {/if}
+  <!-- bind:this={email} für den Autofocus bei onMount anstelle von:
+bind:value={email}  -->
+
+  <!--TODO: svelte:component this = {...} anstelle von if's ???-->
 
   {#if !$started}
     <!-- Use $started to auto-subscribe to the store -->
@@ -114,7 +102,7 @@
   {/if}
 
   {#if showComponentNewUser}
-    <NewUser {email} />
+    <NewUser {email} /> <!--email übergeben???-->
   {/if}
 
   {#if showComponentNewAccount}
@@ -122,7 +110,7 @@
   {/if}
 
   {#if showComponentLogin}
-    <Login {email} />
+    <Login />
   {/if}
 
   <!-- {#if $currentUser}
@@ -133,7 +121,6 @@
     <ListOfTeams />
   {/if}
 
- 
   <!-- {/if} -->
   <!-- <p>TEST: started? {$started}</p> -->
 </div>
