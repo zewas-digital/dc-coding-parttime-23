@@ -1,5 +1,6 @@
 <script>
   import NewAccount from "./NewAccount.svelte";
+  
   import ListOfTeams from "./ListOfTeams.svelte";
   import NewUser from "./NewUser.svelte";
   import Login from "./Login.svelte";
