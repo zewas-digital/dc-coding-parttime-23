@@ -1,9 +1,10 @@
 <script>
     export let email;
-    import { showTemporaryMessage } from "../actions/teamHelpers.js";
-    import { actualUser } from "../stores/userStore.js"
- 
+    import { showTemporaryMessage } from "../actions/showHelpers.js";
+    import { currentUser } from "../stores/userStore.js"
+    import { updateUser } from "../actions/userHelpers.js";
 
+    // console.log("NewAccount, currentUser am Anfang: ", $currentUser);
     let showMessage = false; //to display message
     const duration = 3000; //in milliseconds
 
@@ -11,10 +12,12 @@
         showMessage = value;
     }
 
-     const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
-  
-    const allTeams = userExists ? actualUser.teams : null;
-    let accountCreated = false;
+    // const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
+    const userExists = $currentUser.email !== null;
+    // console.log("NewAccount, userExists?, email ", userExists, email);
+    const allTeams = userExists ? $currentUser.teams : [];
+    // console.log("NewAccount, allTeams: ", allTeams);
+    let accountCreated = false; //???
     
     let password;
     let userName;
@@ -22,7 +25,7 @@
     function handleSubmit(event) {
         event.preventDefault();
 
-        const newUser = {
+        const newAccount = {
             email: email,
             accountCreated: true,
             loggedIn: true,
@@ -30,12 +33,14 @@
             userName: userName,
             allTeams: allTeams,
         };
-        console.log("Neuer Nutzer in NewAccount: ", newUser);
-        localStorage.setItem(email, JSON.stringify(newUser));
-      
-        actualUser.set(newUser);
+        updateUser(newAccount);
 
-        accountCreated = true;
+        // console.log("Neuer Nutzer in NewAccount: ", newUser);
+        // localStorage.setItem(email, JSON.stringify(newUser));
+      
+        // currentUser.set(newUser);
+
+        accountCreated = true; //???
         showTemporaryMessage(setShowMessage, duration);
     }
 

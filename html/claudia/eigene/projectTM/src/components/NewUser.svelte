@@ -1,7 +1,8 @@
 <script>
     export let email;
-    import { showTemporaryMessage } from "../actions/teamHelpers.js";
-    import { actualUser } from "../stores/userStore.js";
+    import { showTemporaryMessage } from "../actions/showHelpers.js";
+    import { currentUser } from "../stores/userStore.js";
+    import { updateUser } from "../actions/userHelpers.js";
 
     let showMessage = false; //to display message
     const duration = 3000; //in milliseconds
@@ -28,11 +29,12 @@
             allTeams: [],
         };
         
-        console.log("Neuer Nutzer in NewUser ", newUser);
-        localStorage.setItem(email, JSON.stringify(newUser));
+        // console.log("Neuer Nutzer in NewUser ", newUser);
+        // localStorage.setItem(email, JSON.stringify(newUser));
+        // currentUser.set(newUser);
+        updateUser(newUser);
+
         userCreated = true;
-        actualUser.set(newUser);
-        
         showTemporaryMessage(setShowMessage, duration);
     }
 
