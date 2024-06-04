@@ -4,13 +4,12 @@
     let error = '';
   
     const handleLogin = async () => {
-      // Dummy Login Prüfung: Nutzername und Passwort sind "admin"
-      if (username === 'admin' && password === 'admin') {
+      
+      if (username =  document.getElementById('username').value, password = document.getElementById('password').value) {
         alert('Login erfolgreich!');
         error = '';
-        // Hier könntest du z.B. zu einer anderen Seite navigieren
       } else {
-        error = 'Ungültiger Nutzername oder Passwort';
+        error = 'Ungültiger Nutzername oder Passwort! Bitte versuchen Sie es nochmal';
       }
     };
   </script>
