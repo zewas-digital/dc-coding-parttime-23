@@ -1,1 +1,8 @@
-<h1>Tasklist</h1>
+<script>
+    import { page } from "$app/stores";
+    const { teamname } = $page.params;
+</script>
+
+<h1>Tasklist for Team {teamname}</h1>
+
+

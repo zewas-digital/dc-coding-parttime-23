@@ -3,9 +3,9 @@
 	import { updateUser } from '$lib/actions/userHelpers.js';
 	import { currentUser } from '$lib/stores/userStore.js';
 
-	let password: string = '';
+	let password: string = "";
 	let loginSuccessful = false;
-	let errorMessage: string = '';
+	let errorMessage: string = "";
 
 	let showMessage = false; //to display message
 	const duration = 3000; //in milliseconds

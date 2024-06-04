@@ -16,6 +16,9 @@
 	import { updateUser, initializeUser } from '$lib/actions/userHelpers';
 
 	import Login from '$lib/components/usercomponents/Login.svelte';
+	import NewAccount from '$lib/components/usercomponents/NewAccount.svelte';
+	import NewUser from '$lib/components/usercomponents/NewUser.svelte';
+	import LogOutButton from '$lib/components/usercomponents/LogOutButton.svelte';
 
 	// Initialize the variables with appropriate types
 	// let user: User | null = null;
@@ -27,6 +30,14 @@
 	// $: hasStarted = $started;
 
 	let email: string = '';
+	let emailInput: HTMLInputElement | null;
+
+	$: showComponentEmailInput = $currentUser === null || !$currentUser.loggedIn;
+
+	onMount(() => {
+		if (showComponentEmailInput && emailInput) emailInput.focus();
+	});
+
 	// $: console.log('Email changed! ', email);
 	$: console.log('Component Start, CurrentUser: ', $currentUser);
 	// $: console.log('Component Start, User: ', user);
@@ -96,10 +107,16 @@
 	{#if $currentUser}
 		<p>Welcome, {$currentUser.userName}!</p>
 	{/if}
-	<!-- {#if showComponentEmailInput}-->
-	<input type="email" bind:value={email} placeholder="Email" on:input={emailTyped} />
-
-	<!-- {/if} -->
+	{#if showComponentEmailInput}
+		<!-- <input type="email" bind:value={email} placeholder="Email" on:input={emailTyped} /> -->
+		<input
+			type="email"
+			bind:this={emailInput}
+			bind:value={email}
+			placeholder="Email"
+			on:input={emailTyped}
+		/>
+	{/if}
 	<!-- bind:this={email} für den Autofocus bei onMount anstelle von:
   bind:value={email}  -->
 
@@ -113,25 +130,26 @@
 		>
 	{/if}
 
-	<!-- {#if showComponentNewUser}
-      <NewUser {email} /> email übergeben???-->
-	<!-- {/if} -->
+	{#if showComponentNewUser}
+		<NewUser {email} /> <!--email übergeben???-->
+	{/if}
 
-	<!-- {#if showComponentNewAccount}
-      <NewAccount {email} />
-    {/if} -->
+	{#if showComponentNewAccount}
+		<NewAccount {email} />
+	{/if}
 
 	{#if showComponentLogin}
 		<Login />
 	{/if}
 
-	<!-- {#if $currentUser}
-      <p>TEST: loggedIn? {$currentUser.loggedIn}</p> -->
-	<!-- {#if $currentUser && $currentUser.loggedIn}
-      <h2>Hallo {$currentUser.userName}!</h2>
-      <LogOutButton />
-      <ListOfTeams />
-    {/if} -->
+	{#if $currentUser}
+		<p>TEST: loggedIn? {$currentUser.loggedIn}</p>
+	{/if}
+	{#if $currentUser && $currentUser.loggedIn}
+		<h2>Hallo {$currentUser.userName}!</h2>
+		<LogOutButton />
+		<!-- <ListOfTeams /> -->
+	{/if}
 
 	<!-- {/if} -->
 	<!-- <p>TEST: started? {$started}</p> -->
