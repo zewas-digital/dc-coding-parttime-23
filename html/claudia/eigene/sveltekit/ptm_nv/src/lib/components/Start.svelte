@@ -1,20 +1,10 @@
 <script lang="ts">
-	// import NewAccount from "./NewAccount.svelte";
-
-	// import ListOfTeams from "./ListOfTeams.svelte";
-	// import NewUser from "./NewUser.svelte";
-	// import Login from "./Login.svelte";
-	// import LogOutButton from "./LogOutButton.svelte";
-	// import { currentUser } from "../stores/userStore.js";
-	// import { started } from "../stores/userStore.js"; // Import the store
-	// import { initializeUser } from "../actions/userHelpers";
-	// import { updateUser } from "../actions/userHelpers";
-
-	import type { User } from '$lib/stores/userStore'; // Import the User type
+	
+	// import type { User } from '$lib/stores/userStore'; // Import the User type
 	import { currentUser, started } from '$lib/stores/userStore';
 	import { onMount } from 'svelte';
 	import { updateUser, initializeUser } from '$lib/actions/userHelpers';
-
+	import { goto } from '$app/navigation';
 	import Login from '$lib/components/usercomponents/Login.svelte';
 	import NewAccount from '$lib/components/usercomponents/NewAccount.svelte';
 	import NewUser from '$lib/components/usercomponents/NewUser.svelte';
@@ -35,7 +25,7 @@
 	$: showComponentEmailInput = $currentUser === null || !$currentUser.loggedIn;
 
 	onMount(() => {
-		if (showComponentEmailInput && emailInput) emailInput.focus();
+		if (showComponentEmailInput && emailInput) emailInput.focus(); //Focus auf Input-Feld
 	});
 
 	// $: console.log('Email changed! ', email);
@@ -51,7 +41,7 @@
 		$currentUser.email !== '' &&
 		$currentUser.email !== undefined &&
 		$currentUser.email !== null;
-	$: console.log('started geändert ', $started); // Use $started to log the store's value
+	// $: console.log('started geändert ', $started); // Use $started to log the store's value
 
 	// $: allTeams = userExists ? $currentUser.teams : [];
 	// // $: console.log("allTeams: ", allTeams);
@@ -59,7 +49,7 @@
 	let showComponentNewUser = false;
 
 	$: loggedIn = $currentUser?.loggedIn ?? false; // Optional chaining, default value
-	$: console.log('currentUser geändert: ', $currentUser);
+	// $: console.log('currentUser geändert: ', $currentUser);
 	// $: console.log('user geändert: ', $user);
 
 	// $: console.log("loggedIn geändert ", currentUser.loggedIn);
@@ -69,11 +59,11 @@
 	function start(event: MouseEvent | KeyboardEvent): void {
 		// console.log("Start, vor initialize, email: ", email);
 		initializeUser(email);
-		console.log('function started, nach initialize, currentUser ', $currentUser);
+		// console.log('function started, nach initialize, currentUser ', $currentUser);
 		started.set(true); // Use .set() to update the store
 		// console.log("Started is set!: (started, hasStarted)", $started, hasStarted);
 		userExists = localStorage.getItem(email) !== null;
-		console.log('userExists? ', userExists, $currentUser);
+		// console.log('userExists? ', userExists, $currentUser);
 		// console.log('function started, user', $user);
 
 		if (userExists && $currentUser && !$currentUser.loggedIn) {
@@ -95,30 +85,36 @@
 		const input = event.target as HTMLInputElement;
 		email = input.value;
 
-		initializeUser('');
+		initializeUser("");
 		started.set(false); // Use .set() to update the store
 		showComponentLogin = false;
 		showComponentNewAccount = false;
 		showComponentNewUser = false;
 	}
+
+	$: console.log("currentUser loggedin?: ", $currentUser);
+	$:	if ($currentUser && $currentUser.loggedIn) {
+		goto("/myteams");
+	}
+	
 </script>
 
 <div>
-	{#if $currentUser}
+	<!-- {#if $currentUser && $currentUser.userName !== ""}
 		<p>Welcome, {$currentUser.userName}!</p>
-	{/if}
+	{/if} -->
 	{#if showComponentEmailInput}
 		<!-- <input type="email" bind:value={email} placeholder="Email" on:input={emailTyped} /> -->
 		<input
 			type="email"
-			bind:this={emailInput}
+			bind:this={emailInput} 
 			bind:value={email}
 			placeholder="Email"
 			on:input={emailTyped}
 		/>
 	{/if}
-	<!-- bind:this={email} für den Autofocus bei onMount anstelle von:
-  bind:value={email}  -->
+	<!-- bind:this={emailInput} für den Autofocus bei onMount;
+  	bind:value={email} für den reaktiven Wert -->
 
 	<!--TODO: svelte:component this = {...} anstelle von if's ???-->
 
@@ -131,7 +127,7 @@
 	{/if}
 
 	{#if showComponentNewUser}
-		<NewUser {email} /> <!--email übergeben???-->
+		<NewUser {email} /> <!--email übergeben!!-->
 	{/if}
 
 	{#if showComponentNewAccount}
@@ -142,14 +138,15 @@
 		<Login />
 	{/if}
 
-	{#if $currentUser}
+	<!-- {#if $currentUser}
 		<p>TEST: loggedIn? {$currentUser.loggedIn}</p>
-	{/if}
-	{#if $currentUser && $currentUser.loggedIn}
+	{/if} -->
+	<!-- {#if $currentUser && $currentUser.loggedIn}
 		<h2>Hallo {$currentUser.userName}!</h2>
+		
 		<LogOutButton />
-		<!-- <ListOfTeams /> -->
-	{/if}
+		<ListOfTeams /> -->
+	<!-- {/if} -->
 
 	<!-- {/if} -->
 	<!-- <p>TEST: started? {$started}</p> -->

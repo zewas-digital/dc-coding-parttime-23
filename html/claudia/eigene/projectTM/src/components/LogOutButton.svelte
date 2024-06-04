@@ -18,22 +18,6 @@
     }
 </script>
 
-<!-- const updates = {loggedIn: true};
-            console.log("Updates: ", updates);
-            updateUser(updates); -->
 
 <button on:click={logOut}>LOGOUT!</button>
 
-
-<!-- const newUser = {
-    email: email,
-    accountCreated: true,
-    loggedIn: true,
-    password: password,
-    userName: userName,
-    allTeams: allTeams,
-};
-// console.log("Neuer Nutzer in NewAccount: ", newUser);
-localStorage.setItem(email, JSON.stringify(newUser));
-
-currentUser.set(newUser); -->

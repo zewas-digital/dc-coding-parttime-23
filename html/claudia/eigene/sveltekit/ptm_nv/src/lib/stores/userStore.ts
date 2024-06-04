@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import type { Team } from "../utils/testdata";
 
 // Define the types for the user and other states
 export interface User {
@@ -7,7 +8,8 @@ export interface User {
     loggedIn: boolean;
     password: string;
     userName: string;
-    teams: { teamName: string; isAdmin: boolean }[];
+    teams: Team[];
+    // teams: { teamName: string; isAdmin: boolean }[];
 }
 
 // Initialize the user store with null or an empty object

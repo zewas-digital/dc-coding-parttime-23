@@ -19,10 +19,7 @@
 		if ($currentUser && $currentUser.password === password) {
 			// console.log("Login successful, currentUser:", $currentUser);
 
-			// const newUserData = { ...$currentUser, loggedIn: true };
-			// currentUser.set(newUserData);
 			const updates = { loggedIn: true };
-			// console.log("Updates: ", updates);
 			updateUser(updates);
 		} else {
 			console.error('Incorrect password.');

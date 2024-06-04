@@ -1,3 +1,8 @@
+export interface Team {
+    teamName: string;
+    isAdmin: boolean;
+}
+
 export function setTestData() {
 
     //TESTDATEN: ////////////////////////////////////////////////////////
@@ -9,10 +14,10 @@ export function setTestData() {
     }
 
     // console.log('Interface Team:');
-    interface Team {
-        teamName: string;
-        isAdmin: boolean;
-    }
+    // export interface Team {
+    //     teamName: string;
+    //     isAdmin: boolean;
+    // }
     // console.log('Interface Member: ');
     interface Member {
         email: string;

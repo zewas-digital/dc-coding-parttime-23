@@ -13,6 +13,8 @@
         showMessage = value;
     }
 
+    $: console.log("NewAccount,showMessage: ", showMessage);
+
     // const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
     const userExists = $currentUser && $currentUser.email !== null;
     // console.log("NewAccount, userExists?, email ", userExists, email);
@@ -37,9 +39,7 @@
         updateUser(newAccount);
 
         // console.log("Neuer Nutzer in NewAccount: ", newUser);
-        // localStorage.setItem(email, JSON.stringify(newUser));
-      
-        // currentUser.set(newUser);
+    
 
         accountCreated = true; //???
         showTemporaryMessage(setShowMessage, duration);

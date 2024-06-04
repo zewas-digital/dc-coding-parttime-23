@@ -2,7 +2,7 @@
     
     import { showTemporaryMessage } from '$lib/actions/showHelpers';
     import { updateUser } from '$lib/actions/userHelpers.js';
-	import { currentUser } from '$lib/stores/userStore.js';
+	// import { currentUser } from '$lib/stores/userStore.js';
     export let email: string;
 
     let showMessage = false; //to display message
@@ -31,8 +31,7 @@
         };
         
         // console.log("Neuer Nutzer in NewUser ", newUser);
-        // localStorage.setItem(email, JSON.stringify(newUser));
-        // currentUser.set(newUser);
+       
         updateUser(newUser);
 
         userCreated = true;
