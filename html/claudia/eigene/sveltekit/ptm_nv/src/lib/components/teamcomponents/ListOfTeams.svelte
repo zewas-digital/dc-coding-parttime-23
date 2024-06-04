@@ -1,17 +1,12 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { currentUser } from '$lib/stores/userStore';
-
-	// import { currentUser } from '$lib/stores/userStore';
 	import type { Team } from '../../utils/testdata';
-    
-
-	// export let allTeams;
-	// import { currentUser } from "../stores/userStore";
-	// import NewTeam from "./NewTeam.svelte";
+	import CreateNewTeamButton from './CreateNewTeamButton.svelte';
 
 	function handleTeamClick(team: Team) {
-		// Handle click logic here
 		console.log('Clicked on team:', team);
+        goto("/team/{teamName}");
 	}
 </script>
 
@@ -19,4 +14,5 @@
 	{#each $currentUser.teams as team, index}
 		<button on:click={() => handleTeamClick(team)}>{team.teamName}</button>{/each}
 {/if}
-<!-- <NewTeamButton /> -->
+
+<CreateNewTeamButton />
