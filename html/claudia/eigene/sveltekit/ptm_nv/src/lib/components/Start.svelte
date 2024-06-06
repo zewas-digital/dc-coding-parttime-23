@@ -9,6 +9,8 @@
 	import NewAccount from '$lib/components/usercomponents/NewAccount.svelte';
 	import NewUser from '$lib/components/usercomponents/NewUser.svelte';
 	import LogOutButton from '$lib/components/usercomponents/LogOutButton.svelte';
+	import { currentTeam } from '$lib/stores/teamStore';
+	
 
 	// Initialize the variables with appropriate types
 	// let user: User | null = null;
@@ -29,7 +31,8 @@
 	});
 
 	// $: console.log('Email changed! ', email);
-	$: console.log('Component Start, CurrentUser: ', $currentUser);
+	// $: console.log('Component Start, CurrentUser: ', $currentUser);
+	$: console.log("currentTEam: ", $currentTeam);
 	// $: console.log('Component Start, User: ', user);
 	// $: console.log("Component Start, hasStarted, started: ", hasStarted, $started);
 	// $: console.log("Component Start, user, currentUser: ", user, $currentUser);
@@ -92,7 +95,7 @@
 		showComponentNewUser = false;
 	}
 
-	$: console.log("currentUser loggedin?: ", $currentUser);
+	// $: console.log("currentUser loggedin?: ", $currentUser);
 	$:	if ($currentUser && $currentUser.loggedIn) {
 		goto("/myteams");
 	}

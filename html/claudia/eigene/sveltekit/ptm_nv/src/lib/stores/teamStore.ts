@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 import type { User } from '$lib/stores/userStore';
 
+
 //TODO: eigener Store?
 export interface Task {
 	taskName: string;
@@ -34,6 +35,12 @@ const defaultTeam: Team = {
 // // Initialize the team store with default value:
 
 export const currentTeam = writable<Team>(defaultTeam);
+
+
+
+
+
+
 
 
 // export const started = writable<boolean>(false);

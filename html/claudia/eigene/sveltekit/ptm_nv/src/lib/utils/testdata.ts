@@ -6,8 +6,12 @@
 import type { User } from "../stores/userStore";
 import type { Team } from "$lib/stores/teamStore";
 
-export function setTestData() {
 
+import { getNewTeamID } from "$lib/actions/teamHelpers";
+
+
+export function setTestData() {
+    console.log("Testdaten!");
     //TESTDATEN: ////////////////////////////////////////////////////////
 
     //localStorage is not defined on server!
@@ -15,7 +19,60 @@ export function setTestData() {
         // This code will only run in the browser
         localStorage.clear();
     }
-
+    // const lastUsedTeamID = initializeLastUsedTeamID(); //set to 0 as long as LS is cleared
+///////////////// TESTDATEN TEAM ///////////////////////////
+let teams: Team[] = [];
+const team1: Team = {
+    teamID: getNewTeamID(),
+    teamName: "Team 1",
+    allMembers: [],
+    allAdmins: [],
+	allDates: [],
+	allTasks: [],
+	allCoaches: [],
+	allDrivers: [],
+	color: "#ff5733"
+}
+const team2: Team = {
+    teamID: getNewTeamID(),
+    teamName: "Team 2",
+    allMembers: [],
+    allAdmins: [],
+	allDates: [],
+	allTasks: [],
+	allCoaches: [],
+	allDrivers: [],
+	color: "#337ab7"
+}
+const team3: Team = {
+    teamID: getNewTeamID(),
+    teamName: "Team 3",
+    allMembers: [],
+    allAdmins: [],
+	allDates: [],
+	allTasks: [],
+	allCoaches: [],
+	allDrivers: [],
+	color: "#28a745"
+}
+const team4: Team = {
+    teamID: getNewTeamID(),
+    teamName: "Team 4",
+    allMembers: [],
+    allAdmins: [],
+	allDates: [],
+	allTasks: [],
+	allCoaches: [],
+	allDrivers: [],
+	color: "#6f42c1"
+}
+teams.push(team1, team2, team3, team4);
+teams.forEach((team) => {
+    if (typeof window !== "undefined"){
+        localStorage.setItem("Team" + team.teamID, JSON.stringify(team));
+    }
+})
+///////////////// TESTDATEN TEAM ENDE //////////////////////
    //////////// TESTDATEN USER ////////////////////////////////
     let members: User[] = [];
 
@@ -26,8 +83,8 @@ export function setTestData() {
         password: 'aaa',
         userName: 'Anna',
         memberships: [
-            { teamID: 1, isAdmin: true },
-            { teamID: 2, isAdmin: false }
+            { team: team1, isAdmin: true },
+            { team: team2, isAdmin: false }
         ]
     };
     const member2: User = {
@@ -37,8 +94,8 @@ export function setTestData() {
         password: 'bbb',
         userName: 'Betti',
         memberships: [
-            { teamID: 1, isAdmin: false },
-            { teamID: 2, isAdmin: true }
+            { team: team1, isAdmin: false },
+            { team: team2, isAdmin: true }
         ]
     };
     const member3: User = {
@@ -48,10 +105,10 @@ export function setTestData() {
         password: 'ccc',
         userName: 'Conni',
         memberships: [
-            { teamID: 1, isAdmin: false },
-            { teamID: 2, isAdmin: false },
-            { teamID: 3, isAdmin: true },
-            { teamID: 4, isAdmin: true }
+            { team: team1, isAdmin: false },
+            { team: team2, isAdmin: false },
+            { team: team3, isAdmin: true },
+            { team: team4, isAdmin: true }
         ]
     };
 
@@ -62,8 +119,8 @@ export function setTestData() {
         password: '',
         userName: '',
         memberships: [
-            { teamID: 3, isAdmin: false },
-            { teamID: 4, isAdmin: false }
+            { team: team3, isAdmin: false },
+            { team: team4, isAdmin: false }
         ]
     };
     members.push(member1, member2, member3, member4);
@@ -76,12 +133,10 @@ export function setTestData() {
         }
     }); //andersrum: JSON.parse()
 ///////////////// TESTDATEN USER ENDE //////////////////////
-///////////////// TESTDATEN TEAM ///////////////////////////
-let teams: Team[] = [];
-// const team1: Team = {
+
 
 }
-///////////////// TESTDATEN TEAM ENDE //////////////////////
+
 // function initializeLastUsedTeamID(): number {
 // 	const lastUsedTeamID = localStorage.getItem('lastUsedTeamID');
 // 	if (lastUsedTeamID === null) {

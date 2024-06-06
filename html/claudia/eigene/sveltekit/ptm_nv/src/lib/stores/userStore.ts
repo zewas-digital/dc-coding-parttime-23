@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import type { Team } from "$lib/stores/teamStore";
 // import type { Membership } from "../utils/testdata";
 //TODO export mit default value? vgl. teamStore!
 // Define the types for the user and other states
@@ -9,12 +10,12 @@ export interface User {
     password: string;
     userName: string;
     memberships: Membership[];
-    // teams: { teamID: number; isAdmin: boolean }[];
+    
 }
 
 export interface Membership {
-    // teamName: string;
-    teamID: number;
+    
+    team: Team;
     isAdmin: boolean;
 }
 

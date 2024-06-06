@@ -1,16 +1,11 @@
 <script lang="ts">
-	import Start from "$lib/components/Start.svelte";
-	import { setTestData } from "$lib/utils/testdata";
+	import Start from '$lib/components/Start.svelte';
+	import { setTestData } from '$lib/utils/testdata';
 
 	// export let appName;
-console.log("Start");
+	console.log('Start');
 
 	setTestData();
-	
-	
-	
-
-
 </script>
 
 <!-- my-sveltekit-app/
@@ -29,4 +24,3 @@ console.log("Start");
 
 <h1>Startseite</h1>
 <Start />
-
