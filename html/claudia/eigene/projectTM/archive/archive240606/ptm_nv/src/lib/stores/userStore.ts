@@ -9,12 +9,11 @@ export interface User {
     password: string;
     userName: string;
     memberships: Membership[];
-    // teams: { teamID: number; isAdmin: boolean }[];
+    // teams: { teamName: string; isAdmin: boolean }[];
 }
 
 export interface Membership {
-    // teamName: string;
-    teamID: number;
+    teamName: string;
     isAdmin: boolean;
 }
 

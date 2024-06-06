@@ -26,8 +26,8 @@ export function setTestData() {
         password: 'aaa',
         userName: 'Anna',
         memberships: [
-            { teamID: 1, isAdmin: true },
-            { teamID: 2, isAdmin: false }
+            { teamName: 'Team A', isAdmin: true },
+            { teamName: 'Team B', isAdmin: false }
         ]
     };
     const member2: User = {
@@ -37,8 +37,8 @@ export function setTestData() {
         password: 'bbb',
         userName: 'Betti',
         memberships: [
-            { teamID: 1, isAdmin: false },
-            { teamID: 2, isAdmin: true }
+            { teamName: 'Team A', isAdmin: false },
+            { teamName: 'Team B', isAdmin: true }
         ]
     };
     const member3: User = {
@@ -48,10 +48,10 @@ export function setTestData() {
         password: 'ccc',
         userName: 'Conni',
         memberships: [
-            { teamID: 1, isAdmin: false },
-            { teamID: 2, isAdmin: false },
-            { teamID: 3, isAdmin: true },
-            { teamID: 4, isAdmin: true }
+            { teamName: 'Team A', isAdmin: false },
+            { teamName: 'Team B', isAdmin: false },
+            { teamName: 'Team C', isAdmin: true },
+            { teamName: 'Team D', isAdmin: true }
         ]
     };
 
@@ -62,8 +62,8 @@ export function setTestData() {
         password: '',
         userName: '',
         memberships: [
-            { teamID: 3, isAdmin: false },
-            { teamID: 4, isAdmin: false }
+            { teamName: 'Team C', isAdmin: false },
+            { teamName: 'Team D', isAdmin: false }
         ]
     };
     members.push(member1, member2, member3, member4);

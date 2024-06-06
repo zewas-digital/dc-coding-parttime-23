@@ -1,28 +1,24 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { getTeamByID } from '$lib/actions/teamHelpers';
 	import { currentUser } from '$lib/stores/userStore';
 	// import type { Membership } from '../../utils/testdata';
 	// import type { User } from '$lib/stores/userStore';
 	import type { Membership } from '$lib/stores/userStore';
 	import CreateNewTeamButton from './CreateNewTeamButton.svelte';
 
-	
-
 	function handleTeamClick(membership: Membership) {
 		console.log('Clicked on team:', membership);
-		
-		if (membership.teamID !== 0) {
-			const teamIDString = membership.teamID.toString();
-			const myTeam = getTeamByID(teamIDString);
-			goto(`/myteams/${myTeam?.teamName}`);
-		}
+        // goto("/team/{teamName}");
+		goto(`/myteams/${membership.teamName}`);
 	}
 </script>
 
 {#if $currentUser}
 	{#each $currentUser.memberships as membership, index}
-		<button on:click={() => handleTeamClick(membership)}>{membership.teamID}</button>{/each}
+		<button on:click={() => handleTeamClick(membership)}>{membership.teamName}</button>{/each}
 {/if}
+
+
+
 
 <CreateNewTeamButton />
