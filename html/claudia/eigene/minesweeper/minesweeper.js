@@ -4,7 +4,10 @@ let difficulty = "easy";
 let numberOfBombs;
 let numberOfBombsLeft;
 let noBomb;
-let interval;
+let interval1;
+let interval2;
+let counterInterval1 = 0; 
+let counterInterval2 = 0;
 
 const dropdownElementSize = document.querySelector("#dropdownSize");
 dropdownElementSize.addEventListener("change", chooseSize);
@@ -23,6 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#counter").textContent = 8;
 
 });
+
+//get highscore from localStorage:
+// console.log("Aufbau der Seite... Highscore");
+
+// const key = "Highscore_" + size + difficulty;
+// console.log("Key?", key);
+// const value = parseInt(localStorage.getItem(key));
+// console.log("value", value);
+
+// document.querySelector("#highscore").textContent = parseInt(value) > 0? parseInt(value): 0;
+
 
 // console.log("Classlist reset: ");
 //     console.dir(document.querySelector("#reset").classlist);
@@ -104,7 +118,9 @@ function firstClick(event) {
     }
     //set clicked button to uncovered
     event.target.classList.add('uncovered');
+    updateScore(false);
     // console.log("first button set to unclicked");
+    console.log("Start Interval in firstclick!");
     startInterval();
 
     checkAround(event.target);
@@ -183,6 +199,17 @@ function setUpGameBoard(size, difficulty) {
     // console.log("Schritt 5");
     document.querySelector("#counter").textContent = numberOfBombsLeft;
     // console.log("Counter initialisiert", numberOfBombsLeft);
+
+    document.querySelector("#score").textContent = 0;
+
+    const key = "Highscore_" + size + difficulty;
+    const value = parseInt(localStorage.getItem(key));
+    console.log ("setup, highscore aus speicher:", value);
+    document.querySelector("#highscore").textContent = value > 0? value: 0;
+    console.log(value, "Highscore zu Beginn geholt!");
+
+    document.querySelector("#clearHighscore").addEventListener("click", clearHighscore);
+
     //interval = setInterval(isWon, 1000);
     // console.dir("Reset nach Setup: ", resetButton);
     resetButton.classList.remove("uncovered"); //????
@@ -218,7 +245,6 @@ function warning(event) {
     document.querySelector("#counter").textContent = numberOfBombsLeft;
 }
 
-
 //function can be called with event or button as argument
 function uncover(event) {
     // console.dir("Eventtyp:", event.type);
@@ -239,16 +265,94 @@ function uncover(event) {
         }
         removeListeners();
         stopInterval();
+        updateHighscore();
     }
 
     else {
         button.classList.add('uncovered');
+        button.removeEventListener("click", uncover);
+        button.removeEventListener("contextmenu", warning);
+        updateScore(false);
         // button.classList.remove('covered');
         // console.log("Uncovered", button.id);
         checkAround(button);
     }
 }
 
+function updateScore(hint) {
+
+    const scoreElement = document.querySelector("#score");
+    const actualScore = scoreElement.textContent;
+    console.log("Vorher updateScore, Score: ", actualScore);
+
+    switch (difficulty) {
+        case "easy":
+            // console.log("easy");
+            if (!hint) {
+                scoreElement.textContent = parseInt(actualScore) + 1;
+            }
+            else scoreElement.textContent = parseInt(actualScore) - 1 >= 0 ? parseInt(actualScore) - 1 : 0;
+            console.log(scoreElement.textContent, "aktuelle Punktzahl nach updateScore");
+            break;
+        case "middle":
+            // console.log("middle");            
+            if (!hint) {
+                scoreElement.textContent = parseInt(actualScore) + 2;
+            }
+            else scoreElement.textContent = parseInt(actualScore) - 2 >= 0 ? parseInt(actualScore) - 2: 0;
+            console.log(scoreElement.textContent, "aktuelle Punktzahl nach updateScore");
+            break;
+        case "difficult":
+            // console.log("difficult");
+            if (!hint) {
+                scoreElement.textContent = parseInt(actualScore) + 3;
+            }
+            else scoreElement.textContent = parseInt(actualScore) - 3 >= 0 ? parseInt(actualScore) - 3 : 0;
+            console.log(scoreElement.textContent, "aktuelle Punktzahl nach updateScore");
+            break;
+        default:
+            console.log("Default?");
+    }
+
+}
+
+function reduceScoreByTime() {
+    const scoreElement = document.querySelector("#score");
+    const actualScore = parseInt(scoreElement.textContent);
+    console.log("Vor reduceScore, Score: ", actualScore);
+
+    if (actualScore !== 0) {
+        console.log("Reduktion!");
+        switch (difficulty) {
+            case "easy":
+                console.log("easy");
+                scoreElement.textContent = parseInt(actualScore) - 1;
+                console.log(scoreElement.textContent, "aktuelle Punktzahl nach Reduktion");
+                break;
+            case "middle":
+                console.log("middle");
+
+                scoreElement.textContent = parseInt(actualScore) - 2;
+                console.log(scoreElement.textContent, "aktuelle Punktzahl nach Reduktion");
+                break;
+            case "difficult":
+                console.log("difficult");
+
+                scoreElement.textContent = parseInt(actualScore) - 3;
+                console.log(scoreElement.textContent, "aktuelle Punktzahl nach Reduktion");
+                break;
+            default:
+                console.log("Default?");
+        }
+        document.querySelector("#score").classList.add("reducedScore");
+        setTimeout(function () {
+            
+            document.querySelector("#score").classList.remove("reducedScore");
+        }, 500);
+
+
+    }
+}
 
 
 function checkAround(button) {
@@ -285,7 +389,7 @@ function isWon() {
     // console.dir("Reset in iswon: ", resetButton);
     let numberOfNormalButtons = allNormalButtons.length;
     let numberOfBombs = allBombElements.length;
-    console.log(numberOfBombs, "Bomben", numberOfNormalButtons, "andere");
+    // console.log(numberOfBombs, "Bomben", numberOfNormalButtons, "andere");
 
     // console.log("number of uncovered buttons, nobombs", numberOfAllUncovered, noBomb);
     // console.log("length of bomb-list: ", allBombElements.length, "number of bombs", numberOfBombs);
@@ -297,8 +401,8 @@ function isWon() {
         }
     }
 
-    console.log("warnings, bombs", counterWarnings, numberOfBombs);
-    console.log("alluncovered, nobombs", numberOfAllUncovered, noBomb);
+    // console.log("warnings, bombs", counterWarnings, numberOfBombs);
+    // console.log("alluncovered, nobombs", numberOfAllUncovered, noBomb);
 
     if (counterWarnings === numberOfBombs || numberOfAllUncovered === noBomb) {
         alert("GEWONNEN!");
@@ -316,8 +420,9 @@ function isWon() {
         }
         // console.log("Clear Interval! ");
         stopInterval();
+        
         removeListeners();
-
+        updateHighscore();
 
 
     }
@@ -340,22 +445,39 @@ function removeListeners() {
 function reset() {
     // console.log("Reset, stop Interval");
     stopInterval();
+    updateHighscore();
     setUpGameBoard(size, difficulty);
 }
 
 function startInterval() {
-    interval = setInterval(isWon, 1000);
-    // console.log("setnterval in function");
+    console.log("***************** START ********************");
+    interval1 = setInterval(isWon, 1000);
+    counterInterval1++;
+    console.log(counterInterval1, "counterInterval1");
+    interval2 = setInterval(reduceScoreByTime, 5000);
+    counterInterval2++;
+    console.log(counterInterval2, "counterInterval2");
+    console.log("***************** START ENDE ********************");
+
 
 }
 
 function stopInterval() {
-    clearInterval(interval);
+    console.log("***************** STop ********************");
+
+    clearInterval(interval1);
+    counterInterval1--;
+    console.log(counterInterval1, "counterInterval1");
+    clearInterval(interval2);
+    counterInterval2--;
+    console.log(counterInterval2, "counterInterval2");
+    console.log("***************** STop Ende ********************");
 }
 
 
 function hint(event) {
     if (event.key === 'h' || event.key === 'H') {
+        stopInterval(); //otherwise, isWon fires if hint gives last button
         let allButtons = document.querySelectorAll("button:not(#reset)");
         let allCovered = [];
 
@@ -364,21 +486,54 @@ function hint(event) {
                 allCovered.push(b);
             }
         }
-
+        // console.log("Hint, Anzahl der Möglichkeiten: ", allCovered.length);
         // console.dir(allCovered);
 
-        let randNr = Math.floor(Math.random() * allCovered.length - 1);
+        let randNr = Math.floor(Math.random() * allCovered.length);
         // console.log("randNr", randNr);
 
         const hintButton = allCovered[randNr];
+
         hintButton.classList.add("uncovered");
+        document.querySelector("#score").classList.add("reducedScore");
 
         // After 500 milliseconds (0.5 seconds), remove the 'highlight' class
         setTimeout(function () {
             hintButton.classList.remove("uncovered");
+            document.querySelector("#score").classList.remove("reducedScore");
         }, 500);
-
-
+        console.log("startInterval in Hint");
+        startInterval();
+        updateScore(true);
     }
 }
 
+function updateHighscore() {
+    console.log("Highscore überprüfen.");
+    const key = "Highscore_" + size + difficulty;
+    console.log(key);
+
+    const highscore = localStorage.getItem(key);
+    const scoreElement = document.querySelector("#score");
+    const actualScore = parseInt(scoreElement.textContent);
+    const highscoreElement = document.querySelector("#highscore");
+
+
+    if (actualScore > highscore) {
+        localStorage.setItem(key, actualScore);
+        console.log("Neuer Highscore erreicht! ", actualScore);
+        highscoreElement.textContent = actualScore;
+        highscoreElement.classList.add("newHighscore");
+         // After 500 milliseconds (0.5 seconds), remove the "newHighscore" class
+         setTimeout(function () {
+            highscoreElement.classList.remove("newHighscore");
+            
+        }, 2000);
+    }
+}
+
+function clearHighscore() {
+    console.log("Highscore gelöscht!");
+    localStorage.clear();
+    document.querySelector("#highscore").textContent = 0;
+}

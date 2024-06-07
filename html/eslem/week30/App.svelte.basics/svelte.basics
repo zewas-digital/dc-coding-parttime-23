@@ -1,0 +1,356 @@
+//  Es wäre unpraktisch, Ihre gesamte App in einer einzigen Komponente 
+    zusammenzufassen. Stattdessen können wir Komponenten aus anderen Dateien 
+    importieren und in unser Markup einbinden.
+F   ügen Sie oben zu App.svelteden Importen ein Tag hinzu Nested.svelte... 
+<script>
+	import Nested from './Nested.svelte';
+</script>
+<p>This is a paragraph.</p>
+<Nested/>
+<style>
+	p {
+		color: blueviolet;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+
+//  Normalerweise werden Zeichenfolgen als Klartext eingefügt, das heißt, die
+    Zeichen mögen <und >haben keine besondere Bedeutung.
+    Aber manchmal müssen Sie HTML direkt in eine Komponente rendern. Die Wörter, die Sie gerade lesen, 
+    sind beispielsweise in einer Markdown-Datei enthalten, die als HTML-Blob auf dieser Seite eingefügt wird.
+    In Svelte tun Sie dies mit dem speziellen {@html ...}Tag:
+<script>
+	let string = `this string contains some <strong>HTML!!!</strong>`;
+</script>
+
+<p>{@html string}</p>
+
+
+
+//  Das Herzstück von Svelte ist ein leistungsstarkes Reaktivitätssystem, um das DOM mit dem Status Ihrer Anwendung 
+    synchron zu halten – beispielsweise als Reaktion auf ein Ereignis.
+    Um es zu demonstrieren, müssen wir zunächst einen Event-Handler verkabeln (wir werden später mehr darüber erfahren ):
+<script>
+	let count = 0;
+
+	function increment() {
+		count += 1;
+	}
+</script>
+
+<button on:click={increment}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+//  Svelte aktualisiert das DOM automatisch, wenn sich der Status Ihrer Komponente ändert. Häufig müssen 
+    einige Teile des Zustands einer Komponente aus anderen Teilen berechnet werden (z. B. a fullnameabgeleitet 
+    von a firstnameund a lastname) und bei jeder Änderung neu berechnet werden.
+    Für diese haben wir reaktive Deklarationen . Sie sehen so aus
+    Wenn eine reaktive Anweisung ausschließlich aus einer Zuweisung an eine nicht deklarierte Variable besteht, 
+    fügt Svelte letin Ihrem Namen eine Deklaration ein.
+    <script>
+        let count = 0;
+        $: doubled = count * 2;
+    
+        function increment() {
+            count += 1;
+        }
+    </script>
+    
+    <button on:click={increment}>
+        Clicked {count}
+        {count === 1 ? 'time' : 'times'}
+    </button>
+    
+    <p>{count} doubled is {doubled}</p>
+    
+
+//      Da die Reaktivität von Svelte durch Zuweisungen ausgelöst wird, führt die Verwendung von Array-Methoden
+        wie pushund splicenicht automatisch zu Aktualisierungen. Beispielsweise führt das Klicken auf die Schaltfläche „Nummer hinzufügen“ derzeit zu nichts, 
+        auch wenn wir numbers.push(...)innerhalb von anrufen addNumber.
+        Eine Möglichkeit, dies zu beheben, besteht darin, eine Zuweisung hinzuzufügen, die sonst überflüssig wäre:
+        <script>
+            let numbers = [1, 2, 3, 4];
+        
+            function addNumber() {
+                numbers = [...numbers, numbers.length + 1];
+            }
+        
+            $: sum = numbers.reduce((total, currentNumber) => total + currentNumber, 0);
+        </script>
+        
+        <p>{numbers.join(' + ')} = {sum}</p>
+        
+        <button on:click={addNumber}>
+            Add a number
+        </button>
+
+//      HTML bietet keine Möglichkeit, Logik wie Bedingungen und Schleifen auszudrücken . Svelte tut es.
+        Um einige Markups bedingt zu rendern, packen wir sie in einen ifBlock. 
+        Fügen wir etwas Text hinzu, der angezeigt wird, wenn countgrößer als ist 10:
+        <script>
+            let count = 0;
+        
+            function increment() {
+                count += 1;
+            }
+        </script>
+        
+        <button on:click={increment}>
+            Clicked {count}
+            {count === 1 ? 'time' : 'times'}
+        </button>
+        
+        {#if count > 10}
+            <p>{count} is greater than 10</p>
+        {/if}
+
+//      Mehrere Bedingungen können miteinander „verkettet“ werden mit else if:
+        <script>
+            let count = 0;
+
+            function increment() {
+                count += 1;
+            }
+        </script>
+
+        <button on:click={increment}>
+            Clicked {count}
+            {count === 1 ? 'time' : 'times'}
+        </button>
+
+        {#if count > 10}
+            <p>{count} is greater than 10</p>
+        {:else}
+            <p>{count} is between 0 and 10</p>
+        {/if}
+
+//      Beim Erstellen von Benutzeroberflächen werden Sie häufig mit Datenlisten arbeiten. In dieser Übung haben wir das <button>Markup
+         mehrmals wiederholt und dabei jedes Mal die Farbe geändert, aber es gibt noch mehr hinzuzufügen.
+        Anstatt mühsam zu kopieren, einzufügen und zu bearbeiten, können wir alle bis auf die erste Schaltfläche entfernen und dann 
+        einen eachBlock verwenden:
+        <script>
+            const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+            let selected = colors[0];
+        </script>
+        
+        <h1 style="color: {selected}">Pick a colour</h1>
+        
+        <div>
+            {#each colors as color, i}
+                <button
+                    aria-current={selected === color}
+                    aria-label={color}
+                    style="background: {color}"
+                    on:click={() => selected = color}
+                >{i + 1}</button>
+            {/each}
+        </div>
+        
+        <style>
+            h1 {
+                transition: color 0.2s;
+            }
+        
+            div {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                grid-gap: 5px;
+                max-width: 400px;
+            }
+        
+            button {
+                aspect-ratio: 1;
+                border-radius: 50%;
+                background: var(--color, #fff);
+                transform: translate(-2px,-2px);
+                filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
+                transition: all 0.1s;
+            }
+        
+            button[aria-current="true"] {
+                transform: none;
+                filter: none;
+                box-shadow: inset 3px 3px 4px rgba(0,0,0,0.2);
+            }
+        </style>
+
+//      Die meisten Webanwendungen müssen irgendwann mit asynchronen Daten umgehen. 
+        Mit Svelte können Sie den Wert von Versprechen ganz einfach direkt in Ihrem Markup abschätzen :
+        <script>
+            import { getRandomNumber } from './utils.js';
+        
+            let promise = getRandomNumber();
+        
+            function handleClick() {
+                promise = getRandomNumber();
+            }
+        </script>
+        
+        <button on:click={handleClick}>
+            generate random number
+        </button>
+        
+        <p>...waiting</p>
+
+        {#await promise}
+	    <p>...waiting</p>
+        {:then number}
+            <p>The number is {number}</p>
+        {:catch error}
+            <p style="color: red">{error.message}</p>
+        {/await}
+
+//      Kontrollkästchen werden zum Umschalten zwischen Zuständen verwendet.
+        Anstatt uns an zu binden input.value, binden wir uns an input.checked:      
+        <script>
+            let yes = false;
+        </script>
+        
+        <label>
+            <input type="checkbox" bind:checked={yes} />
+            Yes! Send me regular email spam
+        </label>
+        
+        {#if yes}
+            <p>
+                Thank you. We will bombard your inbox and sell
+                your personal details.
+            </p>
+        {:else}
+            <p>
+                You must opt in to continue. If you're not
+                paying, you're the product.
+            </p>
+        {/if}
+        
+        <button disabled={!yes}>Subscribe</button>
+
+//      In dieser Übung haben wir ein Objekt, das wir mithilfe der Funktion in <canvas>animieren möchten .
+        Beginnen Sie mit dem Importieren der Funktion aus :paintgradient.jsonMountsvelte
+        <script>
+            import { onMount } from 'svelte';
+            import { paint } from './gradient.js';
+        
+            onMount(() => {
+                const canvas = document.querySelector('canvas');
+                const context = canvas.getContext('2d');
+        
+                let frame = requestAnimationFrame(function loop(t) {
+                    frame = requestAnimationFrame(loop);
+                    paint(context, t);
+                });
+        
+                return () => {
+                    cancelAnimationFrame(frame);
+                };
+            });
+        </script>
+        
+        <canvas
+            width={32}
+            height={32}/>
+        
+        <style>
+            canvas {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #666;
+                mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
+                mask-size: 60vmin;
+                -webkit-mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
+                -webkit-mask-size: 60vmin;
+            }
+        </style>
+
+//      Nicht alle Geschäfte sollten von jedem beschreibbar sein, der einen Bezug zu ihnen hat. Beispielsweise könnten Sie über einen 
+        Speicher verfügen, der die Mausposition oder die Geolokalisierung des Benutzers darstellt, und es macht keinen Sinn, 
+        diese Werte von „außen“ festlegen zu können. Für diese Fälle haben wir lesbare Stores.
+        Offen stores.js. Das erste Argument für readableist ein Anfangswert, der nulloder sein kann undefined,
+        falls Sie noch keinen haben. Das zweite Argument ist eine startFunktion, die einen Rückruf entgegennimmt 
+        und eine Funktion setzurückgibt . stopDie startFunktion wird aufgerufen, wenn der Shop seinen ersten Abonnenten erhält; 
+        stopwird aufgerufen, wenn sich der letzte Teilnehmer abmeldet.
+        <script>
+            import { time } from './stores.js';
+        
+            const formatter = new Intl.DateTimeFormat(
+                'en',
+                {
+                    hour12: true,
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    second: '2-digit'
+                }
+            );
+        </script>
+        
+        <h1>The time is {formatter.format($time)}</h1>
+
+//      Nachdem wir uns nun mit den Grundlagen befasst haben, ist es an der Zeit, einige fortgeschrittene Svelte-Techniken zu erlernen, 
+        beginnend mit der Bewegung .
+        Das Festlegen von Werten und das automatische Beobachten der DOM-Aktualisierung ist cool. Wissen Sie, was noch cooler ist? 
+        Diese Werte ausgleichen. Svelte enthält Tools,
+        mit denen Sie elegante Benutzeroberflächen erstellen können, die Animationen verwenden, um Änderungen zu kommunizieren.
+        Beginnen wir damit, das progressGeschäft in ein tweenedGeschäft umzuwandeln:        
+        <script>
+            import { tweened } from 'svelte/motion';
+            import { cubicOut } from 'svelte/easing';
+        
+            const progress = tweened(0, {
+                duration: 400,
+                easing: cubicOut
+            });
+        </script>
+        
+        <progress value={$progress} />
+        
+        <button on:click={() => progress.set(0)}>
+            0%
+        </button>
+        
+        <button on:click={() => progress.set(0.25)}>
+            25%
+        </button>
+        
+        <button on:click={() => progress.set(0.5)}>
+            50%
+        </button>
+        
+        <button on:click={() => progress.set(0.75)}>
+            75%
+        </button>
+        
+        <button on:click={() => progress.set(1)}>
+            100%
+        </button>
+        
+        <style>
+            progress {
+                display: block;
+                width: 100%;
+            }
+        </style>
+//      Wir können ansprechendere Benutzeroberflächen erstellen, indem wir Elemente elegant in das DOM hinein und aus diesem heraus 
+        überführen. 
+        Svelte macht dies mit der Direktive sehr einfach transition.
+        Importieren Sie zunächst die fadeFunktion aus svelte/transition...                
+        <script>
+            import { fade } from 'svelte/transition';
+            let visible = true;
+        </script>
+        
+        <label>
+            <input type="checkbox" bind:checked={visible} />
+            visible
+        </label>
+        
+        {#if visible}
+            <p transition:fade>
+                Fades in and out
+            </p>
+        {/if}
+        

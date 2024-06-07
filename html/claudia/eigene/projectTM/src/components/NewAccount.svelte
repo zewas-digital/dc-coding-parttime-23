@@ -1,0 +1,71 @@
+<script>
+    export let email;
+    import { showTemporaryMessage } from "../actions/showHelpers.js";
+    import { currentUser } from "../stores/userStore.js"
+    import { updateUser } from "../actions/userHelpers.js";
+
+    // console.log("NewAccount, currentUser am Anfang: ", $currentUser);
+    let showMessage = false; //to display message
+    const duration = 3000; //in milliseconds
+
+    function setShowMessage(value) { //boolean value
+        showMessage = value;
+    }
+
+    // const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
+    const userExists = $currentUser.email !== null;
+    // console.log("NewAccount, userExists?, email ", userExists, email);
+    const allTeams = userExists ? $currentUser.teams : [];
+    // console.log("NewAccount, allTeams: ", allTeams);
+    let accountCreated = false; //???
+    
+    let password;
+    let userName;
+ 
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        const newAccount = {
+            email: email,
+            accountCreated: true,
+            loggedIn: true,
+            password: password,
+            userName: userName,
+            allTeams: allTeams,
+        };
+        updateUser(newAccount);
+
+        // console.log("Neuer Nutzer in NewAccount: ", newUser);
+        // localStorage.setItem(email, JSON.stringify(newUser));
+      
+        // currentUser.set(newUser);
+
+        accountCreated = true; //???
+        showTemporaryMessage(setShowMessage, duration);
+    }
+
+
+</script>
+
+{#if !accountCreated}
+    <h2>Leg jetzt einen neuen Account an!</h2>
+    <form on:submit={handleSubmit}>
+        <label>
+            Name:
+            <input type="text" bind:value={userName} required />
+        </label>
+
+        <label>
+            Password:
+            <!-- TODO: Type ersetzen für Passwort! -->
+            <!-- <input type="password" bind:value={password} required /> -->
+                        <!-- PW wiederholen -->
+
+            <input type="text" bind:value={password} required />
+        </label>
+
+        <button type="submit">Account anlegen!</button>
+    </form>
+{:else if showMessage}
+    Neuer Account angelegt!
+{/if}
