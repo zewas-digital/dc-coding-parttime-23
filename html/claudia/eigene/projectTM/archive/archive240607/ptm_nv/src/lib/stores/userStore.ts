@@ -4,7 +4,6 @@ import type { Team } from "$lib/stores/teamStore";
 //TODO export mit default value? vgl. teamStore!
 // Define the types for the user and other states
 export interface User {
-    userID: number;
     email: string;
     accountCreated: boolean;
     loggedIn: boolean;
@@ -15,12 +14,11 @@ export interface User {
 }
 
 export interface Membership {
-    teamID: number;
+    team: Team;
     isAdmin: boolean;
 }
 
 export const defaultUser: User = {
-    userID: 0,
     email: "",
     accountCreated: false,
     loggedIn: false,

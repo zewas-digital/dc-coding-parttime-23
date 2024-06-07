@@ -4,7 +4,6 @@ import type { User } from '$lib/stores/userStore';
 
 //TODO: eigener Store?
 export interface Task {
-	taskID: number;
 	taskName: string;
 	dueDate: Date;
 	isDone: boolean;
@@ -13,12 +12,12 @@ export interface Task {
 export interface Team {
     teamID: number;
     teamName: string;
-    allMembers: number[];
-    allAdmins: number[];
+    allMembers: User[];
+    allAdmins: User[];
     allDates: Date[];
-    allTasks: number[];
-    allCoaches: number[];
-    allDrivers: number[];
+    allTasks: Task[];
+    allCoaches: User[];
+    allDrivers: User[];
     color: string;
 }
 

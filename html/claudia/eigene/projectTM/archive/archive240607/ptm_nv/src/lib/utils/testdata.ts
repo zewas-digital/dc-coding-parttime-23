@@ -5,10 +5,9 @@
 // import type { Membership } from "../stores/userStore";
 import type { User } from "../stores/userStore";
 import type { Team } from "$lib/stores/teamStore";
-import { getNextID } from "./generalhelp";
 
 
-// import { getNewTeamID } from "$lib/actions/teamHelpers";
+import { getNewTeamID } from "$lib/actions/teamHelpers";
 
 
 export function setTestData() {
@@ -24,7 +23,7 @@ export function setTestData() {
 ///////////////// TESTDATEN TEAM ///////////////////////////
 let teams: Team[] = [];
 const team1: Team = {
-    teamID: getNextID("lastTeamID", "2"),
+    teamID: getNewTeamID(),
     teamName: "Team 1",
     allMembers: [],
     allAdmins: [],

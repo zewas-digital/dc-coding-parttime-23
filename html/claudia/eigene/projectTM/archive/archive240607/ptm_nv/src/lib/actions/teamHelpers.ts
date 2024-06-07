@@ -5,24 +5,24 @@ import type { Team } from '$lib/stores/teamStore';
 import { currentTeam } from '$lib/stores/teamStore';
 
 
-//let teamIDs start with 2, so first regular teamID is 21
-// export function getNewTeamID(): number {
-//     // console.log("function newTeamID");
-//     const lastUsedTeamID = localStorage.getItem("lastUsedTeamID"); //Key and Value are Strings!
-//     // console.log("lastUsedTeamID", lastUsedTeamID);
+
+export function getNewTeamID(): number {
+    // console.log("function newTeamID");
+    const lastUsedTeamID = localStorage.getItem("lastUsedTeamID"); //Key and Value are Strings!
+    // console.log("lastUsedTeamID", lastUsedTeamID);
     
-//     if (!lastUsedTeamID) { //no team exists
-//         if (typeof window !== "undefined")
-//             localStorage.setItem("lastUsedTeamID", "1");
-//         return 1; //then next team is the first one to be created
-//     }
-//     else {
-//         const newTeamID = parseInt(lastUsedTeamID) + 1;
-//         if (typeof window !== "undefined")
-//             localStorage.setItem("lastUsedTeamID", newTeamID.toString());
-//         return newTeamID;
-//     }
-// }
+    if (!lastUsedTeamID) { //no team exists
+        if (typeof window !== "undefined")
+            localStorage.setItem("lastUsedTeamID", "1");
+        return 1; //then next team is the first one to be created
+    }
+    else {
+        const newTeamID = parseInt(lastUsedTeamID) + 1;
+        if (typeof window !== "undefined")
+            localStorage.setItem("lastUsedTeamID", newTeamID.toString());
+        return newTeamID;
+    }
+}
 
 // export function getTeamByID(teamIDString: string): Team | null {
 //     const myTeamJSON = localStorage.getItem(teamIDString);
@@ -60,7 +60,7 @@ export function updateTeam(updates: Partial<Team>): Team | null {
 
     // Save the updated tem object to localStorage
     // console.log("****** UpdateTeam schreibt in Local Storage! **************");
-    localStorage.setItem(team.teamID.toString(), JSON.stringify(updatedTeam));
+    localStorage.setItem("Team" + team.teamID.toString(), JSON.stringify(updatedTeam));
 
     // Update the Svelte store with the new team object
     currentTeam.set(updatedTeam);
