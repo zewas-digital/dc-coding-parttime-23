@@ -3,23 +3,6 @@ import { currentUser, defaultUser } from '$lib/stores/userStore';
 import { get } from 'svelte/store';  // Import `get` for synchronous store access
 
 
-// export function getNewUserID(): number {
-//     // console.log("function newTeamID");
-//     const lastUsedUserID = localStorage.getItem("lastUsedUserID"); //Key and Value are Strings!
-//     // console.log("lastUsedTeamID", lastUsedTeamID);
-
-//     if (!lastUsedUserID) { //no user exists
-//         if (typeof window !== "undefined")
-//             localStorage.setItem("lastUsedUserID", "1");
-//         return 1; //then next team is the first one to be created
-//     }
-//     else {
-//         const newUserID = parseInt(lastUsedUserID) + 1;
-//         if (typeof window !== "undefined")
-//             localStorage.setItem("lastUsedUserID", newUserID.toString());
-//         return newUserID;
-//     }
-// }
 
 // Define the type for the updates parameter
 type UserUpdates = Partial<User>;
@@ -68,17 +51,7 @@ export async function initializeUser(email: string): Promise<void> {
         // Set currentUser with the retrieved data and set loggedIn to false
         currentUser.set({ ...parsedUserData, loggedIn: false });
     } else {
-        // Define an empty user object with default values
-        // const emptyUser: User = {
-
-        //     email: email,
-        //     accountCreated: false,
-        //     loggedIn: false,
-        //     password: "",
-        //     userName: "",
-        //     memberships: [],
-        // };
-        // Set currentUser with the empty user object
+       
         currentUser.set(defaultUser);
     }
 

@@ -5,28 +5,6 @@ import type { Team } from '$lib/stores/teamStore';
 import { currentTeam } from '$lib/stores/teamStore';
 
 
-//let teamIDs start with 2, so first regular teamID is 21
-// export function getNewTeamID(): number {
-//     // console.log("function newTeamID");
-//     const lastUsedTeamID = localStorage.getItem("lastUsedTeamID"); //Key and Value are Strings!
-//     // console.log("lastUsedTeamID", lastUsedTeamID);
-    
-//     if (!lastUsedTeamID) { //no team exists
-//         if (typeof window !== "undefined")
-//             localStorage.setItem("lastUsedTeamID", "1");
-//         return 1; //then next team is the first one to be created
-//     }
-//     else {
-//         const newTeamID = parseInt(lastUsedTeamID) + 1;
-//         if (typeof window !== "undefined")
-//             localStorage.setItem("lastUsedTeamID", newTeamID.toString());
-//         return newTeamID;
-//     }
-// }
-
-
-
-
 
 // Define the type for the updates parameter
 // type TeamUpdates = Partial<Team>;

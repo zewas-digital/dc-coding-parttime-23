@@ -1,34 +1,29 @@
 <script>
 
 	import LogOutButton from "$lib/components/usercomponents/LogOutButton.svelte";
+	import { currentUser } from "$lib/stores/userStore";
+  import { currentTeam } from "$lib/stores/teamStore";
+
+  let color = "#123FFF"
+  $: if ($currentTeam) color = $currentTeam.color;
 
 </script>
 
-<!-- <header class="layout-header">Header</header> -->
+<header style="background-color: {color}">Header</header>
+<p>User: {$currentUser?.userName}; eingeloggt? {$currentUser?.loggedIn}</p>
+
 <LogOutButton />
+
 <slot /> <!--Jede einzelne Seite im Pfad wird anstelle von Slot gerendert!-->
-<!-- <footer class="layout-footer">Footer</footer> -->
+
+<footer style="background-color: {color}">Footer</footer>
+
 
 <style>
 
 
 
-/* 
-.layout-header {
-  background-color: black;
-  color: orange;
-  text-align: center;
-  padding: 1rem;
-}
 
-
-
-.layout-footer {
-  background-color: orange;
-  color: black;
-  text-align: center;
-  padding: 1rem;
-} */
 
 
 </style>

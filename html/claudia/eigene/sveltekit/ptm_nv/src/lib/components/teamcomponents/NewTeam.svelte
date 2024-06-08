@@ -7,6 +7,7 @@
 	import { updateUser } from '$lib/actions/userHelpers';
 	import { goto } from '$app/navigation';
 	import { getNextID } from '$lib/utils/storageHelpers';
+	import { onMount } from 'svelte';
 	
 	
 	let teamName = '';
@@ -54,11 +55,12 @@
 		}
 
 
-
-
 		
 	}
-
+	function handleColorChange(event: Event) {
+        const input = event.target as HTMLInputElement;
+        color = input.value;
+    }
 	// Set the default color to light grey if none is chosen
 	// function setColor(event: InputEvent): void {
 	// 	if (!color) {
@@ -78,6 +80,19 @@
 	<!-- Farbe:
 	<input type="color" bind:value={color} on:input={setColor} /> -->
 	<!-- </label> -->
+
+
+
+
+
+ <!-- Color picker -->
+  Farbe:
+ <input type="color" bind:value={color} on:change={handleColorChange}>
+
+ <!-- Display selected color -->
+ <!-- <div style="background-color: {color}; width: 50px; height: 50px;"></div> -->
+
+
 
 	<button type="submit">Team anlegen!</button>
 </form>

@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import type { User } from '$lib/stores/userStore';
+// import type { User } from '$lib/stores/userStore';
 
 
 //TODO: eigener Store?

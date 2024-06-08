@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import type { Team } from "$lib/stores/teamStore";
+// import type { Team } from "$lib/stores/teamStore";
 // import type { Membership } from "../utils/testdata";
 //TODO export mit default value? vgl. teamStore!
 // Define the types for the user and other states

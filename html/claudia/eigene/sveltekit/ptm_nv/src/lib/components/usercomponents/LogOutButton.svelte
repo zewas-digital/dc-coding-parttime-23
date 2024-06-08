@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import { updateUser } from "$lib/actions/userHelpers.js";
+	import { currentTeam, defaultTeam } from "$lib/stores/teamStore";
 	import { currentUser, started } from "$lib/stores/userStore.js";
     
     
@@ -15,7 +16,9 @@
         updateUser(updates);
         started.set(false);
         currentUser.set(null)
-        // console.log("logout beendet, currentUser: ", currentUser);
+        currentTeam.set(defaultTeam);
+        console.log("logout beendet, currentUser: ", currentUser);
+        console.log("logout beendet, currentTeam: ", currentTeam);
          goto("/");
         console.log("... beendet!");
     }

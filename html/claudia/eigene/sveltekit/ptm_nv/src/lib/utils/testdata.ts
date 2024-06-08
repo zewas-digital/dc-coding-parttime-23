@@ -147,50 +147,6 @@ teams.forEach((team) => {
 
 }
 
-// function initializeLastUsedTeamID(): number {
-// 	const lastUsedTeamID = localStorage.getItem('lastUsedTeamID');
-// 	if (lastUsedTeamID === null) {
-// 		localStorage.setItem('lastUsedTeamID', '0');
-// 		return 0;
-// 	}
-// 	return parseInt(lastUsedTeamID, 10);
-// }
-
-// const lastUsedTeamID = initializeLastUsedTeamID();
-
-// function getNewTeamID(): number {
-// 	const lastUsedTeamID = localStorage.getItem('lastUsedTeamID');
-// 	if (lastUsedTeamID === null) {
-// 		throw new Error('Last used team ID is not initialized');
-// 	}
-// 	const newTeamID = parseInt(lastUsedTeamID, 10) + 1;
-// 	localStorage.setItem('lastUsedTeamID', newTeamID.toString());
-// 	return newTeamID;
-// // }
-// function createNewTeam(teamName: string, color: string): Team {
-// 	const newTeamID = getNewTeamID();
-// 	const newTeam: Team = {
-// 		teamID: newTeamID,
-// 		teamName: teamName,
-// 		allMembers: [],
-// 		allAdmins: [],
-// 		allDates: [],
-// 		allTasks: [],
-// 		allCoaches: [],
-// 		allDrivers: [],
-// 		color: color
-// 	};
-// 	localStorage.setItem(`team_${newTeamID}`, JSON.stringify(newTeam));
-// 	return newTeam;
-// }
-
-// // Example usage: create a new team
-// const newTeam = createNewTeam('My New Team', '#ff0000');
-// currentTeam.set(newTeam);
-
-
-
-
 
 
 

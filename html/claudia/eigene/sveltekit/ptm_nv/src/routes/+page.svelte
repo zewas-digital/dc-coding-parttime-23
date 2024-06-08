@@ -50,3 +50,34 @@
 // ├── svelte.config.js
 // ├── package.json
 // └── ... (other config files) -->
+
+
+
+<!-- 
+<script>
+    import { onMount } from 'svelte';
+
+    // Function to handle the popstate event
+    function handlePopState(event) {
+        console.log('Back button clicked!');
+        // Perform the desired action here, such as navigating back
+        // You can use SvelteKit's router to navigate to a different page
+        // Example: import { goto } from '$app/navigation';
+        //          goto('/previous-page');
+    }
+
+    // Subscribe to the popstate event when the component mounts
+    onMount(() => {
+        window.addEventListener('popstate', handlePopState);
+        
+        // Cleanup the event listener when the component is destroyed
+        return () => {
+            window.removeEventListener('popstate', handlePopState);
+        };
+    });
+</script>
+
+< Your Svelte component's template -->
+<!-- <div>
+    Your component's content here -->
+<!-- </div>  -->
