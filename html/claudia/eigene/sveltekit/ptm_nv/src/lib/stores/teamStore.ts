@@ -36,5 +36,5 @@ export const defaultTeam: Team = {
 // // Initialize the team store with default value:
 
 export const currentTeam = writable<Team>(defaultTeam);
-
+// export const allTeams = writable <Team[]>([]); //Zuordnung Team <> teamID
 

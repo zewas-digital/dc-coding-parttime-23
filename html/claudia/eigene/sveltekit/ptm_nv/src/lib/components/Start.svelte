@@ -1,5 +1,4 @@
 <script lang="ts">
-	
 	// import type { User } from '$lib/stores/userStore'; // Import the User type
 	import { currentUser, started } from '$lib/stores/userStore';
 	import { onMount } from 'svelte';
@@ -9,12 +8,11 @@
 	import NewAccount from '$lib/components/usercomponents/NewAccount.svelte';
 	import NewUser from '$lib/components/usercomponents/NewUser.svelte';
 	// import LogOutButton from '$lib/components/usercomponents/LogOutButton.svelte';
-	import { currentTeam } from '$lib/stores/teamStore';
-	
-// console.log("Component Start!");
-        started.set(false);
-        currentUser.set(null);
-
+	import { currentTeam} from '$lib/stores/teamStore';
+	import type { Team } from '$lib/stores/teamStore';
+	// console.log("Component Start!");
+	started.set(false);
+	currentUser.set(null);
 
 	// Initialize the variables with appropriate types
 	// let user: User | null = null;
@@ -28,40 +26,42 @@
 	let email: string = '';
 	let emailInput: HTMLInputElement | null;
 
-	
 	$: showComponentEmailInput = $currentUser === null || !$currentUser.loggedIn;
 	// $: console.log("Emailinput? ", showComponentEmailInput);
-
+	let teamMap: Map<number, Team> = new Map();
 	onMount(() => {
-		
 		if (showComponentEmailInput && emailInput) emailInput.focus(); //Focus auf Input-Feld
+
+		// allTeams.subscribe(($allTeams) => {
+		// 	teamMap = new Map($allTeams.map((team) => [team.teamID, team]));
+		// });
+		// console.log('TeamMap: ', teamMap);
 	});
 
 	// $: console.log('Email changed! ', email);
 	// $: console.log('Component Start, CurrentUser: ', $currentUser);
 	// $: console.log("currentTEam: ", $currentTeam);
 
+	// $: userExists =
+	// 	$currentUser !== null &&
+	// 	$currentUser.email !== '' &&
+	// 	$currentUser.email !== undefined &&
+	// 	$currentUser.email !== null;
 
-	
-	$: userExists =
-		$currentUser !== null &&
-		$currentUser.email !== '' &&
-		$currentUser.email !== undefined &&
-		$currentUser.email !== null;
+	$: userExists = $currentUser !== null;
 
-	
 	let showComponentNewAccount = false;
 	let showComponentNewUser = false;
 
 	$: loggedIn = $currentUser?.loggedIn ?? false; // Optional chaining, default value
-	
+
 	$: showComponentLogin = !$currentUser?.loggedIn && userExists && $currentUser?.accountCreated;
 
 	function start(event: MouseEvent | KeyboardEvent): void {
 		initializeUser(email);
 		started.set(true); // Use .set() to update the store
 		userExists = localStorage.getItem(email) !== null;
-		
+
 		if (userExists && $currentUser && !$currentUser.loggedIn) {
 			if ($currentUser.accountCreated) {
 				showComponentLogin = true;
@@ -73,14 +73,13 @@
 		if (!userExists && email !== '') {
 			showComponentNewUser = true;
 		}
-		
 	}
 
 	function emailTyped(event: Event) {
 		const input = event.target as HTMLInputElement;
 		email = input.value;
 
-		initializeUser("");
+		initializeUser('');
 		started.set(false); // Use .set() to update the store
 		showComponentLogin = false;
 		showComponentNewAccount = false;
@@ -88,19 +87,17 @@
 	}
 
 	// $: console.log("currentUser loggedin?: ", $currentUser);
-	$:	if ($currentUser && $currentUser.loggedIn) {
-		goto("/myteams");
+	$: if ($currentUser && $currentUser.loggedIn) {
+		goto('/myteams');
 	}
-	
 </script>
 
 <div>
-	
 	{#if showComponentEmailInput}
 		<!-- <input type="email" bind:value={email} placeholder="Email" on:input={emailTyped} /> -->
 		<input
 			type="email"
-			bind:this={emailInput} 
+			bind:this={emailInput}
 			bind:value={email}
 			placeholder="Email"
 			on:input={emailTyped}
@@ -124,12 +121,10 @@
 	{/if}
 
 	{#if showComponentNewAccount}
-		<NewAccount {email} />
+		<NewAccount />
 	{/if}
 
 	{#if showComponentLogin}
 		<Login />
 	{/if}
-
-	
 </div>

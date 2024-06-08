@@ -2,6 +2,7 @@
     
     import { showTemporaryMessage } from '$lib/actions/showHelpers';
     import { updateUser } from '$lib/actions/userHelpers.js';
+	import { getNextID } from '$lib/utils/storageHelpers';
 	// import { currentUser } from '$lib/stores/userStore.js';
     export let email: string;
 
@@ -22,6 +23,7 @@
         event.preventDefault();
 
         const newUser = {
+            userID: getNextID("user"),
             email: email,
             accountCreated: true,
             loggedIn: true,
@@ -30,7 +32,7 @@
             allMemberships: [],
         };
         
-        // console.log("Neuer Nutzer in NewUser ", newUser);
+        console.log("Neuer Nutzer in NewUser ", newUser);
        
         updateUser(newUser);
 

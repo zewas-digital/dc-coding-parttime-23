@@ -3,10 +3,11 @@
     import { showTemporaryMessage } from '$lib/actions/showHelpers';
 	import { updateUser } from '$lib/actions/userHelpers';
 	import { currentUser } from '$lib/stores/userStore';
+	import { getNextID } from '$lib/utils/storageHelpers';
     // import { updateUser } from '$lib/actions/userHelpers.ts';
     
 	// import { currentUser } from '$lib/stores/userStore.js';
-    export let email: string;
+    // export let email: string;
 
     // console.log("NewAccount, currentUser am Anfang: ", $currentUser);
     let showMessage = false; //to display message
@@ -16,10 +17,11 @@
         showMessage = value;
     }
 
-    $: console.log("NewAccount,showMessage: ", showMessage);
+    // $: console.log("NewAccount,showMessage: ", showMessage);
 
     // const userExists = localStorage.getItem(email) !== null; //userExists sowie true?
-    const userExists = $currentUser && $currentUser.email !== null;
+    // const userExists = $currentUser && $currentUser.email !== null;
+    const userExists = $currentUser && $currentUser.userID !== 0;
     // console.log("NewAccount, userExists?, email ", userExists, email);
     const allMemberships = userExists ? $currentUser.memberships : [];
     // console.log("NewAccount, allTeams: ", allTeams);
@@ -32,16 +34,17 @@
         event.preventDefault();
 
         const newAccount = {
-            email: email,
+            // userID: 
+            // email: email,
             accountCreated: true,
             loggedIn: true,
             password: password,
             userName: userName,
-            allMemberships: allMemberships,
+            // allMemberships: allMemberships,
         };
         updateUser(newAccount);
 
-        // console.log("Neuer Nutzer in NewAccount: ", newUser);
+        // console.log("Neuer Nutzer in NewAccount: ", newAccount);
     
 
         accountCreated = true; //???

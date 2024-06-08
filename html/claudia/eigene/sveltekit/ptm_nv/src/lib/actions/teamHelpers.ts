@@ -24,20 +24,7 @@ import { currentTeam } from '$lib/stores/teamStore';
 //     }
 // }
 
-// export function getTeamByID(teamIDString: string): Team | null {
-//     const myTeamJSON = localStorage.getItem(teamIDString);
-//     if (myTeamJSON === null) {
-//         return null;
-//     }
-//     try {
-//         const myTeam: Team = JSON.parse(myTeamJSON);
-//         return myTeam;
-//     } catch (error) {
-//         // Handle the case where JSON parsing fails
-//         console.error("Error parsing team JSON:", error);
-//         return null;
-//     }
-// }
+
 
 
 
@@ -59,9 +46,9 @@ export function updateTeam(updates: Partial<Team>): Team | null {
     const updatedTeam: Team = { ...team, ...updates };
 
     // Save the updated tem object to localStorage
-    // console.log("****** UpdateTeam schreibt in Local Storage! **************");
-    localStorage.setItem(team.teamID.toString(), JSON.stringify(updatedTeam));
-
+    console.log("****** UpdateTeam schreibt in Local Storage! **************");
+    localStorage.setItem(updatedTeam.teamID.toString(), JSON.stringify(updatedTeam));
+    
     // Update the Svelte store with the new team object
     currentTeam.set(updatedTeam);
 

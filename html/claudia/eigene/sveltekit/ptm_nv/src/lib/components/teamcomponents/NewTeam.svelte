@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { getNewTeamID, updateTeam } from '$lib/actions/teamHelpers';
+	import { updateTeam } from '$lib/actions/teamHelpers';
 	import { currentUser } from '$lib/stores/userStore';
 	import type { User } from '$lib/stores/userStore';
 	import type { Team } from '$lib/stores/teamStore';
 	import { get } from 'svelte/store';
 	import { updateUser } from '$lib/actions/userHelpers';
 	import { goto } from '$app/navigation';
+	import { getNextID } from '$lib/utils/storageHelpers';
 	
 	
 	let teamName = '';
@@ -27,10 +28,10 @@
 		if (user) {
 			// if ($currentUser) {
 			const newTeam = {
-				teamID: getNewTeamID(),
+				teamID: getNextID("team"),
 				teamName: teamName,
-				allMembers: [user],
-				allAdmins: [user],
+				allMembers: [user.userID],
+				allAdmins: [user.userID],
 				allDates: [],
 				allTasks: [],
 				allCoaches: [],
@@ -43,7 +44,7 @@
 
 			// const allMemberships = $currentUser?.memberships;
 			const allMemberships = user.memberships.slice(); //shallow copy (im GEgensatz zu: deep copy): neues Array mit denselben REferenzen, aber nicht das Original
-			allMemberships.push({team: newTeam, isAdmin: true});
+			allMemberships.push({teamID: newTeam.teamID, isAdmin: true});
 			const updates = {memberships: allMemberships};
 			updateUser(updates);
 			teamCreated = true;

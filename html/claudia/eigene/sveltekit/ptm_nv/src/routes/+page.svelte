@@ -25,7 +25,7 @@
 	// console.log('Seite Start');
 	// //Testdata calculated only once at very first start of app!
 	
-	// initializeTestData();
+	initializeTestData();
 	// // setTestData();
 	console.log("Startseite ENDE");
 </script>
