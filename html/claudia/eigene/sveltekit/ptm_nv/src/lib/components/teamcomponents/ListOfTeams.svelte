@@ -10,6 +10,7 @@
 	import { getTeamByID } from '$lib/utils/storageHelpers';
 	import CreateNewTeamButton from './CreateNewTeamButton.svelte';
 	import { onMount } from 'svelte';
+	import TeamOverview from './TeamOverview.svelte';
 
 	// console.log("Component ListofTeams, currentUser: ", $currentUser );
 
@@ -22,15 +23,12 @@
 	// console.log("TeamMap: ", teamMap);
 
 	let allmyTeams: Team[] = [];
-	console.log('Component ListOfTeams *********************');
+	// console.log('Component ListOfTeams *********************');
 	$: {
 		const currentMemberships = $currentUser?.memberships;
 		// console.log('currentUser', $currentUser);
 		// console.log('currentMemberships ', currentMemberships);
 		allmyTeams = [];
-
-		
-
 
 		if (currentMemberships && Array.isArray(currentMemberships)) {
 			currentMemberships.forEach((element) => {
@@ -44,22 +42,26 @@
 	}
 
 	function handleTeamClick(team: Team) {
-		console.log('Clicked on team:', team.teamName);
+		// console.log('Clicked on team:', team.teamName);
 		// updateTeam(membership.team);
 		// const teamID = membership.teamID;
 		// const myTeam = teamMap.get(membership.teamID);
-		console.log('teamclick, currentTeam', $currentTeam);
+		// console.log('teamclick, currentTeam', $currentTeam);
 		if (team) currentTeam.set(team);
 		goto(`/myteams/${team?.teamName}`);
 	}
 </script>
 
 {#if $currentUser}
-	{#each allmyTeams as team}
-		<button style="background-color: {team?.color}" on:click={() => handleTeamClick(team)}>
-			{team?.teamName}
-		</button>
-	{/each}
+	<section class="container">
+		{#each allmyTeams as team, index (team.teamID)}
+			<!-- <button style="background-color: {team?.color}" on:click={() => handleTeamClick(team)}>
+				{team?.teamName}
+			</button> -->
+
+			<TeamOverview teamID={team.teamID} />
+		{/each}
+	</section>
 {/if}
 
 <!-- {#if $currentUser}
@@ -76,3 +78,11 @@
 {/if} -->
 
 <CreateNewTeamButton />
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+</style>

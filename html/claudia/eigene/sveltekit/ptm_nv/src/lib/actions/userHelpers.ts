@@ -22,7 +22,7 @@ export function updateUser(updates: UserUpdates): User | null {
     const updatedUser: User = { ...user, ...updates };
 
     // Save the updated user object to localStorage
-    console.log("****** UpdateUser schreibt in Local Storage! **************");
+    // console.log("****** UpdateUser schreibt in Local Storage! **************");
     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
 
@@ -30,14 +30,14 @@ export function updateUser(updates: UserUpdates): User | null {
     currentUser.set(updatedUser);
 
     // Log the updated user for debugging purposes
-    console.log("UpdateUser beendet, updatedUser: ", updatedUser);
+    // console.log("UpdateUser beendet, updatedUser: ", updatedUser);
 
     return updatedUser;
 }
 // Function to initialize the user
 export async function initializeUser(email: string): Promise<void> {
     // export async function initializeUser(userID: number): Promise<void> {
-    console.log("Initialize USER! ---------------");
+    // console.log("Initialize USER! ---------------");
     // Retrieve user data from localStorage
     let userData;
     const userID = localStorage.getItem(email);

@@ -26,8 +26,8 @@ let teams: Team[] = [];
 const team1: Team = {
     teamID: getNextID("team"),
     teamName: "Team 1",
-    allMembers: [1, 2, 3],
-    allAdmins: [1],
+    allMembers: [11, 12, 13],
+    allAdmins: [11],
 	allDates: [],
 	allTasks: [],
 	allCoaches: [],
@@ -37,8 +37,8 @@ const team1: Team = {
 const team2: Team = {
     teamID: getNextID("team"),
     teamName: "Team 2",
-    allMembers: [1, 2, 3],
-    allAdmins: [2],
+    allMembers: [11, 12, 13],
+    allAdmins: [12],
 	allDates: [],
 	allTasks: [],
 	allCoaches: [],
@@ -48,8 +48,8 @@ const team2: Team = {
 const team3: Team = {
     teamID: getNextID("team"),
     teamName: "Team 3",
-    allMembers: [3, 4],
-    allAdmins: [3],
+    allMembers: [13, 14],
+    allAdmins: [13],
 	allDates: [],
 	allTasks: [],
 	allCoaches: [],
@@ -59,8 +59,8 @@ const team3: Team = {
 const team4: Team = {
     teamID: getNextID("team"),
     teamName: "Team 4",
-    allMembers: [3, 4],
-    allAdmins: [3],
+    allMembers: [13, 14],
+    allAdmins: [13],
 	allDates: [],
 	allTasks: [],
 	allCoaches: [],

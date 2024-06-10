@@ -1,5 +1,8 @@
 <script lang="ts">
     let newEmail = "";
+    let isAdmin: boolean;
+    let isCoach: boolean;
+    let isDriver: boolean;
 </script>
 
 <section>
@@ -10,13 +13,19 @@
         placeholder="name@example.com"
         bind:value={newEmail}
     />
-    <label for="emailInput" class="visually-hidden">neue Emailadresse!</label>
+    <!-- <label for="emailInput" class="visually-hidden">neue Emailadresse!</label> -->
     <input type="checkbox" id="isAdmin" />
-    <label for="isAdmin">Adminrechte?</label>
+    <label for="isAdmin">Admin?</label>
+
+    <input type="checkbox" id="isCoach" />
+    <label for="isCoach">Coach?</label>
+
+    <input type="checkbox" id="isDriver" />
+    <label for="isDriver">Fahrer?</label>
 </section>
 
 <style>
-    .visually-hidden {
+    /* .visually-hidden {
         position: absolute;
         width: 1px;
         height: 1px;
@@ -25,5 +34,18 @@
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
         border: 0;
-    }
+    } */
 </style>
+
+<!-- 
+<script>
+	export let emailAdresses;
+</script>
+
+<section>
+	<h2>Liste der Emailadressen:</h2>
+	{#each emailAdresses as email, index (email)}
+		<p>{index + 1} {email}</p>
+	{/each}
+	
+</section> -->

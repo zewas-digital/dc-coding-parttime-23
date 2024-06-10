@@ -24,13 +24,13 @@ export function updateTeam(updates: Partial<Team>): Team | null {
     const updatedTeam: Team = { ...team, ...updates };
 
     // Save the updated tem object to localStorage
-    console.log("****** UpdateTeam schreibt in Local Storage! **************");
+    // console.log("****** UpdateTeam schreibt in Local Storage! **************");
     localStorage.setItem(updatedTeam.teamID.toString(), JSON.stringify(updatedTeam));
     
     // Update the Svelte store with the new team object
     currentTeam.set(updatedTeam);
 
-    console.log("UpdateTeam beendet, updatedTeam: ", updatedTeam);
+    // console.log("UpdateTeam beendet, updatedTeam: ", updatedTeam);
 
     return updatedTeam;
 }

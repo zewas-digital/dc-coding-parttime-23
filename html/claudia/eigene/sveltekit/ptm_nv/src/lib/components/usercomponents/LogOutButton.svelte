@@ -6,7 +6,7 @@
     
     
    function logOut(){
-        console.log("Logout...");
+        // console.log("Logout...");
         // currentUser.set(null);
        
         const updates = {loggedIn: false};
@@ -17,10 +17,10 @@
         started.set(false);
         currentUser.set(null)
         currentTeam.set(defaultTeam);
-        console.log("logout beendet, currentUser: ", currentUser);
-        console.log("logout beendet, currentTeam: ", currentTeam);
+        // console.log("logout beendet, currentUser: ", currentUser);
+        // console.log("logout beendet, currentTeam: ", currentTeam);
          goto("/");
-        console.log("... beendet!");
+        // console.log("... beendet!");
     }
 
 
