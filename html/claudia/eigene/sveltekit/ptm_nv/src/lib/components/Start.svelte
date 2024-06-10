@@ -39,7 +39,7 @@
 	});
 
 	// $: console.log('Email changed! ', email);
-	// $: console.log('Component Start, CurrentUser: ', $currentUser);
+	$: console.log('Component Start, CurrentUser: ', $currentUser);
 	// $: console.log("currentTEam: ", $currentTeam);
 
 	// $: userExists =
@@ -79,7 +79,7 @@
 		const input = event.target as HTMLInputElement;
 		email = input.value;
 
-		initializeUser('');
+		initializeUser("");
 		started.set(false); // Use .set() to update the store
 		showComponentLogin = false;
 		showComponentNewAccount = false;
@@ -87,7 +87,7 @@
 	}
 
 	// $: console.log("currentUser loggedin?: ", $currentUser);
-	$: if ($currentUser && $currentUser.loggedIn) {
+	$: if ($currentUser && $currentUser.loggedIn && $currentUser.accountCreated) { //10.06. acc.created hinzugefügt
 		goto('/myteams');
 	}
 </script>

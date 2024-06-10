@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { showTemporaryMessage } from '$lib/actions/showHelpers';
+	// import { showTemporaryMessage } from '$lib/actions/showHelpers';
 	import { updateUser } from '$lib/actions/userHelpers.js';
 	import { currentUser } from '$lib/stores/userStore.js';
 
@@ -7,12 +7,12 @@
 	let loginSuccessful = false;
 	let errorMessage: string = "";
 
-	let showMessage = false; //to display message
-	const duration = 3000; //in milliseconds
+	// let showMessage = false; //to display message
+	// const duration = 3000; //in milliseconds
 
-	function setShowMessage(value: boolean): void {
-		showMessage = value;
-	}
+	// function setShowMessage(value: boolean): void {
+	// 	showMessage = value;
+	// }
 
 	// function handleLogin(email, password) {
 	function handleLogin(password: string): boolean {
@@ -25,7 +25,7 @@
 			console.error('Incorrect password.');
 			return false;
 		}
-		showTemporaryMessage(setShowMessage, duration);
+		// showTemporaryMessage(setShowMessage, duration);
         return true;
 	}
 

@@ -15,8 +15,8 @@
 	let teamCreated = false;
 
 	
-	$: if (teamCreated){
-		goto(`/myteams/${teamName}/edit`);
+	$: if (teamCreated && $currentUser?.accountCreated){
+		goto(`/myteams/${teamName}`);
 	}
 
 	function handleSubmit(event: Event): void {
