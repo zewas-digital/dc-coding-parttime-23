@@ -3,8 +3,8 @@
 	import type { User } from '$lib/stores/userStore';
 	import { getTeamByID } from '$lib/utils/storageHelpers';
 	import TeamCard from './TeamCard.svelte';
-import type { Team } from '$lib/stores/teamStore';
-import { goto } from '$app/navigation';
+	import type { Team } from '$lib/stores/teamStore';
+	import { goto } from '$app/navigation';
 
 	console.log('Component Overview!');
 	// TeamID  als Prop übergeben
@@ -61,7 +61,6 @@ import { goto } from '$app/navigation';
 	// }
 	// }
 
-
 	function handleTeamClick(team: Team) {
 		// console.log('Clicked on team:', team.teamName);
 		// updateTeam(membership.team);
@@ -71,28 +70,27 @@ import { goto } from '$app/navigation';
 		if (team) currentTeam.set(team);
 		goto(`/myteams/${team?.teamName}`);
 	}
-
 </script>
 
-	<article class="teamoverview" style="border-color: {myTeam?.color}">
-		<!-- <h1>{$currentTeam.teamName}</h1> -->
-		{#if myTeam}
-			<h2>{myTeam.teamName}</h2>
-			<h3>Anzahl aller Mitglieder: {myTeam.allMembers.length}</h3>
-		{/if}
-		<h3>Account bereits angelegt:</h3>
-		{#each allNames as name}
-			<p>{name}</p>
-		{/each}
-		{#if myTeam}
+<article class="teamoverview" style="border-color: {myTeam?.color}">
+	<!-- <h1>{$currentTeam.teamName}</h1> -->
+	{#if myTeam}
+		<h2>{myTeam.teamName}</h2>
+		<h3>Anzahl aller Mitglieder: {myTeam.allMembers.length}</h3>
+	{/if}
+	<h3>Account bereits angelegt:</h3>
+	{#each allNames as name}
+		<p>{name}</p>
+	{/each}
+	{#if myTeam}
 		<button style="background-color: {myTeam?.color}" on:click={() => handleTeamClick(myTeam)}>
 			<!-- <button style="background-color: {myTeam?.color}"> -->
 
-			{myTeam?.teamName} bearbeiten!
+			zu {myTeam?.teamName}!
 		</button>
-		{/if}
-		<!--Offene Aufgaben, nächste Termine..-->
-	</article>
+	{/if}
+	<!--Offene Aufgaben, nächste Termine..-->
+</article>
 
 <!-- <TeamCard >
 	<div slot="header">
@@ -121,5 +119,4 @@ import { goto } from '$app/navigation';
 
 		padding: 10px;
 	}
-	
 </style>

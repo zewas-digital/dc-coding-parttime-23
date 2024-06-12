@@ -30,6 +30,8 @@ export const defaultUser: User = {
 }
 
 // Initialize the user store with null or an empty object
-export const currentUser = writable<User | null>(null);
+// export const currentUser = writable<User | null>(null); // !!!!!!!!!!!!!!12.06.!!!
+export const currentUser = writable<User>(defaultUser);
+
 
 export const started = writable<boolean>(false);

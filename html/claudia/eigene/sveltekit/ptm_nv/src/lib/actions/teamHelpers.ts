@@ -3,6 +3,7 @@
 import { get } from 'svelte/store';  // Import `get` for synchronous store access
 import type { Team } from '$lib/stores/teamStore';
 import { currentTeam } from '$lib/stores/teamStore';
+import type { User } from '$lib/stores/userStore';
 
 
 
@@ -33,4 +34,11 @@ export function updateTeam(updates: Partial<Team>): Team | null {
     // console.log("UpdateTeam beendet, updatedTeam: ", updatedTeam);
 
     return updatedTeam;
+}
+
+export function userIsAdmin(myUser: User, myTeam: Team): boolean {
+    const myUserID = myUser.userID;
+    const myAdmins = myTeam.allAdmins;
+
+    return myAdmins.includes(myUserID);
 }

@@ -8,16 +8,25 @@
 	import { goto } from '$app/navigation';
 	import { getNextID } from '$lib/utils/storageHelpers';
 	import { onMount } from 'svelte';
+	import NewAccount from '../usercomponents/NewUser.svelte';
 	
 	
 	let teamName = '';
 	let color = '#FFFFFF';
 	let teamCreated = false;
+	// let showComponentNewAccount = false;
+	// let email = "";
+	
 
 	
-	$: if (teamCreated && $currentUser?.accountCreated){
+	$: if (teamCreated && $currentUser?.accountCreated && $currentUser.userID !== 0){
 		goto(`/myteams/${teamName}`);
 	}
+
+	// $: if (teamCreated && $currentUser?.userID === 0){
+	// 	email = $currentUser.email;
+	// 	// showComponentNewAccount = true;
+	// }
 
 	function handleSubmit(event: Event): void {
 		event.preventDefault();
@@ -97,6 +106,10 @@
 	<button type="submit">Team anlegen!</button>
 </form>
 
+
 {/if}
 
+<!-- {#if showComponentNewAccount}
+<NewAccount {email} />
+{/if} -->
 

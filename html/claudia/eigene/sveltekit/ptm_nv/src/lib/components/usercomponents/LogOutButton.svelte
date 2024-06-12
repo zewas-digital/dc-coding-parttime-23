@@ -2,7 +2,7 @@
 	import { goto } from "$app/navigation";
 	import { updateUser } from "$lib/actions/userHelpers.js";
 	import { currentTeam, defaultTeam } from "$lib/stores/teamStore";
-	import { currentUser, started } from "$lib/stores/userStore.js";
+	import { currentUser, defaultUser, started } from "$lib/stores/userStore.js";
     
     
    function logOut(){
@@ -15,7 +15,7 @@
         
         updateUser(updates);
         started.set(false);
-        currentUser.set(null)
+        currentUser.set(defaultUser);
         currentTeam.set(defaultTeam);
         // console.log("logout beendet, currentUser: ", currentUser);
         // console.log("logout beendet, currentTeam: ", currentTeam);

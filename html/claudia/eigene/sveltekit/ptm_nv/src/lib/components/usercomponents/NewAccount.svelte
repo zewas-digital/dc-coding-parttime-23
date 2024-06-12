@@ -9,7 +9,7 @@
 	// import { currentUser } from '$lib/stores/userStore.js';
     // export let email: string;
 
-    // console.log("NewAccount, currentUser am Anfang: ", $currentUser);
+    console.log("NewAccount, currentUser am Anfang: ", $currentUser);
     let showMessage = false; //to display message
     const duration = 3000; //in milliseconds
 
@@ -44,7 +44,7 @@
         };
         updateUser(newAccount);
 
-        // console.log("Neuer Nutzer in NewAccount: ", newAccount);
+        console.log("Neuer Nutzer in NewAccount: ", newAccount);
     
 
         accountCreated = true; //???
@@ -56,6 +56,7 @@
 
 {#if !accountCreated}
     <h2>Leg jetzt einen neuen Account an!</h2>
+    <p>Emailadresse wurde schon einem oder mehreren Teams zugeordnet!</p>
     <form on:submit={handleSubmit}>
         <label>
             Name:
