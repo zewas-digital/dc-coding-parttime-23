@@ -23,7 +23,7 @@
 
 
 
- 
+ Auf dieser Seite Bearbeitung ermöglichen!
 
 <p> Alle Admins: {$currentTeam.allAdmins}</p>
 

@@ -1,20 +1,28 @@
 <script lang="ts">
 	import { currentTeam } from '$lib/stores/teamStore';
-	import type { User } from '$lib/stores/userStore';
+	import { currentUser, type User } from '$lib/stores/userStore';
 	import { getTeamByID } from '$lib/utils/storageHelpers';
 	import TeamCard from './TeamCard.svelte';
 	import type { Team } from '$lib/stores/teamStore';
 	import { goto } from '$app/navigation';
+	import { userIsAdmin } from '$lib/actions/teamHelpers';
+	
 
 	console.log('Component Overview!');
 	// TeamID  als Prop übergeben
 	export let teamID: number;
 	let teamcolor = 'FFF321';
+	let currentUserIsAdmin = false;
 
 	const myTeam = getTeamByID(teamID.toString());
-	console.log('TeamID, myTeam: ', teamID, myTeam);
+	// console.log('TeamID, myTeam: ', teamID, myTeam);
 	let allNames: string[] = [];
 	$: if (myTeam && myTeam.color !== null) teamcolor = myTeam.color;
+
+	$: if (myTeam) currentUserIsAdmin = userIsAdmin($currentUser, myTeam);
+
+	$: if (myTeam) console.log("user, team, admin? ",$currentUser, myTeam, userIsAdmin($currentUser, myTeam));
+	$: console.log("Component TeamOverview, userisAdmin? ", currentUserIsAdmin);
 
 	if (myTeam) {
 		const allMembers = myTeam.allMembers || []; //Array of integers!
@@ -68,7 +76,7 @@
 		// const myTeam = teamMap.get(membership.teamID);
 		// console.log('teamclick, currentTeam', $currentTeam);
 		if (team) currentTeam.set(team);
-		goto(`/myteams/${team?.teamName}`);
+		goto(`/myteams/${team?.teamName}/edit`);
 	}
 </script>
 
@@ -82,11 +90,13 @@
 	{#each allNames as name}
 		<p>{name}</p>
 	{/each}
-	{#if myTeam}
+	<p>Admin? {currentUserIsAdmin}</p>
+	{#if myTeam && currentUserIsAdmin} <!--TODO: Wenn kein Admin? Ansehen? Oder nix?-->
+	
 		<button style="background-color: {myTeam?.color}" on:click={() => handleTeamClick(myTeam)}>
-			<!-- <button style="background-color: {myTeam?.color}"> -->
+			
 
-			zu {myTeam?.teamName}!
+			{myTeam?.teamName} bearbeiten!
 		</button>
 	{/if}
 	<!--Offene Aufgaben, nächste Termine..-->
