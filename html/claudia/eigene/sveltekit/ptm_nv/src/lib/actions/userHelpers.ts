@@ -1,8 +1,9 @@
 import type { User, UserUpdates } from '$lib/stores/userStore';
 import { currentUser, defaultUser } from '$lib/stores/userStore';
-import { getNextID } from '$lib/utils/storageHelpers';
+import { getNextID, getTeamByID } from '$lib/utils/storageHelpers';
 import { get } from 'svelte/store';  // Import `get` for synchronous store access
-
+import type { Team } from '$lib/stores/teamStore';
+import { updateCurrentTeam, updateTeam } from './teamHelpers';
 
 // Define the type for the updates parameter
 // type UserUpdates = Partial<User>;
@@ -31,21 +32,42 @@ export function updateUser(user: User, userupdates: UserUpdates) {
 }
 //TODO: Überprüfen!
 export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boolean): UserUpdates{
+    //Step 1: if isAdmin, add userID to list of admins:
+    const myTeam = getTeamByID(teamID.toString());
+    if (myTeam && isAdmin){
+    
+        let allAdmins = myTeam.allAdmins;
+        if (!allAdmins?.includes(user.userID)){
+            allAdmins?.push(user.userID);
+            updateTeam(myTeam, {allAdmins: allAdmins});
+        }
+    }
+    //Step 2: check memberships of user, add teamID if necessary
     const myMemberships = user.memberships;
     let found = false;
+
+   
 //     let someArray = [1, "string", false];
 // for (let entry of someArray) {
 //   console.log(entry); // 1, "string", false
 // }
     for (let membership of myMemberships){
+        console.log("überprüfe membership", membership)
         if (!found && membership.teamID === teamID){
             membership.isAdmin = isAdmin;
+            // myTeam?.allAdmins.push(user.userID);
             found = true;
+            console.log("gefunden");
             }
+            
     }
-    if (!found) myMemberships.push({teamID: teamID, isAdmin: isAdmin});
-
+    if (!found) {
+        console.log("nicht gefunden");
+        myMemberships.push({teamID: teamID, isAdmin: isAdmin});
+    }
+    
     const userupdates = {memberships: myMemberships};
+    console.log("Userupdates: ", userupdates);
     return userupdates;
     // updateUser(user, userupdates);
 }

@@ -10,11 +10,20 @@ import type { User } from '$lib/stores/userStore';
 // Define the type for the updates parameter
 // type TeamUpdates = Partial<Team>;
 
-// Function to update team
-export function updateTeam(updates: Partial<Team>): Team | null {
+export function updateTeam(team: Team, updates: Partial<Team>) {
+   
+    const updatedTeam: Team = { ...team, ...updates };
+
+
+    localStorage.setItem(updatedTeam.teamID.toString(), JSON.stringify(updatedTeam));
+}
+
+
+// Function to update current team
+export function updateCurrentTeam(updates: Partial<Team>): Team | null {
     // Synchronously get the current team value
     let team = get(currentTeam);
-    // console.log("updateTeam");
+    // console.log("Current");
     // Check if team exists before proceeding
     if (!team) {
         console.error('No team chosen.');

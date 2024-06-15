@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { updateTeam } from "$lib/actions/teamHelpers";
+	import { updateCurrentTeam } from "$lib/actions/teamHelpers";
 	import { currentTeam } from "$lib/stores/teamStore";
     import { defaultTeam } from "$lib/stores/teamStore";
 	import { currentUser } from "$lib/stores/userStore";

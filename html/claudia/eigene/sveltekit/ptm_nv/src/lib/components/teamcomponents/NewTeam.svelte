@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { updateTeam } from '$lib/actions/teamHelpers';
+	import { updateCurrentTeam } from '$lib/actions/teamHelpers';
 	import { currentUser } from '$lib/stores/userStore';
 	import type { User } from '$lib/stores/userStore';
 	import type { Team } from '$lib/stores/teamStore';
@@ -49,7 +49,7 @@
 				color: color
 			};
 
-			updateTeam(newTeam);
+			updateCurrentTeam(newTeam);
 			// console.log('newTeam created: ', newTeam);
 
 			// const allMemberships = $currentUser?.memberships;

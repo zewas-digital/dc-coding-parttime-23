@@ -10,7 +10,7 @@ TODO:
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { type User, type Membership, defaultUser, type UserUpdates } from '$lib/stores/userStore';
+	import { type User, type Membership, defaultUser, type UserUpdates, currentUser } from '$lib/stores/userStore';
 	import { currentTeam } from '$lib/stores/teamStore';
 	import { getNextID, getUserByEmail } from '$lib/utils/storageHelpers';
 	import { updateMembershipsOfUser, updateUser } from '$lib/actions/userHelpers';
@@ -30,7 +30,7 @@ TODO:
 	let allNewUserData: UserData[] = [
 		{ userID: 0, email: '', isAdmin: false, membership: $currentTeam.teamID }
 	];
-	let newMembership: Membership; 
+	// let newMembership: Membership; 
 
 	// Function to handle form submission
 	function inviteNewMembers() {
@@ -63,6 +63,7 @@ TODO:
 				// userUpdates.userID = getNextID("user");
 			}
 			else { //user exists already -> only check memberships
+				if(myUser !== $currentUser)
 				userUpdates = updateMembershipsOfUser(myUser, $currentTeam.teamID, userData.isAdmin);
 				
 			}
@@ -79,7 +80,8 @@ TODO:
 			// saveUserData(myUser, userUpdates);
 		});
 
-		//Achtung: Liste muss verschwinden!
+		//TODO: Liste muss verschwinden!
+		//TODO: eigene Emailadresse ausschließen!
 	}
 
 	// function existingUserData(email: string): User {
@@ -110,13 +112,20 @@ TODO:
 	}
 </script>
 
+<!-- type="email"
+			bind:this={emailInput}
+			bind:value={email}
+			placeholder="Email"
+			on:input={emailTyped} -->
+
+
 <section class="input-block">
 	{#each allNewUserData as userData, index}
 		<p>
 			<input
 				type="email"
 				id="emailInput{index}"
-				placeholder="Enter Email"
+				placeholder="Email"
 				bind:value={userData.email}
 				on:input={addNewLine}
 			/>

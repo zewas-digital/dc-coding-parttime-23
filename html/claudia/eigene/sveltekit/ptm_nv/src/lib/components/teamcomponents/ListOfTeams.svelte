@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { updateTeam } from '$lib/actions/teamHelpers';
+	import { updateCurrentTeam } from '$lib/actions/teamHelpers';
 	import { currentTeam } from '$lib/stores/teamStore';
 	import { currentUser } from '$lib/stores/userStore';
 	// import { allTeams } from '$lib/stores/teamStore';
@@ -43,7 +43,7 @@
 
 	function handleTeamClick(team: Team) {
 		// console.log('Clicked on team:', team.teamName);
-		// updateTeam(membership.team);
+		// updateCurrentTeam(membership.team);
 		// const teamID = membership.teamID;
 		// const myTeam = teamMap.get(membership.teamID);
 		// console.log('teamclick, currentTeam', $currentTeam);
