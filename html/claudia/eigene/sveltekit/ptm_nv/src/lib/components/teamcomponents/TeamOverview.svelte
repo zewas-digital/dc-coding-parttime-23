@@ -8,7 +8,7 @@
 	import { userIsAdmin } from '$lib/actions/teamHelpers';
 	
 
-	console.log('Component Overview!');
+	// console.log('Component Overview!');
 	// TeamID  als Prop übergeben
 	export let teamID: number;
 	let teamcolor = 'FFF321';
@@ -22,12 +22,12 @@
 	$: if (myTeam) currentUserIsAdmin = userIsAdmin($currentUser, myTeam);
 
 	$: if (myTeam) console.log("user, team, admin? ",$currentUser, myTeam, userIsAdmin($currentUser, myTeam));
-	$: console.log("Component TeamOverview, userisAdmin? ", currentUserIsAdmin);
+	// $: console.log("Component TeamOverview, userisAdmin? ", currentUserIsAdmin);
 
 	if (myTeam) {
 		const allMembers = myTeam.allMembers || []; //Array of integers!
 		// allNames = [];
-		console.log('allMembers: ', allMembers);
+		// console.log('allMembers: ', allMembers);
 
 		allMembers.forEach((member) => {
 			const idString = member.toString();

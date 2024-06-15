@@ -1,4 +1,5 @@
 import type { Team } from "$lib/stores/teamStore";
+import { defaultUser, type User } from "$lib/stores/userStore";
 
 function looseFirstDigit(id: string): string {
     return  id.substring(1);
@@ -60,4 +61,45 @@ export function getTeamByID(teamIDString: string): Team | null {
         console.error("Error parsing team JSON:", error);
         return null;
     }
+}
+
+// export function getUserByEmail(email: string): User {
+//     const myUserJSON = localStorage.getItem(email); //userID!
+//     // 
+//     if (myUserJSON === null) { //dann nichts im LocalStorage
+//         return defaultUser;
+//     }
+//     const myUserID = JSON.parse(myUserJSON);
+//     if (myUserID === 0) return defaultUser;
+//     return JSON.parse(localStorage.getItem(myUserID));
+    
+//    }
+
+//function returns existing user or default user
+   export function getUserByEmail(email: string): User {
+    const myUserJSON = localStorage.getItem(email); // Retrieve userID by email
+    if (!myUserJSON) { // If nothing in localStorage, return defaultUser
+        return defaultUser;
+    }
+
+    const myUserID = JSON.parse(myUserJSON);
+    if (typeof myUserID !== 'number' || myUserID === 0) {
+        return defaultUser;
+    }
+
+    const userJSON = localStorage.getItem(myUserID.toString());
+    if (!userJSON) {
+        return defaultUser;
+    }
+
+    try {
+        const user = JSON.parse(userJSON);
+        if (typeof user === 'object' && user !== null) {
+            return user;
+        }
+    } catch (error) {
+        console.error('Error parsing user data:', error);
+    }
+
+    return defaultUser;
 }

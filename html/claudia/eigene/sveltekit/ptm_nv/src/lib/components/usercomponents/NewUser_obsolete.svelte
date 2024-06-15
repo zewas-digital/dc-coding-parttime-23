@@ -2,7 +2,7 @@
     //use this component when user's not in local storage => no team set for user
 
     import { showTemporaryMessage } from '$lib/actions/showHelpers';
-    import { updateUser } from '$lib/actions/userHelpers.js';
+    import { updateCurrentUser, updateUser, updateMembershipsOfUser } from '$lib/actions/userHelpers.js';
 	import { getNextID } from '$lib/utils/storageHelpers';
 	import NewTeam from '../teamcomponents/NewTeam.svelte';
 	import { currentUser } from '$lib/stores/userStore.js';
@@ -39,7 +39,7 @@
         
         console.log("Neuer Nutzer in NewUser ", newUser);
         currentUser.set(newUser); //10.06. -> für Comp. NewTeam erforderlich
-        //updateUser(newUser);//10.06. User erst anlegen, wenn auch Team dazu besteht!
+        //updateCurrentUser(newUser);//10.06. User erst anlegen, wenn auch Team dazu besteht!
         //accountCreated = false, userID = 0;
         userCreated = true;
         // showTemporaryMessage(setShowMessage, duration);

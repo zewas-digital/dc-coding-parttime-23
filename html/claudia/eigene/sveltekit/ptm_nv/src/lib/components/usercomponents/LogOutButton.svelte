@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { updateUser } from "$lib/actions/userHelpers.js";
+	import { updateCurrentUser } from "$lib/actions/userHelpers.js";
 	import { currentTeam, defaultTeam } from "$lib/stores/teamStore";
 	import { currentUser, defaultUser, started } from "$lib/stores/userStore.js";
     
@@ -13,7 +13,7 @@
         // console.log("function logOut, updates: ", updates);
         // console.log("currentUser: ", currentUser);
         
-        updateUser(updates);
+        updateCurrentUser(updates);
         started.set(false);
         currentUser.set(defaultUser);
         currentTeam.set(defaultTeam);

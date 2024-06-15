@@ -2,7 +2,7 @@
 	// import type { User } from '$lib/stores/userStore'; // Import the User type
 	import { currentUser, defaultUser, started } from '$lib/stores/userStore';
 	import { onMount } from 'svelte';
-	import { updateUser, initializeUser } from '$lib/actions/userHelpers';
+	import { updateCurrentUser, initializeUser } from '$lib/actions/userHelpers';
 	import { goto } from '$app/navigation';
 	import Login from '$lib/components/usercomponents/Login.svelte';
 	import NewAccount from '$lib/components/usercomponents/NewAccount.svelte';
@@ -43,7 +43,7 @@
 	});
 
 	// $: console.log('Email changed! ', email);
-	$: console.log('Component Start, CurrentUser: ', $currentUser);
+	// $: console.log('Component Start, CurrentUser: ', $currentUser);
 	// $: console.log("currentTEam: ", $currentTeam);
 
 	// $: userExists =
@@ -55,7 +55,7 @@
 	// $: userExists = $currentUser !== null;
 	// $: userExists = $currentUser !== null && $currentUser.userID !== 0;
 	$: userExists = $currentUser && $currentUser.userID !== 0;
-	$: console.log("Component Start, userExists? ", userExists);
+	// $: console.log("Component Start, userExists? ", userExists);
 
 	let showComponentNewAccount = false;
 	let showComponentNewTeam = false;
@@ -64,11 +64,11 @@
 
 	$: showComponentLogin = !$currentUser?.loggedIn && userExists && $currentUser?.accountCreated;
 
-	$: console.log($currentUser?.memberships.length, "Länge Array");
+	// $: console.log($currentUser?.memberships.length, "Länge Array");
 	// $: console.log($currentUser?.userID === 0);
 	$: if ($currentUser) console.log($currentUser?.memberships.length > 0);
 	$: if ($currentUser && !$currentUser?.accountCreated && $currentUser?.memberships.length > 0) showComponentNewAccount = true;
-	$: console.log("showcomp.newacc: ", showComponentNewAccount);
+	// $: console.log("showcomp.newacc: ", showComponentNewAccount);
 	// $: if ($currentUser?.userID === 0 && $currentUser.memberships.length > 0) showComponentNewAccount = true;
 	// $: if ($currentUser?.memberships.length > 0 && $currentUser.userID === 0)
 

@@ -4,11 +4,11 @@
 	import type { User } from '$lib/stores/userStore';
 	import type { Team } from '$lib/stores/teamStore';
 	import { get } from 'svelte/store';
-	import { updateUser } from '$lib/actions/userHelpers';
+	import { updateCurrentUser } from '$lib/actions/userHelpers';
 	import { goto } from '$app/navigation';
 	import { getNextID } from '$lib/utils/storageHelpers';
 	import { onMount } from 'svelte';
-	import NewAccount from '../usercomponents/NewUser.svelte';
+	import NewAccount from '../usercomponents/NewUser_obsolete.svelte';
 	
 	
 	let teamName = '';
@@ -56,7 +56,7 @@
 			const allMemberships = user.memberships.slice(); //shallow copy (im GEgensatz zu: deep copy): neues Array mit denselben REferenzen, aber nicht das Original
 			allMemberships.push({teamID: newTeam.teamID, isAdmin: true});
 			const updates = {memberships: allMemberships};
-			updateUser(updates);
+			updateCurrentUser(updates);
 			teamCreated = true;
 			
 		} else {

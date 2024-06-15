@@ -1,17 +1,66 @@
-import type { User } from '$lib/stores/userStore';
+import type { User, UserUpdates } from '$lib/stores/userStore';
 import { currentUser, defaultUser } from '$lib/stores/userStore';
+import { getNextID } from '$lib/utils/storageHelpers';
 import { get } from 'svelte/store';  // Import `get` for synchronous store access
 
 
-
 // Define the type for the updates parameter
-type UserUpdates = Partial<User>;
+// type UserUpdates = Partial<User>;
 
-// Function to update the user
-export function updateUser(updates: UserUpdates): User | null {
+
+// export function createUser(updates: UserUpdates): void {
+//     const newMembership = {teamID: updates.teamID, idAdmin: updates.isAdmin}
+//     const newUser = {
+//         userID: getNextID("user"),
+//         email: updates.email,
+//         accountCreated: false,
+//         loggedIn: false,
+//         password: "",
+//         userName: "",
+//         memberships: [],
+//     };
+
+//     // const newUser: User = { ...d}
+// }
+
+
+export function updateUser(user: User, userupdates: UserUpdates) {
+    const updatedUser: User = { ...user, ...userupdates };
+    localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
+    localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
+}
+//TODO: Überprüfen!
+export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boolean): UserUpdates{
+    const myMemberships = user.memberships;
+    let found = false;
+//     let someArray = [1, "string", false];
+// for (let entry of someArray) {
+//   console.log(entry); // 1, "string", false
+// }
+    for (let membership of myMemberships){
+        if (!found && membership.teamID === teamID){
+            membership.isAdmin = isAdmin;
+            found = true;
+            }
+    }
+    if (!found) myMemberships.push({teamID: teamID, isAdmin: isAdmin});
+
+    const userupdates = {memberships: myMemberships};
+    return userupdates;
+    // updateUser(user, userupdates);
+}
+
+// export function saveUserData(user: User, userupdates: UserUpdates): void{
+//     const updatedUser: User = { ...user, ...userupdates};
+//     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
+//     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
+// }
+
+// Function to update the currentUser
+export function updateCurrentUser(updates: UserUpdates): User | null {
     // Synchronously get the current user value
     let user = get(currentUser);
-    console.log("updateUser", updates);
+    // console.log("updateCurrentUser", updates);
     // Check if the user exists before proceeding
     if (!user) {
         console.error('No user is currently logged in.');
@@ -34,7 +83,7 @@ export function updateUser(updates: UserUpdates): User | null {
 
     return updatedUser;
 }
-// Function to initialize the user
+// Function to initialize the currentUser
 export async function initializeUser(email: string): Promise<void> {
     // export async function initializeUser(userID: number): Promise<void> {
     // console.log("Initialize USER! ---------------");
@@ -51,7 +100,7 @@ export async function initializeUser(email: string): Promise<void> {
         // Set currentUser with the retrieved data and set loggedIn to false
         currentUser.set({ ...parsedUserData, loggedIn: false });
     } else {
-       
+
         currentUser.set(defaultUser);
     }
 

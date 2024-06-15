@@ -1,6 +1,6 @@
 <script lang="ts">
 	// import { showTemporaryMessage } from '$lib/actions/showHelpers';
-	import { updateUser } from '$lib/actions/userHelpers.js';
+	import { updateCurrentUser } from '$lib/actions/userHelpers.js';
 	import { currentUser } from '$lib/stores/userStore.js';
 
 	let password: string = "";
@@ -20,7 +20,7 @@
 			// console.log("Login successful, currentUser:", $currentUser);
 
 			const updates = { loggedIn: true };
-			updateUser(updates);
+			updateCurrentUser(updates);
 		} else {
 			console.error('Incorrect password.');
 			return false;

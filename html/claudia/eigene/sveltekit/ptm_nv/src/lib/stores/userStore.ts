@@ -33,5 +33,8 @@ export const defaultUser: User = {
 // export const currentUser = writable<User | null>(null); // !!!!!!!!!!!!!!12.06.!!!
 export const currentUser = writable<User>(defaultUser);
 
-
 export const started = writable<boolean>(false);
+//https://www.typescriptlang.org/docs/handbook/utility-types.html
+//Partial <Type> constructs a type with all properties of Type set to optional;
+//returns a type that represents all subsets of given type
+export type UserUpdates = Partial<User>;

@@ -1,10 +1,10 @@
 <script lang="ts">
     
     import { showTemporaryMessage } from '$lib/actions/showHelpers';
-	import { updateUser } from '$lib/actions/userHelpers';
+	import { updateCurrentUser } from '$lib/actions/userHelpers';
 	import { currentUser } from '$lib/stores/userStore';
 	import { getNextID } from '$lib/utils/storageHelpers';
-    // import { updateUser } from '$lib/actions/userHelpers.ts';
+    // import { updateCurrentUser } from '$lib/actions/userHelpers.ts';
     
 	// import { currentUser } from '$lib/stores/userStore.js';
     // export let email: string;
@@ -42,7 +42,7 @@
             userName: userName,
             // allMemberships: allMemberships,
         };
-        updateUser(newAccount);
+        updateCurrentUser(newAccount);
 
         console.log("Neuer Nutzer in NewAccount: ", newAccount);
     

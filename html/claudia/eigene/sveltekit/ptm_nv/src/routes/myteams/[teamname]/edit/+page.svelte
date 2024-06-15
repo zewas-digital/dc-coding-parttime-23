@@ -6,7 +6,7 @@
     const { teamname } = $page.params;
 </script>
 
-<h1>Edit for Team {$currentTeam.teamName}</h1>
+<h1>Neue Mitglieder zu Team {$currentTeam.teamName} hinzufügen: </h1>
 
 
 <!--
