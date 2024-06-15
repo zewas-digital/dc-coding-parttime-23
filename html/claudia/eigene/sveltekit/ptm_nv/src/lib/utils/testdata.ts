@@ -21,6 +21,9 @@ export function setTestData() {
         localStorage.clear();
     }
     // const lastUsedTeamID = initializeLastUsedTeamID(); //set to 0 as long as LS is cleared
+
+
+
 ///////////////// TESTDATEN TEAM ///////////////////////////
 let teams: Team[] = [];
 const team1: Team = {
@@ -145,10 +148,9 @@ teams.forEach((team) => {
 ///////////////// TESTDATEN USER ENDE //////////////////////
 
 
+
+
 }
-
-
-
 
 
 

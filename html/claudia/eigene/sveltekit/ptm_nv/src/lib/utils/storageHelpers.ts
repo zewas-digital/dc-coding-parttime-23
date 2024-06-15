@@ -9,6 +9,7 @@ function addFirstDigit(id: string, category: string): string {
      let firstDigit = "x";
      if (category === "user") firstDigit = "1";
      if (category === "team") firstDigit = "2";
+     if (category === "date") firstDigit = "3";
      
     return firstDigit + id;
     }
@@ -27,6 +28,7 @@ export function getNextID(category: string): number {
 
     if (category === "user") key = "lastUserID";
     if (category === "team") key = "lastTeamID";
+    if (category === "date") key = "lastDateID";
 
     if (typeof window !== "undefined" && key !=="") {
         let lastID = localStorage.getItem(key); //type string or null

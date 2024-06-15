@@ -1,8 +1,12 @@
 import { writable } from "svelte/store";
-// import type { Team } from "$lib/stores/teamStore";
-// import type { Membership } from "../utils/testdata";
-//TODO export mit default value? vgl. teamStore!
+
 // Define the types for the user and other states
+
+export interface Membership {
+    teamID: number;
+    isAdmin: boolean;
+}
+
 export interface User {
     userID: number;
     email: string;
@@ -14,10 +18,7 @@ export interface User {
     
 }
 
-export interface Membership {
-    teamID: number;
-    isAdmin: boolean;
-}
+
 
 export const defaultUser: User = {
     userID: 0,

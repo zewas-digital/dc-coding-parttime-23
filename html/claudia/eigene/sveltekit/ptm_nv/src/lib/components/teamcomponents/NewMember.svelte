@@ -1,8 +1,6 @@
 <!--
 TODO: 
-- Emailadressen angeben, welche boolean-Werte?
-- wenn alle ausgefüllt: Button
-- Unterscheiden, ob email schon existiert (dann nur Membership hinzufügen) oder nicht
+
 - allen Emailadressen Infomail zusenden
 
 
@@ -10,10 +8,18 @@ TODO:
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { type User, type Membership, defaultUser, type UserUpdates, currentUser } from '$lib/stores/userStore';
+	import {
+		type User,
+		type Membership,
+		defaultUser,
+		type UserUpdates,
+		currentUser
+	} from '$lib/stores/userStore';
 	import { currentTeam } from '$lib/stores/teamStore';
 	import { getNextID, getUserByEmail } from '$lib/utils/storageHelpers';
 	import { updateMembershipsOfUser, updateUser } from '$lib/actions/userHelpers';
+	import type { TeamUpdates } from '$lib/stores/teamStore';
+	import { updateCurrentTeam } from '$lib/actions/teamHelpers';
 
 	// Initialize the list with three empty email inputs
 	// let emails = ['', '', ''];
@@ -30,11 +36,12 @@ TODO:
 	let allNewUserData: UserData[] = [
 		{ userID: 0, email: '', isAdmin: false, membership: $currentTeam.teamID }
 	];
-	// let newMembership: Membership; 
+	// let newMembership: Membership;
 
 	// Function to handle form submission
 	function inviteNewMembers() {
 		let userUpdates: UserUpdates = {};
+		// let teamUpdates: TeamUpdates = {};
 		// console.log('Submitted users:', allNewUserData);
 		//get rid of last element (which is always empty because of empty line):
 		allNewUserData.pop();
@@ -43,45 +50,36 @@ TODO:
 		// allNewUserData = allNewUserData.filter(entry => entry.userID !== 0);
 		// console.log("allNewUserData: ", allNewUserData);
 
-		allNewUserData.forEach((userData, index) => {
+		let allMembers = $currentTeam.allMembers;
 
+		allNewUserData.forEach((userData, index) => {
 			const myUser = getUserByEmail(userData.email); //existing user or default
 
 			//noch nicht existierender Nutzer:
 			if (myUser.userID === 0) {
 				const newMembership = { teamID: $currentTeam.teamID, isAdmin: userData.isAdmin };
-
+				const nextID = getNextID('user');
 				userUpdates = {
-					userID: getNextID('user'),
+					userID: nextID,
 					email: userData.email,
 					memberships: [newMembership]
 				};
-				// myUser.userID = getNextID('user');
-				// myUser.email = userData.email;
-				// myUser.memberships = [newMembership];
-				// userUpdates.email = userData.email;
-				// userUpdates.userID = getNextID("user");
-			}
-			else { //user exists already -> only check memberships
-				if(myUser !== $currentUser)
-				userUpdates = updateMembershipsOfUser(myUser, $currentTeam.teamID, userData.isAdmin);
-				
-			}
+				allMembers.push(nextID);//update memberlist of team
+			} else {
+				//user exists already -> only check memberships
+				if (myUser !== $currentUser)
+					userUpdates = updateMembershipsOfUser(myUser, $currentTeam.teamID, userData.isAdmin);
 
-
+				if (!allMembers.includes(myUser.userID)) {
+					allMembers.push(myUser.userID);
+				}
+			}
 			updateUser(myUser, userUpdates);
-			// const myMemberships = myUser.memberships;
-
-			// if (!hasMembership(myMemberships, $currentTeam.teamID)) {
-			// 	myMemberships.push(newMembership);
-			// 	userUpdates.memberships = myMemberships;
-			// }
-			// // else if (hasMembership(myMemberships, $currentTeam.teamID))
-			// saveUserData(myUser, userUpdates);
 		});
 
-		//TODO: Liste muss verschwinden!
-		//TODO: eigene Emailadresse ausschließen!
+		updateCurrentTeam({ allMembers: allMembers });
+
+		//TODO: Eingabeliste muss verschwinden!
 	}
 
 	// function existingUserData(email: string): User {
@@ -117,7 +115,6 @@ TODO:
 			bind:value={email}
 			placeholder="Email"
 			on:input={emailTyped} -->
-
 
 <section class="input-block">
 	{#each allNewUserData as userData, index}

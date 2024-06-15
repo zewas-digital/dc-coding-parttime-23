@@ -30,7 +30,7 @@ export function updateUser(user: User, userupdates: UserUpdates) {
     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
 }
-//TODO: Überprüfen!
+
 export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boolean): UserUpdates{
     //Step 1: if isAdmin, add userID to list of admins:
     const myTeam = getTeamByID(teamID.toString());

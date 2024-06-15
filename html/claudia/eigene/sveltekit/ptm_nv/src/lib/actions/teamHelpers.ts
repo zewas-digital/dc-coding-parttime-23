@@ -4,13 +4,13 @@ import { get } from 'svelte/store';  // Import `get` for synchronous store acces
 import type { Team } from '$lib/stores/teamStore';
 import { currentTeam } from '$lib/stores/teamStore';
 import type { User } from '$lib/stores/userStore';
-
+import type { TeamUpdates } from '$lib/stores/teamStore';
 
 
 // Define the type for the updates parameter
 // type TeamUpdates = Partial<Team>;
 
-export function updateTeam(team: Team, updates: Partial<Team>) {
+export function updateTeam(team: Team, updates: TeamUpdates) {
    
     const updatedTeam: Team = { ...team, ...updates };
 
@@ -20,7 +20,7 @@ export function updateTeam(team: Team, updates: Partial<Team>) {
 
 
 // Function to update current team
-export function updateCurrentTeam(updates: Partial<Team>): Team | null {
+export function updateCurrentTeam(updates: TeamUpdates): Team | null {
     // Synchronously get the current team value
     let team = get(currentTeam);
     // console.log("Current");
