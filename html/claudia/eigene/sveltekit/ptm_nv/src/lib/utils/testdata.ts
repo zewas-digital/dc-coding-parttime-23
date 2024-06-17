@@ -6,7 +6,7 @@
 import type { User } from "../stores/userStore";
 import type { Team } from "$lib/stores/teamStore";
 import { getNextID } from "./storageHelpers";
-
+import type { Feedback } from "../stores/userStore";
 
 // import { getNewTeamID } from "$lib/actions/teamHelpers";
 
@@ -90,7 +90,8 @@ teams.forEach((team) => {
         memberships: [
             { teamID: 21, isAdmin: true },
             { teamID: 22, isAdmin: false }
-        ]
+        ],
+        feedbacks: [],
     };
     const member2: User = {
         userID: getNextID("user"),
@@ -103,7 +104,9 @@ teams.forEach((team) => {
         memberships: [
             { teamID: 21, isAdmin: false },
             { teamID: 22, isAdmin: true }
-        ]
+        ],
+        feedbacks: [],
+
     };
     const member3: User = {
         userID: getNextID("user"),
@@ -118,7 +121,9 @@ teams.forEach((team) => {
             { teamID: 22, isAdmin: false },
             { teamID: 23, isAdmin: true },
             { teamID: 24, isAdmin: true }
-        ]
+        ],
+        feedbacks: [],
+
     };
 
     const member4: User = {
@@ -132,7 +137,9 @@ teams.forEach((team) => {
         memberships: [
             { teamID: 23, isAdmin: false },
             { teamID: 24, isAdmin: false }
-        ]
+        ],
+        feedbacks: [],
+
     };
     members.push(member1, member2, member3, member4);
     // console.log('Members: ', members);

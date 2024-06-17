@@ -2,17 +2,29 @@ import type { Team } from "$lib/stores/teamStore";
 import { defaultUser, type User } from "$lib/stores/userStore";
 
 function looseFirstDigit(id: string): string {
-    return  id.substring(1);
-} 
+    return id.substring(1);
+}
+
+export function getCategory(id: string): string {
+    const firstDigit = id[0];
+    switch (firstDigit) {
+        case "1": return "user"; 
+        case "2": return "team";
+        case "3": return "date";
+        case "4": return "task";
+        default: return "???";
+    }
+}
 
 function addFirstDigit(id: string, category: string): string {
-     let firstDigit = "x";
-     if (category === "user") firstDigit = "1";
-     if (category === "team") firstDigit = "2";
-     if (category === "date") firstDigit = "3";
-     
+    let firstDigit = "x";
+    if (category === "user") firstDigit = "1";
+    if (category === "team") firstDigit = "2";
+    if (category === "date") firstDigit = "3";
+    if (category === "task") firstDigit = "4";
+
     return firstDigit + id;
-    }
+}
 
 function addOne(id: string): string {
     let idNumber = parseInt(id) + 1;
@@ -30,11 +42,11 @@ export function getNextID(category: string): number {
     if (category === "team") key = "lastTeamID";
     if (category === "date") key = "lastDateID";
 
-    if (typeof window !== "undefined" && key !=="") {
+    if (typeof window !== "undefined" && key !== "") {
         let lastID = localStorage.getItem(key); //type string or null
         // console.log("lastID ", lastID);
         if (lastID === null) {//then next team or user is the first one
-            newID =  parseInt(addFirstDigit("1", category));
+            newID = parseInt(addFirstDigit("1", category));
         }
         else {
             lastID = looseFirstDigit(lastID);
@@ -45,7 +57,7 @@ export function getNextID(category: string): number {
         localStorage.setItem(key, newID.toString());
         return newID;
     }
-return -1;
+    return -1;
 }
 
 export function getTeamByID(teamIDString: string): Team | null {
@@ -74,11 +86,11 @@ export function getTeamByID(teamIDString: string): Team | null {
 //     const myUserID = JSON.parse(myUserJSON);
 //     if (myUserID === 0) return defaultUser;
 //     return JSON.parse(localStorage.getItem(myUserID));
-    
+
 //    }
 
 //function returns existing user or default user
-   export function getUserByEmail(email: string): User {
+export function getUserByEmail(email: string): User {
     const myUserJSON = localStorage.getItem(email); // Retrieve userID by email
     if (!myUserJSON) { // If nothing in localStorage, return defaultUser
         return defaultUser;

@@ -1,12 +1,13 @@
-import type { Teamdate } from "$lib/stores/teamStore";
+import type { DateOrTask } from "$lib/stores/teamStore";
 // import { getTeamByID } from "$lib/utils/storageHelpers";
-import type { UserDate } from "$lib/stores/teamStore";
-
+import type { UserFeedback } from "$lib/stores/teamStore";
+import { getCategory } from "$lib/utils/storageHelpers";
 type KindOfFeedback = "yes" | "no" | "none";
+let allFeedbacks: UserFeedback[] | [] = [];
 // let myDate: Teamdate | undefined = undefined;
-let myDate: { receivedFeedbacks: Array<{ feedback: boolean | null }> } | null = null;
+// let myDate: { receivedFeedbacks: Array<{ feedback: boolean | null }> } | null = null;
 
-let allFeedbacks: UserDate[] | [] = [];
+
 
 // export function countFeedback(dateID: number, feedback: KindOfFeedback): number {
 
@@ -46,9 +47,13 @@ let allFeedbacks: UserDate[] | [] = [];
 //     return count;
 // }
 
-export function countFeedback(dateID: number, feedback: KindOfFeedback): number {
-    console.log("DateID: ", dateID);
-    const myDateJSON = localStorage.getItem(dateID.toString());
+export function isDateOrTask(dateOrTaskID: number): string {
+    return getCategory(dateOrTaskID.toString());
+}
+
+export function countFeedback(dateOrTaskID: number, feedback: KindOfFeedback): number {
+    console.log("DateID: ", dateOrTaskID);
+    const myDateJSON = localStorage.getItem(dateOrTaskID.toString());
     let myDate: { receivedFeedbacks: Array<{ feedback: boolean | null }> } | null = null;
     if (myDateJSON) {
         myDate = JSON.parse(myDateJSON);

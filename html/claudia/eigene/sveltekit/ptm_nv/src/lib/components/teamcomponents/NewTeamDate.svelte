@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { Teamdate } from '$lib/stores/teamStore';
+	import type { DateOrTask } from '$lib/stores/teamStore';
 	import { currentTeam } from '$lib/stores/teamStore';
 	import { getNextID } from '$lib/utils/storageHelpers';
 	import { onMount } from 'svelte';
 	import { updateCurrentTeam } from "$lib/actions/teamHelpers";
-	import { countFeedback } from "$lib/actions/dateHelpers";
+	import { countFeedback } from "$lib/actions/dateOrTaskHelpers";
 
 	let today: string;
 
@@ -32,24 +32,35 @@
 	// 	receivedFeedbacks: UserDate[];
 	// }
 	// const today = new Date().toISOString().split('T')[0];
+	
 	let newDate: Date;
+	let newTime: string;
 	let description: string;
-	let newTeamdate: Teamdate;
 
-	// let newDate;
+	let newTeamdate: DateOrTask;
+
 
 	function addNewDate() {
+
+		//TODO: User einladen
+		//Date im User und im Team speichern
+		//User benachrichtigen
+
+
+
+
 		console.log('Neues Ereignis hinzufügen!');
 		console.log('newDate: ', newDate, 'description: ', description);
 		if(newDate !== undefined && description !== undefined && $currentTeam.teamID !== 0){
 			console.log("Daten ok");
 			const nextID = getNextID("date");
 			newTeamdate = {
-				dateID: nextID,
+				dateOrTaskID: nextID,
 				teamID: $currentTeam.teamID,
-				datedate: newDate,
+				dueDate: newDate,
 				description: description,
 				receivedFeedbacks: [],
+				isDone: false,
 			}
 			console.log("newTeamdate: ", newTeamdate);
 			// Team updaten!
@@ -59,6 +70,12 @@
 			updateCurrentTeam({allDates: allTeamdates});
 			localStorage.setItem(nextID.toString(), JSON.stringify(newTeamdate));
 			// console.log("Daten hinterher aus LS: ", $currentTeam.allDates);
+
+ // Combine date and time into a Date object
+ const combinedDateTime = new Date(`${newDate}T${newTime}`);
+ console.log("Datum neu: ", combinedDateTime);
+
+
 		}
 		else console.log("Daten sind Schrott!");
 	}
@@ -73,7 +90,13 @@
 </script>
 
 <section>
-	<input type="date" required min={today} bind:value={newDate} />
+	<label for="date">Select a date:</label>
+    <input type="date" id="date" required min={today} bind:value={newDate} />
+
+	<label for="time">Select a time:</label>
+    <input type="time" id="time" required bind:value={newTime} />
+
+
 	<input type="text" required placeholder="neues Ereignis" bind:value={description} />
 	<!-- {#each allNewUserData as userData, index} -->
 	<!-- <p>

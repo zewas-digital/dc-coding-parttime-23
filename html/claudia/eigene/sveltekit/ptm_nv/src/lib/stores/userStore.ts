@@ -7,6 +7,11 @@ export interface Membership {
     isAdmin: boolean;
 }
 
+export interface Feedback {
+    dateOrTaskID: number;
+    feedback: boolean | null; //null if no feedback yet
+}
+
 export interface User {
     userID: number;
     email: string;
@@ -15,7 +20,7 @@ export interface User {
     password: string;
     userName: string;
     memberships: Membership[];
-    
+    feedbacks: Feedback[];
 }
 
 
@@ -28,6 +33,7 @@ export const defaultUser: User = {
     password: "",
     userName: "",
     memberships: [],
+    feedbacks: [],
 }
 
 // Initialize the user store with null or an empty object

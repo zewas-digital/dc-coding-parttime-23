@@ -3,10 +3,10 @@
 	import { currentUser, type User } from '$lib/stores/userStore';
 	import { getTeamByID } from '$lib/utils/storageHelpers';
 	import TeamCard from './TeamCard.svelte';
-	import type { Team, Teamdate } from '$lib/stores/teamStore';
+	import type { Team, DateOrTask } from '$lib/stores/teamStore';
 	import { goto } from '$app/navigation';
 	import { userIsAdmin } from '$lib/actions/teamHelpers';
-	import { countFeedback } from '$lib/actions/dateHelpers';
+	import { countFeedback } from '$lib/actions/dateOrTaskHelpers';
 
 	// console.log('Component Overview!');
 	// TeamID  als Prop übergeben
@@ -17,17 +17,23 @@
 	const myTeam = getTeamByID(teamID.toString());
 	// console.log('TeamID, myTeam: ', teamID, myTeam);
 	let allNames: string[] = [];
+	let hasNextDate = false;
 
 	let yes = -1;
 	let no = -1;
 	let none = -1;
 	let what = '';
 	let when: Date | null = null;
-	let nextDate: Teamdate;
+	let nextDate: DateOrTask;
 
 	$: if (myTeam && myTeam.color !== null) teamcolor = myTeam.color;
 
-	$: if (myTeam) currentUserIsAdmin = userIsAdmin($currentUser, myTeam);
+	$: if (myTeam) {
+		currentUserIsAdmin = userIsAdmin($currentUser, myTeam);
+		hasNextDate = myTeam.allDates.length > 0;
+
+		console.log("hasNextDate. ", hasNextDate);
+	}
 
 	// $: if (myTeam) console.log("user, team, admin? ",$currentUser, myTeam, userIsAdmin($currentUser, myTeam));
 	// $: console.log("Component TeamOverview, userisAdmin? ", currentUserIsAdmin);
@@ -55,19 +61,24 @@
 		});
 		/////////////////////////////////////////////////////////////////////////////////////
 		//find out next date: ///////////////////////////////////////////////////////
+		console.log("Comp. TeamOverview: ");
+		if (hasNextDate) {
 		const nextDateID = myTeam.allDates[0];
 		yes = countFeedback(nextDateID, 'yes');
 		no = countFeedback(nextDateID, 'no');
 		none = countFeedback(nextDateID, 'none');
-		let nextDate: Teamdate | null = null;
+		let nextDate: DateOrTask | null = null;
+		console.log("Comp. TeamOverview: ", yes, no, none);
+
 
 		const nextDateJSON = localStorage.getItem(nextDateID.toString());
 		if (nextDateJSON) {
 			nextDate = JSON.parse(nextDateJSON);
 		}
 		if (nextDate !== null) {
-		when = nextDate.datedate;
-		what = nextDate.description;
+			when = nextDate.dueDate;
+			what = nextDate.description;
+		}
 	}
 		// allDates.forEach((teamdate) => {
 
@@ -96,9 +107,10 @@
 	{#each allNames as name}
 		<p>{name}</p>
 	{/each}
+	{#if hasNextDate}
 	<h3>Nächster Termin: {when} {what}</h3>
 	<p>Zugesagt: {yes}, Abgesagt: {no}</p>
-
+	{/if}
 	<!-- <p>Admin? {currentUserIsAdmin}</p> -->
 	{#if myTeam && currentUserIsAdmin}
 		<!--TODO: Wenn kein Admin? Ansehen? Oder nix?-->
