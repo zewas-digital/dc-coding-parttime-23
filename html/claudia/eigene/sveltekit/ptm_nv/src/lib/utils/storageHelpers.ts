@@ -77,6 +77,20 @@ export function getTeamByID(teamIDString: string): Team | null {
     }
 }
 
+export function getUserByID(userIDString: string): User | null {
+    const myUserJSON = localStorage.getItem(userIDString);
+    if (myUserJSON === null){
+        return null;
+    }
+    try {
+        const myUser: User = JSON.parse(myUserJSON);
+        return myUser;
+    } catch (error){
+        console.error("Error parsing user JSON:", error);
+        return null;
+    }
+}
+
 // export function getUserByEmail(email: string): User {
 //     const myUserJSON = localStorage.getItem(email); //userID!
 //     // 

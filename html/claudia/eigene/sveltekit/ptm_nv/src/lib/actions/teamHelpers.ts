@@ -11,10 +11,7 @@ import type { TeamUpdates } from '$lib/stores/teamStore';
 // type TeamUpdates = Partial<Team>;
 
 export function updateTeam(team: Team, updates: TeamUpdates) {
-   
     const updatedTeam: Team = { ...team, ...updates };
-
-
     localStorage.setItem(updatedTeam.teamID.toString(), JSON.stringify(updatedTeam));
 }
 

@@ -1,9 +1,13 @@
 import type { DateOrTask } from "$lib/stores/teamStore";
 // import { getTeamByID } from "$lib/utils/storageHelpers";
 import type { UserFeedback } from "$lib/stores/teamStore";
-import { getCategory } from "$lib/utils/storageHelpers";
+import { getCategory, getTeamByID, getUserByID } from "$lib/utils/storageHelpers";
+import { updateTeam } from "./teamHelpers";
+import { updateUser } from "./userHelpers";
 type KindOfFeedback = "yes" | "no" | "none";
-let allFeedbacks: UserFeedback[] | [] = [];
+// let allFeedbacks: UserFeedback[] | [] = [];
+let allFeedbacks: UserFeedback[] = [];
+
 // let myDate: Teamdate | undefined = undefined;
 // let myDate: { receivedFeedbacks: Array<{ feedback: boolean | null }> } | null = null;
 
@@ -47,6 +51,34 @@ let allFeedbacks: UserFeedback[] | [] = [];
 //     return count;
 // }
 
+export function saveDate(newDate: DateOrTask): void {
+    const dateID = newDate.dateOrTaskID;
+    const teamID = newDate.teamID;
+    const myTeam = getTeamByID(teamID.toString());
+    const allUserIDs = myTeam?.allMembers; //array of userIDs
+
+    allUserIDs?.forEach(userID => {
+        allFeedbacks.push({ userID: userID, feedback: null }); //fill in feedback-array of date
+
+        const myUser = getUserByID(userID.toString());
+        if (myUser) { //fill in feedback-array of user
+            let myFeedbacks = myUser?.feedbacks;
+            myFeedbacks?.push({ dateOrTaskID: dateID, feedback: null });
+            updateUser(myUser, { feedbacks: myFeedbacks })
+        };
+
+    });
+    newDate.receivedFeedbacks = allFeedbacks; //update feedback-array of date with {userID, null} for each member
+
+    let allDates = myTeam?.allDates;
+    allDates?.push(dateID);
+    if (myTeam) updateTeam(myTeam, {allDates: allDates}); //push dateID into allDates-Array of team
+    
+    localStorage.setItem(dateID.toString(), JSON.stringify(newDate));
+}
+
+
+
 export function isDateOrTask(dateOrTaskID: number): string {
     return getCategory(dateOrTaskID.toString());
 }
@@ -58,7 +90,7 @@ export function countFeedback(dateOrTaskID: number, feedback: KindOfFeedback): n
     if (myDateJSON) {
         myDate = JSON.parse(myDateJSON);
     }
-    
+
     if (myDate) {
         const allFeedbacks = myDate.receivedFeedbacks;
         let count = 0;
@@ -85,7 +117,7 @@ export function countFeedback(dateOrTaskID: number, feedback: KindOfFeedback): n
             default:
                 console.log("unmöglicher Fehler");
         }
-        
+
         return count;
     } else {
         console.log("myDate is null");

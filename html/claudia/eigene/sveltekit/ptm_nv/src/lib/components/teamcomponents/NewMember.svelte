@@ -51,6 +51,7 @@ TODO:
 		// console.log("allNewUserData: ", allNewUserData);
 
 		let allMembers = $currentTeam.allMembers;
+		let allAdmins = $currentTeam.allAdmins;
 
 		allNewUserData.forEach((userData, index) => {
 			const myUser = getUserByEmail(userData.email); //existing user or default
@@ -69,6 +70,9 @@ TODO:
 				//user exists already -> only check memberships
 				if (myUser !== $currentUser)
 					userUpdates = updateMembershipsOfUser(myUser, $currentTeam.teamID, userData.isAdmin);
+					if (userData.isAdmin && !allAdmins.includes(myUser.userID)){
+						allAdmins.push(myUser.userID);
+					}
 
 				if (!allMembers.includes(myUser.userID)) {
 					allMembers.push(myUser.userID);
@@ -77,7 +81,7 @@ TODO:
 			updateUser(myUser, userUpdates);
 		});
 
-		updateCurrentTeam({ allMembers: allMembers });
+		updateCurrentTeam({ allMembers: allMembers, allAdmins: allAdmins});
 
 		//TODO: Eingabeliste muss verschwinden!
 	}
