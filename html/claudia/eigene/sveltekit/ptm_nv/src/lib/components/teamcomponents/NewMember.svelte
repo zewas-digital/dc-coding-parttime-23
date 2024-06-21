@@ -33,9 +33,12 @@ TODO:
 		membership: number; //currentTeam.id!!
 	}
 
+	// let isCoach = false;
+
 	let allNewUserData: UserData[] = [
 		{ userID: 0, email: '', isAdmin: false, membership: $currentTeam.teamID }
 	];
+	let allNewCoaches: boolean[] = [];
 	// let newMembership: Membership;
 
 	// Function to handle form submission
@@ -52,6 +55,7 @@ TODO:
 
 		let allMembers = $currentTeam.allMembers;
 		let allAdmins = $currentTeam.allAdmins;
+		let allCoaches = $currentTeam.allCoaches;
 
 		allNewUserData.forEach((userData, index) => {
 			const myUser = getUserByEmail(userData.email); //existing user or default
@@ -65,23 +69,29 @@ TODO:
 					email: userData.email,
 					memberships: [newMembership]
 				};
-				allMembers.push(nextID);//update memberlist of team
+				allMembers.push(nextID); //update memberlist of team
+				if (userData.isAdmin) allAdmins.push(nextID);
+				if (allNewCoaches[index]) allCoaches.push(nextID);
 			} else {
 				//user exists already -> only check memberships
+				//update user data:
 				if (myUser !== $currentUser)
 					userUpdates = updateMembershipsOfUser(myUser, $currentTeam.teamID, userData.isAdmin);
-					if (userData.isAdmin && !allAdmins.includes(myUser.userID)){
-						allAdmins.push(myUser.userID);
-					}
-
+				//update team data:
+				if (userData.isAdmin && !allAdmins.includes(myUser.userID)) {
+					allAdmins.push(myUser.userID);
+				}
 				if (!allMembers.includes(myUser.userID)) {
 					allMembers.push(myUser.userID);
+				}
+				if (!allCoaches.includes(myUser.userID)){
+					allCoaches.push(myUser.userID);
 				}
 			}
 			updateUser(myUser, userUpdates);
 		});
 
-		updateCurrentTeam({ allMembers: allMembers, allAdmins: allAdmins});
+		updateCurrentTeam({ allMembers: allMembers, allAdmins: allAdmins, allCoaches: allCoaches });
 
 		//TODO: Eingabeliste muss verschwinden!
 	}
@@ -133,6 +143,9 @@ TODO:
 
 			<input type="checkbox" id="isAdmin{index}" bind:checked={userData.isAdmin} />
 			<label for="isAdmin{index}">Admin?</label>
+
+			<input type="checkbox" id="allNewCoaches{index}" bind:checked={allNewCoaches[index]} />
+			<label for="isCoach">Coach?</label>
 		</p>
 	{/each}
 </section>

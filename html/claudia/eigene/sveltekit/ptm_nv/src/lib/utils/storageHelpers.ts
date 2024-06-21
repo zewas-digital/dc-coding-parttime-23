@@ -1,4 +1,4 @@
-import type { Team } from "$lib/stores/teamStore";
+import type { DateOrTask, Team } from "$lib/stores/teamStore";
 import { defaultUser, type User } from "$lib/stores/userStore";
 
 function looseFirstDigit(id: string): string {
@@ -87,6 +87,20 @@ export function getUserByID(userIDString: string): User | null {
         return myUser;
     } catch (error){
         console.error("Error parsing user JSON:", error);
+        return null;
+    }
+}
+
+export function getDateByID(dateIDString: string): DateOrTask | null {
+    const myDateJSON = localStorage.getItem(dateIDString);
+    if (myDateJSON === null) {
+        return null;
+    }
+    try {
+        const myDate: DateOrTask = JSON.parse(myDateJSON);
+        return myDate;
+    } catch (error){
+        console.error("Error parsing date JSON: ", error);
         return null;
     }
 }

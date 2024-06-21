@@ -41,15 +41,15 @@
 		}
 	}
 
-	function handleTeamClick(team: Team) {
-		// console.log('Clicked on team:', team.teamName);
-		// updateCurrentTeam(membership.team);
-		// const teamID = membership.teamID;
-		// const myTeam = teamMap.get(membership.teamID);
-		// console.log('teamclick, currentTeam', $currentTeam);
-		if (team) currentTeam.set(team);
-		goto(`/myteams/${team?.teamName}`);
-	}
+	// function handleTeamClick(team: Team) {
+	// 	// console.log('Clicked on team:', team.teamName);
+	// 	// updateCurrentTeam(membership.team);
+	// 	// const teamID = membership.teamID;
+	// 	// const myTeam = teamMap.get(membership.teamID);
+	// 	// console.log('teamclick, currentTeam', $currentTeam);
+	// 	if (team) currentTeam.set(team);
+	// 	goto(`/myteams/${team?.teamName}`);
+	// }
 </script>
 
 {#if $currentUser}

@@ -1,6 +1,6 @@
 import type { User, UserUpdates } from '$lib/stores/userStore';
 import { currentUser, defaultUser } from '$lib/stores/userStore';
-import { getNextID, getTeamByID } from '$lib/utils/storageHelpers';
+import { getDateByID, getNextID, getTeamByID } from '$lib/utils/storageHelpers';
 import { get } from 'svelte/store';  // Import `get` for synchronous store access
 import type { Team } from '$lib/stores/teamStore';
 import { updateCurrentTeam, updateTeam } from './teamHelpers';
@@ -31,42 +31,42 @@ export function updateUser(user: User, userupdates: UserUpdates) {
     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
 }
 
-export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boolean): UserUpdates{
+export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boolean): UserUpdates {
     //Step 1: if isAdmin, add userID to list of admins:
     const myTeam = getTeamByID(teamID.toString());
-    if (myTeam && isAdmin){
-    
+    if (myTeam && isAdmin) {
+
         let allAdmins = myTeam.allAdmins;
-        if (!allAdmins?.includes(user.userID)){
+        if (!allAdmins?.includes(user.userID)) {
             allAdmins?.push(user.userID);
-            updateTeam(myTeam, {allAdmins: allAdmins});
+            updateTeam(myTeam, { allAdmins: allAdmins });
         }
     }
     //Step 2: check memberships of user, add teamID if necessary
     const myMemberships = user.memberships;
     let found = false;
 
-   
-//     let someArray = [1, "string", false];
-// for (let entry of someArray) {
-//   console.log(entry); // 1, "string", false
-// }
-    for (let membership of myMemberships){
+
+    //     let someArray = [1, "string", false];
+    // for (let entry of someArray) {
+    //   console.log(entry); // 1, "string", false
+    // }
+    for (let membership of myMemberships) {
         console.log("überprüfe membership", membership)
-        if (!found && membership.teamID === teamID){
+        if (!found && membership.teamID === teamID) {
             membership.isAdmin = isAdmin;
             // myTeam?.allAdmins.push(user.userID);
             found = true;
             console.log("gefunden");
-            }
-            
+        }
+
     }
     if (!found) {
         console.log("nicht gefunden");
-        myMemberships.push({teamID: teamID, isAdmin: isAdmin});
+        myMemberships.push({ teamID: teamID, isAdmin: isAdmin });
     }
-    
-    const userupdates = {memberships: myMemberships};
+
+    const userupdates = { memberships: myMemberships };
     console.log("Userupdates: ", userupdates);
     return userupdates;
     // updateUser(user, userupdates);
@@ -132,4 +132,31 @@ export async function initializeUser(email: string): Promise<void> {
     // console.log("Email:; ", email);
     // console.log("currentUser: ", currentUser);
     // console.log("Initialize fertig! ------------------------");
+}
+
+export function hasNullFeedback(user: User): boolean {
+    return user.feedbacks.some(feedback => feedback.feedback === null);
+}
+
+export function numberOfMissingFeedbacks(user: User, team: Team): number {
+    let count = 0;
+    //all dates of the chosen team:
+    const allTeamDateIDs = team?.allDates;
+    allTeamDateIDs.forEach((tdID) => {
+        const myDate = getDateByID(tdID.toString());
+        const allFeedbacks = myDate?.receivedFeedbacks || [];
+        
+        allFeedbacks.forEach((fb) => {
+            if (fb.userID === user.userID) {
+                count++;
+            }
+        });
+
+    });
+
+
+
+
+
+    return count;
 }

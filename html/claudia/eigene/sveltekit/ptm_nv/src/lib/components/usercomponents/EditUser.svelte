@@ -1,5 +1,10 @@
+<script lang="ts">
+    import { currentTeam } from "$lib/stores/teamStore";
+    import { currentUser } from "$lib/stores/userStore";
+</script>
 Edit User: eigene Daten bearbeiten
-Achtung: Hier currentUser.accountCreated auf true setzen!
+Ähnlich aufbauen wie ListOfTeams -> UserOverview aufrufen
+<!-- Achtung: Hier currentUser.accountCreated auf true setzen! -->
 
 Userdaten unterschiedlich für verschiedene Teams!
 
@@ -10,10 +15,15 @@ Userdaten unterschiedlich für verschiedene Teams!
     - password
     - userName
     - memberships? wenn, dann nur austreten!
+    - feedbacks
 3. Daten bearbeiten für ein oder alle Teams:
-    - coach selber entscheiden?
+    - coach selber entscheiden? NEIN
     - driver
     
+
+
+
+
 
     <!-- export interface Team {
         teamID: number;

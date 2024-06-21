@@ -5,6 +5,7 @@ export interface UserFeedback {
 	feedback: boolean | null; //null if user hasn't reacted yet, then true or false
 }
 
+
 //TODO: eigener Store for dates and tasks?
 export interface DateOrTask{
 	dateOrTaskID: number;
@@ -51,3 +52,4 @@ export const currentTeam = writable<Team>(defaultTeam);
 // export const allTeams = writable <Team[]>([]); //Zuordnung Team <> teamID
 
 export type TeamUpdates = Partial<Team>;
+export type DateOrTaskUpdates = Partial<DateOrTask>;
