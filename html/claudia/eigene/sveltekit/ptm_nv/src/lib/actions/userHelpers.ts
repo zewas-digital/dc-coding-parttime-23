@@ -2,7 +2,7 @@ import type { User, UserUpdates } from '$lib/stores/userStore';
 import { currentUser, defaultUser } from '$lib/stores/userStore';
 import { getDateByID, getNextID, getTeamByID } from '$lib/utils/storageHelpers';
 import { get } from 'svelte/store';  // Import `get` for synchronous store access
-import type { Team } from '$lib/stores/teamStore';
+import type { DateOrTask, Team } from '$lib/stores/teamStore';
 import { updateCurrentTeam, updateTeam } from './teamHelpers';
 
 // Define the type for the updates parameter
@@ -26,9 +26,24 @@ import { updateCurrentTeam, updateTeam } from './teamHelpers';
 
 
 export function updateUser(user: User, userupdates: UserUpdates) {
+    // console.log("************************* updateUser: user, updates: ", user, userupdates);
     const updatedUser: User = { ...user, ...userupdates };
+    // console.log("************************* updateUser: updatedUser: ", updatedUser);
+
     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
+}
+
+export function updateFeedbacksOfUser( user: User, dateID: number, feedback: boolean): UserUpdates {
+    console.log("updateFeedb.of User, passed-in user, dateID, feedback: ", user, dateID, feedback)
+    //find dateOrTaskID in all feedbacks to given user
+    const feedbacks = user.feedbacks;
+    const fb = feedbacks.find((fb) => fb.dateOrTaskID === dateID);
+    if (fb) fb.feedback = feedback;
+
+    const userupdates = { feedbacks: feedbacks };
+    console.log("updateFeedbackofUser: Userupdates: ", userupdates);
+    return userupdates;
 }
 
 export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boolean): UserUpdates {
@@ -101,7 +116,7 @@ export function updateCurrentUser(updates: UserUpdates): User | null {
     currentUser.set(updatedUser);
 
     // Log the updated user for debugging purposes
-    // console.log("UpdateUser beendet, updatedUser: ", updatedUser);
+    console.log("UpdateUser beendet, updatedUser: ", updatedUser);
 
     return updatedUser;
 }
@@ -155,8 +170,12 @@ export function numberOfMissingFeedbacks(user: User, team: Team): number {
     });
 
 
-
-
-
     return count;
+}
+export function getFeedbackOfUser(myUser: User, myDate: DateOrTask ): boolean | null{
+    const myFeedbacks = myUser.feedbacks;
+    const dateID = myDate.dateOrTaskID;
+    myFeedbacks.forEach((fb) => {
+        
+    })
 }

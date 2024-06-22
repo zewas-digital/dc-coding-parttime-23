@@ -6,8 +6,8 @@ import { updateTeam } from "./teamHelpers";
 import { updateUser } from "./userHelpers";
 type KindOfFeedback = "yes" | "no" | "none";
 import type { User } from "$lib/stores/userStore";
-// let allFeedbacks: UserFeedback[] | [] = [];
-// let allFeedbacks: UserFeedback[] = [];
+// let allFeedbacksOfDate: UserFeedback[] | [] = [];
+// let allFeedbacksOfDate: UserFeedback[] = [];
 
 // let myDate: Teamdate | undefined = undefined;
 // let myDate: { receivedFeedbacks: Array<{ feedback: boolean | null }> } | null = null;
@@ -26,25 +26,48 @@ export function userInvited(myDate: DateOrTask, myUser: User): boolean {
 
     return feedbacks.some(fb => fb.userID === userID);
 }
-export function updateDate(date: DateOrTask, updates: DateOrTaskUpdates): void {
-    const updatedDate: DateOrTask = { ...date, ...updates};
-    localStorage.setItem(updatedDate.dateOrTaskID.toString(), JSON.stringify(updateDate));
-}
-export function saveFeedback(): void {
 
+//function to test if given date belongs to user
+export function dateOfUser(myDate: DateOrTask, myUser: User): boolean {
+    const dateID = myDate.dateOrTaskID;
+    const feedbacks = myUser.feedbacks;
+
+    if (!Array.isArray(feedbacks)) {
+        return false;
+    }
+    return feedbacks.some(fb => fb.dateOrTaskID === dateID);
+}
+
+export function updateDate(date: DateOrTask, updates: DateOrTaskUpdates): void {
+    console.log("Fct updateDate, updates: ", updates);
+    const updatedDate: DateOrTask = { ...date, ...updates};
+    console.log("updated Date: ", updatedDate);
+    localStorage.setItem(updatedDate.dateOrTaskID.toString(), JSON.stringify(updatedDate));
+}
+export function updateFeedbacksOfDate( myDate: DateOrTask, userID: number, feedback: boolean): DateOrTaskUpdates {
+    // Find userID in all feedbacks to given date
+    const userfeedbacks = myDate.receivedFeedbacks;
+    const fb = userfeedbacks.find((fb) => fb.userID === userID);
+
+    // If item is found, update its boolean value
+    if (fb) fb.feedback = feedback;
+    
+    const dateupdates = {receivedFeedbacks: userfeedbacks};
+    return dateupdates;
 }
 
 export function saveDate(newDate: DateOrTask): void {
-    let allFeedbacks: UserFeedback[] = [];
+
+    let allFeedbacksOfDate: UserFeedback[] = [];
     //TODO: Sort Dates!     dates.sort((a, b) => a.getTime() - b.getTime());
-    // console.log("saveDate, Feedbacks am Anfang: ", newDate.receivedFeedbacks);
+    // console.log("*********************saveDate, Date-Feedbacks am Anfang: ", newDate.receivedFeedbacks);
     const dateID = newDate.dateOrTaskID;
     const teamID = newDate.teamID;
     const myTeam = getTeamByID(teamID.toString());
     const allUserIDs = myTeam?.allMembers; //array of userIDs
 
     allUserIDs?.forEach(userID => {
-        allFeedbacks.push({ userID: userID, feedback: null }); //fill in feedback-array of date
+        allFeedbacksOfDate.push({ userID: userID, feedback: null }); //fill in feedback-array of date
 
         
         const myUser = getUserByID(userID.toString());
@@ -56,9 +79,9 @@ export function saveDate(newDate: DateOrTask): void {
 
     });
     
-    newDate.receivedFeedbacks = allFeedbacks; //update feedback-array of date with {userID, null} for each member
+    newDate.receivedFeedbacks = allFeedbacksOfDate; //update feedback-array of date with {userID, null} for each member
     // console.log("saveDate, Feedbacks in der Mitte: ");
-    // console.log(allFeedbacks);
+    // console.log(allFeedbacksOfDate);
     // console.log("newDate", newDate);
 
     let allDates = myTeam?.allDates;
@@ -85,25 +108,25 @@ export function countFeedback(dateOrTaskID: number, feedback: KindOfFeedback): n
     }
 
     if (myDate) {
-        const allFeedbacks = myDate.receivedFeedbacks;
+        const allFeedbacksOfDate = myDate.receivedFeedbacks;
         let count = 0;
 
         switch (feedback) {
             case "yes":
                 // console.log("Zugesagt");
-                allFeedbacks.forEach((userFeedback) => {
+                allFeedbacksOfDate.forEach((userFeedback) => {
                     if (userFeedback.feedback) count++;
                 });
                 break;
             case "no":
                 // console.log("Abgesagt");
-                allFeedbacks.forEach((userFeedback) => {
+                allFeedbacksOfDate.forEach((userFeedback) => {
                     if (userFeedback.feedback === false) count++;
                 });
                 break;
             case "none":
                 // console.log("keine Rückmeldung");
-                allFeedbacks.forEach((userFeedback) => {
+                allFeedbacksOfDate.forEach((userFeedback) => {
                     if (userFeedback.feedback === null) count++;
                 });
                 break;

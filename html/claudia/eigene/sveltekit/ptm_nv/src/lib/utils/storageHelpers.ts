@@ -92,18 +92,28 @@ export function getUserByID(userIDString: string): User | null {
 }
 
 export function getDateByID(dateIDString: string): DateOrTask | null {
+    // console.log("Fct getDateByID, dateIDString: ", dateIDString);
+    // Retrieve the JSON string from localStorage
     const myDateJSON = localStorage.getItem(dateIDString);
     if (myDateJSON === null) {
         return null;
     }
+    
+    // Attempt to parse the JSON string to an object of type DateOrTask
     try {
         const myDate: DateOrTask = JSON.parse(myDateJSON);
+        console.log("myDate: ", myDate);
         return myDate;
-    } catch (error){
+    } catch (error) {
         console.error("Error parsing date JSON: ", error);
         return null;
     }
 }
+
+
+
+
+
 
 // export function getUserByEmail(email: string): User {
 //     const myUserJSON = localStorage.getItem(email); //userID!

@@ -16,6 +16,8 @@ export function updateTeam(team: Team, updates: TeamUpdates) {
 }
 
 
+
+
 // Function to update current team
 export function updateCurrentTeam(updates: TeamUpdates): Team | null {
     // Synchronously get the current team value

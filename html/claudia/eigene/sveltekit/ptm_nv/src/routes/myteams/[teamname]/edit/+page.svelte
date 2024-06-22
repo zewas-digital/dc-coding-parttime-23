@@ -19,9 +19,13 @@ Mitglieder, Mitgliederrechte
 <NewMember />
 </section>
 
+HiER LISTE VON ALLEN MiTGLIEDERN!
+
+
 <section>
     <h2>Neue Ereignisse hinzufügen:</h2>
     <NewTeamDate />
 </section>
 
+HIER LISTE VON ALLEN DATEN
 

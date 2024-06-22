@@ -144,13 +144,15 @@ TODO:
 			<input type="checkbox" id="isAdmin{index}" bind:checked={userData.isAdmin} />
 			<label for="isAdmin{index}">Admin?</label>
 
-			<input type="checkbox" id="allNewCoaches{index}" bind:checked={allNewCoaches[index]} />
-			<label for="isCoach">Coach?</label>
+			<input type="checkbox" id="isCoach{index}" bind:checked={allNewCoaches[index]} />
+			<label for="isCoach{index}">Coach?</label>
 		</p>
 	{/each}
 </section>
 
 <button on:click={inviteNewMembers}>Als neue Mitglieder einladen!</button>
+
+
 
 <style>
 	/* div {
