@@ -29,3 +29,10 @@ HiER LISTE VON ALLEN MiTGLIEDERN!
 
 HIER LISTE VON ALLEN DATEN
 
+		<!--TODO: Nur für ADMIN? -->
+				<!-- <p>
+		// 	Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}, Abgesagt: {countFeedback(
+		// 		myDate.dateOrTaskID,
+		// 		'no'
+		// 	)}, keine Rückmeldung: {countFeedback(myDate.dateOrTaskID, 'none')}
+		// </p> -->

@@ -9,20 +9,6 @@ import { updateCurrentTeam, updateTeam } from './teamHelpers';
 // type UserUpdates = Partial<User>;
 
 
-// export function createUser(updates: UserUpdates): void {
-//     const newMembership = {teamID: updates.teamID, idAdmin: updates.isAdmin}
-//     const newUser = {
-//         userID: getNextID("user"),
-//         email: updates.email,
-//         accountCreated: false,
-//         loggedIn: false,
-//         password: "",
-//         userName: "",
-//         memberships: [],
-//     };
-
-//     // const newUser: User = { ...d}
-// }
 
 
 export function updateUser(user: User, userupdates: UserUpdates) {
@@ -35,14 +21,14 @@ export function updateUser(user: User, userupdates: UserUpdates) {
 }
 
 export function updateFeedbacksOfUser( user: User, dateID: number, feedback: boolean): UserUpdates {
-    console.log("updateFeedb.of User, passed-in user, dateID, feedback: ", user, dateID, feedback)
+    console.log("updateFeedb.of User ", user.feedbacks)
     //find dateOrTaskID in all feedbacks to given user
     const feedbacks = user.feedbacks;
     const fb = feedbacks.find((fb) => fb.dateOrTaskID === dateID);
     if (fb) fb.feedback = feedback;
 
     const userupdates = { feedbacks: feedbacks };
-    console.log("updateFeedbackofUser: Userupdates: ", userupdates);
+    // console.log("updateFeedbackofUser: Userupdates: ", userupdates);
     return userupdates;
 }
 
@@ -67,22 +53,22 @@ export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boo
     //   console.log(entry); // 1, "string", false
     // }
     for (let membership of myMemberships) {
-        console.log("überprüfe membership", membership)
+        // console.log("überprüfe membership", membership)
         if (!found && membership.teamID === teamID) {
             membership.isAdmin = isAdmin;
             // myTeam?.allAdmins.push(user.userID);
             found = true;
-            console.log("gefunden");
+            // console.log("gefunden");
         }
 
     }
     if (!found) {
-        console.log("nicht gefunden");
+        // console.log("nicht gefunden");
         myMemberships.push({ teamID: teamID, isAdmin: isAdmin });
     }
 
     const userupdates = { memberships: myMemberships };
-    console.log("Userupdates: ", userupdates);
+    // console.log("Userupdates: ", userupdates);
     return userupdates;
     // updateUser(user, userupdates);
 }
@@ -116,7 +102,7 @@ export function updateCurrentUser(updates: UserUpdates): User | null {
     currentUser.set(updatedUser);
 
     // Log the updated user for debugging purposes
-    console.log("UpdateUser beendet, updatedUser: ", updatedUser);
+    // console.log("UpdateUser beendet, updatedUser: ", updatedUser);
 
     return updatedUser;
 }
@@ -162,7 +148,7 @@ export function numberOfMissingFeedbacks(user: User, team: Team): number {
         const allFeedbacks = myDate?.receivedFeedbacks || [];
         
         allFeedbacks.forEach((fb) => {
-            if (fb.userID === user.userID) {
+            if (fb.userID === user.userID && fb.feedback === null) {
                 count++;
             }
         });
@@ -172,10 +158,21 @@ export function numberOfMissingFeedbacks(user: User, team: Team): number {
 
     return count;
 }
-export function getFeedbackOfUser(myUser: User, myDate: DateOrTask ): boolean | null{
+export function userHasConfirmed(myUser: User, myDate: DateOrTask ): boolean | null{
+console.log("Fct userHasConfirmed?");
     const myFeedbacks = myUser.feedbacks;
     const dateID = myDate.dateOrTaskID;
+    let answer: boolean | null = null;
+    console.log(myFeedbacks, "user-feedbacks");
     myFeedbacks.forEach((fb) => {
-        
+        if (fb.dateOrTaskID === dateID) {
+            console.log("DateID: ", dateID);
+            answer = fb.feedback;
+            console.log("answer im if-block: ", answer);
+        }
     })
+    //return null when either myDate is not for this user
+    //or user hasn't reacted yet
+    console.log("answer außerhalb: ", answer);
+    return answer;
 }

@@ -102,7 +102,7 @@ export function getDateByID(dateIDString: string): DateOrTask | null {
     // Attempt to parse the JSON string to an object of type DateOrTask
     try {
         const myDate: DateOrTask = JSON.parse(myDateJSON);
-        console.log("myDate: ", myDate);
+        // console.log("myDate: ", myDate);
         return myDate;
     } catch (error) {
         console.error("Error parsing date JSON: ", error);

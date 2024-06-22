@@ -39,9 +39,9 @@ export function dateOfUser(myDate: DateOrTask, myUser: User): boolean {
 }
 
 export function updateDate(date: DateOrTask, updates: DateOrTaskUpdates): void {
-    console.log("Fct updateDate, updates: ", updates);
+    // console.log("Fct updateDate, updates: ", updates);
     const updatedDate: DateOrTask = { ...date, ...updates};
-    console.log("updated Date: ", updatedDate);
+    // console.log("updated Date: ", updatedDate);
     localStorage.setItem(updatedDate.dateOrTaskID.toString(), JSON.stringify(updatedDate));
 }
 export function updateFeedbacksOfDate( myDate: DateOrTask, userID: number, feedback: boolean): DateOrTaskUpdates {
@@ -69,12 +69,14 @@ export function saveDate(newDate: DateOrTask): void {
     allUserIDs?.forEach(userID => {
         allFeedbacksOfDate.push({ userID: userID, feedback: null }); //fill in feedback-array of date
 
-        
+        console.log("Fct saveDate, feedbacks of user ", userID);
         const myUser = getUserByID(userID.toString());
+        console.log(myUser?.feedbacks);
         if (myUser) { //fill in feedback-array of user
             let myFeedbacks = myUser?.feedbacks;
             myFeedbacks?.push({ dateOrTaskID: dateID, feedback: null });
             updateUser(myUser, { feedbacks: myFeedbacks })
+            console.log("hinterher: ", myUser.feedbacks);
         };
 
     });
