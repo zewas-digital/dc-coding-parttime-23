@@ -3,9 +3,10 @@ import type { DateOrTask, DateOrTaskUpdates } from "$lib/stores/teamStore";
 import type { UserFeedback } from "$lib/stores/teamStore";
 import { getCategory, getTeamByID, getUserByID } from "$lib/utils/storageHelpers";
 import { updateTeam } from "./teamHelpers";
-import { updateUser } from "./userHelpers";
+import { updateCurrentUser, updateUser } from "./userHelpers";
 type KindOfFeedback = "yes" | "no" | "none";
-import type { User } from "$lib/stores/userStore";
+import { currentUser, type User } from "$lib/stores/userStore";
+import { get } from "svelte/store";
 // let allFeedbacksOfDate: UserFeedback[] | [] = [];
 // let allFeedbacksOfDate: UserFeedback[] = [];
 
@@ -57,7 +58,7 @@ export function updateFeedbacksOfDate( myDate: DateOrTask, userID: number, feedb
 }
 
 export function saveDate(newDate: DateOrTask): void {
-
+    console.log("FKT saveDate: *********************************");
     let allFeedbacksOfDate: UserFeedback[] = [];
     //TODO: Sort Dates!     dates.sort((a, b) => a.getTime() - b.getTime());
     // console.log("*********************saveDate, Date-Feedbacks am Anfang: ", newDate.receivedFeedbacks);
@@ -65,18 +66,29 @@ export function saveDate(newDate: DateOrTask): void {
     const teamID = newDate.teamID;
     const myTeam = getTeamByID(teamID.toString());
     const allUserIDs = myTeam?.allMembers; //array of userIDs
-
+    const currUser = get(currentUser); 
+    console.log("currentUser: ", currUser);
+    // console.log("AllUsers: ", allUserIDs);
     allUserIDs?.forEach(userID => {
         allFeedbacksOfDate.push({ userID: userID, feedback: null }); //fill in feedback-array of date
 
-        console.log("Fct saveDate, feedbacks of user ", userID);
+        // console.log("Fct saveDate, feedbacks of user ", userID);
         const myUser = getUserByID(userID.toString());
-        console.log(myUser?.feedbacks);
+        console.log("curr ist gleich  myUser? ", currUser === myUser);
+
+        // console.log("myUser.feedbacks: ", myUser?.feedbacks);
         if (myUser) { //fill in feedback-array of user
+            // console.log("if-Condition user: ", myUser.userID, " ++++++++++++++++")
             let myFeedbacks = myUser?.feedbacks;
+            console.log("Feedbacks am Anfang: ", myFeedbacks);
             myFeedbacks?.push({ dateOrTaskID: dateID, feedback: null });
-            updateUser(myUser, { feedbacks: myFeedbacks })
-            console.log("hinterher: ", myUser.feedbacks);
+            console.log("Feedbacks am Ende: ", myFeedbacks);
+            if (!myUser.loggedIn) updateUser(myUser, { feedbacks: myFeedbacks });
+            if (myUser.loggedIn) {
+                updateCurrentUser({feedbacks: myFeedbacks});
+                console.log("???????????? currentUser? ", get(currentUser));
+            }
+            // console.log("if-Ende (das sollte das gleiche sein): ", myUser.feedbacks);
         };
 
     });
@@ -91,6 +103,8 @@ export function saveDate(newDate: DateOrTask): void {
     if (myTeam) updateTeam(myTeam, {allDates: allDates}); //push dateID into allDates-Array of team
     
     localStorage.setItem(dateID.toString(), JSON.stringify(newDate));
+    console.log("FKT saveDate ENDE, currentUser:  ");
+
 }
 
 

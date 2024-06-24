@@ -21,7 +21,7 @@ export function updateUser(user: User, userupdates: UserUpdates) {
 }
 
 export function updateFeedbacksOfUser( user: User, dateID: number, feedback: boolean): UserUpdates {
-    console.log("updateFeedb.of User ", user.feedbacks)
+    console.log("updateFeedb.of User ", user.feedbacks);
     //find dateOrTaskID in all feedbacks to given user
     const feedbacks = user.feedbacks;
     const fb = feedbacks.find((fb) => fb.dateOrTaskID === dateID);
@@ -80,32 +80,74 @@ export function updateMembershipsOfUser(user: User, teamID: number, isAdmin: boo
 // }
 
 // Function to update the currentUser
+// export function updateCurrentUser(updates: UserUpdates): User | null {
+//     // Synchronously get the current user value
+//     let user = get(currentUser);
+//     // console.log("updateCurrentUser", updates);
+//     // Check if the user exists before proceeding
+//     if (!user) {
+//         console.error('No user is currently logged in.');
+//         return null;
+//     }
+// console.log("updateCurrentUser, currentUser: ", currentUser);
+//     // Create a new updated user object
+//     const updatedUser: User = { ...user, ...updates };
+//     console.log("updatedUser: ", updatedUser);
+
+//     // Save the updated user object to localStorage
+//     console.log("****** UpdateUser schreibt in Local Storage! **************");
+//     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
+//     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
+
+//     // Update the Svelte store with the new user object
+//     currentUser.set(updatedUser);
+
+//     // Log the updated user for debugging purposes
+//     console.log("UpdateUser beendet, updatedUser: ", updatedUser);
+
+//     return updatedUser;
+// }
+
 export function updateCurrentUser(updates: UserUpdates): User | null {
-    // Synchronously get the current user value
     let user = get(currentUser);
-    // console.log("updateCurrentUser", updates);
-    // Check if the user exists before proceeding
     if (!user) {
         console.error('No user is currently logged in.');
         return null;
     }
-
-    // Create a new updated user object
+    
+    console.log("updateCurrentUser, current user: ", user);
+    console.log("Feedbacks: user.feedbacks: ", user.feedbacks);
+    
+    // Spread existing fields to avoid losing any information
     const updatedUser: User = { ...user, ...updates };
+    
+    console.log("updatedUser: ", updatedUser);
+    console.log("Feedbacks: updatedUser.feedbacks: ", updatedUser.feedbacks);
+
 
     // Save the updated user object to localStorage
-    // console.log("****** UpdateUser schreibt in Local Storage! **************");
+    console.log("****** UpdateUser writing to Local Storage! **************");
     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
 
     // Update the Svelte store with the new user object
     currentUser.set(updatedUser);
 
-    // Log the updated user for debugging purposes
-    // console.log("UpdateUser beendet, updatedUser: ", updatedUser);
+    console.log("UpdateUser complete, updatedUser.feedbacks: ", updatedUser.feedbacks);
 
     return updatedUser;
-}
+  }
+
+
+
+
+
+
+
+
+
+
+
 // Function to initialize the currentUser
 export async function initializeUser(email: string): Promise<void> {
     // export async function initializeUser(userID: number): Promise<void> {
