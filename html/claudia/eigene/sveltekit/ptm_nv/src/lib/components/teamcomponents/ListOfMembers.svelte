@@ -41,10 +41,7 @@
 
 </script>
 
-{#if myTeam}
-<h2>{myTeam.teamName}, Anzahl Mitglieder: {myTeam.allMembers.length}</h2>
-{/if}
-<h3>Account bereits angelegt:</h3>
+
 	{#each allNames as name}
 		<div>{name}</div>
 	{/each}

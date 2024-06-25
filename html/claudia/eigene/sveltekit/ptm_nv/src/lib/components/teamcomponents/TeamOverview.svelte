@@ -208,10 +208,11 @@
 		<div>{name}</div>
 	{/each} -->
 
-
+	Teamname!
 	<!--TODO: nur eigene Termine?-->
 	<h3>Nächste Termine:</h3>
-	<div class="date-list">
+	<!-- <div class="date-list"> -->
+	 <div>
 		{#each allDates as myDate, dateIndex}
 			<div class="date-item">
 				
@@ -261,7 +262,11 @@
 	.teamoverview {
 		border: 5px solid;
 		padding: 10px;
+		border-radius: 10px;
+		background-color: #e9e9e9;
 	}
+
+
 
 	/* 	
   .date-list {

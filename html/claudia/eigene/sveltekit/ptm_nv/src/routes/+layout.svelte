@@ -42,15 +42,23 @@
 <style>
 
 body, header, footer {
-  font-family: Arial, Helvetica, sans-serif}
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  margin: 100px 0 0 0;
+}
 header, footer {
   background-color: lightgrey;
+  width: 100%;
+  height: 50px;
 }
 
-.grid {
-  display: grid;
-  grid-template-rows: 100px minmax(300px, auto) 100px;
+header {
+  position: fixed;
+  top: 0;
 }
+
+
 
 
 
