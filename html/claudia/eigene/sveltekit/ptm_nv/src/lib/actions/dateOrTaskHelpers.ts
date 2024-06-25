@@ -163,8 +163,12 @@ export function countFeedback(dateOrTaskID: number, feedback: KindOfFeedback): n
 	}
 
 	// Function to format the time
-	export function formatTime(myDate: Date): string {
-		const when = new Date(myDate);
+    export function formatTime(myDate: Date): string {
+        const options: Intl.DateTimeFormatOptions = { hour: "2-digit", minute: "2-digit" };
+        const when = new Date(myDate);
+    
+        return when.toLocaleTimeString(undefined, options);
+    }
+    
 
-		return when.toLocaleTimeString();
-	}
+    

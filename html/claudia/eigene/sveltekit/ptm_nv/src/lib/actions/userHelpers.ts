@@ -21,7 +21,7 @@ export function updateUser(user: User, userupdates: UserUpdates) {
 }
 
 export function updateFeedbacksOfUser( user: User, dateID: number, feedback: boolean): UserUpdates {
-    console.log("updateFeedb.of User ", user.feedbacks);
+    // console.log("updateFeedb.of User ", user.feedbacks);
     //find dateOrTaskID in all feedbacks to given user
     const feedbacks = user.feedbacks;
     const fb = feedbacks.find((fb) => fb.dateOrTaskID === dateID);
@@ -115,25 +115,25 @@ export function updateCurrentUser(updates: UserUpdates): User | null {
         return null;
     }
     
-    console.log("updateCurrentUser, current user: ", user);
-    console.log("Feedbacks: user.feedbacks: ", user.feedbacks);
+    // console.log("updateCurrentUser, current user: ", user);
+    // console.log("Feedbacks: user.feedbacks: ", user.feedbacks);
     
     // Spread existing fields to avoid losing any information
     const updatedUser: User = { ...user, ...updates };
     
-    console.log("updatedUser: ", updatedUser);
-    console.log("Feedbacks: updatedUser.feedbacks: ", updatedUser.feedbacks);
+    // console.log("updatedUser: ", updatedUser);
+    // console.log("Feedbacks: updatedUser.feedbacks: ", updatedUser.feedbacks);
 
 
     // Save the updated user object to localStorage
-    console.log("****** UpdateUser writing to Local Storage! **************");
+    // console.log("****** UpdateUser writing to Local Storage! **************");
     localStorage.setItem(updatedUser.userID.toString(), JSON.stringify(updatedUser));
     localStorage.setItem(updatedUser.email, updatedUser.userID.toString());
 
     // Update the Svelte store with the new user object
     currentUser.set(updatedUser);
 
-    console.log("UpdateUser complete, updatedUser.feedbacks: ", updatedUser.feedbacks);
+    // console.log("UpdateUser complete, updatedUser.feedbacks: ", updatedUser.feedbacks);
 
     return updatedUser;
   }
@@ -201,20 +201,20 @@ export function numberOfMissingFeedbacks(user: User, team: Team): number {
     return count;
 }
 export function userHasConfirmed(myUser: User, myDate: DateOrTask ): boolean | null{
-console.log("Fct userHasConfirmed?");
+// console.log("Fct userHasConfirmed?");
     const myFeedbacks = myUser.feedbacks;
     const dateID = myDate.dateOrTaskID;
     let answer: boolean | null = null;
-    console.log(myFeedbacks, "user-feedbacks");
+    // console.log(myFeedbacks, "user-feedbacks");
     myFeedbacks.forEach((fb) => {
         if (fb.dateOrTaskID === dateID) {
-            console.log("DateID: ", dateID);
+            // console.log("DateID: ", dateID);
             answer = fb.feedback;
-            console.log("answer im if-block: ", answer);
+            // console.log("answer im if-block: ", answer);
         }
     })
     //return null when either myDate is not for this user
     //or user hasn't reacted yet
-    console.log("answer außerhalb: ", answer);
+    // console.log("answer außerhalb: ", answer);
     return answer;
 }

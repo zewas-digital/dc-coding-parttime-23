@@ -53,7 +53,7 @@
 		// currentUserIsAdmin = userIsAdmin($currentUser, myTeam);
 		// console.log("Initialisiere allDateIDs: ", allDateIDs);
 		// console.log("myTeam.allDates: ", myTeam, myTeam.allDates);
-		console.log("Initialize allFeedbacks! ++++++++++++++++++++++++++")
+		// console.log("Initialize allFeedbacks! ++++++++++++++++++++++++++")
 		allDateIDs = myTeam.allDates;
 		allDateIDs.forEach((myDateID) => {
 			// console.log("Schleife allDates!")
@@ -62,7 +62,7 @@
 				allDates.push(nextDate);
 			}
 		});
-		console.log(allDates, "allDates");
+		// console.log(allDates, "allDates");
 
 		allDates.forEach((date) => {
 			let listOfFeedbacks: (boolean | null)[];
@@ -144,7 +144,7 @@
 
 
 	function updateAllFeedbacks(myDate: DateOrTask, feedback: boolean) {
-		console.log('Fct updateallFeedbacks Anfang: *********************************************');
+		// console.log('Fct updateallFeedbacks Anfang: *********************************************');
 		// console.log("CurrentUser: ", $currentUser);
 		const userupdates = updateFeedbacksOfUser($currentUser, myDate.dateOrTaskID, feedback);
 		// console.log("Userupdates: ", userupdates)
@@ -157,7 +157,7 @@
 		// console.log("Dateupdates: ", dateupdates);
 		updateDate(myDate, dateupdates);
 		// console.log("myDate nach Update: ", myDate);
-		console.log('Fct updateallFeedbacks: *********************************************');
+		// console.log('Fct updateallFeedbacks: *********************************************');
 		
 	
 	}
@@ -173,23 +173,23 @@
 	}
 
 	function setColor(myDate: DateOrTask): string {
-		console.log('fct setColor: *********************************');
+		// console.log('fct setColor: *********************************');
 		if (!userInvited(myDate, $currentUser)) {
-			console.log('not invited');
+			// console.log('not invited');
 			statusOfInvitation = 'not-invited';
 			return 'not-invited';
 		} else {
 			if (userHasConfirmed($currentUser, myDate)) {
-				console.log('confirmed');
+				// console.log('confirmed');
 				statusOfInvitation = 'confirmed';
 				return 'confirmed';
 			}
 			if (userHasConfirmed($currentUser, myDate) === false) {
-				console.log('cancelled');
+				// console.log('cancelled');
 				statusOfInvitation = 'cancelled';
 				return 'cancelled';
 			}
-			console.log('Standard');
+			// console.log('Standard');
 			statusOfInvitation = 'standard';
 			return 'standard';
 		}
@@ -198,18 +198,15 @@
 
 <article class="teamoverview" style="border-color: {myTeam?.color}">
 	{#if myTeam}
-		<h2>{myTeam.teamName}, Anzahl Mitglieder: {myTeam.allMembers.length}</h2>
+		<!-- <h2>{myTeam.teamName}, Anzahl Mitglieder: {myTeam.allMembers.length}</h2> -->
 		<p>
-			Du hast auf {numberOfMissingFeedbacks($currentUser, myTeam)} Anfragen noch nicht reagiert!
+			{numberOfMissingFeedbacks($currentUser, myTeam)} Terminanfragen offen!
 		</p>
 	{/if}
-	<h3>Account bereits angelegt:</h3>
+	<!-- <h3>Account bereits angelegt:</h3>
 	{#each allNames as name}
 		<div>{name}</div>
-	{/each}
-
-
-	
+	{/each} -->
 
 
 	<!--TODO: nur eigene Termine?-->
@@ -217,9 +214,9 @@
 	<div class="date-list">
 		{#each allDates as myDate, dateIndex}
 			<div class="date-item">
-				Farbe? {statusOfInvitation}
+				
 				<h3 class={setColor(myDate)}>
-					dateID: {myDate.dateOrTaskID}
+					<!-- dateID: {myDate.dateOrTaskID} -->
 					{formatDate(myDate.dueDate)}
 					{formatTime(myDate.dueDate)}
 					{myDate.description}
@@ -246,29 +243,6 @@
 
 
 
-
-
-
-
-
-
-
-				<!-- {#if userInvited(myDate, $currentUser)}
-					<input
-						type="radio"
-						name="acceptOrCancel{myTeam?.teamID}_{dateIndex}"
-						checked={userHasConfirmed($currentUser, myDate)}
-						on:change={() => updateAllFeedbacks(myDate, true)}
-					/>
-					<label for="yes">Zusagen?</label>
-					<input
-						type="radio"
-						name="acceptOrCancel{myTeam?.teamID}_{dateIndex}"
-						checked={userHasConfirmed($currentUser, myDate)}
-						on:change={() => updateAllFeedbacks(myDate, false)}
-					/>
-					<label for="no">Absagen?</label>
-				{/if} -->
 			</div>
 		{/each}
 	</div>
@@ -281,27 +255,7 @@
 	<!--Offene Aufgaben, nächste Termine..-->
 </article>
 
-<!-- <TeamCard >
-// 	<div slot="header">
-// 		{#if myTeam}
-// 		<h2>{myTeam.teamName}</h2>
-// 		{/if}
-// 	</div>
-// 	<div slot="content">
-// 		{#if myTeam}
-// 		<h3>Anzahl aller Mitglieder: {myTeam.allMembers.length}</h3>
-// 	{/if}
-// 	<<h3>Anzahl aller Mitglieder: {$currentTeam.allMembers.length}</h3> -->
-<!-- <h3>Account bereits angelegt:</h3>
-// 	{#each allNames as name}
-// 		<p>{name}</p> -->
 
-<!-- {/each}
-// 	</div>
-// 	<div slot="footer">
-// 		<button>KNOPF</button>
-// 	</div>
-// </TeamCard> -->
 
 <style>
 	.teamoverview {

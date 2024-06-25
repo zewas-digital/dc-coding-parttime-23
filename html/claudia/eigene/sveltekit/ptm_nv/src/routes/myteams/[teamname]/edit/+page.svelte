@@ -4,7 +4,11 @@
     import NewTeamDate from "$lib/components/teamcomponents/NewTeamDate.svelte";
     import { currentTeam } from "$lib/stores/teamStore";
     import EditUser from "$lib/components/usercomponents/EditUser.svelte";
+	import ListOfMembers from "$lib/components/teamcomponents/ListOfMembers.svelte";
     const { teamname } = $page.params;
+	const teamID = $currentTeam.teamID;
+	import ListOfDates from "$lib/components/teamcomponents/ListOfDates.svelte";
+
     
 </script>
 
@@ -13,21 +17,24 @@ NUR FÜR ADMINS!
 Team an sich bearbeiten (Name, Farbe)
 Mitglieder, Mitgliederrechte
 -->
+<ListOfMembers teamID={teamID} />
 
-<section>
-<h2>Neue Mitglieder zu Team {$currentTeam.teamName} hinzufügen: </h2>
+<details>
+<summary>Neue Mitglieder zu Team {$currentTeam.teamName} hinzufügen: </summary>
 <NewMember />
-</section>
-
-HiER LISTE VON ALLEN MiTGLIEDERN!
+</details>
 
 
-<section>
-    <h2>Neue Ereignisse hinzufügen:</h2>
+
+<ListOfDates teamID={teamID}/>
+
+
+<details>
+    <summary>Neue Ereignisse hinzufügen:</summary>
     <NewTeamDate />
-</section>
+</details>
 
-HIER LISTE VON ALLEN DATEN
+
 
 		<!--TODO: Nur für ADMIN? -->
 				<!-- <p>
@@ -36,3 +43,13 @@ HIER LISTE VON ALLEN DATEN
 		// 		'no'
 		// 	)}, keine Rückmeldung: {countFeedback(myDate.dateOrTaskID, 'none')}
 		// </p> -->
+
+
+<style>
+	summary {
+		font-size:larger;
+		font-weight: bold;
+	}
+
+	
+</style>
