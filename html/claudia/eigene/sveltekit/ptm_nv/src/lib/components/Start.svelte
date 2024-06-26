@@ -36,14 +36,11 @@
 	onMount(() => {
 		if (showComponentEmailInput && emailInput) emailInput.focus(); //Focus auf Input-Feld
 
-		// allTeams.subscribe(($allTeams) => {
-		// 	teamMap = new Map($allTeams.map((team) => [team.teamID, team]));
-		// });
-		// console.log('TeamMap: ', teamMap);
+		
 	});
 
 	// $: console.log('Email changed! ', email);
-	// $: console.log('Component Start, CurrentUser: ', $currentUser);
+	// $: console.log('Component Start, CurrentUser: ', $currentUser.feedbacks);
 	// $: console.log("currentTEam: ", $currentTeam);
 
 	// $: userExists =

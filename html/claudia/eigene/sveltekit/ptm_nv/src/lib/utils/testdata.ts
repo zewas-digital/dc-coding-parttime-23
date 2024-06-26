@@ -12,7 +12,7 @@ import type { Feedback } from "../stores/userStore";
 
 
 export function setTestData() {
-    // console.log("Testdaten!");
+    console.log("Testdaten!");
     //TESTDATEN: ////////////////////////////////////////////////////////
 
     //localStorage is not defined on server!

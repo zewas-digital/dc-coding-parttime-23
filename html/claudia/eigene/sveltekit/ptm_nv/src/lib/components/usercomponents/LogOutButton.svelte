@@ -7,17 +7,17 @@
     
 
     function logOut() {
-    // console.log("Logout...........................................");
+    console.log("Logout...........................................");
     const currUser = get(currentUser);
     const userFeedbacks = currUser.feedbacks;
-    // console.log("userFeedbacks: ", userFeedbacks);
+    console.log("userFeedbacks: ", userFeedbacks);
     const updates = { loggedIn: false };
     
-    // console.log("currUser before update: ", currUser);
+    console.log("currUser before update: ", currUser);
 
     updateCurrentUser(updates);
 
-    // console.log("currentUser after update: ", get(currentUser).feedbacks);
+    console.log("currentUser after update: ", get(currentUser).feedbacks);
     
     started.set(false);
     currentUser.set(defaultUser); // Ensure defaultUser has the correct structure
@@ -25,7 +25,7 @@
 
     goto("/");
     
-    // console.log("Logout complete!....................................");
+    console.log("Logout complete!....................................");
   }
 
     

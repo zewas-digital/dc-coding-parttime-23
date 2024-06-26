@@ -5,16 +5,16 @@
 	// import { setTestData } from '$lib/utils/testdata';
 	
 	
-	console.log('Seite Start');
+	// console.log('Seite Start');
 	function initializeTestData() {
 		if (typeof window !== "undefined") {
         const initializedTestData = localStorage.getItem("initializedTestData") === "true";
 
         if (!initializedTestData ) {
-            console.log("setTestData!");
+            // console.log("setTestData!");
             setTestData();
             localStorage.setItem("initializedTestData", "true");
-            console.log("setTestData fertig.");
+            // console.log("setTestData fertig.");
         } else {
             console.log("Testdaten bereits gespeichert, oder window undefined.");
         }
@@ -27,7 +27,7 @@
 	
 	initializeTestData();
 	// // setTestData();
-	console.log("Startseite ENDE");
+	// console.log("Startseite ENDE");
 </script>
 
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getDateByID, getTeamByID } from '$lib/utils/storageHelpers';
 	import type { DateOrTask } from '$lib/stores/teamStore';
-	import { countFeedback, formatDate } from '$lib/actions/dateOrTaskHelpers';
+	import { countFeedback, dateHasPassed, formatDate, updateDate } from '$lib/actions/dateOrTaskHelpers';
 	import { formatTime } from '$lib/actions/dateOrTaskHelpers';
 	export let teamID: number;
 	const myTeam = getTeamByID(teamID.toString());
@@ -12,6 +12,10 @@
 		const allDateIDs = myTeam.allDates;
 		allDateIDs.forEach((dateID) => {
 			const storedDate = getDateByID(dateID.toString());
+			if (storedDate && dateHasPassed(storedDate)) {
+				storedDate.isDone = true;
+				updateDate(storedDate, {isDone: true});
+			}
 			if (storedDate) allDates.push(storedDate);
 		});
 	}
@@ -25,6 +29,7 @@
 				{formatTime(myDate.dueDate)}
 			</td>
 			<td class="description">{myDate.description}</td>
+			{#if !(myDate.isDone)}
 			<td class="feedback">
 				<ul>
 					<li>Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}</li>
@@ -32,18 +37,13 @@
 					<li>Keine Rückmeldung: {countFeedback(myDate.dateOrTaskID, 'none')}</li>
 				</ul>
 			</td>
+			{/if}
 		</tr>
 	{/each}
 </table>
 <!-- </div> -->
 
-<!--TODO: Nur für ADMIN? -->
-<!-- <p>
-		// 	Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}, Abgesagt: {countFeedback(
-		// 		myDate.dateOrTaskID,
-		// 		'no'
-		// 	)}, keine Rückmeldung: {countFeedback(myDate.dateOrTaskID, 'none')}
-		// </p> -->
+
 <style>
     table {
 		width: 100%;

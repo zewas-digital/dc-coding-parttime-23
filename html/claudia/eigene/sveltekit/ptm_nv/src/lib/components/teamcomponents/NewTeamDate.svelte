@@ -7,9 +7,12 @@
 	import { countFeedback, saveDate } from '$lib/actions/dateOrTaskHelpers';
 
 	let today: string;
+	let responseVisible = false;
+
 
 	onMount(() => {
 		today = new Date().toISOString().split('T')[0];
+		responseVisible = false
 	
 	});
 
@@ -51,7 +54,14 @@
 		
 		} else console.log('Daten sind Schrott!');
 	}
-
+	responseVisible = true;
+	newTime = "";
+	newDate = "";
+	description = "";
+	
+	setTimeout(() => {
+            responseVisible = false;
+        }, 3000);
 }
 
 
@@ -66,7 +76,18 @@
 
 	<input type="text" required placeholder="neues Ereignis" bind:value={description} />
 	
+	{#if responseVisible}
+    <div id="response">Termin gespeichert!</div>
+	{/if}
+
 </section>
 
 <button on:click={addNewDate}>Hinzufügen!</button>
 
+<style>
+	#response {
+        display: block;
+        margin-top: 10px;
+        color: green;
+    }
+</style>

@@ -41,24 +41,24 @@ export function dateOfUser(myDate: DateOrTask, myUser: User): boolean {
 
 export function updateDate(date: DateOrTask, updates: DateOrTaskUpdates): void {
     // console.log("Fct updateDate, updates: ", updates);
-    const updatedDate: DateOrTask = { ...date, ...updates};
+    const updatedDate: DateOrTask = { ...date, ...updates };
     // console.log("updated Date: ", updatedDate);
     localStorage.setItem(updatedDate.dateOrTaskID.toString(), JSON.stringify(updatedDate));
 }
-export function updateFeedbacksOfDate( myDate: DateOrTask, userID: number, feedback: boolean): DateOrTaskUpdates {
+export function updateFeedbacksOfDate(myDate: DateOrTask, userID: number, feedback: boolean): DateOrTaskUpdates {
     // Find userID in all feedbacks to given date
     const userfeedbacks = myDate.receivedFeedbacks;
     const fb = userfeedbacks.find((fb) => fb.userID === userID);
 
     // If item is found, update its boolean value
     if (fb) fb.feedback = feedback;
-    
-    const dateupdates = {receivedFeedbacks: userfeedbacks};
+
+    const dateupdates = { receivedFeedbacks: userfeedbacks };
     return dateupdates;
 }
 
 export function saveDate(newDate: DateOrTask): void {
-    console.log("FKT saveDate: *********************************");
+    // console.log("FKT saveDate: *********************************");
     let allFeedbacksOfDate: UserFeedback[] = [];
     //TODO: Sort Dates!     dates.sort((a, b) => a.getTime() - b.getTime());
     // console.log("*********************saveDate, Date-Feedbacks am Anfang: ", newDate.receivedFeedbacks);
@@ -66,33 +66,33 @@ export function saveDate(newDate: DateOrTask): void {
     const teamID = newDate.teamID;
     const myTeam = getTeamByID(teamID.toString());
     const allUserIDs = myTeam?.allMembers; //array of userIDs
-    const currUser = get(currentUser); 
-    console.log("currentUser: ", currUser);
+    const currUser = get(currentUser);
+    // console.log("currentUser: ", currUser.feedbacks);
     // console.log("AllUsers: ", allUserIDs);
     allUserIDs?.forEach(userID => {
         allFeedbacksOfDate.push({ userID: userID, feedback: null }); //fill in feedback-array of date
 
         // console.log("Fct saveDate, feedbacks of user ", userID);
         const myUser = getUserByID(userID.toString());
-        console.log("curr ist gleich  myUser? ", currUser === myUser);
+        // console.log("curr ist gleich  myUser? ", currUser === myUser);
 
         // console.log("myUser.feedbacks: ", myUser?.feedbacks);
         if (myUser) { //fill in feedback-array of user
             // console.log("if-Condition user: ", myUser.userID, " ++++++++++++++++")
             let myFeedbacks = myUser?.feedbacks;
-            console.log("Feedbacks am Anfang: ", myFeedbacks);
+            // console.log("Feedbacks am Anfang: ", myFeedbacks);
             myFeedbacks?.push({ dateOrTaskID: dateID, feedback: null });
-            console.log("Feedbacks am Ende: ", myFeedbacks);
+            // console.log("Feedbacks am Ende: ", myFeedbacks);
             if (!myUser.loggedIn) updateUser(myUser, { feedbacks: myFeedbacks });
             if (myUser.loggedIn) {
-                updateCurrentUser({feedbacks: myFeedbacks});
-                console.log("???????????? currentUser? ", get(currentUser));
+                updateCurrentUser({ feedbacks: myFeedbacks });
+                // console.log("???????????? currentUser? ", get(currentUser));
             }
             // console.log("if-Ende (das sollte das gleiche sein): ", myUser.feedbacks);
         };
 
     });
-    
+
     newDate.receivedFeedbacks = allFeedbacksOfDate; //update feedback-array of date with {userID, null} for each member
     // console.log("saveDate, Feedbacks in der Mitte: ");
     // console.log(allFeedbacksOfDate);
@@ -100,10 +100,10 @@ export function saveDate(newDate: DateOrTask): void {
 
     let allDates = myTeam?.allDates;
     allDates?.push(dateID);
-    if (myTeam) updateTeam(myTeam, {allDates: allDates}); //push dateID into allDates-Array of team
-    
+    if (myTeam) updateTeam(myTeam, { allDates: allDates }); //push dateID into allDates-Array of team
+
     localStorage.setItem(dateID.toString(), JSON.stringify(newDate));
-    console.log("FKT saveDate ENDE, currentUser:  ");
+    // console.log("FKT saveDate ENDE");
 
 }
 
@@ -156,19 +156,49 @@ export function countFeedback(dateOrTaskID: number, feedback: KindOfFeedback): n
         return 0; // Return 0 if myDate is null or undefined
     }
 }
-	// Function to format the date
-	export function formatDate(myDate: Date): string {
-		const when = new Date(myDate);
-		return when.toLocaleDateString();
-	}
+// Function to format the date
+export function formatDate(myDate: Date): string {
+    const when = new Date(myDate);
+    return when.toLocaleDateString();
+}
 
-	// Function to format the time
-    export function formatTime(myDate: Date): string {
-        const options: Intl.DateTimeFormatOptions = { hour: "2-digit", minute: "2-digit" };
-        const when = new Date(myDate);
-    
-        return when.toLocaleTimeString(undefined, options);
+// Function to format the time
+export function formatTime(myDate: Date): string {
+    const options: Intl.DateTimeFormatOptions = { hour: "2-digit", minute: "2-digit" };
+    const when = new Date(myDate);
+
+    return when.toLocaleTimeString(undefined, options);
+}
+
+// export function dateHasPassed(myDate: DateOrTask): boolean {
+//     const dateToCheck = myDate.dueDate;
+//     const today = new Date();
+
+//     if (dateToCheck && dateToCheck.getTime() < today.getTime()) {
+//         return true;
+//     }
+//     return false;
+// }
+
+
+
+
+
+export function dateHasPassed(myDate: DateOrTask): boolean {
+    console.log("Function dateHasPassed: **********************");
+    const dateToCheck = myDate.dueDate;
+    const today = new Date();
+     
+
+    // Check if dateToCheck is valid and not null/undefined
+    if (dateToCheck && dateToCheck instanceof Date && !isNaN(dateToCheck.getTime())) {
+        console.log(dateToCheck.getTime() < today.getTime());
+        if (dateToCheck.getTime() < today.getTime()) {
+            console.log("dateHasPassed Ende, true **********************");
+            return true;
+        }
     }
-    
+    console.log("dateHasPassed Ende, false **********************");
 
-    
+    return false;
+}

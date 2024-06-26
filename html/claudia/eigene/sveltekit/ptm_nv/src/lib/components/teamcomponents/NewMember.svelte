@@ -21,11 +21,7 @@ TODO:
 	import type { TeamUpdates } from '$lib/stores/teamStore';
 	import { updateCurrentTeam } from '$lib/actions/teamHelpers';
 
-	// Initialize the list with three empty email inputs
-	// let emails = ['', '', ''];
-
-	let newUsers: User[] = [];
-
+		
 	interface UserData {
 		userID: number;
 		email: string;
@@ -41,6 +37,11 @@ TODO:
 	let allNewCoaches: boolean[] = [];
 	// let newMembership: Membership;
 
+	let responseVisible = false;
+
+	onMount(() => {responseVisible = false});
+
+
 	// Function to handle form submission
 	function inviteNewMembers() {
 		let userUpdates: UserUpdates = {};
@@ -49,7 +50,7 @@ TODO:
 		//get rid of last element (which is always empty because of empty line):
 		allNewUserData.pop();
 		// console.log('newUserData ohne letztes Element:', allNewUserData);
-		console.log('allNewUserData: ', allNewUserData);
+		// console.log('allNewUserData: ', allNewUserData);
 		// allNewUserData = allNewUserData.filter(entry => entry.userID !== 0);
 		// console.log("allNewUserData: ", allNewUserData);
 
@@ -93,7 +94,21 @@ TODO:
 
 		updateCurrentTeam({ allMembers: allMembers, allAdmins: allAdmins, allCoaches: allCoaches });
 
+		responseVisible = true;
 		//TODO: Eingabeliste muss verschwinden!
+
+		 // Clear the first input field
+		 allNewUserData[0] = { userID: 0, email: '', isAdmin: false, membership: 0 };
+        allNewCoaches[0] = false;
+
+        // Remove all other input lines
+        allNewUserData = allNewUserData.slice(0, 1);
+        allNewCoaches = allNewCoaches.slice(0, 1);
+
+        // Hide the response message after a few seconds
+        setTimeout(() => {
+            responseVisible = false;
+        }, 3000);
 	}
 
 	// function existingUserData(email: string): User {
@@ -148,21 +163,30 @@ TODO:
 			<label for="isCoach{index}">Coach?</label>
 		</p>
 	{/each}
+	{#if responseVisible}
+    <div id="response">Emails wurden übermittelt!</div>
+	{/if}
 </section>
 
-<button on:click={inviteNewMembers}>Als neue Mitglieder einladen!</button>
+<button on:click={inviteNewMembers}>Mitglieder einladen!</button>
 
 
 
 <style>
-	/* div {
-		margin-bottom: 10px;
-	} */
-
+	
 	.input-block {
 		max-height: 300px; /* Adjust the maximum height as needed */
 		overflow-y: auto; /* Enable vertical scroll bar */
 		/*border: 1px solid #ccc; /* Optional: Add border for clarity */
 		padding: 10px;
 	}
+
+
+	#response {
+        display: block;
+        margin-top: 10px;
+        color: green;
+    }
+    
+
 </style>
