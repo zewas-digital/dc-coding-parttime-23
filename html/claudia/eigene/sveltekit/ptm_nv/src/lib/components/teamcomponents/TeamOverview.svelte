@@ -23,6 +23,7 @@
 		userHasConfirmed
 	} from '$lib/actions/userHelpers';
 	import type { Feedback } from '$lib/stores/userStore';
+	import ListOfDates from './ListOfDates.svelte';
 	//TODO: verschiedene Modi für Admin und Nicht-Admin?
 	//TODO: Radio-Buttons gemäß Feedbacks initialisieren
 
@@ -124,53 +125,53 @@
 	}
 
 
-	function handleYesChange(dateIndex: number, feedbackIndex: number, event: Event) {
-		const target = event.target as HTMLInputElement;
-		if (target.checked) {
-			allFeedbacks[dateIndex][feedbackIndex] = true;
-		} else {
-			allFeedbacks[dateIndex][feedbackIndex] = null;
-		}
-	}
+	// function handleYesChange(dateIndex: number, feedbackIndex: number, event: Event) {
+	// 	const target = event.target as HTMLInputElement;
+	// 	if (target.checked) {
+	// 		allFeedbacks[dateIndex][feedbackIndex] = true;
+	// 	} else {
+	// 		allFeedbacks[dateIndex][feedbackIndex] = null;
+	// 	}
+	// }
 
-	function handleNoChange(dateIndex: number, feedbackIndex: number, event: Event) {
-		const target = event.target as HTMLInputElement;
-		if (target.checked) {
-			allFeedbacks[dateIndex][feedbackIndex] = false;
-		} else {
-			allFeedbacks[dateIndex][feedbackIndex] = null;
-		}
-	}
+	// function handleNoChange(dateIndex: number, feedbackIndex: number, event: Event) {
+	// 	const target = event.target as HTMLInputElement;
+	// 	if (target.checked) {
+	// 		allFeedbacks[dateIndex][feedbackIndex] = false;
+	// 	} else {
+	// 		allFeedbacks[dateIndex][feedbackIndex] = null;
+	// 	}
+	// }
 
 
-	function updateAllFeedbacks(myDate: DateOrTask, feedback: boolean) {
-		// console.log('Fct updateallFeedbacks Anfang: *********************************************');
-		// console.log("CurrentUser: ", $currentUser);
-		const userupdates = updateFeedbacksOfUser($currentUser, myDate.dateOrTaskID, feedback);
-		// console.log("Userupdates: ", userupdates)
+	// function updateAllFeedbacks(myDate: DateOrTask, feedback: boolean) {
+	// 	// console.log('Fct updateallFeedbacks Anfang: *********************************************');
+	// 	// console.log("CurrentUser: ", $currentUser);
+	// 	const userupdates = updateFeedbacksOfUser($currentUser, myDate.dateOrTaskID, feedback);
+	// 	// console.log("Userupdates: ", userupdates)
 
-		updateUser($currentUser, userupdates);
-		// updateCurrentUser(userupdates);
-		// console.log("currentUser nach Update: ", $currentUser);
+	// 	updateUser($currentUser, userupdates);
+	// 	// updateCurrentUser(userupdates);
+	// 	// console.log("currentUser nach Update: ", $currentUser);
 
-		const dateupdates = updateFeedbacksOfDate(myDate, $currentUser.userID, feedback);
-		// console.log("Dateupdates: ", dateupdates);
-		updateDate(myDate, dateupdates);
-		// console.log("myDate nach Update: ", myDate);
-		// console.log('Fct updateallFeedbacks: *********************************************');
+	// 	const dateupdates = updateFeedbacksOfDate(myDate, $currentUser.userID, feedback);
+	// 	// console.log("Dateupdates: ", dateupdates);
+	// 	updateDate(myDate, dateupdates);
+	// 	// console.log("myDate nach Update: ", myDate);
+	// 	// console.log('Fct updateallFeedbacks: *********************************************');
 		
 	
-	}
+	// }
 
 	function handleTeamClick(team: Team) {
 		if (team) currentTeam.set(team);
 		goto(`/myteams/${team?.teamName}/edit`);
 	}
 
-	function handleUserClick() {
-		console.log('Userclick');
-		goto(`../../edituser`);
-	}
+	// function handleUserClick() {
+	// 	console.log('Userclick');
+	// 	goto(`../../edituser`);
+	// }
 
 	function setColor(myDate: DateOrTask): string {
 		// console.log('fct setColor: *********************************');
@@ -198,7 +199,8 @@
 
 <article class="teamoverview" style="border-color: {myTeam?.color}">
 	{#if myTeam}
-		<!-- <h2>{myTeam.teamName}, Anzahl Mitglieder: {myTeam.allMembers.length}</h2> -->
+		<h2>{myTeam.teamName}</h2>
+			<!-- , Anzahl Mitglieder: {myTeam.allMembers.length} -->
 		<p>
 			{numberOfMissingFeedbacks($currentUser, myTeam)} Terminanfragen offen!
 		</p>
@@ -208,29 +210,35 @@
 		<div>{name}</div>
 	{/each} -->
 
-	Teamname!
-	<!--TODO: nur eigene Termine?-->
+	
+
 	<h3>Nächste Termine:</h3>
+	<ListOfDates teamID={teamID}/>
+
 	<!-- <div class="date-list"> -->
+
+<!--
+
+	 <h1>SCHLEIFE DATEN</h1>
 	 <div>
 		{#each allDates as myDate, dateIndex}
-			<div class="date-item">
-				
+			 <div class="date-item"> -->
+<!-- 				
 				<h3 class={setColor(myDate)}>
-					<!-- dateID: {myDate.dateOrTaskID} -->
-					{formatDate(myDate.dueDate)}
+					 dateID: {myDate.dateOrTaskID} -->
+					<!-- {formatDate(myDate.dueDate)}
 					{formatTime(myDate.dueDate)}
 					{myDate.description}
-				</h3>
+				</h3> -->
 
-				{#if userInvited(myDate, $currentUser)}
+				<!-- {#if userInvited(myDate, $currentUser)}
 				<input
 				  type="radio"
 				  name="acceptOrCancel{myTeam?.teamID}_{dateIndex}"
 				  id="yes{myTeam?.teamID}_{dateIndex}"
 				  checked={userHasConfirmed($currentUser, myDate) === true}
-				  on:change={() => updateAllFeedbacks(myDate, true)}
-				/>
+				  on:change={() => updateAllFeedbacks(myDate, true)} -->
+				<!-- />
 				<label for="yes{myTeam?.teamID}_{dateIndex}">Habe Zeit</label>
 				<input
 				  type="radio"
@@ -239,14 +247,16 @@
 				  checked={userHasConfirmed($currentUser, myDate) === false}
 				  on:change={() => updateAllFeedbacks(myDate, false)}
 				/>
-				<label for="no{myTeam?.teamID}_{dateIndex}">keine Zeit</label>
-			  {/if}
+				<label for="no{myTeam?.teamID}_{dateIndex}">keine Zeit</label> -->
+			  <!-- {/if} -->
 
 
 
-			</div>
-		{/each}
+			<!-- </div> -->
+		<!-- {/each}
 	</div>
+	<h1>SCHLEIFE DATEN</h1> -->
+
 
 	{#if myTeam && currentUserIsAdmin}
 		<button style="background-color: {myTeam?.color}" on:click={() => handleTeamClick(myTeam)}>
@@ -267,29 +277,6 @@
 	}
 
 
-
-	/* 	
-  .date-list {
-    max-height: 200px; 
-    /* overflow-y: auto; */ /*Scroll-Bar*/
-	/* } */
-
-	/* .date-item {
-    margin-bottom: 10px;
-  } */
-
-	.not-invited {
-		color: grey;
-	}
-	.confirmed {
-		color: green;
-	}
-	.cancelled {
-		color: red;
-	}
-	.standard {
-		color: black;
-	}
 
 	h3 {
 		margin: 0;

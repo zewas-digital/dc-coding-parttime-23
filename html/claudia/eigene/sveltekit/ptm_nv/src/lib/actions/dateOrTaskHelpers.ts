@@ -184,21 +184,31 @@ export function formatTime(myDate: Date): string {
 
 
 
-export function dateHasPassed(myDate: DateOrTask): boolean {
-    console.log("Function dateHasPassed: **********************");
-    const dateToCheck = myDate.dueDate;
-    const today = new Date();
-     
-
-    // Check if dateToCheck is valid and not null/undefined
-    if (dateToCheck && dateToCheck instanceof Date && !isNaN(dateToCheck.getTime())) {
-        console.log(dateToCheck.getTime() < today.getTime());
-        if (dateToCheck.getTime() < today.getTime()) {
-            console.log("dateHasPassed Ende, true **********************");
-            return true;
+// export function dateHasPassed(myDate: { dueDate?: Date | null }): boolean {
+    export function dateHasPassed(myDate: DateOrTask): boolean {
+        // console.log("Function dateHasPassed: **********************");
+        const dateToCheck = new Date(myDate.dueDate);
+        const today = new Date();
+    
+        // console.log(`dateToCheck: ${dateToCheck}`);
+        // console.log(`today: ${today}`);
+        // console.log(`dateToCheck instanceof Date: ${dateToCheck instanceof Date}`);
+        // console.log(`dateToCheck.getTime(): ${dateToCheck.getTime()}`);
+        // console.log(`today.getTime(): ${today.getTime()}`);
+    
+        if (dateToCheck instanceof Date && !isNaN(dateToCheck.getTime())) {
+            const result = dateToCheck.getTime() < today.getTime();
+            console.log(result);
+            if (result) {
+                // console.log("dateHasPassed Ende, true **********************");
+                return true;
+            }
+        } else {
+            console.log("dateToCheck is not a valid Date");
         }
+    
+        // console.log("dateHasPassed Ende, false **********************");
+        return false;
     }
-    console.log("dateHasPassed Ende, false **********************");
+    
 
-    return false;
-}

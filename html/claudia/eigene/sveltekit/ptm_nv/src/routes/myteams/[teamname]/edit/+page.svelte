@@ -8,7 +8,7 @@
 	import { onMount } from 'svelte';
 
 	// const { teamname } = $page.params;
-	const teamID = $currentTeam.teamID;
+	$: teamID = $currentTeam.teamID;
 
 	onMount(() => {
 		const details = document.querySelectorAll<HTMLDetailsElement>('details');
@@ -29,7 +29,7 @@
 	<h2>{$currentTeam.teamName}, Anzahl Mitglieder: {$currentTeam.allMembers.length}</h2>
 
 	<details>
-		<summary>Mitglieder mit Account</summary>
+		<summary>alle Mitglieder</summary>
 		<ListOfMembers {teamID} />
 	</details>
 
@@ -44,7 +44,7 @@
 	</details>
 
 	<details>
-		<summary>Neue Ereignisse hinzufügen</summary>
+		<summary>Neuen Termin hinzufügen</summary>
 		<NewTeamDate />
 	</details>
 </article>

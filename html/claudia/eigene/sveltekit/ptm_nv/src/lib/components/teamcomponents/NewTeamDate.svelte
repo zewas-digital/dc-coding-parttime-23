@@ -48,7 +48,7 @@
 				receivedFeedbacks: [],
 				isDone: false,
 			};
-			console.log('newTeamdate: ', newTeamdate);
+			// console.log('newTeamdate: ', newTeamdate);
 			saveDate(newTeamdate);
 			
 		
@@ -74,7 +74,7 @@
 	<label for="time">Select a time:</label>
 	<input type="time" id="time" required bind:value={newTime} />
 
-	<input type="text" required placeholder="neues Ereignis" bind:value={description} />
+	<input type="text" required placeholder="neuer Termin" maxlength="30" bind:value={description} />
 	
 	{#if responseVisible}
     <div id="response">Termin gespeichert!</div>
