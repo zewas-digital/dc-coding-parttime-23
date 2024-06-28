@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { currentTeam } from '$lib/stores/teamStore';
 	import { currentUser, type User } from '$lib/stores/userStore';
-	import { getDateByID, getTeamByID } from '$lib/utils/storageHelpers';
+	import { getDateByID, getTeamByID, replaceBlanks } from '$lib/utils/storageHelpers';
 	import TeamCard from './TeamCard.svelte';
 	import type { Team, DateOrTask, UserFeedback } from '$lib/stores/teamStore';
 	import { goto } from '$app/navigation';
@@ -165,7 +165,10 @@
 
 	function handleTeamClick(team: Team) {
 		if (team) currentTeam.set(team);
-		goto(`/myteams/${team?.teamName}/edit`);
+		const address = replaceBlanks(team.teamName);
+		// goto(`/myteams/${team?.teamName}/edit`);
+		goto(`/myteams/${address}/edit`);
+
 	}
 
 	// function handleUserClick() {

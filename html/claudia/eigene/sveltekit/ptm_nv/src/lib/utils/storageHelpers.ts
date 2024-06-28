@@ -1,6 +1,13 @@
 import type { DateOrTask, Team } from "$lib/stores/teamStore";
 import { defaultUser, type User } from "$lib/stores/userStore";
 
+
+
+export function replaceBlanks(teamname: string): string {
+    // /\s+/g: regex to remove one or more blanks "globally" (not only first one) 
+    return teamname.replace(/\s+/g, "_");
+}
+
 function looseFirstDigit(id: string): string {
     return id.substring(1);
 }

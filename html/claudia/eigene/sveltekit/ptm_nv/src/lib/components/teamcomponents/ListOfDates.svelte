@@ -68,6 +68,11 @@
 		// console.log("myDate nach Update: ", myDate);
 		// console.log('Fct updateallFeedbacks: *********************************************');
 	}
+
+	function setBackgroundColor(dateIndex: number): string {
+		if (dateIndex % 2 === 0) return "background-light";
+		else return "background-dark";
+	}
 	function setColor(myDate: DateOrTask): string {
 		// console.log('fct setColor: *********************************');
 		if (dateHasPassed(myDate)) {
@@ -100,6 +105,7 @@
 <!--IDEE: zwei verschiedene Modi für Admins und Nicht-Admins-->
 
 <table>
+	<thead>
 	<tr>
 		<th class="date">Datum</th>
 		<th class="time">Uhrzeit</th>
@@ -108,13 +114,15 @@
 			<th class="feedback">Rückmeldungen</th>
 		{/if}
 	</tr>
-
+</thead>
+<tbody>
 	{#each allDates as myDate, dateIndex}
+	
 		<!-- <tr> -->
 		<!--UNEVEN ROWS-->
 		<!-- <tr class:confirmed={userHasConfirmed($currentUser, myDate)}
 		class:not-confirmed={!userHasConfirmed($currentUser, myDate)}> -->
-		<tr>
+		<tr class={setBackgroundColor(dateIndex)}>
 			<td class="date">
 				<div class={setColor(myDate)}>
 					{formatDate(myDate.dueDate)}
@@ -127,29 +135,34 @@
 			</td>
 			<td class="description"> <div class={setColor(myDate)}>{myDate.description}</div></td>
 
-			{#if !myDate.isDone && isAdmin && userInvited(myDate, $currentUser)}
-				<td class="feedback" rowspan="2">
-					<ul>
-						<li>Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}</li>
-						<li>Abgesagt: {countFeedback(myDate.dateOrTaskID, 'no')}</li>
-						<li>Keine: {countFeedback(myDate.dateOrTaskID, 'none')}</li>
-					</ul>
-				</td>
-			{:else if !myDate.isDone && isAdmin && !userInvited(myDate, $currentUser)}
-				<td class="feedback">
-					<ul>
-						<li>Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}</li>
-						<li>Abgesagt: {countFeedback(myDate.dateOrTaskID, 'no')}</li>
-						<li>Keine: {countFeedback(myDate.dateOrTaskID, 'none')}</li>
-					</ul>
-				</td>
+			{#if isAdmin && !myDate.isDone}
+				{#if userInvited(myDate, $currentUser)}
+					<td class="feedback" rowspan="2">
+						<ul>
+							<li>Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}</li>
+							<li>Abgesagt: {countFeedback(myDate.dateOrTaskID, 'no')}</li>
+							<li>Keine: {countFeedback(myDate.dateOrTaskID, 'none')}</li>
+						</ul>
+					</td>
+				{:else} <!--If user is not herself invited, no second row to span-->
+					<td class="feedback">
+						<ul>
+							<li>Zugesagt: {countFeedback(myDate.dateOrTaskID, 'yes')}</li>
+							<li>Abgesagt: {countFeedback(myDate.dateOrTaskID, 'no')}</li>
+							<li>Keine: {countFeedback(myDate.dateOrTaskID, 'none')}</li>
+						</ul>
+					</td>
+				{/if}
 			{/if}
+
+
 		</tr>
+
 		<!--EVEN ROWS FOR USER-FEEDBACK-->
 		{#if userInvited(myDate, $currentUser) && !dateHasPassed(myDate)}
-			<tr>
-			<!-- <tr class="{ 'confirmed': userHasConfirmed($currentUser, myDate), 'not-confirmed': !userHasConfirmed($currentUser, myDate) }"> -->
-			<!-- <tr
+			<tr class={setBackgroundColor(dateIndex)}>
+				<!-- <tr class="{ 'confirmed': userHasConfirmed($currentUser, myDate), 'not-confirmed': !userHasConfirmed($currentUser, myDate) }"> -->
+				<!-- <tr
 				class:confirmed={userHasConfirmed($currentUser, myDate)}
 				class:not-confirmed={!userHasConfirmed($currentUser, myDate)}
 			> -->
@@ -175,7 +188,9 @@
 				</td>
 			</tr>
 		{/if}
+	
 	{/each}
+</tbody>
 </table>
 
 <style>
@@ -189,6 +204,12 @@
 		border: 1px solid #ccc; /* Optional: Add borders for better visibility */
 	}
 
+	.background-light {
+		background-color: lightgrey
+	}
+	.background-dark {
+		background-color: grey;
+	}
 	/*
 	tr:nth-child(2n-1) {
 		background-color: #f0f0f0; 

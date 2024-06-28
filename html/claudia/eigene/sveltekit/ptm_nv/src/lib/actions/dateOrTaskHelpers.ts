@@ -56,8 +56,74 @@ export function updateFeedbacksOfDate(myDate: DateOrTask, userID: number, feedba
     const dateupdates = { receivedFeedbacks: userfeedbacks };
     return dateupdates;
 }
+export function saveDate(newDate: DateOrTask, invitedMembers: string): void {
+    // console.log("FKT saveDate: *********************************");
+    let allFeedbacksOfDate: UserFeedback[] = [];
+    //TODO: Sort Dates!     dates.sort((a, b) => a.getTime() - b.getTime());
+    // console.log("*********************saveDate, Date-Feedbacks am Anfang: ", newDate.receivedFeedbacks);
+    const dateID = newDate.dateOrTaskID;
+    const teamID = newDate.teamID;
+    const myTeam = getTeamByID(teamID.toString());
+    // const allUserIDs = myTeam?.allMembers; //array of userIDs
+    const invitedMemberIDs: number[] = (() => {
+        switch (invitedMembers) {
+          case "allMembers":
+            return myTeam?.allMembers ?? [];
+          case "allCoaches":
+            return myTeam?.allCoaches ?? [];
+          default:
+            return [];
+        }
+      })();
 
-export function saveDate(newDate: DateOrTask): void {
+
+
+
+
+
+
+    const currUser = get(currentUser);
+    // console.log("currentUser: ", currUser.feedbacks);
+    // console.log("AllUsers: ", allUserIDs);
+    invitedMemberIDs?.forEach(userID => {
+        allFeedbacksOfDate.push({ userID: userID, feedback: null }); //fill in feedback-array of date
+
+        // console.log("Fct saveDate, feedbacks of user ", userID);
+        const myUser = getUserByID(userID.toString());
+        // console.log("curr ist gleich  myUser? ", currUser === myUser);
+
+        // console.log("myUser.feedbacks: ", myUser?.feedbacks);
+        if (myUser) { //fill in feedback-array of user
+            // console.log("if-Condition user: ", myUser.userID, " ++++++++++++++++")
+            let myFeedbacks = myUser?.feedbacks;
+            // console.log("Feedbacks am Anfang: ", myFeedbacks);
+            myFeedbacks?.push({ dateOrTaskID: dateID, feedback: null });
+            // console.log("Feedbacks am Ende: ", myFeedbacks);
+            if (!myUser.loggedIn) updateUser(myUser, { feedbacks: myFeedbacks });
+            if (myUser.loggedIn) {
+                updateCurrentUser({ feedbacks: myFeedbacks });
+                // console.log("???????????? currentUser? ", get(currentUser));
+            }
+            // console.log("if-Ende (das sollte das gleiche sein): ", myUser.feedbacks);
+        };
+
+    });
+
+    newDate.receivedFeedbacks = allFeedbacksOfDate; //update feedback-array of date with {userID, null} for each member
+    // console.log("saveDate, Feedbacks in der Mitte: ");
+    // console.log(allFeedbacksOfDate);
+    // console.log("newDate", newDate);
+
+    let allDates = myTeam?.allDates;
+    allDates?.push(dateID);
+    if (myTeam) updateTeam(myTeam, { allDates: allDates }); //push dateID into allDates-Array of team
+
+    localStorage.setItem(dateID.toString(), JSON.stringify(newDate));
+    // console.log("FKT saveDate ENDE");
+
+}
+
+export function saveDate2(newDate: DateOrTask): void {
     // console.log("FKT saveDate: *********************************");
     let allFeedbacksOfDate: UserFeedback[] = [];
     //TODO: Sort Dates!     dates.sort((a, b) => a.getTime() - b.getTime());
@@ -185,30 +251,31 @@ export function formatTime(myDate: Date): string {
 
 
 // export function dateHasPassed(myDate: { dueDate?: Date | null }): boolean {
-    export function dateHasPassed(myDate: DateOrTask): boolean {
-        // console.log("Function dateHasPassed: **********************");
-        const dateToCheck = new Date(myDate.dueDate);
-        const today = new Date();
-    
-        // console.log(`dateToCheck: ${dateToCheck}`);
-        // console.log(`today: ${today}`);
-        // console.log(`dateToCheck instanceof Date: ${dateToCheck instanceof Date}`);
-        // console.log(`dateToCheck.getTime(): ${dateToCheck.getTime()}`);
-        // console.log(`today.getTime(): ${today.getTime()}`);
-    
-        if (dateToCheck instanceof Date && !isNaN(dateToCheck.getTime())) {
-            const result = dateToCheck.getTime() < today.getTime();
-            console.log(result);
-            if (result) {
-                // console.log("dateHasPassed Ende, true **********************");
-                return true;
-            }
-        } else {
-            console.log("dateToCheck is not a valid Date");
+export function dateHasPassed(myDate: DateOrTask): boolean {
+    // console.log("Function dateHasPassed: **********************");
+    const dateToCheck = new Date(myDate.dueDate);
+    const today = new Date();
+
+    // console.log(`dateToCheck: ${dateToCheck}`);
+    // console.log(`today: ${today}`);
+    // console.log(`dateToCheck instanceof Date: ${dateToCheck instanceof Date}`);
+    // console.log(`dateToCheck.getTime(): ${dateToCheck.getTime()}`);
+    // console.log(`today.getTime(): ${today.getTime()}`);
+
+    if (dateToCheck instanceof Date && !isNaN(dateToCheck.getTime())) {
+        const result = dateToCheck.getTime() < today.getTime();
+        console.log(result);
+        if (result) {
+            // console.log("dateHasPassed Ende, true **********************");
+            myDate.isDone = true;
+            return true;
         }
-    
-        // console.log("dateHasPassed Ende, false **********************");
-        return false;
+    } else {
+        console.log("dateToCheck is not a valid Date");
     }
-    
+
+    // console.log("dateHasPassed Ende, false **********************");
+    return false;
+}
+
 

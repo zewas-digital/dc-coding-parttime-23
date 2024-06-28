@@ -57,5 +57,7 @@
 	.teamoverview {
 		border: 5px solid;
 		padding: 10px;
+		border-radius: 10px;
+		background-color: #e9e9e9;
 	}
 </style>
