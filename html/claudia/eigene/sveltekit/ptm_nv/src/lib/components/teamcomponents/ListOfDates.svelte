@@ -252,7 +252,7 @@
 		color: lightgrey;
 	}
 	.not-invited {
-		color: grey;
+		color: yellow;
 	}
 	.confirmed {
 		color: green;

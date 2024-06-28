@@ -19,7 +19,6 @@
 	let newTime: string;
 	let description: string;
 	let invitedGroup: string[] = [];
-	
 
 	let newTeamdate: DateOrTask;
 
@@ -47,9 +46,9 @@
 					receivedFeedbacks: [],
 					isDone: false
 				};
-				
+
 				saveDate(newTeamdate, invitedGroup[0]);
-console.log('newTeamdate: ', newTeamdate);
+				console.log('newTeamdate: ', newTeamdate);
 			} else console.log('Daten sind Schrott!');
 		}
 		responseVisible = true;
@@ -89,49 +88,45 @@ console.log('newTeamdate: ', newTeamdate);
 		color: green;
 	}
 
-
-
 	section {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
+		max-width: 400px;
+		margin: 20px auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 8px;
+		background-color: #f9f9f9;
+	}
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+	label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
 
-  input[type="date"],
-  input[type="time"],
-  input[type="text"],
-  select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px; 
-    box-sizing: border-box;
-  }
+	input[type='date'],
+	input[type='time'],
+	input[type='text'],
+	select {
+		width: calc(100% - 20px);
+		padding: 10px;
+		margin-bottom: 15px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
 
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+	button {
+		width: 100%;
+		padding: 10px;
+		background-color: #007bff;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 16px;
+	}
 
-  button:hover {
-    background-color: #0056b3;
-  }
-
- 
+	button:hover {
+		background-color: #0056b3;
+	}
 </style>
