@@ -4,10 +4,10 @@
     
 }
 
-#counter {
+/* #counter {
     border-color: blue;
     border: solid;
-}
+} */
 #reset {
     width: 80px;
     height: 40px;
@@ -34,4 +34,28 @@ button {
 .uncovered{
     background-color: lightpink;
     color: black;
+}
+
+#stats {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.counter{
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.reducedScore {
+    color: red;
+}
+
+.newHighscore {
+    background-color: yellow;
 }
